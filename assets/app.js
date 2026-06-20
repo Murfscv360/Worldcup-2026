@@ -483,7 +483,7 @@ function scenarioHTML(g){
   const rows = order.map(t=>{ const s=sc[t]; if(!s) return "";
     return `<div class="qrow"><span class="flag">${flag(t)}</span><span class="qnm">${esc(t)}</span><span class="qbadge ${s.cls}">${esc(s.label)}</span></div>`;
   }).join("");
-  return `<div class="qual">${rows}</div>`;
+  return `<div class="qlist">${rows}</div>`;
 }
 
 /* ---------- Best 3rd-placed teams (8 of 12 advance) ---------- */
@@ -505,7 +505,7 @@ function bestThirdsHTML(){
       <span class="qbadge ${i<8?'q-in':'q-out'}">${i<8?'Qualifies':'Out'}</span>
     </div>`).join("");
   return `<div class="sec-title"><h2>Best 3rd-placed</h2><span class="meta">8 of 12 advance</span></div>
-    <div class="qual b3wrap">${rows}</div>
+    <div class="qlist b3wrap">${rows}</div>
     <p class="note">Live ranking of teams currently 3rd in their group (Pts → GD → GF). The top 8 take the remaining Round-of-32 places.</p>`;
 }
 

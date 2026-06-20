@@ -537,7 +537,7 @@ details.pbp .timeline{padding:4px 14px 12px}
 
 /* ---------- Group qualification scenarios ---------- */
 .qual-head{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:11px 13px 4px}
-.qual{padding:0 11px 11px;display:flex;flex-direction:column;gap:6px}
+.qlist{padding:0 11px 11px;display:flex;flex-direction:column;gap:6px}
 .qrow{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:9px;font-size:12px}
 .qrow .flag{font-size:18px}
 .qrow .qnm{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -2023,7 +2023,7 @@ function scenarioHTML(g){
   const rows = order.map(t=>{ const s=sc[t]; if(!s) return "";
     return `<div class="qrow"><span class="flag">${flag(t)}</span><span class="qnm">${esc(t)}</span><span class="qbadge ${s.cls}">${esc(s.label)}</span></div>`;
   }).join("");
-  return `<div class="qual">${rows}</div>`;
+  return `<div class="qlist">${rows}</div>`;
 }
 
 /* ---------- Best 3rd-placed teams (8 of 12 advance) ---------- */
@@ -2045,7 +2045,7 @@ function bestThirdsHTML(){
       <span class="qbadge ${i<8?'q-in':'q-out'}">${i<8?'Qualifies':'Out'}</span>
     </div>`).join("");
   return `<div class="sec-title"><h2>Best 3rd-placed</h2><span class="meta">8 of 12 advance</span></div>
-    <div class="qual b3wrap">${rows}</div>
+    <div class="qlist b3wrap">${rows}</div>
     <p class="note">Live ranking of teams currently 3rd in their group (Pts → GD → GF). The top 8 take the remaining Round-of-32 places.</p>`;
 }
 
