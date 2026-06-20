@@ -91,6 +91,10 @@ let LAST_UPDATE = 0;
 
 /* ---------- Live overlay: worldcup26.ir (real in-progress scores) ---------- */
 const WC26 = "https://worldcup26.ir/get/games";
+// Always-on mirror: a GitHub Action fetches worldcup26.ir server-side every few
+// minutes and publishes live.json to the `scores` branch. Served from our own
+// CDN origin (raw.githubusercontent) => no CORS/geo/uptime issues in the browser.
+const WC26_MIRROR = "https://raw.githubusercontent.com/Murfscv360/Worldcup-2026/scores/live.json";
 const NAME_FIX = {"United States":"USA","Bosnia and Herzegovina":"Bosnia & Herzegovina","Democratic Republic of the Congo":"DR Congo"};
 const fixName = n => NAME_FIX[n] || n;
 let LIVE_KEYS = new Set();   // pair keys currently live (per feed)
@@ -128,18 +132,25 @@ function fetchT(url, ms){
     .finally(()=>{ if(timer) clearTimeout(timer); });
 }
 let LAST_WC_GAMES = null;   // last successful live feed (reused on a transient failure)
-// Optional same-origin/CDN proxy (set localStorage.wc26_proxy) for reliable delivery.
-function wc26Url(){ try{ const p=localStorage.getItem("wc26_proxy"); return (p && /^https?:/.test(p)) ? p : WC26; }catch(e){ return WC26; } }
+// Score sources tried in order until one returns games. The mirror is on our own
+// CDN origin so it always works in the browser; the direct feed is tried first for
+// the freshest possible scores, and an optional custom proxy overrides everything.
+function wc26Sources(){
+  const out = [];
+  try{ const p=localStorage.getItem("wc26_proxy"); if(p && /^https?:/.test(p)) out.push(p); }catch(e){}
+  out.push(WC26, WC26_MIRROR);
+  return out;
+}
 async function fetchWC26(){
-  for(let attempt=0; attempt<2; attempt++){            // quick retry for reliability
+  const sources = wc26Sources();
+  for(const base of sources){
     try{
-      const base = wc26Url();
-      const r = await fetchT(base + (base.includes("?")?"&":"?") + "_=" + Date.now(), 9000);
+      const r = await fetchT(base + (base.includes("?")?"&":"?") + "_=" + Date.now(), 8000);
       if(!r.ok) throw 0;
       const j = await r.json();
       const games = j && (j.games || (Array.isArray(j) ? j : null));
       if(games && games.length){ LAST_WC_GAMES = games; return games; }
-    }catch(e){ /* retry once, then caller reuses LAST_WC_GAMES */ }
+    }catch(e){ /* try next source, then caller reuses LAST_WC_GAMES */ }
   }
   return null;
 }
@@ -2175,6 +2186,20 @@ async function init(){
   setInterval(()=>{ if(!editingSchedule()) render(); }, 15000);
   // Tick countdowns & live clocks every second.
   setInterval(tickDynamic, 1000);
+
+  // iOS suspends timers when the app is backgrounded, so reopening a
+  // Home-Screen app could otherwise show stale scores until the next poll.
+  // Refresh immediately whenever the app returns to the foreground.
+  let lastWake = 0;
+  const wake = ()=>{
+    if(Date.now()-lastWake < 1500) return;   // debounce duplicate fire/visibility events
+    lastWake = Date.now();
+    loadLive().then(ok=>{ if(ok && !editingSchedule()){ setLive(); render(); } });
+  };
+  document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) wake(); });
+  window.addEventListener("pageshow", wake);
+  window.addEventListener("focus", wake);
+  window.addEventListener("online", wake);
 }
 
 document.addEventListener("DOMContentLoaded", init);
