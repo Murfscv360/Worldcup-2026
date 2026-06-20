@@ -1792,13 +1792,20 @@ function parseScorers(s){
   });
   return out;
 }
+// fetch with a hard timeout so a slow/unreachable host can never hang the app.
+function fetchT(url, ms){
+  let ctrl, timer;
+  try{ ctrl = new AbortController(); timer = setTimeout(()=>ctrl.abort(), ms||7000); }catch(e){ ctrl = null; }
+  return fetch(url, {cache:"no-store", signal:ctrl?ctrl.signal:undefined})
+    .finally(()=>{ if(timer) clearTimeout(timer); });
+}
 async function fetchWC26(){
   try{
-    const r = await fetch(WC26 + "?_=" + Date.now(), {cache:"no-store"});
+    const r = await fetchT(WC26 + "?_=" + Date.now(), 6000);
     if(!r.ok) throw 0;
     const j = await r.json();
     return (j && j.games) ? j.games : null;
-  }catch(e){ return null; }   // CORS/offline → silently keep base feed
+  }catch(e){ return null; }   // CORS/offline/slow → silently keep base feed
 }
 // Overlay real scores/scorers + live status onto the loaded schedule.
 function overlayWC26(games){
@@ -1829,13 +1836,12 @@ function overlayWC26(games){
   return true;
 }
 
+// Base schedule (openfootball → bundled snapshot). Fast, with timeouts.
 async function loadData(){
-  // Base schedule (times, venues, knockout structure) from openfootball, then
-  // the bundled snapshot. Live scores are overlaid from worldcup26.ir after.
-  const bust = "?_=" + Date.now();   // bypass CDN/service-worker caches so scores are fresh
+  const bust = "?_=" + Date.now();
   let base = false;
   try{
-    const r = await fetch(REMOTE + bust, {cache:"no-store"});
+    const r = await fetchT(REMOTE + bust, 7000);
     if(!r.ok) throw new Error(r.status);
     const j = await r.json();
     if(j && j.matches && j.matches.length){ MATCHES = j.matches; DATA_SOURCE = "live"; base = true; }
@@ -1843,15 +1849,18 @@ async function loadData(){
   }catch(e){ /* fall through to bundled snapshot */ }
   if(!base){
     try{
-      const r = await fetch(LOCAL + bust, {cache:"no-store"});
+      const r = await fetchT(LOCAL + bust, 7000);
       const j = await r.json();
       MATCHES = j.matches || []; DATA_SOURCE = "snapshot"; base = MATCHES.length>0;
     }catch(e){ MATCHES = []; DATA_SOURCE = "error"; }
   }
-  // Overlay real live/finished scores from worldcup26.ir (if reachable).
+  if(base || MATCHES.length) LAST_UPDATE = Date.now();
+}
+// Live overlay (worldcup26.ir) — separate so it NEVER blocks first paint.
+async function loadLive(){
   const wc = await fetchWC26();
-  if(overlayWC26(wc)) DATA_SOURCE = "live";
-  if(base || wc) LAST_UPDATE = Date.now();
+  if(overlayWC26(wc)){ DATA_SOURCE = "live"; LAST_UPDATE = Date.now(); return true; }
+  return false;
 }
 
 /* ---------- Time helpers ---------- */
@@ -3793,11 +3802,11 @@ async function init(){
   wireLaunch();
   initPullToRefresh();
   $("view").innerHTML = skeletonHTML();
-  await loadData();
-  setLive();
-  render();
-  // Refresh source data every 60s.
-  setInterval(async ()=>{ await loadData(); setLive(); if(!editingSchedule()) render(); }, 60000);
+  await loadData();              // base schedule (fast, timed out)
+  setLive(); render();          // paint immediately — never wait on the live overlay
+  loadLive().then(ok=>{ if(ok && !editingSchedule()){ setLive(); render(); } });   // overlay live scores in the background
+  // Refresh every 60s: base + live overlay.
+  setInterval(async ()=>{ await loadData(); await loadLive(); setLive(); if(!editingSchedule()) render(); }, 60000);
   // Re-render dynamic views every 20s so live scores, clocks & odds stay fresh.
   setInterval(()=>{ if(!editingSchedule()) render(); }, 20000);
   // Tick countdowns & live clocks every second.
