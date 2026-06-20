@@ -1804,13 +1804,15 @@ function fetchT(url, ms){
   return fetch(url, {cache:"no-store", signal:ctrl?ctrl.signal:undefined})
     .finally(()=>{ if(timer) clearTimeout(timer); });
 }
+let LAST_WC_GAMES = null;   // last successful live feed (reused on a transient failure)
 async function fetchWC26(){
   try{
-    const r = await fetchT(WC26 + "?_=" + Date.now(), 6000);
+    const r = await fetchT(WC26 + "?_=" + Date.now(), 10000);
     if(!r.ok) throw 0;
     const j = await r.json();
-    return (j && j.games) ? j.games : null;
-  }catch(e){ return null; }   // CORS/offline/slow → silently keep base feed
+    if(j && j.games && j.games.length){ LAST_WC_GAMES = j.games; return j.games; }
+    return null;
+  }catch(e){ return null; }   // CORS/offline/slow → caller reuses LAST_WC_GAMES
 }
 // Overlay real scores/scorers + live status onto the loaded schedule.
 function overlayWC26(games){
@@ -1884,9 +1886,12 @@ async function loadData(){
   if(base || MATCHES.length) LAST_UPDATE = Date.now();
 }
 // Live overlay (worldcup26.ir) — separate so it NEVER blocks first paint.
+// Reuses the last good feed on a transient failure so live scores never blank
+// out (and we don't fall back to clock-guessing once the feed has loaded once).
 async function loadLive(){
-  const wc = await fetchWC26();
-  if(overlayWC26(wc)){ DATA_SOURCE = "live"; LAST_UPDATE = Date.now(); return true; }
+  const fresh = await fetchWC26();
+  const games = fresh || LAST_WC_GAMES;
+  if(overlayWC26(games)){ DATA_SOURCE = "live"; if(fresh) LAST_UPDATE = Date.now(); return true; }
   return false;
 }
 
