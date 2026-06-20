@@ -567,9 +567,17 @@ function teamRowOf(t){
   if(!_teamRows){ _teamRows={}; [..."ABCDEFGHIJKL"].forEach(L=>standings("Group "+L).forEach(r=>{_teamRows[r.t]=r;})); }
   return _teamRows[t] || null;
 }
+// Power rating: a pre-tournament prior (from market strength) that regresses
+// toward ACTUAL tournament form as games are played — so early on the prior
+// leads, but points/goal-difference per game take over with more matches.
 function formScore(t){
+  const prior = Math.max(0.5, Math.min(10, strengthOf(t)/2 + 1));   // ~0.5..10
   const r = teamRowOf(t);
-  return strengthOf(t) + (r ? r.Pts*0.6 + r.GD*0.15 : 0);
+  if(!r || r.P===0) return prior;
+  const ppg = r.Pts/r.P, gdpg = r.GD/r.P, gfpg = r.GF/r.P;
+  const form = Math.max(0, ppg*2.6 + gdpg*0.9 + gfpg*0.3);          // ~0..9 on the same scale
+  const w = Math.min(1, r.P/3) * 0.65;                              // up to 65% on form after 3 games
+  return prior*(1-w) + form*w;
 }
 // Standings ordered with a form/strength tiebreak so every position resolves
 // even before games are played.
