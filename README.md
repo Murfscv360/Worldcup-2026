@@ -5,7 +5,10 @@ June 11 – July 19, 2026). Live scores, the full 104-match schedule with **US T
 group standings, all 48 teams, all 16 venues, and prediction-market odds — in a single
 static site with no build step and no API keys.
 
-🔗 **Live:** https://worldcupmobile.flynns-arcade.net/ · **Target deploy:** https://worldcupfootball26.netlify.app/
+🔗 **Live (GitHub Pages):** https://murfscv360.github.io/Worldcup-2026/
+
+> Older/other deployments (`worldcupmobile.flynns-arcade.net`, target `worldcupfootball26.netlify.app`)
+> may serve a previous version — use the GitHub Pages link above for the current app.
 
 📐 **Design & specs:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · 🗺️ **Plan:** [`docs/ROADMAP.md`](docs/ROADMAP.md) · 🖼️ **Mockups:** [`mockup.html`](mockup.html)
 
