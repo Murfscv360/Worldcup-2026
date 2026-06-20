@@ -629,6 +629,7 @@ function bracketCard(m){
   const row=(t,s,win)=>`<div class="brow ${win?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""}">
       <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}</span><span class="bsc">${s??""}</span></div>`;
   return `<div class="bcard tappable ${projected?"is-proj":""}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
+      <i class="bconn" aria-hidden="true"></i>
       ${row(t1, sc?sc[0]:null, w1)}
       ${row(t2, sc?sc[1]:null, w2)}
       <div class="bfoot">${when}${projected?'<span class="bproj-tag">PROJ</span>':""}</div>
@@ -636,23 +637,23 @@ function bracketCard(m){
 }
 function viewBracket(){
   _projThirds = null;   // recompute projections from the latest standings
-  const rounds=[["Round of 32","Round of 32"],["Round of 16","Round of 16"],["Quarter-final","Quarter-finals"],
-    ["Semi-final","Semi-finals"],["Match for third place","3rd place"],["Final","Final"]];
-  const present=rounds.filter(([r])=>MATCHES.some(m=>m.round===r));
+  const order=[["Round of 32","Round of 32","c-r32"],["Round of 16","Round of 16","c-r16"],
+    ["Quarter-final","Quarter-finals","c-qf"],["Semi-final","Semi-finals","c-sf"],["Final","Final","c-final"]];
+  const present=order.filter(([r])=>MATCHES.some(m=>m.round===r));
   let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
-  const anyData = MATCHES.some(m=>m.group && m.score && Array.isArray(m.score.ft));
   html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected</b> from current standings (group leaders, runners-up, best 3rds &amp; likely winners). <span class="bpr-key">dashed = projected</span> — it firms up automatically as real results land.</div>`;
-  html+=`<div class="bracket">`;
-  present.forEach(([r,label])=>{
+  html += `<div class="bracket">`;
+  present.forEach(([r,label,cls])=>{
     const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));
-    html+=`<div class="bcol"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div>${ms.map(bracketCard).join("")}</div>`;
+    html += `<div class="bcol ${cls}"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div><div class="bcards">${ms.map(bracketCard).join("")}</div></div>`;
   });
-  html+=`</div>`;
-  html+=`<p class="note">Projections use simplified seeding (best-3rd allocation &amp; higher-strength team advancing). Confirmed teams &amp; scores always override projections.</p>`;
+  html += `</div>`;
+  const tp = MATCHES.find(m=>m.round==="Match for third place");
+  if(tp){ html += `<div class="sec-title"><h2 style="font-size:14px">3rd-place play-off</h2></div>${bracketCard(tp)}`; }
+  html += `<p class="note">Connectors link each tie to its next round. Projections use simplified seeding (best-3rd allocation &amp; higher-strength team advancing); confirmed teams &amp; scores always override.</p>`;
   return html;
 }
-
 function viewTeams(){
   let html = `<div class="sec-title"><h2>Teams</h2><span class="meta">48 nations · 12 groups</span></div>`;
   [..."ABCDEFGHIJKL"].forEach(L=>{
