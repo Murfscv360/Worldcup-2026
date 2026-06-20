@@ -95,6 +95,7 @@ const NAME_FIX = {"United States":"USA","Bosnia and Herzegovina":"Bosnia & Herze
 const fixName = n => NAME_FIX[n] || n;
 let LIVE_KEYS = new Set();   // pair keys currently live (per feed)
 let FIN_KEYS  = new Set();   // pair keys finished (per feed)
+let WC_LOADED = false;       // true once the authoritative live feed has loaded
 function pairKey(a,b){ return [fixName(a),fixName(b)].sort().join("|"); }
 
 // Parse worldcup26 scorer strings like {"H. Kane 12'(p)","K. Havertz 45'+5'(p)","D. Bobadilla 7'(OG)"}.
@@ -133,6 +134,7 @@ async function fetchWC26(){
 // Overlay real scores/scorers + live status onto the loaded schedule.
 function overlayWC26(games){
   LIVE_KEYS = new Set(); FIN_KEYS = new Set();
+  WC_LOADED = !!games;
   if(!games) return false;
   const byPair = {};
   games.forEach(g=>{
@@ -212,6 +214,13 @@ function status(m){
   const hasScore = m.score && Array.isArray(m.score.ft);
   const d = kickoffDate(m);
   const now = Date.now();
+  // When the authoritative feed is loaded, DON'T guess "live" from the clock —
+  // a known fixture not flagged live/finished is upcoming, not a fake 0-0 live.
+  if(WC_LOADED && k){
+    if(hasScore) return "ft";
+    if(d && d.getTime()>now && d.getTime()-now < 36*3600000) return "soon";
+    return "sched";
+  }
   if(d && now>=d.getTime() && now < d.getTime()+135*60000) return "live";
   if(hasScore) return "ft";
   if(d && d.getTime()>now && d.getTime()-now < 36*3600000) return "soon";
