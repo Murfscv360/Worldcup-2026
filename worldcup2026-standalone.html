@@ -604,6 +604,12 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bcard.is-set{border-color:rgba(61,220,151,.45)}
 .bset-tag{float:right;font-size:9px;font-weight:800;letter-spacing:.5px;color:var(--accent);background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.35);padding:1px 6px;border-radius:5px}
 
+/* Bracket: predicted scores + penalties */
+.bracket .bsc.pred{font-style:italic;opacity:.85;font-weight:700}
+.bracket .brow.bw .bsc.pred{opacity:1;color:#fff}
+.bpen-tag{font-size:9px;font-weight:800;letter-spacing:.3px;color:var(--warn);background:rgba(255,181,71,.14);border:1px solid rgba(255,181,71,.35);padding:1px 6px;border-radius:5px;margin-left:6px}
+.bracket .bfoot{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+
 </style>
 </head>
 <body>
@@ -2229,6 +2235,22 @@ function projOutcome(num, wantLoser){
 }
 function projTeam(code){ const r = resolveCode(code); return r ? r.team : null; }   // compat
 
+// Predict a knockout scoreline from current form. Scores align to team1(a)/
+// team2(b); the winner always matches the higher-form team that advances.
+function predictTie(m, a, b){
+  const fa = formScore(a), fb = formScore(b), favA = fa>=fb, fd = Math.abs(fa-fb);
+  const r = hash((m.num||0)+"|"+a+"|"+b);
+  let favG, dogG, pens=false;
+  if(fd < 0.6){ favG = dogG = 1 + Math.floor(r*2); pens = true; }       // tight → draw, penalties
+  else {
+    favG = Math.min(3, 1 + Math.floor(r*2 + Math.min(fd*0.4, 1.6)));
+    dogG = Math.max(0, favG - 1 - Math.floor(Math.min(fd*0.5, 1)));
+    if(favG === dogG) dogG = Math.max(0, favG-1);
+  }
+  const winner = favA ? a : b;
+  return favA ? {a:favG, b:dogG, pens, winner} : {a:dogG, b:favG, pens, winner};
+}
+
 // Display info for one side of a bracket card.
 function bracketTeam(code){
   if(TEAMS[code]){ const t=teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:false, conf:true}; }
@@ -2243,18 +2265,25 @@ function bracketCard(m){
   const w1=sc&&sc[0]>sc[1], w2=sc&&sc[1]>sc[0];
   const projected = !sc && (t1.proj || t2.proj);
   const locked = !sc && !projected && t1.conf && t2.conf;   // matchup announced, not yet played
+  // Predicted scoreline for any unplayed tie where both teams are known.
+  const pred = (!sc && !t1.ph && !t2.ph) ? predictTie(m, t1.name, t2.name) : null;
+  let s1 = sc ? sc[0] : (pred ? pred.a : null);
+  let s2 = sc ? sc[1] : (pred ? pred.b : null);
+  const pw1 = pred && pred.winner===t1.name, pw2 = pred && pred.winner===t2.name;
   const when = st==="live" ? `<span class="blive">🔴 ${(liveClock(m)||{}).label||"Live"}</span>`
     : sc ? "Full-time"
-    : projected ? "Projected"
+    : projected ? "Predicted"
     : d ? `${etFmt.format(d)} ET · ${new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d)}`
     : "TBD";
-  const row=(t,s,win)=>`<div class="brow ${win?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""}">
-      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}</span><span class="bsc">${s??""}</span></div>`;
+  const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""}">
+      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
+  const tag = projected ? '<span class="bproj-tag">PROJ</span>' : locked ? '<span class="bset-tag">🔒 SET</span>' : "";
+  const penNote = pred && pred.pens ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens → ${esc(pred.winner)}</span>` : "";
   return `<div class="bcard tappable ${projected?"is-proj":""} ${locked?"is-set":""}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
       <i class="bconn" aria-hidden="true"></i>
-      ${row(t1, sc?sc[0]:null, w1)}
-      ${row(t2, sc?sc[1]:null, w2)}
-      <div class="bfoot">${when}${projected?'<span class="bproj-tag">PROJ</span>':locked?'<span class="bset-tag">🔒 SET</span>':""}</div>
+      ${row(t1, s1, w1, pw1)}
+      ${row(t2, s2, w2, pw2)}
+      <div class="bfoot">${when}${penNote}${tag}</div>
     </div>`;
 }
 function viewBracket(){
@@ -2264,7 +2293,7 @@ function viewBracket(){
   const present=order.filter(([r])=>MATCHES.some(m=>m.round===r));
   let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
-  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected</b> from current standings (group leaders, runners-up, best 3rds &amp; likely winners). <span class="bpr-key">dashed = projected</span> — it firms up automatically as real results land.</div>`;
+  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties. <span class="bpr-key">dashed = predicted</span>; it adjusts as results land and ties <b>🔒 lock</b> once announced.</div>`;
   html += `<div class="bracket">`;
   present.forEach(([r,label,cls])=>{
     const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));
