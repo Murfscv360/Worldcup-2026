@@ -96,6 +96,10 @@ const fixName = n => NAME_FIX[n] || n;
 let LIVE_KEYS = new Set();   // pair keys currently live (per feed)
 let FIN_KEYS  = new Set();   // pair keys finished (per feed)
 let WC_LOADED = false;       // true once the authoritative live feed has loaded
+
+/* ---------- Integrity guard: watch for fake / bad scores ---------- */
+let GUARD = { ok:true, flags:[], lastFt:{} };
+function validFt(ft){ return Array.isArray(ft) && ft.length===2 && ft.every(n=>Number.isInteger(n) && n>=0 && n<=19); }
 function pairKey(a,b){ return [fixName(a),fixName(b)].sort().join("|"); }
 
 // Parse worldcup26 scorer strings like {"H. Kane 12'(p)","K. Havertz 45'+5'(p)","D. Bobadilla 7'(OG)"}.
@@ -135,6 +139,7 @@ async function fetchWC26(){
 function overlayWC26(games){
   LIVE_KEYS = new Set(); FIN_KEYS = new Set();
   WC_LOADED = !!games;
+  GUARD.flags = [];
   if(!games) return false;
   const byPair = {};
   games.forEach(g=>{
@@ -153,11 +158,31 @@ function overlayWC26(games){
     if(!(live || fin)) return;
     const h=parseInt(g.home_score)||0, a=parseInt(g.away_score)||0;
     const homeIsT1 = fixName(g.home_team_name_en)===m.team1;
-    m.score = Object.assign({}, m.score, {ft: homeIsT1 ? [h,a] : [a,h]});
+    const cand = homeIsT1 ? [h,a] : [a,h];
+    const key  = matchKey(m), prev = GUARD.lastFt[key];
+
+    // INTEGRITY: reject impossible or backwards-going live scores (keep last good).
+    if(!validFt(cand)){
+      GUARD.flags.push(`${teamLabel(m.team1).name} v ${teamLabel(m.team2).name}: implausible score "${g.home_score}-${g.away_score}" — ignored`);
+      return;
+    }
+    if(live && prev && (cand[0]+cand[1] < prev[0]+prev[1])){
+      GUARD.flags.push(`${teamLabel(m.team1).name} v ${teamLabel(m.team2).name}: live score moved backwards ${prev.join("-")}→${cand.join("-")} — kept ${prev.join("-")}`);
+      return;
+    }
+    // Cross-feed sanity: openfootball already had a different final.
+    if(fin && m.score && Array.isArray(m.score.ft) && (m.score.ft[0]!==cand[0] || m.score.ft[1]!==cand[1])){
+      GUARD.flags.push(`${teamLabel(m.team1).name} v ${teamLabel(m.team2).name}: feed mismatch (schedule ${m.score.ft.join("-")} vs live ${cand.join("-")}) — using live`);
+    }
+
+    m.score = Object.assign({}, m.score, {ft: cand});
+    GUARD.lastFt[key] = cand;
     const gh=parseScorers(g.home_scorers), ga=parseScorers(g.away_scorers);
     m.goals1 = homeIsT1 ? gh : ga;
     m.goals2 = homeIsT1 ? ga : gh;
   });
+  GUARD.ok = GUARD.flags.length === 0;
+  if(!GUARD.ok && typeof console!=="undefined") console.warn("[integrity] score checks flagged:", GUARD.flags);
   return true;
 }
 
@@ -1899,11 +1924,13 @@ function tickDynamic(){
     if(el2>=0){ lab = el2<=45?el2+"'" : el2<=60?"HT" : el2<=105?(el2-15)+"'" : "90+'"; }
     el.textContent = lab;
   });
-  // Live heartbeat in the freshness pill so polling is visibly working.
-  const lab=$("liveLabel");
+  // Live heartbeat + integrity badge in the freshness pill.
+  const lab=$("liveLabel"), pill=$("livePill");
   if(lab && LAST_UPDATE && DATA_SOURCE==="live"){
     const s=Math.max(0, Math.round((Date.now()-LAST_UPDATE)/1000));
-    lab.textContent = s<60 ? `Live · ${s}s ago` : `Live · ${Math.floor(s/60)}m ago`;
+    const ago = s<60 ? `Live · ${s}s` : `Live · ${Math.floor(s/60)}m`;
+    lab.textContent = ago + (GUARD.ok ? " · ✓" : ` · ⚠${GUARD.flags.length}`);
+    if(pill) pill.title = GUARD.flags.length ? ("Score integrity — flagged:\n• "+GUARD.flags.join("\n• ")) : "Score integrity: all checks passed";
   }
 }
 
