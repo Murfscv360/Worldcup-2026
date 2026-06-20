@@ -883,6 +883,45 @@ function winProbSparkline(m){
   </div>`;
 }
 
+/* ---------- Momentum + win-probability block ---------- */
+// Momentum: + = home (team1) on top, − = away. Modeled from possession and
+// goals in the last ~20 minutes.
+function momentumScore(m){
+  const st = modelStats(m);
+  let mo = (st.possA - 50) * 1.2;
+  const cl = liveClock(m); const now = cl ? cl.min : 90;
+  (m.goals1||[]).forEach(g=>{ if(now-(parseInt(g.minute)||0) <= 20) mo += 16; });
+  (m.goals2||[]).forEach(g=>{ if(now-(parseInt(g.minute)||0) <= 20) mo -= 16; });
+  return Math.max(-100, Math.min(100, Math.round(mo)));
+}
+function momentumBar(m){
+  const mo = momentumScore(m), homePct = 50 + mo/2;
+  const t1 = teamLabel(m.team1).name, t2 = teamLabel(m.team2).name;
+  const lead = mo>8 ? `${esc(t1)} ▲` : mo<-8 ? `${esc(t2)} ▲` : "Balanced";
+  return `<div class="mom-wrap">
+    <div class="wpb-head">Momentum <span class="mom-lead">${lead}</span></div>
+    <div class="mom"><span class="mom-fill" style="width:${homePct}%"></span><i class="mom-tick"></i></div>
+    <div class="mom-legend"><span>${flag(m.team1)} ${esc(t1)}</span><span>${esc(t2)} ${flag(m.team2)}</span></div>
+  </div>`;
+}
+function winProbBlock(m){
+  const o = odds1x2(m), t1 = teamLabel(m.team1).name, t2 = teamLabel(m.team2).name;
+  return `<div class="wpb">
+    <div class="wpb-head">Win probability <span class="wpb-live">live</span></div>
+    <div class="wpb-bar">
+      <span class="seg h" style="width:${o.h}%">${o.h>=14?o.h.toFixed(0)+"%":""}</span>
+      <span class="seg d" style="width:${o.d}%">${o.d>=14?o.d.toFixed(0)+"%":""}</span>
+      <span class="seg a" style="width:${o.a}%">${o.a>=14?o.a.toFixed(0)+"%":""}</span>
+    </div>
+    <div class="wpb-legend">
+      <span><b class="dot h"></b>${flag(m.team1)} ${esc(t1)} ${o.h.toFixed(0)}%</span>
+      <span><b class="dot d"></b>Draw ${o.d.toFixed(0)}%</span>
+      <span><b class="dot a"></b>${esc(t2)} ${o.a.toFixed(0)}% ${flag(m.team2)}</span>
+    </div>
+    ${momentumBar(m)}
+  </div>`;
+}
+
 /* ---------- Pick the most relevant match for the live hero ---------- */
 function focusMatch(){
   if(focusMatch.__forced){
@@ -939,7 +978,8 @@ function liveStatsPanel(){
       </div>
       <div class="lo-top" style="margin-top:12px">Live win market</div>
       ${oddsRow}
-      <p class="note">Score &amp; scorers are live; possession, shots and xG are modeled.</p>
+      ${momentumBar(m)}
+      <p class="note">Score &amp; scorers are live; possession, shots, xG &amp; momentum are modeled.</p>
     </div>`;
   }
 
@@ -1051,7 +1091,8 @@ function viewCommentary(){
       </div>
     </div>`;
 
-  // Win-probability sparkline (live or finished) from the real goal timeline.
+  // Live win-probability + momentum (live games), then the swing sparkline.
+  if(st==="live") html += winProbBlock(sel);
   html += winProbSparkline(sel);
 
   // Curated preview (pregame) or professional review (postgame).
@@ -1491,10 +1532,57 @@ function wireTabs(){
 // Don't re-render while the user is typing in the schedule search box.
 const editingSchedule = () => state.view==="schedule" && $("schQ") && document.activeElement===$("schQ");
 
+/* ---------- Toast ---------- */
+let _toastT;
+function toast(msg){
+  const t = $("toast"); if(!t) return;
+  t.textContent = msg; t.hidden = false;
+  requestAnimationFrame(()=>t.classList.add("show"));
+  clearTimeout(_toastT);
+  _toastT = setTimeout(()=>{ t.classList.remove("show"); setTimeout(()=>{ t.hidden = true; }, 300); }, 1900);
+}
+
+/* ---------- Manual refresh + pull-to-refresh ---------- */
+let _refreshing = false;
+async function refreshNow(){
+  if(_refreshing) return;
+  _refreshing = true;
+  try{ await loadData(); setLive(); if(!editingSchedule()) render();
+    toast(DATA_SOURCE==="live" ? "Scores updated" : DATA_SOURCE==="snapshot" ? "Showing snapshot" : "Offline"); }
+  finally{ _refreshing = false; }
+}
+function initPullToRefresh(){
+  const ptr = $("ptr"); if(!ptr) return;
+  const TH = 70; let startY = 0, pulling = false, dist = 0;
+  window.addEventListener("touchstart", e=>{
+    if(window.scrollY<=0 && e.touches.length===1){ startY=e.touches[0].clientY; pulling=true; dist=0; }
+  }, {passive:true});
+  window.addEventListener("touchmove", e=>{
+    if(!pulling) return;
+    dist = e.touches[0].clientY - startY;
+    if(dist>0 && window.scrollY<=0){
+      const d = Math.min(dist*0.5, 92);
+      ptr.style.transform = `translateY(${d}px)`;
+      ptr.classList.toggle("ready", d>=TH);
+      if(dist>6 && e.cancelable) e.preventDefault();
+    }
+  }, {passive:false});
+  const end = async ()=>{
+    if(!pulling) return; pulling=false;
+    const ready = ptr.classList.contains("ready");
+    ptr.classList.remove("ready");
+    if(ready){ ptr.classList.add("spin"); ptr.style.transform="translateY(56px)"; await refreshNow(); ptr.classList.remove("spin"); }
+    ptr.style.transform = "";
+  };
+  window.addEventListener("touchend", end, {passive:true});
+  window.addEventListener("touchcancel", end, {passive:true});
+}
+
 async function init(){
   wireTabs();
   wireFav();
   wireMore();
+  initPullToRefresh();
   $("view").innerHTML = skeletonHTML();
   await loadData();
   setLive();
