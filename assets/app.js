@@ -89,26 +89,92 @@ let MATCHES = [];
 let DATA_SOURCE = "";
 let LAST_UPDATE = 0;
 
+/* ---------- Live overlay: worldcup26.ir (real in-progress scores) ---------- */
+const WC26 = "https://worldcup26.ir/get/games";
+const NAME_FIX = {"United States":"USA","Bosnia and Herzegovina":"Bosnia & Herzegovina","Democratic Republic of the Congo":"DR Congo"};
+const fixName = n => NAME_FIX[n] || n;
+let LIVE_KEYS = new Set();   // pair keys currently live (per feed)
+let FIN_KEYS  = new Set();   // pair keys finished (per feed)
+function pairKey(a,b){ return [fixName(a),fixName(b)].sort().join("|"); }
+
+// Parse worldcup26 scorer strings like {"H. Kane 12'(p)","K. Havertz 45'+5'(p)","D. Bobadilla 7'(OG)"}.
+function parseScorers(s){
+  if(!s || s==="null") return [];
+  const out=[];
+  s = s.replace(/[“”]/g,'"').replace(/[‘’]/g,"'");   // normalize curly quotes/apostrophes
+  s.replace(/^\{|\}$/g,"").split(/["']\s*,\s*["']/).forEach(raw=>{
+    let t = raw.replace(/["“”'{}]/g,"").trim();
+    if(!t) return;
+    const owngoal = /\(\s*OG\s*\)/i.test(t);
+    const penalty = /\(\s*p\s*\)/i.test(t);
+    t = t.replace(/\([^)]*\)/g,"").trim();
+    const mm = t.match(/(\d{1,3})(?:\s*\+\s*\d+)?\s*'?\s*$/);
+    const minute = mm ? mm[1] : "";
+    const name = (mm ? t.slice(0, mm.index) : t).trim();
+    if(name) out.push({name, minute, penalty, owngoal});
+  });
+  return out;
+}
+async function fetchWC26(){
+  try{
+    const r = await fetch(WC26 + "?_=" + Date.now(), {cache:"no-store"});
+    if(!r.ok) throw 0;
+    const j = await r.json();
+    return (j && j.games) ? j.games : null;
+  }catch(e){ return null; }   // CORS/offline → silently keep base feed
+}
+// Overlay real scores/scorers + live status onto the loaded schedule.
+function overlayWC26(games){
+  LIVE_KEYS = new Set(); FIN_KEYS = new Set();
+  if(!games) return false;
+  const byPair = {};
+  games.forEach(g=>{
+    const A=g.home_team_name_en, B=g.away_team_name_en;
+    if(!A || !B) return;
+    const k = pairKey(A,B); byPair[k]=g;
+    const st = String(g.time_elapsed||"").toLowerCase();
+    if(st==="live") LIVE_KEYS.add(k);
+    else if(String(g.finished).toUpperCase()==="TRUE") FIN_KEYS.add(k);
+  });
+  MATCHES.forEach(m=>{
+    if(!TEAMS[m.team1] || !TEAMS[m.team2]) return;     // skip knockout placeholders
+    const g = byPair[pairKey(m.team1,m.team2)]; if(!g) return;
+    const live = String(g.time_elapsed||"").toLowerCase()==="live";
+    const fin  = String(g.finished).toUpperCase()==="TRUE";
+    if(!(live || fin)) return;
+    const h=parseInt(g.home_score)||0, a=parseInt(g.away_score)||0;
+    const homeIsT1 = fixName(g.home_team_name_en)===m.team1;
+    m.score = Object.assign({}, m.score, {ft: homeIsT1 ? [h,a] : [a,h]});
+    const gh=parseScorers(g.home_scorers), ga=parseScorers(g.away_scorers);
+    m.goals1 = homeIsT1 ? gh : ga;
+    m.goals2 = homeIsT1 ? ga : gh;
+  });
+  return true;
+}
+
 async function loadData(){
-  // Try the live public-domain feed first, then the bundled snapshot.
+  // Base schedule (times, venues, knockout structure) from openfootball, then
+  // the bundled snapshot. Live scores are overlaid from worldcup26.ir after.
   const bust = "?_=" + Date.now();   // bypass CDN/service-worker caches so scores are fresh
+  let base = false;
   try{
     const r = await fetch(REMOTE + bust, {cache:"no-store"});
     if(!r.ok) throw new Error(r.status);
     const j = await r.json();
-    if(j && j.matches && j.matches.length){ MATCHES = j.matches; DATA_SOURCE = "live"; LAST_UPDATE = Date.now(); return; }
-    throw new Error("empty");
+    if(j && j.matches && j.matches.length){ MATCHES = j.matches; DATA_SOURCE = "live"; base = true; }
+    else throw new Error("empty");
   }catch(e){ /* fall through to bundled snapshot */ }
-  try{
-    const r = await fetch(LOCAL + bust, {cache:"no-store"});
-    const j = await r.json();
-    MATCHES = j.matches || [];
-    DATA_SOURCE = "snapshot";
-    LAST_UPDATE = Date.now();
-  }catch(e){
-    MATCHES = [];
-    DATA_SOURCE = "error";
+  if(!base){
+    try{
+      const r = await fetch(LOCAL + bust, {cache:"no-store"});
+      const j = await r.json();
+      MATCHES = j.matches || []; DATA_SOURCE = "snapshot"; base = MATCHES.length>0;
+    }catch(e){ MATCHES = []; DATA_SOURCE = "error"; }
   }
+  // Overlay real live/finished scores from worldcup26.ir (if reachable).
+  const wc = await fetchWC26();
+  if(overlayWC26(wc)) DATA_SOURCE = "live";
+  if(base || wc) LAST_UPDATE = Date.now();
 }
 
 /* ---------- Time helpers ---------- */
@@ -131,6 +197,9 @@ const dayLabelET = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_Y
 
 /* ---------- Status ---------- */
 function status(m){
+  const k = (TEAMS[m.team1] && TEAMS[m.team2]) ? pairKey(m.team1,m.team2) : null;
+  if(k && LIVE_KEYS.has(k)) return "live";          // authoritative live flag from worldcup26.ir
+  if(k && FIN_KEYS.has(k))  return "ft";
   const hasScore = m.score && Array.isArray(m.score.ft);
   const d = kickoffDate(m);
   const now = Date.now();
