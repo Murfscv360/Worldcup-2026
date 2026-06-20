@@ -15,7 +15,8 @@
 <meta name="format-detection" content="telephone=no" />
 <title>World Cup 2026 — Live Dashboard</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E" />
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="manifest" href="manifest.webmanifest" />
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -95,5 +96,12 @@
 </footer>
 
 <script src="assets/app.js"></script>
+<script>
+  /* Register the service worker so the app installs to the Home Screen and
+     works offline. Guarded so it no-ops on file:// or unsupported browsers. */
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
 </body>
 </html>

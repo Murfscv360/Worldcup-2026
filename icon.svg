@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="World Cup 2026">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2547"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b8cff"/>
+      <stop offset="1" stop-color="#3ddc97"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="256" cy="226" r="118" fill="none" stroke="url(#ring)" stroke-width="16"/>
+  <!-- simplified football -->
+  <circle cx="256" cy="226" r="92" fill="#eaf0ff"/>
+  <polygon points="256,176 292,202 278,244 234,244 220,202" fill="#0b1020"/>
+  <path d="M256 134 l0 42 M334 196 l-42 6 M178 196 l42 6 M292 286 l24 34 M220 286 l-24 34"
+        stroke="#0b1020" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Oswald, Arial, sans-serif"
+        font-size="118" font-weight="700" fill="#eaf0ff" letter-spacing="2">2026</text>
+</svg>
