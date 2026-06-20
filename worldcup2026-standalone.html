@@ -440,6 +440,29 @@ main{ scroll-padding-top:120px }
 :focus-visible{ outline:2px solid var(--accent2); outline-offset:2px; border-radius:8px }
 button{ -webkit-appearance:none; appearance:none }
 
+/* ---------- Tappable match cards + match-centre affordance ---------- */
+.match.tappable{cursor:pointer}
+.match .open-row{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:flex;justify-content:flex-end}
+.open-cta{font-size:11.5px;font-weight:800;color:var(--accent2);letter-spacing:.2px}
+.open-cta.live{color:var(--live)}
+.match.is-live-card{border-color:rgba(255,77,98,.45);box-shadow:0 0 0 1px rgba(255,77,98,.18),0 1px 2px rgba(0,0,0,.28)}
+@media (hover:hover){ .match.tappable:hover .open-cta{text-decoration:underline} }
+
+/* Schedule day-head variants */
+.dayhead.live{color:var(--live)}
+.dayhead.up{color:var(--accent2)}
+
+/* ---------- Collapsible play-by-play ---------- */
+details.pbp{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.28)}
+details.pbp>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  padding:13px 14px;font-weight:800;font-size:14px;background:var(--card2);border-bottom:1px solid transparent}
+details.pbp[open]>summary{border-bottom-color:var(--line)}
+details.pbp>summary::-webkit-details-marker{display:none}
+details.pbp>summary::after{content:"▾";color:var(--muted);transition:transform .2s ease}
+details.pbp[open]>summary::after{transform:rotate(180deg)}
+details.pbp .pbp-meta{font-weight:600;font-size:11px;color:var(--muted)}
+details.pbp .timeline{padding:4px 14px 12px}
+
 </style>
 </head>
 <body>
@@ -1617,8 +1640,10 @@ function matchCard(m){
 
   const tv = tvFor(m);
   const tvLine = `<span class="tv">📺 ${tv.eng}</span><span>🗣️ ${tv.esp}</span><span>▶️ ${tv.stream}</span>`;
+  const cta = live ? `<span class="open-cta live">Tap for live play-by-play ›</span>`
+                   : `<span class="open-cta">Match centre ›</span>`;
 
-  return `<div class="match">
+  return `<div class="match tappable ${live?'is-live-card':''}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
     <div class="top"><span>${topLeft}</span>${badge}</div>
     ${teamRow(t1,0,w1,!!sc&&!w1&&!(sc[0]===sc[1]))}
     ${teamRow(t2,1,w2,!!sc&&!w2&&!(sc[0]===sc[1]))}
@@ -1629,6 +1654,7 @@ function matchCard(m){
       ${weatherChip(m)}
       ${tvLine}
     </div>
+    <div class="open-row">${cta}</div>
   </div>`;
 }
 
@@ -1759,14 +1785,23 @@ function viewSchedule(state){
       return (m.team1+m.team2+t1+t2+(m.group||"")+(m.ground||"")).toLowerCase().includes(q);
     });
   }
-  list.sort(sortByKick);
+  // Newest/current at the top; days scroll backwards into the past. Live games
+  // are pinned above everything; not-yet-played fixtures sit below in a clearly
+  // separated "Upcoming" block (ascending), so today is the anchor.
+  const todayKey = dayKeyET(new Date());
+  const liveList = list.filter(m=>status(m)==="live").sort(sortByKick);
+  const liveSet  = new Set(liveList.map(matchKey));
 
-  // Group by ET day
   const days = {};
   list.forEach(m=>{
+    if(liveSet.has(matchKey(m))) return;
     const d=kickoffDate(m); const k=d?dayKeyET(d):"TBD";
     (days[k]=days[k]||[]).push(m);
   });
+  const dayKeys = Object.keys(days).filter(k=>k!=="TBD");
+  const pastToday = dayKeys.filter(k=>k<=todayKey).sort().reverse();   // today → backwards
+  const future    = dayKeys.filter(k=>k>todayKey).sort();             // soonest upcoming first
+  const descKick = (a,b)=>-sortByKick(a,b);
 
   const opts = ['<option value="all">All rounds</option>',
     ...rounds.map(r=>`<option value="${esc(r)}" ${filt.round===r?"selected":""}>${esc(r==="Match for third place"?"3rd-place match":r)}</option>`)].join("");
@@ -1775,14 +1810,25 @@ function viewSchedule(state){
       <input id="schQ" type="search" placeholder="Search team, group or venue…" value="${esc(filt.q)}" />
       <select id="schRound">${opts}</select>
     </div>
-    <p class="hint">${list.length} match${list.length===1?"":"es"} · kickoff in ET &amp; your local time (${esc(localTZ)})</p>`;
+    <p class="hint">${list.length} match${list.length===1?"":"es"} · newest first · ET &amp; your local time (${esc(localTZ)})</p>`;
 
-  const keys = Object.keys(days).sort();
-  if(!keys.length) html += `<div class="empty">No matches match your filters.</div>`;
-  keys.forEach(k=>{
-    const label = k==="TBD" ? "Date TBD" : dayLabelET(kickoffDate(days[k][0]));
-    html += `<div class="daygroup"><div class="dayhead">${esc(label)}</div>${days[k].map(matchCard).join("")}</div>`;
+  if(!list.length){ html += `<div class="empty">No matches match your filters.</div>`; return html; }
+
+  if(liveList.length){
+    html += `<div class="daygroup"><div class="dayhead live">🔴 Live now</div>${liveList.map(matchCard).join("")}</div>`;
+  }
+  pastToday.forEach(k=>{
+    const label = dayLabelET(kickoffDate(days[k][0])) + (k===todayKey ? " · Today" : "");
+    html += `<div class="daygroup"><div class="dayhead">${esc(label)}</div>${days[k].sort(descKick).map(matchCard).join("")}</div>`;
   });
+  if(future.length){
+    html += `<div class="daygroup"><div class="dayhead up">⏳ Upcoming fixtures</div></div>`;
+    future.forEach(k=>{
+      const label = dayLabelET(kickoffDate(days[k][0]));
+      html += `<div class="daygroup"><div class="dayhead">${esc(label)}</div>${days[k].sort(sortByKick).map(matchCard).join("")}</div>`;
+    });
+  }
+  if(days["TBD"]) html += `<div class="daygroup"><div class="dayhead">Date TBD</div>${days["TBD"].map(matchCard).join("")}</div>`;
   return html;
 }
 
@@ -2355,18 +2401,25 @@ function viewCommentary(){
   // Curated preview (pregame) or professional review (postgame).
   if(st!=="live") html += reportCard(reportFor(sel));
 
-  html += `<div class="sec-title"><h2>${st==="live"?"Live play-by-play":"Play-by-play"}</h2><span class="meta">minute-by-minute</span></div>`;
+  // Play-by-play — collapsible; expanded by default for a live game.
   const feed = matchFeed(sel);
   const icon = {ko:"🟢",goal:"⚽",var:"📺",ht:"⏸️",ft:"🏁",live:"🔴",play:"🎙️"};
-  html += `<ul class="timeline">` + feed.slice().reverse().map(e=>`
+  const items = feed.slice().reverse().map(e=>`
       <li class="tl-${e.type}">
         <div class="tl-min">${e.type==="ko"?"KO":e.type==="ht"?"HT":e.type==="ft"?"FT":e.min+"'"}</div>
         <div class="tl-body">${e.type==="var"?'<span class="tl-tag">VAR</span>':""}${icon[e.type]||""} ${esc(e.text)}</div>
-      </li>`).join("") + `</ul>`;
+      </li>`).join("");
+  html += `<details class="pbp" ${st==="live"?"open":""}>
+      <summary><span>${st==="live"?"🔴 Live play-by-play":"Play-by-play"}</span><span class="pbp-meta">${feed.length} events · tap to ${st==="live"?"collapse":"expand"}</span></summary>
+      <ul class="timeline">${items}</ul>
+    </details>`;
 
-  const revs = reviewsFeed().slice(0,6);
+  // VAR / official reviews — condensed to the most recent few, this match first.
+  const selKey = `${teamLabel(sel.team1).name} v ${teamLabel(sel.team2).name}`;
+  const allRev = reviewsFeed();
+  const revs = [...allRev.filter(r=>r.label===selKey), ...allRev.filter(r=>r.label!==selKey)].slice(0,3);
   if(revs.length){
-    html += `<div class="sec-title"><h2>📺 Official reviews</h2><span class="meta">VAR · tournament</span></div>`;
+    html += `<div class="sec-title"><h2>📺 VAR — latest</h2><span class="meta">most recent reviews</span></div>`;
     html += `<div class="news">` + revs.map(r=>`
       <div class="news-item"><span class="ni-ic">${r.icon}</span>
         <div class="ni-body"><div class="ni-text">${esc(r.text)}</div>
@@ -2694,12 +2747,23 @@ function render(){
   if(state.view==="stats") wireStatChips();
   if(state.view==="live")  wireCmtChips();
   wireGoto();
+  wireOpenMatch();
   syncNav();
 }
 
 // Any element with data-goto switches view (used by "All news ›" and teasers).
 function wireGoto(){
   document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.goto)));
+}
+
+// Tap a match card anywhere to open its match centre (Live view, that game).
+function wireOpenMatch(){
+  document.querySelectorAll("[data-open]").forEach(el=>{
+    const open = ()=>{ state.cmtKey = el.dataset.open;
+      if(state.view==="live"){ render(); window.scrollTo({top:0}); } else { go("live"); } };
+    el.addEventListener("click", open);
+    el.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); open(); } });
+  });
 }
 
 function wireStatChips(){

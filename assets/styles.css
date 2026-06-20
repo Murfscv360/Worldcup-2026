@@ -419,3 +419,26 @@ main{ scroll-padding-top:120px }
 /* Crisper focus states for accessibility (keyboard users) */
 :focus-visible{ outline:2px solid var(--accent2); outline-offset:2px; border-radius:8px }
 button{ -webkit-appearance:none; appearance:none }
+
+/* ---------- Tappable match cards + match-centre affordance ---------- */
+.match.tappable{cursor:pointer}
+.match .open-row{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:flex;justify-content:flex-end}
+.open-cta{font-size:11.5px;font-weight:800;color:var(--accent2);letter-spacing:.2px}
+.open-cta.live{color:var(--live)}
+.match.is-live-card{border-color:rgba(255,77,98,.45);box-shadow:0 0 0 1px rgba(255,77,98,.18),0 1px 2px rgba(0,0,0,.28)}
+@media (hover:hover){ .match.tappable:hover .open-cta{text-decoration:underline} }
+
+/* Schedule day-head variants */
+.dayhead.live{color:var(--live)}
+.dayhead.up{color:var(--accent2)}
+
+/* ---------- Collapsible play-by-play ---------- */
+details.pbp{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.28)}
+details.pbp>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  padding:13px 14px;font-weight:800;font-size:14px;background:var(--card2);border-bottom:1px solid transparent}
+details.pbp[open]>summary{border-bottom-color:var(--line)}
+details.pbp>summary::-webkit-details-marker{display:none}
+details.pbp>summary::after{content:"▾";color:var(--muted);transition:transform .2s ease}
+details.pbp[open]>summary::after{transform:rotate(180deg)}
+details.pbp .pbp-meta{font-weight:600;font-size:11px;color:var(--muted)}
+details.pbp .timeline{padding:4px 14px 12px}
