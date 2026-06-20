@@ -572,6 +572,12 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bcard .blive{color:var(--live)}
 @media (hover:hover){ .bcard:hover{border-color:#3a4a86;transform:translateY(-2px);transition:.18s} }
 
+/* ---------- Bracket projections ---------- */
+.bcard.is-proj{border-style:dashed;border-color:#3a4675}
+.brow.bpr .bnm{color:#aebbe6;font-style:italic;font-weight:600}
+.bproj-tag{float:right;font-size:9px;font-weight:800;letter-spacing:.5px;color:#9db8ff;background:rgba(91,140,255,.16);border:1px solid rgba(91,140,255,.35);padding:1px 6px;border-radius:5px}
+.bpr-key{display:inline-block;margin-left:4px;color:#9db8ff;font-weight:700;font-size:11px}
+
 </style>
 </head>
 <body>
@@ -2094,37 +2100,102 @@ function viewGroups(){
   return html;
 }
 
-/* ---------- VIEW: Knockout bracket ---------- */
+/* ---------- VIEW: Knockout bracket (with live projections) ----------
+   Placeholders resolve from current standings: 1X/2X = group leader/runner-up,
+   3X/Y/.. = a projected best-3rd, W##/L## = projected winner/loser by strength.
+   Recomputed every render, so it auto-updates as results land. */
+let _projThirds = null;
+function matchByNum(n){ return MATCHES.find(m=>m.num===n); }
+function projectedThirds(){
+  if(_projThirds) return _projThirds;
+  const top8 = bestThirds().slice(0,8);
+  const qual = new Set(top8.map(r=>r.group));
+  const byGroup = {}; top8.forEach(r=>byGroup[r.group]=r.t);
+  const slots = MATCHES.filter(m=>!m.group && m.round==="Round of 32").map(m=>{
+    const code = (String(m.team1)[0]==="3" && String(m.team1).includes("/")) ? m.team1
+               : (String(m.team2)[0]==="3" && String(m.team2).includes("/")) ? m.team2 : null;
+    return code ? {code, cand:code.slice(1).split("/").filter(g=>qual.has(g))} : null;
+  }).filter(Boolean);
+  const assign = {}, used = new Set();
+  slots.slice().sort((a,b)=>a.cand.length-b.cand.length).forEach(s=>{
+    let pick = top8.find(r=>s.cand.includes(r.group) && !used.has(r.group));
+    pick = pick ? pick.group : s.cand.find(g=>!used.has(g));
+    if(pick){ assign[s.code]=pick; used.add(pick); }
+  });
+  return (_projThirds = {assign, byGroup});
+}
+// Resolve a code to a projected real team name (or null if not yet projectable).
+function projTeam(code){
+  code = String(code);
+  if(TEAMS[code]) return null;            // already a confirmed team
+  let m;
+  if(m = code.match(/^([12])([A-L])$/)){
+    const r = standings("Group "+m[2])[m[1]==="1"?0:1];
+    return (r && r.P>0) ? r.t : null;
+  }
+  if(code[0]==="3" && code.includes("/")){
+    const {assign, byGroup} = projectedThirds();
+    const g = assign[code]; return (g && byGroup[g]) ? byGroup[g] : null;
+  }
+  if(m = code.match(/^([WL])(\d+)$/)) return projWinner(+m[2], m[1]==="L");
+  return null;
+}
+function projWinner(num, wantLoser){
+  const mt = matchByNum(num); if(!mt) return null;
+  if(mt.score && Array.isArray(mt.score.ft)){
+    const [a,b] = mt.score.ft;
+    const w = a>=b ? mt.team1 : mt.team2, l = a>=b ? mt.team2 : mt.team1;
+    const pick = wantLoser ? l : w;
+    return TEAMS[pick] ? pick : projTeam(pick);
+  }
+  const A = TEAMS[mt.team1] ? mt.team1 : projTeam(mt.team1);
+  const B = TEAMS[mt.team2] ? mt.team2 : projTeam(mt.team2);
+  if(!A || !B) return null;
+  const strong = strengthOf(A) >= strengthOf(B) ? A : B, weak = strong===A ? B : A;
+  return wantLoser ? weak : strong;
+}
+// Display info for one side of a bracket card.
+function bracketTeam(code){
+  if(TEAMS[code]){ const t=teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:false}; }
+  const p = projTeam(code);
+  if(p){ const t=teamLabel(p); return {flag:t.flag, name:t.name, proj:true, ph:false}; }
+  const t = teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:true};
+}
 function bracketCard(m){
-  const t1=teamLabel(m.team1), t2=teamLabel(m.team2);
   const sc=(m.score && Array.isArray(m.score.ft)) ? m.score.ft : null;
   const d=kickoffDate(m), st=status(m);
+  const t1=bracketTeam(m.team1), t2=bracketTeam(m.team2);
   const w1=sc&&sc[0]>sc[1], w2=sc&&sc[1]>sc[0];
+  const projected = !sc && (t1.proj || t2.proj);
   const when = st==="live" ? `<span class="blive">🔴 ${(liveClock(m)||{}).label||"Live"}</span>`
     : sc ? "Full-time"
+    : projected ? "Projected"
     : d ? `${etFmt.format(d)} ET · ${new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d)}`
     : "TBD";
-  const row=(t,s,win)=>`<div class="brow ${win?"bw":""} ${t.placeholder?"bph":""}">
+  const row=(t,s,win)=>`<div class="brow ${win?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""}">
       <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}</span><span class="bsc">${s??""}</span></div>`;
-  return `<div class="bcard tappable" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
+  return `<div class="bcard tappable ${projected?"is-proj":""}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
       ${row(t1, sc?sc[0]:null, w1)}
       ${row(t2, sc?sc[1]:null, w2)}
-      <div class="bfoot">${when}</div>
+      <div class="bfoot">${when}${projected?'<span class="bproj-tag">PROJ</span>':""}</div>
     </div>`;
 }
 function viewBracket(){
+  _projThirds = null;   // recompute projections from the latest standings
   const rounds=[["Round of 32","Round of 32"],["Round of 16","Round of 16"],["Quarter-final","Quarter-finals"],
     ["Semi-final","Semi-finals"],["Match for third place","3rd place"],["Final","Final"]];
   const present=rounds.filter(([r])=>MATCHES.some(m=>m.round===r));
   let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
+  const anyData = MATCHES.some(m=>m.group && m.score && Array.isArray(m.score.ft));
+  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected</b> from current standings (group leaders, runners-up, best 3rds &amp; likely winners). <span class="bpr-key">dashed = projected</span> — it firms up automatically as real results land.</div>`;
   html+=`<div class="bracket">`;
   present.forEach(([r,label])=>{
-    const ms=MATCHES.filter(m=>m.round===r).sort(sortByKick);
+    const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));
     html+=`<div class="bcol"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div>${ms.map(bracketCard).join("")}</div>`;
   });
   html+=`</div>`;
-  html+=`<p class="note">Matchups resolve automatically as group placings and knockout results come in.</p>`;
+  html+=`<p class="note">Projections use simplified seeding (best-3rd allocation &amp; higher-strength team advancing). Confirmed teams &amp; scores always override projections.</p>`;
   return html;
 }
 
