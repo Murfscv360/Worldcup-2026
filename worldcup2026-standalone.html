@@ -1805,14 +1805,20 @@ function fetchT(url, ms){
     .finally(()=>{ if(timer) clearTimeout(timer); });
 }
 let LAST_WC_GAMES = null;   // last successful live feed (reused on a transient failure)
+// Optional same-origin/CDN proxy (set localStorage.wc26_proxy) for reliable delivery.
+function wc26Url(){ try{ const p=localStorage.getItem("wc26_proxy"); return (p && /^https?:/.test(p)) ? p : WC26; }catch(e){ return WC26; } }
 async function fetchWC26(){
-  try{
-    const r = await fetchT(WC26 + "?_=" + Date.now(), 10000);
-    if(!r.ok) throw 0;
-    const j = await r.json();
-    if(j && j.games && j.games.length){ LAST_WC_GAMES = j.games; return j.games; }
-    return null;
-  }catch(e){ return null; }   // CORS/offline/slow → caller reuses LAST_WC_GAMES
+  for(let attempt=0; attempt<2; attempt++){            // quick retry for reliability
+    try{
+      const base = wc26Url();
+      const r = await fetchT(base + (base.includes("?")?"&":"?") + "_=" + Date.now(), 9000);
+      if(!r.ok) throw 0;
+      const j = await r.json();
+      const games = j && (j.games || (Array.isArray(j) ? j : null));
+      if(games && games.length){ LAST_WC_GAMES = games; return games; }
+    }catch(e){ /* retry once, then caller reuses LAST_WC_GAMES */ }
+  }
+  return null;
 }
 // Overlay real scores/scorers + live status onto the loaded schedule.
 function overlayWC26(games){
@@ -1916,21 +1922,15 @@ const dayLabelET = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_Y
 /* ---------- Status ---------- */
 function status(m){
   const k = (TEAMS[m.team1] && TEAMS[m.team2]) ? pairKey(m.team1,m.team2) : null;
-  if(k && LIVE_KEYS.has(k)) return "live";          // authoritative live flag from worldcup26.ir
+  if(k && LIVE_KEYS.has(k)) return "live";          // authoritative live flag from the feed
   if(k && FIN_KEYS.has(k))  return "ft";
   const hasScore = m.score && Array.isArray(m.score.ft);
-  const d = kickoffDate(m);
-  const now = Date.now();
-  // When the authoritative feed is loaded, DON'T guess "live" from the clock —
-  // a known fixture not flagged live/finished is upcoming, not a fake 0-0 live.
-  if(WC_LOADED && k){
-    if(hasScore) return "ft";
-    if(d && d.getTime()>now && d.getTime()-now < 36*3600000) return "soon";
-    return "sched";
-  }
-  if(d && now>=d.getTime() && now < d.getTime()+135*60000) return "live";
+  const d = kickoffDate(m), now = Date.now();
   if(hasScore) return "ft";
   if(d && d.getTime()>now && d.getTime()-now < 36*3600000) return "soon";
+  // Clock-based "live" ONLY as a last resort when the live feed has never
+  // loaded this session — avoids ever showing a blank/fake 0-0 "live" match.
+  if(!WC_LOADED && !LAST_WC_GAMES && d && now>=d.getTime() && now < d.getTime()+135*60000) return "live";
   return "sched";
 }
 
@@ -3846,10 +3846,12 @@ async function init(){
   await loadData();              // base schedule (fast, timed out)
   setLive(); render();          // paint immediately — never wait on the live overlay
   loadLive().then(ok=>{ if(ok && !editingSchedule()){ setLive(); render(); } });   // overlay live scores in the background
-  // Refresh every 60s: base + live overlay.
-  setInterval(async ()=>{ await loadData(); await loadLive(); setLive(); if(!editingSchedule()) render(); }, 60000);
-  // Re-render dynamic views every 20s so live scores, clocks & odds stay fresh.
-  setInterval(()=>{ if(!editingSchedule()) render(); }, 20000);
+  // Live scores — poll fast (every 15s) for quick, accurate updates.
+  setInterval(async ()=>{ const ok = await loadLive(); if(ok && !editingSchedule()){ setLive(); render(); } }, 15000);
+  // Base schedule (times/venues/knockout structure) changes rarely — every 5 min.
+  setInterval(async ()=>{ await loadData(); await loadLive(); setLive(); if(!editingSchedule()) render(); }, 300000);
+  // Re-render dynamic views every 15s so clocks & odds stay fresh.
+  setInterval(()=>{ if(!editingSchedule()) render(); }, 15000);
   // Tick countdowns & live clocks every second.
   setInterval(tickDynamic, 1000);
 }
