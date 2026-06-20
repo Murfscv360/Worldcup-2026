@@ -1203,73 +1203,71 @@ const PBP = [
   t=>`Substitution for ${t.B} — fresh legs introduced to chase the game.`,
   t=>`Penalty appeals from ${t.A} waved away; play continues.`
 ];
+// Parse a scorer minute incl. stoppage ("45+5'" → base 45, label "45+5", sort 45.08).
+function goalMinute(raw){
+  const s = String(raw||""); const mm = s.match(/(\d+)(?:\s*\+\s*(\d+))?/);
+  const base = mm ? parseInt(mm[1],10) : 0;
+  const extra = (mm && mm[2]) ? parseInt(mm[2],10) : 0;
+  return { base, extra, label: base + (extra?`+${extra}`:""), sort: base + Math.min(extra,59)/60 };
+}
+// Colour-commentary templates — shots, saves, counters, set-pieces, bookings.
+const COL = [
+  t=>`Shot on target from ${t.A}! Well saved by the ${t.B} goalkeeper.`,
+  t=>`${t.A} carve out an opening — the effort is blocked behind for a corner.`,
+  t=>`${t.B} spring a quick counter-attack, but the final ball is cut out.`,
+  t=>`Header from a ${t.A} corner flashes just wide of the far post.`,
+  t=>`Driving run and a fierce strike by ${t.A} — deflected off target.`,
+  t=>`Great save! ${t.A} denied from the edge of the box.`,
+  t=>`${t.B} break at pace; the cross is claimed by the ${t.A} 'keeper.`,
+  t=>`Booking — a late challenge by ${t.B} earns a yellow card.`,
+  t=>`Free-kick in a dangerous area for ${t.A}, headed clear at the near post.`,
+  t=>`${t.B} threaten on the counter; the shot is dragged across the face of goal.`
+];
 function matchFeed(m){
   const ev = [];
-  const live = status(m)==="live";
-  const cl = liveClock(m);
-  const nowMin = live ? (cl?cl.min:0) : 999;   // only show events up to "now" when live
+  const live = status(m)==="live", cl = liveClock(m);
+  const fin  = (m.score && Array.isArray(m.score.ft)) && !live;
   const t1n = teamLabel(m.team1).name, t2n = teamLabel(m.team2).name;
-  ev.push({min:0, type:"ko", text:`Kick-off — ${t1n} vs ${t2n} at ${venueShort(m.ground)}.`});
+  // How far the match has progressed (sort units); 999 = whole match shown.
+  const nowSort = live ? ((cl?cl.min:0) + 0.99) : 999;
+  ev.push({min:0, sort:0, type:"ko", text:`Kick-off — ${t1n} vs ${t2n} at ${venueShort(m.ground)}.`});
 
-  // Real goals.
+  // Real goals (with stoppage time), running score, HT split.
   const goals = [];
   (m.goals1||[]).forEach(g=>goals.push({...g, team:m.team1, side:1}));
   (m.goals2||[]).forEach(g=>goals.push({...g, team:m.team2, side:2}));
-  goals.sort((a,b)=> (parseInt(a.minute)||0)-(parseInt(b.minute)||0));
-  let s1=0, s2=0;
+  goals.forEach(g=>{ const mm=goalMinute(g.minute); g.base=mm.base; g.label=mm.label; g.sort=mm.sort; });
+  goals.sort((a,b)=> a.sort-b.sort);
+  let s1=0, s2=0, s1ht=0, s2ht=0;
   goals.forEach(g=>{
-    const mn = parseInt(g.minute)||0;
-    if(mn>nowMin) return;
-    if(g.side===1) s1++; else s2++;
+    if(g.sort>nowSort) return;
+    if(g.side===1){ s1++; if(g.base<=45) s1ht++; } else { s2++; if(g.base<=45) s2ht++; }
     let text;
-    if(g.penalty)      text=`GOAL! ${g.name} sends the 'keeper the wrong way from the spot for ${g.team}.`;
-    else if(g.owngoal) text=`OWN GOAL — ${g.name} turns it into his own net; ${g.team} benefit.`;
-    else               text=`GOAL! ${g.name} finishes it off for ${g.team}.`;
-    ev.push({min:mn, type:"goal", text:`${text} It's ${s1}–${s2}.`});
-    if(g.penalty)      ev.push({min:mn, type:"var", text:`VAR — on-field penalty decision checked and CONFIRMED.`});
-    else if(g.owngoal) ev.push({min:mn, type:"var", text:`Credited as an own goal after review.`});
-    else if(hash(g.name+mn)>0.78) ev.push({min:mn, type:"var", text:`VAR check for offside in the build-up — goal STANDS.`});
+    if(g.penalty)      text=`GOAL! ${g.name} converts the penalty for ${g.team}.`;
+    else if(g.owngoal) text=`OWN GOAL — ${g.name} turns into his own net; ${g.team} benefit.`;
+    else               text=`GOAL! ${g.name} scores for ${g.team}.`;
+    ev.push({min:g.base, sort:g.sort, lbl:g.label, type:"goal", text:`${text} ${s1}–${s2}.`});
   });
 
-  // Modeled colour events spread across the match (skip minutes that already have a goal).
-  const goalMins = new Set(goals.map(g=>parseInt(g.minute)||0));
-  const slots = [7,16,23,31,38,52,59,66,73,81,88];
-  const seed = hash(m.team1+m.team2);
-  slots.forEach((mn,i)=>{
-    if(mn>nowMin || goalMins.has(mn)) return;
-    if(hash(m.team1+m.team2+mn) < 0.5) return;            // ~half the slots fire
-    const tpl = PBP[Math.floor(hash(m.team2+mn+i)*PBP.length)];
-    const flip = hash(m.team1+mn)>0.5;
-    ev.push({min:mn, type:(/Booking|Yellow|save|Penalty/.test(tpl({A:"",B:""}))?"play":"play"),
-      text: tpl(flip?{A:t1n,B:t2n}:{A:t2n,B:t1n})});
+  // Colour: shots/counters/saves, distributed across the right halves, only up
+  // to the current minute for live games. Modeled match flavour (not scores).
+  [6,14,22,31,40, 51,58,66,74,82,89].forEach((mn,i)=>{
+    const sort = mn + 0.3;
+    if(sort > nowSort) return;
+    if(hash(m.team1+m.team2+"c"+mn) < 0.45) return;        // only some minutes feature
+    const tpl = COL[Math.floor(hash(m.team2+"c"+mn+i)*COL.length)];
+    const homeAtt = hash(m.team1+"c"+mn) > 0.5;
+    ev.push({min:mn, sort, type:"play", text: tpl(homeAtt?{A:t1n,B:t2n}:{A:t2n,B:t1n})});
   });
 
-  // Modeled cards for this match (named; consistent with the discipline model).
-  const pool = [];
-  (m.goals1||[]).forEach(g=>{ if(!g.owngoal) pool.push({name:g.name, team:m.team1}); });
-  (m.goals2||[]).forEach(g=>{ if(!g.owngoal) pool.push({name:g.name, team:m.team2}); });
-  if(GK[m.team1]) pool.push({name:GK[m.team1], team:m.team1});
-  if(GK[m.team2]) pool.push({name:GK[m.team2], team:m.team2});
-  const seenC=new Set();
-  pool.forEach(p=>{
-    if(!p.name || seenC.has(p.name)) return; seenC.add(p.name);
-    if(hash(p.name+"|r|"+m.date) > 0.955){
-      const mn = 55 + Math.floor(hash(p.name+"rm")*35);
-      if(mn<=nowMin) ev.push({min:mn, type:"card", text:`🟥 RED CARD — ${p.name} (${p.team}) is sent off.`});
-    } else if(hash(p.name+"|y|"+m.date) > 0.72){
-      const mn = 12 + Math.floor(hash(p.name+"ym")*76);
-      if(mn<=nowMin) ev.push({min:mn, type:"card", text:`🟨 Booking — ${p.name} (${p.team}) goes into the book.`});
-    }
-  });
+  // Half-time — ONLY once the first half is actually over (real HT score).
+  const htReached = fin || (live && cl && (cl.half==="HT" || cl.half===2 || cl.half==="end"));
+  if(htReached) ev.push({min:45, sort:45.99, type:"ht", text:`Half-time — ${t1n} ${s1ht}–${s2ht} ${t2n}.`});
 
-  // Half-time & full-time / live marker.
-  if(nowMin>=45) ev.push({min:45, type:"ht", text:`Half-time. ${t1n} ${m.score&&m.score.ht?m.score.ht[0]:s1}–${m.score&&m.score.ht?m.score.ht[1]:s2} ${t2n}.`});
-  if(m.score && Array.isArray(m.score.ft) && !live){
-    ev.push({min:90, type:"ft", text:`Full-time: ${t1n} ${m.score.ft[0]}–${m.score.ft[1]} ${t2n}.`});
-  } else if(live){
-    ev.push({min: cl?cl.min:0, type:"live", text:`Live${cl?` — ${cl.label}`:""}. Updates as the action unfolds.`});
-  }
-  return ev.sort((a,b)=> a.min-b.min || (a.type==="ko"?-1:1));
+  if(fin) ev.push({min:90, sort:1000, type:"ft", text:`Full-time — ${t1n} ${m.score.ft[0]}–${m.score.ft[1]} ${t2n}.`});
+  else if(live) ev.push({min:cl?cl.min:0, sort:nowSort+0.5, type:"live", text:`Live — ${cl?cl.label:"in progress"}.`});
+
+  return ev.sort((a,b)=> a.sort-b.sort);
 }
 
 /* ---------- Tournament-wide official reviews feed (modeled from real events) ---------- */
@@ -1589,7 +1587,7 @@ function viewCommentary(){
   const icon = {ko:"🟢",goal:"⚽",var:"📺",ht:"⏸️",ft:"🏁",live:"🔴",play:"🎙️",card:""};
   const items = feed.slice().reverse().map(e=>`
       <li class="tl-${e.type}">
-        <div class="tl-min">${e.type==="ko"?"KO":e.type==="ht"?"HT":e.type==="ft"?"FT":e.min+"'"}</div>
+        <div class="tl-min">${e.type==="ko"?"KO":e.type==="ht"?"HT":e.type==="ft"?"FT":e.type==="live"?"LIVE":(e.lbl||e.min)+"'"}</div>
         <div class="tl-body">${e.type==="var"?'<span class="tl-tag">VAR</span>':""}${icon[e.type]||""} ${esc(e.text)}</div>
       </li>`).join("");
   html += `<details class="pbp" ${st==="live"?"open":""}>
