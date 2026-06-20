@@ -1889,8 +1889,61 @@ function tickDynamic(){
   }
 }
 
+/* ---------- Changelog / What's new ---------- */
+const APP_VERSION = "1.0";
+const CHANGELOG = [
+  { v:"1.0", date:"Jun 20, 2026", title:"Live launch", items:[
+    "Real live scores & scorers overlaid from worldcup26.ir (polls every 60s, with openfootball schedule + snapshot fallback).",
+    "Live match hero with score, clock, possession/shots/xG/corners, win-probability bar & momentum.",
+    "Knockout bracket projected on current form — predicted scorelines, ⚪ penalty ties, connector lines, auto-scroll to the current round.",
+    "Predicted champion banner + your favourite team's highlighted path to the final.",
+    "Group qualification scenarios (\"advance if…\") and the best-3rd-placed race.",
+  ]},
+  { v:"0.9", date:"Jun 20, 2026", title:"Analyst tools", items:[
+    "Form-weighted power rating (prior regresses to real points/GD as games are played).",
+    "Player performance table with goals, assists, shots, pass %, rating — plus 🟨/🟥 cards & a suspension watch (wiped after the QFs).",
+    "Golden Boot (real scorers) & Golden Glove (real clean sheets).",
+    "Live & outright prediction markets.",
+  ]},
+  { v:"0.8", date:"Jun 20, 2026", title:"Editorial & match centre", items:[
+    "Minute-by-minute play-by-play, VAR/official reviews, pregame previews & postgame reports with ratings.",
+    "Curated Newsroom feed; tap any match to open its match centre.",
+    "Weather per game, venue climate & fan/attendance context.",
+  ]},
+  { v:"0.7", date:"Jun 20, 2026", title:"App & iOS", items:[
+    "Installable PWA (Add to Home Screen, offline, self-updating).",
+    "iOS-native bottom nav + More menu, light/dark, safe-area layout, SVG flags.",
+    "Pull-to-refresh, skeleton loaders, score-change flash, sticky live mini-scoreboard.",
+    "Favourite-team mode — the home screen re-orients around your team.",
+  ]},
+];
+function viewWhatsNew(){
+  let html = `<div class="sec-title"><h2>What's new</h2><span class="meta">v${APP_VERSION}</span></div>`;
+  html += `<div class="banner" style="margin-bottom:14px">World Cup 2026 Live Hub — live scores, form-based predictions, full bracket, stats &amp; editorial. Updates auto-deploy; this log tracks the headline features.</div>`;
+  html += CHANGELOG.map(rel=>`
+    <div class="cl">
+      <div class="cl-head"><span class="cl-v">v${esc(rel.v)}</span><span class="cl-t">${esc(rel.title)}</span><span class="cl-d">${esc(rel.date)}</span></div>
+      <ul class="cl-list">${rel.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>
+    </div>`).join("");
+  html += `<p class="note">Modeled values (xG, ratings, VAR, weather, cards) are labelled in-app; scores, scorers, standings &amp; clean sheets are from live data.</p>`;
+  return html;
+}
+
+/* ---------- Launch / welcome splash (first visit) ---------- */
+function wireLaunch(){
+  const el = $("launch"); if(!el) return;
+  let seen; try{ seen = localStorage.getItem("wc26_welcomed"); }catch(e){ seen = "1"; }
+  const close = (goNews)=>{ try{ localStorage.setItem("wc26_welcomed", APP_VERSION); }catch(e){} el.hidden = true; if(goNews) go("whatsnew"); };
+  if(seen !== APP_VERSION) el.hidden = false;
+  const enter=$("launchEnter"), more=$("launchMore"), x=$("launchClose");
+  if(enter) enter.addEventListener("click", ()=>close(false));
+  if(more)  more.addEventListener("click", ()=>close(true));
+  if(x)     x.addEventListener("click", ()=>close(false));
+  el.addEventListener("click", e=>{ if(e.target===el) close(false); });
+}
+
 /* ---------- App shell ---------- */
-const VIEWS = {today:viewToday, live:viewCommentary, news:viewNews, schedule:viewSchedule, groups:viewGroups, bracket:viewBracket, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
+const VIEWS = {today:viewToday, live:viewCommentary, news:viewNews, schedule:viewSchedule, groups:viewGroups, bracket:viewBracket, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions, whatsnew:viewWhatsNew};
 const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"rating", cmtKey:null, fav:loadFav() };
 
 function render(){
@@ -1955,7 +2008,7 @@ function wireCmtChips(){
 const SECTIONS = [
   ["today","🏠","Home"],["live","🔴","Live"],["news","📰","News"],
   ["schedule","📅","Schedule"],["groups","📊","Groups"],["bracket","🏆","Bracket"],["teams","🌍","Teams"],
-  ["stats","📈","Players"],["awards","👟","Boot & Glove"],["venues","🏟️","Venues"],["predictions","💹","Odds"]
+  ["stats","📈","Players"],["awards","👟","Boot & Glove"],["venues","🏟️","Venues"],["predictions","💹","Odds"],["whatsnew","✨","What's new"]
 ];
 function syncNav(){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("is-active", b.dataset.view===state.view));
@@ -2060,6 +2113,7 @@ async function init(){
   wireTabs();
   wireFav();
   wireMore();
+  wireLaunch();
   initPullToRefresh();
   $("view").innerHTML = skeletonHTML();
   await loadData();
