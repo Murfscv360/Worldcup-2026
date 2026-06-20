@@ -1454,7 +1454,7 @@ function liveStatsPanel(){
         ${bar("Shots", st.shotsA, st.shotsB)}
         ${bar("Expected goals (xG)", st.xgA, st.xgB)}
         ${bar("Corners", st.corA, st.corB)}
-      </div>`:`<p class="note" style="text-align:center">⏳ This match is in progress. The openfootball feed posts the <b>final score after the match</b>, not minute-by-minute — so the live score and scorers will appear here as soon as the feed updates.</p>`}
+      </div>`:``}
       <div class="lo-top" style="margin-top:12px">${hasScore?"Live":"Pre-match"} win market</div>
       ${oddsRow}
       ${momentumBar(m)}
