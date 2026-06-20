@@ -152,6 +152,11 @@ table.stand tbody tr+tr td{border-top:1px solid rgba(38,49,90,.5)}
 .news-item .ni-text{font-weight:600;font-size:13.5px;line-height:1.35}
 .news-item .ni-meta{font-size:11px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.4px}
 
+/* Clickable news teasers */
+.news-link{width:100%;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.news-link:active{transform:scale(.995)}
+.meta-link{background:none;border:0;color:var(--accent2);font-size:12px;font-weight:700;cursor:pointer;padding:0}
+
 .empty{text-align:center;color:var(--muted);padding:40px 10px;font-size:13.5px}
 .app-footer{margin-top:26px;border-top:1px solid var(--line);padding:16px 0;color:var(--muted);font-size:11.5px}
 .app-footer p{margin:4px 0}
@@ -179,6 +184,7 @@ body{ padding-bottom:calc(72px + env(safe-area-inset-bottom)); overscroll-behavi
 /* Favourite picker sheet */
 .fav-sheet{position:fixed;inset:0;z-index:60;background:rgba(4,8,20,.6);backdrop-filter:blur(4px);
   display:flex;align-items:flex-end;justify-content:center}
+.fav-sheet[hidden]{display:none}   /* author display must not override the hidden attribute */
 .fav-panel{background:var(--bg2);border:1px solid var(--line);border-radius:18px 18px 0 0;width:100%;max-width:var(--maxw);
   max-height:80vh;display:flex;flex-direction:column;padding:14px;padding-bottom:calc(14px + env(safe-area-inset-bottom));animation:sheet .25s ease}
 @keyframes sheet{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
@@ -311,6 +317,26 @@ table.ptable tbody tr+tr td{border-top:1px solid rgba(38,49,90,.5)}
 
 .note{font-size:11px;color:var(--muted);font-style:italic;margin:6px 2px 14px}
 
+/* ---------- Smooth screen transitions & clear card definition ---------- */
+html{scroll-behavior:smooth}
+.view.swap{animation:fade .24s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){ .view,.view.swap{animation:none} html{scroll-behavior:auto} }
+/* Defined borders + subtle elevation so sections never blur together */
+.match,.report,.live-hero,.fav-banner,.gcard,.vcard,.award,.lodds,.tcard,.perf-row,
+.odds-row,.news-item,.ptable-wrap,.cd-box,.rp-motm,.rp-ratings{
+  box-shadow:0 1px 2px rgba(0,0,0,.28); border-color:var(--line);
+}
+.tab,.cmt-chip,.chipbtn{transition:background .15s ease,color .15s ease,border-color .15s ease}
+/* Guard against text overlap in tight header on small phones */
+.header-inner{gap:10px}
+.brand-text h1{white-space:nowrap}
+@media (max-width:380px){
+  .brand-text p{display:none}
+  .fav-btn span{max-width:54px}
+  .live-pill{padding:6px 9px}
+}
+
 /* ---------- Curated editorial report cards ---------- */
 .report{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:12px;position:relative;overflow:hidden}
 .report::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent2)}
@@ -370,6 +396,42 @@ input,select,button{ font-family:inherit }
   .flagimg{box-shadow:0 0 0 1px rgba(0,0,0,.12)}
 }
 
+/* =====================================================================
+   PROFESSIONAL POLISH — typography, micro-interactions, smooth effects
+   ===================================================================== */
+body{ letter-spacing:.1px; text-rendering:optimizeLegibility; -moz-osx-font-smoothing:grayscale }
+h1,h2,h3{ letter-spacing:-.2px } .rp-title{ letter-spacing:-.3px; text-wrap:balance }
+main{ scroll-padding-top:120px }
+
+/* Eyebrow accent bar on every section title for a designed, consistent rhythm */
+.sec-title h2{ position:relative; padding-left:13px }
+.sec-title h2::before{ content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
+  width:4px; height:15px; border-radius:3px; background:linear-gradient(180deg,var(--accent2),var(--accent)) }
+
+/* Smooth, tactile cards (hover lift on pointer devices, gentle press on touch) */
+.match,.report,.lodds,.vcard,.tcard,.perf-row,.news-link,.gcard,.award{
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease }
+@media (hover:hover){
+  .match:hover,.report:hover,.lodds:hover,.vcard:hover,.tcard:hover,.perf-row:hover,.news-link:hover{
+    transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.34); border-color:#3a4a86 }
+  .tab:hover{ color:var(--ink) }
+  .navbtn:hover{ color:var(--ink) }
+  .btn:hover, .fav-btn:hover{ filter:brightness(1.07) }
+  .meta-link:hover{ text-decoration:underline }
+}
+.match:active,.news-link:active,.report:active,.lodds:active{ transform:scale(.997) }
+
+/* Refined chrome */
+.app-header{ box-shadow:0 1px 0 rgba(255,255,255,.04), 0 6px 18px rgba(0,0,0,.18) }
+.brand-ball{ transition:transform .4s ease } .brand:hover .brand-ball{ transform:rotate(18deg) scale(1.06) }
+.tab.is-active{ box-shadow:0 4px 12px rgba(91,140,255,.35) }
+.badge{ box-shadow:0 1px 2px rgba(0,0,0,.2) }
+.sb-track i, .lo-cell .lc-bar i, .odds-row .bar i, .lc-bar i{ transition:width .6s cubic-bezier(.22,.61,.36,1) }
+
+/* Crisper focus states for accessibility (keyboard users) */
+:focus-visible{ outline:2px solid var(--accent2); outline-offset:2px; border-radius:8px }
+button{ -webkit-appearance:none; appearance:none }
+
 </style>
 </head>
 <body>
@@ -402,6 +464,7 @@ input,select,button{ font-family:inherit }
 <nav class="tabs" id="tabs">
   <button class="tab is-active" data-view="today">Today</button>
   <button class="tab" data-view="live">Live</button>
+  <button class="tab" data-view="news">News</button>
   <button class="tab" data-view="schedule">Schedule</button>
   <button class="tab" data-view="groups">Groups</button>
   <button class="tab" data-view="teams">Teams</button>
@@ -1651,17 +1714,13 @@ function viewToday(){
     html += `<div class="empty">No matches scheduled.</div>`;
   }
 
-  // 3) Curated newsroom — previews, match reports, analysis & briefings
-  const feed = newsroomFeed(7);
-  if(feed.length){
-    html += `<div class="sec-title"><h2>📰 The Newsroom</h2><span class="meta">curated · pre &amp; post-game</span></div>`;
-    html += feed.map(reportCard).join("");
-  }
+  // 3) Top stories — compact teasers; full coverage lives on the News page
+  html += topStories();
 
-  // 4) Latest results (full cards w/ scorers as commentary)
+  // 4) Latest results (kept short to avoid an endless page)
   if(recent.length){
     html += `<div class="sec-title"><h2>Latest results</h2><span class="meta">final scores</span></div>`;
-    html += recent.map(matchCard).join("");
+    html += recent.slice(0,3).map(matchCard).join("");
   }
 
   return html;
@@ -2290,7 +2349,7 @@ function viewCommentary(){
         <div class="tl-body">${e.type==="var"?'<span class="tl-tag">VAR</span>':""}${icon[e.type]||""} ${esc(e.text)}</div>
       </li>`).join("") + `</ul>`;
 
-  const revs = reviewsFeed().slice(0,12);
+  const revs = reviewsFeed().slice(0,6);
   if(revs.length){
     html += `<div class="sec-title"><h2>📺 Official reviews</h2><span class="meta">VAR · tournament</span></div>`;
     html += `<div class="news">` + revs.map(r=>`
@@ -2305,10 +2364,10 @@ function viewCommentary(){
 /* ---------- VIEW: Player performance stats ---------- */
 function viewStats(){
   const sortKey = state.statSort || "rating";
-  const rows = playerAgg().sort((a,b)=> (b[sortKey]||0)-(a[sortKey]||0) || b.goals-a.goals || a.name.localeCompare(b.name)).slice(0,30);
+  const rows = playerAgg().sort((a,b)=> (b[sortKey]||0)-(a[sortKey]||0) || b.goals-a.goals || a.name.localeCompare(b.name)).slice(0,20);
   const chips = [["rating","Rating"],["goals","Goals"],["assists","Assists"],["shots","Shots"],["passPct","Pass %"]]
     .map(([k,l])=>`<button class="chipbtn ${sortKey===k?"on":""}" data-sort="${k}">${l}</button>`).join("");
-  let html = `<div class="sec-title"><h2>Player performance</h2><span class="meta">top 30 · sortable</span></div>`;
+  let html = `<div class="sec-title"><h2>Player performance</h2><span class="meta">top 20 · sortable</span></div>`;
   html += `<div class="stat-controls">${chips}</div>`;
   if(!rows.length) return html + `<div class="empty">No player data yet.</div>`;
   const body = rows.map((p,i)=>`<tr>
@@ -2490,6 +2549,27 @@ function newsroomFeed(limit){
   return limit ? feed.slice(0,limit) : feed;
 }
 
+// Compact "Top stories" teaser for the Today page (full feed on the News tab).
+function topStories(){
+  const feed = newsroomFeed(3);
+  if(!feed.length) return "";
+  const ic = k => k==="MATCH REPORT"?"📝":k==="PREVIEW"?"🔮":"📣";
+  let h = `<div class="sec-title"><h2>📰 Top stories</h2><button class="meta-link" data-goto="news">All news ›</button></div>`;
+  h += `<div class="news">` + feed.map(r=>`<button class="news-item news-link" data-goto="news">
+      <span class="ni-ic">${ic(r.kind)}</span>
+      <div class="ni-body"><div class="ni-text">${esc(r.head)}</div>
+      <div class="ni-meta">${esc(r.kind)} · ${esc(r.when||"")}</div></div></button>`).join("") + `</div>`;
+  return h;
+}
+
+/* ---------- VIEW: News (full curated newsroom) ---------- */
+function viewNews(){
+  const feed = newsroomFeed(12);
+  let h = `<div class="sec-title"><h2>The Newsroom</h2><span class="meta">curated · pre &amp; post-game</span></div>`;
+  if(!feed.length) return h + `<div class="empty">No stories yet.</div>`;
+  return h + feed.map(reportCard).join("");
+}
+
 /* ---------- Favourite team ---------- */
 const TEAM_LIST = Object.keys(TEAMS).sort();
 function loadFav(){ try{ return localStorage.getItem("wc26_fav")||""; }catch(e){ return ""; } }
@@ -2583,16 +2663,28 @@ function tickDynamic(){
 }
 
 /* ---------- App shell ---------- */
-const VIEWS = {today:viewToday, live:viewCommentary, schedule:viewSchedule, groups:viewGroups, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
+const VIEWS = {today:viewToday, live:viewCommentary, news:viewNews, schedule:viewSchedule, groups:viewGroups, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
 const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"rating", cmtKey:null, fav:loadFav() };
 
 function render(){
   const fn = VIEWS[state.view];
-  $("view").innerHTML = fn ? fn(state) : "";
+  const v = $("view");
+  v.innerHTML = fn ? fn(state) : "";
+  // Re-trigger the fade only on an actual screen change (not the live refresh).
+  if(render.__last !== state.view){
+    v.classList.remove("swap"); void v.offsetWidth; v.classList.add("swap");
+    render.__last = state.view;
+  }
   if(state.view==="schedule") wireScheduleFilters();
   if(state.view==="stats") wireStatChips();
   if(state.view==="live")  wireCmtChips();
+  wireGoto();
   syncNav();
+}
+
+// Any element with data-goto switches view (used by "All news ›" and teasers).
+function wireGoto(){
+  document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.goto)));
 }
 
 function wireStatChips(){

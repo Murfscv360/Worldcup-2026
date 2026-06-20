@@ -325,17 +325,13 @@ function viewToday(){
     html += `<div class="empty">No matches scheduled.</div>`;
   }
 
-  // 3) Curated newsroom — previews, match reports, analysis & briefings
-  const feed = newsroomFeed(7);
-  if(feed.length){
-    html += `<div class="sec-title"><h2>📰 The Newsroom</h2><span class="meta">curated · pre &amp; post-game</span></div>`;
-    html += feed.map(reportCard).join("");
-  }
+  // 3) Top stories — compact teasers; full coverage lives on the News page
+  html += topStories();
 
-  // 4) Latest results (full cards w/ scorers as commentary)
+  // 4) Latest results (kept short to avoid an endless page)
   if(recent.length){
     html += `<div class="sec-title"><h2>Latest results</h2><span class="meta">final scores</span></div>`;
-    html += recent.map(matchCard).join("");
+    html += recent.slice(0,3).map(matchCard).join("");
   }
 
   return html;
@@ -964,7 +960,7 @@ function viewCommentary(){
         <div class="tl-body">${e.type==="var"?'<span class="tl-tag">VAR</span>':""}${icon[e.type]||""} ${esc(e.text)}</div>
       </li>`).join("") + `</ul>`;
 
-  const revs = reviewsFeed().slice(0,12);
+  const revs = reviewsFeed().slice(0,6);
   if(revs.length){
     html += `<div class="sec-title"><h2>📺 Official reviews</h2><span class="meta">VAR · tournament</span></div>`;
     html += `<div class="news">` + revs.map(r=>`
@@ -979,10 +975,10 @@ function viewCommentary(){
 /* ---------- VIEW: Player performance stats ---------- */
 function viewStats(){
   const sortKey = state.statSort || "rating";
-  const rows = playerAgg().sort((a,b)=> (b[sortKey]||0)-(a[sortKey]||0) || b.goals-a.goals || a.name.localeCompare(b.name)).slice(0,30);
+  const rows = playerAgg().sort((a,b)=> (b[sortKey]||0)-(a[sortKey]||0) || b.goals-a.goals || a.name.localeCompare(b.name)).slice(0,20);
   const chips = [["rating","Rating"],["goals","Goals"],["assists","Assists"],["shots","Shots"],["passPct","Pass %"]]
     .map(([k,l])=>`<button class="chipbtn ${sortKey===k?"on":""}" data-sort="${k}">${l}</button>`).join("");
-  let html = `<div class="sec-title"><h2>Player performance</h2><span class="meta">top 30 · sortable</span></div>`;
+  let html = `<div class="sec-title"><h2>Player performance</h2><span class="meta">top 20 · sortable</span></div>`;
   html += `<div class="stat-controls">${chips}</div>`;
   if(!rows.length) return html + `<div class="empty">No player data yet.</div>`;
   const body = rows.map((p,i)=>`<tr>
@@ -1164,6 +1160,27 @@ function newsroomFeed(limit){
   return limit ? feed.slice(0,limit) : feed;
 }
 
+// Compact "Top stories" teaser for the Today page (full feed on the News tab).
+function topStories(){
+  const feed = newsroomFeed(3);
+  if(!feed.length) return "";
+  const ic = k => k==="MATCH REPORT"?"📝":k==="PREVIEW"?"🔮":"📣";
+  let h = `<div class="sec-title"><h2>📰 Top stories</h2><button class="meta-link" data-goto="news">All news ›</button></div>`;
+  h += `<div class="news">` + feed.map(r=>`<button class="news-item news-link" data-goto="news">
+      <span class="ni-ic">${ic(r.kind)}</span>
+      <div class="ni-body"><div class="ni-text">${esc(r.head)}</div>
+      <div class="ni-meta">${esc(r.kind)} · ${esc(r.when||"")}</div></div></button>`).join("") + `</div>`;
+  return h;
+}
+
+/* ---------- VIEW: News (full curated newsroom) ---------- */
+function viewNews(){
+  const feed = newsroomFeed(12);
+  let h = `<div class="sec-title"><h2>The Newsroom</h2><span class="meta">curated · pre &amp; post-game</span></div>`;
+  if(!feed.length) return h + `<div class="empty">No stories yet.</div>`;
+  return h + feed.map(reportCard).join("");
+}
+
 /* ---------- Favourite team ---------- */
 const TEAM_LIST = Object.keys(TEAMS).sort();
 function loadFav(){ try{ return localStorage.getItem("wc26_fav")||""; }catch(e){ return ""; } }
@@ -1257,16 +1274,28 @@ function tickDynamic(){
 }
 
 /* ---------- App shell ---------- */
-const VIEWS = {today:viewToday, live:viewCommentary, schedule:viewSchedule, groups:viewGroups, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
+const VIEWS = {today:viewToday, live:viewCommentary, news:viewNews, schedule:viewSchedule, groups:viewGroups, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
 const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"rating", cmtKey:null, fav:loadFav() };
 
 function render(){
   const fn = VIEWS[state.view];
-  $("view").innerHTML = fn ? fn(state) : "";
+  const v = $("view");
+  v.innerHTML = fn ? fn(state) : "";
+  // Re-trigger the fade only on an actual screen change (not the live refresh).
+  if(render.__last !== state.view){
+    v.classList.remove("swap"); void v.offsetWidth; v.classList.add("swap");
+    render.__last = state.view;
+  }
   if(state.view==="schedule") wireScheduleFilters();
   if(state.view==="stats") wireStatChips();
   if(state.view==="live")  wireCmtChips();
+  wireGoto();
   syncNav();
+}
+
+// Any element with data-goto switches view (used by "All news ›" and teasers).
+function wireGoto(){
+  document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.goto)));
 }
 
 function wireStatChips(){
