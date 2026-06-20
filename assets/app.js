@@ -598,21 +598,49 @@ function projectedThirds(){
   });
   return (_projThirds = {assign, byGroup});
 }
+// Resolve ALL Round-of-32 slots once per render with guaranteed uniqueness, so
+// no team can ever occupy two R32 slots (which would put it on two bracket paths).
+let _r32map = null;
+function r32map(){
+  if(_r32map) return _r32map;
+  const map = {}, used = new Set();
+  const r32 = MATCHES.filter(m=>!m.group && m.round==="Round of 32").sort((a,b)=>(a.num||0)-(b.num||0));
+  const codes = [];
+  r32.forEach(m=>{ codes.push(String(m.team1)); codes.push(String(m.team2)); });
+  // 1) Confirmed real teams claim their slot first.
+  codes.forEach(c=>{ if(TEAMS[c] && !(c in map)){ map[c]=c; used.add(c); } });
+  // 2) Group winners / runners-up.
+  const thirdsCodes = [];
+  codes.forEach(c=>{
+    if(c in map) return;
+    const m = c.match(/^([12])([A-L])$/);
+    if(!m){ thirdsCodes.push(c); return; }
+    const ord = projectedStandings("Group "+m[2]).map(r=>r.t);
+    let t = ord[m[1]==="1"?0:1];
+    if(!t || used.has(t)) t = ord.find(x=>!used.has(x)) || t;
+    map[c]=t; used.add(t);
+  });
+  // 3) Best-third slots (deduped against everything already placed).
+  const {assign, byGroup} = projectedThirds();
+  const pool = [..."ABCDEFGHIJKL"].map(L=>projectedStandings("Group "+L)[2]).filter(Boolean).map(r=>r.t);
+  thirdsCodes.forEach(c=>{
+    if(c in map) return;
+    let t = byGroup[assign[c]];
+    if(!t || used.has(t)) t = pool.find(x=>!used.has(x)) || t;
+    if(t){ map[c]=t; used.add(t); }
+  });
+  return (_r32map = map);
+}
 // Resolve a placeholder/team code to {team, confirmed}. confirmed=true once the
 // matchup is officially announced (real team in the feed, or a played result).
 function resolveCode(code){
   code = String(code);
   if(TEAMS[code]) return {team:code, confirmed:true};
-  let m;
-  if(m = code.match(/^([12])([A-L])$/)){
-    const r = projectedStandings("Group "+m[2])[m[1]==="1"?0:1];
-    return r ? {team:r.t, confirmed:false} : null;
+  if(/^[12][A-L]$/.test(code) || (code[0]==="3" && code.includes("/"))){
+    const t = r32map()[code]; return t ? {team:t, confirmed:false} : null;
   }
-  if(code[0]==="3" && code.includes("/")){
-    const {assign, byGroup} = projectedThirds();
-    const g = assign[code]; return (g && byGroup[g]) ? {team:byGroup[g], confirmed:false} : null;
-  }
-  if(m = code.match(/^([WL])(\d+)$/)) return projOutcome(+m[2], m[1]==="L");
+  const m = code.match(/^([WL])(\d+)$/);
+  if(m) return projOutcome(+m[2], m[1]==="L");
   return null;
 }
 function projOutcome(num, wantLoser){
@@ -658,7 +686,7 @@ function bracketCard(m){
     </div>`;
 }
 function viewBracket(){
-  _projThirds = null; _teamRows = null;   // recompute projections from the latest standings
+  _projThirds = null; _teamRows = null; _r32map = null;   // recompute projections from the latest standings
   const order=[["Round of 32","Round of 32","c-r32"],["Round of 16","Round of 16","c-r16"],
     ["Quarter-final","Quarter-finals","c-qf"],["Semi-final","Semi-finals","c-sf"],["Final","Final","c-final"]];
   const present=order.filter(([r])=>MATCHES.some(m=>m.round===r));
