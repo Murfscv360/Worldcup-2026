@@ -579,3 +579,7 @@ details.pbp .timeline{padding:4px 14px 12px}
 .c-sf  .bcards .bcard{--ch:352px}
 .c-final .bcards .bcard{--ch:704px}
 .bracket{gap:22px}
+
+/* Bracket: locked (announced) ties */
+.bcard.is-set{border-color:rgba(61,220,151,.45)}
+.bset-tag{float:right;font-size:9px;font-weight:800;letter-spacing:.5px;color:var(--accent);background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.35);padding:1px 6px;border-radius:5px}
