@@ -21,6 +21,9 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Fetch live scores from worldcup26.ir
         id: fetch
         run: |
