@@ -486,6 +486,29 @@ function scenarioHTML(g){
   return `<div class="qual">${rows}</div>`;
 }
 
+/* ---------- Best 3rd-placed teams (8 of 12 advance) ---------- */
+function bestThirds(){
+  const thirds=[];
+  [..."ABCDEFGHIJKL"].forEach(L=>{
+    const rows=standings("Group "+L);
+    if(rows[2] && rows[2].P>0) thirds.push({...rows[2], group:L});
+  });
+  return thirds.sort((a,b)=> b.Pts-a.Pts || b.GD-a.GD || b.GF-a.GF || a.t.localeCompare(b.t));
+}
+function bestThirdsHTML(){
+  const t=bestThirds(); if(t.length<2) return "";
+  const rows=t.map((r,i)=>`<div class="qrow b3">
+      <span class="b3-rk ${i<8?'in':'out'}">${i+1}</span>
+      <span class="flag">${flag(r.t)}</span>
+      <span class="qnm">${esc(r.t)} <small>Grp ${r.group}</small></span>
+      <span class="b3-pts">${r.Pts}pt · ${r.GD>0?"+":""}${r.GD}</span>
+      <span class="qbadge ${i<8?'q-in':'q-out'}">${i<8?'Qualifies':'Out'}</span>
+    </div>`).join("");
+  return `<div class="sec-title"><h2>Best 3rd-placed</h2><span class="meta">8 of 12 advance</span></div>
+    <div class="qual b3wrap">${rows}</div>
+    <p class="note">Live ranking of teams currently 3rd in their group (Pts → GD → GF). The top 8 take the remaining Round-of-32 places.</p>`;
+}
+
 function viewGroups(){
   // Team performance leaders across all groups (with form guide)
   const leaders = allTeamRows().slice(0,8);
@@ -526,7 +549,42 @@ function viewGroups(){
     </div>`;
   });
   html += `</div>`;
+  html += bestThirdsHTML();
   html += `<p class="note">Scenarios enumerate all remaining group results; tiebreakers simplified (Pts → GD → GF). Best-3rd places are decided across all 12 groups.</p>`;
+  return html;
+}
+
+/* ---------- VIEW: Knockout bracket ---------- */
+function bracketCard(m){
+  const t1=teamLabel(m.team1), t2=teamLabel(m.team2);
+  const sc=(m.score && Array.isArray(m.score.ft)) ? m.score.ft : null;
+  const d=kickoffDate(m), st=status(m);
+  const w1=sc&&sc[0]>sc[1], w2=sc&&sc[1]>sc[0];
+  const when = st==="live" ? `<span class="blive">🔴 ${(liveClock(m)||{}).label||"Live"}</span>`
+    : sc ? "Full-time"
+    : d ? `${etFmt.format(d)} ET · ${new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d)}`
+    : "TBD";
+  const row=(t,s,win)=>`<div class="brow ${win?"bw":""} ${t.placeholder?"bph":""}">
+      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}</span><span class="bsc">${s??""}</span></div>`;
+  return `<div class="bcard tappable" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
+      ${row(t1, sc?sc[0]:null, w1)}
+      ${row(t2, sc?sc[1]:null, w2)}
+      <div class="bfoot">${when}</div>
+    </div>`;
+}
+function viewBracket(){
+  const rounds=[["Round of 32","Round of 32"],["Round of 16","Round of 16"],["Quarter-final","Quarter-finals"],
+    ["Semi-final","Semi-finals"],["Match for third place","3rd place"],["Final","Final"]];
+  const present=rounds.filter(([r])=>MATCHES.some(m=>m.round===r));
+  let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
+  if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
+  html+=`<div class="bracket">`;
+  present.forEach(([r,label])=>{
+    const ms=MATCHES.filter(m=>m.round===r).sort(sortByKick);
+    html+=`<div class="bcol"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div>${ms.map(bracketCard).join("")}</div>`;
+  });
+  html+=`</div>`;
+  html+=`<p class="note">Matchups resolve automatically as group placings and knockout results come in.</p>`;
   return html;
 }
 
@@ -1134,6 +1192,11 @@ function viewCommentary(){
     .sort((a,b)=>b.d-a.d).slice(0,10).map(x=>x.m);
   const next = MATCHES.map(m=>({m,d:kickoffDate(m)})).filter(x=>x.d && x.d.getTime()>Date.now()).sort((a,b)=>a.d-b.d).slice(0,3).map(x=>x.m);
   const cands = [...live, ...done, ...next];
+  // Make an explicitly opened match (e.g. a bracket fixture) selectable.
+  if(state.cmtKey){
+    const opened = MATCHES.find(x=>matchKey(x)===state.cmtKey);
+    if(opened && !cands.some(c=>matchKey(c)===state.cmtKey)) cands.unshift(opened);
+  }
   if(!cands.length) return `<div class="empty">No matches to show yet.</div>`;
 
   if(!state.cmtKey || !cands.some(m=>matchKey(m)===state.cmtKey)) state.cmtKey = matchKey(cands[0]);
@@ -1511,7 +1574,7 @@ function tickDynamic(){
 }
 
 /* ---------- App shell ---------- */
-const VIEWS = {today:viewToday, live:viewCommentary, news:viewNews, schedule:viewSchedule, groups:viewGroups, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
+const VIEWS = {today:viewToday, live:viewCommentary, news:viewNews, schedule:viewSchedule, groups:viewGroups, bracket:viewBracket, teams:viewTeams, stats:viewStats, awards:viewAwards, venues:viewVenues, predictions:viewPredictions};
 const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"rating", cmtKey:null, fav:loadFav() };
 
 function render(){
@@ -1559,8 +1622,8 @@ function wireCmtChips(){
 // Every section, in menu order (used by the bottom "More" menu).
 const SECTIONS = [
   ["today","🏠","Home"],["live","🔴","Live"],["news","📰","News"],
-  ["schedule","📅","Schedule"],["groups","📊","Groups"],["teams","🌍","Teams"],
-  ["stats","📈","Players"],["awards","🏆","Boot & Glove"],["venues","🏟️","Venues"],["predictions","💹","Odds"]
+  ["schedule","📅","Schedule"],["groups","📊","Groups"],["bracket","🏆","Bracket"],["teams","🌍","Teams"],
+  ["stats","📈","Players"],["awards","👟","Boot & Glove"],["venues","🏟️","Venues"],["predictions","💹","Odds"]
 ];
 function syncNav(){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("is-active", b.dataset.view===state.view));
