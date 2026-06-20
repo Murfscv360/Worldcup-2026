@@ -2214,7 +2214,7 @@ function viewBracket(){
   html += `<div class="bracket">`;
   present.forEach(([r,label,cls])=>{
     const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));
-    html += `<div class="bcol ${cls}"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div><div class="bcards">${ms.map(bracketCard).join("")}</div></div>`;
+    html += `<div class="bcol ${cls}" data-round="${esc(r)}"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div><div class="bcards">${ms.map(bracketCard).join("")}</div></div>`;
   });
   html += `</div>`;
   const tp = MATCHES.find(m=>m.round==="Match for third place");
@@ -3214,18 +3214,33 @@ const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"ratin
 function render(){
   const fn = VIEWS[state.view];
   const v = $("view");
+  const entering = render.__last !== state.view;   // a real screen change (not a live refresh)
   v.innerHTML = fn ? fn(state) : "";
-  // Re-trigger the fade only on an actual screen change (not the live refresh).
-  if(render.__last !== state.view){
+  if(entering){
     v.classList.remove("swap"); void v.offsetWidth; v.classList.add("swap");
     render.__last = state.view;
   }
   if(state.view==="schedule") wireScheduleFilters();
   if(state.view==="stats") wireStatChips();
   if(state.view==="live")  wireCmtChips();
+  if(state.view==="bracket" && entering) requestAnimationFrame(scrollBracketToCurrent);
   wireGoto();
   wireOpenMatch();
   syncNav();
+}
+
+// Scroll the bracket to the current round (first round with an unfinished tie).
+function scrollBracketToCurrent(){
+  const wrap = document.querySelector(".bracket"); if(!wrap) return;
+  const order = ["Round of 32","Round of 16","Quarter-final","Semi-final","Final"];
+  let target = null;
+  for(const r of order){
+    const ms = MATCHES.filter(m=>m.round===r);
+    if(ms.length && !ms.every(m=>m.score && Array.isArray(m.score.ft))){ target = r; break; }
+  }
+  if(!target) order.forEach(r=>{ if(MATCHES.some(m=>m.round===r)) target = r; });   // all played → last round
+  const col = target && wrap.querySelector(`.bcol[data-round="${target}"]`);
+  if(col) wrap.scrollTo({ left: Math.max(0, col.offsetLeft - 10), behavior:"smooth" });
 }
 
 // Any element with data-goto switches view (used by "All news ›" and teasers).
