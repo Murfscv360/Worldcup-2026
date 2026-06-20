@@ -1,0 +1,63 @@
+name: Mirror live scores
+
+# Fetches worldcup26.ir/get/games SERVER-SIDE every few minutes and publishes the
+# result as live.json on the `scores` branch. The app reads that file from its own
+# CDN origin (raw.githubusercontent) so live scores are always reachable in the
+# browser — no CORS, geo-blocking or third-party-uptime problems for visitors.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes (GitHub's minimum granularity)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-scores
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch live scores from worldcup26.ir
+        id: fetch
+        run: |
+          set +e
+          for attempt in 1 2 3; do
+            curl -fsSL --max-time 25 \
+              -H 'Accept: application/json' \
+              -H 'User-Agent: Mozilla/5.0 (compatible; wc2026-hub mirror)' \
+              "https://worldcup26.ir/get/games" -o live.json
+            if [ $? -eq 0 ] && [ -s live.json ]; then
+              break
+            fi
+            echo "attempt $attempt failed, retrying…"
+            sleep $((attempt * 3))
+          done
+          # Validate it is JSON and actually contains games before publishing.
+          if node -e "const d=require('./live.json'); const g=Array.isArray(d)?d:d.games; if(!Array.isArray(g)||!g.length) process.exit(1);"; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Fetched payload was empty or invalid — keeping previous mirror."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to scores branch
+        if: steps.fetch.outputs.ok == 'true'
+        run: |
+          ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          git config user.name  "wc2026-bot"
+          git config user.email "wc2026-bot@users.noreply.github.com"
+          # Build an orphan-style scores branch holding only live.json (+ a stamp).
+          mkdir -p /tmp/scores && cp live.json /tmp/scores/live.json
+          echo "{\"mirrored_at\":\"$ts\"}" > /tmp/scores/updated.json
+          git checkout --orphan scores-tmp
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          rm -rf $(git ls-files) 2>/dev/null || true
+          cp /tmp/scores/live.json live.json
+          cp /tmp/scores/updated.json updated.json
+          git add live.json updated.json
+          git commit -m "Live scores mirror @ $ts" --quiet
+          git push -f origin scores-tmp:scores

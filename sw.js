@@ -3,7 +3,7 @@
    updates to the latest deploy when online, and still works offline from cache. */
 'use strict';
 
-const CACHE = 'wc2026-v2';
+const CACHE = 'wc2026-v3';
 const SHELL = [
   './', 'index.html',
   'assets/styles.css', 'assets/app.js',

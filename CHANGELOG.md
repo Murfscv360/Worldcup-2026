@@ -4,7 +4,9 @@ Headline features by release. Modeled values (xG, ratings, VAR, weather, cards)
 are labelled in‑app; scores, scorers, standings & clean sheets come from live data.
 
 ## v1.0 — Live launch (Jun 20, 2026)
-- Real **live scores & scorers** overlaid from worldcup26.ir (polls every 60s; openfootball schedule + bundled snapshot fallback).
+- Real **live scores & scorers** overlaid from worldcup26.ir (polls every 15s; openfootball schedule + bundled snapshot fallback).
+- **Always-on score mirror** — a scheduled GitHub Action fetches the feed server-side and republishes it on our own CDN origin, so live scores stay reachable even when the source is slow or geo-blocked in a visitor's browser.
+- **Instant refresh on reopen** — the app re-pulls scores the moment it returns to the foreground (no waiting for the next poll after iOS suspends background timers).
 - Live match **hero**: score, clock, possession/shots/xG/corners, win‑probability bar & momentum.
 - **Knockout bracket projected on current form** — predicted scorelines, ⚪ penalty ties, connector lines, auto‑scroll to the current round, unique R32 resolution, lock‑on‑announce.
 - **Predicted champion** banner + your favourite team's **highlighted path** to the final.
