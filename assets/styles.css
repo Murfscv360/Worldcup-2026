@@ -589,3 +589,16 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bracket .brow.bw .bsc.pred{opacity:1;color:#fff}
 .bpen-tag{font-size:9px;font-weight:800;letter-spacing:.3px;color:var(--warn);background:rgba(255,181,71,.14);border:1px solid rgba(255,181,71,.35);padding:1px 6px;border-radius:5px;margin-left:6px}
 .bracket .bfoot{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+
+/* ---------- Cards & discipline ---------- */
+table.ptable .yk{display:inline-block;min-width:16px;font-weight:800;color:#0b1020;background:var(--warn);border-radius:3px;font-size:11px;padding:0 4px}
+table.ptable .rk2{display:inline-block;min-width:16px;font-weight:800;color:#fff;background:var(--live);border-radius:3px;font-size:11px;padding:0 4px}
+.qrow.disc{grid-template-columns:22px 1fr auto auto;gap:9px}
+.qrow.disc .qnm small{color:var(--muted);font-weight:600}
+.qrow.disc .cards{font-size:12px;letter-spacing:1px;white-space:nowrap}
+.qbadge.d-yellow{background:rgba(255,181,71,.16);color:var(--warn);border:1px solid rgba(255,181,71,.35)}
+.qbadge.d-red{background:rgba(255,77,98,.16);color:#ff8092;border:1px solid rgba(255,77,98,.35)}
+.tl-card .tl-body{font-weight:700}
+
+/* Live match with no feed score yet */
+.score-pending{color:var(--muted);font-weight:800;letter-spacing:1px}
