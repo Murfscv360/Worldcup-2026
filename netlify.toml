@@ -1,0 +1,22 @@
+# Netlify deployment configuration — World Cup 2026 Live Hub
+# Static site, no build step. The repository root is the publish directory.
+
+[build]
+  publish = "."
+  command = ""
+
+# Long-cache the static assets; always revalidate the data snapshot & HTML.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60, must-revalidate"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
