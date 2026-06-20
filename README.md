@@ -52,6 +52,14 @@ is involved — just save and view.
 > Service workers require HTTPS, so install from the hosted URL (Netlify /
 > GitHub Pages / githack), not from a local `file://` copy.
 
+## Live scores
+
+In‑progress scores are overlaid from the community API
+[`worldcup26.ir`](https://github.com/rezarahiminia/worldcup2026) (`/get/games`,
+open CORS, no key) on top of the schedule below — so a live match shows the real
+running score, scorers, and a live flag. If that API is unreachable it silently
+falls back to the schedule feed, so the site always renders.
+
 ## How the data stays current
 
 Match results, scores and scorers are loaded **at runtime in the visitor's browser** from
