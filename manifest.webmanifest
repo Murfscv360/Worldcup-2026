@@ -1,0 +1,17 @@
+{
+  "name": "World Cup 2026 — Live Hub",
+  "short_name": "WC 2026",
+  "description": "Live 2026 FIFA World Cup hub: scores, play-by-play, reviews, stats, Golden Boot & Glove, odds, weather and your favourite team.",
+  "lang": "en",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "categories": ["sports", "news"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

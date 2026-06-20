@@ -38,6 +38,17 @@ static site with no build step and no API keys.
 > values (xG, ratings, VAR decisions, weather, attendance) are **modeled in-browser and
 > labelled as such** — see the roadmap for connecting a live-stats provider.
 
+## Install to your Home Screen (PWA — no app store, no build)
+
+The site is a Progressive Web App. On **iOS Safari**: open the hosted URL, tap
+**Share → Add to Home Screen**. It launches full-screen (no browser chrome) via
+a service worker that caches the app shell, so it opens instantly and works
+offline. On Android/Chrome you'll get an **Install** prompt. No EAS/native build
+is involved — just save and view.
+
+> Service workers require HTTPS, so install from the hosted URL (Netlify /
+> GitHub Pages / githack), not from a local `file://` copy.
+
 ## How the data stays current
 
 Match results, scores and scorers are loaded **at runtime in the visitor's browser** from
