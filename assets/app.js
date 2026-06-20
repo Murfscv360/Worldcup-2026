@@ -1308,9 +1308,28 @@ function wireCmtChips(){
     state.cmtKey=b.dataset.cmt; render(); window.scrollTo({top:0});
   }));
 }
+// Every section, in menu order (used by the bottom "More" menu).
+const SECTIONS = [
+  ["today","🏠","Home"],["live","🔴","Live"],["news","📰","News"],
+  ["schedule","📅","Schedule"],["groups","📊","Groups"],["teams","🌍","Teams"],
+  ["stats","📈","Players"],["awards","🏆","Boot & Glove"],["venues","🏟️","Venues"],["predictions","💹","Odds"]
+];
 function syncNav(){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("is-active", b.dataset.view===state.view));
-  document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("on", b.dataset.view===state.view));
+  const primary = [];
+  document.querySelectorAll(".navbtn[data-view]").forEach(b=>{ primary.push(b.dataset.view); b.classList.toggle("on", b.dataset.view===state.view); });
+  const more = $("moreBtn"); if(more) more.classList.toggle("on", !primary.includes(state.view));
+  document.querySelectorAll(".more-item").forEach(b=>b.classList.toggle("on", b.dataset.view===state.view));
+}
+function wireMore(){
+  const sheet=$("moreSheet"), btn=$("moreBtn"), close=$("moreClose"), list=$("moreList");
+  if(list){
+    list.innerHTML = SECTIONS.map(([v,ic,l])=>`<button class="more-item" data-view="${v}"><span class="mi-ic">${ic}</span><span>${esc(l)}</span></button>`).join("");
+    list.querySelectorAll(".more-item").forEach(b=>b.addEventListener("click",()=>{ sheet.hidden=true; go(b.dataset.view); }));
+  }
+  if(btn) btn.addEventListener("click", ()=>{ syncNav(); sheet.hidden=false; });
+  if(close) close.addEventListener("click", ()=>{ sheet.hidden=true; });
+  if(sheet) sheet.addEventListener("click", e=>{ if(e.target===sheet) sheet.hidden=true; });
 }
 
 function wireScheduleFilters(){
@@ -1351,6 +1370,7 @@ const editingSchedule = () => state.view==="schedule" && $("schQ") && document.a
 async function init(){
   wireTabs();
   wireFav();
+  wireMore();
   $("view").innerHTML = `<div class="empty">Loading the latest scores…</div>`;
   await loadData();
   setLive();

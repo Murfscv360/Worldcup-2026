@@ -180,6 +180,13 @@ body{ padding-bottom:calc(72px + env(safe-area-inset-bottom)); overscroll-behavi
 .fav-item.on{border-color:var(--accent2);background:var(--card2)}
 .fav-item .flag{font-size:20px}
 
+/* "More" menu (full section switcher from the bottom bar) */
+.more-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.more-item{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);color:var(--ink);
+  border-radius:12px;padding:14px 13px;font-size:14px;font-weight:700;cursor:pointer;text-align:left;transition:.15s}
+.more-item.on{border-color:var(--accent2);background:var(--card2);color:var(--accent2)}
+.more-item .mi-ic{font-size:20px;line-height:1}
+
 /* iOS bottom navigation */
 .bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:space-around;
   background:rgba(11,16,32,.92);backdrop-filter:blur(14px);border-top:1px solid var(--line);
