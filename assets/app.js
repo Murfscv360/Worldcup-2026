@@ -406,6 +406,86 @@ function viewSchedule(state){
   return html;
 }
 
+/* ---------- Group qualification scenarios ("advance if…") ----------
+   Format: top 2 of each group + 8 best 3rd-placed teams reach the Round of 32.
+   We enumerate every remaining group result (representative 1–0 / 0–0 lines for
+   tiebreak GD/GF) and read each team's possible finishing range. Tiebreakers
+   are simplified (Pts → GD → GF). */
+function groupTeams(g){
+  const s=[]; MATCHES.filter(m=>m.group===g).forEach(m=>[m.team1,m.team2].forEach(t=>{ if(TEAMS[t]&&!s.includes(t)) s.push(t); }));
+  return s;
+}
+function remainingGroupMatches(g){
+  return MATCHES.filter(m=>m.group===g && !(m.score && Array.isArray(m.score.ft)));
+}
+function _applyRes(tbl,t1,t2,a,b){
+  const A=tbl[t1], B=tbl[t2]; if(!A||!B) return;
+  A.GF+=a; B.GF+=b; A.GD+=a-b; B.GD+=b-a;
+  if(a>b) A.Pts+=3; else if(b>a) B.Pts+=3; else { A.Pts++; B.Pts++; }
+}
+function scenarioTable(g, rem, combo){
+  const tbl={}; groupTeams(g).forEach(t=>tbl[t]={t,Pts:0,GD:0,GF:0});
+  MATCHES.filter(m=>m.group===g && m.score && Array.isArray(m.score.ft))
+    .forEach(m=>_applyRes(tbl,m.team1,m.team2,m.score.ft[0],m.score.ft[1]));
+  rem.forEach((m,i)=>{ const o=combo[i]; const [a,b]= o==="H"?[1,0]:o==="A"?[0,1]:[0,0]; _applyRes(tbl,m.team1,m.team2,a,b); });
+  return Object.values(tbl).sort((x,y)=> y.Pts-x.Pts || y.GD-x.GD || y.GF-x.GF || x.t.localeCompare(y.t));
+}
+function allCombos(n){
+  let out=[[]];
+  for(let i=0;i<n;i++){ const nx=[]; out.forEach(s=>["H","D","A"].forEach(o=>nx.push([...s,o]))); out=nx; }
+  return out;
+}
+function groupScenarios(g){
+  const teams=groupTeams(g); if(teams.length<4) return {};
+  const rem=remainingGroupMatches(g);
+  const res={};
+  if(rem.length===0){
+    scenarioTable(g,[],[]).forEach((r,i)=>{ res[r.t]= i<2 ? {label:"Through (top 2)",cls:"q-in"} : i===2 ? {label:"3rd — best-third contention",cls:"q-maybe"} : {label:"Eliminated",cls:"q-out"}; });
+    return res;
+  }
+  const combos=allCombos(rem.length);
+  const pos={}; teams.forEach(t=>pos[t]=[]);
+  combos.forEach(c=>{ scenarioTable(g,rem,c).forEach((r,i)=>pos[r.t].push(i+1)); });
+  teams.forEach(t=>{
+    const min=Math.min(...pos[t]), max=Math.max(...pos[t]);
+    if(max<=2) res[t]={label:"Through to Round of 32",cls:"q-in"};
+    else if(min>=4) res[t]={label:"Eliminated",cls:"q-out"};
+    else if(min>=3) res[t]={label:"Out of top 2 — needs a best-3rd spot",cls:"q-maybe"};
+    else res[t]={label:conditionLabel(g,t,rem),cls:"q-cond"};
+  });
+  return res;
+}
+function conditionLabel(g,t,rem){
+  const idx=rem.findIndex(m=>m.team1===t||m.team2===t);
+  if(idx<0) return "Final spot depends on other results";
+  const isHome=rem[idx].team1===t;
+  const combos=allCombos(rem.length);
+  const guarantees=(need)=>{
+    let any=false, all=true;
+    for(const c of combos){
+      const o=c[idx];
+      const r = o==="D" ? "draw" : ((o==="H")===isHome ? "win" : "loss");
+      const ok = need==="win" ? r==="win" : need==="avoid" ? r!=="loss" : false;
+      if(!ok) continue;
+      any=true;
+      const tbl=scenarioTable(g,rem,c);
+      if(tbl.findIndex(x=>x.t===t)+1 > 2){ all=false; break; }
+    }
+    return any && all;
+  };
+  if(guarantees("avoid")) return "Advance (top 2) with a win or draw";
+  if(guarantees("win"))   return "Must win to control top-2 spot";
+  return "Win and depend on other results";
+}
+function scenarioHTML(g){
+  const sc=groupScenarios(g); const order=standings(g).map(r=>r.t);
+  if(!order.length) return "";
+  const rows = order.map(t=>{ const s=sc[t]; if(!s) return "";
+    return `<div class="qrow"><span class="flag">${flag(t)}</span><span class="qnm">${esc(t)}</span><span class="qbadge ${s.cls}">${esc(s.label)}</span></div>`;
+  }).join("");
+  return `<div class="qual">${rows}</div>`;
+}
+
 function viewGroups(){
   // Team performance leaders across all groups (with form guide)
   const leaders = allTeamRows().slice(0,8);
@@ -422,7 +502,7 @@ function viewGroups(){
       </div>`).join("") + `</div>`;
   }
 
-  html += `<div class="sec-title"><h2>Groups &amp; standings</h2><span class="meta">Top 2 + best thirds advance</span></div>`;
+  html += `<div class="sec-title"><h2>Groups &amp; standings</h2><span class="meta">Top 2 + 8 best 3rds advance</span></div>`;
   html += `<div class="grid two">`;
   [..."ABCDEFGHIJKL"].forEach(L=>{
     const g="Group "+L;
@@ -441,9 +521,12 @@ function viewGroups(){
         <thead><tr><th></th><th style="text-align:left">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF:GA</th><th>GD</th><th>Pts</th></tr></thead>
         <tbody>${body}</tbody>
       </table>
+      <div class="qual-head">Qualification — advance if…</div>
+      ${scenarioHTML(g)}
     </div>`;
   });
   html += `</div>`;
+  html += `<p class="note">Scenarios enumerate all remaining group results; tiebreakers simplified (Pts → GD → GF). Best-3rd places are decided across all 12 groups.</p>`;
   return html;
 }
 

@@ -514,3 +514,15 @@ details.pbp .timeline{padding:4px 14px 12px}
   color:var(--ink);font-size:13px;font-weight:700;padding:10px 16px;border-radius:999px;
   box-shadow:0 8px 24px rgba(0,0,0,.5);opacity:0;transition:opacity .25s ease,transform .25s ease;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- Group qualification scenarios ---------- */
+.qual-head{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:11px 13px 4px}
+.qual{padding:0 11px 11px;display:flex;flex-direction:column;gap:6px}
+.qrow{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:9px;font-size:12px}
+.qrow .flag{font-size:18px}
+.qrow .qnm{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qbadge{font-size:10px;font-weight:800;letter-spacing:.2px;padding:4px 8px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+.qbadge.q-in{background:rgba(61,220,151,.16);color:var(--accent);border-color:rgba(61,220,151,.35)}
+.qbadge.q-cond{background:rgba(91,140,255,.16);color:#9db8ff;border-color:rgba(91,140,255,.35)}
+.qbadge.q-maybe{background:rgba(255,181,71,.16);color:var(--warn);border-color:rgba(255,181,71,.35)}
+.qbadge.q-out{background:rgba(255,77,98,.14);color:#ff8092;border-color:rgba(255,77,98,.3)}
