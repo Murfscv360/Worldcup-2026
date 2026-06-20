@@ -583,3 +583,9 @@ details.pbp .timeline{padding:4px 14px 12px}
 /* Bracket: locked (announced) ties */
 .bcard.is-set{border-color:rgba(61,220,151,.45)}
 .bset-tag{float:right;font-size:9px;font-weight:800;letter-spacing:.5px;color:var(--accent);background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.35);padding:1px 6px;border-radius:5px}
+
+/* Bracket: predicted scores + penalties */
+.bracket .bsc.pred{font-style:italic;opacity:.85;font-weight:700}
+.bracket .brow.bw .bsc.pred{opacity:1;color:#fff}
+.bpen-tag{font-size:9px;font-weight:800;letter-spacing:.3px;color:var(--warn);background:rgba(255,181,71,.14);border:1px solid rgba(255,181,71,.35);padding:1px 6px;border-radius:5px;margin-left:6px}
+.bracket .bfoot{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
