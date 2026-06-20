@@ -198,13 +198,14 @@ function matchCard(m){
   }[st];
   const topLeft = m.group ? esc(m.group) : esc(m.round||"");
   const w1 = sc && sc[0]>sc[1], w2 = sc && sc[1]>sc[0];
+  const fl = scoreFlash(matchKey(m), sc);   // flashes both scores when the line changes
 
   const teamRow = (t,i,win,loss) =>
     `<div class="rows">
        <div class="team ${win?'win':''} ${loss?'loss':''}">
          <span class="flag">${t.flag}</span><span class="name">${esc(t.name)}</span>
        </div>
-       ${sc ? `<span class="score ${live?'':''}">${sc[i]}</span>` : `<span class="score dim">–</span>`}
+       ${sc ? `<span class="score${fl}">${sc[i]}</span>` : `<span class="score dim">–</span>`}
      </div>`;
 
   const kick = d
@@ -815,6 +816,73 @@ function reviewsFeed(){
   return out.sort((a,b)=> (b.d?b.d.getTime():0)-(a.d?a.d.getTime():0));
 }
 
+/* ---------- Score-change flash tracking ---------- */
+const prevScores = {};
+function scoreFlash(key, sc){
+  if(!sc) return "";
+  const cur = sc.join("-"), prev = prevScores[key];
+  prevScores[key] = cur;
+  return (prev!==undefined && prev!==cur) ? " flashed" : "";
+}
+
+/* ---------- Skeleton loader (perceived speed, no layout shift) ---------- */
+function skeletonHTML(){
+  const card = `<div class="skel-card">
+    <div class="skel-line w40"></div>
+    <div class="skel-row"></div><div class="skel-row"></div>
+    <div class="skel-line w60"></div></div>`;
+  return `<div class="sec-title"><h2 class="skel-line w30" style="height:16px"></h2></div>` + card.repeat(4);
+}
+
+/* ---------- Win-probability series (real goal timeline drives it) ---------- */
+function winProbAt(m, minute, s1, s2){
+  const sA = strengthOf(m.team1), sB = strengthOf(m.team2);
+  const pa = sA/(sA+sB);
+  let draw = 0.27 - Math.abs(pa-0.5)*0.18;
+  const rem = Math.max(0, (95-minute)/95);
+  const diff = s1-s2;
+  let d = draw*rem*0.9 + (diff===0?0.06:0.01);
+  let h = Math.max(0.01, pa + diff*(1-rem)*0.55 + diff*0.12);
+  let a = Math.max(0.01, (1-pa) - (diff*(1-rem)*0.55 + diff*0.12));
+  const rest = 1-d, tot = h+a; h = rest*h/tot; a = rest*a/tot;
+  const t2 = h+d+a; return h/t2*100;
+}
+function winProbSeries(m){
+  const goals = [];
+  (m.goals1||[]).forEach(g=>goals.push({mn:parseInt(g.minute)||0, side:1}));
+  (m.goals2||[]).forEach(g=>goals.push({mn:parseInt(g.minute)||0, side:2}));
+  const st = status(m), cl = liveClock(m);
+  const end = st==="live" ? (cl?cl.min:0) : ((m.score && Array.isArray(m.score.ft)) ? 90 : 0);
+  if(end < 5) return null;
+  const step = Math.max(5, Math.round(end/12));
+  const pts = [];
+  for(let t=0; t<=end; t+=step){
+    let s1=0, s2=0; goals.forEach(g=>{ if(g.mn<=t){ g.side===1?s1++:s2++; } });
+    pts.push({t, h:winProbAt(m,t,s1,s2)});
+  }
+  let s1=0,s2=0; goals.forEach(g=>{ if(g.mn<=end){ g.side===1?s1++:s2++; } });
+  pts.push({t:end, h:winProbAt(m,end,s1,s2)});
+  return pts;
+}
+function winProbSparkline(m){
+  const s = winProbSeries(m); if(!s || s.length<2) return "";
+  const W=320, H=56, pad=5, maxT=s[s.length-1].t||1;
+  const x = t => pad + (t/maxT)*(W-2*pad);
+  const y = h => pad + (1-h/100)*(H-2*pad);
+  const line = s.map(p=>`${x(p.t).toFixed(1)},${y(p.h).toFixed(1)}`).join(" ");
+  const area = `${x(0)},${y(0)} ` + line + ` ${x(maxT)},${y(0)}`;
+  const last = s[s.length-1], t1 = teamLabel(m.team1).name;
+  return `<div class="wp">
+    <div class="wp-head"><span>📈 Win probability · ${flag(m.team1)} ${esc(t1)}</span><b>${last.h.toFixed(0)}%</b></div>
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="wp-svg" aria-hidden="true">
+      <polygon points="${area}" class="wp-fill"/>
+      <line x1="${pad}" y1="${y(50).toFixed(1)}" x2="${W-pad}" y2="${y(50).toFixed(1)}" class="wp-base"/>
+      <polyline points="${line}" class="wp-line"/>
+    </svg>
+    <div class="wp-foot"><span>KO</span><span>${status(m)==="live"?"now":"FT"}</span></div>
+  </div>`;
+}
+
 /* ---------- Pick the most relevant match for the live hero ---------- */
 function focusMatch(){
   if(focusMatch.__forced){
@@ -860,7 +928,7 @@ function liveStatsPanel(){
       <div class="lh-top"><span>🔴 Live · ${esc(m.group||m.round||"")}</span><span class="lh-min" data-liveclock="${d?d.getTime():0}">${cl?cl.label:"LIVE"}</span></div>
       <div class="lh-teams">
         <div class="lh-team"><span class="flag">${t1.flag}</span><span class="nm">${esc(t1.name)}</span></div>
-        <div class="lh-score">${st.sc[0]} – ${st.sc[1]}<small>${esc(venueShort(m.ground))}</small></div>
+        <div class="lh-score${scoreFlash("hero:"+matchKey(m), st.sc)}">${st.sc[0]} – ${st.sc[1]}<small>${esc(venueShort(m.ground))}</small></div>
         <div class="lh-team"><span class="flag">${t2.flag}</span><span class="nm">${esc(t2.name)}</span></div>
       </div>
       <div class="statbars">
@@ -960,8 +1028,20 @@ function viewCommentary(){
   const sc=(sel.score&&Array.isArray(sel.score.ft))?sel.score.ft:null;
   const badge = {live:'<span class="badge live">● Live</span>',ft:'<span class="badge ft">Full-time</span>',soon:'<span class="badge soon">Upcoming</span>',sched:'<span class="badge sched">Scheduled</span>'}[st];
 
-  let html = `<div class="sec-title"><h2>Live commentary &amp; reviews</h2><span class="meta">tap a match</span></div>`;
+  const cl = liveClock(sel);
+  const clockTxt = st==="live" ? (cl?cl.label:"LIVE") : st==="ft" ? "FT" : (kickoffDate(sel)?etFmt.format(kickoffDate(sel))+" ET":"");
+
+  let html = `<div class="sec-title"><h2>Match centre</h2><span class="meta">tap a match</span></div>`;
   html += `<div class="cmt-pick">${chips}</div>`;
+
+  // Sticky mini-scoreboard — stays pinned while you scroll the timeline.
+  html += `<div class="mini-score${st==="live"?" live":""}">
+      <span class="ms-team">${t1.flag} ${esc(t1.name)}</span>
+      <span class="ms-score${scoreFlash("mini:"+matchKey(sel), sc)}">${sc?`${sc[0]}–${sc[1]}`:"vs"}</span>
+      <span class="ms-team right">${esc(t2.name)} ${t2.flag}</span>
+      <span class="ms-clock"${st==="live"&&kickoffDate(sel)?` data-liveclock="${kickoffDate(sel).getTime()}"`:""}>${esc(clockTxt)}</span>
+    </div>`;
+
   html += `<div class="match" style="margin-bottom:14px">
       <div class="top"><span>${esc(sel.group||sel.round||"")}</span>${badge}</div>
       <div class="lh-teams" style="margin:4px 0">
@@ -970,6 +1050,9 @@ function viewCommentary(){
         <div class="lh-team"><span class="flag">${t2.flag}</span><span class="nm">${esc(t2.name)}</span></div>
       </div>
     </div>`;
+
+  // Win-probability sparkline (live or finished) from the real goal timeline.
+  html += winProbSparkline(sel);
 
   // Curated preview (pregame) or professional review (postgame).
   if(st!=="live") html += reportCard(reportFor(sel));
@@ -1412,7 +1495,7 @@ async function init(){
   wireTabs();
   wireFav();
   wireMore();
-  $("view").innerHTML = `<div class="empty">Loading the latest scores…</div>`;
+  $("view").innerHTML = skeletonHTML();
   await loadData();
   setLive();
   render();
