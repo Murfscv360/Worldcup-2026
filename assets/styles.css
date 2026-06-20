@@ -551,3 +551,9 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bcard .bfoot{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--muted);font-weight:700}
 .bcard .blive{color:var(--live)}
 @media (hover:hover){ .bcard:hover{border-color:#3a4a86;transform:translateY(-2px);transition:.18s} }
+
+/* ---------- Bracket projections ---------- */
+.bcard.is-proj{border-style:dashed;border-color:#3a4675}
+.brow.bpr .bnm{color:#aebbe6;font-style:italic;font-weight:600}
+.bproj-tag{float:right;font-size:9px;font-weight:800;letter-spacing:.5px;color:#9db8ff;background:rgba(91,140,255,.16);border:1px solid rgba(91,140,255,.35);padding:1px 6px;border-radius:5px}
+.bpr-key{display:inline-block;margin-left:4px;color:#9db8ff;font-weight:700;font-size:11px}
