@@ -560,24 +560,28 @@ details.pbp .timeline{padding:4px 14px 12px}
 
 /* ---------- Bracket connectors (wall-chart layout) ----------
    Columns share a fixed height so each tie sits centred between its two
-   feeders; --ch per round = the vertical distance between those feeders. */
-.bracket .bcol{flex:0 0 226px;min-width:226px}
-.bracket .bcards{display:flex;flex-direction:column;justify-content:space-around;height:1408px}
-.bracket .bcard{height:72px;margin:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-.bracket .bcard .brow{padding:1px 0}
-.bracket .bcard .bfoot{margin-top:3px;padding-top:3px}
-.bracket .bcard .bnm{font-size:12.5px}
+   feeders; --ch per round = the vertical distance between those feeders.
+   Card height & column height are scaled together so the connector geometry
+   (centre-to-centre spacing = column height ÷ ties) stays exact. */
 
 /* connector pieces */
 .bconn{display:none}
+.bracket .bcol{flex:0 0 256px;min-width:256px}
+.bracket .bcards{display:flex;flex-direction:column;justify-content:space-around;height:2176px}
+.bracket .bcard{height:124px;margin:0;display:flex;flex-direction:column;justify-content:center;overflow:visible;position:relative}
+.bracket .bcard .brow{padding:1px 0}
+.bracket .bcard .bfoot{margin-top:3px;padding-top:3px}
+/* Team names wrap (up to 2 lines) instead of being cut off with an ellipsis. */
+.bracket .bcard .bnm{font-size:12.5px;white-space:normal;line-height:1.15;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .bracket .bcol:not(.c-r32) .bconn{display:block;position:absolute;left:-11px;top:50%;width:11px;height:var(--ch,0);transform:translateY(-50%);pointer-events:none}
 .bracket .bconn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line)}   /* vertical spine between the two feeders */
 .bracket .bconn::after{content:"";position:absolute;left:0;top:50%;width:11px;height:2px;background:var(--line)} /* stub into this card */
 .bracket .bcol:not(.c-final) .bcards .bcard::after{content:"";position:absolute;left:100%;top:50%;width:11px;height:2px;background:var(--line)} /* feeder stub out */
-.c-r16 .bcards .bcard{--ch:88px}
-.c-qf  .bcards .bcard{--ch:176px}
-.c-sf  .bcards .bcard{--ch:352px}
-.c-final .bcards .bcard{--ch:704px}
+.c-r16 .bcards .bcard{--ch:136px}
+.c-qf  .bcards .bcard{--ch:272px}
+.c-sf  .bcards .bcard{--ch:544px}
+.c-final .bcards .bcard{--ch:1088px}
 .bracket{gap:22px}
 
 /* Bracket: locked (announced) ties */
