@@ -1,13 +1,21 @@
 name: Mirror live scores
 
-# Fetches worldcup26.ir/get/games SERVER-SIDE every few minutes and publishes the
-# result as live.json on the `scores` branch. The app reads that file from its own
-# CDN origin (raw.githubusercontent) so live scores are always reachable in the
-# browser — no CORS, geo-blocking or third-party-uptime problems for visitors.
+# Keeps an always-on, same-origin copy of live scores for the web app.
+#
+# GitHub's cron is best-effort and often only fires a "*/5" schedule every
+# 60-90 min, which is far too slow for live matches. So instead of doing one
+# fetch per run, each run holds a long-lived POLL LOOP: it fetches
+# worldcup26.ir every 30s for ~55 minutes and republishes live.json to the
+# `scores` branch whenever the scores actually change. The schedule just needs
+# to (re)start a loop roughly once an hour; cancel-in-progress means a newer
+# run always replaces an older loop so only one is active.
+#
+# The app reads live.json from our own CDN origin (raw.githubusercontent) so
+# live scores are always reachable in the browser — no CORS/geo/uptime issues.
 
 on:
   schedule:
-    - cron: '*/5 * * * *'   # every 5 minutes (GitHub's minimum granularity)
+    - cron: '*/5 * * * *'   # best-effort; really fires ~hourly, restarts the loop
   workflow_dispatch:
 
 permissions:
@@ -15,52 +23,56 @@ permissions:
 
 concurrency:
   group: live-scores
-  cancel-in-progress: false
+  cancel-in-progress: true   # a fresh run replaces the running loop
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch live scores from worldcup26.ir
-        id: fetch
+      - name: Prepare publish branch
         run: |
-          set +e
-          for attempt in 1 2 3; do
-            curl -fsSL --max-time 25 \
-              -H 'Accept: application/json' \
-              -H 'User-Agent: Mozilla/5.0 (compatible; wc2026-hub mirror)' \
-              "https://worldcup26.ir/get/games" -o live.json
-            if [ $? -eq 0 ] && [ -s live.json ]; then
-              break
-            fi
-            echo "attempt $attempt failed, retrying…"
-            sleep $((attempt * 3))
-          done
-          # Validate it is JSON and actually contains games before publishing.
-          if node -e "const d=require('./live.json'); const g=Array.isArray(d)?d:d.games; if(!Array.isArray(g)||!g.length) process.exit(1);"; then
-            echo "ok=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "Fetched payload was empty or invalid — keeping previous mirror."
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Publish to scores branch
-        if: steps.fetch.outputs.ok == 'true'
-        run: |
-          ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           git config user.name  "wc2026-bot"
           git config user.email "wc2026-bot@users.noreply.github.com"
-          # Build an orphan-style scores branch holding only live.json (+ a stamp).
-          mkdir -p /tmp/scores && cp live.json /tmp/scores/live.json
-          echo "{\"mirrored_at\":\"$ts\"}" > /tmp/scores/updated.json
-          git checkout --orphan scores-tmp
-          git rm -rf --cached . >/dev/null 2>&1 || true
-          rm -rf $(git ls-files) 2>/dev/null || true
-          cp /tmp/scores/live.json live.json
-          cp /tmp/scores/updated.json updated.json
-          git add live.json updated.json
-          git commit -m "Live scores mirror @ $ts" --quiet
-          git push -f origin scores-tmp:scores
+          git checkout --orphan scores-pub
+          git reset -q            # unstage repo files; commit only the score files
+
+      - name: Poll & mirror live scores (~55 min loop)
+        run: |
+          SOURCE="https://worldcup26.ir/get/games"
+          END=$((SECONDS + 3300))   # ~55 minutes, then the run ends and a new one starts
+          last=""
+          while :; do
+            if curl -fsSL --max-time 25 \
+                 -H 'Accept: application/json' \
+                 -H 'User-Agent: Mozilla/5.0 (compatible; wc2026-hub mirror)' \
+                 "$SOURCE" -o /tmp/new.json; then
+              # Only publish valid payloads that actually contain games.
+              if node -e "const d=require('/tmp/new.json');const g=Array.isArray(d)?d:d.games;if(!Array.isArray(g)||!g.length)process.exit(1);" 2>/dev/null; then
+                cur=$(sha256sum /tmp/new.json | cut -d' ' -f1)
+                if [ "$cur" != "$last" ]; then
+                  ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+                  cp /tmp/new.json live.json
+                  echo "{\"mirrored_at\":\"$ts\"}" > updated.json
+                  git add -f live.json updated.json
+                  git commit -q -m "Live scores @ $ts"
+                  for try in 1 2 3; do
+                    git push -f origin scores-pub:scores && break
+                    git fetch -q origin || true
+                    sleep $((try * 2))
+                  done
+                  last=$cur
+                  echo "published $ts"
+                fi
+              else
+                echo "$(date -u +%H:%M:%S) payload empty/invalid — keeping previous mirror"
+              fi
+            else
+              echo "$(date -u +%H:%M:%S) fetch failed — keeping previous mirror"
+            fi
+            [ $SECONDS -ge $END ] && break
+            sleep 30
+          done

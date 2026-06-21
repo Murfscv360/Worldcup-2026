@@ -155,6 +155,17 @@ async function fetchWC26(){
   return null;
 }
 // Overlay real scores/scorers + live status onto the loaded schedule.
+// Feed state per game: `finished` is "TRUE"/"FALSE"; `time_elapsed` is
+// "notstarted", "finished", or an in-play value (minute number, "1H"/"2H"/"HT",
+// or "live"). Treat anything that isn't clearly not-started/finished as LIVE so
+// in-progress scores are never missed regardless of how the feed labels them.
+function wcState(g){
+  if(String(g.finished).toUpperCase()==="TRUE") return "ft";
+  const te = String(g.time_elapsed==null?"":g.time_elapsed).trim().toLowerCase();
+  if(!te || te==="notstarted" || te==="not started" || te==="scheduled" ||
+     te==="postponed" || te==="finished" || te==="ft" || te==="null") return "sched";
+  return "live";
+}
 function overlayWC26(games){
   LIVE_KEYS = new Set(); FIN_KEYS = new Set();
   WC_LOADED = !!games;
@@ -165,15 +176,16 @@ function overlayWC26(games){
     const A=g.home_team_name_en, B=g.away_team_name_en;
     if(!A || !B) return;
     const k = pairKey(A,B); byPair[k]=g;
-    const st = String(g.time_elapsed||"").toLowerCase();
-    if(st==="live") LIVE_KEYS.add(k);
-    else if(String(g.finished).toUpperCase()==="TRUE") FIN_KEYS.add(k);
+    const stt = wcState(g);
+    if(stt==="live") LIVE_KEYS.add(k);
+    else if(stt==="ft") FIN_KEYS.add(k);
   });
   MATCHES.forEach(m=>{
     if(!TEAMS[m.team1] || !TEAMS[m.team2]) return;     // skip knockout placeholders
     const g = byPair[pairKey(m.team1,m.team2)]; if(!g) return;
-    const live = String(g.time_elapsed||"").toLowerCase()==="live";
-    const fin  = String(g.finished).toUpperCase()==="TRUE";
+    const stt = wcState(g);
+    const live = stt==="live";
+    const fin  = stt==="ft";
     if(!(live || fin)) return;
     const h=parseInt(g.home_score)||0, a=parseInt(g.away_score)||0;
     const homeIsT1 = fixName(g.home_team_name_en)===m.team1;
