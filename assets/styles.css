@@ -608,6 +608,20 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bcard.is-marquee{border-color:rgba(255,209,102,.45)}
 .bcard.is-blockbuster{border-color:rgba(255,140,66,.6);box-shadow:0 0 0 1px rgba(255,140,66,.35),0 2px 10px rgba(255,140,66,.18)}
 
+/* ---------- Key group-stage matchups (home page) ---------- */
+.keymatch-wrap{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.keymatch .km-teams{display:flex;align-items:center;gap:10px;margin:10px 0 4px}
+.keymatch .km-team{display:flex;align-items:center;gap:8px;flex:1;min-width:0;font-weight:800;font-size:15px}
+.keymatch .km-team.km-away{justify-content:flex-end;text-align:right}
+.keymatch .km-team .flag{font-size:22px;flex:none}
+.keymatch .km-nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.keymatch .km-v{color:var(--muted);font-weight:700;font-size:12px;flex:none}
+.kmbill{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:2px 8px;border-radius:6px}
+.kmbill.featured{color:var(--accent2);background:rgba(91,140,255,.14);border:1px solid rgba(91,140,255,.35)}
+.kmbill.marquee{color:#ffe08a;background:rgba(255,209,102,.14);border:1px solid rgba(255,209,102,.4)}
+.kmbill.blockbuster{color:#0b1020;background:linear-gradient(90deg,var(--gold),#ff8c42);border:1px solid transparent;box-shadow:0 0 12px rgba(255,140,66,.35)}
+.keymatch.is-blockbuster,.keymatch:has(.kmbill.blockbuster){border-color:rgba(255,140,66,.55)}
+
 /* ---------- Cards & discipline ---------- */
 table.ptable .yk{display:inline-block;min-width:16px;font-weight:800;color:#0b1020;background:var(--warn);border-radius:3px;font-size:11px;padding:0 4px}
 table.ptable .rk2{display:inline-block;min-width:16px;font-weight:800;color:#fff;background:var(--live);border-radius:3px;font-size:11px;padding:0 4px}

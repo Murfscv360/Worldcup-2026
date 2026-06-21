@@ -375,6 +375,44 @@ function matchCard(m){
   </div>`;
 }
 
+// Compact "key matchup" card for the marquee group-stage fixtures on the home page.
+function keyMatchCard(m, bill){
+  const t1 = teamLabel(m.team1), t2 = teamLabel(m.team2), d = kickoffDate(m);
+  const when = d ? `${dayLabelET(d)} · ${etFmt.format(d)} ET` : "TBD";
+  return `<div class="match tappable keymatch" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
+    <div class="top"><span>${esc(m.group||"")}</span><span class="kmbill ${bill.tier}">${bill.label}</span></div>
+    <div class="km-teams">
+      <span class="km-team"><span class="flag">${t1.flag}</span><span class="km-nm">${esc(t1.name)}</span></span>
+      <span class="km-v">v</span>
+      <span class="km-team km-away"><span class="km-nm">${esc(t2.name)}</span><span class="flag">${t2.flag}</span></span>
+    </div>
+    <div class="foot"><span class="kick">${when}</span><span>📍 ${esc(venueShort(m.ground))}</span></div>
+  </div>`;
+}
+// The standout upcoming group-stage fixtures for the home page. Ranks every
+// to-come group game by appeal (combined current form, rewarding balanced
+// clashes of strong sides) and surfaces the best few — the very top pairings
+// carry the 🔥 Blockbuster / ⭐ Marquee billing, the rest are Featured.
+function groupAppeal(m){
+  const fa = formScore(m.team1), fb = formScore(m.team2);
+  return (fa + fb) - Math.abs(fa - fb);   // both sides strong AND balanced scores highest
+}
+function keyGroupMatchups(excludeKeys){
+  const now = Date.now();
+  const cand = MATCHES
+    .filter(m=> m.group && TEAMS[m.team1] && TEAMS[m.team2])
+    .filter(m=> !(m.score && Array.isArray(m.score.ft)) && status(m)!=="ft" && status(m)!=="live")
+    .map(m=> ({m, d:kickoffDate(m)}))
+    .filter(x=> x.d && x.d.getTime()>now && !(excludeKeys&&excludeKeys.has(matchKey(x.m))));
+  if(!cand.length) return "";
+  cand.sort((a,b)=> groupAppeal(b.m) - groupAppeal(a.m) || a.d - b.d);
+  const top = cand.slice(0,4)
+    .map(x=> ({...x, bill: tieBilling(x.m.team1,x.m.team2) || {tier:"featured", label:"Featured"}}))
+    .sort((a,b)=> a.d - b.d);   // show the chosen ones in kickoff order
+  return `<div class="sec-title"><h2>⭐ Key group-stage matchups</h2><span class="meta">must-watch fixtures</span></div>`
+    + `<div class="keymatch-wrap">${top.map(x=>keyMatchCard(x.m, x.bill)).join("")}</div>`;
+}
+
 function scorersHTML(m){
   const fmt = arr => (arr||[]).map(g=>`${esc(g.name)} ${esc(g.minute)}'${g.penalty?" (P)":g.owngoal?" (OG)":""}`).join(", ");
   const a=fmt(m.goals1), b=fmt(m.goals2);
@@ -472,6 +510,11 @@ function viewToday(){
   } else if(!liveNow.length){
     html += `<div class="empty">No matches scheduled.</div>`;
   }
+
+  // 2b) Key group-stage matchups still to come (marquee / blockbuster pairings),
+  // skipping anything already shown live or in today's/next slate above.
+  const shown = new Set([...liveNow, ...todays, ...next].map(matchKey));
+  html += keyGroupMatchups(shown);
 
   // 3) Top stories — compact teasers; full coverage lives on the News page
   html += topStories();
