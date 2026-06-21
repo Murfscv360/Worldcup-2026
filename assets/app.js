@@ -884,15 +884,19 @@ function bracketCard(m){
     : projected ? "Predicted"
     : d ? `${etFmt.format(d)} ET · ${new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d)}`
     : "TBD";
-  const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""} ${fav&&t.name===fav?"fav-row":""}">
-      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
+  // "Firm" = a confirmed selection (real team in the feed or a played result):
+  // marked with a ★ and shown in the firm colour.
+  const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""} ${t.conf?"bfirm":""} ${fav&&t.name===fav?"fav-row":""}">
+      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}${t.conf?'<span class="bfirm-star" title="Confirmed selection">★</span>':""}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
   const tag = projected ? '<span class="bproj-tag">PROJ</span>' : locked ? '<span class="bset-tag">🔒 SET</span>' : "";
   const penNote = pred && pred.pens ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens → ${esc(pred.winner)}</span>` : "";
+  const v = VENUES[m.ground];
+  const loc = m.ground ? `<span class="bloc" title="${esc(v ? v.s+" · "+v.city : m.ground)}">📍 ${esc(venueShort(m.ground))}</span>` : "";
   return `<div class="bcard tappable ${projected?"is-proj":""} ${locked?"is-set":""} ${onPath?"fav-path":""}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
       <i class="bconn" aria-hidden="true"></i>
       ${row(t1, s1, w1, pw1)}
       ${row(t2, s2, w2, pw2)}
-      <div class="bfoot">${when}${penNote}${tag}</div>
+      <div class="bfoot">${when}${loc}${penNote}${tag}</div>
     </div>`;
 }
 function viewBracket(){
@@ -902,7 +906,7 @@ function viewBracket(){
   let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
   html += championBanner();
-  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties. <span class="bpr-key">dashed = predicted</span>; it adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
+  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>; it adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
   html += `<div class="bracket">`;
   present.forEach(([r,label,cls])=>{
     const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));

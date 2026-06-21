@@ -589,6 +589,12 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bracket .brow.bw .bsc.pred{opacity:1;color:#fff}
 .bpen-tag{font-size:9px;font-weight:800;letter-spacing:.3px;color:var(--warn);background:rgba(255,181,71,.14);border:1px solid rgba(255,181,71,.35);padding:1px 6px;border-radius:5px;margin-left:6px}
 .bracket .bfoot{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+/* Bracket: game location */
+.bloc{font-size:10px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+/* Bracket: firm (confirmed) selections — ★ + distinct colour.
+   The favourite row (gold, defined later) still overrides this. */
+.brow.bfirm .bnm{color:var(--accent)}
+.bfirm-star{color:var(--gold);font-size:11px;margin-left:4px;vertical-align:1px}
 
 /* ---------- Cards & discipline ---------- */
 table.ptable .yk{display:inline-block;min-width:16px;font-weight:800;color:#0b1020;background:var(--warn);border-radius:3px;font-size:11px;padding:0 4px}
