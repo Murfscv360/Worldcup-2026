@@ -810,16 +810,34 @@ function projOutcome(num, wantLoser){
 function projTeam(code){ const r = resolveCode(code); return r ? r.team : null; }   // compat
 
 // Predict a knockout scoreline from current form. Scores align to team1(a)/
-// team2(b); the winner always matches the higher-form team that advances.
+// team2(b); the winner is the higher-form side that advances in the bracket.
+//
+// Model: each side's form rating (formScore — pre-tournament strength regressed
+// to in-tournament points/GD/GF) is turned into an expected-goals figure that
+// rises with the gap over the opponent and is damped down for knockout football
+// (low-scoring). A deterministic hash then samples a Poisson count per side, so
+// scorelines vary realistically with the actual mismatch — a near-even tie may
+// finish 1-0 or go to penalties, while a big gap can yield 3-0 or 4-1.
+function clampN(lo, x, hi){ return Math.max(lo, Math.min(hi, x)); }
+function poissonInv(lambda, u){            // inverse-CDF Poisson sample from u∈[0,1)
+  let p = Math.exp(-lambda), cum = p, k = 0;
+  while(u > cum && k < 8){ k++; p *= lambda/k; cum += p; }
+  return k;
+}
 function predictTie(m, a, b){
-  const fa = formScore(a), fb = formScore(b), favA = fa>=fb, fd = Math.abs(fa-fb);
-  const r = hash((m.num||0)+"|"+a+"|"+b);
-  let favG, dogG, pens=false;
-  if(fd < 0.6){ favG = dogG = 1 + Math.floor(r*2); pens = true; }       // tight → draw, penalties
-  else {
-    favG = Math.min(3, 1 + Math.floor(r*2 + Math.min(fd*0.4, 1.6)));
-    dogG = Math.max(0, favG - 1 - Math.floor(Math.min(fd*0.5, 1)));
-    if(favG === dogG) dogG = Math.max(0, favG-1);
+  const fa = formScore(a), fb = formScore(b), favA = fa >= fb;
+  const diff = Math.abs(fa - fb);                          // form gap, >= 0
+  // Expected goals: favourite climbs with the gap, underdog falls; both damped.
+  const lamFav = clampN(0.45, 1.30 * Math.exp(0.17 * diff), 3.3);
+  const lamDog = clampN(0.20, 1.15 * Math.exp(-0.20 * diff), 2.6);
+  const rFav = hash((m.num||0) + "|F|" + a + "|" + b);
+  const rDog = hash((m.num||0) + "|D|" + a + "|" + b);
+  let favG = poissonInv(lamFav, rFav);
+  let dogG = poissonInv(lamDog, rDog);
+  let pens = false;
+  if(dogG >= favG){            // level after 90/120 on the night → settled on penalties
+    dogG = favG;
+    pens = true;
   }
   const winner = favA ? a : b;
   return favA ? {a:favG, b:dogG, pens, winner} : {a:dogG, b:favG, pens, winner};
