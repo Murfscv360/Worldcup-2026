@@ -2070,11 +2070,16 @@ function render(){
   const v = $("view");
   _projThirds = _teamRows = _r32map = _formRank = null;        // fresh projections every render
   const entering = render.__last !== state.view;   // a real screen change (not a live refresh)
+  // Preserve the bracket's horizontal scroll across live re-renders so manually
+  // scrolling right to later rounds doesn't snap back to the current round.
+  const keepBracketScroll = (state.view==="bracket" && !entering)
+    ? ((document.querySelector(".bracket")||{}).scrollLeft || 0) : null;
   v.innerHTML = fn ? fn(state) : "";
   if(entering){
     v.classList.remove("swap"); void v.offsetWidth; v.classList.add("swap");
     render.__last = state.view;
   }
+  if(keepBracketScroll){ const nb = document.querySelector(".bracket"); if(nb) nb.scrollLeft = keepBracketScroll; }
   if(state.view==="schedule") wireScheduleFilters();
   if(state.view==="stats") wireStatChips();
   if(state.view==="live")  wireCmtChips();
