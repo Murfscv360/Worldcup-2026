@@ -723,6 +723,28 @@ function formScore(t){
   const w = Math.min(1, r.P/3) * 0.65;                              // up to 65% on form after 3 games
   return prior*(1-w) + form*w;
 }
+// Rank every nation by current form (1 = best) so ties can be billed relative
+// to the field rather than against fixed numbers.
+let _formRank = null;
+function formRankMap(){
+  if(_formRank) return _formRank;
+  const ranked = Object.keys(TEAMS).map(t=>[t, formScore(t)]).sort((a,b)=>b[1]-a[1]);
+  const m = {}; ranked.forEach(([t],i)=>{ m[t]=i+1; });
+  return (_formRank = m);
+}
+// "Masterful pairing" billing: flag knockout ties where two in-form, high-quality
+// sides could meet — the matchups fans would most anticipate. Blockbuster = two
+// top-6 sides in a balanced clash; Marquee = both inside the top 12 on form.
+function tieBilling(a, b){
+  if(!TEAMS[a] || !TEAMS[b]) return null;
+  const rk = formRankMap(), ra = rk[a], rb = rk[b];
+  if(!ra || !rb) return null;
+  const worse = Math.max(ra, rb);                 // both must be strong → weaker side's rank
+  const gap = Math.abs(formScore(a) - formScore(b));
+  if(worse <= 6 && gap <= 1.4) return {tier:"blockbuster", label:"🔥 Blockbuster"};
+  if(worse <= 12) return {tier:"marquee", label:"⭐ Marquee tie"};
+  return null;
+}
 // Standings ordered with a form/strength tiebreak so every position resolves
 // even before games are played.
 function projectedStandings(g){
@@ -876,6 +898,8 @@ function bracketCard(m){
   const locked = !sc && !projected && t1.conf && t2.conf;   // matchup announced, not yet played
   // Predicted scoreline for any unplayed tie where both teams are known.
   const pred = (!sc && !t1.ph && !t2.ph) ? predictTie(m, t1.name, t2.name) : null;
+  // Marquee/blockbuster billing for an anticipated pairing of in-form sides.
+  const bill = (!sc && !t1.ph && !t2.ph) ? tieBilling(t1.name, t2.name) : null;
   let s1 = sc ? sc[0] : (pred ? pred.a : null);
   let s2 = sc ? sc[1] : (pred ? pred.b : null);
   const pw1 = pred && pred.winner===t1.name, pw2 = pred && pred.winner===t2.name;
@@ -892,8 +916,10 @@ function bracketCard(m){
   const penNote = pred && pred.pens ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens → ${esc(pred.winner)}</span>` : "";
   const v = VENUES[m.ground];
   const loc = m.ground ? `<span class="bloc" title="${esc(v ? v.s+" · "+v.city : m.ground)}">📍 ${esc(venueShort(m.ground))}</span>` : "";
-  return `<div class="bcard tappable ${projected?"is-proj":""} ${locked?"is-set":""} ${onPath?"fav-path":""}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
+  const billRibbon = bill ? `<div class="bbill ${bill.tier}" title="A masterful pairing on current form — highly anticipated if it lands">${bill.label}</div>` : "";
+  return `<div class="bcard tappable ${projected?"is-proj":""} ${locked?"is-set":""} ${onPath?"fav-path":""} ${bill?"is-"+bill.tier:""}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
       <i class="bconn" aria-hidden="true"></i>
+      ${billRibbon}
       ${row(t1, s1, w1, pw1)}
       ${row(t2, s2, w2, pw2)}
       <div class="bfoot">${when}${loc}${penNote}${tag}</div>
@@ -906,7 +932,7 @@ function viewBracket(){
   let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
   html += championBanner();
-  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>; it adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
+  html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>. <b>🔥 Blockbuster</b> / <b>⭐ Marquee</b> flag masterful, highly-anticipated pairings of in-form sides. It adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
   html += `<div class="bracket">`;
   present.forEach(([r,label,cls])=>{
     const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));
@@ -2042,7 +2068,7 @@ const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"ratin
 function render(){
   const fn = VIEWS[state.view];
   const v = $("view");
-  _projThirds = _teamRows = _r32map = null;        // fresh projections every render
+  _projThirds = _teamRows = _r32map = _formRank = null;        // fresh projections every render
   const entering = render.__last !== state.view;   // a real screen change (not a live refresh)
   v.innerHTML = fn ? fn(state) : "";
   if(entering){
