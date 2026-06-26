@@ -968,17 +968,39 @@ function bracketCard(m){
       <div class="bfoot">${when}${loc}${penNote}${tag}</div>
     </div>`;
 }
+// Vertical display order for each knockout column. The fixture numbering is NOT
+// sequential down the bracket (e.g. R16 #89 is fed by R32 #74 & #77), so sorting
+// a column by match number misaligns ties with the connectors that feed them.
+// Instead order every match by a DFS of the bracket tree from the Final, so each
+// tie sits directly between (and centred over) its two feeders.
+let _bracketSeq = null;
+function bracketSeq(){
+  if(_bracketSeq) return _bracketSeq;
+  const byNum = {}; MATCHES.forEach(m=>{ if(m.num!=null) byNum[m.num]=m; });
+  const ord = {}; let leaf = 0; const seen = new Set();
+  (function dfs(num){
+    if(seen.has(num)) return; seen.add(num);
+    const m = byNum[num]; if(!m) return;
+    const kids = [m.team1,m.team2].map(c=>{ const mm=String(c).match(/^W(\d+)$/); return mm?+mm[1]:null; });
+    if(kids[0]==null && kids[1]==null){ ord[num]=leaf++; return; }   // leaf = first knockout round
+    let first = null;
+    kids.forEach(k=>{ if(k!=null){ dfs(k); if(first==null) first=ord[k]; } });
+    ord[num] = first!=null ? first : leaf++;
+  })((MATCHES.find(m=>m.round==="Final")||{}).num);
+  return (_bracketSeq = ord);
+}
 function viewBracket(){
   const order=[["Round of 32","Round of 32","c-r32"],["Round of 16","Round of 16","c-r16"],
     ["Quarter-final","Quarter-finals","c-qf"],["Semi-final","Semi-finals","c-sf"],["Final","Final","c-final"]];
   const present=order.filter(([r])=>MATCHES.some(m=>m.round===r));
+  const seq=bracketSeq();
   let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
   html += championBanner();
   html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>. <b>🔥 Blockbuster</b> / <b>⭐ Marquee</b> flag masterful, highly-anticipated pairings of in-form sides. It adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
   html += `<div class="bracket">`;
   present.forEach(([r,label,cls])=>{
-    const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(a.num||0)-(b.num||0));
+    const ms=MATCHES.filter(m=>m.round===r).sort((a,b)=>(seq[a.num]??a.num)-(seq[b.num]??b.num));
     html += `<div class="bcol ${cls}" data-round="${esc(r)}"><div class="bcol-h">${esc(label)} <span>${ms.length}</span></div><div class="bcards">${ms.map(bracketCard).join("")}</div></div>`;
   });
   html += `</div>`;
@@ -2111,7 +2133,7 @@ const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"ratin
 function render(){
   const fn = VIEWS[state.view];
   const v = $("view");
-  _projThirds = _teamRows = _r32map = _formRank = null;        // fresh projections every render
+  _projThirds = _teamRows = _r32map = _formRank = _bracketSeq = null;        // fresh projections every render
   const entering = render.__last !== state.view;   // a real screen change (not a live refresh)
   // Preserve the bracket's horizontal scroll across live re-renders so manually
   // scrolling right to later rounds doesn't snap back to the current round.
