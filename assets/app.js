@@ -552,7 +552,10 @@ function viewToday(){
     html += `<div class="empty">No matches scheduled.</div>`;
   }
 
-  // 2b) Key group-stage matchups still to come (marquee / blockbuster pairings),
+  // 2b) Analyst's Desk — sports-style read on the bracket, upsets & big ties.
+  html += analystCommentary(true);
+
+  // 2c) Key group-stage matchups still to come (marquee / blockbuster pairings),
   // skipping anything already shown live or in today's/next slate above.
   const shown = new Set([...liveNow, ...todays, ...next].map(matchKey));
   html += keyGroupMatchups(shown);
@@ -966,10 +969,10 @@ function poissonInv(lambda, u){            // inverse-CDF Poisson sample from u�
   return k;
 }
 function predictTie(m, a, b){
-  const fa = formScore(a), fb = formScore(b);
-  // Honour real eliminations: a knocked-out side is never the predicted winner.
-  const E = eliminatedTeams(), aOut = E.has(a), bOut = E.has(b);
-  const favA = (aOut && !bOut) ? false : (bOut && !aOut) ? true : (fa >= fb);
+  // Pure-form prediction (the genuine pre-game call) — so once a result lands we
+  // can show whether it was right, upsets included. Advancement is handled in
+  // projOutcome, which does honour real eliminations.
+  const fa = formScore(a), fb = formScore(b), favA = fa >= fb;
   const diff = Math.abs(fa - fb);                          // form gap, >= 0
   // Expected goals: favourite climbs with the gap, underdog falls; both damped.
   const lamFav = clampN(0.45, 1.30 * Math.exp(0.17 * diff), 3.3);
@@ -1011,6 +1014,70 @@ function championBanner(compact){
       ${c.confirmed?'<span class="champ-tag won">🏆</span>':'<span class="champ-tag">PROJ</span>'}
     </div>`;
 }
+
+// Sports-analyst commentary on the tournament: teams left, shock upsets vs the
+// form predictions, the biggest looming matchups, and where the model stands.
+// Recomputed every render, so it updates live as results and surprises land.
+function analystCommentary(compact){
+  const ko = MATCHES.filter(m=>!m.group && m.num!=null && m.round!=="Match for third place");
+  if(!ko.length) return "";
+  const finished = ko.filter(m=>{ const k=KO_RESULT[m.num]; return k && k.finished && k.winner; });
+  const liveNow  = ko.filter(m=>{ const k=KO_RESULT[m.num]; return k && k.live; });
+  const koStarted = finished.length>0 || liveNow.length>0;
+
+  const RND = {"Round of 32":"Round of 32","Round of 16":"Round of 16","Quarter-final":"quarter-finals","Semi-final":"semi-finals","Final":"final"};
+  const roundOrder = ["Round of 32","Round of 16","Quarter-final","Semi-final","Final"];
+  const curRound = roundOrder.find(r=>ko.some(m=>m.round===r && !(KO_RESULT[m.num]&&KO_RESULT[m.num].finished))) || "Final";
+
+  // Shock upsets: a finished tie whose winner wasn't the pre-game form pick.
+  const upsets = finished.map(m=>{
+    const k = KO_RESULT[m.num], p = predictTie(m, k.home, k.away);
+    if(p.winner === k.winner) return null;
+    return { winner:k.winner, loser:k.loser, pens:!!k.pens, round:m.round,
+             gap:Math.abs(formScore(k.home)-formScore(k.away)) };
+  }).filter(Boolean).sort((a,b)=>b.gap-a.gap);
+
+  // Biggest looming ties (unplayed, both teams known) by billing, confirmed first.
+  const huge = ko.filter(m=>!(KO_RESULT[m.num]&&KO_RESULT[m.num].finished))
+    .map(m=>{ const t1=bracketTeam(m.team1), t2=bracketTeam(m.team2); if(t1.ph||t2.ph) return null;
+      const b=tieBilling(t1.name,t2.name); return b?{t1:t1.name,t2:t2.name,b,conf:t1.conf&&t2.conf,round:m.round}:null; })
+    .filter(Boolean)
+    .sort((a,b)=> (a.b.tier==="blockbuster"?0:1)-(b.b.tier==="blockbuster"?0:1) || (b.conf?1:0)-(a.conf?1:0));
+
+  const champ = predictedChampion();
+  const lines = [];
+
+  if(koStarted){
+    const left = Math.max(1, 32 - finished.length);
+    lines.push(`We're into the <b>${RND[curRound]||curRound}</b> and <b>${left}</b> ${left===1?"side is left standing":"sides are still alive"}.`);
+    if(upsets.length){
+      const u = upsets[0];
+      lines.push(`Tear up the form book — <b>${esc(u.winner)}</b> dumped out <b>${esc(u.loser)}</b>${u.pens?" on penalties":""}, the kind of result that defines a tournament.`);
+      if(upsets.length>1) lines.push(`That's <b>${upsets.length} shock${upsets.length>1?"s":""}</b> against our model so far${upsets[1]?`, with <b>${esc(upsets[1].winner)}</b> also sending <b>${esc(upsets[1].loser)}</b> home`:""}.`);
+    } else {
+      lines.push(`The favourites are holding firm so far — chalk is winning, no major shocks on the board yet.`);
+    }
+    if(huge.length){
+      const h = huge[0];
+      lines.push(`Mark your card: <b>${esc(h.t1)} v ${esc(h.t2)}</b> is ${h.b.tier==="blockbuster"?"a heavyweight collision":"a marquee tie"}${h.conf?" and it's locked in":" if the bracket holds"}.`);
+    }
+    if(champ && champ.team) lines.push(champ.confirmed
+      ? `And it's done — <b>${esc(champ.team)}</b> are champions of the world. 🏆`
+      : `The model still backs <b>${esc(champ.team)}</b> to lift the trophy — but on this evidence, nobody's safe.`);
+  } else {
+    // Group-stage flavour.
+    const elim = eliminatedTeams();
+    lines.push(`The group stage is in full swing and the knockout picture is taking shape.`);
+    if(elim.size) lines.push(`<b>${elim.size}</b> nation${elim.size>1?"s have":" has"} already been eliminated; the rest are scrapping for a Round-of-32 ticket.`);
+    if(huge.length){ const h=huge[0]; lines.push(`Keep an eye on <b>${esc(h.t1)} v ${esc(h.t2)}</b> — ${h.b.tier==="blockbuster"?"a blockbuster":"a marquee clash"} in the making.`); }
+    if(champ && champ.team) lines.push(`Our model's early call for the trophy: <b>${esc(champ.team)}</b>.`);
+  }
+
+  return `<div class="analyst ${compact?"compact":""}">
+      <div class="analyst-head"><span class="analyst-badge">📣 Analyst's Desk</span><span class="analyst-live">live · updates with every result</span></div>
+      <p class="analyst-body">${lines.join(" ")}</p>
+    </div>`;
+}
 function bracketCard(m){
   const sc=(m.score && Array.isArray(m.score.ft)) ? m.score.ft : null;
   const d=kickoffDate(m), st=status(m);
@@ -1021,13 +1088,21 @@ function bracketCard(m){
   if(ko && ko.finished && ko.winner){ w1 = ko.winner===t1.name; w2 = ko.winner===t2.name; }  // pen winner highlight
   const projected = !sc && (t1.proj || t2.proj);
   const locked = !sc && !projected && t1.conf && t2.conf;   // matchup announced, not yet played
-  // Predicted scoreline for any unplayed tie where both teams are known.
-  const pred = (!sc && !t1.ph && !t2.ph) ? predictTie(m, t1.name, t2.name) : null;
-  // Marquee/blockbuster billing for an anticipated pairing of in-form sides.
+  // Form prediction for any tie where both teams are known — kept even after the
+  // game so we can show predicted-vs-actual ("how the prediction played out").
+  const pred = (!t1.ph && !t2.ph) ? predictTie(m, t1.name, t2.name) : null;
+  // Marquee/blockbuster billing for an anticipated (unplayed) pairing.
   const bill = (!sc && !t1.ph && !t2.ph) ? tieBilling(t1.name, t2.name) : null;
   let s1 = sc ? sc[0] : (pred ? pred.a : null);
   let s2 = sc ? sc[1] : (pred ? pred.b : null);
-  const pw1 = pred && pred.winner===t1.name, pw2 = pred && pred.winner===t2.name;
+  const pw1 = !sc && pred && pred.winner===t1.name, pw2 = !sc && pred && pred.winner===t2.name;
+  // Once played: compare the form prediction to the real result.
+  const actualWinner = sc ? (w1?t1.name : w2?t2.name : null) : null;
+  const predCmp = (sc && pred && actualWinner) ? (()=>{
+    const exact = pred.a===sc[0] && pred.b===sc[1];
+    const right = pred.winner===actualWinner;
+    return `<span class="bpredchk ${exact?'exact':right?'ok':'miss'}" title="Our pre-game form prediction was ${pred.a}-${pred.b}, ${esc(pred.winner)} to advance">pred ${pred.a}–${pred.b} ${exact?'🎯':right?'✓':'✗ upset'}</span>`;
+  })() : "";
   const when = st==="live" ? `<span class="blive">🔴 ${(liveClock(m)||{}).label||"Live"}</span>`
     : sc ? "Full-time"
     : projected ? "Predicted"
@@ -1036,7 +1111,7 @@ function bracketCard(m){
   // "Firm" = a confirmed selection (real team in the feed or a played result):
   // marked with a ★ and shown in the firm colour.
   const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""} ${t.conf?"bfirm":""} ${t.elim?"bout":""} ${fav&&t.name===fav?"fav-row":""}">
-      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}${t.elim?'<span class="bout-tag" title="Knocked out">OUT</span>':t.conf?'<span class="bfirm-star" title="Confirmed selection">★</span>':""}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
+      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}${t.elim?'<span class="bout-tag" title="Knocked out">OUT</span>':t.conf?'<span class="bfirm-star" title="Confirmed selection">★</span>':""}</span><span class="bsc ${!sc&&pred?"pred":""}">${s??""}</span></div>`;
   const tag = projected ? '<span class="bproj-tag">PROJ</span>' : locked ? '<span class="bset-tag">🔒 SET</span>' : "";
   const penNote = (ko && ko.finished && ko.pens && ko.winner)
     ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens ${ko.pens[0]}-${ko.pens[1]} → ${esc(ko.winner)}</span>`
@@ -1049,7 +1124,7 @@ function bracketCard(m){
       ${billRibbon}
       ${row(t1, s1, w1, pw1)}
       ${row(t2, s2, w2, pw2)}
-      <div class="bfoot">${when}${loc}${penNote}${tag}</div>
+      <div class="bfoot">${when}${loc}${predCmp}${penNote}${tag}</div>
     </div>`;
 }
 // Vertical display order for each knockout column. The fixture numbering is NOT
@@ -1082,6 +1157,7 @@ function viewBracket(){
   html+=`<div class="sec-title"><h2>Knockout bracket</h2><button class="printbtn" onclick="window.print()" title="Print or save as PDF to share">🖨 Print / Share</button></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
   html += championBanner();
+  html += analystCommentary();
   html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>. <b>🔥 Blockbuster</b> / <b>⭐ Marquee</b> flag masterful, highly-anticipated pairings of in-form sides. It adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
   html += `<div class="bracket">`;
   present.forEach(([r,label,cls])=>{
