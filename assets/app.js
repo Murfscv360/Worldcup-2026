@@ -1078,7 +1078,8 @@ function viewBracket(){
     ["Quarter-final","Quarter-finals","c-qf"],["Semi-final","Semi-finals","c-sf"],["Final","Final","c-final"]];
   const present=order.filter(([r])=>MATCHES.some(m=>m.round===r));
   const seq=bracketSeq();
-  let html=`<div class="sec-title"><h2>Knockout bracket</h2><span class="meta">scroll →</span></div>`;
+  let html=`<div class="print-head">FIFA World Cup 26™ — Predicted Bracket <small>(${new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date())})</small></div>`;
+  html+=`<div class="sec-title"><h2>Knockout bracket</h2><button class="printbtn" onclick="window.print()" title="Print or save as PDF to share">🖨 Print / Share</button></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
   html += championBanner();
   html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>. <b>🔥 Blockbuster</b> / <b>⭐ Marquee</b> flag masterful, highly-anticipated pairings of in-form sides. It adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;
