@@ -701,3 +701,39 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
 .cl-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
 .cl-list li{font-size:13px;line-height:1.45}
 .cl-list b{color:#fff}
+
+/* ---------- Print button + print layout (share the predictions) ---------- */
+.printbtn{margin-left:auto;font-size:12px;font-weight:800;color:var(--accent);background:rgba(61,220,151,.12);
+  border:1px solid rgba(61,220,151,.4);border-radius:8px;padding:5px 11px;cursor:pointer}
+.printbtn:active{transform:scale(.97)}
+.print-head{display:none}
+
+@media print{
+  /* Hide the app chrome — print only the predictions content. */
+  .app-header,.tabs,.bottom-nav,.app-footer,.ptr,#toast,#launch,.fav-sheet,
+  .live-pill,.fav-btn,.printbtn,.open-row,.note,.banner{display:none!important}
+  html,body{background:#fff!important;color:#000!important}
+  main.wrap,#main,#view{margin:0!important;padding:0!important;max-width:none!important}
+  .print-head{display:block!important;font-family:"Archivo Narrow",sans-serif;font-weight:800;font-size:20px;
+    margin:0 0 10px;color:#000;border-bottom:2px solid #000;padding-bottom:6px}
+  .print-head small{font-weight:600;font-size:13px;color:#444}
+  .sec-title h2{color:#000!important}
+  /* Reflow the wall-chart into clean, page-friendly columns of stacked cards. */
+  .bracket{display:block!important;overflow:visible!important;gap:0!important}
+  .bracket .bcol{width:100%!important;min-width:0!important;page-break-inside:avoid;margin-bottom:10px}
+  .bracket .bcol-h{color:#000!important;border-bottom:1px solid #999;font-size:13px}
+  .bracket .bcards{display:block!important;height:auto!important}
+  .bracket .bcard{height:auto!important;min-height:0!important;page-break-inside:avoid;
+    border:1px solid #bbb!important;border-radius:8px;margin:0 0 6px!important;padding:7px 9px!important;
+    background:#fff!important;box-shadow:none!important}
+  .bconn,.bracket .bcard::after,.bracket .bcol:not(.c-r32) .bconn{display:none!important}
+  .bcard .bnm{color:#000!important}
+  .brow.bpr .bnm{color:#333!important}
+  .brow.bout .bnm{color:#888!important}
+  .bcard .bsc{color:#000!important}
+  .bbill,.bproj-tag,.bset-tag,.bpen-tag,.bloc,.bfirm-star,.bout-tag{color:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .champ{background:#f3f3f3!important;border:1px solid #999!important;color:#000!important}
+  .champ-team,.champ-label{color:#000!important}
+  /* Don't print other tabs' content if somehow visible. */
+  @page{margin:14mm}
+}
