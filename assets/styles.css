@@ -599,6 +599,10 @@ details.pbp .timeline{padding:4px 14px 12px}
    The favourite row (gold, defined later) still overrides this. */
 .brow.bfirm .bnm{color:var(--accent)}
 .bfirm-star{color:var(--gold);font-size:11px;margin-left:4px;vertical-align:1px}
+/* Bracket: knocked-out teams (real-time eliminations) */
+.brow.bout .bnm{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,77,98,.8)}
+.brow.bout .flag{filter:grayscale(1);opacity:.55}
+.bout-tag{display:inline-block;font-size:8px;font-weight:800;letter-spacing:.4px;color:#fff;background:var(--live);border-radius:4px;padding:0 4px;margin-left:5px;vertical-align:1px}
 /* Bracket: marquee / blockbuster billing for anticipated, in-form pairings */
 .bbill{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
   padding:2px 7px;border-radius:6px;margin-bottom:5px}
