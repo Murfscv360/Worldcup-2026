@@ -981,23 +981,34 @@ function poissonInv(lambda, u){            // inverse-CDF Poisson sample from u�
   while(u > cum && k < 8){ k++; p *= lambda/k; cum += p; }
   return k;
 }
+// Weighted pick from [[value, weight], …] using u∈[0,1). Weights needn't sum to 1.
+function pickW(u, table){
+  let tot=0; for(const [,w] of table) tot += Math.max(0,w);
+  let x = u*tot;
+  for(const [v,w] of table){ x -= Math.max(0,w); if(x<=0) return v; }
+  return table[table.length-1][0];
+}
 function predictTie(m, a, b){
   // Pure-form prediction (the genuine pre-game call) — so once a result lands we
   // can show whether it was right, upsets included. Advancement is handled in
   // projOutcome, which does honour real eliminations.
+  // Decide the OUTCOME first (decisive win vs level→penalties), then choose a
+  // realistic, varied scoreline — avoids every close tie collapsing to 1-1.
   const fa = formScore(a), fb = formScore(b), favA = fa >= fb;
   const diff = Math.abs(fa - fb);                          // form gap, >= 0
-  // Expected goals: favourite climbs with the gap, underdog falls; both damped.
-  const lamFav = clampN(0.45, 1.30 * Math.exp(0.17 * diff), 3.3);
-  const lamDog = clampN(0.20, 1.15 * Math.exp(-0.20 * diff), 2.6);
-  const rFav = hash((m.num||0) + "|F|" + a + "|" + b);
-  const rDog = hash((m.num||0) + "|D|" + a + "|" + b);
-  let favG = poissonInv(lamFav, rFav);
-  let dogG = poissonInv(lamDog, rDog);
-  let pens = false;
-  if(dogG >= favG){            // level after 90/120 on the night → settled on penalties
-    dogG = favG;
+  const gap = Math.min(diff, 5) / 5;                       // 0 (even) .. 1 (mismatch)
+  const r1 = hash((m.num||0) + "|o|" + a + "|" + b);       // outcome roll
+  const r2 = hash((m.num||0) + "|s|" + a + "|" + b);       // favourite goals
+  const r3 = hash((m.num||0) + "|u|" + a + "|" + b);       // underdog goals
+  const drawProb = 0.10 + 0.20 * (1 - gap);                // ~10% (mismatch) .. ~30% (even)
+  let favG, dogG, pens = false;
+  if(r1 < drawProb){                                       // level after extra time → penalties
+    favG = dogG = pickW(r2, [[0,0.34],[1,0.40],[2,0.21],[3,0.05]]);   // varied level score
     pens = true;
+  } else {                                                 // favourite wins in regulation
+    favG = pickW(r2, [[1,0.42-0.12*gap],[2,0.34],[3,0.17+0.07*gap],[4,0.07+0.05*gap]]);
+    dogG = pickW(r3, [[0,0.40+0.25*gap],[1,0.42-0.10*gap],[2,0.18-0.15*gap]]);
+    if(dogG >= favG) dogG = favG - 1;                      // favourite must edge it
   }
   const winner = favA ? a : b;
   return favA ? {a:favG, b:dogG, pens, winner} : {a:dogG, b:favG, pens, winner};
