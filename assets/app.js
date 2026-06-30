@@ -100,6 +100,8 @@ const fixName = n => NAME_FIX[n] || n;
 let LIVE_KEYS = new Set();   // pair keys currently live (per feed)
 let FIN_KEYS  = new Set();   // pair keys finished (per feed)
 let WC_LOADED = false;       // true once the authoritative live feed has loaded
+let KO_RESULT = {};          // num -> real knockout result {home,away,ft,pens,finished,live,winner,loser}
+let KO_SLOT   = {};          // R32 group-slot code (e.g. "1E") -> real team that filled it
 
 /* ---------- Integrity guard: watch for fake / bad scores ---------- */
 let GUARD = { ok:true, flags:[], lastFt:{} };
@@ -212,6 +214,45 @@ function overlayWC26(games){
     m.goals1 = homeIsT1 ? gh : ga;
     m.goals2 = homeIsT1 ? ga : gh;
   });
+
+  // ---- Knockout pass (feed `id` === schedule `num`) ----
+  // Group games match by team name above; knockout slots still carry placeholder
+  // codes (1E, W74…), so match them by id instead. This pulls in the REAL teams,
+  // scores and PENALTY winners, so actual results (incl. upsets) drive the bracket
+  // and cascade through R16 → QF → SF → Final in real time.
+  KO_RESULT = {}; KO_SLOT = {};
+  const byId = {};
+  games.forEach(g=>{ if(g.id!=null) byId[+g.id]=g; });
+  const slot = (code, team)=>{ code=String(code); if(/^[12][A-L]$/.test(code) || (code[0]==="3" && code.includes("/"))) KO_SLOT[code]=team; };
+  MATCHES.forEach(m=>{
+    if(m.group || m.num==null) return;                 // knockout matches only
+    const g = byId[m.num]; if(!g) return;
+    const home = fixName(g.home_team_name_en), away = fixName(g.away_team_name_en);
+    if(!TEAMS[home] || !TEAMS[away]) return;            // both teams known for this slot?
+    const stt = wcState(g);
+    const h = parseInt(g.home_score), a = parseInt(g.away_score);
+    const hp = parseInt(g.home_penalty_score), ap = parseInt(g.away_penalty_score);
+    const hasPens = !isNaN(hp) && !isNaN(ap) && hp!==ap;
+    const ft = (!isNaN(h) && !isNaN(a)) ? [h,a] : null;
+    const rec = { home, away, live: stt==="live", finished: stt==="ft", ft, pens: hasPens ? [hp,ap] : null };
+    if(rec.finished && ft && validFt(ft)){
+      rec.winner = ft[0]>ft[1] ? home : ft[1]>ft[0] ? away : (hasPens ? (hp>ap?home:away) : null);
+      rec.loser  = rec.winner ? (rec.winner===home ? away : home) : null;
+    }
+    KO_RESULT[m.num] = rec;
+    slot(m.team1, home); slot(m.team2, away);           // real teams that filled R32 group-slots
+    const k = pairKey(home, away);
+    if(rec.live) LIVE_KEYS.add(k);
+    if(rec.finished) FIN_KEYS.add(k);
+    // Only stamp a score once the tie is actually live/finished — the feed reports
+    // 0-0 for not-yet-started knockouts, which must stay a projected fixture.
+    if((rec.finished || rec.live) && ft && validFt(ft)){
+      m.score = Object.assign({}, m.score, {ft});
+      m.goals1 = parseScorers(g.home_scorers);
+      m.goals2 = parseScorers(g.away_scorers);
+    }
+  });
+
   GUARD.ok = GUARD.flags.length === 0;
   if(!GUARD.ok && typeof console!=="undefined") console.warn("[integrity] score checks flagged:", GUARD.flags);
   return true;
@@ -857,13 +898,8 @@ let _elim = null;
 function eliminatedTeams(){
   if(_elim) return _elim;
   const out = new Set();
-  // (a) Knockout losers (played, both real teams).
-  MATCHES.forEach(m=>{
-    if(m.group || !(m.score && Array.isArray(m.score.ft))) return;
-    if(!TEAMS[m.team1] || !TEAMS[m.team2]) return;
-    const [a,b] = m.score.ft;
-    out.add(a>=b ? m.team2 : m.team1);
-  });
+  // (a) Knockout losers from real results (incl. penalty defeats).
+  Object.values(KO_RESULT).forEach(r=>{ if(r.finished && r.loser) out.add(r.loser); });
   // (b) Completed-group non-qualifiers.
   const groupDone = L => { const gm=MATCHES.filter(m=>m.group==="Group "+L); return gm.length>0 && gm.every(m=>m.score && Array.isArray(m.score.ft)); };
   const allGroupsDone = [..."ABCDEFGHIJKL"].every(groupDone);
@@ -884,6 +920,7 @@ function eliminatedTeams(){
 function resolveCode(code){
   code = String(code);
   if(TEAMS[code]) return {team:code, confirmed:true};
+  if(KO_SLOT[code]) return {team:KO_SLOT[code], confirmed:true};   // real team that filled this R32 slot
   if(/^[12][A-L]$/.test(code) || (code[0]==="3" && code.includes("/"))){
     const t = r32map()[code]; return t ? {team:t, confirmed:false} : null;
   }
@@ -892,8 +929,10 @@ function resolveCode(code){
   return null;
 }
 function projOutcome(num, wantLoser){
+  const ko = KO_RESULT[num];                           // real result (incl. penalties) wins
+  if(ko && ko.finished && ko.winner) return { team: wantLoser ? ko.loser : ko.winner, confirmed:true };
   const mt = matchByNum(num); if(!mt) return null;
-  if(mt.score && Array.isArray(mt.score.ft)){          // played → confirmed winner/loser
+  if(mt.score && Array.isArray(mt.score.ft) && TEAMS[mt.team1] && TEAMS[mt.team2]){  // played, real teams
     const [a,b] = mt.score.ft;
     const w = a>=b ? mt.team1 : mt.team2, l = a>=b ? mt.team2 : mt.team1;
     return resolveCode(wantLoser ? l : w);
@@ -977,7 +1016,9 @@ function bracketCard(m){
   const d=kickoffDate(m), st=status(m);
   const t1=bracketTeam(m.team1), t2=bracketTeam(m.team2);
   const fav=state.fav, onPath = fav && (t1.name===fav || t2.name===fav);
-  const w1=sc&&sc[0]>sc[1], w2=sc&&sc[1]>sc[0];
+  const ko = KO_RESULT[m.num];                          // real knockout result (with penalties)
+  let w1=sc&&sc[0]>sc[1], w2=sc&&sc[1]>sc[0];
+  if(ko && ko.finished && ko.winner){ w1 = ko.winner===t1.name; w2 = ko.winner===t2.name; }  // pen winner highlight
   const projected = !sc && (t1.proj || t2.proj);
   const locked = !sc && !projected && t1.conf && t2.conf;   // matchup announced, not yet played
   // Predicted scoreline for any unplayed tie where both teams are known.
@@ -997,7 +1038,9 @@ function bracketCard(m){
   const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""} ${t.conf?"bfirm":""} ${t.elim?"bout":""} ${fav&&t.name===fav?"fav-row":""}">
       <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}${t.elim?'<span class="bout-tag" title="Knocked out">OUT</span>':t.conf?'<span class="bfirm-star" title="Confirmed selection">★</span>':""}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
   const tag = projected ? '<span class="bproj-tag">PROJ</span>' : locked ? '<span class="bset-tag">🔒 SET</span>' : "";
-  const penNote = pred && pred.pens ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens → ${esc(pred.winner)}</span>` : "";
+  const penNote = (ko && ko.finished && ko.pens && ko.winner)
+    ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens ${ko.pens[0]}-${ko.pens[1]} → ${esc(ko.winner)}</span>`
+    : pred && pred.pens ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens → ${esc(pred.winner)}</span>` : "";
   const v = VENUES[m.ground];
   const loc = m.ground ? `<span class="bloc" title="${esc(v ? v.s+" · "+v.city : m.ground)}">📍 ${esc(venueShort(m.ground))}</span>` : "";
   const billRibbon = bill ? `<div class="bbill ${bill.tier}" title="A masterful pairing on current form — highly anticipated if it lands">${bill.label}</div>` : "";
