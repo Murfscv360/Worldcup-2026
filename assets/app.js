@@ -401,11 +401,23 @@ function matchCard(m){
   const cta = live ? `<span class="open-cta live">Tap for live play-by-play ›</span>`
                    : `<span class="open-cta">Match centre ›</span>`;
 
+  // Live match odds (1X2) from current form — shown until the game is finished.
+  const oddsLine = (st!=="ft" && TEAMS[m.team1] && TEAMS[m.team2]) ? (()=>{
+    const o = matchOdds(m.team1, m.team2);
+    return `<div class="odds-strip">
+      <span class="odds-lbl">${live?'🔴 Live odds':'📈 Match odds'}</span>
+      <span class="odds-pick"><span class="op-t">${esc(t1.name)}</span><b>${o.oH.toFixed(2)}</b></span>
+      <span class="odds-pick"><span class="op-t">Draw</span><b>${o.oD.toFixed(2)}</b></span>
+      <span class="odds-pick"><span class="op-t">${esc(t2.name)}</span><b>${o.oA.toFixed(2)}</b></span>
+    </div>`;
+  })() : "";
+
   return `<div class="match tappable ${live?'is-live-card':''}" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
     <div class="top"><span>${topLeft}</span>${badge}</div>
     ${teamRow(t1,0,w1,!!sc&&!w1&&!(sc[0]===sc[1]))}
     ${teamRow(t2,1,w2,!!sc&&!w2&&!(sc[0]===sc[1]))}
     ${scorersHTML(m)}
+    ${oddsLine}
     <div class="foot">
       ${kick}
       <span>📍 ${esc(venueShort(m.ground))}</span>
@@ -553,7 +565,8 @@ function viewToday(){
   }
 
   // 2b) Analyst's Desk — sports-style read on the bracket, upsets & big ties.
-  html += analystCommentary(true);
+  const desk = analystCommentary(true);
+  if(desk){ html += bracketStatsPills(); html += desk; }
 
   // 2c) Key group-stage matchups still to come (marquee / blockbuster pairings),
   // skipping anything already shown live or in today's/next slate above.
@@ -1015,6 +1028,60 @@ function championBanner(compact){
     </div>`;
 }
 
+// Model confidence (%) in the favourite of a tie, from the current form gap.
+// 50% = a coin-flip; a big mismatch approaches the 90s.
+function winConfidence(a, b){
+  const gap = Math.abs(formScore(a) - formScore(b));
+  return Math.round(100 / (1 + Math.exp(-gap * 0.45)));   // ~50%..~95%
+}
+// Live match odds from current form. A form-derived expected-goals model gives
+// Poisson win/draw/win probabilities; we add a small bookmaker margin and quote
+// decimal odds. Recomputed every refresh, so the line moves with form & results.
+// (Model-implied prices — swap in a sportsbook feed via a proxy for true market odds.)
+function _pois(l,k){ let f=1; for(let i=2;i<=k;i++) f*=i; return Math.exp(-l)*Math.pow(l,k)/f; }
+function matchOdds(a, b){
+  const diff = formScore(a) - formScore(b);
+  const lamA = clampN(0.25, 1.35*Math.exp(0.18*diff), 3.6);
+  const lamB = clampN(0.25, 1.35*Math.exp(-0.18*diff), 3.6);
+  let pH=0, pD=0, pA=0;
+  for(let i=0;i<=8;i++) for(let j=0;j<=8;j++){ const p=_pois(lamA,i)*_pois(lamB,j); if(i>j) pH+=p; else if(i===j) pD+=p; else pA+=p; }
+  const s=pH+pD+pA || 1; pH/=s; pD/=s; pA/=s;
+  const MARGIN = 1.06;                                  // ~6% overround, like a real book
+  const dec = p => Math.min(26, Math.max(1.02, Math.round((1/(p*MARGIN))*100)/100));
+  return { pH, pD, pA, oH:dec(pH), oD:dec(pD), oA:dec(pA) };
+}
+// Two-way "to advance" prices for a knockout tie (no draw — penalties decide).
+function advanceOdds(a, b){
+  const favA = formScore(a) >= formScore(b);
+  const c = winConfidence(a,b)/100;                     // favourite win prob
+  const pa = favA ? c : 1-c, pb = 1-pa, M = 1.05;
+  const dec = p => Math.min(21, Math.max(1.02, Math.round((1/(p*M))*100)/100));
+  return { pA:pa, pB:pb, oA:dec(pa), oB:dec(pb) };
+}
+// Tournament-wide prediction scoreboard: picks called correctly, accuracy, the
+// average confidence on the ties still to come, and how many teams remain.
+function bracketStats(){
+  const ko = MATCHES.filter(m=>!m.group && m.num!=null && m.round!=="Match for third place");
+  const decided = ko.filter(m=>{ const k=KO_RESULT[m.num]; return k && k.finished && k.winner; });
+  let correct = 0;
+  decided.forEach(m=>{ const k=KO_RESULT[m.num]; if(predictTie(m,k.home,k.away).winner === k.winner) correct++; });
+  const total = decided.length;
+  const acc = total ? Math.round(correct/total*100) : null;
+  const rem = ko.filter(m=>!(KO_RESULT[m.num]&&KO_RESULT[m.num].finished))
+    .map(m=>{ const t1=bracketTeam(m.team1), t2=bracketTeam(m.team2); return (!t1.ph&&!t2.ph) ? winConfidence(t1.name,t2.name) : null; })
+    .filter(x=>x!=null);
+  const avgConf = rem.length ? Math.round(rem.reduce((a,b)=>a+b,0)/rem.length) : null;
+  return { correct, total, acc, avgConf, left: Math.max(1, 32 - total), started: total>0 };
+}
+function bracketStatsPills(){
+  const s = bracketStats();
+  if(!MATCHES.some(m=>!m.group)) return "";
+  const pills = [`<span class="kpill"><b>${s.left}</b> teams left</span>`];
+  if(s.started) pills.push(`<span class="kpill ${s.acc>=50?"good":"bad"}"><b>${s.correct}/${s.total}</b> picks correct · ${s.acc}%</span>`);
+  if(s.avgConf!=null) pills.push(`<span class="kpill ${s.avgConf>=66?"good":s.avgConf>=56?"mid":"bad"}"><b>${s.avgConf}%</b> ${s.started?"confidence ahead":"avg confidence"}</span>`);
+  return `<div class="kpills">${pills.join("")}</div>`;
+}
+
 // Sports-analyst commentary on the tournament: teams left, shock upsets vs the
 // form predictions, the biggest looming matchups, and where the model stands.
 // Recomputed every render, so it updates live as results and surprises land.
@@ -1096,12 +1163,21 @@ function bracketCard(m){
   let s1 = sc ? sc[0] : (pred ? pred.a : null);
   let s2 = sc ? sc[1] : (pred ? pred.b : null);
   const pw1 = !sc && pred && pred.winner===t1.name, pw2 = !sc && pred && pred.winner===t2.name;
+  // Model confidence (%) in the predicted winner of this tie.
+  const conf = (!t1.ph && !t2.ph) ? winConfidence(t1.name, t2.name) : null;
   // Once played: compare the form prediction to the real result.
   const actualWinner = sc ? (w1?t1.name : w2?t2.name : null) : null;
   const predCmp = (sc && pred && actualWinner) ? (()=>{
     const exact = pred.a===sc[0] && pred.b===sc[1];
     const right = pred.winner===actualWinner;
-    return `<span class="bpredchk ${exact?'exact':right?'ok':'miss'}" title="Our pre-game form prediction was ${pred.a}-${pred.b}, ${esc(pred.winner)} to advance">pred ${pred.a}–${pred.b} ${exact?'🎯':right?'✓':'✗ upset'}</span>`;
+    return `<span class="bpredchk ${exact?'exact':right?'ok':'miss'}" title="Pre-game form pick: ${esc(pred.winner)} ${pred.a}-${pred.b} at ${conf}% confidence">pred ${pred.a}–${pred.b} · ${conf}% ${exact?'🎯':right?'✓':'✗ upset'}</span>`;
+  })() : "";
+  // Unplayed: show the model's confidence in its pick (green = strong, red = shaky).
+  const confPill = (!sc && conf!=null) ? `<span class="bconf ${conf>=66?"good":conf>=56?"mid":"bad"}" title="Model confidence in ${esc(pred?pred.winner:"")}">🔮 ${conf}%</span>` : "";
+  // Live "to advance" betting odds for an unplayed tie (model-implied, moves with form).
+  const oddsPill = (!sc && !t1.ph && !t2.ph) ? (()=>{
+    const o = advanceOdds(t1.name, t2.name);
+    return `<span class="bodds" title="${esc(t1.name)} ${o.oA.toFixed(2)} · ${esc(t2.name)} ${o.oB.toFixed(2)} — model odds to advance, moves with form">📈 ${o.oA.toFixed(2)} / ${o.oB.toFixed(2)}</span>`;
   })() : "";
   const when = st==="live" ? `<span class="blive">🔴 ${(liveClock(m)||{}).label||"Live"}</span>`
     : sc ? "Full-time"
@@ -1124,7 +1200,7 @@ function bracketCard(m){
       ${billRibbon}
       ${row(t1, s1, w1, pw1)}
       ${row(t2, s2, w2, pw2)}
-      <div class="bfoot">${when}${loc}${predCmp}${penNote}${tag}</div>
+      <div class="bfoot">${when}${loc}${confPill}${oddsPill}${predCmp}${penNote}${tag}</div>
     </div>`;
 }
 // Vertical display order for each knockout column. The fixture numbering is NOT
@@ -1156,6 +1232,7 @@ function viewBracket(){
   let html=`<div class="print-head">FIFA World Cup 26™ — Predicted Bracket <small>(${new Intl.DateTimeFormat("en-US",{month:"long",day:"numeric",year:"numeric"}).format(new Date())})</small></div>`;
   html+=`<div class="sec-title"><h2>Knockout bracket</h2><button class="printbtn" onclick="window.print()" title="Print or save as PDF to share">🖨 Print / Share</button></div>`;
   if(!present.length) return html+`<div class="empty">The Round of 32 bracket appears once the group stage is complete. Group qualification is on the Groups tab.</div>`;
+  html += bracketStatsPills();
   html += championBanner();
   html += analystCommentary();
   html += `<div class="banner" style="margin-bottom:12px">Bracket is <b>projected on current form</b> — group leaders/runners-up, best 3rds, predicted <b>scorelines</b> and <b>⚪ penalty</b> ties, with the <b>📍 venue</b> for each game. <span style="color:var(--accent);font-weight:800">★ green = firm</span> (confirmed) selections; <span class="bpr-key">dashed = predicted</span>. <b>🔥 Blockbuster</b> / <b>⭐ Marquee</b> flag masterful, highly-anticipated pairings of in-form sides. It adjusts as results land and ties <b>🔒 lock</b> once announced.${state.fav&&TEAMS[state.fav]?` <b style="color:var(--gold)">★ ${esc(state.fav)}'s projected path is highlighted.</b>`:""}</div>`;

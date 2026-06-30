@@ -567,8 +567,8 @@ details.pbp .timeline{padding:4px 14px 12px}
 /* connector pieces */
 .bconn{display:none}
 .bracket .bcol{flex:0 0 256px;min-width:256px}
-.bracket .bcards{display:flex;flex-direction:column;justify-content:space-around;height:2176px}
-.bracket .bcard{height:124px;margin:0;display:flex;flex-direction:column;justify-content:center;overflow:visible;position:relative}
+.bracket .bcards{display:flex;flex-direction:column;justify-content:space-around;height:2400px}
+.bracket .bcard{height:140px;margin:0;display:flex;flex-direction:column;justify-content:center;overflow:visible;position:relative}
 .bracket .bcard .brow{padding:1px 0}
 .bracket .bcard .bfoot{margin-top:3px;padding-top:3px}
 /* Team names wrap (up to 2 lines) instead of being cut off with an ellipsis. */
@@ -578,10 +578,10 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bracket .bconn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line)}   /* vertical spine between the two feeders */
 .bracket .bconn::after{content:"";position:absolute;left:0;top:50%;width:11px;height:2px;background:var(--line)} /* stub into this card */
 .bracket .bcol:not(.c-final) .bcards .bcard::after{content:"";position:absolute;left:100%;top:50%;width:11px;height:2px;background:var(--line)} /* feeder stub out */
-.c-r16 .bcards .bcard{--ch:136px}
-.c-qf  .bcards .bcard{--ch:272px}
-.c-sf  .bcards .bcard{--ch:544px}
-.c-final .bcards .bcard{--ch:1088px}
+.c-r16 .bcards .bcard{--ch:150px}
+.c-qf  .bcards .bcard{--ch:300px}
+.c-sf  .bcards .bcard{--ch:600px}
+.c-final .bcards .bcard{--ch:1200px}
 .bracket{gap:22px}
 
 /* Bracket: locked (announced) ties */
@@ -600,6 +600,32 @@ details.pbp .timeline{padding:4px 14px 12px}
 .bpredchk.ok{color:var(--accent);background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.35)}
 .bpredchk.exact{color:var(--gold);background:rgba(255,209,102,.16);border:1px solid rgba(255,209,102,.4)}
 .bpredchk.miss{color:var(--live);background:rgba(255,77,98,.14);border:1px solid rgba(255,77,98,.4)}
+/* Bracket: per-tie "to advance" odds chip */
+.bodds{font-size:9px;font-weight:800;letter-spacing:.2px;padding:1px 6px;border-radius:5px;white-space:nowrap;
+  color:var(--accent2);background:rgba(62,123,250,.14);border:1px solid rgba(62,123,250,.35)}
+/* Match card: live 1X2 odds strip */
+.odds-strip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0 2px;padding:8px 10px;
+  background:rgba(62,123,250,.08);border:1px solid var(--line);border-radius:10px}
+.odds-lbl{font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--accent2)}
+.odds-pick{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);font-weight:600;
+  margin-left:auto}
+.odds-pick+.odds-pick{margin-left:0}
+.odds-pick .op-t{max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.odds-pick b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:800;
+  background:var(--card2);border-radius:6px;padding:2px 7px;min-width:38px;text-align:center}
+/* Bracket: per-tie model confidence pill */
+.bconf{font-size:9px;font-weight:800;letter-spacing:.3px;padding:1px 6px;border-radius:5px;white-space:nowrap}
+.bconf.good{color:var(--accent);background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.35)}
+.bconf.mid{color:var(--warn);background:rgba(255,181,71,.14);border:1px solid rgba(255,181,71,.35)}
+.bconf.bad{color:var(--live);background:rgba(255,77,98,.14);border:1px solid rgba(255,77,98,.4)}
+/* Prediction scoreboard pills (top of bracket / home) */
+.kpills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.kpill{font-size:12px;font-weight:700;color:var(--ink);background:var(--card);border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px}
+.kpill b{font-weight:800;font-variant-numeric:tabular-nums}
+.kpill.good{color:var(--accent);border-color:rgba(61,220,151,.45);background:rgba(61,220,151,.12)}
+.kpill.mid{color:var(--warn);border-color:rgba(255,181,71,.45);background:rgba(255,181,71,.12)}
+.kpill.bad{color:var(--live);border-color:rgba(255,77,98,.45);background:rgba(255,77,98,.12)}
 /* Bracket: firm (confirmed) selections — ★ + distinct colour.
    The favourite row (gold, defined later) still overrides this. */
 .brow.bfirm .bnm{color:var(--accent)}
