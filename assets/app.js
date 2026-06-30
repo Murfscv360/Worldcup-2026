@@ -848,6 +848,37 @@ function r32map(){
   });
   return (_r32map = map);
 }
+// Teams that are knocked out RIGHT NOW, from real results — so projections drop
+// them in real time. Covers (a) the losing side of any played knockout tie and
+// (b) group teams whose group is finished and who can no longer advance (4th as
+// soon as their group ends; 3rd only once every group is done and the best‑third
+// race is settled). Conservative: never eliminates a team whose fate is still open.
+let _elim = null;
+function eliminatedTeams(){
+  if(_elim) return _elim;
+  const out = new Set();
+  // (a) Knockout losers (played, both real teams).
+  MATCHES.forEach(m=>{
+    if(m.group || !(m.score && Array.isArray(m.score.ft))) return;
+    if(!TEAMS[m.team1] || !TEAMS[m.team2]) return;
+    const [a,b] = m.score.ft;
+    out.add(a>=b ? m.team2 : m.team1);
+  });
+  // (b) Completed-group non-qualifiers.
+  const groupDone = L => { const gm=MATCHES.filter(m=>m.group==="Group "+L); return gm.length>0 && gm.every(m=>m.score && Array.isArray(m.score.ft)); };
+  const allGroupsDone = [..."ABCDEFGHIJKL"].every(groupDone);
+  let thirdGroups = new Set();
+  try{ thirdGroups = new Set(Object.keys(projectedThirds().byGroup)); }catch(e){}
+  [..."ABCDEFGHIJKL"].forEach(L=>{
+    if(!groupDone(L)) return;
+    const st = standings("Group "+L);
+    st.forEach((r,i)=>{
+      if(i>=3) out.add(r.t);                                   // 4th (or lower) — out once the group ends
+      else if(i===2 && allGroupsDone && !thirdGroups.has(L)) out.add(r.t);  // 3rd — out only when best-3rds are settled
+    });
+  });
+  return (_elim = out);
+}
 // Resolve a placeholder/team code to {team, confirmed}. confirmed=true once the
 // matchup is officially announced (real team in the feed, or a played result).
 function resolveCode(code){
@@ -869,7 +900,13 @@ function projOutcome(num, wantLoser){
   }
   const A = resolveCode(mt.team1), B = resolveCode(mt.team2);
   if(!A || !B) return null;
-  const strong = formScore(A.team) >= formScore(B.team) ? A : B, weak = strong===A ? B : A;
+  // A knocked-out team can never be projected to advance — the other side goes through.
+  const E = eliminatedTeams(), aOut = E.has(A.team), bOut = E.has(B.team);
+  let strong;
+  if(aOut && !bOut) strong = B;
+  else if(bOut && !aOut) strong = A;
+  else strong = formScore(A.team) >= formScore(B.team) ? A : B;
+  const weak = strong===A ? B : A;
   return { team:(wantLoser?weak:strong).team, confirmed:false };
 }
 function projTeam(code){ const r = resolveCode(code); return r ? r.team : null; }   // compat
@@ -890,7 +927,10 @@ function poissonInv(lambda, u){            // inverse-CDF Poisson sample from u�
   return k;
 }
 function predictTie(m, a, b){
-  const fa = formScore(a), fb = formScore(b), favA = fa >= fb;
+  const fa = formScore(a), fb = formScore(b);
+  // Honour real eliminations: a knocked-out side is never the predicted winner.
+  const E = eliminatedTeams(), aOut = E.has(a), bOut = E.has(b);
+  const favA = (aOut && !bOut) ? false : (bOut && !aOut) ? true : (fa >= fb);
   const diff = Math.abs(fa - fb);                          // form gap, >= 0
   // Expected goals: favourite climbs with the gap, underdog falls; both damped.
   const lamFav = clampN(0.45, 1.30 * Math.exp(0.17 * diff), 3.3);
@@ -910,10 +950,11 @@ function predictTie(m, a, b){
 
 // Display info for one side of a bracket card.
 function bracketTeam(code){
-  if(TEAMS[code]){ const t=teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:false, conf:true}; }
+  const E = eliminatedTeams();
+  if(TEAMS[code]){ const t=teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:false, conf:true, elim:E.has(code)}; }
   const r = resolveCode(code);
-  if(r){ const t=teamLabel(r.team); return {flag:t.flag, name:t.name, proj:!r.confirmed, ph:false, conf:r.confirmed}; }
-  const t = teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:true, conf:false};
+  if(r){ const t=teamLabel(r.team); return {flag:t.flag, name:t.name, proj:!r.confirmed, ph:false, conf:r.confirmed, elim:E.has(r.team)}; }
+  const t = teamLabel(code); return {flag:t.flag, name:t.name, proj:false, ph:true, conf:false, elim:false};
 }
 // Projected (or crowned) champion = winner of the final (match 104).
 function predictedChampion(){
@@ -953,8 +994,8 @@ function bracketCard(m){
     : "TBD";
   // "Firm" = a confirmed selection (real team in the feed or a played result):
   // marked with a ★ and shown in the firm colour.
-  const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""} ${t.conf?"bfirm":""} ${fav&&t.name===fav?"fav-row":""}">
-      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}${t.conf?'<span class="bfirm-star" title="Confirmed selection">★</span>':""}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
+  const row=(t,s,win,predw)=>`<div class="brow ${win||predw?"bw":""} ${t.ph?"bph":""} ${t.proj?"bpr":""} ${t.conf?"bfirm":""} ${t.elim?"bout":""} ${fav&&t.name===fav?"fav-row":""}">
+      <span class="flag">${t.flag}</span><span class="bnm">${esc(t.name)}${t.elim?'<span class="bout-tag" title="Knocked out">OUT</span>':t.conf?'<span class="bfirm-star" title="Confirmed selection">★</span>':""}</span><span class="bsc ${pred?"pred":""}">${s??""}</span></div>`;
   const tag = projected ? '<span class="bproj-tag">PROJ</span>' : locked ? '<span class="bset-tag">🔒 SET</span>' : "";
   const penNote = pred && pred.pens ? `<span class="bpen-tag" title="Decided on penalties">⚪ pens → ${esc(pred.winner)}</span>` : "";
   const v = VENUES[m.ground];
@@ -2133,7 +2174,7 @@ const state = { view:"today", scheduleFilter:{q:"",round:"all"}, statSort:"ratin
 function render(){
   const fn = VIEWS[state.view];
   const v = $("view");
-  _projThirds = _teamRows = _r32map = _formRank = _bracketSeq = null;        // fresh projections every render
+  _projThirds = _teamRows = _r32map = _formRank = _bracketSeq = _elim = null;        // fresh projections every render
   const entering = render.__last !== state.view;   // a real screen change (not a live refresh)
   // Preserve the bracket's horizontal scroll across live re-renders so manually
   // scrolling right to later rounds doesn't snap back to the current round.
