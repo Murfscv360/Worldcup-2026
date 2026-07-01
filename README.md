@@ -16,11 +16,11 @@ static site with no build step and no API keys.
 
 - **Today** — favourite-team dashboard (when chosen) plus a **live match stats** hero
   (score, clock, possession, shots, xG, corners) or the **next match** with countdown,
-  ET + local kickoff, TV, weather and pre-match odds — and the curated **Newsroom**.
+  CT + local kickoff, TV, weather and pre-match odds — and the curated **Newsroom**.
 - **Live** — **play-by-play commentary** (real goals + minute-by-minute colour), **official
   VAR reviews**, and a curated **preview (pregame) / professional match report (postgame)**
   with player ratings and star man — one consistent editorial voice.
-- **Schedule** — all 104 fixtures by day, searchable & filterable; kickoff in **ET** *and*
+- **Schedule** — all 104 fixtures by day, searchable & filterable; kickoff in **CT** *and*
   local time, US broadcaster, and **weather**.
 - **Groups** — live standings for all 12 groups plus a **team-performance** leaders board
   with recent form.
