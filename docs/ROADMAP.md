@@ -19,7 +19,7 @@ match data — with zero build tooling and no shipped secrets.
 - [x] Live scores + auto-refresh (60s) with snapshot fallback
 - [x] Realtime live-match clock, countdowns, and re-pricing odds (1s/20s timers)
 - [x] **Live match stats** hero on the main page (possession / shots / xG / corners)
-- [x] **Upcoming match** hero with kickoff times (ET + local), countdown, TV, form
+- [x] **Upcoming match** hero with kickoff times (CT + local), countdown, TV, form
 - [x] **Play-by-play commentary** (real goals + modeled colour, cards, saves)
 - [x] **Official (VAR) reviews** — per match and tournament-wide feed
 - [x] **Professional reviews** — postgame reports with player ratings & star man

@@ -300,11 +300,13 @@ function kickoffDate(m){
   const d = new Date(iso);
   return isNaN(d.getTime()) ? null : d;
 }
-const etFmt  = new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"numeric",minute:"2-digit"});
+// All published kickoff times are shown in US Central (CT). etFmt/dayKeyET/
+// dayLabelET keep their names for brevity but format in America/Chicago.
+const etFmt  = new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",hour:"numeric",minute:"2-digit"});
 const locFmt = new Intl.DateTimeFormat([], {hour:"numeric",minute:"2-digit"});
 const localTZ = (Intl.DateTimeFormat().resolvedOptions().timeZone||"local").split("/").pop().replace(/_/g," ");
-const dayKeyET   = d => new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit"}).format(d);
-const dayLabelET = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",month:"short",day:"numeric"}).format(d);
+const dayKeyET   = d => new Intl.DateTimeFormat("en-CA",{timeZone:"America/Chicago",year:"numeric",month:"2-digit",day:"2-digit"}).format(d);
+const dayLabelET = d => new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",weekday:"short",month:"short",day:"numeric"}).format(d);
 
 /* ---------- Status ---------- */
 function status(m){
@@ -393,7 +395,7 @@ function matchCard(m){
      </div>`;
 
   const kick = d
-    ? `<span class="kick">${etFmt.format(d)} ET <small>· ${locFmt.format(d)} ${esc(localTZ)}</small></span>`
+    ? `<span class="kick">${etFmt.format(d)} CT <small>· ${locFmt.format(d)} ${esc(localTZ)}</small></span>`
     : `<span class="kick">TBD</span>`;
 
   const tv = tvFor(m);
@@ -431,7 +433,7 @@ function matchCard(m){
 // Compact "key matchup" card for the marquee group-stage fixtures on the home page.
 function keyMatchCard(m, bill){
   const t1 = teamLabel(m.team1), t2 = teamLabel(m.team2), d = kickoffDate(m);
-  const when = d ? `${dayLabelET(d)} · ${etFmt.format(d)} ET` : "TBD";
+  const when = d ? `${dayLabelET(d)} · ${etFmt.format(d)} CT` : "TBD";
   return `<div class="match tappable keymatch" data-open="${esc(matchKey(m))}" role="button" tabindex="0">
     <div class="top"><span>${esc(m.group||"")}</span><span class="kmbill ${bill.tier}">${bill.label}</span></div>
     <div class="km-teams">
@@ -555,7 +557,7 @@ function viewToday(){
 
   // 2) Today's slate (or next matchday)
   if(todays.length){
-    html += `<div class="sec-title"><h2>Today's matches</h2><span class="meta">${dayLabelET(now)} · ET</span></div>`;
+    html += `<div class="sec-title"><h2>Today's matches</h2><span class="meta">${dayLabelET(now)} · CT</span></div>`;
     html += todays.map(matchCard).join("");
   } else if(next.length){
     html += `<div class="sec-title"><h2>Next up</h2><span class="meta">${dayLabelET(kickoffDate(next[0]))}</span></div>`;
@@ -628,7 +630,7 @@ function viewSchedule(state){
       <input id="schQ" type="search" placeholder="Search team, group or venue…" value="${esc(filt.q)}" />
       <select id="schRound">${opts}</select>
     </div>
-    <p class="hint">${list.length} match${list.length===1?"":"es"} · newest first · ET &amp; your local time (${esc(localTZ)})</p>`;
+    <p class="hint">${list.length} match${list.length===1?"":"es"} · newest first · CT &amp; your local time (${esc(localTZ)})</p>`;
 
   if(!list.length){ html += `<div class="empty">No matches match your filters.</div>`; return html; }
 
@@ -1193,7 +1195,7 @@ function bracketCard(m){
   const when = st==="live" ? `<span class="blive">🔴 ${(liveClock(m)||{}).label||"Live"}</span>`
     : sc ? "Full-time"
     : projected ? "Predicted"
-    : d ? `${etFmt.format(d)} ET · ${new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric"}).format(d)}`
+    : d ? `${etFmt.format(d)} CT · ${new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",month:"short",day:"numeric"}).format(d)}`
     : "TBD";
   // "Firm" = a confirmed selection (real team in the feed or a played result):
   // marked with a ★ and shown in the firm colour.
@@ -1853,7 +1855,7 @@ function liveStatsPanel(){
       <div class="lh-top"><span>⏳ Next up · ${esc(m.group||m.round||"")}</span><span>${d?dayLabelET(d):""}</span></div>
       <div class="lh-teams">
         <div class="lh-team"><span class="flag">${t1.flag}</span><span class="nm">${esc(t1.name)}</span>${f1.length?formDots(f1):""}</div>
-        <div class="lh-score" style="font-size:20px">${d?etFmt.format(d):"TBD"}<small>${d?"ET kickoff":""}</small></div>
+        <div class="lh-score" style="font-size:20px">${d?etFmt.format(d):"TBD"}<small>${d?"CT kickoff":""}</small></div>
         <div class="lh-team"><span class="flag">${t2.flag}</span><span class="nm">${esc(t2.name)}</span>${f2.length?formDots(f2):""}</div>
       </div>
       ${d?`<div class="countdown" data-countdown="${d.getTime()}">${countdownBoxes(d.getTime()-Date.now())}</div>`:""}
@@ -1895,7 +1897,7 @@ function liveMarketsHTML(){
     return `<div class="lodds">
       <div class="lo-top">
         <span>${t1.flag} ${esc(t1.name)} ${sc?`<b>${sc}</b> `:""}${t2.flag} ${esc(t2.name)}</span>
-        <span>${isLive?`🔴 ${cl?cl.label:"LIVE"}`:(d?etFmt.format(d)+" ET":"")}</span>
+        <span>${isLive?`🔴 ${cl?cl.label:"LIVE"}`:(d?etFmt.format(d)+" CT":"")}</span>
       </div>
       <div class="lo-3" data-odds="${esc(matchKey(m))}">
         <div class="lo-cell"><div class="lc-k">Home</div><div class="lc-v">${o.h.toFixed(0)}%</div><div class="lc-bar"><i style="width:${o.h}%"></i></div></div>
@@ -1938,7 +1940,7 @@ function viewCommentary(){
   const badge = {live:'<span class="badge live">● Live</span>',ft:'<span class="badge ft">Full-time</span>',soon:'<span class="badge soon">Upcoming</span>',sched:'<span class="badge sched">Scheduled</span>'}[st];
 
   const cl = liveClock(sel);
-  const clockTxt = st==="live" ? (cl?cl.label:"LIVE") : st==="ft" ? "FT" : (kickoffDate(sel)?etFmt.format(kickoffDate(sel))+" ET":"");
+  const clockTxt = st==="live" ? (cl?cl.label:"LIVE") : st==="ft" ? "FT" : (kickoffDate(sel)?etFmt.format(kickoffDate(sel))+" CT":"");
 
   let html = `<div class="sec-title"><h2>Match centre</h2><span class="meta">tap a match</span></div>`;
   html += `<div class="cmt-pick">${chips}</div>`;
@@ -2130,7 +2132,7 @@ function reportFor(m){
   const fav = o.h>o.a ? t1 : t2;
   const f1 = teamForm(m.team1,5), f2 = teamForm(m.team2,5);
   const head = `Preview: ${t1} vs ${t2} — the key battle in ${comp}`;
-  const dek = `${fav} go in as market favourites${d?` for the ${etFmt.format(d)} ET kick-off`:""}; here's what to watch.`;
+  const dek = `${fav} go in as market favourites${d?` for the ${etFmt.format(d)} CT kick-off`:""}; here's what to watch.`;
   const body = [
     `Markets make it ${o.h.toFixed(0)}% ${t1}, ${o.d.toFixed(0)}% draw, ${o.a.toFixed(0)}% ${t2} — a tie that could swing on the first goal.`,
     `Form points ${f1.filter(x=>x==='W').length>=f2.filter(x=>x==='W').length?`toward ${t1}`:`toward ${t2}`}, but tournament football rewards whoever settles fastest at ${venueShort(m.ground)}.`

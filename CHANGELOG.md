@@ -31,5 +31,5 @@ are labelled in‑app; scores, scorers, standings & clean sheets come from live 
 - **Favourite‑team** mode — the home screen re‑orients around your team.
 
 ## v0.6 — Foundation
-- Schedule (104 matches, ET + local times, US TV), 12 groups & live standings, 48 teams, 16 venues.
+- Schedule (104 matches, CT + local times, US TV), 12 groups & live standings, 48 teams, 16 venues.
 - Built on the public‑domain openfootball feed; no build step; deploys as a static site.
