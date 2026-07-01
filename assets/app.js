@@ -369,6 +369,52 @@ function standings(groupName){
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $ = id => document.getElementById(id);
 
+/* ---------- Pre-match reminders (calendar) ----------
+   iOS web apps can't schedule background notifications themselves, so a reminder
+   is delivered as a Calendar event with a 15-min alarm — that alert pops on the
+   lock screen before kickoff, natively and reliably, with no server needed. */
+function _icsStamp(d){ return d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,""); }
+function _icsEsc(s){ return String(s).replace(/[\\;,]/g,x=>"\\"+x).replace(/\n/g,"\\n"); }
+function icsForMatch(m){
+  const d = kickoffDate(m); if(!d) return null;
+  const end = new Date(d.getTime() + 2*3600*1000);
+  const t1 = teamLabel(m.team1).name, t2 = teamLabel(m.team2).name;
+  const title = `⚽ ${t1} v ${t2} — World Cup 26`;
+  const v = VENUES[m.ground];
+  const loc = v ? `${v.s}, ${v.city}` : (m.ground || "");
+  const desc = `${m.group || m.round || "FIFA World Cup 2026"} · kickoff. Live scores & bracket: https://murfscv360.github.io/Worldcup-2026/`;
+  const uid = `wc26-${m.num || _icsStamp(d)}@worldcup26`;
+  return [
+    "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//WC26 Live Hub//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+    "BEGIN:VEVENT","UID:"+uid,"DTSTAMP:"+_icsStamp(new Date()),
+    "DTSTART:"+_icsStamp(d),"DTEND:"+_icsStamp(end),
+    "SUMMARY:"+_icsEsc(title),"LOCATION:"+_icsEsc(loc),"DESCRIPTION:"+_icsEsc(desc),
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+_icsEsc(title+" kicks off in 15 minutes"),"TRIGGER:-PT15M","END:VALARM",
+    "END:VEVENT","END:VCALENDAR"
+  ].join("\r\n");
+}
+function remindMatch(key){
+  const m = MATCHES.find(x=>matchKey(x)===key); if(!m) return;
+  const ics = icsForMatch(m);
+  if(!ics){ toast("No kickoff time set yet"); return; }
+  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent || "");
+  const a = document.createElement("a");
+  if(isIOS){
+    a.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);   // opens Calendar "Add Event"
+  }else{
+    const url = URL.createObjectURL(new Blob([ics], {type:"text/calendar;charset=utf-8"}));
+    a.href = url; a.download = `wc26-match-${m.num||"game"}.ics`;
+    setTimeout(()=>URL.revokeObjectURL(url), 2000);
+  }
+  document.body.appendChild(a); a.click(); a.remove();
+  toast("📅 Reminder set — you'll get a lock-screen alert 15 min before");
+}
+function wireReminders(){
+  document.querySelectorAll("[data-remind]").forEach(b=>{
+    b.addEventListener("click", e=>{ e.stopPropagation(); e.preventDefault(); remindMatch(b.dataset.remind); });
+  });
+}
+
 /* ---------- Match card ---------- */
 function matchCard(m){
   const st = status(m);
@@ -406,6 +452,9 @@ function matchCard(m){
   const tvLine = `<span class="tv">📺 ${tv.eng}</span><span>🗣️ ${tv.esp}</span><span>▶️ ${tv.stream}</span>`;
   const cta = live ? `<span class="open-cta live">Tap for live play-by-play ›</span>`
                    : `<span class="open-cta">Match centre ›</span>`;
+  // Pre-match reminder for upcoming games (adds a lock-screen calendar alert).
+  const remind = (d && st!=="ft" && st!=="live")
+    ? `<button class="remind-btn" data-remind="${esc(matchKey(m))}" title="Get a lock-screen reminder before kickoff">🔔 Remind me</button>` : "";
 
   // Live match odds (1X2) from current form — shown until the game is finished.
   const oddsLine = (st!=="ft" && TEAMS[m.team1] && TEAMS[m.team2]) ? (()=>{
@@ -430,7 +479,7 @@ function matchCard(m){
       ${weatherChip(m)}
       ${tvLine}
     </div>
-    <div class="open-row">${cta}</div>
+    <div class="open-row">${remind}${cta}</div>
   </div>`;
 }
 
@@ -2406,6 +2455,7 @@ function render(){
   if(state.view==="bracket" && entering) requestAnimationFrame(scrollBracketToCurrent);
   wireGoto();
   wireOpenMatch();
+  wireReminders();
   syncNav();
 }
 

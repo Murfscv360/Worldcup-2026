@@ -422,7 +422,11 @@ button{ -webkit-appearance:none; appearance:none }
 
 /* ---------- Tappable match cards + match-centre affordance ---------- */
 .match.tappable{cursor:pointer}
-.match .open-row{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:flex;justify-content:flex-end}
+.match .open-row{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.remind-btn{font-size:12px;font-weight:800;color:var(--gold);background:rgba(255,209,102,.12);
+  border:1px solid rgba(255,209,102,.4);border-radius:8px;padding:6px 11px;cursor:pointer;white-space:nowrap}
+.remind-btn:active{transform:scale(.96)}
+.match .open-row .open-cta{margin-left:auto}
 .open-cta{font-size:11.5px;font-weight:800;color:var(--accent2);letter-spacing:.2px}
 .open-cta.live{color:var(--live)}
 .match.is-live-card{border-color:rgba(255,77,98,.45);box-shadow:0 0 0 1px rgba(255,77,98,.18),0 1px 2px rgba(0,0,0,.28)}
