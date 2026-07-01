@@ -394,8 +394,12 @@ function matchCard(m){
        ${sc ? `<span class="score${fl}">${sc[i]}</span>` : `<span class="score dim">–</span>`}
      </div>`;
 
+  // Show CT plus the viewer's local time — but if they're the same (viewer is in
+  // Central), show one clean time instead of duplicating it.
   const kick = d
-    ? `<span class="kick">${etFmt.format(d)} CT <small>· ${locFmt.format(d)} ${esc(localTZ)}</small></span>`
+    ? (etFmt.format(d) === locFmt.format(d)
+        ? `<span class="kick">${etFmt.format(d)} CT</span>`
+        : `<span class="kick">${etFmt.format(d)} CT <small>· ${locFmt.format(d)} ${esc(localTZ)}</small></span>`)
     : `<span class="kick">TBD</span>`;
 
   const tv = tvFor(m);
