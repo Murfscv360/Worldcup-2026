@@ -594,13 +594,15 @@ function viewToday(){
 
   let html = "";
 
-  // 0) Favourite-team section leads the page when chosen; otherwise the live hero.
+  // 0) Predicted champion leads the page.
+  html += championBanner(true);
+
+  // 0b) Favourite-team section, else the live hero.
   if(state.fav && TEAMS[state.fav]){
     html += favTeamSection(state.fav);
   } else {
     html += liveStatsPanel();
   }
-  html += championBanner(true);
 
   // 1) Live now — headline of the page
   if(liveNow.length){
@@ -1002,6 +1004,11 @@ function resolveCode(code){
 function projOutcome(num, wantLoser){
   const ko = KO_RESULT[num];                           // real result (incl. penalties) wins
   if(ko && ko.finished && ko.winner) return { team: wantLoser ? ko.loser : ko.winner, confirmed:true };
+  // Live tie in progress → project the side currently ahead (not just pre-game form).
+  if(ko && ko.live && ko.ft && ko.ft[0]!==ko.ft[1]){
+    const lead = ko.ft[0]>ko.ft[1] ? ko.home : ko.away, trail = lead===ko.home ? ko.away : ko.home;
+    return { team: wantLoser ? trail : lead, confirmed:false };
+  }
   const mt = matchByNum(num); if(!mt) return null;
   if(mt.score && Array.isArray(mt.score.ft) && TEAMS[mt.team1] && TEAMS[mt.team2]){  // played, real teams
     const [a,b] = mt.score.ft;
