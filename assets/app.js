@@ -1705,7 +1705,7 @@ function matchFeed(m){
   if(htReached) ev.push({min:45, sort:45.99, type:"ht", text:`Half-time — ${t1n} ${s1ht}–${s2ht} ${t2n}.`});
 
   if(fin) ev.push({min:90, sort:1000, type:"ft", text:`Full-time — ${t1n} ${m.score.ft[0]}–${m.score.ft[1]} ${t2n}.`});
-  else if(live) ev.push({min:cl?cl.min:0, sort:nowSort+0.5, type:"live", text:`Live — ${cl?cl.label:"in progress"}.`});
+  else if(live) ev.push({min:cl?cl.min:0, sort:nowSort+0.5, type:"live", text:`Live — match in progress.`});
 
   return ev.sort((a,b)=> a.sort-b.sort);
 }
@@ -1883,7 +1883,7 @@ function liveStatsPanel(){
         <span style="text-align:right">${b}${suffix}</span>
       </div>`;
     return `<div class="live-hero is-live">
-      <div class="lh-top"><span>🔴 Live · ${esc(m.group||m.round||"")}</span><span class="lh-min" data-liveclock="${d?d.getTime():0}">${cl?cl.label:"LIVE"}</span></div>
+      <div class="lh-top"><span>🔴 Live · ${esc(m.group||m.round||"")}</span><span class="lh-min">LIVE</span></div>
       <div class="lh-teams">
         <div class="lh-team"><span class="flag">${t1.flag}</span><span class="nm">${esc(t1.name)}</span></div>
         <div class="lh-score${hasScore?scoreFlash("hero:"+matchKey(m), st.sc):""}">${scoreHTML}</div>
@@ -1950,7 +1950,7 @@ function liveMarketsHTML(){
     return `<div class="lodds">
       <div class="lo-top">
         <span>${t1.flag} ${esc(t1.name)} ${sc?`<b>${sc}</b> `:""}${t2.flag} ${esc(t2.name)}</span>
-        <span>${isLive?`🔴 ${cl?cl.label:"LIVE"}`:(d?etFmt.format(d)+" CT":"")}</span>
+        <span>${isLive?`🔴 LIVE`:(d?etFmt.format(d)+" CT":"")}</span>
       </div>
       <div class="lo-3" data-odds="${esc(matchKey(m))}">
         <div class="lo-cell"><div class="lc-k">Home</div><div class="lc-v">${o.h.toFixed(0)}%</div><div class="lc-bar"><i style="width:${o.h}%"></i></div></div>
@@ -1993,7 +1993,7 @@ function viewCommentary(){
   const badge = {live:'<span class="badge live">● Live</span>',ft:'<span class="badge ft">Full-time</span>',soon:'<span class="badge soon">Upcoming</span>',sched:'<span class="badge sched">Scheduled</span>'}[st];
 
   const cl = liveClock(sel);
-  const clockTxt = st==="live" ? (cl?cl.label:"LIVE") : st==="ft" ? "FT" : (kickoffDate(sel)?etFmt.format(kickoffDate(sel))+" CT":"");
+  const clockTxt = st==="live" ? "LIVE" : st==="ft" ? "FT" : (kickoffDate(sel)?etFmt.format(kickoffDate(sel))+" CT":"");
 
   let html = `<div class="sec-title"><h2>Match centre</h2><span class="meta">tap a match</span></div>`;
   html += `<div class="cmt-pick">${chips}</div>`;
@@ -2003,7 +2003,7 @@ function viewCommentary(){
       <span class="ms-team">${t1.flag} ${esc(t1.name)}</span>
       <span class="ms-score${scoreFlash("mini:"+matchKey(sel), sc)}">${sc?`${sc[0]}–${sc[1]}`:"vs"}</span>
       <span class="ms-team right">${esc(t2.name)} ${t2.flag}</span>
-      <span class="ms-clock"${st==="live"&&kickoffDate(sel)?` data-liveclock="${kickoffDate(sel).getTime()}"`:""}>${esc(clockTxt)}</span>
+      <span class="ms-clock">${esc(clockTxt)}</span>
     </div>`;
 
   html += `<div class="match" style="margin-bottom:14px">
