@@ -95,6 +95,9 @@ const WC26 = "https://worldcup26.ir/get/games";
 // minutes and publishes live.json to the `scores` branch. Served from our own
 // CDN origin (raw.githubusercontent) => no CORS/geo/uptime issues in the browser.
 const WC26_MIRROR = "https://raw.githubusercontent.com/Murfscv360/Worldcup-2026/scores/live.json";
+// Stamped with the commit+time by the Pages deploy workflow ("__BUILD__" when
+// running unstamped/locally). Compared against version.json to self-update OTA.
+const BUILD = "__BUILD__";
 const NAME_FIX = {"United States":"USA","Bosnia and Herzegovina":"Bosnia & Herzegovina","Democratic Republic of the Congo":"DR Congo"};
 const fixName = n => NAME_FIX[n] || n;
 let LIVE_KEYS = new Set();   // pair keys currently live (per feed)
@@ -2610,6 +2613,34 @@ function initPullToRefresh(){
   window.addEventListener("touchcancel", end, {passive:true});
 }
 
+// OTA version watcher: compares the running build against the deployed
+// version.json and self-updates the moment a new deploy is live — no manual
+// cache bumps, no reinstalling. Reload-loop guarded via sessionStorage.
+async function checkVersion(){
+  if(BUILD.indexOf("BUILD") !== -1) return;              // unstamped (local/dev) — no-op
+  try{
+    const r = await fetchT("version.json?_=" + Date.now(), 6000);
+    if(!r.ok) return;
+    const j = await r.json();
+    if(!j || !j.version || j.version === BUILD) return;
+    const guard = "wc26_ota_" + j.version;
+    if(sessionStorage.getItem(guard)) return;            // already tried this version — don't loop
+    sessionStorage.setItem(guard, "1");
+    toast("⬆️ Updating to the latest version…");
+    let reloaded = false;
+    try{
+      const reg = await navigator.serviceWorker.getRegistration();
+      if(reg){
+        await reg.update();                              // SW bytes changed → install → skipWaiting → controllerchange reload
+        reloaded = true;                                 // controllerchange listener reloads the page
+      }
+    }catch(e){}
+    // Fallback: if no SW (or the update path stalls), hard-reload — the SW
+    // fetch handler revalidates the shell so the reload gets the new build.
+    setTimeout(()=>{ try{ location.reload(); }catch(e){} }, reloaded ? 6000 : 800);
+  }catch(e){ /* offline / transient — try again next round */ }
+}
+
 async function init(){
   wireTabs();
   wireFav();
@@ -2624,6 +2655,9 @@ async function init(){
   setInterval(async ()=>{ const ok = await loadLive(); if(ok && !editingSchedule()){ setLive(); render(); } }, 15000);
   // Base schedule (times/venues/knockout structure) changes rarely — every 5 min.
   setInterval(async ()=>{ await loadData(); await loadLive(); setLive(); if(!editingSchedule()) render(); }, 300000);
+  // OTA: watch for new deploys while the app is open (also runs on foreground wake).
+  checkVersion();
+  setInterval(checkVersion, 300000);
   // Re-render dynamic views every 15s so clocks & odds stay fresh.
   setInterval(()=>{ if(!editingSchedule()) render(); }, 15000);
   // Tick countdowns & live clocks every second.
@@ -2637,6 +2671,7 @@ async function init(){
     if(Date.now()-lastWake < 1500) return;   // debounce duplicate fire/visibility events
     lastWake = Date.now();
     loadLive().then(ok=>{ if(ok && !editingSchedule()){ setLive(); render(); } });
+    checkVersion();                           // reopening the app picks up new builds immediately
   };
   document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) wake(); });
   window.addEventListener("pageshow", wake);
