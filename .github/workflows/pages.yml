@@ -27,6 +27,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Stamp build version (OTA auto-update)
+        run: |
+          ver="${GITHUB_SHA::7}-$(date -u +%Y%m%d%H%M)"
+          sed -i "s/__BUILD__/$ver/g" sw.js assets/app.js
+          printf '{"version":"%s","built_at":"%s"}\n' "$ver" "$(date -u +%FT%TZ)" > version.json
+          echo "Stamped build $ver"
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
