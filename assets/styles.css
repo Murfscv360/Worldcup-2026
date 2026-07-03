@@ -186,6 +186,8 @@ body{ padding-bottom:calc(72px + env(safe-area-inset-bottom)); overscroll-behavi
   border-radius:12px;padding:14px 13px;font-size:14px;font-weight:700;cursor:pointer;text-align:left;transition:.15s}
 .more-item.on{border-color:var(--accent2);background:var(--card2);color:var(--accent2)}
 .more-item .mi-ic{font-size:20px;line-height:1}
+.more-build{grid-column:1 / -1;text-align:center;font-size:10.5px;font-weight:700;color:var(--muted);
+  letter-spacing:.2px;padding-top:6px;margin-top:2px;border-top:1px dashed var(--line)}
 
 /* iOS bottom navigation */
 .bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:space-around;
