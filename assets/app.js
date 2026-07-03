@@ -2524,7 +2524,8 @@ function syncNav(){
 function wireMore(){
   const sheet=$("moreSheet"), btn=$("moreBtn"), close=$("moreClose"), list=$("moreList");
   if(list){
-    list.innerHTML = SECTIONS.map(([v,ic,l])=>`<button class="more-item" data-view="${v}"><span class="mi-ic">${ic}</span><span>${esc(l)}</span></button>`).join("");
+    list.innerHTML = SECTIONS.map(([v,ic,l])=>`<button class="more-item" data-view="${v}"><span class="mi-ic">${ic}</span><span>${esc(l)}</span></button>`).join("")
+      + `<div class="more-build">Build ${esc(buildLabel())}</div>`;
     list.querySelectorAll(".more-item").forEach(b=>b.addEventListener("click",()=>{ sheet.hidden=true; go(b.dataset.view); }));
   }
   if(btn) btn.addEventListener("click", ()=>{ syncNav(); sheet.hidden=false; });
@@ -2616,6 +2617,22 @@ function initPullToRefresh(){
 // OTA version watcher: compares the running build against the deployed
 // version.json and self-updates the moment a new deploy is live — no manual
 // cache bumps, no reinstalling. Reload-loop guarded via sessionStorage.
+// Human-readable build stamp for on-device diagnostics ("was the OTA update
+// actually applied?") — shown in the More sheet. BUILD is "<sha7>-<YYYYMMDDHHmm>".
+function buildLabel(){
+  if(BUILD.indexOf("BUILD") !== -1) return "dev build";
+  const m = BUILD.match(/^([0-9a-f]{7})-(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})$/);
+  if(!m) return BUILD;
+  const [, sha, y, mo, d, h, mi] = m;
+  const dt = new Date(Date.UTC(+y, +mo-1, +d, +h, +mi));
+  const fmt = new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZone:"UTC"});
+  return `${sha} · ${fmt.format(dt)} UTC`;
+}
+let _otaReloading = false;
+function reloadForUpdate(){
+  if(_otaReloading) return; _otaReloading = true;
+  try{ location.reload(); }catch(e){}
+}
 async function checkVersion(){
   if(BUILD.indexOf("BUILD") !== -1) return;              // unstamped (local/dev) — no-op
   try{
@@ -2627,17 +2644,22 @@ async function checkVersion(){
     if(sessionStorage.getItem(guard)) return;            // already tried this version — don't loop
     sessionStorage.setItem(guard, "1");
     toast("⬆️ Updating to the latest version…");
-    let reloaded = false;
+    // Drive the actual SW lifecycle instead of guessing with a blind delay:
+    // reload the instant the new worker installs, with a bounded fallback in
+    // case there's no SW, the update is a no-op, or the browser stalls.
+    const fallback = setTimeout(reloadForUpdate, 4000);
     try{
       const reg = await navigator.serviceWorker.getRegistration();
       if(reg){
-        await reg.update();                              // SW bytes changed → install → skipWaiting → controllerchange reload
-        reloaded = true;                                 // controllerchange listener reloads the page
+        reg.addEventListener("updatefound", ()=>{
+          const nw = reg.installing; if(!nw) return;
+          nw.addEventListener("statechange", ()=>{
+            if(nw.state === "installed"){ clearTimeout(fallback); reloadForUpdate(); }
+          });
+        });
+        await reg.update();
       }
     }catch(e){}
-    // Fallback: if no SW (or the update path stalls), hard-reload — the SW
-    // fetch handler revalidates the shell so the reload gets the new build.
-    setTimeout(()=>{ try{ location.reload(); }catch(e){} }, reloaded ? 6000 : 800);
   }catch(e){ /* offline / transient — try again next round */ }
 }
 
