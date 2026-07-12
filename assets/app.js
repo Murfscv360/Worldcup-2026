@@ -171,25 +171,36 @@ function wcState(g){
      te==="postponed" || te==="finished" || te==="ft" || te==="null") return "sched";
   return "live";
 }
+// Sanity guard: the upstream feed has occasionally flipped a match to "live"
+// a few minutes before the actual scheduled kickoff. Don't trust a "live" flag
+// until we're within this grace window of our own kickoff clock — "finished"
+// is never gated, only the premature-live case. If we have no kickoff date to
+// check against, fall back to trusting the feed (unchanged behaviour).
+const LIVE_GRACE_MS = 10*60000;
+function kickoffOk(d){ return !d || (Date.now() >= d.getTime() - LIVE_GRACE_MS); }
 function overlayWC26(games){
   LIVE_KEYS = new Set(); FIN_KEYS = new Set();
   WC_LOADED = !!games;
   GUARD.flags = [];
   if(!games) return false;
+  // pairKey -> kickoff Date, from any match whose team codes are already real
+  // team names (group stage, or a knockout tie the base schedule has resolved).
+  const pairKickoff = {};
+  MATCHES.forEach(m=>{ if(TEAMS[m.team1] && TEAMS[m.team2]){ const kd=kickoffDate(m); if(kd) pairKickoff[pairKey(m.team1,m.team2)]=kd; } });
   const byPair = {};
   games.forEach(g=>{
     const A=g.home_team_name_en, B=g.away_team_name_en;
     if(!A || !B) return;
     const k = pairKey(A,B); byPair[k]=g;
     const stt = wcState(g);
-    if(stt==="live") LIVE_KEYS.add(k);
+    if(stt==="live"){ if(kickoffOk(pairKickoff[k])) LIVE_KEYS.add(k); }
     else if(stt==="ft") FIN_KEYS.add(k);
   });
   MATCHES.forEach(m=>{
     if(!TEAMS[m.team1] || !TEAMS[m.team2]) return;     // skip knockout placeholders
     const g = byPair[pairKey(m.team1,m.team2)]; if(!g) return;
     const stt = wcState(g);
-    const live = stt==="live";
+    const live = stt==="live" && kickoffOk(kickoffDate(m));
     const fin  = stt==="ft";
     if(!(live || fin)) return;
     const h=parseInt(g.home_score)||0, a=parseInt(g.away_score)||0;
@@ -237,7 +248,7 @@ function overlayWC26(games){
     const hp = parseInt(g.home_penalty_score), ap = parseInt(g.away_penalty_score);
     const hasPens = !isNaN(hp) && !isNaN(ap) && hp!==ap;
     const ft = (!isNaN(h) && !isNaN(a)) ? [h,a] : null;
-    const rec = { home, away, live: stt==="live", finished: stt==="ft", ft, pens: hasPens ? [hp,ap] : null };
+    const rec = { home, away, live: stt==="live" && kickoffOk(kickoffDate(m)), finished: stt==="ft", ft, pens: hasPens ? [hp,ap] : null };
     if(rec.finished && ft && validFt(ft)){
       rec.winner = ft[0]>ft[1] ? home : ft[1]>ft[0] ? away : (hasPens ? (hp>ap?home:away) : null);
       rec.loser  = rec.winner ? (rec.winner===home ? away : home) : null;
