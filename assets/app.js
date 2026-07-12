@@ -1183,13 +1183,18 @@ function analystCommentary(compact){
   const roundOrder = ["Round of 32","Round of 16","Quarter-final","Semi-final","Final"];
   const curRound = roundOrder.find(r=>ko.some(m=>m.round===r && !(KO_RESULT[m.num]&&KO_RESULT[m.num].finished))) || "Final";
 
-  // Shock upsets: a finished tie whose winner wasn't the pre-game form pick.
-  const upsets = finished.map(m=>{
+  // Every finished tie in PLAY ORDER (oldest → newest), each flagged for
+  // whether our pre-game pick was right — so the commentary can talk about
+  // what just happened and the model's track record, not replay the
+  // tournament's single biggest shock forever once it's old news.
+  const played = finished.map(m=>{
     const k = KO_RESULT[m.num], p = predictTie(m, k.home, k.away);
-    if(p.winner === k.winner) return null;
     return { winner:k.winner, loser:k.loser, pens:!!k.pens, round:m.round,
-             gap:Math.abs(formScore(k.home)-formScore(k.away)) };
-  }).filter(Boolean).sort((a,b)=>b.gap-a.gap);
+             right: p.winner===k.winner, d: kickoffDate(m) };
+  }).sort((a,b)=> (a.d?a.d.getTime():0) - (b.d?b.d.getTime():0));
+  const recent = played.slice(-4);                              // latest round or two
+  const recentUpsets = recent.filter(x=>!x.right).reverse();     // newest shock first
+  const stats = bracketStats();
 
   // Biggest looming ties (unplayed, both teams known) by billing, confirmed first.
   const huge = ko.filter(m=>!(KO_RESULT[m.num]&&KO_RESULT[m.num].finished))
@@ -1204,12 +1209,18 @@ function analystCommentary(compact){
   if(koStarted){
     const left = Math.max(1, 32 - finished.length);
     lines.push(`We're into the <b>${RND[curRound]||curRound}</b> and <b>${left}</b> ${left===1?"side is left standing":"sides are still alive"}.`);
-    if(upsets.length){
-      const u = upsets[0];
-      lines.push(`Tear up the form book — <b>${esc(u.winner)}</b> dumped out <b>${esc(u.loser)}</b>${u.pens?" on penalties":""}, the kind of result that defines a tournament.`);
-      if(upsets.length>1) lines.push(`That's <b>${upsets.length} shock${upsets.length>1?"s":""}</b> against our model so far${upsets[1]?`, with <b>${esc(upsets[1].winner)}</b> also sending <b>${esc(upsets[1].loser)}</b> home`:""}.`);
-    } else {
-      lines.push(`The favourites are holding firm so far — chalk is winning, no major shocks on the board yet.`);
+    if(recentUpsets.length){
+      const u = recentUpsets[0];
+      lines.push(`The latest shock: <b>${esc(u.winner)}</b> knocked out <b>${esc(u.loser)}</b>${u.pens?" on penalties":""} in the ${(RND[u.round]||u.round).toLowerCase()}.`);
+    } else if(recent.length){
+      const names = recent.filter(x=>x.right).slice(-2).map(x=>esc(x.winner));
+      lines.push(names.length ? `Form held up in the latest round — ${names.join(" and ")} both advanced as expected.` : `The latest results went to script.`);
+    }
+    if(stats.total){
+      const tone = stats.acc>=75 ? "holding up well despite the shocks along the way"
+        : stats.acc>=50 ? "grinding through a genuinely chaotic bracket"
+        : "taking a beating this tournament";
+      lines.push(`Track record: the model has called <b>${stats.correct} of ${stats.total}</b> knockout ties correctly — a <b>${stats.acc}%</b> hit rate, ${tone}.`);
     }
     if(huge.length){
       const h = huge[0];
@@ -1217,7 +1228,7 @@ function analystCommentary(compact){
     }
     if(champ && champ.team) lines.push(champ.confirmed
       ? `And it's done — <b>${esc(champ.team)}</b> are champions of the world. 🏆`
-      : `The model still backs <b>${esc(champ.team)}</b> to lift the trophy — but on this evidence, nobody's safe.`);
+      : `The model still backs <b>${esc(champ.team)}</b> to lift the trophy.`);
   } else {
     // Group-stage flavour.
     const elim = eliminatedTeams();
