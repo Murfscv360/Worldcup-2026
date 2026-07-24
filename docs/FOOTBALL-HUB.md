@@ -1,19 +1,19 @@
-# Premier League 26/27 — Live Hub (Championship + Champions League)
+# Football 26/27 Season — Live Hub
 
 > A second, standalone app in this repo (`football-hub/`) extending the
 > World Cup Live Hub's proven pattern — zero-build, mobile-first, honest
 > about real vs. modeled data — to year-round club football. Branded and
-> built around the **2026-27 Premier League season**, with the **EFL
-> Championship** (the tier directly below it) and the **UEFA Champions
-> League** covered alongside it. One stop for scores, tables, the real full
+> built around the **2026-27 season**, covering the **Premier League**, the
+> **EFL Championship** (the tier directly below it) and the **UEFA
+> Champions League** together. One stop for scores, tables, the real full
 > fixture list, favourite-club tracking, transfer news, football news, and
 > prediction markets.
 >
 > Internally the app/codebase is still referred to as "Football Hub"
 > (directory name, JS variable/function names, service-worker cache key) —
 > only the user-facing brand (page title, header, PWA name/icon, launch
-> splash) changed to lead with the season. See §8 for the full list of
-> user-facing strings the rebrand touched.
+> splash) changed to lead with the season. It was briefly branded "Premier
+> League 26/27" before this; see §8 for the full rebrand history.
 
 ## 1a. Note on the reference sites in the original request
 
@@ -241,11 +241,12 @@ docs/FOOTBALL-HUB.md                              # this document
 
 ---
 
-## 8. Rebrand: "Football Hub" → "Premier League 26/27"
+## 8. Rebrand history
 
-The app was rebranded to lead with the season rather than a generic
-product name. This changed **user-facing brand strings only** — no scope,
-routes, or data changed:
+Two rebrand passes so far, both **user-facing brand strings only** — no
+scope, routes, or data changed either time:
+
+**Pass 1 — "Football Hub" → "Premier League 26/27"**
 
 | File | What changed |
 |---|---|
@@ -253,10 +254,18 @@ routes, or data changed:
 | `manifest.webmanifest` | `name`, `short_name`, `description` |
 | `icon.svg` | `aria-label`, the baked-in text glyphs (`26/27` / `PREMIER LEAGUE`) |
 | `README.md` | Section heading + blurb |
-| `docs/FOOTBALL-HUB.md` | Title + intro (this file) |
+| `docs/FOOTBALL-HUB.md` | Title + intro |
 
-**Deliberately left unchanged** (internal, not user-facing): the
-`football-hub/` directory name, `assets/app.js`'s internal naming
+**Pass 2 — "Premier League 26/27" → "Football 26/27 Season"**
+
+Same set of files, same fields, with the eyebrow/short brand changed from
+`PREMIER LEAGUE` to `FOOTBALL` (header, launch splash, icon) since the app
+covers three competitions, not just the Premier League — the season number
+(`26/27`) stays the visual anchor either way. `apple-mobile-web-app-title` /
+`short_name` changed `PL 26/27` → `Football 26/27`.
+
+**Deliberately left unchanged in both passes** (internal, not user-facing):
+the `football-hub/` directory name, `assets/app.js`'s internal naming
 (`COMPS`, `DATA`, function names), and the service worker's cache-key
 prefix (`football-hub-`). Renaming those would touch every file path in
 this doc and the PR history for zero user-visible benefit — the brand
