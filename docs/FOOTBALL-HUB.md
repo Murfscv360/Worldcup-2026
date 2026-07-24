@@ -54,24 +54,50 @@ deployed alongside the World Cup hub from the same repo root.
 ```
         ┌───────────────────────────────────────────┐
         │            football-hub/index.html          │
-        │  header · competition switcher · tabs ·      │
-        │  #view · bottom nav                          │
+        │  header · tabs (incl. My Teams) · #view ·     │
+        │  competition switcher (Table/Fixtures/Teams) ·│
+        │  bottom nav                                    │
         └───────────────────┬───────────────────────┘
                              │ loads
         ┌────────────────────┴────────────────────┐
         │          football-hub/assets/app.js       │
         │   (single-file: data + engines + views)   │
         └────────────────────┬────────────────────┘
-                             │ fetch
-   ┌────────────────────────────┴────────────────────────────┐
-   │ REMOTE (EPL):  openfootball/football.json 2026-27/en.1.json │
-   │   → falls back to 2025-26/en.1.json (completed, real)      │
-   │   → falls back to bundled data/epl-2025-26.json snapshot   │
-   │ STATIC: data/epl.json (clubs, last-season table, promotion/│
-   │   relegation, Golden Boot), data/ucl.json (UCL 25-26 recap,│
-   │   26-27 entrants/dates), data/news.json, data/transfers.json│
-   └────────────────────────────────────────────────────────────┘
+                             │ fetch, per competition (EPL, Championship)
+   ┌────────────────────────────┴────────────────────────────────┐
+   │ 1. openfootball/football.json  2026-27/en.{1,2}.json           │
+   │    (JSON feed — fastest once openfootball's generator catches  │
+   │    up; empty until then)                                       │
+   │ 2. openfootball/england  2026-27/{1-premierleague,               │
+   │    2-championship}.txt  — parsed client-side (parseFootballTxt) │
+   │    — the REAL, CONFIRMED, FULL 2026-27 fixture list (380 / 552   │
+   │    matches) as published by the Premier League / EFL, updated    │
+   │    with real scores by openfootball as the season is played;      │
+   │    this is the primary live source right now, ahead of the JSON    │
+   │    generator                                                        │
+   │ 3. bundled data/{epl,championship}-2026-27.json — a vendored snap-  │
+   │    shot of step 2, taken when this app was built, so it always      │
+   │    renders even fully offline                                       │
+   │ (separately, always-local) data/{epl,championship}-2025-26.json —   │
+   │    last season's complete real results, used to (a) compute the     │
+   │    "last season final table" reference shown until 2026-27 results  │
+   │    exist, and (b) power the Fixtures tab's results archive          │
+   │ STATIC: data/epl.json / data/championship.json (clubs, last-season  │
+   │    table, promotion/relegation, title odds), data/ucl.json,          │
+   │    data/news.json, data/transfers.json (club-tagged)                 │
+   └────────────────────────────────────────────────────────────────────┘
 ```
+
+**Why parse a `.txt` source directly?** As of this app's launch (24 Jul
+2026), the Premier League and EFL had already published the full, real
+2026-27 fixture list (19 & 25 June 2026 respectively), and openfootball's
+source repo (`openfootball/england`) already mirrored it — but openfootball's
+*generated JSON* repo (`openfootball/football.json`) had not yet been
+rebuilt for the new season. Waiting on the JSON generator would mean
+showing last season's fixtures for weeks after the real ones were public.
+`parseFootballTxt()` reads the same plain-text format the JSON generator
+itself consumes, so the app gets the real 2026-27 schedule — and, once
+matches are played, real scores — without waiting on that rebuild.
 
 Same shape as the World Cup app's data layer: a `REMOTE`/`LOCAL` pair with
 graceful fallback, `DATA_SOURCE` driving a freshness pill, views as pure
@@ -159,24 +185,28 @@ in this season.
 
 | Source | Use | Status |
 |---|---|---|
-| **openfootball/football.json** (`en.1.json`) | EPL results & schedule, one file per season | ✅ Active (CORS, public domain); 2025-26 fully populated (380/380 matches), 2026-27 file appears once published |
-| **openfootball/football.json** (`en.2.json`) | Championship results & schedule | ✅ Active; 2025-26 fully populated (557 matches incl. play-offs), same fallback chain as the EPL feed |
-| **Bundled `data/epl-2025-26.json` / `data/championship-2025-26.json`** | Offline fallback / last-season baseline | ✅ Vendored copies of the real feeds |
-| **`data/epl.json` / `data/championship.json`** | Clubs, promoted/relegated, Golden Boot, title-odds snapshot | ✅ Hand-curated from verified sources (see file header); tables are **computed**, not typed — see §1a and the load scripts in the PR history |
+| **openfootball/football.json** (`2026-27/en.{1,2}.json`) | Live EPL/Championship results, generated JSON | 🔌 Not yet published as of launch — tried first, used automatically once it appears |
+| **openfootball/england** (`2026-27/{1-premierleague,2-championship}.txt`) | Real 2026-27 fixtures now, real scores once played | ✅ Active — the actual primary live source; parsed client-side, see §3 |
+| **Bundled `data/{epl,championship}-2026-27.json`** | Offline fallback for the current season | ✅ Vendored snapshot of the real fixture list (380 / 552 matches, no scores yet) |
+| **Bundled `data/{epl,championship}-2025-26.json`** | Last-season reference table + results archive | ✅ Vendored copies of the real, complete 2025-26 feeds |
+| **`data/epl.json` / `data/championship.json`** | Clubs, promoted/relegated, Golden Boot, title-odds snapshot | ✅ Hand-curated from verified sources (see file header); last-season tables are **computed**, not typed — see §1a and the load scripts in the PR history. The Championship table applies a real 6-point deduction to Leicester City (EFL Profit & Sustainability Rules breach, upheld on appeal) — without it, a pure results table would incorrectly keep Leicester up and Blackburn Rovers down, which the real, confirmed 2026-27 fixture list (Blackburn present, Leicester absent) proved wrong. The 2026-27 Championship club roster (incl. Bolton Wanderers, Cardiff City, Lincoln City up from League One) is cross-checked against that same real fixture list, not assumed. |
 | **`data/ucl.json`** | UCL 25-26 recap + 26-27 entrants/dates | ✅ Hand-curated (draw is 27 Aug 2026 — the 26-27 league-phase table does not exist yet and is **not fabricated**) |
 | **`data/news.json` / `data/transfers.json`** | Editorial feed, club-tagged (`clubs: [...]`) | ✅ Hand-curated, dated, sourced |
 | **flashscore / BBC Sport / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
 | **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play). |
 
-**Why not fabricate a 2026-27 UCL table or full EPL fixture list?** The UCL
-league-phase draw happens 27 August 2026 and the full EPL fixture list,
-while released, is not part of the verified research baseline this app
-shipped with — inventing specific fixture pairings and presenting them as
-real would violate the "honest data" principle that makes the World Cup hub
-trustworthy. The app instead models the **real** preseason state (countdown,
-confirmed opener, confirmed calendar dates) and is architected so the live
-feed takes over automatically, with no code change, the moment openfootball
-publishes the 2026-27 file.
+**Why not fabricate a 2026-27 UCL table?** The league-phase draw happens 27
+August 2026 — no pairings, and therefore no table, exist yet. Inventing them
+would violate the "honest data" principle that makes the World Cup hub
+trustworthy, so the UCL tab shows only what's real: the confirmed entrants,
+format, and dates (§4/§6).
+
+The EPL/Championship situation is different and worth calling out: both
+fixture lists *are* real and fully published (see §3), so this app uses them
+in full — all 380 + 552 matches, not just the headline opener. What's
+**not** shown is a fabricated *table* for a season with no results yet; the
+Table tab is explicit about that (§4) and shows last season's real final
+table as a clearly labelled reference until 2026-27 results exist.
 
 ---
 
@@ -184,18 +214,20 @@ publishes the 2026-27 file.
 
 ```
 football-hub/
-  index.html                     # shell: header, tabs (incl. My Teams), #view, bottom nav
-  assets/styles.css               # adapted from the World Cup app's mobile-first/iOS styles (EPL purple / UCL indigo accent)
-  assets/app.js                    # multi-competition data load, table/season/odds/newsroom/favourites engines, all views
-  data/epl.json                     # EPL clubs, last-season table meta, promotion/relegation, Golden Boot, title odds
-  data/epl-2025-26.json              # vendored real openfootball EPL season file (380 matches, fallback + table source)
-  data/championship.json              # Championship clubs, last-season table meta, promotion/relegation, play-off note
-  data/championship-2025-26.json       # vendored real openfootball Championship season file (557 matches incl. play-offs)
-  data/ucl.json                         # UCL 25-26 recap + 26-27 entrants/format/dates
-  data/news.json                         # curated news feed, club-tagged
-  data/transfers.json                     # curated transfer tracker, club-tagged
-  manifest.webmanifest                     # PWA manifest
-  sw.js                                     # service worker (same network-first shell pattern)
-  icon.svg                                   # app icon
-docs/FOOTBALL-HUB.md                          # this document
+  index.html                       # shell: header, tabs (incl. My Teams), #view, bottom nav
+  assets/styles.css                 # adapted from the World Cup app's mobile-first/iOS styles (EPL purple / UCL indigo accent)
+  assets/app.js                      # multi-competition data load (incl. parseFootballTxt), table/season/odds/newsroom/favourites engines, all views
+  data/epl.json                       # EPL clubs, last-season table meta, promotion/relegation, Golden Boot, title odds
+  data/epl-2026-27.json                # vendored real 2026-27 EPL fixture list (380 matches, no scores yet — offline fallback)
+  data/epl-2025-26.json                 # vendored real, complete 2025-26 EPL season (380 matches — reference table + archive)
+  data/championship.json                 # Championship clubs, last-season table meta, promotion/relegation, play-off note
+  data/championship-2026-27.json          # vendored real 2026-27 Championship fixture list (552 matches — offline fallback)
+  data/championship-2025-26.json           # vendored real, complete 2025-26 Championship season (557 incl. play-offs — reference + archive)
+  data/ucl.json                             # UCL 25-26 recap + 26-27 entrants/format/dates
+  data/news.json                             # curated news feed, club-tagged
+  data/transfers.json                         # curated transfer tracker, club-tagged
+  manifest.webmanifest                         # PWA manifest
+  sw.js                                         # service worker (same network-first shell pattern)
+  icon.svg                                       # app icon
+docs/FOOTBALL-HUB.md                              # this document
 ```

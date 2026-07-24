@@ -1,5 +1,5 @@
 {
-  "_source": "Table computed from the real 2025-26 openfootball/football.json en.2.json feed (552 league matches, Playoffs round excluded from standings). Club meta hand-curated. See docs/FOOTBALL-HUB.md.",
+  "_source": "Table computed from the real 2025-26 openfootball/football.json en.2.json feed (552 league matches, Playoffs round excluded). A 6-point deduction is applied to Leicester City (EFL Profit & Sustainability Rules breach, upheld on appeal) — without it the computed table incorrectly keeps Blackburn Rovers down and Leicester up, which contradicts the real, confirmed 2026-27 fixture list. Club roster for 2026-27 cross-checked against data/championship-2026-27.json (the real fixture file). See docs/FOOTBALL-HUB.md.",
   "lastSeason": {
     "year": "2025-26",
     "champion": "Coventry City",
@@ -8,6 +8,7 @@
       "club": "Hull City",
       "note": "Beat Middlesbrough 1-0 in the play-off final at Wembley (Oli McBurnie, 5th minute of stoppage time) to complete an unlikely promotion after finishing 6th in the regular table."
     },
+    "relegationNote": "Leicester City were relegated on 46 points (52 raw match points minus a 6-point deduction for breaching EFL Profit & Sustainability Rules, upheld on appeal), finishing below Blackburn Rovers on the final-table tie-break that a pure results-only table would have gotten wrong.",
     "table": [
       {
         "name": "Coventry City FC",
@@ -18,6 +19,7 @@
         "gf": 97,
         "ga": 45,
         "pts": 95,
+        "deduction": 0,
         "gd": 52,
         "pos": 1
       },
@@ -30,6 +32,7 @@
         "gf": 80,
         "ga": 47,
         "pts": 84,
+        "deduction": 0,
         "gd": 33,
         "pos": 2
       },
@@ -42,6 +45,7 @@
         "gf": 64,
         "ga": 49,
         "pts": 83,
+        "deduction": 0,
         "gd": 15,
         "pos": 3
       },
@@ -54,6 +58,7 @@
         "gf": 82,
         "ga": 56,
         "pts": 80,
+        "deduction": 0,
         "gd": 26,
         "pos": 4
       },
@@ -66,6 +71,7 @@
         "gf": 72,
         "ga": 47,
         "pts": 80,
+        "deduction": 0,
         "gd": 25,
         "pos": 5
       },
@@ -78,6 +84,7 @@
         "gf": 70,
         "ga": 66,
         "pts": 73,
+        "deduction": 0,
         "gd": 4,
         "pos": 6
       },
@@ -90,6 +97,7 @@
         "gf": 69,
         "ga": 65,
         "pts": 71,
+        "deduction": 0,
         "gd": 4,
         "pos": 7
       },
@@ -102,6 +110,7 @@
         "gf": 67,
         "ga": 59,
         "pts": 69,
+        "deduction": 0,
         "gd": 8,
         "pos": 8
       },
@@ -114,6 +123,7 @@
         "gf": 63,
         "ga": 56,
         "pts": 65,
+        "deduction": 0,
         "gd": 7,
         "pos": 9
       },
@@ -126,6 +136,7 @@
         "gf": 57,
         "ga": 56,
         "pts": 64,
+        "deduction": 0,
         "gd": 1,
         "pos": 10
       },
@@ -138,6 +149,7 @@
         "gf": 57,
         "ga": 59,
         "pts": 64,
+        "deduction": 0,
         "gd": -2,
         "pos": 11
       },
@@ -150,6 +162,7 @@
         "gf": 59,
         "ga": 59,
         "pts": 62,
+        "deduction": 0,
         "gd": 0,
         "pos": 12
       },
@@ -162,6 +175,7 @@
         "gf": 66,
         "ga": 66,
         "pts": 60,
+        "deduction": 0,
         "gd": 0,
         "pos": 13
       },
@@ -174,6 +188,7 @@
         "gf": 55,
         "ga": 62,
         "pts": 60,
+        "deduction": 0,
         "gd": -7,
         "pos": 14
       },
@@ -186,6 +201,7 @@
         "gf": 61,
         "ga": 73,
         "pts": 58,
+        "deduction": 0,
         "gd": -12,
         "pos": 15
       },
@@ -198,6 +214,7 @@
         "gf": 53,
         "ga": 65,
         "pts": 57,
+        "deduction": 0,
         "gd": -12,
         "pos": 16
       },
@@ -210,6 +227,7 @@
         "gf": 51,
         "ga": 56,
         "pts": 55,
+        "deduction": 0,
         "gd": -5,
         "pos": 17
       },
@@ -222,6 +240,7 @@
         "gf": 49,
         "ga": 64,
         "pts": 55,
+        "deduction": 0,
         "gd": -15,
         "pos": 18
       },
@@ -234,6 +253,7 @@
         "gf": 48,
         "ga": 58,
         "pts": 53,
+        "deduction": 0,
         "gd": -10,
         "pos": 19
       },
@@ -246,20 +266,9 @@
         "gf": 44,
         "ga": 58,
         "pts": 53,
+        "deduction": 0,
         "gd": -14,
         "pos": 20
-      },
-      {
-        "name": "Leicester City FC",
-        "p": 46,
-        "w": 12,
-        "d": 16,
-        "l": 18,
-        "gf": 58,
-        "ga": 68,
-        "pts": 52,
-        "gd": -10,
-        "pos": 21
       },
       {
         "name": "Blackburn Rovers FC",
@@ -270,8 +279,9 @@
         "gf": 42,
         "ga": 56,
         "pts": 52,
+        "deduction": 0,
         "gd": -14,
-        "pos": 22
+        "pos": 21
       },
       {
         "name": "Oxford United FC",
@@ -282,7 +292,21 @@
         "gf": 45,
         "ga": 59,
         "pts": 47,
+        "deduction": 0,
         "gd": -14,
+        "pos": 22
+      },
+      {
+        "name": "Leicester City FC",
+        "p": 46,
+        "w": 12,
+        "d": 16,
+        "l": 18,
+        "gf": 58,
+        "ga": 68,
+        "pts": 46,
+        "deduction": 6,
+        "gd": -10,
         "pos": 23
       },
       {
@@ -294,6 +318,7 @@
         "gf": 29,
         "ga": 89,
         "pts": 18,
+        "deduction": 0,
         "gd": -60,
         "pos": 24
       }
@@ -319,6 +344,16 @@
       "color": "#009EE0"
     },
     {
+      "name": "Bolton Wanderers",
+      "full": "Bolton Wanderers FC",
+      "nick": "The Trotters",
+      "ground": "Toughsheet Community Stadium",
+      "city": "Bolton",
+      "founded": 1874,
+      "color": "#1B3E8B",
+      "note": "Promoted from League One 2025-26"
+    },
+    {
       "name": "Bristol City",
       "full": "Bristol City FC",
       "nick": "The Robins",
@@ -326,6 +361,16 @@
       "city": "Bristol",
       "founded": 1894,
       "color": "#E21C21"
+    },
+    {
+      "name": "Cardiff City",
+      "full": "Cardiff City FC",
+      "nick": "The Bluebirds",
+      "ground": "Cardiff City Stadium",
+      "city": "Cardiff",
+      "founded": 1899,
+      "color": "#0070B5",
+      "note": "Promoted from League One 2025-26"
     },
     {
       "name": "Charlton Athletic",
@@ -346,13 +391,14 @@
       "color": "#000000"
     },
     {
-      "name": "Leicester City",
-      "full": "Leicester City FC",
-      "nick": "The Foxes",
-      "ground": "King Power Stadium",
-      "city": "Leicester",
+      "name": "Lincoln City",
+      "full": "Lincoln City FC",
+      "nick": "The Imps",
+      "ground": "LNER Stadium",
+      "city": "Lincoln",
       "founded": 1884,
-      "color": "#003090"
+      "color": "#C8102E",
+      "note": "Promoted from League One 2025-26"
     },
     {
       "name": "Middlesbrough",
@@ -380,15 +426,6 @@
       "city": "Norwich",
       "founded": 1902,
       "color": "#00A650"
-    },
-    {
-      "name": "Oxford United",
-      "full": "Oxford United FC",
-      "nick": "The U's",
-      "ground": "Kassam Stadium",
-      "city": "Oxford",
-      "founded": 1893,
-      "color": "#FFC20E"
     },
     {
       "name": "Portsmouth",
@@ -425,15 +462,6 @@
       "city": "Sheffield",
       "founded": 1889,
       "color": "#EE2737"
-    },
-    {
-      "name": "Sheffield Wednesday",
-      "full": "Sheffield Wednesday FC",
-      "nick": "The Owls",
-      "ground": "Hillsborough",
-      "city": "Sheffield",
-      "founded": 1867,
-      "color": "#0066B3"
     },
     {
       "name": "Southampton",
@@ -500,7 +528,25 @@
     "Burnley",
     "Wolverhampton Wanderers"
   ],
+  "relegatedToLeagueOne2627": [
+    "Leicester City",
+    "Oxford United",
+    "Sheffield Wednesday"
+  ],
+  "promotedFromLeagueOne2627": [
+    "Bolton Wanderers",
+    "Cardiff City",
+    "Lincoln City"
+  ],
   "season2627": {
-    "note": "The 2026-27 EFL Championship fixture list follows the same close-season calendar as the Premier League (released mid-June, season starting in early-to-mid August) — this app doesn't print a specific date here because it wasn't part of the verified research this app shipped with. It switches to the live 2026-27 results feed automatically once openfootball publishes it, exactly like the Premier League tab."
+    "openingMatch": {
+      "date": "2026-08-14",
+      "home": "Wolverhampton Wanderers",
+      "away": "Blackburn Rovers",
+      "venue": "Molineux Stadium",
+      "note": "Championship season opener, a week before the Premier League kicks off"
+    },
+    "fixturesReleased": "2026-06-25",
+    "note": "Full 552-match fixture list confirmed and bundled (data/championship-2026-27.json), sourced from the openfootball/england source repository. This tab switches to the live 2026-27 results feed automatically once openfootball's JSON generator publishes it."
   }
 }

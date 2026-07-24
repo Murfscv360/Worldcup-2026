@@ -17,11 +17,13 @@ static site with no build step and no API keys.
 Club football doesn't stop when the World Cup does. [`football-hub/`](football-hub/) is a
 sibling static app — same zero-build, mobile-first, honest-data philosophy — covering the
 **Premier League**, the **Championship** (the tier below it) and the **UEFA Champions
-League** year-round: real final tables for both English divisions (computed from the
-actual results feed), a **My Teams** tab to follow multiple clubs across both divisions
-(fixtures, results, and club-tagged news/transfers), the 2026-27 season countdown, a
-summer transfer-window tracker, curated news, and a title-odds market snapshot. See
-[`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
+League**, built around the **2026-27 season kicking off in August**: the real, full
+380-match Premier League and 552-match Championship fixture lists (not just the opener),
+a **My Teams** tab to follow multiple clubs across both divisions (fixtures, results, and
+club-tagged news/transfers), real final tables for both divisions as a reference until
+2026-27 results land, a summer transfer-window tracker, curated news, and a title-odds
+market snapshot. See [`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and
+data sources.
 
 🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/
 

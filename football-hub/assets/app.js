@@ -1,7 +1,8 @@
 /* Football Hub — Premier League + Championship + Champions League
-   League results/tables: openfootball/football.json (public domain), fetched live in-browser
-   with a same-origin-safe fallback chain. Club meta, transfers, news and title odds are
-   hand-curated, dated snapshots — see data/*.json headers and docs/FOOTBALL-HUB.md. */
+   2026-27 league fixtures/results: openfootball (public domain), fetched live in-browser
+   with a same-origin-safe fallback chain (JSON feed -> parsed .txt source -> bundled
+   snapshot). Club meta, transfers, news and title odds are hand-curated, dated
+   snapshots — see data/*.json headers and docs/FOOTBALL-HUB.md. */
 'use strict';
 
 /* ---------- Competitions ---------- */
@@ -9,21 +10,27 @@
 const COMPS = {
   epl: {
     key: "epl", label: "Premier League",
-    remoteCurrent: "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
-    remotePrev:    "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/en.1.json",
-    localMatches:  "data/epl-2025-26.json",
+    remoteJson: "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+    remoteTxt:  "https://raw.githubusercontent.com/openfootball/england/master/2026-27/1-premierleague.txt",
+    localFixtures: "data/epl-2026-27.json",
+    localArchive:  "data/epl-2025-26.json",
     localMeta:     "data/epl.json"
   },
   championship: {
     key: "championship", label: "Championship",
-    remoteCurrent: "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.2.json",
-    remotePrev:    "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/en.2.json",
-    localMatches:  "data/championship-2025-26.json",
+    remoteJson: "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.2.json",
+    remoteTxt:  "https://raw.githubusercontent.com/openfootball/england/master/2026-27/2-championship.txt",
+    localFixtures: "data/championship-2026-27.json",
+    localArchive:  "data/championship-2025-26.json",
     localMeta:     "data/championship.json"
   }
 };
 
-const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, table, seasonLabel, dataSource, currentClubs}
+// This season's real, confirmed opening date per competition (used only as a
+// last-resort season-state fallback if the fixture list somehow fails to load).
+const SEASON_OPENER = { epl: "2026-08-21", championship: "2026-08-14" };
+
+const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, table, archive, dataSource, currentClubs}
 let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null;
 let CLUB_BY_FULL = {};    // "Arsenal FC" -> club meta (comp-agnostic, covers any club in either feed)
 let CLUB_BY_SHORT = {};   // "Arsenal" -> club meta (this season's 44 clubs, comp-correct)
@@ -34,12 +41,51 @@ function fetchT(url, ms){
   return fetch(url, {cache:"no-store", signal:ctrl?ctrl.signal:undefined}).finally(()=>{ if(timer) clearTimeout(timer); });
 }
 async function getJSON(url, ms){ const r = await fetchT(url, ms); if(!r.ok) throw new Error(String(r.status)); return r.json(); }
+async function getText(url, ms){ const r = await fetchT(url, ms); if(!r.ok) throw new Error(String(r.status)); return r.text(); }
+
+/* Parses the openfootball "football.txt" source format directly, so the app can
+   read the current season's real fixtures/results even before openfootball's
+   JSON generator has republished them (it historically lags the source repo). */
+function parseFootballTxt(text){
+  const MONTHS = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+  const dayRe = /^\s*(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+([A-Za-z]{3})\s+(\d{1,2})(?:\s+(\d{4}))?\s*$/;
+  const roundRe = /^\s*▪\s*(.+?)\s*$/;
+  const matchRe = /^\s*(?:(\d{1,2}:\d{2})\s+)?(.+?)\s+v\s+(.+?)(?:\s{2,}(\d+)-(\d+)\s*(?:\((\d+)-(\d+)\))?)?\s*$/;
+  let round = null, date = null, time = null, year = null;
+  const matches = [];
+  text.split("\n").forEach(raw=>{
+    const line = raw.replace(/\r$/, "");
+    if(!line.trim() || line.startsWith("=") || line.startsWith("#")) return;
+    let m = roundRe.exec(line);
+    if(m){ round = m[1]; time = null; return; }
+    m = dayRe.exec(line);
+    if(m){
+      if(m[3]) year = parseInt(m[3], 10);
+      date = `${year}-${String(MONTHS[m[1]]).padStart(2,"0")}-${String(parseInt(m[2],10)).padStart(2,"0")}`;
+      time = null; return;
+    }
+    if(line.indexOf(" v ") === -1) return;
+    m = matchRe.exec(line);
+    if(!m || !round || !date) return;
+    if(m[1]) time = m[1];
+    const team1 = m[2].replace(/\s{2,}/g, " ").trim();
+    const team2 = m[3].replace(/\s{2,}/g, " ").trim();
+    const entry = { round, date, team1, team2 };
+    if(time) entry.time = time;
+    if(m[4] !== undefined){
+      entry.score = { ft: [parseInt(m[4],10), parseInt(m[5],10)] };
+      if(m[6] !== undefined) entry.score.ht = [parseInt(m[6],10), parseInt(m[7],10)];
+    }
+    matches.push(entry);
+  });
+  return matches;
+}
 
 function computeTable(matches){
   const teams = {};
   const row = t => teams[t] || (teams[t] = {name:t, p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0});
   matches.forEach(x=>{
-    const sc = x.score; const ft = Array.isArray(sc) ? sc : (sc && sc.ft);
+    const sc = x.score; const ft = sc && (Array.isArray(sc) ? sc : sc.ft);
     if(!ft) return;
     const [hg, ag] = ft;
     const rh = row(x.team1), ra = row(x.team2);
@@ -55,23 +101,29 @@ function computeTable(matches){
 }
 
 async function loadCompetition(comp){
-  const meta = await getJSON(comp.localMeta);
-  let matches, seasonLabel, dataSource;
+  const [meta, archiveFile] = await Promise.all([getJSON(comp.localMeta), getJSON(comp.localArchive)]);
+  let matches, dataSource;
   try{
-    const d = await getJSON(comp.remoteCurrent, 6000);
-    matches = d.matches; seasonLabel = "2026-27"; dataSource = "Live data (2026-27 in progress)";
+    const d = await getJSON(comp.remoteJson, 6000);
+    matches = d.matches; dataSource = "Live results (2026-27 JSON feed)";
   }catch(e1){
     try{
-      const d = await getJSON(comp.remotePrev, 6000);
-      matches = d.matches; seasonLabel = "2025-26"; dataSource = "Live network (2025-26 final)";
+      const text = await getText(comp.remoteTxt, 6000);
+      matches = parseFootballTxt(text);
+      if(!matches.length) throw new Error("empty");
+      dataSource = matches.some(m=>m.score) ? "Live results (2026-27)" : "2026-27 fixtures (live network, season not started)";
     }catch(e2){
-      const d = await getJSON(comp.localMatches, 6000);
-      matches = d.matches; seasonLabel = "2025-26"; dataSource = "Offline snapshot (2025-26 final)";
+      try{
+        const d = await getJSON(comp.localFixtures, 6000);
+        matches = d.matches; dataSource = "2026-27 fixtures (offline snapshot)";
+      }catch(e3){
+        matches = []; dataSource = "Unavailable";
+      }
     }
   }
   const leagueMatches = matches.filter(m=> m.round !== "Playoffs");
   const table = computeTable(leagueMatches);
-  return { meta, matches, leagueMatches, table, seasonLabel, dataSource };
+  return { meta, matches, leagueMatches, table, archive: archiveFile.matches, dataSource };
 }
 
 async function loadData(){
@@ -93,11 +145,9 @@ async function loadData(){
 }
 
 function seasonState(){
+  if(DATA.epl.matches.some(m=>m.score)) return "in-season";
   const today = new Date("2026-07-24T00:00:00Z"); // stamped app-open date; see docs/FOOTBALL-HUB.md
-  const opener = new Date(EPL.season2627.openingMatch.date + "T00:00:00Z");
-  if(DATA.epl.seasonLabel === "2026-27" && DATA.epl.matches.some(m=>m.score)) return "in-season";
-  if(today < opener) return "preseason";
-  return "in-season";
+  return today < new Date(SEASON_OPENER.epl + "T00:00:00Z") ? "preseason" : "in-season";
 }
 
 /* ---------- Club helpers ---------- */
@@ -178,14 +228,29 @@ function viewToday(){
   const seasonSt = seasonState();
   let html = "";
 
+  if(seasonSt==="preseason"){
+    html += sectionHead("2026-27 season kicks off", `${fmtDate(EPL.season2627.openingMatch.date)}`);
+    html += `<div class="banner"><b>${EPL.season2627.openingMatch.home} vs ${EPL.season2627.openingMatch.away}</b> — ${EPL.season2627.openingMatch.venue}<br>${EPL.season2627.openingMatch.note}</div>`;
+    html += countdownBoxes(EPL.season2627.openingMatch.date);
+    html += `<div class="match"><div class="top"><span>Community Shield</span><span>${fmtDate(EPL.season2627.communityShield.date)}</span></div>
+      <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Arsenal FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.home}</span></div><div></div></div>
+      <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Manchester City FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.away}</span></div><div></div></div>
+      <div class="foot"><span>${EPL.season2627.communityShield.venue}</span><span>${EPL.season2627.communityShield.note}</span></div></div>
+      <p class="subtle">Championship kicks off ${fmtDate(CHA.season2627.openingMatch.date)} — a week earlier — with ${CHA.season2627.openingMatch.home} vs ${CHA.season2627.openingMatch.away}.</p>`;
+  } else {
+    html += sectionHead("Latest results", "Premier League");
+    DATA.epl.matches.filter(m=>m.score).slice(-5).reverse().forEach(m=> html += matchCard(m));
+  }
+
   if(favs.length){
     html += sectionHead("My Teams", `${favs.length} followed`);
     html += `<div class="perf">`;
     favs.slice(0,4).forEach(name=>{
       const c = CLUB_BY_SHORT[name]; if(!c) return;
       const d = DATA[c.comp];
-      const row = d.table.find(r=>clubName(r.name)===name);
-      html += `<div class="perf-row">${crest(c.full,24)}<div class="perf-nm">${name}</div><div class="perf-pts" style="grid-column:span 2"><small>${compLabel(c.comp)}${row?` · Pos ${row.pos}, ${row.pts} pts`:""}</small></div></div>`;
+      const next = nextFixtureFor(c.comp, c.full);
+      const sub = next ? `Next: vs ${clubName(next.team1===c.full?next.team2:next.team1)} · ${fmtDate(next.date)}` : compLabel(c.comp);
+      html += `<div class="perf-row">${crest(c.full,24)}<div class="perf-nm">${name}</div><div class="perf-pts" style="grid-column:span 2"><small>${sub}</small></div></div>`;
     });
     html += `</div><button class="meta-link" data-goto="myteams">See My Teams →</button>`;
   }
@@ -193,21 +258,7 @@ function viewToday(){
   html += `<div class="champ won"><span class="champ-trophy">🏆</span><div>
       <div class="champ-label">2025-26 Premier League Champions</div>
       <div class="champ-team">Arsenal</div>
-    </div><span class="champ-tag won">${EPL.lastSeason.championNote.split(",")[0]}</span></div>`;
-
-  if(seasonSt==="preseason"){
-    html += sectionHead("Season kicks off", `${fmtDate(EPL.season2627.openingMatch.date)}`);
-    html += `<div class="banner"><b>${EPL.season2627.openingMatch.home} vs ${EPL.season2627.openingMatch.away}</b> — ${EPL.season2627.openingMatch.venue}<br>${EPL.season2627.openingMatch.note}</div>`;
-    html += countdownBoxes(EPL.season2627.openingMatch.date);
-    html += `<div class="match"><div class="top"><span>Community Shield</span><span>${fmtDate(EPL.season2627.communityShield.date)}</span></div>
-      <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Arsenal FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.home}</span></div><div></div></div>
-      <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Manchester City FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.away}</span></div><div></div></div>
-      <div class="foot"><span>${EPL.season2627.communityShield.venue}</span><span>${EPL.season2627.communityShield.note}</span></div></div>
-      <p class="subtle">The Championship follows the same close-season calendar — see the Fixtures tab for details.</p>`;
-  } else {
-    html += sectionHead("Latest results", "Premier League");
-    DATA.epl.matches.filter(m=>m.score).slice(-5).reverse().forEach(m=> html += matchCard(m));
-  }
+    </div><span class="champ-tag won">Defending in 2026-27</span></div>`;
 
   html += sectionHead("Newsroom", "latest");
   NEWS.items.slice(0,3).forEach(n=> html += newsCard(n));
@@ -223,7 +274,8 @@ function viewToday(){
 function matchCard(m){
   const home = clubName(m.team1), away = clubName(m.team2);
   const ft = ftOf(m);
-  return `<div class="match"><div class="top"><span>${m.round}</span><span>${fmtDate(m.date)}</span></div>
+  const when = fmtDate(m.date) + (!ft && m.time ? ` · ${m.time}` : "");
+  return `<div class="match"><div class="top"><span>${m.round}</span><span>${when}</span></div>
     <div class="rows">
       <div class="team ${ft && ft[0]>ft[1]?"win":ft && ft[0]<ft[1]?"loss":""}"><span class="flag">${crest(m.team1,21)}</span><span class="name">${home}</span></div>
       <div class="score">${ft?ft[0]:"–"}</div>
@@ -274,26 +326,38 @@ function tableRows(tbl, comp){
   return tbl.map(r=>{
     const z = zoneFor(r.pos, comp, total);
     const chip = z.tag ? `<span class="chip ${z.kind==="acc"?"acc":""}" style="margin-left:6px${z.kind==="rel"?";color:var(--live);border-color:#5a2030":""}">${z.tag}</span>` : "";
-    return `<tr class="${z.cls}"><td class="pos">${r.pos}</td><td class="t">${crest(r.name,18)} ${clubName(r.name)}${chip}</td>
+    const ded = r.deduction ? ` <span class="chip" style="color:var(--warn);border-color:#5a4a1e" title="Points deduction applied">-${r.deduction}pts</span>` : "";
+    return `<tr class="${z.cls}"><td class="pos">${r.pos}</td><td class="t">${crest(r.name,18)} ${clubName(r.name)}${chip}${ded}</td>
       <td>${r.p}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td>${r.gf}</td><td>${r.ga}</td><td>${r.gd>0?"+":""}${r.gd}</td><td class="pts">${r.pts}</td></tr>`;
   }).join("");
 }
-function viewTable(){
-  const comp = state.comp, d = DATA[comp];
-  const label = d.seasonLabel==="2026-27" ? "2026-27 (live)" : `${d.meta.lastSeason.year} — final`;
-  let html = compSwitcher();
-  html += sectionHead(`${compLabel(comp)} table`, label);
-  html += `<div class="gcard"><table class="stand">
-    <thead><tr><th>#</th><th style="text-align:left">Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead>
-    <tbody>${tableRows(d.table, comp)}</tbody></table></div>`;
-  html += comp==="epl"
+function zoneLegend(comp){
+  return comp==="epl"
     ? `<div class="vmeta" style="margin:10px 2px"><span class="chip acc">Champions League (top 5)</span><span class="chip">Europa / Conference (6-7)</span><span class="chip" style="color:var(--live);border-color:#5a2030">Relegation (18-20)</span></div>`
     : `<div class="vmeta" style="margin:10px 2px"><span class="chip acc">Automatic promotion (top 2)</span><span class="chip">Play-offs (3-6)</span><span class="chip" style="color:var(--live);border-color:#5a2030">Relegation (bottom 3)</span></div>`;
-  if(d.seasonLabel!=="2026-27"){
-    html += `<p class="note">Showing the final ${d.meta.lastSeason.year} table (real, computed from all ${d.leagueMatches.length} league match results${comp==="championship"?"; play-off results shown separately below and don't affect these standings":""}). This switches automatically to the live 2026-27 table once the new season's results feed is published — no app update needed.</p>`;
-  }
-  if(comp==="championship" && d.meta.lastSeason.playoffWinner){
-    html += `<div class="banner"><b>Play-off winners: ${d.meta.lastSeason.playoffWinner.club}</b><br>${d.meta.lastSeason.playoffWinner.note}</div>`;
+}
+function viewTable(){
+  const comp = state.comp, d = DATA[comp];
+  let html = compSwitcher();
+  const opener = d.meta.season2627.openingMatch || d.meta.season2627.communityShield;
+  if(d.table.length === 0){
+    html += sectionHead(`${compLabel(comp)} 2026-27`, "season not yet started");
+    html += `<div class="banner">Kicks off <b>${fmtDate(opener.date)}</b> (${daysUntil(opener.date)} days away). The table below fills in automatically, matchday by matchday, once real results start landing — no app update needed.</div>`;
+    html += sectionHead(`${d.meta.lastSeason.year} final table`, "reference");
+    html += `<div class="gcard"><table class="stand">
+      <thead><tr><th>#</th><th style="text-align:left">Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead>
+      <tbody>${tableRows(d.meta.lastSeason.table, comp)}</tbody></table></div>`;
+    html += zoneLegend(comp);
+    if(comp==="championship"){
+      html += `<div class="banner"><b>Play-off winners: ${d.meta.lastSeason.playoffWinner.club}</b><br>${d.meta.lastSeason.playoffWinner.note}</div>`;
+      html += `<p class="note">${d.meta.lastSeason.relegationNote}</p>`;
+    }
+  } else {
+    html += sectionHead(`${compLabel(comp)} table`, "2026-27 (live)");
+    html += `<div class="gcard"><table class="stand">
+      <thead><tr><th>#</th><th style="text-align:left">Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead>
+      <tbody>${tableRows(d.table, comp)}</tbody></table></div>`;
+    html += zoneLegend(comp);
   }
   return html;
 }
@@ -301,30 +365,35 @@ function viewTable(){
 function viewFixtures(){
   const comp = state.comp, d = DATA[comp];
   let html = compSwitcher();
-  html += sectionHead(`${compLabel(comp)} 2026-27 calendar`, "confirmed dates");
-  if(comp==="epl"){
-    html += `<div class="match"><div class="top"><span>Community Shield</span><span>${fmtDate(EPL.season2627.communityShield.date)}</span></div>
-      <div class="rows"><div class="team"><span class="name">${EPL.season2627.communityShield.home} vs ${EPL.season2627.communityShield.away}</span></div></div>
-      <div class="foot"><span>${EPL.season2627.communityShield.venue}</span></div></div>`;
-    html += `<div class="match"><div class="top"><span>${EPL.season2627.openingMatch.note.split(";")[0]}</span><span>${fmtDate(EPL.season2627.openingMatch.date)}</span></div>
-      <div class="rows"><div class="team"><span class="name">${EPL.season2627.openingMatch.home} vs ${EPL.season2627.openingMatch.away}</span></div></div>
-      <div class="foot"><span>${EPL.season2627.openingMatch.venue}</span></div></div>`;
-    html += `<p class="note">Fixtures released ${fmtDate(EPL.season2627.fixturesReleased)}. The full 380-match list isn't republished here to avoid presenting unverified pairings as fact — see docs/FOOTBALL-HUB.md. This tab switches to the live 2026-27 fixture/results feed automatically once openfootball publishes it.</p>`;
-  } else {
-    html += `<p class="note">${CHA.season2627.note}</p>`;
-  }
-
-  html += sectionHead(`${d.meta.lastSeason.year} results archive`, `${d.matches.length} matches`);
+  html += sectionHead(`${compLabel(comp)} 2026-27 fixtures`, `${d.matches.length} matches`);
   html += `<input id="fxSearch" placeholder="Filter by club…" style="width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:9px 11px;font-size:13px;font-weight:600;margin-bottom:10px" />`;
   const rounds = {};
   d.matches.forEach(m=>{ (rounds[m.round] = rounds[m.round]||[]).push(m); });
+  const roundKeys = Object.keys(rounds).sort((a,b)=>{
+    const na = parseInt((a.match(/\d+/)||[0])[0],10), nb = parseInt((b.match(/\d+/)||[0])[0],10);
+    return na-nb;
+  });
+  const firstUnplayed = roundKeys.find(k=> rounds[k].some(m=>!m.score));
   html += `<div id="fxList">`;
-  Object.keys(rounds).forEach(rnd=>{
-    html += `<details class="pbp"><summary>${rnd}<span class="pbp-meta">${rounds[rnd].length} matches</span></summary><div style="padding:6px 14px 12px">`;
+  roundKeys.forEach(rnd=>{
+    const open = rnd===firstUnplayed ? " open" : "";
+    html += `<details class="pbp"${open}><summary>${rnd}<span class="pbp-meta">${rounds[rnd].length} matches</span></summary><div style="padding:6px 14px 12px">`;
     rounds[rnd].forEach(m=> html += matchCard(m));
     html += `</div></details>`;
   });
   html += `</div>`;
+  html += `<p class="note">Full season fixture list sourced from the openfootball project (released ${fmtDate(d.meta.season2627.fixturesReleased)}). Scores fill in live as matches are played; see the freshness pill for the current data source.</p>`;
+
+  html += sectionHead(`${d.meta.lastSeason.year} results archive`, `${d.archive.length} matches`);
+  html += `<details class="pbp"><summary>Show last season's results<span class="pbp-meta">${d.archive.length} matches</span></summary><div style="padding:6px 14px 12px" id="fxArchive">`;
+  const aRounds = {};
+  d.archive.forEach(m=>{ (aRounds[m.round] = aRounds[m.round]||[]).push(m); });
+  Object.keys(aRounds).forEach(rnd=>{
+    html += `<details class="pbp"><summary>${rnd}<span class="pbp-meta">${aRounds[rnd].length} matches</span></summary><div style="padding:6px 14px 12px">`;
+    aRounds[rnd].forEach(m=> html += matchCard(m));
+    html += `</div></details>`;
+  });
+  html += `</div></details>`;
   return html;
 }
 
@@ -355,6 +424,14 @@ function viewTeams(){
     html += sectionHead("Relegated from the Premier League");
     html += `<div class="tgrid">`;
     CHA.relegatedIn2627.forEach(name=>{ const c = CLUB_BY_SHORT[name]; if(c) html += teamCard(c); });
+    html += `</div>`;
+    html += sectionHead("Up from League One");
+    html += `<div class="tgrid">`;
+    CHA.promotedFromLeagueOne2627.forEach(name=>{ const c = d.currentClubs.find(x=>x.name===name); if(c) html += teamCard(c); });
+    html += `</div>`;
+    html += sectionHead("Down to League One");
+    html += `<div class="tgrid">`;
+    CHA.relegatedToLeagueOne2627.forEach(name=> html += `<div class="tcard"><span class="crest" style="width:32px;height:32px;line-height:32px;font-size:11px;background:#4a3f66;color:#fff">${name.split(" ").map(w=>w[0]).join("").slice(0,3)}</span><div><div class="nm">${name}</div><div class="gp">Now in League One</div></div></div>`);
     html += `</div>`;
   }
   return html;
@@ -395,24 +472,19 @@ function viewOdds(){
   });
   html += `<p class="note">Source: <a href="${o.sourceUrl}" target="_blank" rel="noopener">${o.source}</a>. A dated snapshot, not a live feed.</p>`;
 
-  html += sectionHead("Weekend match predictions");
-  const seasonSt = seasonState();
-  if(seasonSt==="preseason"){
-    html += `<div class="empty">Weekly 1X2 match predictions unlock automatically once the 2026-27 fixture list goes live — check back after ${fmtDate(EPL.season2627.openingMatch.date)}.</div>`;
+  html += sectionHead("Opening weekend", "Matchday 1");
+  const upcoming = DATA.epl.matches.filter(m=>!m.score).slice(0,10);
+  if(!upcoming.length){
+    html += `<div class="empty">No upcoming fixtures loaded yet.</div>`;
   } else {
-    const upcoming = DATA.epl.matches.filter(m=>!m.score).slice(0,10);
-    if(!upcoming.length){
-      html += `<div class="empty">No upcoming fixtures loaded yet.</div>`;
-    } else {
-      upcoming.forEach(m=>{
-        html += `<div class="lodds"><div class="lo-top"><b>${clubName(m.team1)}</b> vs <b>${clubName(m.team2)}</b><span>${fmtDate(m.date)}</span></div>
-          <div class="lo-3"><div class="lo-cell"><div class="lc-k">Home</div><div class="lc-v">–</div></div>
-          <div class="lo-cell"><div class="lc-k">Draw</div><div class="lc-v">–</div></div>
-          <div class="lo-cell"><div class="lc-k">Away</div><div class="lc-v">–</div></div></div></div>`;
-      });
-    }
-    html += `<p class="note">Modeled, informational only — not a real betting market.</p>`;
+    upcoming.forEach(m=>{
+      html += `<div class="lodds"><div class="lo-top"><b>${clubName(m.team1)}</b> vs <b>${clubName(m.team2)}</b><span>${fmtDate(m.date)}${m.time?" · "+m.time:""}</span></div>
+        <div class="lo-3"><div class="lo-cell"><div class="lc-k">Home</div><div class="lc-v">–</div></div>
+        <div class="lo-cell"><div class="lc-k">Draw</div><div class="lc-v">–</div></div>
+        <div class="lo-cell"><div class="lc-k">Away</div><div class="lc-v">–</div></div></div></div>`;
+    });
   }
+  html += `<p class="note">Match-winner predictions are modeled once a form baseline exists after a few rounds — informational only, not a real betting market.</p>`;
   return html;
 }
 
@@ -430,11 +502,9 @@ function myTeamCard(name){
     html += `<div class="rp-body"><p><b>Last result</b> (${last.round}, ${fmtDate(last.date)}): ${clubName(last.team1)} ${ft[0]}–${ft[1]} ${clubName(last.team2)}</p></div>`;
   }
   if(next){
-    html += `<div class="rp-body"><p><b>Next fixture</b>: ${clubName(next.team1)} vs ${clubName(next.team2)} — ${fmtDate(next.date)}</p></div>`;
-  } else if(comp==="epl" && name==="Arsenal"){
-    html += `<div class="rp-body"><p><b>Next fixture</b>: vs Coventry City — ${fmtDate(EPL.season2627.openingMatch.date)} (season opener)</p></div>`;
+    html += `<div class="rp-body"><p><b>Next fixture</b>: ${clubName(next.team1)} vs ${clubName(next.team2)} — ${fmtDate(next.date)}${next.time?" · "+next.time:""}</p></div>`;
   } else {
-    html += `<div class="rp-body"><p class="subtle">Next fixture: confirmed once the ${compLabel(comp)} 2026-27 calendar goes live.</p></div>`;
+    html += `<div class="rp-body"><p class="subtle">No fixtures loaded for ${name} yet.</p></div>`;
   }
   const newsFor = NEWS.items.filter(n=>n.clubs && n.clubs.includes(name));
   const transfersFor = TRANSFERS.deals.filter(t=>t.clubs && t.clubs.includes(name));
