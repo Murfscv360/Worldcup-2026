@@ -1,0 +1,17 @@
+{
+  "name": "Football Hub — Premier League & Champions League",
+  "short_name": "Football Hub",
+  "description": "One-stop live hub for the Premier League and UEFA Champions League: table, fixtures, news, transfers and prediction markets.",
+  "lang": "en",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0713",
+  "theme_color": "#0a0713",
+  "categories": ["sports", "news"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

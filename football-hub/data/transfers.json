@@ -1,0 +1,21 @@
+{
+  "_source": "Curated from press-reported confirmed deals (FootballTransfers, CaughtOffside, Sky Sports) as of 2026-07-23. Fees are best-available press reports and may be rounded/estimated — see docs/FOOTBALL-HUB.md.",
+  "windowOpens": "2026-06-15",
+  "windowCloses": "2026-09-01",
+  "deals": [
+    {"date":"2026-07-22","player":"Morgan Rogers","from":"Aston Villa","to":"Chelsea","fee":"£117m","status":"confirmed","note":"Reported British transfer record"},
+    {"date":"2026-07-21","player":"Elliot Anderson","from":"Nottingham Forest","to":"Manchester City","fee":"€135m","status":"confirmed","note":"Reported record fee for an English player"},
+    {"date":"2026-07-18","player":"Sandro Tonali","from":"Newcastle United","to":"Tottenham Hotspur","fee":"undisclosed","status":"confirmed","note":"Part of Spurs' summer spending spree, reported combined spend ~€267m"},
+    {"date":"2026-07-18","player":"Mateus Fernandes","from":"Southampton","to":"Tottenham Hotspur","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-07-17","player":"Jan Paul van Hecke","from":"Brighton & Hove Albion","to":"Tottenham Hotspur","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-07-16","player":"Andrew Robertson","from":"Liverpool","to":"Tottenham Hotspur","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-07-15","player":"Leandro Trossard","from":"Arsenal","to":"Beşiktaş","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-07-15","player":"Thomas Meunier","from":"Lille","to":"Sunderland","fee":"free transfer","status":"confirmed"},
+    {"date":"2026-07-15","player":"Lewis Dobbin","from":"Aston Villa","to":"Southampton","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-07-12","player":"Joao Gomes","from":"Wolverhampton Wanderers","to":"Aston Villa","fee":"€40m","status":"confirmed"},
+    {"date":"2026-07-10","player":"Abdul Fatawu Issahaku","from":"Leicester City","to":"Ipswich Town","fee":"£20m","status":"confirmed"},
+    {"date":"2026-07-08","player":"Geovany Quenda","from":"Sporting CP","to":"Chelsea","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-07-05","player":"Emmanuel Emegha","from":"Strasbourg","to":"Chelsea","fee":"undisclosed","status":"confirmed"},
+    {"date":"2026-06-30","player":"Marco Palestra","from":"Atalanta","to":"Chelsea","fee":"undisclosed","status":"confirmed"}
+  ]
+}

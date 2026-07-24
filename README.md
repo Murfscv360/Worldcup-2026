@@ -12,6 +12,17 @@ static site with no build step and no API keys.
 
 📐 **Design & specs:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · 🗺️ **Plan:** [`docs/ROADMAP.md`](docs/ROADMAP.md) · 🖼️ **Mockups:** [`mockup.html`](mockup.html)
 
+## ⚽ Also in this repo: Football Hub (Premier League + Champions League)
+
+Club football doesn't stop when the World Cup does. [`football-hub/`](football-hub/) is a
+sibling static app — same zero-build, mobile-first, honest-data philosophy — covering the
+**English Premier League** and **UEFA Champions League** year-round: real 2025-26 final
+table (computed from the actual results feed), the 2026-27 season countdown, a summer
+transfer-window tracker, curated news, and a title-odds market snapshot. See
+[`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
+
+🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/
+
 ## Features
 
 - **Today** — favourite-team dashboard (when chosen) plus a **live match stats** hero

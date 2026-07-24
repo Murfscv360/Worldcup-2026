@@ -1,0 +1,25 @@
+{
+  "_source": "Hand-curated from verified web research as of 2026-07-24 — see docs/FOOTBALL-HUB.md. No 2026-27 league-phase table exists yet (draw is 27 Aug 2026); nothing here is fabricated as a live standing.",
+  "season2526": {
+    "champion": "Paris Saint-Germain",
+    "runnerUp": "Arsenal",
+    "result": "PSG won 4-3 on penalties after a 3-3 draw (a.e.t.)",
+    "venue": "Puskás Aréna, Budapest",
+    "date": "2026-05-30",
+    "note": "PSG became the first club to retain the trophy since Real Madrid in 2016-17, despite finishing outside the top 8 of the 36-team league phase and winning it through the knockout playoff route. Arsenal topped the league phase in 1st place. Vitinha was named Man of the Match.",
+    "manOfTheMatch": "Vitinha"
+  },
+  "season2627": {
+    "format": "36-team single league phase — every club plays 8 opponents (4 home, 4 away), drawn from seeding pots. Top 8 advance directly to the round of 16; 9th-24th enter a two-legged knockout play-off for the remaining 8 spots; bottom 12 are eliminated.",
+    "leaguePhaseDraw": "2026-08-27",
+    "matchday1": "2026-09-08 to 2026-09-10",
+    "englishClubs": [
+      {"name": "Arsenal", "qualified": "Premier League champions 2025-26"},
+      {"name": "Manchester City", "qualified": "Premier League runners-up 2025-26"},
+      {"name": "Manchester United", "qualified": "Premier League 3rd 2025-26"},
+      {"name": "Aston Villa", "qualified": "Premier League 4th 2025-26"},
+      {"name": "Liverpool", "qualified": "Premier League 5th 2025-26 — England's extra (5th) UEFA coefficient slot"}
+    ],
+    "note": "Five English clubs qualified for 2026-27 — an extra slot earned via England's UEFA coefficient ranking, on top of the usual top-4."
+  }
+}
