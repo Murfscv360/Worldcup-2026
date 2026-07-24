@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Football Hub">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Premier League 26/27">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#3d1560"/>
@@ -16,7 +16,7 @@
   <path d="M256 130 l0 40 M328 188 l-38 6 M184 188 l38 6 M290 274 l22 32 M222 274 l-22 32"
         stroke="#0a0713" stroke-width="8" stroke-linecap="round" fill="none"/>
   <text x="256" y="420" text-anchor="middle" font-family="Archivo, Arial, sans-serif"
-        font-size="70" font-weight="800" fill="#f3eefc" letter-spacing="1">FOOTBALL</text>
+        font-size="80" font-weight="800" fill="#f3eefc" letter-spacing="1">26/27</text>
   <text x="256" y="468" text-anchor="middle" font-family="Archivo, Arial, sans-serif"
-        font-size="34" font-weight="700" fill="#ff2882" letter-spacing="3">HUB</text>
+        font-size="28" font-weight="700" fill="#ff2882" letter-spacing="4">PREMIER LEAGUE</text>
 </svg>

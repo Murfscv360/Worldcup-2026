@@ -1,7 +1,7 @@
 {
-  "name": "Football Hub — Premier League & Champions League",
-  "short_name": "Football Hub",
-  "description": "One-stop live hub for the Premier League and UEFA Champions League: table, fixtures, news, transfers and prediction markets.",
+  "name": "Premier League 26/27 — Live Hub",
+  "short_name": "PL 26/27",
+  "description": "One-stop live hub for the Premier League 2026-27 season: the real full fixture list, table, favourite-club tracking, news, transfers, Championship and Champions League coverage, and prediction markets.",
   "lang": "en",
   "start_url": ".",
   "scope": ".",

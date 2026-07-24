@@ -1,12 +1,19 @@
-# Football Hub — Premier League + Championship + Champions League Live Reference
+# Premier League 26/27 — Live Hub (Championship + Champions League)
 
 > A second, standalone app in this repo (`football-hub/`) extending the
 > World Cup Live Hub's proven pattern — zero-build, mobile-first, honest
-> about real vs. modeled data — to year-round club football: the **English
-> Premier League**, the **EFL Championship** (the tier directly below it),
-> and the **UEFA Champions League**. One stop for scores, tables, fixtures,
-> favourite-club tracking, transfer news, football news, and prediction
-> markets.
+> about real vs. modeled data — to year-round club football. Branded and
+> built around the **2026-27 Premier League season**, with the **EFL
+> Championship** (the tier directly below it) and the **UEFA Champions
+> League** covered alongside it. One stop for scores, tables, the real full
+> fixture list, favourite-club tracking, transfer news, football news, and
+> prediction markets.
+>
+> Internally the app/codebase is still referred to as "Football Hub"
+> (directory name, JS variable/function names, service-worker cache key) —
+> only the user-facing brand (page title, header, PWA name/icon, launch
+> splash) changed to lead with the season. See §8 for the full list of
+> user-facing strings the rebrand touched.
 
 ## 1a. Note on the reference sites in the original request
 
@@ -231,3 +238,27 @@ football-hub/
   icon.svg                                       # app icon
 docs/FOOTBALL-HUB.md                              # this document
 ```
+
+---
+
+## 8. Rebrand: "Football Hub" → "Premier League 26/27"
+
+The app was rebranded to lead with the season rather than a generic
+product name. This changed **user-facing brand strings only** — no scope,
+routes, or data changed:
+
+| File | What changed |
+|---|---|
+| `index.html` | `<title>`, `<meta name="description">`, `apple-mobile-web-app-title`, header eyebrow/`<h1>`/tagline (`PREMIER LEAGUE` / `26<span>/27</span>`), launch splash eyebrow/title/sub/CTA |
+| `manifest.webmanifest` | `name`, `short_name`, `description` |
+| `icon.svg` | `aria-label`, the baked-in text glyphs (`26/27` / `PREMIER LEAGUE`) |
+| `README.md` | Section heading + blurb |
+| `docs/FOOTBALL-HUB.md` | Title + intro (this file) |
+
+**Deliberately left unchanged** (internal, not user-facing): the
+`football-hub/` directory name, `assets/app.js`'s internal naming
+(`COMPS`, `DATA`, function names), and the service worker's cache-key
+prefix (`football-hub-`). Renaming those would touch every file path in
+this doc and the PR history for zero user-visible benefit — the brand
+lives in what people see (title bar, home-screen icon, header, splash),
+not in source-file naming.

@@ -737,9 +737,13 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
 .launch-x{position:absolute;top:12px;right:12px;width:30px;height:30px}
 .launch-mark{font-size:46px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
 .launch-eyebrow{display:block;font-family:"Archivo Narrow",sans-serif;font-size:12px;font-weight:800;letter-spacing:6px;color:var(--accent2);text-transform:uppercase;margin-top:6px}
-.launch-title{font-size:34px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin:0}
+/* The launch card's own background is always dark (regardless of the
+   system light/dark theme), so its text uses fixed light colours instead
+   of the theme-following --ink/--muted vars — otherwise light mode leaves
+   near-black text on a dark card. */
+.launch-title{font-size:34px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin:0;color:#f3eefc}
 .launch-title span{color:var(--accent2)}
-.launch-sub{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:2.5px;margin:5px 0 16px}
+.launch-sub{color:#b6a9d6;font-size:11px;text-transform:uppercase;letter-spacing:2.5px;margin:5px 0 16px}
 .launch-list{list-style:none;margin:0 0 18px;padding:0;text-align:left;display:flex;flex-direction:column;gap:8px}
 .launch-list li{font-size:13px;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
 .launch-list b{color:#fff}
