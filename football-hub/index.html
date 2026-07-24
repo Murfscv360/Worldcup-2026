@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0a0713" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#f8f5fc" media="(prefers-color-scheme: light)" />
 <meta name="color-scheme" content="dark light" />
-<meta name="description" content="Football Hub — one-stop live reference for the Premier League and UEFA Champions League: table, fixtures, news, transfers and prediction markets." />
+<meta name="description" content="Football Hub — one-stop live reference for the Premier League, Championship and UEFA Champions League: tables, fixtures, favourite-team tracking, news, transfers and prediction markets." />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -30,7 +30,7 @@
       <div class="brand-text">
         <span class="brand-eyebrow">Football Hub</span>
         <h1>PREMIER <span>&amp; UCL</span></h1>
-        <p>Live table · news · transfers · odds</p>
+        <p>Prem · Championship · My Teams</p>
       </div>
     </div>
     <div class="header-right">
@@ -44,14 +44,15 @@
 
 <div class="fav-sheet" id="favSheet" hidden>
   <div class="fav-panel">
-    <div class="fav-head"><h3>Choose your club</h3><button id="favClose" class="fav-x">✕</button></div>
-    <input id="favSearch" type="search" placeholder="Search 20 Premier League clubs…" />
+    <div class="fav-head"><h3>Choose your clubs</h3><button id="favClose" class="fav-x">✕</button></div>
+    <input id="favSearch" type="search" placeholder="Search 44 clubs — Premier League &amp; Championship…" />
     <div class="fav-list" id="favList"></div>
   </div>
 </div>
 
 <nav class="tabs" id="tabs">
   <button class="tab is-active" data-view="today">Today</button>
+  <button class="tab" data-view="myteams">My Teams</button>
   <button class="tab" data-view="news">News</button>
   <button class="tab" data-view="transfers">Transfers</button>
   <button class="tab" data-view="table">Table</button>
@@ -69,11 +70,11 @@
   <button class="navbtn on" data-view="today">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 9v11h5v-6h4v6h5V9"/></svg><span>Home</span>
   </button>
+  <button class="navbtn" data-view="myteams">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.3l-5.5 3 1.5-6L3 10l6.2-.5L12 4l2.8 5.5L21 10l-5 4.3 1.5 6z"/></svg><span>My Teams</span>
+  </button>
   <button class="navbtn" data-view="table">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Table</span>
-  </button>
-  <button class="navbtn" data-view="transfers">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10M7 7l3-3M7 7l3 3M17 17H7M17 17l-3-3M17 17l-3 3"/></svg><span>Transfers</span>
   </button>
   <button class="navbtn" data-view="odds">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg><span>Odds</span>
@@ -92,8 +93,8 @@
 
 <footer class="app-footer">
   <div class="wrap">
-    <p>Match results &amp; table: <a href="https://github.com/openfootball/football.json" target="_blank" rel="noopener">openfootball</a> (public domain). News, transfers and odds are curated snapshots — see the freshness date on each section.</p>
-    <p>Not affiliated with the Premier League, UEFA or any club. Prediction markets are informational only.</p>
+    <p>Match results &amp; tables (Premier League &amp; Championship): <a href="https://github.com/openfootball/football.json" target="_blank" rel="noopener">openfootball</a> (public domain). News, transfers and odds are curated snapshots — see the freshness date on each section.</p>
+    <p>Not affiliated with the Premier League, EFL, UEFA or any club. Prediction markets are informational only.</p>
   </div>
 </footer>
 
@@ -107,11 +108,12 @@
     <h2 class="launch-title">PREMIER <span>&amp; UCL</span></h2>
     <p class="launch-sub">Your one-stop football reference</p>
     <ul class="launch-list">
-      <li>📊 Real <b>2025-26 final table</b>, computed from actual results</li>
+      <li>⭐ <b>Follow multiple clubs</b> — Premier League &amp; Championship — in My Teams</li>
+      <li>📊 Real final tables for both divisions, computed from actual results</li>
       <li>🔁 <b>Transfer tracker</b> for the 2026 summer window</li>
-      <li>📰 Curated <b>news</b> across the Prem &amp; Champions League</li>
+      <li>📰 Curated <b>news</b> tagged to your clubs, across the Prem, Championship &amp; UCL</li>
       <li>🏆 UCL 2025-26 recap + 2026-27 English entrants &amp; dates</li>
-      <li>📈 <b>Title-odds</b> market snapshot · ⭐ pick your club</li>
+      <li>📈 <b>Title-odds</b> market snapshot</li>
     </ul>
     <button class="launch-enter" id="launchEnter">Enter the hub</button>
   </div>

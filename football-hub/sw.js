@@ -8,7 +8,8 @@ const CACHE = 'football-hub-' + BUILD;
 const SHELL = [
   './', 'index.html',
   'assets/styles.css', 'assets/app.js',
-  'data/epl.json', 'data/epl-2025-26.json', 'data/ucl.json', 'data/news.json', 'data/transfers.json',
+  'data/epl.json', 'data/epl-2025-26.json', 'data/championship.json', 'data/championship-2025-26.json',
+  'data/ucl.json', 'data/news.json', 'data/transfers.json',
   'manifest.webmanifest', 'icon.svg'
 ];
 
