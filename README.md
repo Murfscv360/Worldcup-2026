@@ -19,10 +19,14 @@ sibling static app — same zero-build, mobile-first, honest-data philosophy —
 built around the **2026-27 season kicking off in August**, covering the **Premier
 League**, the **Championship** (the tier below it) and the **UEFA Champions League**
 together: the real, full 380-match Premier League and 552-match Championship fixture
-lists (not just the opener), a **My Teams** tab to follow multiple clubs across both
-divisions (fixtures, results, and club-tagged news/transfers), real final tables for both
-divisions as a reference until 2026-27 results land, a summer transfer-window tracker,
-curated news, and a title-odds market snapshot. See
+lists (not just the opener), a **Live** tab with kickoff-driven match status, **US
+Central (Chicago) kickoff times** alongside UK time, verified US TV info (Peacock/NBC for
+the Prem, Paramount+/CBS for the Championship), and professional "Analyst's Desk"
+commentary generated from real table/form data. A **real-time, second-by-second
+countdown** to kickoff, a **My Teams** tab to follow multiple clubs across both divisions
+(fixtures, results, and club-tagged news/transfers), real final tables for both divisions
+as a reference until 2026-27 results land, a summer transfer-window tracker, curated
+news, and a title-odds market snapshot. See
 [`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
 
 🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/

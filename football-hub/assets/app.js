@@ -182,16 +182,113 @@ function daysUntil(iso){
   const target = new Date(iso + "T00:00:00Z");
   return Math.max(0, Math.round((target-today)/86400000));
 }
-function countdownBoxes(iso){
-  const days = daysUntil(iso);
-  const weeks = Math.floor(days/7), rem = days%7;
-  return `<div class="countdown">
-    <div class="cd-box"><b>${days}</b><span>Days</span></div>
-    <div class="cd-box"><b>${weeks}</b><span>Weeks</span></div>
-    <div class="cd-box"><b>${rem}</b><span>+ Days</span></div>
+function ftOf(m){ const sc = m.score; return sc ? (Array.isArray(sc)?sc:sc.ft) : null; }
+
+/* ---------- Timezones: kickoff times in the fixture data are UK local
+   (Europe/London). Convert to a real UTC instant via the Intl API so BST/GMT
+   is handled correctly (no fixed-offset assumption), then format for US
+   Central time (Chicago) — the abbreviation (CDT/CST) follows automatically. */
+
+function zonedWallClockToUTC(dateStr, timeStr, timeZone){
+  const guess = new Date(`${dateStr}T${timeStr}:00Z`);
+  const fmt = new Intl.DateTimeFormat("en-US", {
+    timeZone, hour12:false,
+    year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", second:"2-digit"
+  });
+  const p = fmt.formatToParts(guess).reduce((a,x)=>{ if(x.type!=="literal") a[x.type]=x.value; return a; }, {});
+  const shown = new Date(`${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}Z`);
+  return new Date(guess.getTime() + (guess.getTime() - shown.getTime()));
+}
+function kickoffInstant(dateStr, timeStr){ return zonedWallClockToUTC(dateStr, timeStr, "Europe/London"); }
+function fmtCentral(dateStr, timeStr){
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone:"America/Chicago", hour:"numeric", minute:"2-digit", hour12:true, timeZoneName:"short"
+  }).format(kickoffInstant(dateStr, timeStr));
+}
+function tvNote(comp){
+  return comp==="epl"
+    ? "📺 Peacock · marquee matches also on NBC/USA Network (US)"
+    : "📺 Paramount+ · marquee matches also on CBS Sports Network (US)";
+}
+
+/* ---------- Real-time countdown (ticks every second) ---------- */
+
+function countdownTargetMs(dateStr, timeStr){
+  return timeStr ? kickoffInstant(dateStr, timeStr).getTime() : new Date(dateStr + "T00:00:00Z").getTime();
+}
+function countdownBoxes(targetMs){
+  return `<div class="countdown" data-countdown="${targetMs}">
+    <div class="cd-box"><b class="cd-d">–</b><span>Days</span></div>
+    <div class="cd-box"><b class="cd-h">–</b><span>Hours</span></div>
+    <div class="cd-box"><b class="cd-m">–</b><span>Min</span></div>
+    <div class="cd-box"><b class="cd-s">–</b><span>Sec</span></div>
   </div>`;
 }
-function ftOf(m){ const sc = m.score; return sc ? (Array.isArray(sc)?sc:sc.ft) : null; }
+function tickCountdowns(){
+  document.querySelectorAll("[data-countdown]").forEach(el=>{
+    const target = parseInt(el.dataset.countdown, 10);
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    el.querySelector(".cd-d").textContent = d;
+    el.querySelector(".cd-h").textContent = String(h).padStart(2,"0");
+    el.querySelector(".cd-m").textContent = String(m).padStart(2,"0");
+    el.querySelector(".cd-s").textContent = String(s).padStart(2,"0");
+  });
+}
+
+/* ---------- Match status + professional commentary (generated from real
+   table/form data only — no fabricated stats, no play-by-play we don't have) ---------- */
+
+const MATCH_ENVELOPE_MS = 115 * 60000; // kickoff -> full-time incl. stoppage + break, for the simulated clock only
+function matchStatus(m){
+  if(m.score) return { state:"ft" };
+  if(!m.time) return { state:"upcoming" };
+  const kickoff = kickoffInstant(m.date, m.time).getTime();
+  const now = Date.now();
+  if(now < kickoff) return { state:"upcoming", kickoff };
+  if(now < kickoff + MATCH_ENVELOPE_MS) return { state:"live", kickoff, clock: liveClockText(now-kickoff) };
+  return { state:"pending", kickoff };
+}
+function liveClockText(elapsedMs){
+  const mins = Math.floor(elapsedMs/60000);
+  if(mins < 45) return `${mins}'`;
+  if(mins < 60) return "HT";
+  const second = mins - 15;
+  return second <= 90 ? `${second}'` : "90+'";
+}
+function ordinal(n){
+  const s = ["th","st","nd","rd"], v = n % 100;
+  return n + (s[(v-20)%10] || s[v] || s[0]);
+}
+function formStreak(comp, fullName){
+  return clubMatches(comp, fullName).filter(m=>m.score).slice(-5).map(x=>{
+    const ft = ftOf(x), isHome = x.team1===fullName;
+    const gf = isHome?ft[0]:ft[1], ga = isHome?ft[1]:ft[0];
+    return gf>ga ? "W" : gf<ga ? "L" : "D";
+  }).join("");
+}
+function commentaryFor(m, comp){
+  const d = DATA[comp];
+  const homeRow = d.table.find(r=>r.name===m.team1), awayRow = d.table.find(r=>r.name===m.team2);
+  const home = clubName(m.team1), away = clubName(m.team2);
+  const ft = ftOf(m);
+  if(ft){
+    const [hg,ag] = ft, margin = Math.abs(hg-ag);
+    const result = hg>ag ? `${home} take all three points` : hg<ag ? `${away} leave with the win` : "the spoils are shared";
+    const tone = margin>=3 ? "a comprehensive scoreline" : margin===0 ? "a tightly-fought stalemate" : "a hard-fought result";
+    const posLine = (homeRow && awayRow) ? ` ${home} sit ${ordinal(homeRow.pos)} on ${homeRow.pts} points, ${away} ${ordinal(awayRow.pos)} on ${awayRow.pts}, after this round.` : "";
+    return `<p><b>${home} ${hg}-${ag} ${away}</b> — ${tone} in ${m.round}, as ${result}.${posLine}</p>`;
+  }
+  const hf = formStreak(comp, m.team1), af = formStreak(comp, m.team2);
+  const formLine = (hf || af) ? ` Recent league form: ${home} ${hf||"—"}, ${away} ${af||"—"}.` : "";
+  const posLine = (homeRow && awayRow)
+    ? ` ${home} currently sit ${ordinal(homeRow.pos)} on ${homeRow.pts} points, with ${away} ${ordinal(awayRow.pos)} on ${awayRow.pts}.`
+    : " Neither side has played a 2026-27 league fixture yet, so this is a clean slate.";
+  return `<p><b>${home} vs ${away}</b> — ${m.round}, ${compLabel(comp)}.${posLine}${formLine}</p>`;
+}
 
 /* ---------- Followed clubs (localStorage, multi-select, spans both competitions) ---------- */
 
@@ -229,9 +326,11 @@ function viewToday(){
   let html = "";
 
   if(seasonSt==="preseason"){
-    html += sectionHead("2026-27 season kicks off", `${fmtDate(EPL.season2627.openingMatch.date)}`);
-    html += countdownBoxes(EPL.season2627.openingMatch.date);
-    html += `<div class="banner"><b>${EPL.season2627.openingMatch.home} vs ${EPL.season2627.openingMatch.away}</b> — ${EPL.season2627.openingMatch.venue}<br>${EPL.season2627.openingMatch.note}</div>`;
+    const om = EPL.season2627.openingMatch;
+    html += sectionHead("2026-27 season kicks off", `${fmtDate(om.date)}`);
+    html += countdownBoxes(countdownTargetMs(om.date, om.time));
+    html += `<div class="banner"><b>${om.home} vs ${om.away}</b> — ${om.venue}<br>${om.note}<br>
+      <b>Kickoff:</b> ${om.time} UK · ${fmtCentral(om.date, om.time)} Central · ${tvNote("epl")}</div>`;
     html += `<div class="match"><div class="top"><span>Community Shield</span><span>${fmtDate(EPL.season2627.communityShield.date)}</span></div>
       <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Arsenal FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.home}</span></div><div></div></div>
       <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Manchester City FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.away}</span></div><div></div></div>
@@ -239,8 +338,9 @@ function viewToday(){
       <p class="subtle">Championship kicks off ${fmtDate(CHA.season2627.openingMatch.date)} — a week earlier — with ${CHA.season2627.openingMatch.home} vs ${CHA.season2627.openingMatch.away}.</p>`;
   } else {
     html += sectionHead("Latest results", "Premier League");
-    DATA.epl.matches.filter(m=>m.score).slice(-5).reverse().forEach(m=> html += matchCard(m));
+    DATA.epl.matches.filter(m=>m.score).slice(-5).reverse().forEach(m=> html += matchCard(m, "epl"));
   }
+  html += `<button class="meta-link" data-goto="live">🔴 Live scores, TV &amp; kickoff times →</button>`;
 
   if(favs.length){
     html += sectionHead("My Teams", `${favs.length} followed`);
@@ -271,17 +371,19 @@ function viewToday(){
   return html;
 }
 
-function matchCard(m){
+function matchCard(m, comp){
+  comp = comp || "epl";
   const home = clubName(m.team1), away = clubName(m.team2);
   const ft = ftOf(m);
-  const when = fmtDate(m.date) + (!ft && m.time ? ` · ${m.time}` : "");
+  const when = fmtDate(m.date) + (!ft && m.time ? ` · ${m.time} UK` : "");
+  const meta = (!ft && m.time) ? `<div class="match-meta"><span>🕐 ${fmtCentral(m.date, m.time)} Central</span><span>${tvNote(comp)}</span></div>` : "";
   return `<div class="match"><div class="top"><span>${m.round}</span><span>${when}</span></div>
     <div class="rows">
       <div class="team ${ft && ft[0]>ft[1]?"win":ft && ft[0]<ft[1]?"loss":""}"><span class="flag">${crest(m.team1,21)}</span><span class="name">${home}</span></div>
       <div class="score">${ft?ft[0]:"–"}</div>
       <div class="team ${ft && ft[1]>ft[0]?"win":ft && ft[1]<ft[0]?"loss":""}"><span class="flag">${crest(m.team2,21)}</span><span class="name">${away}</span></div>
       <div class="score">${ft?ft[1]:"–"}</div>
-    </div></div>`;
+    </div>${meta}</div>`;
 }
 
 function newsCard(n){
@@ -378,7 +480,7 @@ function viewFixtures(){
   roundKeys.forEach(rnd=>{
     const open = rnd===firstUnplayed ? " open" : "";
     html += `<details class="pbp"${open}><summary>${rnd}<span class="pbp-meta">${rounds[rnd].length} matches</span></summary><div style="padding:6px 14px 12px">`;
-    rounds[rnd].forEach(m=> html += matchCard(m));
+    rounds[rnd].forEach(m=> html += matchCard(m, comp));
     html += `</div></details>`;
   });
   html += `</div>`;
@@ -390,7 +492,7 @@ function viewFixtures(){
   d.archive.forEach(m=>{ (aRounds[m.round] = aRounds[m.round]||[]).push(m); });
   Object.keys(aRounds).forEach(rnd=>{
     html += `<details class="pbp"><summary>${rnd}<span class="pbp-meta">${aRounds[rnd].length} matches</span></summary><div style="padding:6px 14px 12px">`;
-    aRounds[rnd].forEach(m=> html += matchCard(m));
+    aRounds[rnd].forEach(m=> html += matchCard(m, comp));
     html += `</div></details>`;
   });
   html += `</div></details>`;
@@ -502,7 +604,9 @@ function myTeamCard(name){
     html += `<div class="rp-body"><p><b>Last result</b> (${last.round}, ${fmtDate(last.date)}): ${clubName(last.team1)} ${ft[0]}–${ft[1]} ${clubName(last.team2)}</p></div>`;
   }
   if(next){
-    html += `<div class="rp-body"><p><b>Next fixture</b>: ${clubName(next.team1)} vs ${clubName(next.team2)} — ${fmtDate(next.date)}${next.time?" · "+next.time:""}</p></div>`;
+    const ct = next.time ? ` · ${next.time} UK · ${fmtCentral(next.date, next.time)} Central` : "";
+    html += `<div class="rp-body"><p><b>Next fixture</b>: ${clubName(next.team1)} vs ${clubName(next.team2)} — ${fmtDate(next.date)}${ct}</p>
+      ${next.time?`<p class="subtle">${tvNote(comp)}</p>`:""}</div>`;
   } else {
     html += `<div class="rp-body"><p class="subtle">No fixtures loaded for ${name} yet.</p></div>`;
   }
@@ -532,8 +636,58 @@ function viewMyTeams(){
   return html;
 }
 
-const VIEWS = { today:viewToday, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
-const TAB_LABELS = { today:"Today", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
+function statusBadge(status){
+  if(status.state==="live") return `<span class="chip" style="color:var(--live);border-color:#5a2030;font-weight:800">🔴 LIVE ${status.clock}</span>`;
+  if(status.state==="ft") return `<span class="chip acc">FT</span>`;
+  if(status.state==="pending") return `<span class="chip">Full-time · result pending</span>`;
+  return `<span class="chip" style="color:var(--accent2)">Upcoming</span>`;
+}
+function liveMatchCard(m, comp){
+  const status = matchStatus(m);
+  const home = clubName(m.team1), away = clubName(m.team2);
+  const ft = ftOf(m);
+  const meta = m.time ? `<div class="match-meta"><span>🕐 ${m.time} UK · ${fmtCentral(m.date, m.time)} Central</span><span>${tvNote(comp)}</span></div>` : "";
+  return `<div class="match ${status.state==='live'?'is-live-card':''}"><div class="top"><span>${compLabel(comp)} · ${m.round}</span>${statusBadge(status)}</div>
+    <div class="rows">
+      <div class="team"><span class="flag">${crest(m.team1,21)}</span><span class="name">${home}</span></div>
+      <div class="score">${ft?ft[0]:"–"}</div>
+      <div class="team"><span class="flag">${crest(m.team2,21)}</span><span class="name">${away}</span></div>
+      <div class="score">${ft?ft[1]:"–"}</div>
+    </div>${meta}
+    <div class="analyst compact"><div class="analyst-head"><span class="analyst-badge">Analyst's Desk</span>${status.state==="live"?'<span class="analyst-live">LIVE</span>':""}</div>
+      <div class="analyst-body">${commentaryFor(m, comp)}</div></div>
+  </div>`;
+}
+function viewLive(){
+  const todayIso = new Date().toISOString().slice(0,10);
+  let html = sectionHead("Live & Today", "Central Time (Chicago)");
+  html += `<p class="note">Kickoff-driven status &amp; clock — this app's results feed updates after full time, not per-minute in-play, so the "LIVE" clock is an estimate from the real kickoff time until a final score lands. See docs/FOOTBALL-HUB.md.</p>`;
+
+  const today = [];
+  ["epl","championship"].forEach(comp=> DATA[comp].matches.filter(m=>m.date===todayIso).forEach(m=> today.push({m,comp})));
+
+  if(today.length){
+    today.sort((a,b)=> (a.m.time||"99:99").localeCompare(b.m.time||"99:99"));
+    today.forEach(({m,comp})=> html += liveMatchCard(m, comp));
+  } else {
+    html += `<div class="empty">No matches today.</div>`;
+  }
+
+  const upcoming = [];
+  ["epl","championship"].forEach(comp=>{
+    const next = DATA[comp].matches.find(m=>!m.score);
+    if(next) upcoming.push({m:next, comp});
+  });
+  if(upcoming.length){
+    html += sectionHead("Next up");
+    upcoming.sort((a,b)=> (a.m.date+String(a.m.time||"")).localeCompare(b.m.date+String(b.m.time||"")));
+    upcoming.forEach(({m,comp})=> html += liveMatchCard(m, comp));
+  }
+  return html;
+}
+
+const VIEWS = { today:viewToday, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
+const TAB_LABELS = { today:"Today", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
 
 const state = { view:"today", comp:"epl" };
 
@@ -554,6 +708,7 @@ function render(){
   document.querySelectorAll("[data-comp]").forEach(b=> b.addEventListener("click", ()=>{ state.comp = b.dataset.comp; render(); }));
   document.getElementById("myTeamsPick")?.addEventListener("click", openFavSheet);
   document.getElementById("myTeamsEdit")?.addEventListener("click", openFavSheet);
+  tickCountdowns();
 }
 function setView(v){ state.view = v; render(); window.scrollTo({top:0, behavior:"smooth"}); }
 
@@ -617,6 +772,8 @@ function wireChrome(){
   document.getElementById("launchClose").addEventListener("click", closeLaunch);
 }
 
+const DYNAMIC_VIEWS = ["live","today"];
+
 async function init(){
   wireChrome();
   try{
@@ -627,6 +784,15 @@ async function init(){
   }
   setLivePill();
   render();
+
+  setInterval(tickCountdowns, 1000);
+  setInterval(()=>{ if(DYNAMIC_VIEWS.includes(state.view)) render(); }, 20000);
+  setInterval(async ()=>{
+    try{ await loadData(); setLivePill(); if(DYNAMIC_VIEWS.includes(state.view)) render(); }catch(e){}
+  }, 60000);
 }
 
 document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("visibilitychange", ()=>{
+  if(!document.hidden && DATA.epl) loadData().then(()=>{ setLivePill(); render(); }).catch(()=>{});
+});

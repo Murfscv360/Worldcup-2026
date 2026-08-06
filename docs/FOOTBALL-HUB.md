@@ -135,8 +135,9 @@ live.
 
 | Tab | Function | Real data | Curated/modeled |
 |---|---|---|---|
-| **Today** | `viewToday` | season/opener countdown, defending champion, last results, My Teams strip | newsroom digest |
-| **My Teams** | `viewMyTeams` | last result + next fixture + league position per followed club, across both divisions | tagged news/transfer items per club |
+| **Today** | `viewToday` | real-time season/opener countdown, defending champion, last results, My Teams strip | newsroom digest |
+| **Live** | `viewLive` | today's matches (both divisions) with kickoff-driven status, UK + Central (Chicago) kickoff time, US TV note | professional "Analyst's Desk" commentary per match |
+| **My Teams** | `viewMyTeams` | last result + next fixture (UK + Central time, TV) + league position per followed club, across both divisions | tagged news/transfer items per club |
 | **News** | `viewNews` | — | curated football news feed (`data/news.json`), club-tagged |
 | **Transfers** | `viewTransfers` | — | curated confirmed-deals tracker (`data/transfers.json`), club-tagged |
 | **Table** | `viewTable` | full table computed from real match results for the selected competition (EPL or Championship), zones shaded per competition's own promotion/relegation rules | — |
@@ -185,6 +186,42 @@ in this season.
   its last result and next fixture, and `NEWS`/`TRANSFERS` items carry a
   `clubs: [...]` tag so club-relevant stories surface automatically once
   they're added to the curated feed ("team news once announced").
+- **Real-time countdown** — `countdownBoxes()`/`tickCountdowns()` render a
+  Days/Hours/Min/Sec countdown to the season opener's *exact kickoff
+  instant* (not just midnight of the date), driven by a 1-second
+  `setInterval` that updates any `[data-countdown]` element in the DOM
+  directly (no full re-render needed). Earlier revisions had a hardcoded
+  build-time date baked into this calculation — a real bug, since it froze
+  the countdown at the same number of days forever regardless of when the
+  app was actually opened. Fixed to always read the real `Date()`.
+- **Timezone conversion (Central Time)** — kickoff times in the fixture
+  data are UK local (Europe/London). `kickoffInstant()` resolves the real
+  UTC instant via the `Intl` API (handling BST/GMT correctly — no
+  fixed-offset assumption), and `fmtCentral()` formats it for
+  America/Chicago, so the displayed abbreviation (CDT in summer, CST in
+  winter) is always correct rather than hardcoded. Shown alongside the UK
+  time on every match card with a known kickoff.
+- **US TV info** — `tvNote()` returns a verified, sourced note per
+  competition: Peacock (+ NBC/USA Network for marquee matches) for the
+  Premier League, Paramount+ (+ CBS Sports Network) for the Championship —
+  see §6 for sources. This is a general "how to watch" note, not a
+  per-match channel assignment we can't verify.
+- **Live match status + professional commentary** — `matchStatus()`
+  derives Upcoming / Live / Full-time from the real kickoff instant vs. the
+  current time (no fabricated in-play score — see the honesty note in
+  §4/§6). While "live," `liveClockText()` shows an estimated match clock
+  (kickoff → 90+' with a halftime-break allowance), the same technique the
+  World Cup app uses for its live clock. `commentaryFor()` generates an
+  "Analyst's Desk" preview (pre-kickoff) or recap (post-match) paragraph
+  from **real** inputs only — league position, points, and a 5-match form
+  streak computed from actual results — never fabricated stats, scorers, or
+  play-by-play we don't have data for.
+- **Live refresh cadence** — mirrors the World Cup app: countdowns tick
+  every 1s, dynamic views (Live/Today) re-render every 20s to pick up
+  status transitions, and the full data set re-fetches over the network
+  every 60s and whenever the tab regains focus (`visibilitychange`) — so
+  scores update automatically once the season's real results start
+  landing, without the visitor needing to reload.
 
 ---
 
@@ -200,7 +237,9 @@ in this season.
 | **`data/ucl.json`** | UCL 25-26 recap + 26-27 entrants/dates | ✅ Hand-curated (draw is 27 Aug 2026 — the 26-27 league-phase table does not exist yet and is **not fabricated**) |
 | **`data/news.json` / `data/transfers.json`** | Editorial feed, club-tagged (`clubs: [...]`) | ✅ Hand-curated, dated, sourced |
 | **flashscore / BBC Sport / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
-| **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play). |
+| **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). |
+| **US TV rights (Premier League)** | `tvNote("epl")` copy | ✅ Verified: NBCUniversal holds exclusive US rights through 2027-28; Peacock streams all matches, NBC/USA Network carry marquee fixtures. [NBCUniversal six-year extension](https://corporate.comcast.com/press/releases/nbcuniversal-six-year-extension-exclusive-us-home-of-premier-league), [RenderFoot 2026/27 guide](https://www.renderfoot.com/blog/how-to-watch-premier-league-in-usa) |
+| **US TV rights (Championship)** | `tvNote("championship")` copy | ✅ Verified: CBS Sports holds exclusive US rights through 2027-28; Paramount+ is the primary stream, CBS Sports Network carries marquee fixtures. [SportsPro: CBS Sports snaps up exclusive EFL rights](https://www.sportspro.com/news/efl-cbs-sports-us-exclusive-tv-broadcast-rights-agreement/), [RenderFoot EFL guide](https://www.renderfoot.com/blog/how-to-watch-efl-championship-in-usa) |
 
 **Why not fabricate a 2026-27 UCL table?** The league-phase draw happens 27
 August 2026 — no pairings, and therefore no table, exist yet. Inventing them
