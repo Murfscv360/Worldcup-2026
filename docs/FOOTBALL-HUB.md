@@ -208,14 +208,18 @@ in this season.
   see §6 for sources. This is a general "how to watch" note, not a
   per-match channel assignment we can't verify.
 - **Live radio** — `radioBlock()` links directly to real UK radio
-  broadcasters. For the Premier League, `talkSportLikely()` checks a match
-  against talkSPORT's own published coverage pattern (every Friday/Monday
-  match, plus Saturday 12:30 and 15:00 kickoffs — see §6) and only shows a
-  talkSPORT link when a match actually fits it; BBC Radio 5 Live and a
-  TuneIn link (for international/US listeners) are shown for every match
-  regardless, since those are general options, not per-match claims. For
-  the Championship, coverage is fragmented across 24 clubs' local BBC
-  stations and club-run streams, so the app links to BBC Sounds generally
+  broadcasters, each **labelled with its actual region** rather than
+  presented as universally accessible — talkSPORT and BBC Radio 5 Live are
+  UK-only (BBC Sounds has enforced this since July 2025), so the app also
+  surfaces TuneIn Premium, talkSPORT's own real, paid, US/Canada/Mexico
+  product, and explicitly does not suggest VPNs/proxies to bypass either
+  broadcaster's territorial rights (see §6). For the Premier League,
+  `talkSportLikely()` checks a match against talkSPORT's own published
+  coverage pattern (every Friday/Monday match, plus Saturday 12:30 and
+  15:00 kickoffs) and only shows a talkSPORT link when a match actually
+  fits it. For the Championship, coverage is fragmented across 24 clubs'
+  local BBC stations and club-run streams, so the app links to BBC Sounds
+  generally
   instead of guessing a specific station per match.
 - **Live match status + professional commentary** — `matchStatus()`
   derives Upcoming / Live / Full-time from the real kickoff instant vs. the
@@ -251,8 +255,9 @@ in this season.
 | **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). |
 | **US TV rights (Premier League)** | `tvNote("epl")` copy | ✅ Verified: NBCUniversal holds exclusive US rights through 2027-28; Peacock streams all matches, NBC/USA Network carry marquee fixtures. [NBCUniversal six-year extension](https://corporate.comcast.com/press/releases/nbcuniversal-six-year-extension-exclusive-us-home-of-premier-league), [RenderFoot 2026/27 guide](https://www.renderfoot.com/blog/how-to-watch-premier-league-in-usa) |
 | **US TV rights (Championship)** | `tvNote("championship")` copy | ✅ Verified: CBS Sports holds exclusive US rights through 2027-28; Paramount+ is the primary stream, CBS Sports Network carries marquee fixtures. [SportsPro: CBS Sports snaps up exclusive EFL rights](https://www.sportspro.com/news/efl-cbs-sports-us-exclusive-tv-broadcast-rights-agreement/), [RenderFoot EFL guide](https://www.renderfoot.com/blog/how-to-watch-efl-championship-in-usa) |
-| **Live radio (EPL)** | `RADIO` / `talkSportLikely()` / `radioBlock()` | ✅ Verified: talkSPORT is the Premier League's official UK radio broadcast partner ([premierleague.com partner page](https://www.premierleague.com/en/about/partners/talksport)) and, per its published coverage pattern, carries live commentary of every Friday- and Monday-night match plus Saturday 12:30/15:00 kickoffs ([wheresthematch.com talkSPORT schedule](https://www.wheresthematch.com/talksport/)). `talkSportLikely(m)` only asserts talkSPORT coverage for matches that fit that documented pattern; every EPL match also gets the general BBC Radio 5 Live and TuneIn (international access to talkSPORT — [TuneIn/talkSPORT partnership announcement](https://www.businesswire.com/news/home/20220809005157/en)) links, which aren't per-match claims. |
-| **Live radio (Championship)** | `radioBlock()` | ✅ Deliberately general, not per-club: EFL coverage is fragmented across 24 different local BBC stations and club-run (often paywalled) commentary — accurately mapping every club would require research this app doesn't have a verified source for, so it links to BBC Sounds instead of guessing a specific station or club per match. |
+| **Live radio (EPL)** | `RADIO` / `talkSportLikely()` / `radioBlock()` | ✅ Verified: talkSPORT is the Premier League's official UK radio broadcast partner ([premierleague.com partner page](https://www.premierleague.com/en/about/partners/talksport)) and, per its published coverage pattern, carries live commentary of every Friday- and Monday-night match plus Saturday 12:30/15:00 kickoffs ([wheresthematch.com talkSPORT schedule](https://www.wheresthematch.com/talksport/)). `talkSportLikely(m)` only asserts talkSPORT coverage for matches that fit that documented pattern. |
+| **Radio region restrictions** | `RADIO.*.region` labels + on-tab note | ✅ Verified and important: as of **July 2025 the BBC restricted BBC Sounds to UK IP addresses** ([BBC News](https://feeds.bbci.co.uk/news/articles/c5yg065058no)), so both the BBC Radio 5 Live and talkSPORT direct-site streams are effectively UK-only — this is exactly why talkSPORT built [a paid partnership with TuneIn](https://www.businesswire.com/news/home/20220809005157/en) as the *legitimate* licensed product for US/Canada/Mexico listeners. The app labels each link's real region (`UK only` vs. `US/Canada/Mexico — paid subscription`) instead of presenting all three as interchangeable, and does **not** link or suggest VPN/proxy services to route around either broadcaster's territorial licensing — that would mean facilitating a ToS violation and undermining the rights holders' own paid product, not a feature this app builds. |
+| **Live radio (Championship)** | `radioBlock()` | ✅ Deliberately general, not per-club: EFL coverage is fragmented across 24 different local BBC stations (also UK-only) and club-run (often paywalled, region varies) commentary — accurately mapping every club would require research this app doesn't have a verified source for, so it links to BBC Sounds generally instead of guessing a specific station or club per match. |
 
 **Why not fabricate a 2026-27 UCL table?** The league-phase draw happens 27
 August 2026 — no pairings, and therefore no table, exist yet. Inventing them

@@ -213,10 +213,20 @@ function tvNote(comp){
 
 /* ---------- Live radio (real UK broadcasters — see docs/FOOTBALL-HUB.md §6 for sourcing) ---------- */
 
+// Region reality, verified: as of July 2025 the BBC restricted BBC Sounds
+// (and with it Radio 5 Live's stream) to UK IP addresses, and talkSPORT's
+// own site stream is UK-licensed too — which is exactly why talkSPORT
+// partnered with TuneIn to sell a *legitimate* US/Canada/Mexico product
+// (TuneIn Premium) rather than that audience just using the UK stream.
+// This app links to the real UK stream (useful for UK-based followers or
+// anyone actually in the UK) and separately, clearly, to the real paid
+// product that's actually licensed for US listeners — it does not suggest
+// or facilitate VPNs/proxies to route around either broadcaster's
+// territorial rights, which their terms of service prohibit.
 const RADIO = {
-  talksport: { name: "talkSPORT", url: "https://talksport.com" },
-  bbc5live:  { name: "BBC Radio 5 Live", url: "https://www.bbc.co.uk/5live" },
-  tunein:    { name: "talkSPORT via TuneIn", url: "https://tunein.com/radio/talkSPORT-1089-s17077/" }
+  talksport: { name: "talkSPORT", url: "https://talksport.com", region: "UK only" },
+  bbc5live:  { name: "BBC Radio 5 Live", url: "https://www.bbc.co.uk/5live", region: "UK only" },
+  tunein:    { name: "talkSPORT via TuneIn Premium", url: "https://tunein.com/radio/talkSPORT-1089-s17077/", region: "US/Canada/Mexico — paid subscription" }
 };
 // talkSPORT is the Premier League's official UK radio partner and (per its
 // published coverage pattern) carries live commentary of every Friday- and
@@ -232,15 +242,16 @@ function talkSportLikely(m){
 }
 function radioBlock(comp, m){
   if(comp!=="epl"){
-    return `<div class="match-meta"><span>📻 EFL Championship coverage is typically via your club's local <a href="https://www.bbc.co.uk/sounds" target="_blank" rel="noopener">BBC radio station</a>, or the club's own official commentary (often subscription-based)</span></div>`;
+    return `<div class="match-meta"><span>📻 EFL Championship coverage is typically via your club's local <a href="https://www.bbc.co.uk/sounds" target="_blank" rel="noopener">BBC radio station</a> (UK only) or the club's own official commentary (often subscription-based, region varies)</span></div>`;
   }
   const links = [];
   if(talkSportLikely(m)){
-    links.push(`<a href="${RADIO.talksport.url}" target="_blank" rel="noopener">📻 ${RADIO.talksport.name} — live commentary</a>`);
+    links.push(`<a href="${RADIO.talksport.url}" target="_blank" rel="noopener">📻 ${RADIO.talksport.name}</a> <small>(${RADIO.talksport.region})</small>`);
   }
-  links.push(`<a href="${RADIO.bbc5live.url}" target="_blank" rel="noopener">📻 ${RADIO.bbc5live.name}</a>`);
-  links.push(`<a href="${RADIO.tunein.url}" target="_blank" rel="noopener">🇺🇸 Listen via TuneIn</a>`);
-  return `<div class="match-meta">${links.map(l=>`<span>${l}</span>`).join("")}</div>`;
+  links.push(`<a href="${RADIO.bbc5live.url}" target="_blank" rel="noopener">📻 ${RADIO.bbc5live.name}</a> <small>(${RADIO.bbc5live.region})</small>`);
+  links.push(`<a href="${RADIO.tunein.url}" target="_blank" rel="noopener">🎧 ${RADIO.tunein.name}</a> <small>(${RADIO.tunein.region})</small>`);
+  return `<div class="match-meta">${links.map(l=>`<span>${l}</span>`).join("")}</div>
+    <p class="note">UK streams require a UK connection (broadcaster-enforced since Jul 2025) — outside the UK, TuneIn Premium is the legitimate licensed option. This app doesn't link VPN/proxy services to route around that.</p>`;
 }
 
 /* ---------- Real-time countdown (ticks every second) ---------- */
