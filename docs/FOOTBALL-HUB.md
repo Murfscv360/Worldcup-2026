@@ -1,19 +1,20 @@
-# Football 26/27 Season — Live Hub
+# English Football Season 26/27 — Live Hub
 
 > A second, standalone app in this repo (`football-hub/`) extending the
 > World Cup Live Hub's proven pattern — zero-build, mobile-first, honest
 > about real vs. modeled data — to year-round club football. Branded and
-> built around the **2026-27 season**, covering the **Premier League**, the
-> **EFL Championship** (the tier directly below it) and the **UEFA
-> Champions League** together. One stop for scores, tables, the real full
-> fixture list, favourite-club tracking, transfer news, football news, and
-> prediction markets.
+> built around the **2026-27 English football season**, covering the
+> **Premier League**, the **EFL Championship** (the tier directly below it)
+> and the **UEFA Champions League** together. One stop for live scores,
+> tables, the real full fixture list, favourite-club tracking, US kickoff
+> times & TV info, transfer news, football news, and prediction markets.
 >
 > Internally the app/codebase is still referred to as "Football Hub"
 > (directory name, JS variable/function names, service-worker cache key) —
 > only the user-facing brand (page title, header, PWA name/icon, launch
-> splash) changed to lead with the season. It was briefly branded "Premier
-> League 26/27" before this; see §8 for the full rebrand history.
+> splash) changed to lead with the season. It was previously branded
+> "Premier League 26/27" and then "Football 26/27 Season"; see §8 for the
+> full rebrand history.
 
 ## 1a. Note on the reference sites in the original request
 
@@ -282,8 +283,8 @@ docs/FOOTBALL-HUB.md                              # this document
 
 ## 8. Rebrand history
 
-Two rebrand passes so far, both **user-facing brand strings only** — no
-scope, routes, or data changed either time:
+Three rebrand passes so far, all **user-facing brand strings only** — no
+scope, routes, or data changed at any point:
 
 **Pass 1 — "Football Hub" → "Premier League 26/27"**
 
@@ -303,7 +304,21 @@ covers three competitions, not just the Premier League — the season number
 (`26/27`) stays the visual anchor either way. `apple-mobile-web-app-title` /
 `short_name` changed `PL 26/27` → `Football 26/27`.
 
-**Deliberately left unchanged in both passes** (internal, not user-facing):
+**Pass 3 — "Football 26/27 Season" → "English Football Season 26/27"**
+
+Same set of files/fields again. Eyebrow/short brand changed `FOOTBALL` →
+`ENGLISH FOOTBALL` (header, launch splash, icon — icon glyph font-size/
+letter-spacing reduced from 30/8 to 24/3 so the longer string still fits
+the 512px canvas with margin; header `.brand-eyebrow` letter-spacing
+tightened from 4px to 2.5px for the same reason). `apple-mobile-web-app-title`
+/ `short_name` changed `Football 26/27` → `Eng. Football 26/27`. The header
+tagline was shortened from `Prem · Championship · UCL · My Teams` to
+`Prem · Championship · UCL` to make room for the longer eyebrow at common
+phone widths — even so, `ENGLISH FOOTBALL` wraps to two lines on many
+phones (it did not before), which is an accepted cosmetic trade-off, not a
+layout bug: nothing clips or overlaps.
+
+**Deliberately left unchanged in all three passes** (internal, not user-facing):
 the `football-hub/` directory name, `assets/app.js`'s internal naming
 (`COMPS`, `DATA`, function names), and the service worker's cache-key
 prefix (`football-hub-`). Renaming those would touch every file path in

@@ -12,7 +12,7 @@ static site with no build step and no API keys.
 
 📐 **Design & specs:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · 🗺️ **Plan:** [`docs/ROADMAP.md`](docs/ROADMAP.md) · 🖼️ **Mockups:** [`mockup.html`](mockup.html)
 
-## ⚽ Also in this repo: Football 26/27 Season — Live Hub
+## ⚽ Also in this repo: English Football Season 26/27 — Live Hub
 
 Club football doesn't stop when the World Cup does. [`football-hub/`](football-hub/) is a
 sibling static app — same zero-build, mobile-first, honest-data philosophy — branded and

@@ -720,7 +720,7 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
 
 /* Brand — FIFA lockup */
 .brand-text{display:flex;flex-direction:column;line-height:1.05}
-.brand-eyebrow{font-family:"Archivo Narrow",sans-serif;font-size:9px;font-weight:800;letter-spacing:4px;color:var(--accent2);text-transform:uppercase}
+.brand-eyebrow{font-family:"Archivo Narrow",sans-serif;font-size:9px;font-weight:800;letter-spacing:2.5px;color:var(--accent2);text-transform:uppercase}
 .brand-text h1{font-size:18px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;margin:1px 0 0}
 .brand-text h1 span{color:var(--accent2)}
 .brand-text p{font-size:9px;letter-spacing:2px}
