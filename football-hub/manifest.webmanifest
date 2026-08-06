@@ -1,0 +1,17 @@
+{
+  "name": "Football 26/27 Season — Live Hub",
+  "short_name": "Football 26/27",
+  "description": "One-stop live hub for the 2026-27 football season across the Premier League, Championship and UEFA Champions League: the real full fixture list, table, favourite-club tracking, news, transfers, and prediction markets.",
+  "lang": "en",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0713",
+  "theme_color": "#0a0713",
+  "categories": ["sports", "news"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "_source": "Curated editorial digest written for this app, grounded in the verified facts in docs/FOOTBALL-HUB.md. Not a live newswire. \"clubs\" tags drive the My Teams view.",
+  "items": [
+    {
+      "date": "2026-07-23",
+      "tag": "Transfers",
+      "title": "Spurs' summer spree tops €267m as deadline day looms",
+      "body": "Tottenham's rebuild under new investment continues with Sandro Tonali, Mateus Fernandes, Jan Paul van Hecke and Andrew Robertson all arriving in July — reportedly the biggest outlay of any club in world football this window, with just over five weeks left before the 1 September deadline.",
+      "clubs": ["Tottenham Hotspur", "Newcastle United", "Brighton", "Liverpool"]
+    },
+    {
+      "date": "2026-07-22",
+      "tag": "Transfers",
+      "title": "Chelsea break the bank for Morgan Rogers",
+      "body": "Chelsea's £117m move for Aston Villa's Morgan Rogers is being reported as a new British transfer record, a day after Manchester City agreed a reported €135m deal for Nottingham Forest's Elliot Anderson — a whirlwind week at the top of the market.",
+      "clubs": ["Chelsea", "Aston Villa", "Manchester City", "Nottingham Forest"]
+    },
+    {
+      "date": "2026-07-17",
+      "tag": "Premier League",
+      "title": "Season launch: Arsenal host Coventry on Friday Night Football",
+      "body": "The reigning champions open the defence of their title against newly-promoted Coventry City at the Emirates on Friday 21 August — Coventry's first top-flight fixture since the 2000-01 season. The Community Shield (Arsenal vs FA Cup winners Manchester City) kicks the season off five days earlier at Wembley.",
+      "clubs": ["Arsenal", "Coventry City", "Manchester City"]
+    },
+    {
+      "date": "2026-07-14",
+      "tag": "Champions League",
+      "title": "Five English clubs in the 2026-27 league phase",
+      "body": "England's coefficient earns a fifth Champions League place: Arsenal, Manchester City, Manchester United, Aston Villa and Liverpool are all confirmed for the 36-team league phase. The draw is set for 27 August, with Matchday 1 on 8-10 September.",
+      "clubs": ["Arsenal", "Manchester City", "Manchester United", "Aston Villa", "Liverpool"]
+    },
+    {
+      "date": "2026-07-05",
+      "tag": "Championship",
+      "title": "West Ham, Burnley and Wolves plot instant returns",
+      "body": "All three of last season's relegated Premier League clubs — West Ham United, Burnley and Wolverhampton Wanderers — begin the 2026-27 Championship campaign among the pre-season favourites, each carrying parachute-payment resources that typically make relegated top-flight clubs hard to beat at this level.",
+      "clubs": ["West Ham United", "Burnley", "Wolverhampton Wanderers"]
+    },
+    {
+      "date": "2026-06-30",
+      "tag": "Analysis",
+      "title": "Arsenal end the 22-year wait",
+      "body": "Arsenal's first title since 2003-04 was sealed with a game to spare on 19 May when Manchester City could only draw at Bournemouth. It capped a season in which the Gunners also reached the Champions League final, eventually losing on penalties to a resurgent PSG in Budapest.",
+      "clubs": ["Arsenal", "Manchester City"]
+    },
+    {
+      "date": "2026-06-25",
+      "tag": "Championship",
+      "title": "Hull City's stoppage-time promotion",
+      "body": "Oli McBurnie's goal in the 5th minute of stoppage time settled the play-off final against Middlesbrough at Wembley, sending Hull City back to the Premier League after finishing 6th in the regular Championship table — the reward for beating higher-placed Millwall and Southampton across the play-off rounds.",
+      "clubs": ["Hull City", "Middlesbrough"]
+    },
+    {
+      "date": "2026-06-20",
+      "tag": "Awards",
+      "title": "Haaland claims a third Golden Boot in four seasons",
+      "body": "Erling Haaland finished the 2025-26 campaign with 27 league goals, comfortably ahead of Brentford's breakout striker Igor Thiago on 22, as Manchester City's title defence fell just short.",
+      "clubs": ["Manchester City", "Brentford"]
+    },
+    {
+      "date": "2026-06-19",
+      "tag": "Premier League",
+      "title": "2026-27 fixtures released",
+      "body": "The Premier League published the full 380-match schedule for the new season. Promoted trio Coventry City, Ipswich Town and Hull City return to the top flight in place of West Ham, Burnley and Wolves.",
+      "clubs": ["Coventry City", "Ipswich Town", "Hull City", "West Ham United", "Burnley", "Wolverhampton Wanderers"]
+    }
+  ]
+}

@@ -1,0 +1,549 @@
+{
+  "_source": "Table computed from the real, complete 2025-26 openfootball/football.json en.1.json feed (380/380 matches). Club meta (ground/city/founded/nickname) hand-curated. Promoted clubs, transfer figures, title odds and dates verified via web research as of 2026-07-24 — see docs/FOOTBALL-HUB.md.",
+  "lastSeason": {
+    "year": "2025-26",
+    "champion": "Arsenal",
+    "championNote": "Arsenal's first Premier League title in 22 years, clinched 19 May 2026 when Manchester City drew at Bournemouth.",
+    "goldenBoot": {
+      "player": "Erling Haaland",
+      "club": "Manchester City",
+      "goals": 27,
+      "note": "3rd Golden Boot in 4 seasons"
+    },
+    "goldenBootRunnerUp": {
+      "player": "Igor Thiago",
+      "club": "Brentford",
+      "goals": 22
+    },
+    "table": [
+      {
+        "name": "Arsenal FC",
+        "p": 38,
+        "w": 26,
+        "d": 7,
+        "l": 5,
+        "gf": 71,
+        "ga": 27,
+        "pts": 85,
+        "gd": 44,
+        "pos": 1
+      },
+      {
+        "name": "Manchester City FC",
+        "p": 38,
+        "w": 23,
+        "d": 9,
+        "l": 6,
+        "gf": 77,
+        "ga": 35,
+        "pts": 78,
+        "gd": 42,
+        "pos": 2
+      },
+      {
+        "name": "Manchester United FC",
+        "p": 38,
+        "w": 20,
+        "d": 11,
+        "l": 7,
+        "gf": 69,
+        "ga": 50,
+        "pts": 71,
+        "gd": 19,
+        "pos": 3
+      },
+      {
+        "name": "Aston Villa FC",
+        "p": 38,
+        "w": 19,
+        "d": 8,
+        "l": 11,
+        "gf": 56,
+        "ga": 49,
+        "pts": 65,
+        "gd": 7,
+        "pos": 4
+      },
+      {
+        "name": "Liverpool FC",
+        "p": 38,
+        "w": 17,
+        "d": 9,
+        "l": 12,
+        "gf": 63,
+        "ga": 53,
+        "pts": 60,
+        "gd": 10,
+        "pos": 5
+      },
+      {
+        "name": "AFC Bournemouth",
+        "p": 38,
+        "w": 13,
+        "d": 18,
+        "l": 7,
+        "gf": 58,
+        "ga": 54,
+        "pts": 57,
+        "gd": 4,
+        "pos": 6
+      },
+      {
+        "name": "Sunderland AFC",
+        "p": 38,
+        "w": 14,
+        "d": 12,
+        "l": 12,
+        "gf": 42,
+        "ga": 48,
+        "pts": 54,
+        "gd": -6,
+        "pos": 7
+      },
+      {
+        "name": "Brighton & Hove Albion FC",
+        "p": 38,
+        "w": 14,
+        "d": 11,
+        "l": 13,
+        "gf": 52,
+        "ga": 46,
+        "pts": 53,
+        "gd": 6,
+        "pos": 8
+      },
+      {
+        "name": "Brentford FC",
+        "p": 38,
+        "w": 14,
+        "d": 11,
+        "l": 13,
+        "gf": 55,
+        "ga": 52,
+        "pts": 53,
+        "gd": 3,
+        "pos": 9
+      },
+      {
+        "name": "Chelsea FC",
+        "p": 38,
+        "w": 14,
+        "d": 10,
+        "l": 14,
+        "gf": 58,
+        "ga": 52,
+        "pts": 52,
+        "gd": 6,
+        "pos": 10
+      },
+      {
+        "name": "Fulham FC",
+        "p": 38,
+        "w": 15,
+        "d": 7,
+        "l": 16,
+        "gf": 47,
+        "ga": 51,
+        "pts": 52,
+        "gd": -4,
+        "pos": 11
+      },
+      {
+        "name": "Newcastle United FC",
+        "p": 38,
+        "w": 14,
+        "d": 7,
+        "l": 17,
+        "gf": 53,
+        "ga": 55,
+        "pts": 49,
+        "gd": -2,
+        "pos": 12
+      },
+      {
+        "name": "Everton FC",
+        "p": 38,
+        "w": 13,
+        "d": 10,
+        "l": 15,
+        "gf": 47,
+        "ga": 50,
+        "pts": 49,
+        "gd": -3,
+        "pos": 13
+      },
+      {
+        "name": "Leeds United FC",
+        "p": 38,
+        "w": 11,
+        "d": 14,
+        "l": 13,
+        "gf": 49,
+        "ga": 56,
+        "pts": 47,
+        "gd": -7,
+        "pos": 14
+      },
+      {
+        "name": "Crystal Palace FC",
+        "p": 38,
+        "w": 11,
+        "d": 12,
+        "l": 15,
+        "gf": 41,
+        "ga": 51,
+        "pts": 45,
+        "gd": -10,
+        "pos": 15
+      },
+      {
+        "name": "Nottingham Forest FC",
+        "p": 38,
+        "w": 11,
+        "d": 11,
+        "l": 16,
+        "gf": 48,
+        "ga": 51,
+        "pts": 44,
+        "gd": -3,
+        "pos": 16
+      },
+      {
+        "name": "Tottenham Hotspur FC",
+        "p": 38,
+        "w": 10,
+        "d": 11,
+        "l": 17,
+        "gf": 48,
+        "ga": 57,
+        "pts": 41,
+        "gd": -9,
+        "pos": 17
+      },
+      {
+        "name": "West Ham United FC",
+        "p": 38,
+        "w": 10,
+        "d": 9,
+        "l": 19,
+        "gf": 46,
+        "ga": 65,
+        "pts": 39,
+        "gd": -19,
+        "pos": 18
+      },
+      {
+        "name": "Burnley FC",
+        "p": 38,
+        "w": 4,
+        "d": 10,
+        "l": 24,
+        "gf": 38,
+        "ga": 75,
+        "pts": 22,
+        "gd": -37,
+        "pos": 19
+      },
+      {
+        "name": "Wolverhampton Wanderers FC",
+        "p": 38,
+        "w": 3,
+        "d": 11,
+        "l": 24,
+        "gf": 27,
+        "ga": 68,
+        "pts": 20,
+        "gd": -41,
+        "pos": 20
+      }
+    ]
+  },
+  "clubs": [
+    {
+      "name": "Arsenal",
+      "full": "Arsenal FC",
+      "nick": "The Gunners",
+      "ground": "Emirates Stadium",
+      "city": "London",
+      "founded": 1886,
+      "color": "#EF0107"
+    },
+    {
+      "name": "Manchester City",
+      "full": "Manchester City FC",
+      "nick": "The Citizens",
+      "ground": "Etihad Stadium",
+      "city": "Manchester",
+      "founded": 1880,
+      "color": "#6CABDD"
+    },
+    {
+      "name": "Manchester United",
+      "full": "Manchester United FC",
+      "nick": "The Red Devils",
+      "ground": "Old Trafford",
+      "city": "Manchester",
+      "founded": 1878,
+      "color": "#DA291C"
+    },
+    {
+      "name": "Aston Villa",
+      "full": "Aston Villa FC",
+      "nick": "The Villans",
+      "ground": "Villa Park",
+      "city": "Birmingham",
+      "founded": 1874,
+      "color": "#670E36"
+    },
+    {
+      "name": "Liverpool",
+      "full": "Liverpool FC",
+      "nick": "The Reds",
+      "ground": "Anfield",
+      "city": "Liverpool",
+      "founded": 1892,
+      "color": "#C8102E"
+    },
+    {
+      "name": "Bournemouth",
+      "full": "AFC Bournemouth",
+      "nick": "The Cherries",
+      "ground": "Vitality Stadium",
+      "city": "Bournemouth",
+      "founded": 1899,
+      "color": "#DA291C"
+    },
+    {
+      "name": "Sunderland",
+      "full": "Sunderland AFC",
+      "nick": "The Black Cats",
+      "ground": "Stadium of Light",
+      "city": "Sunderland",
+      "founded": 1879,
+      "color": "#EB172B"
+    },
+    {
+      "name": "Brighton",
+      "full": "Brighton & Hove Albion FC",
+      "nick": "The Seagulls",
+      "ground": "Falmer Stadium (Amex)",
+      "city": "Brighton",
+      "founded": 1901,
+      "color": "#0057B8"
+    },
+    {
+      "name": "Brentford",
+      "full": "Brentford FC",
+      "nick": "The Bees",
+      "ground": "Gtech Community Stadium",
+      "city": "London",
+      "founded": 1889,
+      "color": "#E30613"
+    },
+    {
+      "name": "Chelsea",
+      "full": "Chelsea FC",
+      "nick": "The Blues",
+      "ground": "Stamford Bridge",
+      "city": "London",
+      "founded": 1905,
+      "color": "#034694"
+    },
+    {
+      "name": "Fulham",
+      "full": "Fulham FC",
+      "nick": "The Cottagers",
+      "ground": "Craven Cottage",
+      "city": "London",
+      "founded": 1879,
+      "color": "#000000"
+    },
+    {
+      "name": "Newcastle United",
+      "full": "Newcastle United FC",
+      "nick": "The Magpies",
+      "ground": "St James' Park",
+      "city": "Newcastle",
+      "founded": 1892,
+      "color": "#241F20"
+    },
+    {
+      "name": "Everton",
+      "full": "Everton FC",
+      "nick": "The Toffees",
+      "ground": "Everton Stadium (Bramley-Moore Dock)",
+      "city": "Liverpool",
+      "founded": 1878,
+      "color": "#003399"
+    },
+    {
+      "name": "Leeds United",
+      "full": "Leeds United FC",
+      "nick": "The Whites",
+      "ground": "Elland Road",
+      "city": "Leeds",
+      "founded": 1919,
+      "color": "#FFFFFF"
+    },
+    {
+      "name": "Crystal Palace",
+      "full": "Crystal Palace FC",
+      "nick": "The Eagles",
+      "ground": "Selhurst Park",
+      "city": "London",
+      "founded": 1905,
+      "color": "#1B458F"
+    },
+    {
+      "name": "Nottingham Forest",
+      "full": "Nottingham Forest FC",
+      "nick": "Tricky Trees",
+      "ground": "The City Ground",
+      "city": "Nottingham",
+      "founded": 1865,
+      "color": "#DD0000"
+    },
+    {
+      "name": "Tottenham Hotspur",
+      "full": "Tottenham Hotspur FC",
+      "nick": "Spurs",
+      "ground": "Tottenham Hotspur Stadium",
+      "city": "London",
+      "founded": 1882,
+      "color": "#132257"
+    },
+    {
+      "name": "West Ham United",
+      "full": "West Ham United FC",
+      "nick": "The Hammers",
+      "ground": "London Stadium",
+      "city": "London",
+      "founded": 1895,
+      "color": "#7A263A",
+      "relegated": true
+    },
+    {
+      "name": "Burnley",
+      "full": "Burnley FC",
+      "nick": "The Clarets",
+      "ground": "Turf Moor",
+      "city": "Burnley",
+      "founded": 1882,
+      "color": "#6C1D45",
+      "relegated": true
+    },
+    {
+      "name": "Wolverhampton Wanderers",
+      "full": "Wolverhampton Wanderers FC",
+      "nick": "Wolves",
+      "ground": "Molineux Stadium",
+      "city": "Wolverhampton",
+      "founded": 1877,
+      "color": "#FDB913",
+      "relegated": true
+    }
+  ],
+  "promoted2627": [
+    {
+      "name": "Coventry City",
+      "full": "Coventry City FC",
+      "nick": "The Sky Blues",
+      "ground": "Coventry Building Society Arena",
+      "city": "Coventry",
+      "founded": 1883,
+      "color": "#5BC2E7",
+      "note": "Championship champions 2025-26"
+    },
+    {
+      "name": "Ipswich Town",
+      "full": "Ipswich Town FC",
+      "nick": "The Tractor Boys",
+      "ground": "Portman Road",
+      "city": "Ipswich",
+      "founded": 1878,
+      "color": "#0044A9",
+      "note": "Automatic promotion, runners-up 2025-26"
+    },
+    {
+      "name": "Hull City",
+      "full": "Hull City AFC",
+      "nick": "The Tigers",
+      "ground": "MKM Stadium",
+      "city": "Hull",
+      "founded": 1904,
+      "color": "#F18A01",
+      "note": "Play-off final winners 2025-26 (beat Middlesbrough 1-0)"
+    }
+  ],
+  "relegated2526": [
+    "West Ham United",
+    "Burnley",
+    "Wolverhampton Wanderers"
+  ],
+  "season2627": {
+    "communityShield": {
+      "date": "2026-08-16",
+      "home": "Arsenal",
+      "away": "Manchester City",
+      "venue": "Wembley Stadium",
+      "note": "Man City qualify as 2026 FA Cup winners"
+    },
+    "openingMatch": {
+      "date": "2026-08-21",
+      "home": "Arsenal",
+      "away": "Coventry City",
+      "venue": "Emirates Stadium",
+      "note": "Friday Night Football season opener; Coventry's first top-flight match since 2000-01"
+    },
+    "fixturesReleased": "2026-06-19",
+    "note": "Full 380-fixture list published by the Premier League; this app surfaces confirmed headline fixtures and switches to the live 2026-27 results feed automatically once openfootball publishes it."
+  },
+  "titleOdds": {
+    "asOf": "2026-07-23",
+    "source": "Polymarket (\"Premier League Winner 2026\") + UK bookmaker prices, converted to implied probability",
+    "sourceUrl": "https://polymarket.com/event/premier-league-winner",
+    "market": [
+      [
+        "Arsenal",
+        40.0
+      ],
+      [
+        "Manchester City",
+        29.0
+      ],
+      [
+        "Liverpool",
+        15.0
+      ],
+      [
+        "Manchester United",
+        7.5
+      ],
+      [
+        "Chelsea",
+        3.5
+      ],
+      [
+        "Newcastle United",
+        1.5
+      ],
+      [
+        "Aston Villa",
+        1.2
+      ],
+      [
+        "Tottenham Hotspur",
+        0.9
+      ],
+      [
+        "Brighton",
+        0.5
+      ],
+      [
+        "Everton",
+        0.3
+      ]
+    ],
+    "note": "Preseason outright market — a snapshot, not a live feed. Manchester City enter their first title race of the post-Pep Guardiola era under new manager Enzo Maresca."
+  }
+}

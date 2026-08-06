@@ -1,0 +1,552 @@
+{
+  "_source": "Table computed from the real 2025-26 openfootball/football.json en.2.json feed (552 league matches, Playoffs round excluded). A 6-point deduction is applied to Leicester City (EFL Profit & Sustainability Rules breach, upheld on appeal) — without it the computed table incorrectly keeps Blackburn Rovers down and Leicester up, which contradicts the real, confirmed 2026-27 fixture list. Club roster for 2026-27 cross-checked against data/championship-2026-27.json (the real fixture file). See docs/FOOTBALL-HUB.md.",
+  "lastSeason": {
+    "year": "2025-26",
+    "champion": "Coventry City",
+    "championNote": "Coventry won the Championship title by 11 points over Ipswich Town.",
+    "playoffWinner": {
+      "club": "Hull City",
+      "note": "Beat Middlesbrough 1-0 in the play-off final at Wembley (Oli McBurnie, 5th minute of stoppage time) to complete an unlikely promotion after finishing 6th in the regular table."
+    },
+    "relegationNote": "Leicester City were relegated on 46 points (52 raw match points minus a 6-point deduction for breaching EFL Profit & Sustainability Rules, upheld on appeal), finishing below Blackburn Rovers on the final-table tie-break that a pure results-only table would have gotten wrong.",
+    "table": [
+      {
+        "name": "Coventry City FC",
+        "p": 46,
+        "w": 28,
+        "d": 11,
+        "l": 7,
+        "gf": 97,
+        "ga": 45,
+        "pts": 95,
+        "deduction": 0,
+        "gd": 52,
+        "pos": 1
+      },
+      {
+        "name": "Ipswich Town FC",
+        "p": 46,
+        "w": 23,
+        "d": 15,
+        "l": 8,
+        "gf": 80,
+        "ga": 47,
+        "pts": 84,
+        "deduction": 0,
+        "gd": 33,
+        "pos": 2
+      },
+      {
+        "name": "Millwall FC",
+        "p": 46,
+        "w": 24,
+        "d": 11,
+        "l": 11,
+        "gf": 64,
+        "ga": 49,
+        "pts": 83,
+        "deduction": 0,
+        "gd": 15,
+        "pos": 3
+      },
+      {
+        "name": "Southampton FC",
+        "p": 46,
+        "w": 22,
+        "d": 14,
+        "l": 10,
+        "gf": 82,
+        "ga": 56,
+        "pts": 80,
+        "deduction": 0,
+        "gd": 26,
+        "pos": 4
+      },
+      {
+        "name": "Middlesbrough FC",
+        "p": 46,
+        "w": 22,
+        "d": 14,
+        "l": 10,
+        "gf": 72,
+        "ga": 47,
+        "pts": 80,
+        "deduction": 0,
+        "gd": 25,
+        "pos": 5
+      },
+      {
+        "name": "Hull City AFC",
+        "p": 46,
+        "w": 21,
+        "d": 10,
+        "l": 15,
+        "gf": 70,
+        "ga": 66,
+        "pts": 73,
+        "deduction": 0,
+        "gd": 4,
+        "pos": 6
+      },
+      {
+        "name": "Wrexham AFC",
+        "p": 46,
+        "w": 19,
+        "d": 14,
+        "l": 13,
+        "gf": 69,
+        "ga": 65,
+        "pts": 71,
+        "deduction": 0,
+        "gd": 4,
+        "pos": 7
+      },
+      {
+        "name": "Derby County FC",
+        "p": 46,
+        "w": 20,
+        "d": 9,
+        "l": 17,
+        "gf": 67,
+        "ga": 59,
+        "pts": 69,
+        "deduction": 0,
+        "gd": 8,
+        "pos": 8
+      },
+      {
+        "name": "Norwich City FC",
+        "p": 46,
+        "w": 19,
+        "d": 8,
+        "l": 19,
+        "gf": 63,
+        "ga": 56,
+        "pts": 65,
+        "deduction": 0,
+        "gd": 7,
+        "pos": 9
+      },
+      {
+        "name": "Birmingham City FC",
+        "p": 46,
+        "w": 17,
+        "d": 13,
+        "l": 16,
+        "gf": 57,
+        "ga": 56,
+        "pts": 64,
+        "deduction": 0,
+        "gd": 1,
+        "pos": 10
+      },
+      {
+        "name": "Swansea City AFC",
+        "p": 46,
+        "w": 18,
+        "d": 10,
+        "l": 18,
+        "gf": 57,
+        "ga": 59,
+        "pts": 64,
+        "deduction": 0,
+        "gd": -2,
+        "pos": 11
+      },
+      {
+        "name": "Bristol City FC",
+        "p": 46,
+        "w": 17,
+        "d": 11,
+        "l": 18,
+        "gf": 59,
+        "ga": 59,
+        "pts": 62,
+        "deduction": 0,
+        "gd": 0,
+        "pos": 12
+      },
+      {
+        "name": "Sheffield United FC",
+        "p": 46,
+        "w": 18,
+        "d": 6,
+        "l": 22,
+        "gf": 66,
+        "ga": 66,
+        "pts": 60,
+        "deduction": 0,
+        "gd": 0,
+        "pos": 13
+      },
+      {
+        "name": "Preston North End FC",
+        "p": 46,
+        "w": 15,
+        "d": 15,
+        "l": 16,
+        "gf": 55,
+        "ga": 62,
+        "pts": 60,
+        "deduction": 0,
+        "gd": -7,
+        "pos": 14
+      },
+      {
+        "name": "Queens Park Rangers FC",
+        "p": 46,
+        "w": 16,
+        "d": 10,
+        "l": 20,
+        "gf": 61,
+        "ga": 73,
+        "pts": 58,
+        "deduction": 0,
+        "gd": -12,
+        "pos": 15
+      },
+      {
+        "name": "Watford FC",
+        "p": 46,
+        "w": 14,
+        "d": 15,
+        "l": 17,
+        "gf": 53,
+        "ga": 65,
+        "pts": 57,
+        "deduction": 0,
+        "gd": -12,
+        "pos": 16
+      },
+      {
+        "name": "Stoke City FC",
+        "p": 46,
+        "w": 15,
+        "d": 10,
+        "l": 21,
+        "gf": 51,
+        "ga": 56,
+        "pts": 55,
+        "deduction": 0,
+        "gd": -5,
+        "pos": 17
+      },
+      {
+        "name": "Portsmouth FC",
+        "p": 46,
+        "w": 14,
+        "d": 13,
+        "l": 19,
+        "gf": 49,
+        "ga": 64,
+        "pts": 55,
+        "deduction": 0,
+        "gd": -15,
+        "pos": 18
+      },
+      {
+        "name": "West Bromwich Albion FC",
+        "p": 46,
+        "w": 13,
+        "d": 14,
+        "l": 19,
+        "gf": 48,
+        "ga": 58,
+        "pts": 53,
+        "deduction": 0,
+        "gd": -10,
+        "pos": 19
+      },
+      {
+        "name": "Charlton Athletic FC",
+        "p": 46,
+        "w": 13,
+        "d": 14,
+        "l": 19,
+        "gf": 44,
+        "ga": 58,
+        "pts": 53,
+        "deduction": 0,
+        "gd": -14,
+        "pos": 20
+      },
+      {
+        "name": "Blackburn Rovers FC",
+        "p": 46,
+        "w": 13,
+        "d": 13,
+        "l": 20,
+        "gf": 42,
+        "ga": 56,
+        "pts": 52,
+        "deduction": 0,
+        "gd": -14,
+        "pos": 21
+      },
+      {
+        "name": "Oxford United FC",
+        "p": 46,
+        "w": 11,
+        "d": 14,
+        "l": 21,
+        "gf": 45,
+        "ga": 59,
+        "pts": 47,
+        "deduction": 0,
+        "gd": -14,
+        "pos": 22
+      },
+      {
+        "name": "Leicester City FC",
+        "p": 46,
+        "w": 12,
+        "d": 16,
+        "l": 18,
+        "gf": 58,
+        "ga": 68,
+        "pts": 46,
+        "deduction": 6,
+        "gd": -10,
+        "pos": 23
+      },
+      {
+        "name": "Sheffield Wednesday FC",
+        "p": 46,
+        "w": 2,
+        "d": 12,
+        "l": 32,
+        "gf": 29,
+        "ga": 89,
+        "pts": 18,
+        "deduction": 0,
+        "gd": -60,
+        "pos": 24
+      }
+    ]
+  },
+  "clubs": [
+    {
+      "name": "Birmingham City",
+      "full": "Birmingham City FC",
+      "nick": "The Blues",
+      "ground": "St Andrew's @ Knighthead Park",
+      "city": "Birmingham",
+      "founded": 1875,
+      "color": "#0044A3"
+    },
+    {
+      "name": "Blackburn Rovers",
+      "full": "Blackburn Rovers FC",
+      "nick": "Rovers",
+      "ground": "Ewood Park",
+      "city": "Blackburn",
+      "founded": 1875,
+      "color": "#009EE0"
+    },
+    {
+      "name": "Bolton Wanderers",
+      "full": "Bolton Wanderers FC",
+      "nick": "The Trotters",
+      "ground": "Toughsheet Community Stadium",
+      "city": "Bolton",
+      "founded": 1874,
+      "color": "#1B3E8B",
+      "note": "Promoted from League One 2025-26"
+    },
+    {
+      "name": "Bristol City",
+      "full": "Bristol City FC",
+      "nick": "The Robins",
+      "ground": "Ashton Gate",
+      "city": "Bristol",
+      "founded": 1894,
+      "color": "#E21C21"
+    },
+    {
+      "name": "Cardiff City",
+      "full": "Cardiff City FC",
+      "nick": "The Bluebirds",
+      "ground": "Cardiff City Stadium",
+      "city": "Cardiff",
+      "founded": 1899,
+      "color": "#0070B5",
+      "note": "Promoted from League One 2025-26"
+    },
+    {
+      "name": "Charlton Athletic",
+      "full": "Charlton Athletic FC",
+      "nick": "The Addicks",
+      "ground": "The Valley",
+      "city": "London",
+      "founded": 1905,
+      "color": "#D2122E"
+    },
+    {
+      "name": "Derby County",
+      "full": "Derby County FC",
+      "nick": "The Rams",
+      "ground": "Pride Park Stadium",
+      "city": "Derby",
+      "founded": 1884,
+      "color": "#000000"
+    },
+    {
+      "name": "Lincoln City",
+      "full": "Lincoln City FC",
+      "nick": "The Imps",
+      "ground": "LNER Stadium",
+      "city": "Lincoln",
+      "founded": 1884,
+      "color": "#C8102E",
+      "note": "Promoted from League One 2025-26"
+    },
+    {
+      "name": "Middlesbrough",
+      "full": "Middlesbrough FC",
+      "nick": "Boro",
+      "ground": "Riverside Stadium",
+      "city": "Middlesbrough",
+      "founded": 1876,
+      "color": "#DC0714"
+    },
+    {
+      "name": "Millwall",
+      "full": "Millwall FC",
+      "nick": "The Lions",
+      "ground": "The Den",
+      "city": "London",
+      "founded": 1885,
+      "color": "#12305B"
+    },
+    {
+      "name": "Norwich City",
+      "full": "Norwich City FC",
+      "nick": "The Canaries",
+      "ground": "Carrow Road",
+      "city": "Norwich",
+      "founded": 1902,
+      "color": "#00A650"
+    },
+    {
+      "name": "Portsmouth",
+      "full": "Portsmouth FC",
+      "nick": "Pompey",
+      "ground": "Fratton Park",
+      "city": "Portsmouth",
+      "founded": 1898,
+      "color": "#001489"
+    },
+    {
+      "name": "Preston North End",
+      "full": "Preston North End FC",
+      "nick": "North End",
+      "ground": "Deepdale",
+      "city": "Preston",
+      "founded": 1863,
+      "color": "#13233B"
+    },
+    {
+      "name": "Queens Park Rangers",
+      "full": "Queens Park Rangers FC",
+      "nick": "The R's",
+      "ground": "Loftus Road",
+      "city": "London",
+      "founded": 1882,
+      "color": "#1D5BA4"
+    },
+    {
+      "name": "Sheffield United",
+      "full": "Sheffield United FC",
+      "nick": "The Blades",
+      "ground": "Bramall Lane",
+      "city": "Sheffield",
+      "founded": 1889,
+      "color": "#EE2737"
+    },
+    {
+      "name": "Southampton",
+      "full": "Southampton FC",
+      "nick": "The Saints",
+      "ground": "St Mary's Stadium",
+      "city": "Southampton",
+      "founded": 1885,
+      "color": "#D71920"
+    },
+    {
+      "name": "Stoke City",
+      "full": "Stoke City FC",
+      "nick": "The Potters",
+      "ground": "bet365 Stadium",
+      "city": "Stoke-on-Trent",
+      "founded": 1863,
+      "color": "#E03A3E"
+    },
+    {
+      "name": "Swansea City",
+      "full": "Swansea City AFC",
+      "nick": "The Swans",
+      "ground": "Swansea.com Stadium",
+      "city": "Swansea",
+      "founded": 1912,
+      "color": "#000000"
+    },
+    {
+      "name": "Watford",
+      "full": "Watford FC",
+      "nick": "The Hornets",
+      "ground": "Vicarage Road",
+      "city": "Watford",
+      "founded": 1881,
+      "color": "#FBEE23"
+    },
+    {
+      "name": "West Bromwich Albion",
+      "full": "West Bromwich Albion FC",
+      "nick": "The Baggies",
+      "ground": "The Hawthorns",
+      "city": "West Bromwich",
+      "founded": 1878,
+      "color": "#122F67"
+    },
+    {
+      "name": "Wrexham",
+      "full": "Wrexham AFC",
+      "nick": "The Red Dragons",
+      "ground": "Racecourse Ground",
+      "city": "Wrexham",
+      "founded": 1864,
+      "color": "#E21937"
+    }
+  ],
+  "promotedToEPL2627": [
+    "Coventry City",
+    "Ipswich Town",
+    "Hull City"
+  ],
+  "relegatedIn2627": [
+    "West Ham United",
+    "Burnley",
+    "Wolverhampton Wanderers"
+  ],
+  "relegatedToLeagueOne2627": [
+    "Leicester City",
+    "Oxford United",
+    "Sheffield Wednesday"
+  ],
+  "promotedFromLeagueOne2627": [
+    "Bolton Wanderers",
+    "Cardiff City",
+    "Lincoln City"
+  ],
+  "season2627": {
+    "openingMatch": {
+      "date": "2026-08-14",
+      "home": "Wolverhampton Wanderers",
+      "away": "Blackburn Rovers",
+      "venue": "Molineux Stadium",
+      "note": "Championship season opener, a week before the Premier League kicks off"
+    },
+    "fixturesReleased": "2026-06-25",
+    "note": "Full 552-match fixture list confirmed and bundled (data/championship-2026-27.json), sourced from the openfootball/england source repository. This tab switches to the live 2026-27 results feed automatically once openfootball's JSON generator publishes it."
+  }
+}
