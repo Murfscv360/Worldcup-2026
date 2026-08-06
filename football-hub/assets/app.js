@@ -146,8 +146,7 @@ async function loadData(){
 
 function seasonState(){
   if(DATA.epl.matches.some(m=>m.score)) return "in-season";
-  const today = new Date("2026-07-24T00:00:00Z"); // stamped app-open date; see docs/FOOTBALL-HUB.md
-  return today < new Date(SEASON_OPENER.epl + "T00:00:00Z") ? "preseason" : "in-season";
+  return new Date() < new Date(SEASON_OPENER.epl + "T00:00:00Z") ? "preseason" : "in-season";
 }
 
 /* ---------- Club helpers ---------- */
@@ -178,9 +177,10 @@ function fmtDate(iso, opts){
   return d.toLocaleDateString("en-US", Object.assign({month:"short", day:"numeric", year:"numeric", timeZone:"UTC"}, opts||{}));
 }
 function daysUntil(iso){
-  const now = new Date("2026-07-24T00:00:00Z");
+  const now = new Date();
+  const today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
   const target = new Date(iso + "T00:00:00Z");
-  return Math.max(0, Math.round((target-now)/86400000));
+  return Math.max(0, Math.round((target-today)/86400000));
 }
 function countdownBoxes(iso){
   const days = daysUntil(iso);
@@ -230,8 +230,8 @@ function viewToday(){
 
   if(seasonSt==="preseason"){
     html += sectionHead("2026-27 season kicks off", `${fmtDate(EPL.season2627.openingMatch.date)}`);
-    html += `<div class="banner"><b>${EPL.season2627.openingMatch.home} vs ${EPL.season2627.openingMatch.away}</b> — ${EPL.season2627.openingMatch.venue}<br>${EPL.season2627.openingMatch.note}</div>`;
     html += countdownBoxes(EPL.season2627.openingMatch.date);
+    html += `<div class="banner"><b>${EPL.season2627.openingMatch.home} vs ${EPL.season2627.openingMatch.away}</b> — ${EPL.season2627.openingMatch.venue}<br>${EPL.season2627.openingMatch.note}</div>`;
     html += `<div class="match"><div class="top"><span>Community Shield</span><span>${fmtDate(EPL.season2627.communityShield.date)}</span></div>
       <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Arsenal FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.home}</span></div><div></div></div>
       <div class="rows"><div class="team"><span class="flag">${crest(CLUB_BY_FULL["Manchester City FC"]?.full||"",21)}</span><span class="name">${EPL.season2627.communityShield.away}</span></div><div></div></div>
