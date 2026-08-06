@@ -1,7 +1,7 @@
 {
-  "name": "Football 26/27 Season — Live Hub",
-  "short_name": "Football 26/27",
-  "description": "One-stop live hub for the 2026-27 football season across the Premier League, Championship and UEFA Champions League: the real full fixture list, table, favourite-club tracking, news, transfers, and prediction markets.",
+  "name": "English Football Season 26/27 — Live Hub",
+  "short_name": "Eng. Football 26/27",
+  "description": "One-stop live hub for the 2026-27 English football season across the Premier League, Championship and UEFA Champions League: live scores, the real full fixture list, table, favourite-club tracking, news, transfers, and prediction markets.",
   "lang": "en",
   "start_url": ".",
   "scope": ".",
