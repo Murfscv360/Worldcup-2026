@@ -21,8 +21,9 @@ League**, the **Championship** (the tier below it) and the **UEFA Champions Leag
 together: the real, full 380-match Premier League and 552-match Championship fixture
 lists (not just the opener), a **Live** tab with kickoff-driven match status, **US
 Central (Chicago) kickoff times** alongside UK time, verified US TV info (Peacock/NBC for
-the Prem, Paramount+/CBS for the Championship), and professional "Analyst's Desk"
-commentary generated from real table/form data. A **real-time, second-by-second
+the Prem, Paramount+/CBS for the Championship) and **live radio links** (talkSPORT, BBC
+Radio 5 Live, TuneIn), and professional "Analyst's Desk" commentary generated from real
+table/form data. A **real-time, second-by-second
 countdown** to kickoff, a **My Teams** tab to follow multiple clubs across both divisions
 (fixtures, results, and club-tagged news/transfers), real final tables for both divisions
 as a reference until 2026-27 results land, a summer transfer-window tracker, curated
