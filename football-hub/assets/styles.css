@@ -663,7 +663,7 @@ details.pbp .timeline{padding:4px 14px 12px}
 .analyst-live{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--accent);
   background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.3);border-radius:999px;padding:2px 8px}
 .analyst-body{font-size:13.5px;line-height:1.5;color:var(--ink);margin:0}
-.analyst-body b{color:#fff;font-weight:800}
+.analyst-body b{color:var(--ink);font-weight:800}
 .analyst.compact .analyst-body{font-size:13px}
 
 /* ---------- Key group-stage matchups (home page) ---------- */
