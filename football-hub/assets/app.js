@@ -211,6 +211,38 @@ function tvNote(comp){
     : "📺 Paramount+ · marquee matches also on CBS Sports Network (US)";
 }
 
+/* ---------- Live radio (real UK broadcasters — see docs/FOOTBALL-HUB.md §6 for sourcing) ---------- */
+
+const RADIO = {
+  talksport: { name: "talkSPORT", url: "https://talksport.com" },
+  bbc5live:  { name: "BBC Radio 5 Live", url: "https://www.bbc.co.uk/5live" },
+  tunein:    { name: "talkSPORT via TuneIn", url: "https://tunein.com/radio/talkSPORT-1089-s17077/" }
+};
+// talkSPORT is the Premier League's official UK radio partner and (per its
+// published coverage pattern) carries live commentary of every Friday- and
+// Monday-night match, plus Saturday 12:30 and Saturday 15:00 kickoffs. We
+// only assert talkSPORT coverage for matches that fit that documented
+// pattern — everything else just gets the general listen-live options,
+// not a specific (unverifiable) per-match claim.
+function talkSportLikely(m){
+  if(!m.time) return false;
+  const dow = new Date(m.date + "T00:00:00Z").getUTCDay(); // 0=Sun ... 5=Fri, 6=Sat, 1=Mon
+  if(dow===5 || dow===1) return true;
+  return dow===6 && (m.time==="12:30" || m.time==="15:00");
+}
+function radioBlock(comp, m){
+  if(comp!=="epl"){
+    return `<div class="match-meta"><span>📻 EFL Championship coverage is typically via your club's local <a href="https://www.bbc.co.uk/sounds" target="_blank" rel="noopener">BBC radio station</a>, or the club's own official commentary (often subscription-based)</span></div>`;
+  }
+  const links = [];
+  if(talkSportLikely(m)){
+    links.push(`<a href="${RADIO.talksport.url}" target="_blank" rel="noopener">📻 ${RADIO.talksport.name} — live commentary</a>`);
+  }
+  links.push(`<a href="${RADIO.bbc5live.url}" target="_blank" rel="noopener">📻 ${RADIO.bbc5live.name}</a>`);
+  links.push(`<a href="${RADIO.tunein.url}" target="_blank" rel="noopener">🇺🇸 Listen via TuneIn</a>`);
+  return `<div class="match-meta">${links.map(l=>`<span>${l}</span>`).join("")}</div>`;
+}
+
 /* ---------- Real-time countdown (ticks every second) ---------- */
 
 function countdownTargetMs(dateStr, timeStr){
@@ -606,7 +638,7 @@ function myTeamCard(name){
   if(next){
     const ct = next.time ? ` · ${next.time} UK · ${fmtCentral(next.date, next.time)} Central` : "";
     html += `<div class="rp-body"><p><b>Next fixture</b>: ${clubName(next.team1)} vs ${clubName(next.team2)} — ${fmtDate(next.date)}${ct}</p>
-      ${next.time?`<p class="subtle">${tvNote(comp)}</p>`:""}</div>`;
+      ${next.time?`<p class="subtle">${tvNote(comp)}</p>`:""}</div>${next.time?radioBlock(comp, next):""}`;
   } else {
     html += `<div class="rp-body"><p class="subtle">No fixtures loaded for ${name} yet.</p></div>`;
   }
@@ -647,13 +679,14 @@ function liveMatchCard(m, comp){
   const home = clubName(m.team1), away = clubName(m.team2);
   const ft = ftOf(m);
   const meta = m.time ? `<div class="match-meta"><span>🕐 ${m.time} UK · ${fmtCentral(m.date, m.time)} Central</span><span>${tvNote(comp)}</span></div>` : "";
+  const radio = (status.state==="live" || status.state==="upcoming") ? radioBlock(comp, m) : "";
   return `<div class="match ${status.state==='live'?'is-live-card':''}"><div class="top"><span>${compLabel(comp)} · ${m.round}</span>${statusBadge(status)}</div>
     <div class="rows">
       <div class="team"><span class="flag">${crest(m.team1,21)}</span><span class="name">${home}</span></div>
       <div class="score">${ft?ft[0]:"–"}</div>
       <div class="team"><span class="flag">${crest(m.team2,21)}</span><span class="name">${away}</span></div>
       <div class="score">${ft?ft[1]:"–"}</div>
-    </div>${meta}
+    </div>${meta}${radio}
     <div class="analyst compact"><div class="analyst-head"><span class="analyst-badge">Analyst's Desk</span>${status.state==="live"?'<span class="analyst-live">LIVE</span>':""}</div>
       <div class="analyst-body">${commentaryFor(m, comp)}</div></div>
   </div>`;
