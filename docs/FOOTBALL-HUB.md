@@ -329,6 +329,36 @@ in this season.
   shown are still pure `ep_next` comparisons (already covered by the
   existing tests), so this adds real context for judgment calls without
   touching the validated logic underneath it.
+- **Chip strategy** — Wildcard, Free Hit, Bench Boost and Triple Captain
+  are powerful but strictly limited (1 of each per half of the 2026-27
+  season, 2 in total — the same real rule already used for the transfer
+  cost math), so `fplChipRecommendations()` gives a real, sourced signal
+  for each rather than nothing at all:
+  - `fplChipStatus()` replays `history.chips` (every chip this visitor has
+    actually played, and when) against the GW19 half-boundary to know
+    which chips are still available to play *this* half — never suggesting
+    one already used.
+  - `fplBenchBoostSignal()` compares this week's real projected bench
+    points (`ep_next` summed across the 4 bench picks) against this
+    visitor's own historical average bench score (`history.current[].points_on_bench`)
+    — a personalised baseline, not a flat number.
+  - `fplTripleCaptainSignal()` flags the current best captain option only
+    when their own `ep_next` is high in absolute terms (≥8) **and** their
+    next fixture is genuinely favourable (FDR ≤2.4) — both thresholds
+    disclosed in code and requiring both real signals to agree, not an
+    opaque composite score.
+  - `fplWildcardSignal()` reuses the same real per-slot replacement search
+    `fplTransferSuggestions()` does, but counts how many of all 15 squad
+    slots (not just the best one or two) have a meaningfully better
+    (≥1.5 xPts), affordable, fit alternative — a genuine "how far has this
+    squad drifted from optimal" signal.
+  - `fplBlankDoubleForSquad()` counts blank/double gameweeks for this
+    specific squad from the same real `fixtures/` data already used for
+    the difficulty index — exactly the situation Free Hit exists for —
+    without needing any new endpoint.
+  Every card states its reasoning in the same real numbers used to decide
+  it, and a chip already used this half is always labelled "Already used"
+  rather than suggested again.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card

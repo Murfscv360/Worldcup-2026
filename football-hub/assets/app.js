@@ -898,6 +898,142 @@ function fplTransferCard(s){
     ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
 }
 
+/* ---------- Chip strategy (Wildcard / Free Hit / Bench Boost / Triple Captain) ---------- */
+
+const FPL_CHIP_NAMES = { wildcard:"Wildcard", freehit:"Free Hit", bboost:"Bench Boost", "3xc":"Triple Captain" };
+const FPL_CHIP_HALF_BOUNDARY = 19; // real 2026-27 rule: first-half chips must be played before the GW19 deadline
+
+/* Real chip usage, not a guess: each chip type is playable once per half of
+   the season (2 of each in total for 2026-27) — replayed from history.chips,
+   the real record of every chip this visitor has already played and when. */
+function fplChipStatus(){
+  if(!FPL.history || !FPL.event) return null;
+  const half = FPL.event < FPL_CHIP_HALF_BOUNDARY ? 1 : 2;
+  const usedThisHalf = {};
+  (FPL.history.chips||[]).forEach(c=>{
+    const chipHalf = c.event < FPL_CHIP_HALF_BOUNDARY ? 1 : 2;
+    if(chipHalf===half) usedThisHalf[c.name] = c.event;
+  });
+  const activeChip = FPL.picks && FPL.picks.active_chip;
+  const status = {};
+  Object.keys(FPL_CHIP_NAMES).forEach(k=>{
+    status[k] = { label: FPL_CHIP_NAMES[k], availableThisHalf: !usedThisHalf[k], usedEvent: usedThisHalf[k]||null, activeNow: activeChip===k };
+  });
+  return { half, status };
+}
+
+/* Worth boosting the bench when this week's projected bench points clearly
+   exceed this visitor's own historical average (real points_on_bench from
+   their gameweek history) — a personalised baseline, not a flat guess. */
+function fplBenchBoostSignal(){
+  if(!FPL.picks) return null;
+  const bench = (FPL.picks.picks||[]).filter(p=>p.position>11);
+  const benchEp = bench.reduce((s,p)=>{ const el=fplElement(p.element); return s+(el?parseFloat(el.ep_next||0):0); }, 0);
+  const past = ((FPL.history && FPL.history.current) || []).map(r=>r.points_on_bench).filter(v=>v!=null);
+  const avgPast = past.length ? past.reduce((a,b)=>a+b,0)/past.length : null;
+  const threshold = avgPast!=null ? Math.max(8, avgPast*1.4) : 10;
+  return { benchEp, avgPast, threshold, worth: benchEp>=threshold };
+}
+
+/* Worth tripling when the best captain option's own expected points are
+   high in absolute terms AND their next fixture is genuinely favourable —
+   both real, sourced numbers (ep_next, FDR), combined via a disclosed
+   threshold rather than a hidden score. */
+function fplTripleCaptainSignal(){
+  if(!FPL.picks) return null;
+  const starting = (FPL.picks.picks||[]).filter(p=>p.position<=11);
+  let best=null, bestEp=-1;
+  starting.forEach(p=>{ const el=fplElement(p.element); if(!el) return; const ep=parseFloat(el.ep_next||0); if(ep>bestEp){ bestEp=ep; best=el; } });
+  if(!best) return null;
+  const run = fplUpcomingFixtures(best.team, 1);
+  const fdr = run ? run.avg : null;
+  return { player: best, ep: bestEp, fdr, worth: bestEp>=8 && fdr!=null && fdr<=2.4 };
+}
+
+/* Worth wildcarding when a meaningful share of the squad has a materially
+   better (>=1.5 xPts), affordable, fit replacement sitting in the player
+   pool — the same real search fplTransferSuggestions() uses per slot, just
+   counted across all 15 rather than picking the best one or two. */
+function fplWildcardSignal(){
+  if(!FPL.picks || !FPL.bootstrap) return null;
+  const elements = FPL.bootstrap.elements || [];
+  const squadIds = new Set((FPL.picks.picks||[]).map(p=>p.element));
+  const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
+  let meaningfulUpgrades = 0;
+  (FPL.picks.picks||[]).forEach(pick=>{
+    const cur = fplElement(pick.element);
+    if(!cur) return;
+    const budget = cur.now_cost + bank;
+    const curEp = parseFloat(cur.ep_next||0);
+    const hasUpgrade = elements.some(cand=>
+      !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" &&
+      cand.now_cost<=budget && parseFloat(cand.ep_next||0)-curEp>=1.5);
+    if(hasUpgrade) meaningfulUpgrades++;
+  });
+  return { meaningfulUpgrades, worth: meaningfulUpgrades>=5 };
+}
+
+/* Real blank/double-gameweek detection for this specific squad, from the
+   same fixtures/ data used for the difficulty index — counts how many of
+   the visitor's own 15 players have zero (blank) or two-plus (double)
+   fixtures in the next gameweek. This is exactly the situation Free Hit
+   (and, for doubles, Bench Boost/Triple Captain) exists for. */
+function fplBlankDoubleForSquad(){
+  if(!FPL.fixtures || !FPL.picks || !FPL.event) return null;
+  const targetEvent = FPL.event + 1;
+  const countByTeam = {};
+  FPL.fixtures.filter(f=>f.event===targetEvent).forEach(f=>{
+    countByTeam[f.team_h] = (countByTeam[f.team_h]||0)+1;
+    countByTeam[f.team_a] = (countByTeam[f.team_a]||0)+1;
+  });
+  let blankPlayers=0, doublePlayers=0;
+  (FPL.picks.picks||[]).forEach(p=>{
+    const el = fplElement(p.element);
+    if(!el) return;
+    const c = countByTeam[el.team]||0;
+    if(c===0) blankPlayers++; else if(c>=2) doublePlayers++;
+  });
+  return { targetEvent, blankPlayers, doublePlayers };
+}
+
+function fplChipRecommendations(){
+  const chips = fplChipStatus();
+  if(!chips) return [];
+  const out = [];
+  const bb = fplBenchBoostSignal();
+  if(bb){
+    const avail = chips.status.bboost.availableThisHalf;
+    out.push({ chip:"Bench Boost", available:avail, worth: avail && bb.worth,
+      body:`Your bench is projected for ${bb.benchEp.toFixed(1)} points this gameweek${bb.avgPast!=null?` (your own average is ${bb.avgPast.toFixed(1)})`:""}.` });
+  }
+  const tc = fplTripleCaptainSignal();
+  if(tc){
+    const avail = chips.status["3xc"].availableThisHalf;
+    out.push({ chip:"Triple Captain", available:avail, worth: avail && tc.worth,
+      body:`${tc.player.web_name} projects ${tc.ep.toFixed(1)} points next gameweek${tc.fdr!=null?` against a ${fplFixtureLabel(tc.fdr)} fixture (FDR ${tc.fdr.toFixed(1)})`:""}.` });
+  }
+  const wc = fplWildcardSignal();
+  if(wc){
+    const avail = chips.status.wildcard.availableThisHalf;
+    out.push({ chip:"Wildcard", available:avail, worth: avail && wc.worth,
+      body:`${wc.meaningfulUpgrades} of your 15 squad slots have a meaningfully better (≥1.5 xPts), affordable replacement available.` });
+  }
+  const bd = fplBlankDoubleForSquad();
+  if(bd){
+    const avail = chips.status.freehit.availableThisHalf;
+    out.push({ chip:"Free Hit", available:avail, worth: avail && bd.blankPlayers>=3,
+      body:`${bd.blankPlayers} of your 15 players have no fixture in Gameweek ${bd.targetEvent}${bd.doublePlayers?`, and ${bd.doublePlayers} have two`:""}.` });
+  }
+  return out;
+}
+
+function fplChipCard(rec){
+  const statusLabel = !rec.available ? "Already used" : rec.worth ? "Worth considering" : "Hold";
+  return `<div class="pcard"><div class="pcard-top">
+    <div class="pcard-nm">${rec.chip}</div><span class="pcard-stat">${statusLabel}</span></div>
+    <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":""}</p></div>`;
+}
+
 function fplPickCard(pick){
   const el = fplElement(pick.element);
   if(!el) return `<div class="pcard"><p class="pcard-note">Player data unavailable for this pick.</p></div>`;
@@ -968,6 +1104,13 @@ function viewFantasyMyTeam(){
     } else {
       html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
     }
+  }
+
+  const chipRecs = fplChipRecommendations();
+  if(chipRecs.length){
+    html += sectionHead("Chip strategy", "use sparingly");
+    chipRecs.forEach(r=> html += fplChipCard(r));
+    html += `<p class="note">Chips are powerful but limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so these are signals for your own judgement, not automatic triggers. Bench Boost and Triple Captain compare your live squad's real expected points and fixtures against your own history; Wildcard and Free Hit look at how many of your players have a meaningfully better alternative, or no fixture at all, next gameweek.</p>`;
   }
 
   const picks = (FPL.picks.picks||[]).slice().sort((a,b)=>a.position-b.position);
