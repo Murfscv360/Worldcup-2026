@@ -657,7 +657,22 @@ const FPL_PROXY = location.hostname.endsWith("netlify.app")
   ? "/.netlify/functions/fpl-proxy"
   : "https://worldcupfootball26.netlify.app/.netlify/functions/fpl-proxy";
 function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
-let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null };
+let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null, league:null, leagueStandings:null };
+
+/* Picks which of the visitor's real FPL leagues (entry.leagues.classic) to
+   compare against. FPL auto-enrols everyone in system-wide leagues (the
+   global "Overall" league, country/region leagues) alongside any private
+   mini-league they've actually joined with friends — "people in my league"
+   means the latter, so a private league (league_type "x", per the FPL API)
+   is preferred when one exists. Falls back to the first league on the
+   account if no private one is found, so this never fabricates a league —
+   it just uses whichever real one the API returns, labelled with its own
+   real name. */
+function fplPickLeague(entry){
+  const leagues = (entry && entry.leagues && entry.leagues.classic) || [];
+  if(!leagues.length) return null;
+  return leagues.find(l=>l.league_type==="x") || leagues[0];
+}
 
 function fantasySwitcher(){
   return `<div class="stat-controls">
@@ -694,7 +709,7 @@ function viewFantasyBest(){
 function storedFplId(){ try{ return localStorage.getItem(FPL_KEY); }catch(e){ return null; } }
 
 async function loadFplTeam(id){
-  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null, fixtures:null, dreamTeam:null, dreamTeamEvent:null };
+  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null, fixtures:null, dreamTeam:null, dreamTeamEvent:null, league:null, leagueStandings:null };
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
@@ -712,6 +727,11 @@ async function loadFplTeam(id){
     ]);
     FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
     FPL.dreamTeam = dreamTeam; FPL.dreamTeamEvent = lastFinished ? lastFinished.id : null;
+    const league = fplPickLeague(entry);
+    FPL.league = league;
+    if(league){
+      FPL.leagueStandings = await getJSON(fplProxyUrl(`leagues-classic/${league.id}/standings/`), 9000).catch(()=>null);
+    }
     fplTrackRecordWeek();
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
@@ -915,10 +935,11 @@ function fplTransferCard(s){
     }
   }
   const outPrice = (s.out.now_cost/10).toFixed(1), inPrice = (s.in.now_cost/10).toFixed(1);
+  const bankAfter = fplBankAfter(s.out, s.in);
   return `<div class="pcard"><div class="pcard-top">
     <div><div class="pcard-nm">${s.out.web_name} (£${outPrice}m) → ${s.in.web_name} (£${inPrice}m)</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
     <span class="pcard-stat">net +${s.net.toFixed(1)}</span></div>
-    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b></p>
+    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b> · Bank after: <b>£${(bankAfter/10).toFixed(1)}m</b></p>
     ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
 }
 
@@ -1053,11 +1074,162 @@ function fplChipRecommendations(){
   return out;
 }
 
-function fplChipCard(rec){
-  const statusLabel = !rec.available ? "Already used" : rec.worth ? "Worth considering" : "Hold";
+/* FPL only allows ONE chip per gameweek — Wildcard/Free Hit/Bench Boost/
+   Triple Captain can't be combined. When more than one clears its own bar
+   the same week, this applies a disclosed priority so the app always
+   recommends exactly one chip, never a combination that isn't legal:
+   1. Free Hit — for the specific situation it exists for (a bad week of
+      blanks), which no other chip fixes.
+   2. Wildcard — a real structural rebuild opportunity (many meaningfully
+      better options across the squad), worth more than a single week's
+      Bench Boost/Triple Captain bump.
+   3. Whichever of Bench Boost or Triple Captain has the larger real,
+      directly comparable point value for this specific gameweek. */
+function fplSingleChipDecision(){
+  const chips = fplChipStatus();
+  if(!chips) return null;
+  const bd = fplBlankDoubleForSquad();
+  const wc = fplWildcardSignal();
+  const bb = fplBenchBoostSignal();
+  const tc = fplTripleCaptainSignal();
+
+  if(bd && chips.status.freehit.availableThisHalf && bd.blankPlayers>=3){
+    return { chip:"Free Hit", reason:`${bd.blankPlayers} of your 15 players have no fixture in Gameweek ${bd.targetEvent} — exactly the situation Free Hit exists for.` };
+  }
+  if(wc && chips.status.wildcard.availableThisHalf && wc.worth){
+    return { chip:"Wildcard", reason:`${wc.meaningfulUpgrades} of your 15 squad slots have a meaningfully better alternative — enough that a one-off rebuild is worth it.` };
+  }
+  const bbOk = bb && chips.status.bboost.availableThisHalf && bb.worth;
+  const tcOk = tc && chips.status["3xc"].availableThisHalf && tc.worth;
+  if(bbOk && tcOk){
+    return bb.benchEp >= tc.ep
+      ? { chip:"Bench Boost", reason:`Your bench (${bb.benchEp.toFixed(1)} projected points) is worth more than tripling your captain (+${tc.ep.toFixed(1)} extra) this week.` }
+      : { chip:"Triple Captain", reason:`Tripling ${tc.player.web_name} (+${tc.ep.toFixed(1)} extra) is worth more than boosting your bench (${bb.benchEp.toFixed(1)} projected) this week.` };
+  }
+  if(bbOk) return { chip:"Bench Boost", reason:`Your bench is projected for ${bb.benchEp.toFixed(1)} points this gameweek.` };
+  if(tcOk) return { chip:"Triple Captain", reason:`${tc.player.web_name} projects ${tc.ep.toFixed(1)} points against a favourable fixture.` };
+  return null;
+}
+
+function fplChipCard(rec, isThePick){
+  const statusLabel = !rec.available ? "Already used" : isThePick ? "▶ Play this week" : rec.worth ? "Eligible, not picked" : "Hold";
   return `<div class="pcard"><div class="pcard-top">
     <div class="pcard-nm">${rec.chip}</div><span class="pcard-stat">${statusLabel}</span></div>
-    <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":""}</p></div>`;
+    <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":rec.worth&&!isThePick?" Cleared its own bar this week, but only one chip can be played — see the priority pick above.":""}</p></div>`;
+}
+
+/* ---------- Scout's Desk: a weekly briefing, a 10-second checklist, and a
+   per-position in/out list, for the manual weekly check with nothing to
+   hunt for. Built entirely from the same real functions above — this
+   doesn't compute anything new, it just condenses what's already there to
+   the top. ---------- */
+
+function fplHealthChecklist(){
+  const recs = fplRecommendations();
+  const capRec = recs.find(r=>r.title.startsWith("Consider captaining"));
+  const flagged = recs.filter(r=>r.title.endsWith("is flagged"));
+  const transfers = fplTransferSuggestions();
+  const chipPick = fplSingleChipDecision();
+  return { capRec, flagged, transfers, chipPick };
+}
+
+function fplHealthChecklistHtml(){
+  const h = fplHealthChecklist();
+  const lines = [];
+  lines.push(h.capRec
+    ? `⚠️ ${h.capRec.body}`
+    : `✅ Captaincy looks right — no better option in your starting XI.`);
+  lines.push(h.flagged.length
+    ? `⚠️ ${h.flagged.length} player${h.flagged.length>1?"s":""} flagged: ${h.flagged.map(f=>f.title.replace(" is flagged","")).join(", ")}.`
+    : `✅ No injury/rotation flags on your starters.`);
+  lines.push(h.transfers.length
+    ? `🔁 ${h.transfers.length} transfer${h.transfers.length>1?"s":""} worth making — see below.`
+    : `✅ No transfer clears the point cost this week — hold.`);
+  lines.push(h.chipPick
+    ? `🎴 Play now: ${h.chipPick.chip}.`
+    : `✅ No chip needed this week — save them.`);
+  return `<div class="pcard">${lines.map(l=>`<p class="pcard-note">${l}</p>`).join("")}</div>`;
+}
+
+function fplPositionSummary(){
+  const groups = { GKP:[], DEF:[], MID:[], FWD:[] };
+  (FPL.picks.picks||[]).forEach(p=>{
+    const el = fplElement(p.element);
+    if(!el) return;
+    const pos = FPL_ELEMENT_POS[el.element_type];
+    if(groups[pos]) groups[pos].push(el);
+  });
+  const suggByOutId = {};
+  fplTransferSuggestions().forEach(s=>{ suggByOutId[s.out.id] = s; });
+  return Object.keys(groups).map(pos=>({
+    pos, players: groups[pos],
+    swap: groups[pos].map(p=>suggByOutId[p.id]).find(Boolean) || null
+  }));
+}
+
+/* Club short-name tag next to a player's name, so a visitor never selects
+   the wrong player among two with a similar first/last name — the FPL
+   picks/entry data has no other way to disambiguate this in the UI. */
+function fplClubTag(el){
+  const t = el && fplTeamMeta(el.team);
+  return t ? ` (${t.short_name})` : "";
+}
+function fplBankAfter(out, inEl){
+  const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
+  return bank - (inEl.now_cost - out.now_cost);
+}
+function fplPositionSummaryHtml(){
+  const groups = fplPositionSummary();
+  return groups.map(g=>{
+    const names = g.players.map(p=>`${p.web_name}${fplClubTag(p)}`).join(", ");
+    let action = `No change needed`;
+    if(g.swap){
+      const bankAfter = fplBankAfter(g.swap.out, g.swap.in);
+      action = `<b>OUT:</b> ${g.swap.out.web_name}${fplClubTag(g.swap.out)} → <b>IN:</b> ${g.swap.in.web_name}${fplClubTag(g.swap.in)} <span class="pcard-stat" style="margin-left:6px">net +${g.swap.net.toFixed(1)}</span><br><span class="note">Bank after: £${(bankAfter/10).toFixed(1)}m</span>`;
+    }
+    return `<div class="pcard"><div class="pcard-nm">${POS_LABELS[g.pos==="GKP"?"GK":g.pos]||g.pos}</div>
+      <p class="pcard-note">${names}</p>
+      <p class="pcard-note">${action}</p></div>`;
+  }).join("");
+}
+
+/* A short, plain-English weekly briefing — template-generated from the
+   same real, already-computed values used everywhere else on this tab
+   (projected points, fixture-difficulty labels, the top transfer
+   suggestion, chip verdicts, the real Dream Team overlap). Same "Analyst's
+   Desk" discipline as the rest of the app: every sentence traces back to a
+   real number, nothing invented or guessed. */
+function fplWeeklyBriefing(){
+  const parts = [];
+  const starting = (FPL.picks.picks||[]).filter(p=>p.position<=11);
+  let projected = 0;
+  starting.forEach(p=>{ const el=fplElement(p.element); if(el) projected += parseFloat(el.ep_next||0) * (p.multiplier||1); });
+  parts.push(`Gameweek ${FPL.event}: your starting XI projects for around <b>${projected.toFixed(0)} points</b>, per FPL's own expected-points model.`);
+
+  const runs = (FPL.picks.picks||[]).map(p=>{
+    const el = fplElement(p.element); if(!el) return null;
+    const run = fplUpcomingFixtures(el.team); return run ? { el, run } : null;
+  }).filter(Boolean);
+  const favourable = [...new Set(runs.filter(r=>fplFixtureLabel(r.run.avg)==="favourable").map(r=>r.el.web_name))];
+  const tough = [...new Set(runs.filter(r=>fplFixtureLabel(r.run.avg)==="tough").map(r=>r.el.web_name))];
+  if(favourable.length) parts.push(`${favourable.slice(0,3).join(", ")} ${favourable.length===1?"has":"have"} a favourable run of fixtures coming up.`);
+  if(tough.length) parts.push(`${tough.slice(0,3).join(", ")} face${tough.length===1?"s":""} a tougher run — worth keeping an eye on.`);
+
+  const suggestions = fplTransferSuggestions();
+  if(suggestions.length){
+    const top = suggestions[0];
+    parts.push(`The strongest move available right now is <b>${top.out.web_name} → ${top.in.web_name}</b>, worth a net +${top.net.toFixed(1)} points.`);
+  }
+  const chipPick = fplSingleChipDecision();
+  if(chipPick) parts.push(`<b>${chipPick.chip}</b> looks worth playing this week — ${chipPick.reason}`);
+
+  const dt = fplDreamTeamCompare();
+  if(dt) parts.push(`${dt.matched.length} of your players made the official Gameweek ${dt.event} Dream Team.`);
+
+  const league = fplLeagueSummary();
+  if(league && league.entryRank) parts.push(`You're currently <b>#${league.entryRank}</b> in ${league.name}.`);
+
+  return parts.join(" ");
 }
 
 /* How this squad compared to the real, official highest-scoring XI last
@@ -1069,6 +1241,48 @@ function fplDreamTeamCompare(){
   const squadIds = (FPL.picks.picks||[]).map(p=>p.element);
   const matched = squadIds.filter(id=>dreamIds.has(id)).map(id=>fplElement(id)).filter(Boolean);
   return { event: FPL.dreamTeamEvent, total: dreamIds.size, matched };
+}
+
+/* Weekly comparison against the visitor's real mini-league (see
+   fplPickLeague above) — the league's own name and every rank/points value
+   below come straight from FPL's leagues-classic/{id}/standings/ endpoint
+   and the visitor's own entry.leagues.classic record; nothing here is
+   estimated. Standings are paginated by the FPL API (page 1 = roughly the
+   top 50), so if the visitor isn't on that first page this only shows
+   their real rank/total from their own entry record, not a fabricated row. */
+function fplLeagueSummary(){
+  if(!FPL.league) return null;
+  const results = (FPL.leagueStandings && FPL.leagueStandings.standings && FPL.leagueStandings.standings.results) || [];
+  const userRow = results.find(r=>r.entry===FPL.id) || null;
+  return {
+    name: FPL.league.name,
+    entryRank: FPL.league.entry_rank || (userRow && userRow.rank) || null,
+    entryLastRank: FPL.league.entry_last_rank || null,
+    top: results.slice(0,5),
+    userRow,
+    loaded: !!FPL.leagueStandings
+  };
+}
+function fplLeagueSummaryHtml(){
+  const l = fplLeagueSummary();
+  if(!l) return "";
+  let html = `<div class="banner">${l.entryRank?`Your rank: <b>#${l.entryRank}</b>${l.entryLastRank?` (was #${l.entryLastRank})`:""}`:"Your rank in this league isn't available this time."}</div>`;
+  if(l.top.length){
+    html += l.top.map(r=>{
+      const mine = r.entry===FPL.id;
+      return `<div class="pcard"${mine?' style="border-color:var(--accent,#3b82f6)"':""}><div class="pcard-top">
+        <div><div class="pcard-nm">${mine?"👉 ":""}${r.entry_name}</div><div class="pcard-club">${r.player_name}</div></div>
+        <span class="pcard-stat">#${r.rank} · ${r.total} pts</span></div></div>`;
+    }).join("");
+    if(l.userRow && !l.top.some(r=>r.entry===FPL.id)){
+      html += `<div class="pcard" style="border-color:var(--accent,#3b82f6)"><div class="pcard-top">
+        <div><div class="pcard-nm">👉 ${l.userRow.entry_name}</div><div class="pcard-club">${l.userRow.player_name}</div></div>
+        <span class="pcard-stat">#${l.userRow.rank} · ${l.userRow.total} pts</span></div></div>`;
+    }
+  } else if(!l.loaded){
+    html += `<p class="note">Couldn't load the full league table this time — tap Load again to retry.</p>`;
+  }
+  return html;
 }
 
 /* ---------- Track record (captain-call accuracy over time) ----------
@@ -1191,6 +1405,14 @@ function viewFantasyMyTeam(){
   html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
   html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
 
+  html += sectionHead("Scout's Desk", `Gameweek ${FPL.event} briefing`);
+  html += `<div class="analyst"><div class="analyst-head"><span class="analyst-badge">Scout's Desk</span></div>
+    <div class="analyst-body">${fplWeeklyBriefing()}</div></div>`;
+  html += fplHealthChecklistHtml();
+  html += `<a class="launch-enter" style="display:block;text-align:center;text-decoration:none;margin:4px 0 14px" href="https://fantasy.premierleague.com/transfers" target="_blank" rel="noopener">Open FPL Transfers to make these changes →</a>`;
+  html += fplPositionSummaryHtml();
+  html += `<p class="note">Everything below repeats this in more detail — the sections above are all you need for a quick weekly check.</p>`;
+
   const recs = fplRecommendations();
   html += sectionHead("Recommendations", "from official FPL data");
   if(recs.length){
@@ -1199,9 +1421,9 @@ function viewFantasyMyTeam(){
     html += `<p class="note">No changes suggested — your captain and starting XI already line up with the official expected-points model.</p>`;
   }
 
+  html += sectionHead("Suggested transfers", "from official FPL data");
   const ft = fplFreeTransfers();
   if(ft){
-    html += sectionHead("Suggested transfers", "from official FPL data");
     html += `<div class="banner">Free transfers available: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} used so far this gameweek`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
     const suggestions = fplTransferSuggestions();
     if(suggestions.length){
@@ -1210,13 +1432,23 @@ function viewFantasyMyTeam(){
     } else {
       html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
     }
+  } else if(FPL.event && FPL.event < 2){
+    html += `<p class="note">Transfer rules — and this section — apply from Gameweek 2 onward.</p>`;
+  } else {
+    html += `<p class="note">Couldn't work out your free transfers this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
 
+  html += sectionHead("Chip strategy", "use sparingly");
   const chipRecs = fplChipRecommendations();
+  const chipPickCard = fplSingleChipDecision();
   if(chipRecs.length){
-    html += sectionHead("Chip strategy", "use sparingly");
-    chipRecs.forEach(r=> html += fplChipCard(r));
-    html += `<p class="note">Chips are powerful but limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so these are signals for your own judgement, not automatic triggers. Bench Boost and Triple Captain compare your live squad's real expected points and fixtures against your own history; Wildcard and Free Hit look at how many of your players have a meaningfully better alternative, or no fixture at all, next gameweek.</p>`;
+    if(chipPickCard){
+      html += `<div class="banner">🎴 This week's pick: <b>${chipPickCard.chip}</b> — ${chipPickCard.reason}</div>`;
+    }
+    chipRecs.forEach(r=> html += fplChipCard(r, chipPickCard && chipPickCard.chip===r.chip));
+    html += `<p class="note">You can only play one chip per gameweek, so when more than one clears its own bar the same week, this picks a single one for you by priority: Free Hit first (the exact situation it exists for — a bad week of blanks), then Wildcard (a structural rebuild worth more than one week's bump), then whichever of Bench Boost or Triple Captain has the larger real point value that week. Chips are also limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so this is a signal for your own judgement, not an automatic trigger.</p>`;
+  } else {
+    html += `<p class="note">Couldn't work out chip guidance this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
 
   const dt = fplDreamTeamCompare();
@@ -1228,6 +1460,19 @@ function viewFantasyMyTeam(){
       html += `<div class="banner">None of your Gameweek ${dt.event} squad made the official Dream Team.</div>`;
     }
     html += `<p class="note">The Dream Team is FPL's own real highest-scoring XI for that gameweek, fetched after the fact — this is a benchmark, not a prediction.</p>`;
+  } else if(FPL.dreamTeamEvent){
+    html += sectionHead("Vs. the real Dream Team", `Gameweek ${FPL.dreamTeamEvent}`);
+    html += `<p class="note">Couldn't load the official Dream Team this time — try tapping Load again.</p>`;
+  }
+
+  const league = fplLeagueSummary();
+  if(league){
+    html += sectionHead("Your mini-league", league.name);
+    html += fplLeagueSummaryHtml();
+    html += `<p class="note">From your real FPL leagues (entry.leagues.classic) — a private league is shown when you're in one, otherwise your first league. Standings are the official leagues-classic/${FPL.league.id}/standings/ table (first page, roughly the top 50); your own rank always comes from your real entry record even if you're further down the table.</p>`;
+  } else if(FPL.entry){
+    html += sectionHead("Your mini-league", "");
+    html += `<p class="note">You're not in any FPL mini-leagues yet — join one on fantasy.premierleague.com to see a weekly comparison here.</p>`;
   }
 
   const trackLog = FPL.id ? fplTrackLoad(FPL.id).slice().sort((a,b)=>b.event-a.event) : [];
@@ -1349,8 +1594,8 @@ function viewLive(){
   return html;
 }
 
-const VIEWS = { today:viewToday, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds, fantasy:viewFantasy };
-const TAB_LABELS = { today:"Today", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds", fantasy:"Fantasy" };
+const VIEWS = { today:viewToday, fantasy:viewFantasy, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
+const TAB_LABELS = { today:"Today", fantasy:"Fantasy", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
 
 const state = { view:"today", comp:"epl", fantasySub:"best" };
 

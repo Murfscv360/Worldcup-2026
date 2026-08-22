@@ -18,7 +18,8 @@ const ALLOWED = [
   /^entry\/\d+\/history\/$/,
   /^fixtures\/$/,
   /^dream-team\/\d+\/$/,
-  /^element-summary\/\d+\/$/
+  /^element-summary\/\d+\/$/,
+  /^leagues-classic\/\d+\/standings\/$/
 ];
 
 const HEADERS = {
