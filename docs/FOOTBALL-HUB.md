@@ -384,18 +384,29 @@ in this season.
   asserted. A week where the suggestion matched the visitor's real pick
   needs no extra network calls at all — it's recorded as a match
   immediately.
-- **Weekly scout report** — a condensed, position-organised summary at the
-  very top of My Team, above all the detailed sections, so the manual
-  weekly check-in doesn't require reading or scrolling through everything
-  below it. `fplHealthChecklistHtml()` renders a 4-line status check
-  (captain, injury flags, whether a transfer clears the point cost, whether
-  a chip is worth playing this week) built entirely from the functions
-  already documented above — it computes nothing new. `fplPositionSummaryHtml()`
-  groups the squad by position (GKP/DEF/MID/FWD) and shows, for each, either
-  the specific suggested swap from `fplTransferSuggestions()` (out/in, with
-  its real net point value) or "No change needed" — a direct answer to "who
-  do I move in and out, by position" without hunting through 15 individual
-  player cards.
+- **Scout's Desk** — a condensed weekly summary at the very top of My Team,
+  above all the detailed sections, so the manual weekly check-in doesn't
+  require reading or scrolling through everything below it. Three parts:
+  - `fplWeeklyBriefing()` — a short, plain-English paragraph in the same
+    visual style as the Live tab's Analyst's Desk, template-generated
+    (never invented) from real, already-computed values: projected
+    starting-XI points, which squad members have a favourable or tough
+    run of fixtures coming (`fplUpcomingFixtures()`/`fplFixtureLabel()`),
+    the strongest available transfer, which chips are worth playing, and
+    the real Dream Team overlap. Every sentence traces back to a number
+    already shown elsewhere on the tab — this function only composes
+    them into prose, it computes nothing new.
+  - `fplHealthChecklistHtml()` — a 4-line status check (captain, injury
+    flags, whether a transfer clears the point cost, whether a chip is
+    worth playing this week).
+  - `fplPositionSummaryHtml()` — the squad grouped by position (GKP/DEF/
+    MID/FWD), each showing either the specific suggested swap from
+    `fplTransferSuggestions()` (out/in, with its real net point value) or
+    "No change needed" — a direct answer to "who do I move in and out, by
+    position" without hunting through 15 individual player cards.
+  A direct link to `fantasy.premierleague.com/transfers` sits between the
+  checklist and the position list, so acting on the manual step is one tap
+  away rather than a search through FPL's own navigation.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card

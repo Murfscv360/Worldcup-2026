@@ -1060,10 +1060,11 @@ function fplChipCard(rec){
     <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":""}</p></div>`;
 }
 
-/* ---------- Weekly scout report: a 10-second checklist + per-position
-   in/out list, for the manual weekly check with nothing to hunt for. Built
-   entirely from the same real functions above — this doesn't compute
-   anything new, it just condenses what's already there to the top. ---------- */
+/* ---------- Scout's Desk: a weekly briefing, a 10-second checklist, and a
+   per-position in/out list, for the manual weekly check with nothing to
+   hunt for. Built entirely from the same real functions above — this
+   doesn't compute anything new, it just condenses what's already there to
+   the top. ---------- */
 
 function fplHealthChecklist(){
   const recs = fplRecommendations();
@@ -1119,6 +1120,42 @@ function fplPositionSummaryHtml(){
       <p class="pcard-note">${names}</p>
       <p class="pcard-note">${action}</p></div>`;
   }).join("");
+}
+
+/* A short, plain-English weekly briefing — template-generated from the
+   same real, already-computed values used everywhere else on this tab
+   (projected points, fixture-difficulty labels, the top transfer
+   suggestion, chip verdicts, the real Dream Team overlap). Same "Analyst's
+   Desk" discipline as the rest of the app: every sentence traces back to a
+   real number, nothing invented or guessed. */
+function fplWeeklyBriefing(){
+  const parts = [];
+  const starting = (FPL.picks.picks||[]).filter(p=>p.position<=11);
+  let projected = 0;
+  starting.forEach(p=>{ const el=fplElement(p.element); if(el) projected += parseFloat(el.ep_next||0) * (p.multiplier||1); });
+  parts.push(`Gameweek ${FPL.event}: your starting XI projects for around <b>${projected.toFixed(0)} points</b>, per FPL's own expected-points model.`);
+
+  const runs = (FPL.picks.picks||[]).map(p=>{
+    const el = fplElement(p.element); if(!el) return null;
+    const run = fplUpcomingFixtures(el.team); return run ? { el, run } : null;
+  }).filter(Boolean);
+  const favourable = [...new Set(runs.filter(r=>fplFixtureLabel(r.run.avg)==="favourable").map(r=>r.el.web_name))];
+  const tough = [...new Set(runs.filter(r=>fplFixtureLabel(r.run.avg)==="tough").map(r=>r.el.web_name))];
+  if(favourable.length) parts.push(`${favourable.slice(0,3).join(", ")} ${favourable.length===1?"has":"have"} a favourable run of fixtures coming up.`);
+  if(tough.length) parts.push(`${tough.slice(0,3).join(", ")} face${tough.length===1?"s":""} a tougher run — worth keeping an eye on.`);
+
+  const suggestions = fplTransferSuggestions();
+  if(suggestions.length){
+    const top = suggestions[0];
+    parts.push(`The strongest move available right now is <b>${top.out.web_name} → ${top.in.web_name}</b>, worth a net +${top.net.toFixed(1)} points.`);
+  }
+  const chipsWorth = fplChipRecommendations().filter(r=>r.worth);
+  if(chipsWorth.length) parts.push(`<b>${chipsWorth.map(c=>c.chip).join(" and ")}</b> ${chipsWorth.length===1?"looks":"look"} worth playing this week.`);
+
+  const dt = fplDreamTeamCompare();
+  if(dt) parts.push(`${dt.matched.length} of your players made the official Gameweek ${dt.event} Dream Team.`);
+
+  return parts.join(" ");
 }
 
 /* How this squad compared to the real, official highest-scoring XI last
@@ -1252,10 +1289,13 @@ function viewFantasyMyTeam(){
   html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
   html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
 
-  html += sectionHead("Weekly scout report", "10-second check");
+  html += sectionHead("Scout's Desk", `Gameweek ${FPL.event} briefing`);
+  html += `<div class="analyst"><div class="analyst-head"><span class="analyst-badge">Scout's Desk</span></div>
+    <div class="analyst-body">${fplWeeklyBriefing()}</div></div>`;
   html += fplHealthChecklistHtml();
+  html += `<a class="launch-enter" style="display:block;text-align:center;text-decoration:none;margin:4px 0 14px" href="https://fantasy.premierleague.com/transfers" target="_blank" rel="noopener">Open FPL Transfers to make these changes →</a>`;
   html += fplPositionSummaryHtml();
-  html += `<p class="note">Everything below repeats this in more detail — the two sections above are all you need for a quick weekly check.</p>`;
+  html += `<p class="note">Everything below repeats this in more detail — the sections above are all you need for a quick weekly check.</p>`;
 
   const recs = fplRecommendations();
   html += sectionHead("Recommendations", "from official FPL data");
