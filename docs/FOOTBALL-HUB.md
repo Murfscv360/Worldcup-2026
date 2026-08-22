@@ -246,32 +246,46 @@ in this season.
   real, sourced 2025-26 season honours (Golden Boot, Golden Glove, Playmaker
   of the Season, PFA/fan Team of the Season) and dated like the rest of the
   app's curated content.
-- **My FPL Team** — `loadFplTeam(id)` fetches a visitor's own squad directly
-  from the official Fantasy Premier League API
-  (`fantasy.premierleague.com/api/bootstrap-static/` +
-  `.../entry/{id}/event/{event}/picks/` + `.../entry/{id}/`) once they enter
-  their team ID (found in their own team's URL). The ID is stored only in
-  that visitor's `localStorage` (`fh_fpl_id`) — never hardcoded, never sent
-  anywhere but the official FPL site. `fplRecommendations()` then compares
-  **real fields already in that response** — `ep_next` (FPL's own official
-  expected-points-next-gameweek model), `status`/`chance_of_playing_next_round`
-  (injury/rotation flags) and `news` (FPL's own injury text) — across the
-  visitor's own squad, e.g. suggesting a captaincy switch when a
-  non-captained starter has a higher `ep_next`, or flagging a starter with a
-  fit, higher-`ep_next` bench alternative. This is **not** a separate
-  prediction model invented by this app; every number shown and every
-  recommendation is a direct comparison of values the official API already
-  computed. **Known limitation, disclosed on the tab itself:** the public
-  FPL API does not reliably support cross-origin browser requests from
-  third-party sites (no `Access-Control-Allow-Origin` for arbitrary
-  origins), and this could not be verified from this app's sandboxed build
-  environment (`fantasy.premierleague.com` was unreachable for testing, over
-  both direct requests and the fetch tooling available while building this
-  feature) — so it may simply fail to load for some or all visitors'
-  browsers depending on the FPL site's current CORS policy. Rather than
-  hide that risk, the tab shows a plain-language error state with a direct
-  link to the visitor's real team on fantasy.premierleague.com if the fetch
-  fails, instead of a silent blank screen or fabricated data.
+- **My FPL Team** — `loadFplTeam(id)` fetches a visitor's own squad once they
+  enter their team ID (found in their own team's URL). The ID is stored only
+  in that visitor's `localStorage` (`fh_fpl_id`) — never hardcoded, never
+  sent anywhere but the FPL data path below. `fplRecommendations()` then
+  compares **real fields already in that response** — `ep_next` (FPL's own
+  official expected-points-next-gameweek model), `status`/
+  `chance_of_playing_next_round` (injury/rotation flags) and `news` (FPL's
+  own injury text) — across the visitor's own squad, e.g. suggesting a
+  captaincy switch when a non-captained starter has a higher `ep_next`, or
+  flagging a starter with a fit, higher-`ep_next` bench alternative. This is
+  **not** a separate prediction model invented by this app; every number
+  shown and every recommendation is a direct comparison of values the
+  official API already computed.
+  **Real, hands-on limitation and how it was fixed:** an early version of
+  this feature called the official Fantasy Premier League API
+  (`fantasy.premierleague.com/api/...`) directly from the browser. Testing
+  it on the real deployed preview showed the direct fetch failing outright —
+  the public FPL API does not reliably support cross-origin browser requests
+  from third-party sites. Rather than ship that broken state, the app now
+  routes through its own serverless proxy — `netlify/functions/fpl-proxy.js`
+  (Netlify Function) — which re-fetches the same public, unauthenticated FPL
+  endpoints server-side, where browser CORS doesn't apply, and returns them
+  with permissive CORS headers. The client (`fplProxyUrl()` in app.js) calls
+  a relative `/.netlify/functions/fpl-proxy` path when served from a
+  `netlify.app` host (production or any PR preview talks to its own
+  freshly-deployed function), and the production Netlify function's absolute
+  URL otherwise (e.g. from GitHub Pages, which can't run functions itself).
+  The proxy only allows a fixed whitelist of read-only FPL paths
+  (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`) —
+  it is not a general-purpose proxy. The full render pipeline (squad,
+  recommendations, captain/bench logic) was verified end-to-end against a
+  realistic mocked response matching this schema; the proxy's own upstream
+  fetch to the real FPL API could not be exercised from this app's
+  sandboxed build environment (`fantasy.premierleague.com` was unreachable
+  for testing there), though Netlify Functions run on normal internet
+  infrastructure, unlike a visitor's browser, so it isn't subject to the
+  CORS restriction that broke the direct-fetch version. If the proxy or the
+  FPL API is ever unreachable, the tab shows a plain-language error with a
+  direct link to the visitor's real team on fantasy.premierleague.com,
+  instead of a silent blank screen or fabricated data.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card
@@ -298,7 +312,7 @@ in this season.
 | **`data/ucl.json`** | UCL 25-26 recap + 26-27 entrants/dates | ✅ Hand-curated (draw is 27 Aug 2026 — the 26-27 league-phase table does not exist yet and is **not fabricated**) |
 | **`data/news.json` / `data/transfers.json`** | Editorial feed, club-tagged (`clubs: [...]`) | ✅ Hand-curated, dated, sourced |
 | **`data/players.json`** | Fantasy → Best XI — top 3 per position | ✅ Hand-curated from real, sourced 2025-26 Premier League honours/stats (Golden Boot, Golden Glove, Playmaker/Team of the Season) — not a live FPL feed, see §5 |
-| **Official Fantasy Premier League API** (`fantasy.premierleague.com/api/...`) | Fantasy → My Team — live squad, points, rank, expected points, recommendations | ⚠️ Real, live, official — but its cross-origin (CORS) support for third-party static sites is **unverified**, since the domain was unreachable from this app's build/test environment; see §5 for the disclosed fallback behaviour if a visitor's browser can't reach it |
+| **Official Fantasy Premier League API** (`fantasy.premierleague.com/api/...`) | Fantasy → My Team — live squad, points, rank, expected points, recommendations | ✅ Real, live, official — fetched server-side via `netlify/functions/fpl-proxy.js` (not directly from the browser), after a direct-fetch attempt was tested and confirmed to fail on CORS grounds; see §5 |
 | **flashscore / BBC Sport / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
 | **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). |
 | **US TV rights (Premier League)** | `tvNote("epl")` copy | ✅ Verified: NBCUniversal holds exclusive US rights through 2027-28; Peacock streams all matches, NBC/USA Network carry marquee fixtures. [NBCUniversal six-year extension](https://corporate.comcast.com/press/releases/nbcuniversal-six-year-extension-exclusive-us-home-of-premier-league), [RenderFoot 2026/27 guide](https://www.renderfoot.com/blog/how-to-watch-premier-league-in-usa) |
@@ -342,6 +356,7 @@ football-hub/
   manifest.webmanifest                         # PWA manifest
   sw.js                                         # service worker (same network-first shell pattern)
   icon.svg                                       # app icon
+netlify/functions/fpl-proxy.js                      # server-side proxy for the official FPL API (Fantasy → My Team)
 docs/FOOTBALL-HUB.md                              # this document
 ```
 

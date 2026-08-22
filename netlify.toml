@@ -4,6 +4,7 @@
 [build]
   publish = "."
   command = ""
+  functions = "netlify/functions"
 
 # Long-cache the static assets; always revalidate the data snapshot & HTML.
 [[headers]]

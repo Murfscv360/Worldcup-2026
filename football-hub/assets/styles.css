@@ -130,8 +130,13 @@ table.stand tbody tr+tr td{border-top:1px solid rgba(38,49,90,.5)}
 .chip.acc{color:var(--accent)}
 
 /* Predictions */
-.banner{background:linear-gradient(135deg,#1b2a52,#162043);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--muted)}
-.banner b{color:var(--ink)}
+/* .banner's own background is always dark (regardless of the system
+   light/dark theme), so — same reasoning as .launch-title/.launch-sub
+   above — its text uses fixed light colours instead of the theme-following
+   --ink/--muted vars, which left near-invisible dark-on-dark text here in
+   light mode. */
+.banner{background:linear-gradient(135deg,#1b2a52,#162043);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px;font-size:13px;color:#b6a9d6}
+.banner b{color:#f3eefc}
 .odds-row{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
 .odds-row .rank{font-weight:800;color:var(--muted);width:20px;text-align:center;font-variant-numeric:tabular-nums}
 .odds-row .flag{font-size:22px}

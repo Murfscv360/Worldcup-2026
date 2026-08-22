@@ -645,7 +645,18 @@ function viewOdds(){
 const POS_LABELS = { GK:"Goalkeepers", DEF:"Defenders", MID:"Midfielders", FWD:"Forwards" };
 const FPL_ELEMENT_POS = { 1:"GKP", 2:"DEF", 3:"MID", 4:"FWD" };
 const FPL_KEY = "fh_fpl_id";
-const FPL_API = "https://fantasy.premierleague.com/api";
+/* The official FPL API doesn't reliably allow direct cross-origin requests
+   from third-party browser JS (confirmed by hand — the direct fetch failed
+   on the deployed preview). Route through this app's own Netlify Function
+   proxy instead, which fetches server-side where CORS doesn't apply.
+   On a netlify.app host, use a relative path so each deploy (production or
+   a PR preview) talks to its own freshly-deployed function; everywhere
+   else (e.g. GitHub Pages), call the production Netlify function directly
+   — it sets permissive CORS headers so any origin can read it. */
+const FPL_PROXY = location.hostname.endsWith("netlify.app")
+  ? "/.netlify/functions/fpl-proxy"
+  : "https://worldcupfootball26.netlify.app/.netlify/functions/fpl-proxy";
+function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
 let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null };
 
 function fantasySwitcher(){
@@ -687,17 +698,17 @@ async function loadFplTeam(id){
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
-    const bootstrap = await getJSON(`${FPL_API}/bootstrap-static/`, 9000);
+    const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
     const event = current ? current.id : 1;
     const [entry, picks] = await Promise.all([
-      getJSON(`${FPL_API}/entry/${id}/`, 9000).catch(()=>null),
-      getJSON(`${FPL_API}/entry/${id}/event/${event}/picks/`, 9000)
+      getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
+      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000)
     ]);
     FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event;
   }catch(e){
-    FPL.error = "Couldn't load your live team in this browser. The official Fantasy Premier League API doesn't reliably allow direct requests from other websites, so this may not work even with a valid team ID — see the note below.";
+    FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
   }
   FPL.loading = false;
   if(state.view==="fantasy") render();
