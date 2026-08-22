@@ -929,11 +929,18 @@ function fplRecommendations(){
    transfer count and any chip played to arrive at the real current count. */
 function fplFreeTransfers(){
   const h = FPL.history, picks = FPL.picks, event = FPL.event;
-  if(!h || !picks || !picks.entry_history || !event || event < 2) return null;
+  if(!h || !picks || !picks.entry_history || !event) return null;
   const chipByEvent = {};
   (h.chips||[]).forEach(c=>{ chipByEvent[c.event] = c.name; });
-  let free = 1; // baseline: everyone gets 1 free transfer entering Gameweek 2
-  (h.current||[]).filter(r=>r.event>=2 && r.event<event).sort((a,b)=>a.event-b.event).forEach(r=>{
+  // Baseline: 1 free transfer at the start of the window into `event`. Real FPL keeps
+  // is_current pinned to the gameweek just played (not the next one) for the whole run-up
+  // to the following deadline — confirmed against a live account: FPL.event was still 1,
+  // with GW1 already finished and scored, right up until GW2's deadline. So `event` here
+  // can legitimately be 1 while the transfer window that matters (into GW2) is wide open;
+  // `r.event<event` naturally has nothing to replay in that case (no history exists before
+  // GW1), leaving `free` at the correct baseline of 1 rather than blocking the whole engine.
+  let free = 1;
+  (h.current||[]).filter(r=>r.event<event).sort((a,b)=>a.event-b.event).forEach(r=>{
     const chip = chipByEvent[r.event];
     if(chip==="wildcard" || chip==="freehit") return; // banked count carries over unchanged
     free = Math.min(5, Math.max(0, free - (r.event_transfers||0)) + 1);
@@ -1518,7 +1525,7 @@ function viewFantasyMyTeam(){
   html += sectionHead("Suggested transfers", "from official FPL data");
   const ft = fplFreeTransfers();
   if(ft){
-    html += `<div class="banner">Free transfers available: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} used so far this gameweek`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
+    html += `<div class="banner">Free transfers available for Gameweek ${FPL.event+1}: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} already used`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
     const suggestions = fplTransferSuggestions();
     if(suggestions.length){
       suggestions.forEach(s=> html += fplTransferCard(s));
@@ -1526,8 +1533,6 @@ function viewFantasyMyTeam(){
     } else {
       html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
     }
-  } else if(FPL.event && FPL.event < 2){
-    html += `<p class="note">Transfer rules — and this section — apply from Gameweek 2 onward.</p>`;
   } else {
     html += `<p class="note">Couldn't work out your free transfers this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
