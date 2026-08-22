@@ -15,7 +15,8 @@ const ALLOWED = [
   /^bootstrap-static\/$/,
   /^entry\/\d+\/$/,
   /^entry\/\d+\/event\/\d+\/picks\/$/,
-  /^entry\/\d+\/history\/$/
+  /^entry\/\d+\/history\/$/,
+  /^fixtures\/$/
 ];
 
 const HEADERS = {

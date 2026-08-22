@@ -275,7 +275,7 @@ in this season.
   URL otherwise (e.g. from GitHub Pages, which can't run functions itself).
   The proxy only allows a fixed whitelist of read-only FPL paths
   (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`,
-  `entry/{id}/history/`) — it is not a general-purpose proxy. The full
+  `entry/{id}/history/`, `fixtures/`) — it is not a general-purpose proxy. The full
   render pipeline (squad, recommendations, captain/bench logic) was
   verified end-to-end against a realistic mocked response matching this
   schema; the proxy's own upstream fetch to the real FPL API could not be
@@ -308,6 +308,21 @@ in this season.
   so the same incoming player is never suggested to fill two different
   squad slots at once. Every suggestion shows its exact point math (gain,
   cost, net) rather than a bare verdict.
+- **Fixture-difficulty index** — `fplUpcomingFixtures()` reads the real
+  `fixtures/` endpoint (added to the proxy whitelist alongside the others)
+  and averages FPL's own published Fixture Difficulty Rating (1 easiest–5
+  hardest, the same "FDR" shown on the official site) over each club's next
+  4 fixtures — not a rating this app invents. Every squad card
+  (`fplPickCard()`) shows the run for its club, and `fplTransferCard()`
+  adds a short note when it's directly relevant to a suggested swap (the
+  incoming club also has a favourable run, the incoming club faces a tough
+  one worth weighing against the point gain, or the outgoing club actually
+  has a good run coming and might be worth holding). This is deliberately a
+  secondary, transparent annotation, not a hidden weighting factor baked
+  into the suggestion math: the core swap decision and the point numbers
+  shown are still pure `ep_next` comparisons (already covered by the
+  existing tests), so this adds real context for judgment calls without
+  touching the validated logic underneath it.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card

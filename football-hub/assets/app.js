@@ -694,7 +694,7 @@ function viewFantasyBest(){
 function storedFplId(){ try{ return localStorage.getItem(FPL_KEY); }catch(e){ return null; } }
 
 async function loadFplTeam(id){
-  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null };
+  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null, fixtures:null };
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
@@ -702,12 +702,13 @@ async function loadFplTeam(id){
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
     const event = current ? current.id : 1;
-    const [entry, picks, history] = await Promise.all([
+    const [entry, picks, history, fixtures] = await Promise.all([
       getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
       getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000),
-      getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null)
+      getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null),
+      getJSON(fplProxyUrl("fixtures/"), 9000).catch(()=>null)
     ]);
-    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history;
+    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
   }
@@ -717,6 +718,40 @@ async function loadFplTeam(id){
 
 function fplElement(id){ return FPL.bootstrap && (FPL.bootstrap.elements||[]).find(e=>e.id===id); }
 function fplTeamMeta(id){ return FPL.bootstrap && (FPL.bootstrap.teams||[]).find(t=>t.id===id); }
+
+const FPL_FIXTURE_HORIZON = 4;
+/* A team's next N fixtures with FPL's own published difficulty rating
+   (1 = easiest, 5 = hardest — the same "FDR" shown on the official site),
+   from the real fixtures/ endpoint. Not a rating this app invents. */
+function fplUpcomingFixtures(teamId, n){
+  n = n || FPL_FIXTURE_HORIZON;
+  if(!FPL.fixtures || !teamId) return null;
+  const upcoming = FPL.fixtures
+    .filter(f=> !f.finished && (f.team_h===teamId || f.team_a===teamId))
+    .sort((a,b)=> (a.event||99)-(b.event||99))
+    .slice(0, n)
+    .map(f=>{
+      const home = f.team_h===teamId;
+      const oppId = home ? f.team_a : f.team_h;
+      const opp = fplTeamMeta(oppId);
+      return { opponent: opp?opp.short_name||opp.name:"?", venue: home?"H":"A", difficulty: home?f.team_h_difficulty:f.team_a_difficulty };
+    });
+  if(!upcoming.length) return null;
+  const avg = upcoming.reduce((s,f)=>s+(f.difficulty||3),0) / upcoming.length;
+  return { fixtures: upcoming, avg };
+}
+function fplFixtureLabel(avg){
+  if(avg==null) return "";
+  if(avg<=2.4) return "favourable";
+  if(avg>=3.8) return "tough";
+  return "average";
+}
+function fplFixtureRunText(teamId){
+  const run = fplUpcomingFixtures(teamId);
+  if(!run) return "";
+  const list = run.fixtures.map(f=>`${f.opponent}(${f.venue})`).join(" ");
+  return `Next ${run.fixtures.length}: ${list} — ${fplFixtureLabel(run.avg)} run (avg FDR ${run.avg.toFixed(1)})`;
+}
 function fplStatusFlag(el){
   if(!el) return "";
   const labels = { d:"Doubtful", i:"Injured", s:"Suspended", u:"Unavailable", n:"Not available" };
@@ -835,10 +870,23 @@ function fplTransferSuggestions(){
 
 function fplTransferCard(s){
   const outTeam = fplTeamMeta(s.out.team), inTeam = fplTeamMeta(s.in.team);
+  const outRun = fplUpcomingFixtures(s.out.team), inRun = fplUpcomingFixtures(s.in.team);
+  let fixtureNote = "";
+  if(outRun && inRun){
+    const outLabel = fplFixtureLabel(outRun.avg), inLabel = fplFixtureLabel(inRun.avg);
+    if(inLabel==="favourable" && outLabel!=="favourable"){
+      fixtureNote = `${inTeam?inTeam.name:"Their new club"} also have a favourable run ahead (avg FDR ${inRun.avg.toFixed(1)}) — backs up the swap.`;
+    } else if(inLabel==="tough" && outLabel!=="tough"){
+      fixtureNote = `Worth noting: ${inTeam?inTeam.name:"their new club"} face a tough run ahead (avg FDR ${inRun.avg.toFixed(1)}) — weigh that against the expected-points gain.`;
+    } else if(outLabel==="favourable" && inLabel!=="favourable"){
+      fixtureNote = `${outTeam?outTeam.name:"Their current club"} actually have a favourable run coming up (avg FDR ${outRun.avg.toFixed(1)}) — you may want to hold rather than sell into it.`;
+    }
+  }
   return `<div class="pcard"><div class="pcard-top">
     <div><div class="pcard-nm">${s.out.web_name} → ${s.in.web_name}</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
     <span class="pcard-stat">net +${s.net.toFixed(1)}</span></div>
-    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b></p></div>`;
+    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b></p>
+    ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
 }
 
 function fplPickCard(pick){
@@ -847,10 +895,12 @@ function fplPickCard(pick){
   const team = fplTeamMeta(el.team);
   const tag = pick.is_captain ? " (C)" : pick.is_vice_captain ? " (VC)" : "";
   const flag = fplStatusFlag(el);
+  const runText = fplFixtureRunText(el.team);
   return `<div class="pcard"><div class="pcard-top">
     <div><div class="pcard-nm">${el.web_name}${tag}</div><div class="pcard-club">${team?team.name:""} · ${FPL_ELEMENT_POS[el.element_type]||""}</div></div>
     <span class="pcard-stat">${el.ep_next?parseFloat(el.ep_next).toFixed(1)+" xPts":"–"}</span></div>
-    ${flag?`<p class="pcard-note">⚠️ ${el.news || flag}</p>`:""}</div>`;
+    ${flag?`<p class="pcard-note">⚠️ ${el.news || flag}</p>`:""}
+    ${runText?`<p class="pcard-note">📅 ${runText}</p>`:""}</div>`;
 }
 
 function viewFantasyMyTeam(){
@@ -914,7 +964,7 @@ function viewFantasyMyTeam(){
   html += sectionHead("Bench");
   picks.filter(p=>p.position>11).forEach(p=> html += fplPickCard(p));
 
-  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model) and injury/rotation flags are pulled live from the official Fantasy Premier League API. Recommendations and suggested transfers compare real values across your own squad and the full player pool — not a separate prediction model.</p>`;
+  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model), injury/rotation flags, and each club's upcoming fixture difficulty ("FDR", 1 easiest–5 hardest) are all pulled live from the official Fantasy Premier League API. Recommendations and suggested transfers compare these real values across your own squad, the full player pool, and the real fixture schedule — not a separate prediction model this app invents.</p>`;
   return html;
 }
 
