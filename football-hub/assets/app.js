@@ -657,7 +657,7 @@ const FPL_PROXY = location.hostname.endsWith("netlify.app")
   ? "/.netlify/functions/fpl-proxy"
   : "https://worldcupfootball26.netlify.app/.netlify/functions/fpl-proxy";
 function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
-let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null };
+let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null };
 
 function fantasySwitcher(){
   return `<div class="stat-controls">
@@ -694,7 +694,7 @@ function viewFantasyBest(){
 function storedFplId(){ try{ return localStorage.getItem(FPL_KEY); }catch(e){ return null; } }
 
 async function loadFplTeam(id){
-  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null };
+  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null, fixtures:null, dreamTeam:null, dreamTeamEvent:null };
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
@@ -702,20 +702,63 @@ async function loadFplTeam(id){
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
     const event = current ? current.id : 1;
-    const [entry, picks] = await Promise.all([
+    const lastFinished = events.filter(e=>e.finished).sort((a,b)=>b.id-a.id)[0];
+    const [entry, picks, history, fixtures, dreamTeam] = await Promise.all([
       getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
-      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000)
+      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000),
+      getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null),
+      getJSON(fplProxyUrl("fixtures/"), 9000).catch(()=>null),
+      lastFinished ? getJSON(fplProxyUrl(`dream-team/${lastFinished.id}/`), 9000).catch(()=>null) : Promise.resolve(null)
     ]);
-    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event;
+    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
+    FPL.dreamTeam = dreamTeam; FPL.dreamTeamEvent = lastFinished ? lastFinished.id : null;
+    fplTrackRecordWeek();
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
   }
   FPL.loading = false;
   if(state.view==="fantasy") render();
+  if(!FPL.error){
+    fplTrackResolveOutstanding().then(changed=>{ if(changed && state.view==="fantasy") render(); });
+  }
 }
 
 function fplElement(id){ return FPL.bootstrap && (FPL.bootstrap.elements||[]).find(e=>e.id===id); }
 function fplTeamMeta(id){ return FPL.bootstrap && (FPL.bootstrap.teams||[]).find(t=>t.id===id); }
+
+const FPL_FIXTURE_HORIZON = 4;
+/* A team's next N fixtures with FPL's own published difficulty rating
+   (1 = easiest, 5 = hardest — the same "FDR" shown on the official site),
+   from the real fixtures/ endpoint. Not a rating this app invents. */
+function fplUpcomingFixtures(teamId, n){
+  n = n || FPL_FIXTURE_HORIZON;
+  if(!FPL.fixtures || !teamId) return null;
+  const upcoming = FPL.fixtures
+    .filter(f=> !f.finished && (f.team_h===teamId || f.team_a===teamId))
+    .sort((a,b)=> (a.event||99)-(b.event||99))
+    .slice(0, n)
+    .map(f=>{
+      const home = f.team_h===teamId;
+      const oppId = home ? f.team_a : f.team_h;
+      const opp = fplTeamMeta(oppId);
+      return { opponent: opp?opp.short_name||opp.name:"?", venue: home?"H":"A", difficulty: home?f.team_h_difficulty:f.team_a_difficulty };
+    });
+  if(!upcoming.length) return null;
+  const avg = upcoming.reduce((s,f)=>s+(f.difficulty||3),0) / upcoming.length;
+  return { fixtures: upcoming, avg };
+}
+function fplFixtureLabel(avg){
+  if(avg==null) return "";
+  if(avg<=2.4) return "favourable";
+  if(avg>=3.8) return "tough";
+  return "average";
+}
+function fplFixtureRunText(teamId){
+  const run = fplUpcomingFixtures(teamId);
+  if(!run) return "";
+  const list = run.fixtures.map(f=>`${f.opponent}(${f.venue})`).join(" ");
+  return `Next ${run.fixtures.length}: ${list} — ${fplFixtureLabel(run.avg)} run (avg FDR ${run.avg.toFixed(1)})`;
+}
 function fplStatusFlag(el){
   if(!el) return "";
   const labels = { d:"Doubtful", i:"Injured", s:"Suspended", u:"Unavailable", n:"Not available" };
@@ -761,16 +804,354 @@ function fplRecommendations(){
   return recs;
 }
 
+/* Free transfers available, reconstructed from real per-gameweek history
+   per the documented 2026-27 FPL rules: 1 free transfer per gameweek,
+   banked up to a maximum of 5, and each extra transfer beyond what's
+   banked costs 4 points. Playing a Wildcard or Free Hit removes that cost
+   for the gameweek and leaves the banked count unchanged either way
+   (confirmed via the official FPL FAQ — neither chip grows nor shrinks
+   what you have saved). There's no direct "free transfers remaining"
+   field in the public API, so this replays every recorded gameweek's
+   transfer count and any chip played to arrive at the real current count. */
+function fplFreeTransfers(){
+  const h = FPL.history, picks = FPL.picks, event = FPL.event;
+  if(!h || !picks || !picks.entry_history || !event || event < 2) return null;
+  const chipByEvent = {};
+  (h.chips||[]).forEach(c=>{ chipByEvent[c.event] = c.name; });
+  let free = 1; // baseline: everyone gets 1 free transfer entering Gameweek 2
+  (h.current||[]).filter(r=>r.event>=2 && r.event<event).sort((a,b)=>a.event-b.event).forEach(r=>{
+    const chip = chipByEvent[r.event];
+    if(chip==="wildcard" || chip==="freehit") return; // banked count carries over unchanged
+    free = Math.min(5, Math.max(0, free - (r.event_transfers||0)) + 1);
+  });
+  const usedThisGw = picks.entry_history.event_transfers || 0;
+  const activeChip = picks.active_chip || null;
+  const unlimited = activeChip==="wildcard" || activeChip==="freehit";
+  return { atGwStart: free, usedThisGw, remaining: unlimited ? Infinity : Math.max(0, free - usedThisGw), chipActive: activeChip };
+}
+
+/* Searches the full player pool for a better, affordable, fit replacement
+   for each squad player, then only surfaces a swap whose expected-points
+   gain next gameweek is worth it once the real transfer-cost penalty
+   (0 if a free transfer is available or a Wildcard/Free Hit is active,
+   else -4) is subtracted — i.e. actual net value, not just "who has a
+   higher number." Budget uses each squad player's current market price as
+   a stand-in for real sell value (disclosed in the UI): FPL's exact sell
+   price — which can run below market price after a rise, per its
+   profit-taking rule — isn't in the public, unauthenticated API.
+   Among affordable options within EP_TOLERANCE expected points of the very
+   best one for a slot, the cheapest is preferred (value for money) rather
+   than always defaulting to the single priciest name — real squad value
+   and bank are also always shown alongside these suggestions so the
+   budget picture is never hidden. */
+const FPL_EP_TOLERANCE = 0.3;
+const FPL_MAX_PER_CLUB = 3; // real FPL squad rule: no more than 3 players from one club
+
+/* Club counts across the current 15, optionally excluding one element
+   (the player being replaced) — used to check whether adding a candidate
+   would push their club over the real 3-per-club squad limit. */
+function fplClubCounts(excludeElementId){
+  const counts = {};
+  (FPL.picks && FPL.picks.picks || []).forEach(p=>{
+    if(p.element===excludeElementId) return;
+    const el = fplElement(p.element);
+    if(el) counts[el.team] = (counts[el.team]||0)+1;
+  });
+  return counts;
+}
+
+function fplTransferSuggestions(){
+  if(!FPL.picks || !FPL.bootstrap) return [];
+  const ft = fplFreeTransfers();
+  if(!ft) return [];
+  const elements = FPL.bootstrap.elements || [];
+  const squadIds = new Set((FPL.picks.picks||[]).map(p=>p.element));
+  const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
+
+  const candidates = [];
+  (FPL.picks.picks||[]).forEach(pick=>{
+    const cur = fplElement(pick.element);
+    if(!cur) return;
+    const budget = cur.now_cost + bank;
+    const curEp = parseFloat(cur.ep_next||0);
+    const clubCounts = fplClubCounts(cur.id); // excludes the player being replaced
+    const fits = elements.filter(cand=>
+      !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" && cand.now_cost<=budget &&
+      (clubCounts[cand.team]||0) < FPL_MAX_PER_CLUB);
+    if(!fits.length) return;
+    const bestEp = fits.reduce((m,c)=> Math.max(m, parseFloat(c.ep_next||0)), curEp);
+    if(bestEp<=curEp) return; // no real upgrade available for this slot
+    const best = fits
+      .filter(c=> parseFloat(c.ep_next||0) >= bestEp-FPL_EP_TOLERANCE)
+      .sort((a,b)=> a.now_cost-b.now_cost)[0]; // cheapest among near-best
+    candidates.push({ out: cur, in: best, gain: parseFloat(best.ep_next||0) - curEp });
+  });
+
+  candidates.sort((a,b)=> b.gain - a.gain);
+  const suggestions = [];
+  const usedIn = new Set(); // a single incoming player can't fill two squad slots at once
+  for(const c of candidates){
+    if(suggestions.length >= 2) break;
+    if(usedIn.has(c.in.id)) continue;
+    const cost = ft.chipActive || suggestions.length < ft.remaining ? 0 : 4;
+    const net = c.gain - cost;
+    if(net > 0){ suggestions.push({ out:c.out, in:c.in, gain:c.gain, cost, net }); usedIn.add(c.in.id); }
+  }
+  return suggestions;
+}
+
+function fplTransferCard(s){
+  const outTeam = fplTeamMeta(s.out.team), inTeam = fplTeamMeta(s.in.team);
+  const outRun = fplUpcomingFixtures(s.out.team), inRun = fplUpcomingFixtures(s.in.team);
+  let fixtureNote = "";
+  if(outRun && inRun){
+    const outLabel = fplFixtureLabel(outRun.avg), inLabel = fplFixtureLabel(inRun.avg);
+    if(inLabel==="favourable" && outLabel!=="favourable"){
+      fixtureNote = `${inTeam?inTeam.name:"Their new club"} also have a favourable run ahead (avg FDR ${inRun.avg.toFixed(1)}) — backs up the swap.`;
+    } else if(inLabel==="tough" && outLabel!=="tough"){
+      fixtureNote = `Worth noting: ${inTeam?inTeam.name:"their new club"} face a tough run ahead (avg FDR ${inRun.avg.toFixed(1)}) — weigh that against the expected-points gain.`;
+    } else if(outLabel==="favourable" && inLabel!=="favourable"){
+      fixtureNote = `${outTeam?outTeam.name:"Their current club"} actually have a favourable run coming up (avg FDR ${outRun.avg.toFixed(1)}) — you may want to hold rather than sell into it.`;
+    }
+  }
+  const outPrice = (s.out.now_cost/10).toFixed(1), inPrice = (s.in.now_cost/10).toFixed(1);
+  return `<div class="pcard"><div class="pcard-top">
+    <div><div class="pcard-nm">${s.out.web_name} (£${outPrice}m) → ${s.in.web_name} (£${inPrice}m)</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
+    <span class="pcard-stat">net +${s.net.toFixed(1)}</span></div>
+    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b></p>
+    ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
+}
+
+/* ---------- Chip strategy (Wildcard / Free Hit / Bench Boost / Triple Captain) ---------- */
+
+const FPL_CHIP_NAMES = { wildcard:"Wildcard", freehit:"Free Hit", bboost:"Bench Boost", "3xc":"Triple Captain" };
+const FPL_CHIP_HALF_BOUNDARY = 19; // real 2026-27 rule: first-half chips must be played before the GW19 deadline
+
+/* Real chip usage, not a guess: each chip type is playable once per half of
+   the season (2 of each in total for 2026-27) — replayed from history.chips,
+   the real record of every chip this visitor has already played and when. */
+function fplChipStatus(){
+  if(!FPL.history || !FPL.event) return null;
+  const half = FPL.event < FPL_CHIP_HALF_BOUNDARY ? 1 : 2;
+  const usedThisHalf = {};
+  (FPL.history.chips||[]).forEach(c=>{
+    const chipHalf = c.event < FPL_CHIP_HALF_BOUNDARY ? 1 : 2;
+    if(chipHalf===half) usedThisHalf[c.name] = c.event;
+  });
+  const activeChip = FPL.picks && FPL.picks.active_chip;
+  const status = {};
+  Object.keys(FPL_CHIP_NAMES).forEach(k=>{
+    status[k] = { label: FPL_CHIP_NAMES[k], availableThisHalf: !usedThisHalf[k], usedEvent: usedThisHalf[k]||null, activeNow: activeChip===k };
+  });
+  return { half, status };
+}
+
+/* Worth boosting the bench when this week's projected bench points clearly
+   exceed this visitor's own historical average (real points_on_bench from
+   their gameweek history) — a personalised baseline, not a flat guess. */
+function fplBenchBoostSignal(){
+  if(!FPL.picks) return null;
+  const bench = (FPL.picks.picks||[]).filter(p=>p.position>11);
+  const benchEp = bench.reduce((s,p)=>{ const el=fplElement(p.element); return s+(el?parseFloat(el.ep_next||0):0); }, 0);
+  const past = ((FPL.history && FPL.history.current) || []).map(r=>r.points_on_bench).filter(v=>v!=null);
+  const avgPast = past.length ? past.reduce((a,b)=>a+b,0)/past.length : null;
+  const threshold = avgPast!=null ? Math.max(8, avgPast*1.4) : 10;
+  return { benchEp, avgPast, threshold, worth: benchEp>=threshold };
+}
+
+/* Worth tripling when the best captain option's own expected points are
+   high in absolute terms AND their next fixture is genuinely favourable —
+   both real, sourced numbers (ep_next, FDR), combined via a disclosed
+   threshold rather than a hidden score. */
+function fplTripleCaptainSignal(){
+  if(!FPL.picks) return null;
+  const starting = (FPL.picks.picks||[]).filter(p=>p.position<=11);
+  let best=null, bestEp=-1;
+  starting.forEach(p=>{ const el=fplElement(p.element); if(!el) return; const ep=parseFloat(el.ep_next||0); if(ep>bestEp){ bestEp=ep; best=el; } });
+  if(!best) return null;
+  const run = fplUpcomingFixtures(best.team, 1);
+  const fdr = run ? run.avg : null;
+  return { player: best, ep: bestEp, fdr, worth: bestEp>=8 && fdr!=null && fdr<=2.4 };
+}
+
+/* Worth wildcarding when a meaningful share of the squad has a materially
+   better (>=1.5 xPts), affordable, fit replacement sitting in the player
+   pool — the same real search fplTransferSuggestions() uses per slot, just
+   counted across all 15 rather than picking the best one or two. */
+function fplWildcardSignal(){
+  if(!FPL.picks || !FPL.bootstrap) return null;
+  const elements = FPL.bootstrap.elements || [];
+  const squadIds = new Set((FPL.picks.picks||[]).map(p=>p.element));
+  const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
+  let meaningfulUpgrades = 0;
+  (FPL.picks.picks||[]).forEach(pick=>{
+    const cur = fplElement(pick.element);
+    if(!cur) return;
+    const budget = cur.now_cost + bank;
+    const curEp = parseFloat(cur.ep_next||0);
+    const clubCounts = fplClubCounts(cur.id);
+    const hasUpgrade = elements.some(cand=>
+      !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" &&
+      cand.now_cost<=budget && parseFloat(cand.ep_next||0)-curEp>=1.5 &&
+      (clubCounts[cand.team]||0) < FPL_MAX_PER_CLUB);
+    if(hasUpgrade) meaningfulUpgrades++;
+  });
+  return { meaningfulUpgrades, worth: meaningfulUpgrades>=5 };
+}
+
+/* Real blank/double-gameweek detection for this specific squad, from the
+   same fixtures/ data used for the difficulty index — counts how many of
+   the visitor's own 15 players have zero (blank) or two-plus (double)
+   fixtures in the next gameweek. This is exactly the situation Free Hit
+   (and, for doubles, Bench Boost/Triple Captain) exists for. */
+function fplBlankDoubleForSquad(){
+  if(!FPL.fixtures || !FPL.picks || !FPL.event) return null;
+  const targetEvent = FPL.event + 1;
+  const countByTeam = {};
+  FPL.fixtures.filter(f=>f.event===targetEvent).forEach(f=>{
+    countByTeam[f.team_h] = (countByTeam[f.team_h]||0)+1;
+    countByTeam[f.team_a] = (countByTeam[f.team_a]||0)+1;
+  });
+  let blankPlayers=0, doublePlayers=0;
+  (FPL.picks.picks||[]).forEach(p=>{
+    const el = fplElement(p.element);
+    if(!el) return;
+    const c = countByTeam[el.team]||0;
+    if(c===0) blankPlayers++; else if(c>=2) doublePlayers++;
+  });
+  return { targetEvent, blankPlayers, doublePlayers };
+}
+
+function fplChipRecommendations(){
+  const chips = fplChipStatus();
+  if(!chips) return [];
+  const out = [];
+  const bb = fplBenchBoostSignal();
+  if(bb){
+    const avail = chips.status.bboost.availableThisHalf;
+    out.push({ chip:"Bench Boost", available:avail, worth: avail && bb.worth,
+      body:`Your bench is projected for ${bb.benchEp.toFixed(1)} points this gameweek${bb.avgPast!=null?` (your own average is ${bb.avgPast.toFixed(1)})`:""}.` });
+  }
+  const tc = fplTripleCaptainSignal();
+  if(tc){
+    const avail = chips.status["3xc"].availableThisHalf;
+    out.push({ chip:"Triple Captain", available:avail, worth: avail && tc.worth,
+      body:`${tc.player.web_name} projects ${tc.ep.toFixed(1)} points next gameweek${tc.fdr!=null?` against a ${fplFixtureLabel(tc.fdr)} fixture (FDR ${tc.fdr.toFixed(1)})`:""}.` });
+  }
+  const wc = fplWildcardSignal();
+  if(wc){
+    const avail = chips.status.wildcard.availableThisHalf;
+    out.push({ chip:"Wildcard", available:avail, worth: avail && wc.worth,
+      body:`${wc.meaningfulUpgrades} of your 15 squad slots have a meaningfully better (≥1.5 xPts), affordable replacement available.` });
+  }
+  const bd = fplBlankDoubleForSquad();
+  if(bd){
+    const avail = chips.status.freehit.availableThisHalf;
+    out.push({ chip:"Free Hit", available:avail, worth: avail && bd.blankPlayers>=3,
+      body:`${bd.blankPlayers} of your 15 players have no fixture in Gameweek ${bd.targetEvent}${bd.doublePlayers?`, and ${bd.doublePlayers} have two`:""}.` });
+  }
+  return out;
+}
+
+function fplChipCard(rec){
+  const statusLabel = !rec.available ? "Already used" : rec.worth ? "Worth considering" : "Hold";
+  return `<div class="pcard"><div class="pcard-top">
+    <div class="pcard-nm">${rec.chip}</div><span class="pcard-stat">${statusLabel}</span></div>
+    <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":""}</p></div>`;
+}
+
+/* How this squad compared to the real, official highest-scoring XI last
+   gameweek (FPL's own dream-team/{event}/ endpoint) — a genuine after-the-
+   fact benchmark, not something this app computes or estimates itself. */
+function fplDreamTeamCompare(){
+  if(!FPL.dreamTeam || !FPL.picks) return null;
+  const dreamIds = new Set((FPL.dreamTeam.team||[]).map(t=>t.element));
+  const squadIds = (FPL.picks.picks||[]).map(p=>p.element);
+  const matched = squadIds.filter(id=>dreamIds.has(id)).map(id=>fplElement(id)).filter(Boolean);
+  return { event: FPL.dreamTeamEvent, total: dreamIds.size, matched };
+}
+
+/* ---------- Track record (captain-call accuracy over time) ----------
+   Not a self-tuning model — this app doesn't quietly adjust its own
+   thresholds based on this log. It's an honest history: each week the
+   captain suggestion is recorded, and once that gameweek actually
+   finishes, real final scores (element-summary/{id}/'s per-round history)
+   fill in what the suggested captain and the visitor's actual captain
+   really scored, so accuracy is visible over time instead of asserted. */
+function fplTrackKey(id){ return `fh_fpl_track_${id}`; }
+function fplTrackLoad(id){ try{ return JSON.parse(localStorage.getItem(fplTrackKey(id))||"[]"); }catch(e){ return []; } }
+function fplTrackSave(id, log){ try{ localStorage.setItem(fplTrackKey(id), JSON.stringify(log)); }catch(e){} }
+
+function fplTrackRecordWeek(){
+  if(!FPL.picks || !FPL.id || !FPL.event) return;
+  const log = fplTrackLoad(FPL.id);
+  if(log.some(e=>e.event===FPL.event)) return; // already logged this gameweek's call, don't overwrite it later
+  const starting = (FPL.picks.picks||[]).filter(p=>p.position<=11);
+  const capPick = starting.find(p=>p.is_captain);
+  const actualEl = capPick && fplElement(capPick.element);
+  if(!actualEl) return;
+  let suggested = actualEl, bestEp = parseFloat(actualEl.ep_next||0);
+  starting.forEach(p=>{ const el=fplElement(p.element); if(!el) return; const ep=parseFloat(el.ep_next||0); if(ep>bestEp){ bestEp=ep; suggested=el; } });
+  log.push({ event:FPL.event, suggestedId:suggested.id, suggestedName:suggested.web_name,
+    actualId:actualEl.id, actualName:actualEl.web_name, same:suggested.id===actualEl.id,
+    resolved: suggested.id===actualEl.id, suggestedPts:null, actualPts:null });
+  fplTrackSave(FPL.id, log);
+}
+
+async function fplTrackResolveOutstanding(){
+  if(!FPL.bootstrap || !FPL.id) return false;
+  const log = fplTrackLoad(FPL.id);
+  const finishedEvents = new Set((FPL.bootstrap.events||[]).filter(e=>e.finished).map(e=>e.id));
+  const pending = log.filter(e=>!e.resolved && finishedEvents.has(e.event));
+  if(!pending.length) return false;
+  let changed = false;
+  for(const entry of pending){
+    try{
+      const [sHist, aHist] = await Promise.all([
+        getJSON(fplProxyUrl(`element-summary/${entry.suggestedId}/`), 9000),
+        getJSON(fplProxyUrl(`element-summary/${entry.actualId}/`), 9000)
+      ]);
+      const sRound = (sHist.history||[]).find(h=>h.round===entry.event);
+      const aRound = (aHist.history||[]).find(h=>h.round===entry.event);
+      if(sRound && aRound){
+        entry.suggestedPts = sRound.total_points * 2; // captain multiplier
+        entry.actualPts = aRound.total_points * 2;
+        entry.resolved = true;
+        changed = true;
+      }
+    }catch(e){ /* leave unresolved, try again next visit */ }
+  }
+  if(changed) fplTrackSave(FPL.id, log);
+  return changed;
+}
+
+function fplTrackCard(entry){
+  if(entry.same){
+    return `<div class="pcard"><div class="pcard-top"><div class="pcard-nm">Gameweek ${entry.event}</div><span class="pcard-stat">Matched</span></div>
+      <p class="pcard-note">Suggestion and your actual captain were the same: ${entry.actualName}.</p></div>`;
+  }
+  if(!entry.resolved){
+    return `<div class="pcard"><div class="pcard-top"><div class="pcard-nm">Gameweek ${entry.event}</div><span class="pcard-stat">Pending</span></div>
+      <p class="pcard-note">Suggested ${entry.suggestedName} over your captain ${entry.actualName} — result not final yet.</p></div>`;
+  }
+  const diff = entry.suggestedPts - entry.actualPts;
+  const verdict = diff>0 ? `Suggestion would have scored ${diff} more` : diff<0 ? `Your captain outscored the suggestion by ${-diff}` : "Tied";
+  return `<div class="pcard"><div class="pcard-top"><div class="pcard-nm">Gameweek ${entry.event}</div><span class="pcard-stat">${diff>0?"+":""}${diff}</span></div>
+    <p class="pcard-note">Suggested ${entry.suggestedName} (${entry.suggestedPts} pts) vs your captain ${entry.actualName} (${entry.actualPts} pts) — ${verdict}.</p></div>`;
+}
+
 function fplPickCard(pick){
   const el = fplElement(pick.element);
   if(!el) return `<div class="pcard"><p class="pcard-note">Player data unavailable for this pick.</p></div>`;
   const team = fplTeamMeta(el.team);
   const tag = pick.is_captain ? " (C)" : pick.is_vice_captain ? " (VC)" : "";
   const flag = fplStatusFlag(el);
+  const runText = fplFixtureRunText(el.team);
   return `<div class="pcard"><div class="pcard-top">
     <div><div class="pcard-nm">${el.web_name}${tag}</div><div class="pcard-club">${team?team.name:""} · ${FPL_ELEMENT_POS[el.element_type]||""}</div></div>
     <span class="pcard-stat">${el.ep_next?parseFloat(el.ep_next).toFixed(1)+" xPts":"–"}</span></div>
-    ${flag?`<p class="pcard-note">⚠️ ${el.news || flag}</p>`:""}</div>`;
+    ${flag?`<p class="pcard-note">⚠️ ${el.news || flag}</p>`:""}
+    ${runText?`<p class="pcard-note">📅 ${runText}</p>`:""}</div>`;
 }
 
 function viewFantasyMyTeam(){
@@ -801,11 +1182,14 @@ function viewFantasyMyTeam(){
 
   const entryName = FPL.entry && FPL.entry.name;
   const managerName = FPL.entry ? `${FPL.entry.player_first_name||""} ${FPL.entry.player_last_name||""}`.trim() : "";
-  const gwPoints = FPL.picks.entry_history && FPL.picks.entry_history.points;
-  const overallRank = (FPL.entry && FPL.entry.summary_overall_rank) || (FPL.picks.entry_history && FPL.picks.entry_history.overall_rank);
+  const eh = FPL.picks.entry_history || {};
+  const gwPoints = eh.points;
+  const overallRank = (FPL.entry && FPL.entry.summary_overall_rank) || eh.overall_rank;
+  const squadValue = eh.value!=null ? (eh.value/10).toFixed(1) : null;
+  const bankValue = eh.bank!=null ? (eh.bank/10).toFixed(1) : null;
 
   html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
-  html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}</div>`;
+  html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
 
   const recs = fplRecommendations();
   html += sectionHead("Recommendations", "from official FPL data");
@@ -815,13 +1199,51 @@ function viewFantasyMyTeam(){
     html += `<p class="note">No changes suggested — your captain and starting XI already line up with the official expected-points model.</p>`;
   }
 
+  const ft = fplFreeTransfers();
+  if(ft){
+    html += sectionHead("Suggested transfers", "from official FPL data");
+    html += `<div class="banner">Free transfers available: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} used so far this gameweek`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
+    const suggestions = fplTransferSuggestions();
+    if(suggestions.length){
+      suggestions.forEach(s=> html += fplTransferCard(s));
+      html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Among affordable options within ${FPL_EP_TOLERANCE} expected points of the best one for a slot, the cheapest is suggested — not always the priciest name — so a swap doesn't need to burn your whole budget. No suggestion would push any club above the real 3-players-per-club squad limit. Only swaps with a positive net gain after any point-hit are shown.</p>`;
+    } else {
+      html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
+    }
+  }
+
+  const chipRecs = fplChipRecommendations();
+  if(chipRecs.length){
+    html += sectionHead("Chip strategy", "use sparingly");
+    chipRecs.forEach(r=> html += fplChipCard(r));
+    html += `<p class="note">Chips are powerful but limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so these are signals for your own judgement, not automatic triggers. Bench Boost and Triple Captain compare your live squad's real expected points and fixtures against your own history; Wildcard and Free Hit look at how many of your players have a meaningfully better alternative, or no fixture at all, next gameweek.</p>`;
+  }
+
+  const dt = fplDreamTeamCompare();
+  if(dt){
+    html += sectionHead("Vs. the real Dream Team", `Gameweek ${dt.event}`);
+    if(dt.matched.length){
+      html += `<div class="banner">${dt.matched.length} of ${dt.total} in the official Gameweek ${dt.event} Dream Team were in your squad: <b>${dt.matched.map(m=>m.web_name).join(", ")}</b>.</div>`;
+    } else {
+      html += `<div class="banner">None of your Gameweek ${dt.event} squad made the official Dream Team.</div>`;
+    }
+    html += `<p class="note">The Dream Team is FPL's own real highest-scoring XI for that gameweek, fetched after the fact — this is a benchmark, not a prediction.</p>`;
+  }
+
+  const trackLog = FPL.id ? fplTrackLoad(FPL.id).slice().sort((a,b)=>b.event-a.event) : [];
+  if(trackLog.length){
+    html += sectionHead("Track record", "captain calls");
+    trackLog.slice(0,6).forEach(entry=> html += fplTrackCard(entry));
+    html += `<p class="note">A history, not a self-tuning model — this app doesn't quietly change its own thresholds based on this log. Each week's captain suggestion is recorded, and once that gameweek finishes, real final scores fill in what actually happened, so you can judge accuracy for yourself over time.</p>`;
+  }
+
   const picks = (FPL.picks.picks||[]).slice().sort((a,b)=>a.position-b.position);
   html += sectionHead("Starting XI");
   picks.filter(p=>p.position<=11).forEach(p=> html += fplPickCard(p));
   html += sectionHead("Bench");
   picks.filter(p=>p.position>11).forEach(p=> html += fplPickCard(p));
 
-  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model) and injury/rotation flags are pulled live from the official Fantasy Premier League API. Recommendations compare real values across your own squad — not a separate prediction model.</p>`;
+  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model), injury/rotation flags, and each club's upcoming fixture difficulty ("FDR", 1 easiest–5 hardest) are all pulled live from the official Fantasy Premier League API. Recommendations and suggested transfers compare these real values across your own squad, the full player pool, and the real fixture schedule — not a separate prediction model this app invents.</p>`;
   return html;
 }
 

@@ -14,7 +14,11 @@ const FPL_BASE = 'https://fantasy.premierleague.com/api';
 const ALLOWED = [
   /^bootstrap-static\/$/,
   /^entry\/\d+\/$/,
-  /^entry\/\d+\/event\/\d+\/picks\/$/
+  /^entry\/\d+\/event\/\d+\/picks\/$/,
+  /^entry\/\d+\/history\/$/,
+  /^fixtures\/$/,
+  /^dream-team\/\d+\/$/,
+  /^element-summary\/\d+\/$/
 ];
 
 const HEADERS = {

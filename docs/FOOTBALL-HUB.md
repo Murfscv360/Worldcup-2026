@@ -274,18 +274,116 @@ in this season.
   freshly-deployed function), and the production Netlify function's absolute
   URL otherwise (e.g. from GitHub Pages, which can't run functions itself).
   The proxy only allows a fixed whitelist of read-only FPL paths
-  (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`) —
-  it is not a general-purpose proxy. The full render pipeline (squad,
-  recommendations, captain/bench logic) was verified end-to-end against a
-  realistic mocked response matching this schema; the proxy's own upstream
-  fetch to the real FPL API could not be exercised from this app's
-  sandboxed build environment (`fantasy.premierleague.com` was unreachable
-  for testing there), though Netlify Functions run on normal internet
-  infrastructure, unlike a visitor's browser, so it isn't subject to the
-  CORS restriction that broke the direct-fetch version. If the proxy or the
-  FPL API is ever unreachable, the tab shows a plain-language error with a
-  direct link to the visitor's real team on fantasy.premierleague.com,
-  instead of a silent blank screen or fabricated data.
+  (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`,
+  `entry/{id}/history/`, `fixtures/`) — it is not a general-purpose proxy. The full
+  render pipeline (squad, recommendations, captain/bench logic) was
+  verified end-to-end against a realistic mocked response matching this
+  schema; the proxy's own upstream fetch to the real FPL API could not be
+  exercised from this app's sandboxed build environment
+  (`fantasy.premierleague.com` was unreachable for testing there), though
+  Netlify Functions run on normal internet infrastructure, unlike a
+  visitor's browser, so it isn't subject to the CORS restriction that broke
+  the direct-fetch version. If the proxy or the FPL API is ever
+  unreachable, the tab shows a plain-language error with a direct link to
+  the visitor's real team on fantasy.premierleague.com, instead of a
+  silent blank screen or fabricated data.
+- **Suggested transfers** — `fplFreeTransfers()` reconstructs the number of
+  free transfers a visitor actually has banked from real per-gameweek
+  history (`entry/{id}/history/`'s `current` array and `chips` array),
+  replaying the documented 2026-27 FPL transfer rules: 1 free transfer per
+  gameweek, banked up to a maximum of 5, each extra transfer beyond that
+  costing 4 points, and a Wildcard/Free Hit removing that cost for the
+  gameweek while leaving the banked count unchanged either way (verified
+  against the official FPL FAQ). There's no single "free transfers
+  remaining" field in the public API, so this is a genuine reconstruction,
+  not a guess. `fplTransferSuggestions()` then searches the *entire* player
+  pool (not just the visitor's squad) for a same-position, available
+  (`status === "a"`), affordable replacement for each squad player — budget
+  is that player's own `now_cost` plus the squad's `bank`, since the public
+  API doesn't expose a visitor's exact sell price (which can sit below
+  market price after a rise, under FPL's profit-taking rule — disclosed in
+  the UI) — and only surfaces a swap once its `ep_next` gain clears the real
+  transfer-cost penalty for its position in the queue (free if a transfer
+  is still banked or a Wildcard/Free Hit is active, else −4), deduplicated
+  so the same incoming player is never suggested to fill two different
+  squad slots at once. Among affordable options within `FPL_EP_TOLERANCE`
+  (0.3) expected points of the very best one for a slot, the **cheapest**
+  is preferred — a real, disclosed value-for-money rule, not just always
+  the single priciest name with the highest number — and each suggestion
+  card shows both players' actual prices so that's visible, not implied.
+  Squad value and bank are also always shown in the summary banner. Every
+  suggestion shows its exact point math (gain, cost, net) rather than a
+  bare verdict. `fplClubCounts()` enforces the real FPL squad rule of a
+  maximum of 3 players from any one club — computed excluding the player
+  being replaced, so a same-club swap (e.g. one Arsenal player for another)
+  is still allowed while a swap that would push a club to 4 is rejected
+  before it's ever shown. The same check applies to the Wildcard signal
+  below, so its "meaningfully better alternative" count never includes an
+  illegal swap either.
+- **Fixture-difficulty index** — `fplUpcomingFixtures()` reads the real
+  `fixtures/` endpoint (added to the proxy whitelist alongside the others)
+  and averages FPL's own published Fixture Difficulty Rating (1 easiest–5
+  hardest, the same "FDR" shown on the official site) over each club's next
+  4 fixtures — not a rating this app invents. Every squad card
+  (`fplPickCard()`) shows the run for its club, and `fplTransferCard()`
+  adds a short note when it's directly relevant to a suggested swap (the
+  incoming club also has a favourable run, the incoming club faces a tough
+  one worth weighing against the point gain, or the outgoing club actually
+  has a good run coming and might be worth holding). This is deliberately a
+  secondary, transparent annotation, not a hidden weighting factor baked
+  into the suggestion math: the core swap decision and the point numbers
+  shown are still pure `ep_next` comparisons (already covered by the
+  existing tests), so this adds real context for judgment calls without
+  touching the validated logic underneath it.
+- **Chip strategy** — Wildcard, Free Hit, Bench Boost and Triple Captain
+  are powerful but strictly limited (1 of each per half of the 2026-27
+  season, 2 in total — the same real rule already used for the transfer
+  cost math), so `fplChipRecommendations()` gives a real, sourced signal
+  for each rather than nothing at all:
+  - `fplChipStatus()` replays `history.chips` (every chip this visitor has
+    actually played, and when) against the GW19 half-boundary to know
+    which chips are still available to play *this* half — never suggesting
+    one already used.
+  - `fplBenchBoostSignal()` compares this week's real projected bench
+    points (`ep_next` summed across the 4 bench picks) against this
+    visitor's own historical average bench score (`history.current[].points_on_bench`)
+    — a personalised baseline, not a flat number.
+  - `fplTripleCaptainSignal()` flags the current best captain option only
+    when their own `ep_next` is high in absolute terms (≥8) **and** their
+    next fixture is genuinely favourable (FDR ≤2.4) — both thresholds
+    disclosed in code and requiring both real signals to agree, not an
+    opaque composite score.
+  - `fplWildcardSignal()` reuses the same real per-slot replacement search
+    `fplTransferSuggestions()` does, but counts how many of all 15 squad
+    slots (not just the best one or two) have a meaningfully better
+    (≥1.5 xPts), affordable, fit alternative — a genuine "how far has this
+    squad drifted from optimal" signal.
+  - `fplBlankDoubleForSquad()` counts blank/double gameweeks for this
+    specific squad from the same real `fixtures/` data already used for
+    the difficulty index — exactly the situation Free Hit exists for —
+    without needing any new endpoint.
+  Every card states its reasoning in the same real numbers used to decide
+  it, and a chip already used this half is always labelled "Already used"
+  rather than suggested again.
+- **Dream Team comparison** — `fplDreamTeamCompare()` fetches the real,
+  official `dream-team/{event}/` endpoint (the actual highest-scoring XI
+  for the most recently finished gameweek, published by FPL itself after
+  the fact) and shows how many of it were in the visitor's own squad — a
+  genuine after-the-fact benchmark, not a prediction or a rating this app
+  computes.
+- **Track record** — a real history of captain-call accuracy, explicitly
+  **not** a self-tuning model: this app never quietly adjusts its own
+  thresholds based on this log. `fplTrackRecordWeek()` records, once per
+  gameweek, which starting-XI player had the best `ep_next` versus who the
+  visitor actually captained (stored client-side in `localStorage`, keyed
+  by team ID). Once that gameweek's real result is in,
+  `fplTrackResolveOutstanding()` fetches `element-summary/{id}/` (each
+  player's own real per-gameweek score history) for just the two players
+  in question and fills in what both actually scored (captain multiplier
+  applied), so the suggestion's accuracy is verifiable rather than
+  asserted. A week where the suggestion matched the visitor's real pick
+  needs no extra network calls at all — it's recorded as a match
+  immediately.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card
