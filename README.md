@@ -32,10 +32,13 @@ tab with a curated top-3-per-position "best XI" grounded in real 2025-26 season 
 and honours, plus a **My Team** view that loads a visitor's own live squad (given
 their team ID) via a small Netlify Function proxy — added after a direct
 browser-to-FPL-API fetch was tested and confirmed to fail on CORS grounds — and
-suggests captain/bench changes by comparing the official API's own expected-points
-and injury data, no separate prediction model. No starting lineups are shown, since
-no data source for that exists yet — the app says so honestly rather than
-fabricating them. See
+suggests captain/bench changes and full **squad transfers** by comparing the
+official API's own expected-points and injury data against the entire player pool,
+factoring in the real 2026-27 transfer-cost rules (1 free transfer a gameweek,
+banked up to 5, −4 points per extra one) reconstructed from the visitor's own
+gameweek-by-gameweek history — no separate prediction model, no fabricated point
+values. No starting lineups are shown, since no data source for that exists yet —
+the app says so honestly rather than fabricating them. See
 [`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
 
 🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/

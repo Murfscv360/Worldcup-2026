@@ -274,18 +274,40 @@ in this season.
   freshly-deployed function), and the production Netlify function's absolute
   URL otherwise (e.g. from GitHub Pages, which can't run functions itself).
   The proxy only allows a fixed whitelist of read-only FPL paths
-  (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`) —
-  it is not a general-purpose proxy. The full render pipeline (squad,
-  recommendations, captain/bench logic) was verified end-to-end against a
-  realistic mocked response matching this schema; the proxy's own upstream
-  fetch to the real FPL API could not be exercised from this app's
-  sandboxed build environment (`fantasy.premierleague.com` was unreachable
-  for testing there), though Netlify Functions run on normal internet
-  infrastructure, unlike a visitor's browser, so it isn't subject to the
-  CORS restriction that broke the direct-fetch version. If the proxy or the
-  FPL API is ever unreachable, the tab shows a plain-language error with a
-  direct link to the visitor's real team on fantasy.premierleague.com,
-  instead of a silent blank screen or fabricated data.
+  (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`,
+  `entry/{id}/history/`) — it is not a general-purpose proxy. The full
+  render pipeline (squad, recommendations, captain/bench logic) was
+  verified end-to-end against a realistic mocked response matching this
+  schema; the proxy's own upstream fetch to the real FPL API could not be
+  exercised from this app's sandboxed build environment
+  (`fantasy.premierleague.com` was unreachable for testing there), though
+  Netlify Functions run on normal internet infrastructure, unlike a
+  visitor's browser, so it isn't subject to the CORS restriction that broke
+  the direct-fetch version. If the proxy or the FPL API is ever
+  unreachable, the tab shows a plain-language error with a direct link to
+  the visitor's real team on fantasy.premierleague.com, instead of a
+  silent blank screen or fabricated data.
+- **Suggested transfers** — `fplFreeTransfers()` reconstructs the number of
+  free transfers a visitor actually has banked from real per-gameweek
+  history (`entry/{id}/history/`'s `current` array and `chips` array),
+  replaying the documented 2026-27 FPL transfer rules: 1 free transfer per
+  gameweek, banked up to a maximum of 5, each extra transfer beyond that
+  costing 4 points, and a Wildcard/Free Hit removing that cost for the
+  gameweek while leaving the banked count unchanged either way (verified
+  against the official FPL FAQ). There's no single "free transfers
+  remaining" field in the public API, so this is a genuine reconstruction,
+  not a guess. `fplTransferSuggestions()` then searches the *entire* player
+  pool (not just the visitor's squad) for a same-position, available
+  (`status === "a"`), affordable replacement for each squad player — budget
+  is that player's own `now_cost` plus the squad's `bank`, since the public
+  API doesn't expose a visitor's exact sell price (which can sit below
+  market price after a rise, under FPL's profit-taking rule — disclosed in
+  the UI) — and only surfaces a swap once its `ep_next` gain clears the real
+  transfer-cost penalty for its position in the queue (free if a transfer
+  is still banked or a Wildcard/Free Hit is active, else −4), deduplicated
+  so the same incoming player is never suggested to fill two different
+  squad slots at once. Every suggestion shows its exact point math (gain,
+  cost, net) rather than a bare verdict.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card

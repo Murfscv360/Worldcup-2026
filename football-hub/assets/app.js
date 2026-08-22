@@ -657,7 +657,7 @@ const FPL_PROXY = location.hostname.endsWith("netlify.app")
   ? "/.netlify/functions/fpl-proxy"
   : "https://worldcupfootball26.netlify.app/.netlify/functions/fpl-proxy";
 function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
-let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null };
+let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null };
 
 function fantasySwitcher(){
   return `<div class="stat-controls">
@@ -694,7 +694,7 @@ function viewFantasyBest(){
 function storedFplId(){ try{ return localStorage.getItem(FPL_KEY); }catch(e){ return null; } }
 
 async function loadFplTeam(id){
-  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null };
+  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null };
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
@@ -702,11 +702,12 @@ async function loadFplTeam(id){
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
     const event = current ? current.id : 1;
-    const [entry, picks] = await Promise.all([
+    const [entry, picks, history] = await Promise.all([
       getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
-      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000)
+      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000),
+      getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null)
     ]);
-    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event;
+    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history;
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
   }
@@ -759,6 +760,85 @@ function fplRecommendations(){
   });
 
   return recs;
+}
+
+/* Free transfers available, reconstructed from real per-gameweek history
+   per the documented 2026-27 FPL rules: 1 free transfer per gameweek,
+   banked up to a maximum of 5, and each extra transfer beyond what's
+   banked costs 4 points. Playing a Wildcard or Free Hit removes that cost
+   for the gameweek and leaves the banked count unchanged either way
+   (confirmed via the official FPL FAQ — neither chip grows nor shrinks
+   what you have saved). There's no direct "free transfers remaining"
+   field in the public API, so this replays every recorded gameweek's
+   transfer count and any chip played to arrive at the real current count. */
+function fplFreeTransfers(){
+  const h = FPL.history, picks = FPL.picks, event = FPL.event;
+  if(!h || !picks || !picks.entry_history || !event || event < 2) return null;
+  const chipByEvent = {};
+  (h.chips||[]).forEach(c=>{ chipByEvent[c.event] = c.name; });
+  let free = 1; // baseline: everyone gets 1 free transfer entering Gameweek 2
+  (h.current||[]).filter(r=>r.event>=2 && r.event<event).sort((a,b)=>a.event-b.event).forEach(r=>{
+    const chip = chipByEvent[r.event];
+    if(chip==="wildcard" || chip==="freehit") return; // banked count carries over unchanged
+    free = Math.min(5, Math.max(0, free - (r.event_transfers||0)) + 1);
+  });
+  const usedThisGw = picks.entry_history.event_transfers || 0;
+  const activeChip = picks.active_chip || null;
+  const unlimited = activeChip==="wildcard" || activeChip==="freehit";
+  return { atGwStart: free, usedThisGw, remaining: unlimited ? Infinity : Math.max(0, free - usedThisGw), chipActive: activeChip };
+}
+
+/* Searches the full player pool for a better, affordable, fit replacement
+   for each squad player, then only surfaces a swap whose expected-points
+   gain next gameweek is worth it once the real transfer-cost penalty
+   (0 if a free transfer is available or a Wildcard/Free Hit is active,
+   else -4) is subtracted — i.e. actual net value, not just "who has a
+   higher number." Budget uses each squad player's current market price as
+   a stand-in for real sell value (disclosed in the UI): FPL's exact sell
+   price — which can run below market price after a rise, per its
+   profit-taking rule — isn't in the public, unauthenticated API. */
+function fplTransferSuggestions(){
+  if(!FPL.picks || !FPL.bootstrap) return [];
+  const ft = fplFreeTransfers();
+  if(!ft) return [];
+  const elements = FPL.bootstrap.elements || [];
+  const squadIds = new Set((FPL.picks.picks||[]).map(p=>p.element));
+  const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
+
+  const candidates = [];
+  (FPL.picks.picks||[]).forEach(pick=>{
+    const cur = fplElement(pick.element);
+    if(!cur) return;
+    const budget = cur.now_cost + bank;
+    const curEp = parseFloat(cur.ep_next||0);
+    let best = null, bestEp = curEp;
+    elements.forEach(cand=>{
+      if(squadIds.has(cand.id) || cand.element_type!==cur.element_type || cand.status!=="a" || cand.now_cost>budget) return;
+      const ep = parseFloat(cand.ep_next||0);
+      if(ep > bestEp){ bestEp = ep; best = cand; }
+    });
+    if(best) candidates.push({ out: cur, in: best, gain: bestEp - curEp });
+  });
+
+  candidates.sort((a,b)=> b.gain - a.gain);
+  const suggestions = [];
+  const usedIn = new Set(); // a single incoming player can't fill two squad slots at once
+  for(const c of candidates){
+    if(suggestions.length >= 2) break;
+    if(usedIn.has(c.in.id)) continue;
+    const cost = ft.chipActive || suggestions.length < ft.remaining ? 0 : 4;
+    const net = c.gain - cost;
+    if(net > 0){ suggestions.push({ out:c.out, in:c.in, gain:c.gain, cost, net }); usedIn.add(c.in.id); }
+  }
+  return suggestions;
+}
+
+function fplTransferCard(s){
+  const outTeam = fplTeamMeta(s.out.team), inTeam = fplTeamMeta(s.in.team);
+  return `<div class="pcard"><div class="pcard-top">
+    <div><div class="pcard-nm">${s.out.web_name} → ${s.in.web_name}</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
+    <span class="pcard-stat">net +${s.net.toFixed(1)}</span></div>
+    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b></p></div>`;
 }
 
 function fplPickCard(pick){
@@ -815,13 +895,26 @@ function viewFantasyMyTeam(){
     html += `<p class="note">No changes suggested — your captain and starting XI already line up with the official expected-points model.</p>`;
   }
 
+  const ft = fplFreeTransfers();
+  if(ft){
+    html += sectionHead("Suggested transfers", "from official FPL data");
+    html += `<div class="banner">Free transfers available: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} used so far this gameweek`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
+    const suggestions = fplTransferSuggestions();
+    if(suggestions.length){
+      suggestions.forEach(s=> html += fplTransferCard(s));
+      html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Only swaps with a positive net gain after any point-hit are shown.</p>`;
+    } else {
+      html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
+    }
+  }
+
   const picks = (FPL.picks.picks||[]).slice().sort((a,b)=>a.position-b.position);
   html += sectionHead("Starting XI");
   picks.filter(p=>p.position<=11).forEach(p=> html += fplPickCard(p));
   html += sectionHead("Bench");
   picks.filter(p=>p.position>11).forEach(p=> html += fplPickCard(p));
 
-  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model) and injury/rotation flags are pulled live from the official Fantasy Premier League API. Recommendations compare real values across your own squad — not a separate prediction model.</p>`;
+  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model) and injury/rotation flags are pulled live from the official Fantasy Premier League API. Recommendations and suggested transfers compare real values across your own squad and the full player pool — not a separate prediction model.</p>`;
   return html;
 }
 
