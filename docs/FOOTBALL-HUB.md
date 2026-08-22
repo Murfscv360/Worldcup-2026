@@ -146,14 +146,14 @@ dashboard itself.
 | **Today** | `viewToday` | real-time season/opener countdown, defending champion, last results, My Teams strip | newsroom digest |
 | **Fantasy → Best XI** | `viewFantasyBest` | — | curated "top 3 per position" guide (`data/players.json`), grounded in real 2025-26 Premier League honours and stats |
 | **Fantasy → My Team** | `viewFantasyMyTeam` | your live squad, gameweek points, rank, per-player expected points ("xPts") and injury flags, fetched directly from the official Fantasy Premier League API for a team ID you enter | captain/bench recommendations computed by comparing real `ep_next` values across your own squad |
-| **Live** | `viewLive` | today's matches (both divisions) with kickoff-driven status, UK + Central (Chicago) kickoff time, US TV note | professional "Analyst's Desk" commentary per match |
+| **Live** | `viewLive` | today's matches — Premier League, Championship, **and Champions League (English clubs)** — with kickoff-driven status, UK + Central (Chicago) kickoff time, US TV note | professional "Analyst's Desk" commentary per match |
 | **My Teams** | `viewMyTeams` | last result + next fixture (UK + Central time, TV) + league position per followed club, across both divisions | tagged news/transfer items per club |
-| **News** | `viewNews` | — | curated football news feed (`data/news.json`), club-tagged |
+| **News** | `viewNews` | **live BBC Sport headlines** (`news-proxy.js`), real published times | curated football news feed (`data/news.json`), club-tagged |
 | **Transfers** | `viewTransfers` | — | curated confirmed-deals tracker (`data/transfers.json`), club-tagged |
 | **Table** | `viewTable` | full table computed from real match results for the selected competition (EPL or Championship), zones shaded per competition's own promotion/relegation rules | — |
 | **Fixtures** | `viewFixtures` | confirmed fixtures (opener, Community Shield); full prior-season results archive, filterable | — |
 | **Teams** | `viewTeams` | this season's clubs for the selected competition — ground, city, founded, promoted/relegated flags | crest colours |
-| **Champions League** | `viewUCL` | 25-26 result recap, 26-27 English entrants, format, key dates | — |
+| **Champions League** | `viewUCL` | 25-26 result recap, 26-27 English entrants, format, key dates, **and real English-club league-phase results/fixtures once published** | — |
 | **Odds** | `viewOdds` | title-winner market snapshot (dated, sourced) | weekly 1X2 predictor (activates once fixtures are live), clearly labelled informational |
 
 Table/Fixtures/Teams share a **competition switcher** (`compSwitcher()`) so
@@ -453,6 +453,53 @@ in this season.
   fetched page covers, so a rank is never guessed. The Scout's Desk
   briefing also adds a one-line "You're currently #N in <league name>"
   sentence when this is available.
+- **Champions League live scores & commentary** — `loadUclMatches()` fetches
+  `openfootball/champions-league`'s `{season}/cl.txt`, the same public-domain
+  `football.txt` format (and the same `parseFootballTxt()` parser) the
+  domestic EPL/Championship feeds already use — verified by hand that the
+  real 2025-26 file exists and parses cleanly, including its multi-match
+  same-kickoff-slot lines and its `Team Name (ENG)`-style country-code
+  suffixes (`stripCountryCode()` strips those so club lookups/crests match
+  the domestic full names, and also strips extra-time/penalty score
+  annotations like "a.e.t."/"pen." that the shared score regex doesn't
+  parse, so a knockout match never renders with score text glued onto a
+  team name). `2026-27/cl.txt` doesn't exist yet as of this build — the
+  league-phase draw is 27 Aug 2026, Matchday 1 is 8-10 Sep 2026 — so this
+  fetches the real URL and simply shows "not published yet" until
+  openfootball adds the file; the next page load after that picks it up
+  automatically, no separate update needed. Once matches exist, `viewLive()`
+  folds in today's/upcoming English-club Champions League fixtures
+  alongside EPL/Championship using the exact same `liveMatchCard()` and
+  `commentaryFor()` — same kickoff-driven status badge, same real
+  fixture-difficulty-style position-table commentary (computed via
+  `computeTable()` over all 36 clubs' league-phase matches, not just the
+  English ones, so "sit Nth of 36" context is real) — and the Champions
+  League tab gains an "English clubs — 2026-27 league phase" section
+  listing every result/fixture the same way. This reuses the existing
+  kickoff-clock "LIVE" estimate, not a real in-play feed — see the live
+  in-play caveat in §6.
+- **Live news (BBC Sport)** — `loadLiveNews()` fetches BBC Sport's public
+  football RSS feed via `netlify/functions/news-proxy.js` (same CORS
+  workaround as the FPL proxy: a direct browser fetch of a third-party RSS
+  feed fails CORS, so this re-fetches it server-side and returns parsed
+  JSON) and shows real, live headlines — title, BBC's own description,
+  real published date, and a "Read on BBC Sport →" link back to the
+  original article (no article text reproduced beyond BBC's own RSS
+  summary) — in a "Live from BBC Sport" section above the News tab's
+  existing curated roundup, a short teaser on Today, and tagged into My
+  Teams' per-club news chips via `tagClubsInText()` (a plain substring
+  match against this season's real club names — it only tags which club a
+  real headline is about, never asserts anything the headline doesn't
+  already say). This session's sandbox network policy blocked every
+  attempt to reach `feeds.bbci.co.uk` directly (curl, a direct Playwright
+  fetch, and the WebFetch tool all returned an explicit egress-block
+  error), so unlike the FPL proxy's CORS failure — confirmed by hand on a
+  live preview in an earlier session — this integration's live response
+  could not be hand-verified end-to-end from here; the RSS-parsing logic
+  itself was tested against a hand-built sample matching BBC's
+  long-documented public feed format, and the whole client-side rendering
+  path was tested against a mocked proxy response. Verify against the
+  deployed preview/production URL after deploy.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card
@@ -480,8 +527,10 @@ in this season.
 | **`data/news.json` / `data/transfers.json`** | Editorial feed, club-tagged (`clubs: [...]`) | ✅ Hand-curated, dated, sourced |
 | **`data/players.json`** | Fantasy → Best XI — top 3 per position | ✅ Hand-curated from real, sourced 2025-26 Premier League honours/stats (Golden Boot, Golden Glove, Playmaker/Team of the Season) — not a live FPL feed, see §5 |
 | **Official Fantasy Premier League API** (`fantasy.premierleague.com/api/...`) | Fantasy → My Team — live squad, points, rank, expected points, recommendations | ✅ Real, live, official — fetched server-side via `netlify/functions/fpl-proxy.js` (not directly from the browser), after a direct-fetch attempt was tested and confirmed to fail on CORS grounds; see §5 |
-| **flashscore / BBC Sport / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
-| **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). |
+| **flashscore / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
+| **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready, still not wired up — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. This app's "live" table/results still reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). Every free option checked so far needs either a paid key (breaking the app's no-API-key principle) or is an undocumented/unofficial endpoint this session's sandbox could not reach to verify — so this stays an honest gap rather than a guess bolted on to look finished. |
+| **openfootball/champions-league** (`{season}/cl.txt`) | Champions League fixtures/results — Live tab + Champions League tab, English clubs only | ✅ Active, same public-domain project/format as the domestic feeds (see §5) — `2026-27/cl.txt` doesn't exist yet as of this build (league-phase draw is 27 Aug 2026), so this fetches the real URL and shows "not published yet" until openfootball adds the file; picked up automatically on the next load after that, no code change needed. |
+| **BBC Sport RSS** (`feeds.bbci.co.uk/sport/football/rss.xml`) | Live football news headlines — News tab, Today teaser, My Teams club tags | ✅ Real, public BBC feed, fetched server-side via `netlify/functions/news-proxy.js` for the same CORS reason as the FPL proxy (see §5). This session's sandbox network policy blocked every attempt to reach `feeds.bbci.co.uk` directly (curl, a Playwright direct fetch, and the WebFetch tool all returned an explicit egress-block error) so the live response couldn't be hand-verified from here the way the FPL proxy's CORS failure was on a live preview in an earlier session — verify against the deployed preview/production URL. The RSS 2.0 parsing logic itself was tested against a hand-built sample matching BBC's long-documented feed format. |
 | **US TV rights (Premier League)** | `tvNote("epl")` copy | ✅ Verified: NBCUniversal holds exclusive US rights through 2027-28; Peacock streams all matches, NBC/USA Network carry marquee fixtures. [NBCUniversal six-year extension](https://corporate.comcast.com/press/releases/nbcuniversal-six-year-extension-exclusive-us-home-of-premier-league), [RenderFoot 2026/27 guide](https://www.renderfoot.com/blog/how-to-watch-premier-league-in-usa) |
 | **US TV rights (Championship)** | `tvNote("championship")` copy | ✅ Verified: CBS Sports holds exclusive US rights through 2027-28; Paramount+ is the primary stream, CBS Sports Network carries marquee fixtures. [SportsPro: CBS Sports snaps up exclusive EFL rights](https://www.sportspro.com/news/efl-cbs-sports-us-exclusive-tv-broadcast-rights-agreement/), [RenderFoot EFL guide](https://www.renderfoot.com/blog/how-to-watch-efl-championship-in-usa) |
 | **Live radio (EPL)** | `RADIO` / `talkSportLikely()` / `radioBlock()` | ✅ Verified: talkSPORT is the Premier League's official UK radio broadcast partner ([premierleague.com partner page](https://www.premierleague.com/en/about/partners/talksport)) and, per its published coverage pattern, carries live commentary of every Friday- and Monday-night match plus Saturday 12:30/15:00 kickoffs ([wheresthematch.com talkSPORT schedule](https://www.wheresthematch.com/talksport/)). `talkSportLikely(m)` only asserts talkSPORT coverage for matches that fit that documented pattern. |
@@ -524,6 +573,7 @@ football-hub/
   sw.js                                         # service worker (same network-first shell pattern)
   icon.svg                                       # app icon
 netlify/functions/fpl-proxy.js                      # server-side proxy for the official FPL API (Fantasy → My Team)
+netlify/functions/news-proxy.js                     # server-side proxy for BBC Sport football RSS (News tab)
 docs/FOOTBALL-HUB.md                              # this document
 ```
 

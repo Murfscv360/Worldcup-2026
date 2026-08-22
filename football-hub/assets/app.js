@@ -127,6 +127,48 @@ async function loadCompetition(comp, meta, roster){
   return { meta, matches, leagueMatches, table, archive: archiveFile.matches, dataSource };
 }
 
+/* Champions League source — same public-domain openfootball project, same
+   football.txt format the domestic parser above already reads, published at
+   openfootball/champions-league once each season's fixtures exist. Verified
+   by hand (raw.githubusercontent.com) that 2025-26/cl.txt is live in that
+   exact format; 2026-27/cl.txt doesn't exist yet as of this build — the
+   league-phase draw is 27 Aug 2026, Matchday 1 is 8-10 Sep — so this
+   fetches the real URL and simply shows "not published yet" until
+   openfootball adds the file after the draw. No separate maintenance step
+   needed once that happens; the next page load just picks it up. */
+const UCL_TXT_URL = "https://raw.githubusercontent.com/openfootball/champions-league/master/2026-27/cl.txt";
+const UCL_ENGLISH_CLUBS = ["Arsenal FC", "Manchester City FC", "Manchester United FC", "Aston Villa FC", "Liverpool FC"];
+
+// The CL source tags every club with its FA's 3-letter code, e.g. "Arsenal FC (ENG)" —
+// domestic full names (used everywhere else for crest/club lookups) don't carry that suffix.
+// Extra-time/penalty knockout scores ("3-2 a.e.t. (3-0, 1-0)") don't fit the shared
+// match-line regex's plain score group, so they end up glued onto team2 instead — stripped
+// here first so a name is never shown with leftover score text or a trailing country code.
+function stripCountryCode(name){
+  return name.replace(/\s+\d+-\d+.*$/, "").replace(/\s*\([A-Z]{2,4}\)\s*$/, "").trim();
+}
+// Round headers read "League, Matchday 3" — trim the redundant "League, " prefix for display;
+// later knockout-stage headers (Round of 16, etc.) have no such prefix and pass through untouched.
+function normalizeUclRound(round){ return round.replace(/^League,\s*/, ""); }
+
+async function loadUclMatches(){
+  try{
+    const text = await getText(UCL_TXT_URL, 6000);
+    const raw = parseFootballTxt(text);
+    if(!raw.length) throw new Error("empty");
+    const matches = raw.map(m=> Object.assign({}, m, {
+      team1: stripCountryCode(m.team1), team2: stripCountryCode(m.team2), round: normalizeUclRound(m.round)
+    }));
+    const leaguePhase = matches.filter(m=> /^Matchday \d+$/.test(m.round));
+    const table = computeTable(leaguePhase);
+    const englishMatches = matches.filter(m=> UCL_ENGLISH_CLUBS.includes(m.team1) || UCL_ENGLISH_CLUBS.includes(m.team2));
+    const dataSource = matches.some(m=>m.score) ? "Live results (2026-27, openfootball)" : "2026-27 fixtures (live network, league phase not started)";
+    return { matches, englishMatches, table, dataSource };
+  }catch(e){
+    return { matches:[], englishMatches:[], table:[], dataSource:"Not published yet — league-phase draw is 27 Aug 2026, Matchday 1 is 8-10 Sep" };
+  }
+}
+
 async function loadData(){
   [NEWS, TRANSFERS, UCL, PLAYERS] = await Promise.all([getJSON("data/news.json"), getJSON("data/transfers.json"), getJSON("data/ucl.json"), getJSON("data/players.json")]);
   [EPL, CHA] = await Promise.all([getJSON(COMPS.epl.localMeta), getJSON(COMPS.championship.localMeta)]);
@@ -150,6 +192,11 @@ async function loadData(){
 
   CLUB_BY_SHORT = {};
   DATA.epl.currentClubs.concat(DATA.championship.currentClubs).forEach(c=> CLUB_BY_SHORT[c.name] = c);
+
+  // Fired only once DATA.epl/DATA.championship/CLUB_BY_SHORT are all set above, so a
+  // re-render they trigger can never race viewToday()/myTeamCard() reading undefined data.
+  loadUclMatches().then(d=>{ DATA.ucl = d; if(state.view==="live" || state.view==="ucl") render(); });
+  loadLiveNews().then(items=>{ DATA.liveNews = items; if(state.view==="news" || state.view==="today" || state.view==="myteams") render(); });
 }
 
 function seasonState(){
@@ -176,7 +223,7 @@ function crest(full, size){
   return `<span class="crest" style="width:${size}px;height:${size}px;line-height:${size}px;font-size:${Math.round(size*0.34)}px;background:${bg};color:${fg}">${code3(full)}</span>`;
 }
 function clubMeta(nameKey){ return CLUB_BY_SHORT[nameKey]; } // this season's meta, comp-correct
-function compLabel(comp){ return comp==="epl" ? "Premier League" : "Championship"; }
+function compLabel(comp){ return comp==="epl" ? "Premier League" : comp==="ucl" ? "Champions League" : "Championship"; }
 
 /* ---------- Small formatters ---------- */
 
@@ -214,9 +261,9 @@ function fmtCentral(dateStr, timeStr){
   }).format(kickoffInstant(dateStr, timeStr));
 }
 function tvNote(comp){
-  return comp==="epl"
-    ? "📺 Peacock · marquee matches also on NBC/USA Network (US)"
-    : "📺 Paramount+ · marquee matches also on CBS Sports Network (US)";
+  if(comp==="epl") return "📺 Peacock · marquee matches also on NBC/USA Network (US)";
+  if(comp==="ucl") return "📺 TNT Sports (UK) · Paramount+, marquee matches also on CBS (US)";
+  return "📺 Paramount+ · marquee matches also on CBS Sports Network (US)";
 }
 
 /* ---------- Live radio (real UK broadcasters — see docs/FOOTBALL-HUB.md §6 for sourcing) ---------- */
@@ -249,6 +296,9 @@ function talkSportLikely(m){
   return dow===6 && (m.time==="12:30" || m.time==="15:00");
 }
 function radioBlock(comp, m){
+  if(comp==="ucl"){
+    return `<div class="match-meta"><span>📻 Champions League commentary is typically via <a href="https://talksport.com" target="_blank" rel="noopener">talkSPORT</a> or <a href="https://www.bbc.co.uk/5live" target="_blank" rel="noopener">BBC Radio 5 Live</a> (UK only) or the match broadcaster's own commentary (region varies)</span></div>`;
+  }
   if(comp!=="epl"){
     return `<div class="match-meta"><span>📻 EFL Championship coverage is typically via your club's local <a href="https://www.bbc.co.uk/sounds" target="_blank" rel="noopener">BBC radio station</a> (UK only) or the club's own official commentary (often subscription-based, region varies)</span></div>`;
   }
@@ -412,6 +462,7 @@ function viewToday(){
     </div><span class="champ-tag won">Defending in 2026-27</span></div>`;
 
   html += sectionHead("Newsroom", "latest");
+  (DATA.liveNews||[]).slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,2).forEach(n=> html += newsCard(n));
   NEWS.items.slice(0,3).forEach(n=> html += newsCard(n));
   html += `<button class="meta-link" data-goto="news">See all news →</button>`;
 
@@ -438,11 +489,20 @@ function matchCard(m, comp){
 }
 
 function newsCard(n){
-  return `<div class="report"><div class="rp-head"><span class="rp-tag">${n.tag}</span><span class="rp-when">${fmtDate(n.date)}</span></div>
-    <h3 class="rp-title">${n.title}</h3><div class="rp-body"><p>${n.body}</p></div></div>`;
+  return `<div class="report"><div class="rp-head"><span class="rp-tag">${n.live?"🔴 ":""}${n.tag}</span><span class="rp-when">${fmtDate(n.date)}</span></div>
+    <h3 class="rp-title">${n.title}</h3><div class="rp-body"><p>${n.body||""}</p></div>
+    ${n.live && n.link?`<a class="meta-link" href="${n.link}" target="_blank" rel="noopener">Read on BBC Sport →</a>`:""}</div>`;
 }
 function viewNews(){
-  let html = sectionHead("Newsroom", `${NEWS.items.length} stories`);
+  const live = DATA.liveNews || [];
+  let html = "";
+  html += sectionHead("Live from BBC Sport", live.length?`${live.length} headlines`:"loading…");
+  if(live.length){
+    live.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,12).forEach(n=> html += newsCard(n));
+  } else {
+    html += `<p class="note">Real-time BBC Sport football headlines, fetched live — nothing loaded yet (or the feed is temporarily unreachable). This app's own editorial roundup is below regardless.</p>`;
+  }
+  html += sectionHead("Newsroom", `${NEWS.items.length} stories — editorial roundup`);
   NEWS.items.slice().sort((a,b)=>b.date.localeCompare(a.date)).forEach(n=> html += newsCard(n));
   return html;
 }
@@ -611,6 +671,14 @@ function viewUCL(){
     html += `<div class="perf-row">${meta?crest(meta.full,24):""}<div class="perf-nm">${c.name}</div><div class="perf-pts" style="grid-column:span 2"><small>${c.qualified}</small></div></div>`;
   });
   html += `<p class="note">${s27.note}</p>`;
+
+  html += sectionHead("English clubs — 2026-27 league phase", "results & fixtures");
+  const uclMatches = (DATA.ucl && DATA.ucl.englishMatches) || [];
+  if(uclMatches.length){
+    uclMatches.slice().sort((a,b)=>(a.date+String(a.time||"")).localeCompare(b.date+String(b.time||""))).forEach(m=> html += liveMatchCard(m, "ucl"));
+  } else {
+    html += `<div class="empty">${DATA.ucl?DATA.ucl.dataSource:"Loading…"} — fetched live from the same public-domain openfootball project as the Premier League/Championship data, so this fills in automatically once fixtures are published; no separate update needed.</div>`;
+  }
   return html;
 }
 
@@ -657,6 +725,32 @@ const FPL_PROXY = location.hostname.endsWith("netlify.app")
   ? "/.netlify/functions/fpl-proxy"
   : "https://worldcupfootball26.netlify.app/.netlify/functions/fpl-proxy";
 function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
+
+/* Live news — same relative/absolute host-detection pattern as the FPL
+   proxy, for the same reason: a direct browser fetch of BBC Sport's RSS
+   feed fails CORS, so netlify/functions/news-proxy.js re-fetches it
+   server-side and returns real, parsed BBC headlines as JSON. */
+const NEWS_PROXY = location.hostname.endsWith("netlify.app")
+  ? "/.netlify/functions/news-proxy"
+  : "https://worldcupfootball26.netlify.app/.netlify/functions/news-proxy";
+async function loadLiveNews(){
+  try{
+    const d = await getJSON(`${NEWS_PROXY}?feed=football`, 7000);
+    return (d.items||[]).map(it=>{
+      const parsed = new Date(it.pubDate);
+      if(isNaN(parsed)) return null;
+      return { date: parsed.toISOString().slice(0,10), tag: "BBC Sport", title: it.title, body: it.description, link: it.link, live: true };
+    }).filter(Boolean);
+  }catch(e){ return []; }
+}
+// Matches known current-season club short names (Object.keys(CLUB_BY_SHORT), populated
+// once loadData's competition fetches resolve) against free text — used only to tag
+// which followed club(s) a live headline is relevant to, never to assert anything the
+// headline itself doesn't already say.
+function tagClubsInText(text){
+  if(!text) return [];
+  return Object.keys(CLUB_BY_SHORT).filter(name=> text.includes(name));
+}
 let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null, league:null, leagueStandings:null };
 
 /* Picks which of the visitor's real FPL leagues (entry.leagues.classic) to
@@ -1513,9 +1607,11 @@ function myTeamCard(name){
     html += `<div class="rp-body"><p class="subtle">No fixtures loaded for ${name} yet.</p></div>`;
   }
   const newsFor = NEWS.items.filter(n=>n.clubs && n.clubs.includes(name));
+  const liveNewsFor = (DATA.liveNews||[]).filter(n=> tagClubsInText(n.title+" "+(n.body||"")).includes(name));
   const transfersFor = TRANSFERS.deals.filter(t=>t.clubs && t.clubs.includes(name));
-  if(newsFor.length || transfersFor.length){
+  if(newsFor.length || liveNewsFor.length || transfersFor.length){
     html += `<div class="rp-stats">`;
+    liveNewsFor.slice(0,2).forEach(n=> html += `<span class="rp-chip">🔴 ${n.title}</span>`);
     newsFor.slice(0,2).forEach(n=> html += `<span class="rp-chip">📰 ${n.title}</span>`);
     transfersFor.slice(0,2).forEach(t=> html += `<span class="rp-chip">🔁 ${t.player} ${t.from===name?"→ "+t.to:"← "+t.from}</span>`);
     html += `</div>`;
@@ -1571,8 +1667,11 @@ function viewLive(){
   let html = sectionHead("Live & Today", "Central Time (Chicago)");
   html += `<p class="note">Kickoff-driven status &amp; clock — this app's results feed updates after full time, not per-minute in-play, so the "LIVE" clock is an estimate from the real kickoff time until a final score lands. See docs/FOOTBALL-HUB.md.</p>`;
 
+  const uclMatches = (DATA.ucl && DATA.ucl.englishMatches) || [];
+  const compsToday = [["epl", DATA.epl.matches], ["championship", DATA.championship.matches], ["ucl", uclMatches]];
+
   const today = [];
-  ["epl","championship"].forEach(comp=> DATA[comp].matches.filter(m=>m.date===todayIso).forEach(m=> today.push({m,comp})));
+  compsToday.forEach(([comp, matches])=> matches.filter(m=>m.date===todayIso).forEach(m=> today.push({m,comp})));
 
   if(today.length){
     today.sort((a,b)=> (a.m.time||"99:99").localeCompare(b.m.time||"99:99"));
@@ -1582,14 +1681,17 @@ function viewLive(){
   }
 
   const upcoming = [];
-  ["epl","championship"].forEach(comp=>{
-    const next = DATA[comp].matches.find(m=>!m.score);
+  compsToday.forEach(([comp, matches])=>{
+    const next = matches.find(m=>!m.score);
     if(next) upcoming.push({m:next, comp});
   });
   if(upcoming.length){
     html += sectionHead("Next up");
     upcoming.sort((a,b)=> (a.m.date+String(a.m.time||"")).localeCompare(b.m.date+String(b.m.time||"")));
     upcoming.forEach(({m,comp})=> html += liveMatchCard(m, comp));
+  }
+  if(!uclMatches.length){
+    html += `<p class="note">🏆 Champions League: ${DATA.ucl?DATA.ucl.dataSource:"loading…"} — English clubs' matches will appear here automatically once published.</p>`;
   }
   return html;
 }
