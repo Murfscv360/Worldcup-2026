@@ -306,8 +306,14 @@ in this season.
   transfer-cost penalty for its position in the queue (free if a transfer
   is still banked or a Wildcard/Free Hit is active, else −4), deduplicated
   so the same incoming player is never suggested to fill two different
-  squad slots at once. Every suggestion shows its exact point math (gain,
-  cost, net) rather than a bare verdict.
+  squad slots at once. Among affordable options within `FPL_EP_TOLERANCE`
+  (0.3) expected points of the very best one for a slot, the **cheapest**
+  is preferred — a real, disclosed value-for-money rule, not just always
+  the single priciest name with the highest number — and each suggestion
+  card shows both players' actual prices so that's visible, not implied.
+  Squad value and bank are also always shown in the summary banner. Every
+  suggestion shows its exact point math (gain, cost, net) rather than a
+  bare verdict.
 - **Fixture-difficulty index** — `fplUpcomingFixtures()` reads the real
   `fixtures/` endpoint (added to the proxy whitelist alongside the others)
   and averages FPL's own published Fixture Difficulty Rating (1 easiest–5

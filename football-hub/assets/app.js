@@ -831,7 +831,13 @@ function fplFreeTransfers(){
    higher number." Budget uses each squad player's current market price as
    a stand-in for real sell value (disclosed in the UI): FPL's exact sell
    price — which can run below market price after a rise, per its
-   profit-taking rule — isn't in the public, unauthenticated API. */
+   profit-taking rule — isn't in the public, unauthenticated API.
+   Among affordable options within EP_TOLERANCE expected points of the very
+   best one for a slot, the cheapest is preferred (value for money) rather
+   than always defaulting to the single priciest name — real squad value
+   and bank are also always shown alongside these suggestions so the
+   budget picture is never hidden. */
+const FPL_EP_TOLERANCE = 0.3;
 function fplTransferSuggestions(){
   if(!FPL.picks || !FPL.bootstrap) return [];
   const ft = fplFreeTransfers();
@@ -846,13 +852,15 @@ function fplTransferSuggestions(){
     if(!cur) return;
     const budget = cur.now_cost + bank;
     const curEp = parseFloat(cur.ep_next||0);
-    let best = null, bestEp = curEp;
-    elements.forEach(cand=>{
-      if(squadIds.has(cand.id) || cand.element_type!==cur.element_type || cand.status!=="a" || cand.now_cost>budget) return;
-      const ep = parseFloat(cand.ep_next||0);
-      if(ep > bestEp){ bestEp = ep; best = cand; }
-    });
-    if(best) candidates.push({ out: cur, in: best, gain: bestEp - curEp });
+    const fits = elements.filter(cand=>
+      !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" && cand.now_cost<=budget);
+    if(!fits.length) return;
+    const bestEp = fits.reduce((m,c)=> Math.max(m, parseFloat(c.ep_next||0)), curEp);
+    if(bestEp<=curEp) return; // no real upgrade available for this slot
+    const best = fits
+      .filter(c=> parseFloat(c.ep_next||0) >= bestEp-FPL_EP_TOLERANCE)
+      .sort((a,b)=> a.now_cost-b.now_cost)[0]; // cheapest among near-best
+    candidates.push({ out: cur, in: best, gain: parseFloat(best.ep_next||0) - curEp });
   });
 
   candidates.sort((a,b)=> b.gain - a.gain);
@@ -882,8 +890,9 @@ function fplTransferCard(s){
       fixtureNote = `${outTeam?outTeam.name:"Their current club"} actually have a favourable run coming up (avg FDR ${outRun.avg.toFixed(1)}) — you may want to hold rather than sell into it.`;
     }
   }
+  const outPrice = (s.out.now_cost/10).toFixed(1), inPrice = (s.in.now_cost/10).toFixed(1);
   return `<div class="pcard"><div class="pcard-top">
-    <div><div class="pcard-nm">${s.out.web_name} → ${s.in.web_name}</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
+    <div><div class="pcard-nm">${s.out.web_name} (£${outPrice}m) → ${s.in.web_name} (£${inPrice}m)</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
     <span class="pcard-stat">net +${s.net.toFixed(1)}</span></div>
     <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b></p>
     ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
@@ -931,11 +940,14 @@ function viewFantasyMyTeam(){
 
   const entryName = FPL.entry && FPL.entry.name;
   const managerName = FPL.entry ? `${FPL.entry.player_first_name||""} ${FPL.entry.player_last_name||""}`.trim() : "";
-  const gwPoints = FPL.picks.entry_history && FPL.picks.entry_history.points;
-  const overallRank = (FPL.entry && FPL.entry.summary_overall_rank) || (FPL.picks.entry_history && FPL.picks.entry_history.overall_rank);
+  const eh = FPL.picks.entry_history || {};
+  const gwPoints = eh.points;
+  const overallRank = (FPL.entry && FPL.entry.summary_overall_rank) || eh.overall_rank;
+  const squadValue = eh.value!=null ? (eh.value/10).toFixed(1) : null;
+  const bankValue = eh.bank!=null ? (eh.bank/10).toFixed(1) : null;
 
   html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
-  html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}</div>`;
+  html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
 
   const recs = fplRecommendations();
   html += sectionHead("Recommendations", "from official FPL data");
@@ -952,7 +964,7 @@ function viewFantasyMyTeam(){
     const suggestions = fplTransferSuggestions();
     if(suggestions.length){
       suggestions.forEach(s=> html += fplTransferCard(s));
-      html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Only swaps with a positive net gain after any point-hit are shown.</p>`;
+      html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Among affordable options within ${FPL_EP_TOLERANCE} expected points of the best one for a slot, the cheapest is suggested — not always the priciest name — so a swap doesn't need to burn your whole budget. Only swaps with a positive net gain after any point-hit are shown.</p>`;
     } else {
       html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
     }
