@@ -134,9 +134,18 @@ live.
 
 ## 4. Views (tabs)
 
+Tab order in the nav bar (`<nav class="tabs">` in `index.html`, and the
+`VIEWS`/`TAB_LABELS` objects in `app.js` that also drive the "More" sheet)
+puts **Fantasy right after Today** — the second tab a visitor sees, ahead
+of Live/My Teams/etc. — since the weekly manual FPL check-in (Scout's Desk)
+is the most frequent recurring task in the app, on par with the home
+dashboard itself.
+
 | Tab | Function | Real data | Curated/modeled |
 |---|---|---|---|
 | **Today** | `viewToday` | real-time season/opener countdown, defending champion, last results, My Teams strip | newsroom digest |
+| **Fantasy → Best XI** | `viewFantasyBest` | — | curated "top 3 per position" guide (`data/players.json`), grounded in real 2025-26 Premier League honours and stats |
+| **Fantasy → My Team** | `viewFantasyMyTeam` | your live squad, gameweek points, rank, per-player expected points ("xPts") and injury flags, fetched directly from the official Fantasy Premier League API for a team ID you enter | captain/bench recommendations computed by comparing real `ep_next` values across your own squad |
 | **Live** | `viewLive` | today's matches (both divisions) with kickoff-driven status, UK + Central (Chicago) kickoff time, US TV note | professional "Analyst's Desk" commentary per match |
 | **My Teams** | `viewMyTeams` | last result + next fixture (UK + Central time, TV) + league position per followed club, across both divisions | tagged news/transfer items per club |
 | **News** | `viewNews` | — | curated football news feed (`data/news.json`), club-tagged |
@@ -146,8 +155,6 @@ live.
 | **Teams** | `viewTeams` | this season's clubs for the selected competition — ground, city, founded, promoted/relegated flags | crest colours |
 | **Champions League** | `viewUCL` | 25-26 result recap, 26-27 English entrants, format, key dates | — |
 | **Odds** | `viewOdds` | title-winner market snapshot (dated, sourced) | weekly 1X2 predictor (activates once fixtures are live), clearly labelled informational |
-| **Fantasy → Best XI** | `viewFantasyBest` | — | curated "top 3 per position" guide (`data/players.json`), grounded in real 2025-26 Premier League honours and stats |
-| **Fantasy → My Team** | `viewFantasyMyTeam` | your live squad, gameweek points, rank, per-player expected points ("xPts") and injury flags, fetched directly from the official Fantasy Premier League API for a team ID you enter | captain/bench recommendations computed by comparing real `ep_next` values across your own squad |
 
 Table/Fixtures/Teams share a **competition switcher** (`compSwitcher()`) so
 the same tab serves both divisions instead of doubling the tab bar; `My
@@ -365,6 +372,20 @@ in this season.
   Every card states its reasoning in the same real numbers used to decide
   it, and a chip already used this half is always labelled "Already used"
   rather than suggested again.
+  - **One chip per gameweek** — real FPL only lets you play a single chip
+    a week; the four signals above can each clear their own bar
+    independently, so `fplSingleChipDecision()` applies a disclosed
+    priority to always land on exactly one pick, never a combination: Free
+    Hit first (the one situation only it fixes — a bad week of blanks),
+    then Wildcard (a structural rebuild worth more than a single week's
+    bump), then whichever of Bench Boost or Triple Captain has the larger
+    real point value that specific gameweek (its projected bench points vs.
+    its captain's extra points from tripling). The Scout's Desk checklist,
+    the weekly briefing, and the Chip strategy section's "▶ Play this week"
+    banner/card label all call this same function, so the single pick shown
+    is always consistent across the tab — a chip that also cleared its own
+    bar but wasn't picked is labelled "Eligible, not picked" rather than
+    hidden, so the reasoning stays visible.
 - **Dream Team comparison** — `fplDreamTeamCompare()` fetches the real,
   official `dream-team/{event}/` endpoint (the actual highest-scoring XI
   for the most recently finished gameweek, published by FPL itself after
@@ -403,10 +424,35 @@ in this season.
     MID/FWD), each showing either the specific suggested swap from
     `fplTransferSuggestions()` (out/in, with its real net point value) or
     "No change needed" — a direct answer to "who do I move in and out, by
-    position" without hunting through 15 individual player cards.
+    position" without hunting through 15 individual player cards. Every
+    player name (in the position list and in an OUT/IN swap line) carries
+    its real club short name via `fplClubTag()`, so a visitor never
+    second-guesses which of two similarly-named players a suggestion means.
+    A swap line also shows `fplBankAfter()` — real bank minus the incoming
+    player's price plus the outgoing player's price — so the budget impact
+    of actually making the change is visible before opening the FPL site;
+    `fplTransferCard()` in the detailed Suggested Transfers section shows
+    the same bank-after figure next to its point math.
   A direct link to `fantasy.premierleague.com/transfers` sits between the
   checklist and the position list, so acting on the manual step is one tap
   away rather than a search through FPL's own navigation.
+- **Your mini-league** — a real weekly comparison against the visitor's own
+  FPL mini-league, not just the abstract Dream Team benchmark. `fplPickLeague()`
+  reads the visitor's real `entry.leagues.classic` list and prefers a
+  private league (`league_type === "x"`) over FPL's auto-joined system-wide
+  ones (e.g. the global "Overall" league), since "people in my league" means
+  the former; if no private league is found it falls back to the first
+  league on the account rather than showing nothing — either way the name
+  shown is always the real one the API returns, so it's never mislabelled.
+  `leagues-classic/{id}/standings/` (added to the proxy whitelist) is
+  fetched for that league, and `fplLeagueSummaryHtml()` shows the real
+  top-5 standings plus the visitor's own row (highlighted) when it's on
+  that first results page; the visitor's rank and previous rank always come
+  from their own real `entry.leagues.classic` record (`entry_rank`/
+  `entry_last_rank`) even when they're further down the table than the
+  fetched page covers, so a rank is never guessed. The Scout's Desk
+  briefing also adds a one-line "You're currently #N in <league name>"
+  sentence when this is available.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card
