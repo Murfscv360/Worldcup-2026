@@ -384,6 +384,18 @@ in this season.
   asserted. A week where the suggestion matched the visitor's real pick
   needs no extra network calls at all — it's recorded as a match
   immediately.
+- **Weekly scout report** — a condensed, position-organised summary at the
+  very top of My Team, above all the detailed sections, so the manual
+  weekly check-in doesn't require reading or scrolling through everything
+  below it. `fplHealthChecklistHtml()` renders a 4-line status check
+  (captain, injury flags, whether a transfer clears the point cost, whether
+  a chip is worth playing this week) built entirely from the functions
+  already documented above — it computes nothing new. `fplPositionSummaryHtml()`
+  groups the squad by position (GKP/DEF/MID/FWD) and shows, for each, either
+  the specific suggested swap from `fplTransferSuggestions()` (out/in, with
+  its real net point value) or "No change needed" — a direct answer to "who
+  do I move in and out, by position" without hunting through 15 individual
+  player cards.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card

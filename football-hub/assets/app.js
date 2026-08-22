@@ -1060,6 +1060,67 @@ function fplChipCard(rec){
     <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":""}</p></div>`;
 }
 
+/* ---------- Weekly scout report: a 10-second checklist + per-position
+   in/out list, for the manual weekly check with nothing to hunt for. Built
+   entirely from the same real functions above — this doesn't compute
+   anything new, it just condenses what's already there to the top. ---------- */
+
+function fplHealthChecklist(){
+  const recs = fplRecommendations();
+  const capRec = recs.find(r=>r.title.startsWith("Consider captaining"));
+  const flagged = recs.filter(r=>r.title.endsWith("is flagged"));
+  const transfers = fplTransferSuggestions();
+  const chipsWorth = fplChipRecommendations().filter(r=>r.worth);
+  return { capRec, flagged, transfers, chipsWorth };
+}
+
+function fplHealthChecklistHtml(){
+  const h = fplHealthChecklist();
+  const lines = [];
+  lines.push(h.capRec
+    ? `⚠️ ${h.capRec.body}`
+    : `✅ Captaincy looks right — no better option in your starting XI.`);
+  lines.push(h.flagged.length
+    ? `⚠️ ${h.flagged.length} player${h.flagged.length>1?"s":""} flagged: ${h.flagged.map(f=>f.title.replace(" is flagged","")).join(", ")}.`
+    : `✅ No injury/rotation flags on your starters.`);
+  lines.push(h.transfers.length
+    ? `🔁 ${h.transfers.length} transfer${h.transfers.length>1?"s":""} worth making — see below.`
+    : `✅ No transfer clears the point cost this week — hold.`);
+  lines.push(h.chipsWorth.length
+    ? `🎴 Play now: ${h.chipsWorth.map(c=>c.chip).join(", ")}.`
+    : `✅ No chip needed this week — save them.`);
+  return `<div class="pcard">${lines.map(l=>`<p class="pcard-note">${l}</p>`).join("")}</div>`;
+}
+
+function fplPositionSummary(){
+  const groups = { GKP:[], DEF:[], MID:[], FWD:[] };
+  (FPL.picks.picks||[]).forEach(p=>{
+    const el = fplElement(p.element);
+    if(!el) return;
+    const pos = FPL_ELEMENT_POS[el.element_type];
+    if(groups[pos]) groups[pos].push(el);
+  });
+  const suggByOutId = {};
+  fplTransferSuggestions().forEach(s=>{ suggByOutId[s.out.id] = s; });
+  return Object.keys(groups).map(pos=>({
+    pos, players: groups[pos],
+    swap: groups[pos].map(p=>suggByOutId[p.id]).find(Boolean) || null
+  }));
+}
+
+function fplPositionSummaryHtml(){
+  const groups = fplPositionSummary();
+  return groups.map(g=>{
+    const names = g.players.map(p=>p.web_name).join(", ");
+    const action = g.swap
+      ? `<b>OUT:</b> ${g.swap.out.web_name} → <b>IN:</b> ${g.swap.in.web_name} <span class="pcard-stat" style="margin-left:6px">net +${g.swap.net.toFixed(1)}</span>`
+      : `No change needed`;
+    return `<div class="pcard"><div class="pcard-nm">${POS_LABELS[g.pos==="GKP"?"GK":g.pos]||g.pos}</div>
+      <p class="pcard-note">${names}</p>
+      <p class="pcard-note">${action}</p></div>`;
+  }).join("");
+}
+
 /* How this squad compared to the real, official highest-scoring XI last
    gameweek (FPL's own dream-team/{event}/ endpoint) — a genuine after-the-
    fact benchmark, not something this app computes or estimates itself. */
@@ -1190,6 +1251,11 @@ function viewFantasyMyTeam(){
 
   html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
   html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
+
+  html += sectionHead("Weekly scout report", "10-second check");
+  html += fplHealthChecklistHtml();
+  html += fplPositionSummaryHtml();
+  html += `<p class="note">Everything below repeats this in more detail — the two sections above are all you need for a quick weekly check.</p>`;
 
   const recs = fplRecommendations();
   html += sectionHead("Recommendations", "from official FPL data");
