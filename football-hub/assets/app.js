@@ -1213,7 +1213,7 @@ function fplSingleChipDecision(){
 }
 
 function fplChipCard(rec, isThePick){
-  const statusLabel = !rec.available ? "Already used" : isThePick ? "▶ Play this week" : rec.worth ? "Eligible, not picked" : "Hold";
+  const statusLabel = !rec.available ? "Already used" : isThePick ? `▶ Play for GW${FPL.event+1}` : rec.worth ? "Eligible, not picked" : "Hold";
   return `<div class="pcard"><div class="pcard-top">
     <div class="pcard-nm">${rec.chip}</div><span class="pcard-stat">${statusLabel}</span></div>
     <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":rec.worth&&!isThePick?" Cleared its own bar this week, but only one chip can be played — see the priority pick above.":""}</p></div>`;
@@ -1244,11 +1244,11 @@ function fplHealthChecklistHtml(){
     ? `⚠️ ${h.flagged.length} player${h.flagged.length>1?"s":""} flagged: ${h.flagged.map(f=>f.title.replace(" is flagged","")).join(", ")}.`
     : `✅ No injury/rotation flags on your starters.`);
   lines.push(h.transfers.length
-    ? `🔁 ${h.transfers.length} transfer${h.transfers.length>1?"s":""} worth making — see below.`
-    : `✅ No transfer clears the point cost this week — hold.`);
+    ? `🔁 ${h.transfers.length} transfer${h.transfers.length>1?"s":""} worth making for Gameweek ${FPL.event+1} — see below.`
+    : `✅ No transfer for Gameweek ${FPL.event+1} clears the point cost — hold.`);
   lines.push(h.chipPick
-    ? `🎴 Play now: ${h.chipPick.chip}.`
-    : `✅ No chip needed this week — save them.`);
+    ? `🎴 Play now, for Gameweek ${FPL.event+1}: ${h.chipPick.chip}.`
+    : `✅ No chip needed for Gameweek ${FPL.event+1} — save them.`);
   return `<div class="pcard">${lines.map(l=>`<p class="pcard-note">${l}</p>`).join("")}</div>`;
 }
 
@@ -1319,10 +1319,10 @@ function fplWeeklyBriefing(){
   const suggestions = fplTransferSuggestions();
   if(suggestions.length){
     const top = suggestions[0];
-    parts.push(`The strongest move available right now is <b>${top.out.web_name} → ${top.in.web_name}</b>, worth a net +${top.net.toFixed(1)} points.`);
+    parts.push(`The strongest move for Gameweek ${FPL.event+1} is <b>${top.out.web_name} → ${top.in.web_name}</b>, worth a net +${top.net.toFixed(1)} points.`);
   }
   const chipPick = fplSingleChipDecision();
-  if(chipPick) parts.push(`<b>${chipPick.chip}</b> looks worth playing this week — ${chipPick.reason}`);
+  if(chipPick) parts.push(`<b>${chipPick.chip}</b> looks worth playing for Gameweek ${FPL.event+1} — ${chipPick.reason}`);
 
   const dt = fplDreamTeamCompare();
   if(dt) parts.push(`${dt.matched.length} of your players made the official Gameweek ${dt.event} Dream Team.`);
@@ -1542,10 +1542,10 @@ function viewFantasyMyTeam(){
   const chipPickCard = fplSingleChipDecision();
   if(chipRecs.length){
     if(chipPickCard){
-      html += `<div class="banner">🎴 This week's pick: <b>${chipPickCard.chip}</b> — ${chipPickCard.reason}</div>`;
+      html += `<div class="banner">🎴 Pick for Gameweek ${FPL.event+1}: <b>${chipPickCard.chip}</b> — ${chipPickCard.reason}</div>`;
     }
     chipRecs.forEach(r=> html += fplChipCard(r, chipPickCard && chipPickCard.chip===r.chip));
-    html += `<p class="note">You can only play one chip per gameweek, so when more than one clears its own bar the same week, this picks a single one for you by priority: Free Hit first (the exact situation it exists for — a bad week of blanks), then Wildcard (a structural rebuild worth more than one week's bump), then whichever of Bench Boost or Triple Captain has the larger real point value that week. Chips are also limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so this is a signal for your own judgement, not an automatic trigger.</p>`;
+    html += `<p class="note">A chip you activate now applies to Gameweek ${FPL.event+1} — Gameweek ${FPL.event}'s points are already locked in, so nothing here changes what you already scored. You can only play one chip per gameweek, so when more than one clears its own bar the same week, this picks a single one for you by priority: Free Hit first (the exact situation it exists for — a bad week of blanks), then Wildcard (a structural rebuild worth more than one week's bump), then whichever of Bench Boost or Triple Captain has the larger real point value that week. Chips are also limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so this is a signal for your own judgement, not an automatic trigger.</p>`;
   } else {
     html += `<p class="note">Couldn't work out chip guidance this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
