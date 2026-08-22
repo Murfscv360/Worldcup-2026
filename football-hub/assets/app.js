@@ -981,10 +981,13 @@ function fplClubCounts(excludeElementId){
   return counts;
 }
 
-function fplTransferSuggestions(){
+/* The best real, affordable, fit replacement for each of the 15 squad slots
+   (sorted best-gain-first) — shared by fplTransferSuggestions() (which only
+   keeps the ones actually worth a transfer) and fplClosestTransferCandidate()
+   below (which names the best one even when it isn't), so "no transfer worth
+   it" is always backed by a real, shown comparison rather than silence. */
+function fplTransferCandidates(){
   if(!FPL.picks || !FPL.bootstrap) return [];
-  const ft = fplFreeTransfers();
-  if(!ft) return [];
   const elements = FPL.bootstrap.elements || [];
   const squadIds = new Set((FPL.picks.picks||[]).map(p=>p.element));
   const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
@@ -1007,8 +1010,14 @@ function fplTransferSuggestions(){
       .sort((a,b)=> a.now_cost-b.now_cost)[0]; // cheapest among near-best
     candidates.push({ out: cur, in: best, gain: parseFloat(best.ep_next||0) - curEp });
   });
-
   candidates.sort((a,b)=> b.gain - a.gain);
+  return candidates;
+}
+
+function fplTransferSuggestions(){
+  const ft = fplFreeTransfers();
+  if(!ft) return [];
+  const candidates = fplTransferCandidates();
   const suggestions = [];
   const usedIn = new Set(); // a single incoming player can't fill two squad slots at once
   for(const c of candidates){
@@ -1019,6 +1028,20 @@ function fplTransferSuggestions(){
     if(net > 0){ suggestions.push({ out:c.out, in:c.in, gain:c.gain, cost, net }); usedIn.add(c.in.id); }
   }
   return suggestions;
+}
+
+/* Named even when nothing clears the transfer-cost bar — the single best real
+   upgrade found across all 15 slots, with its exact point math, so "no
+   transfer currently looks worth it" is visibly a real comparison the app
+   actually ran, not just silence with no player named. */
+function fplClosestTransferCandidate(){
+  const ft = fplFreeTransfers();
+  if(!ft) return null;
+  const candidates = fplTransferCandidates();
+  if(!candidates.length) return null;
+  const c = candidates[0];
+  const cost = ft.chipActive ? 0 : (ft.remaining>0 ? 0 : 4);
+  return { out: c.out, in: c.in, gain: c.gain, cost, net: c.gain - cost };
 }
 
 function fplTransferCard(s){
@@ -1037,10 +1060,11 @@ function fplTransferCard(s){
   }
   const outPrice = (s.out.now_cost/10).toFixed(1), inPrice = (s.in.now_cost/10).toFixed(1);
   const bankAfter = fplBankAfter(s.out, s.in);
+  const signed = n => `${n>=0?"+":""}${n.toFixed(1)}`;
   return `<div class="pcard"><div class="pcard-top">
     <div><div class="pcard-nm">${s.out.web_name} (£${outPrice}m) → ${s.in.web_name} (£${inPrice}m)</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
-    <span class="pcard-stat">net +${s.net.toFixed(1)}</span></div>
-    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>+${s.net.toFixed(1)} net</b> · Bank after: <b>£${(bankAfter/10).toFixed(1)}m</b></p>
+    <span class="pcard-stat">net ${signed(s.net)}</span></div>
+    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>${signed(s.net)} net</b> · Bank after: <b>£${(bankAfter/10).toFixed(1)}m</b></p>
     ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
 }
 
@@ -1531,7 +1555,13 @@ function viewFantasyMyTeam(){
       suggestions.forEach(s=> html += fplTransferCard(s));
       html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Among affordable options within ${FPL_EP_TOLERANCE} expected points of the best one for a slot, the cheapest is suggested — not always the priciest name — so a swap doesn't need to burn your whole budget. No suggestion would push any club above the real 3-players-per-club squad limit. Only swaps with a positive net gain after any point-hit are shown.</p>`;
     } else {
-      html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
+      const closest = fplClosestTransferCandidate();
+      if(closest){
+        html += fplTransferCard(closest);
+        html += `<p class="note">Closest real option — shown so "no transfer worth it" isn't just silence — but it doesn't clear the bar: +${closest.gain.toFixed(1)} xPts${closest.cost?` − ${closest.cost}pt hit`:""} nets ${closest.net>0?"+":""}${closest.net.toFixed(1)}, not a real gain.</p>`;
+      } else {
+        html += `<p class="note">No transfer currently looks worth it once the point cost is factored in — no affordable, fit replacement beats any of your 15 players' expected points for Gameweek ${FPL.event+1}.</p>`;
+      }
     }
   } else {
     html += `<p class="note">Couldn't work out your free transfers this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
