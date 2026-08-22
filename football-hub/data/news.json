@@ -2,6 +2,41 @@
   "_source": "Curated editorial digest written for this app, grounded in the verified facts in docs/FOOTBALL-HUB.md. Not a live newswire. \"clubs\" tags drive the My Teams view.",
   "items": [
     {
+      "date": "2026-08-21",
+      "tag": "Premier League",
+      "title": "Arsenal begin title defence with 3-0 win over Coventry",
+      "body": "Kai Havertz (15'), Bukayo Saka (23') and Martin Ødegaard (49') scored as Arsenal made light work of newly-promoted Coventry City at the Emirates in the Premier League's 2026-27 season opener — Coventry's first top-flight match in 25 years.",
+      "clubs": ["Arsenal", "Coventry City"]
+    },
+    {
+      "date": "2026-08-17",
+      "tag": "Championship",
+      "title": "Championship Matchday 1 wrap: draws for Wolves and Sheffield United, Preston fall at Bolton",
+      "body": "The Championship's opening round produced four draws in twelve games. Wolves were held 2-2 at home by Blackburn (a Raúl Jiménez penalty in stoppage time), Sheffield United and Birmingham shared a goalless draw, Burnley drew 2-2 with West Ham, and Cardiff drew 1-1 with Wrexham. Elsewhere Millwall won 2-0 at Bristol City, QPR beat Portsmouth 3-1, Watford beat Southampton 2-1 at home, and Bolton — last season's League One play-off winners — beat Preston 2-1.",
+      "clubs": ["Wolverhampton Wanderers", "Blackburn Rovers", "Sheffield United", "Birmingham City", "Burnley", "West Ham United", "Cardiff City", "Wrexham", "Millwall", "Bristol City", "Queens Park Rangers", "Portsmouth", "Watford", "Southampton", "Bolton Wanderers", "Preston North End"]
+    },
+    {
+      "date": "2026-08-08",
+      "tag": "Transfers",
+      "title": "Arsenal complete £75m deal for Bruno Guimarães",
+      "body": "Arsenal have signed Newcastle captain Bruno Guimarães in a £75m move, the champions' third summer signing after Illan Meslier and Christos Tzolis. The Brazilian midfielder has put pen to paper on a four-year deal with a further one-year option.",
+      "clubs": ["Arsenal", "Newcastle United"]
+    },
+    {
+      "date": "2026-08-06",
+      "tag": "Transfers",
+      "title": "Liverpool land Ronald Araújo on loan from Barcelona",
+      "body": "Liverpool have signed Barcelona defender Ronald Araújo on a season-long loan with a €55m option to buy, replacing Ibrahima Konaté after his move to Real Madrid. Liverpool are covering Araújo's wages in full, with no loan fee paid to Barcelona.",
+      "clubs": ["Liverpool"]
+    },
+    {
+      "date": "2026-08-05",
+      "tag": "Transfers",
+      "title": "Christian Nørgaard leaves Arsenal for Everton",
+      "body": "Christian Nørgaard has joined Everton from Arsenal for €8.2m on a two-year deal, seeking regular football after starting just seven league games in the Gunners' title-winning 2025-26 season. The Denmark international will wear number 16 at Goodison Park.",
+      "clubs": ["Arsenal", "Everton"]
+    },
+    {
       "date": "2026-07-23",
       "tag": "Transfers",
       "title": "Spurs' summer spree tops €267m as deadline day looms",

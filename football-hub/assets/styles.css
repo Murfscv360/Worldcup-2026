@@ -101,6 +101,23 @@ table.stand tbody tr+tr td{border-top:1px solid rgba(38,49,90,.5)}
 .tcard .nm{font-weight:700;font-size:13.5px;line-height:1.2}
 .tcard .gp{font-size:11px;color:var(--muted)}
 
+/* Fantasy / player picks */
+.posgroup{margin-bottom:18px}
+.posgroup-h{display:flex;align-items:baseline;gap:8px;margin-bottom:9px}
+.posgroup-h h3{margin:0;font-size:14px;font-weight:800;letter-spacing:.3px}
+.posgroup-h span{font-size:11px;color:var(--muted);font-weight:600}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:9px}
+.pcard-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.pcard-nm{font-weight:800;font-size:14px;line-height:1.2}
+.pcard-club{font-size:11px;color:var(--muted);font-weight:600}
+.pcard-stat{margin-left:auto;font-size:11px;font-weight:800;color:var(--accent);background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap;text-align:right}
+.pcard-note{font-size:12.5px;line-height:1.5;color:var(--ink);opacity:.9;margin:0}
+.fpl-form{margin-bottom:14px}
+.fpl-form label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px}
+.fpl-form-row{display:flex;gap:8px;margin-bottom:6px}
+.fpl-input{flex:1;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:10px 12px;font-size:14px;min-width:0}
+.fpl-form-row .chipbtn{flex-shrink:0}
+
 /* Venues */
 .vcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:10px}
 .vcard .vh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
@@ -113,8 +130,13 @@ table.stand tbody tr+tr td{border-top:1px solid rgba(38,49,90,.5)}
 .chip.acc{color:var(--accent)}
 
 /* Predictions */
-.banner{background:linear-gradient(135deg,#1b2a52,#162043);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--muted)}
-.banner b{color:var(--ink)}
+/* .banner's own background is always dark (regardless of the system
+   light/dark theme), so — same reasoning as .launch-title/.launch-sub
+   above — its text uses fixed light colours instead of the theme-following
+   --ink/--muted vars, which left near-invisible dark-on-dark text here in
+   light mode. */
+.banner{background:linear-gradient(135deg,#1b2a52,#162043);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px;font-size:13px;color:#b6a9d6}
+.banner b{color:#f3eefc}
 .odds-row{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
 .odds-row .rank{font-weight:800;color:var(--muted);width:20px;text-align:center;font-variant-numeric:tabular-nums}
 .odds-row .flag{font-size:22px}

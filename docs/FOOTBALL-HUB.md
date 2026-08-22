@@ -146,6 +146,8 @@ live.
 | **Teams** | `viewTeams` | this season's clubs for the selected competition — ground, city, founded, promoted/relegated flags | crest colours |
 | **Champions League** | `viewUCL` | 25-26 result recap, 26-27 English entrants, format, key dates | — |
 | **Odds** | `viewOdds` | title-winner market snapshot (dated, sourced) | weekly 1X2 predictor (activates once fixtures are live), clearly labelled informational |
+| **Fantasy → Best XI** | `viewFantasyBest` | — | curated "top 3 per position" guide (`data/players.json`), grounded in real 2025-26 Premier League honours and stats |
+| **Fantasy → My Team** | `viewFantasyMyTeam` | your live squad, gameweek points, rank, per-player expected points ("xPts") and injury flags, fetched directly from the official Fantasy Premier League API for a team ID you enter | captain/bench recommendations computed by comparing real `ep_next` values across your own squad |
 
 Table/Fixtures/Teams share a **competition switcher** (`compSwitcher()`) so
 the same tab serves both divisions instead of doubling the tab bar; `My
@@ -231,6 +233,64 @@ in this season.
   from **real** inputs only — league position, points, and a 5-match form
   streak computed from actual results — never fabricated stats, scorers, or
   play-by-play we don't have data for.
+- **Fantasy watch** — `viewFantasy()` renders `data/players.json`, three
+  players per position (GK/DEF/MID/FWD) with a real stat line and a short
+  editorial note each. This is a **curated snapshot**, not a live Fantasy
+  Premier League integration: this app has no player-level data feed (the
+  openfootball results feed only carries team scores, not lineups or
+  individual stats), and the public FPL API
+  (`fantasy.premierleague.com/api/bootstrap-static/`) was unreachable from
+  this app's build environment and its cross-origin support for a static
+  page was never verified — so rather than wire up an unverified live
+  integration or fabricate player stats, the picks are hand-researched from
+  real, sourced 2025-26 season honours (Golden Boot, Golden Glove, Playmaker
+  of the Season, PFA/fan Team of the Season) and dated like the rest of the
+  app's curated content.
+- **My FPL Team** — `loadFplTeam(id)` fetches a visitor's own squad once they
+  enter their team ID (found in their own team's URL). The ID is stored only
+  in that visitor's `localStorage` (`fh_fpl_id`) — never hardcoded, never
+  sent anywhere but the FPL data path below. `fplRecommendations()` then
+  compares **real fields already in that response** — `ep_next` (FPL's own
+  official expected-points-next-gameweek model), `status`/
+  `chance_of_playing_next_round` (injury/rotation flags) and `news` (FPL's
+  own injury text) — across the visitor's own squad, e.g. suggesting a
+  captaincy switch when a non-captained starter has a higher `ep_next`, or
+  flagging a starter with a fit, higher-`ep_next` bench alternative. This is
+  **not** a separate prediction model invented by this app; every number
+  shown and every recommendation is a direct comparison of values the
+  official API already computed.
+  **Real, hands-on limitation and how it was fixed:** an early version of
+  this feature called the official Fantasy Premier League API
+  (`fantasy.premierleague.com/api/...`) directly from the browser. Testing
+  it on the real deployed preview showed the direct fetch failing outright —
+  the public FPL API does not reliably support cross-origin browser requests
+  from third-party sites. Rather than ship that broken state, the app now
+  routes through its own serverless proxy — `netlify/functions/fpl-proxy.js`
+  (Netlify Function) — which re-fetches the same public, unauthenticated FPL
+  endpoints server-side, where browser CORS doesn't apply, and returns them
+  with permissive CORS headers. The client (`fplProxyUrl()` in app.js) calls
+  a relative `/.netlify/functions/fpl-proxy` path when served from a
+  `netlify.app` host (production or any PR preview talks to its own
+  freshly-deployed function), and the production Netlify function's absolute
+  URL otherwise (e.g. from GitHub Pages, which can't run functions itself).
+  The proxy only allows a fixed whitelist of read-only FPL paths
+  (`bootstrap-static/`, `entry/{id}/`, `entry/{id}/event/{event}/picks/`) —
+  it is not a general-purpose proxy. The full render pipeline (squad,
+  recommendations, captain/bench logic) was verified end-to-end against a
+  realistic mocked response matching this schema; the proxy's own upstream
+  fetch to the real FPL API could not be exercised from this app's
+  sandboxed build environment (`fantasy.premierleague.com` was unreachable
+  for testing there), though Netlify Functions run on normal internet
+  infrastructure, unlike a visitor's browser, so it isn't subject to the
+  CORS restriction that broke the direct-fetch version. If the proxy or the
+  FPL API is ever unreachable, the tab shows a plain-language error with a
+  direct link to the visitor's real team on fantasy.premierleague.com,
+  instead of a silent blank screen or fabricated data.
+- **Lineups** — this app does not show starting lineups, for the same
+  reason: no data source has that information. Rather than fabricate an XI,
+  `lineupsNote()` shows an honest note on each live/upcoming match card
+  pointing to the official match centre (premierleague.com or efl.com),
+  where confirmed lineups are published shortly before kickoff.
 - **Live refresh cadence** — mirrors the World Cup app: countdowns tick
   every 1s, dynamic views (Live/Today) re-render every 20s to pick up
   status transitions, and the full data set re-fetches over the network
@@ -251,6 +311,8 @@ in this season.
 | **`data/epl.json` / `data/championship.json`** | Clubs, promoted/relegated, Golden Boot, title-odds snapshot | ✅ Hand-curated from verified sources (see file header); last-season tables are **computed**, not typed — see §1a and the load scripts in the PR history. The Championship table applies a real 6-point deduction to Leicester City (EFL Profit & Sustainability Rules breach, upheld on appeal) — without it, a pure results table would incorrectly keep Leicester up and Blackburn Rovers down, which the real, confirmed 2026-27 fixture list (Blackburn present, Leicester absent) proved wrong. The 2026-27 Championship club roster (incl. Bolton Wanderers, Cardiff City, Lincoln City up from League One) is cross-checked against that same real fixture list, not assumed. |
 | **`data/ucl.json`** | UCL 25-26 recap + 26-27 entrants/dates | ✅ Hand-curated (draw is 27 Aug 2026 — the 26-27 league-phase table does not exist yet and is **not fabricated**) |
 | **`data/news.json` / `data/transfers.json`** | Editorial feed, club-tagged (`clubs: [...]`) | ✅ Hand-curated, dated, sourced |
+| **`data/players.json`** | Fantasy → Best XI — top 3 per position | ✅ Hand-curated from real, sourced 2025-26 Premier League honours/stats (Golden Boot, Golden Glove, Playmaker/Team of the Season) — not a live FPL feed, see §5 |
+| **Official Fantasy Premier League API** (`fantasy.premierleague.com/api/...`) | Fantasy → My Team — live squad, points, rank, expected points, recommendations | ✅ Real, live, official — fetched server-side via `netlify/functions/fpl-proxy.js` (not directly from the browser), after a direct-fetch attempt was tested and confirmed to fail on CORS grounds; see §5 |
 | **flashscore / BBC Sport / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
 | **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). |
 | **US TV rights (Premier League)** | `tvNote("epl")` copy | ✅ Verified: NBCUniversal holds exclusive US rights through 2027-28; Peacock streams all matches, NBC/USA Network carry marquee fixtures. [NBCUniversal six-year extension](https://corporate.comcast.com/press/releases/nbcuniversal-six-year-extension-exclusive-us-home-of-premier-league), [RenderFoot 2026/27 guide](https://www.renderfoot.com/blog/how-to-watch-premier-league-in-usa) |
@@ -290,9 +352,11 @@ football-hub/
   data/ucl.json                             # UCL 25-26 recap + 26-27 entrants/format/dates
   data/news.json                             # curated news feed, club-tagged
   data/transfers.json                         # curated transfer tracker, club-tagged
+  data/players.json                            # Fantasy tab — top 3 per position, curated from real 2025-26 honours/stats
   manifest.webmanifest                         # PWA manifest
   sw.js                                         # service worker (same network-first shell pattern)
   icon.svg                                       # app icon
+netlify/functions/fpl-proxy.js                      # server-side proxy for the official FPL API (Fantasy → My Team)
 docs/FOOTBALL-HUB.md                              # this document
 ```
 
