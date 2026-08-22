@@ -16,7 +16,9 @@ const ALLOWED = [
   /^entry\/\d+\/$/,
   /^entry\/\d+\/event\/\d+\/picks\/$/,
   /^entry\/\d+\/history\/$/,
-  /^fixtures\/$/
+  /^fixtures\/$/,
+  /^dream-team\/\d+\/$/,
+  /^element-summary\/\d+\/$/
 ];
 
 const HEADERS = {

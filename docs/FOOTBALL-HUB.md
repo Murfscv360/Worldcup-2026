@@ -359,6 +359,25 @@ in this season.
   Every card states its reasoning in the same real numbers used to decide
   it, and a chip already used this half is always labelled "Already used"
   rather than suggested again.
+- **Dream Team comparison** — `fplDreamTeamCompare()` fetches the real,
+  official `dream-team/{event}/` endpoint (the actual highest-scoring XI
+  for the most recently finished gameweek, published by FPL itself after
+  the fact) and shows how many of it were in the visitor's own squad — a
+  genuine after-the-fact benchmark, not a prediction or a rating this app
+  computes.
+- **Track record** — a real history of captain-call accuracy, explicitly
+  **not** a self-tuning model: this app never quietly adjusts its own
+  thresholds based on this log. `fplTrackRecordWeek()` records, once per
+  gameweek, which starting-XI player had the best `ep_next` versus who the
+  visitor actually captained (stored client-side in `localStorage`, keyed
+  by team ID). Once that gameweek's real result is in,
+  `fplTrackResolveOutstanding()` fetches `element-summary/{id}/` (each
+  player's own real per-gameweek score history) for just the two players
+  in question and fills in what both actually scored (captain multiplier
+  applied), so the suggestion's accuracy is verifiable rather than
+  asserted. A week where the suggestion matched the visitor's real pick
+  needs no extra network calls at all — it's recorded as a match
+  immediately.
 - **Lineups** — this app does not show starting lineups, for the same
   reason: no data source has that information. Rather than fabricate an XI,
   `lineupsNote()` shows an honest note on each live/upcoming match card

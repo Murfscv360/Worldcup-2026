@@ -694,7 +694,7 @@ function viewFantasyBest(){
 function storedFplId(){ try{ return localStorage.getItem(FPL_KEY); }catch(e){ return null; } }
 
 async function loadFplTeam(id){
-  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null, fixtures:null };
+  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null, history:null, fixtures:null, dreamTeam:null, dreamTeamEvent:null };
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
@@ -702,18 +702,25 @@ async function loadFplTeam(id){
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
     const event = current ? current.id : 1;
-    const [entry, picks, history, fixtures] = await Promise.all([
+    const lastFinished = events.filter(e=>e.finished).sort((a,b)=>b.id-a.id)[0];
+    const [entry, picks, history, fixtures, dreamTeam] = await Promise.all([
       getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
       getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000),
       getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null),
-      getJSON(fplProxyUrl("fixtures/"), 9000).catch(()=>null)
+      getJSON(fplProxyUrl("fixtures/"), 9000).catch(()=>null),
+      lastFinished ? getJSON(fplProxyUrl(`dream-team/${lastFinished.id}/`), 9000).catch(()=>null) : Promise.resolve(null)
     ]);
     FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
+    FPL.dreamTeam = dreamTeam; FPL.dreamTeamEvent = lastFinished ? lastFinished.id : null;
+    fplTrackRecordWeek();
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
   }
   FPL.loading = false;
   if(state.view==="fantasy") render();
+  if(!FPL.error){
+    fplTrackResolveOutstanding().then(changed=>{ if(changed && state.view==="fantasy") render(); });
+  }
 }
 
 function fplElement(id){ return FPL.bootstrap && (FPL.bootstrap.elements||[]).find(e=>e.id===id); }
@@ -1034,6 +1041,86 @@ function fplChipCard(rec){
     <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":""}</p></div>`;
 }
 
+/* How this squad compared to the real, official highest-scoring XI last
+   gameweek (FPL's own dream-team/{event}/ endpoint) — a genuine after-the-
+   fact benchmark, not something this app computes or estimates itself. */
+function fplDreamTeamCompare(){
+  if(!FPL.dreamTeam || !FPL.picks) return null;
+  const dreamIds = new Set((FPL.dreamTeam.team||[]).map(t=>t.element));
+  const squadIds = (FPL.picks.picks||[]).map(p=>p.element);
+  const matched = squadIds.filter(id=>dreamIds.has(id)).map(id=>fplElement(id)).filter(Boolean);
+  return { event: FPL.dreamTeamEvent, total: dreamIds.size, matched };
+}
+
+/* ---------- Track record (captain-call accuracy over time) ----------
+   Not a self-tuning model — this app doesn't quietly adjust its own
+   thresholds based on this log. It's an honest history: each week the
+   captain suggestion is recorded, and once that gameweek actually
+   finishes, real final scores (element-summary/{id}/'s per-round history)
+   fill in what the suggested captain and the visitor's actual captain
+   really scored, so accuracy is visible over time instead of asserted. */
+function fplTrackKey(id){ return `fh_fpl_track_${id}`; }
+function fplTrackLoad(id){ try{ return JSON.parse(localStorage.getItem(fplTrackKey(id))||"[]"); }catch(e){ return []; } }
+function fplTrackSave(id, log){ try{ localStorage.setItem(fplTrackKey(id), JSON.stringify(log)); }catch(e){} }
+
+function fplTrackRecordWeek(){
+  if(!FPL.picks || !FPL.id || !FPL.event) return;
+  const log = fplTrackLoad(FPL.id);
+  if(log.some(e=>e.event===FPL.event)) return; // already logged this gameweek's call, don't overwrite it later
+  const starting = (FPL.picks.picks||[]).filter(p=>p.position<=11);
+  const capPick = starting.find(p=>p.is_captain);
+  const actualEl = capPick && fplElement(capPick.element);
+  if(!actualEl) return;
+  let suggested = actualEl, bestEp = parseFloat(actualEl.ep_next||0);
+  starting.forEach(p=>{ const el=fplElement(p.element); if(!el) return; const ep=parseFloat(el.ep_next||0); if(ep>bestEp){ bestEp=ep; suggested=el; } });
+  log.push({ event:FPL.event, suggestedId:suggested.id, suggestedName:suggested.web_name,
+    actualId:actualEl.id, actualName:actualEl.web_name, same:suggested.id===actualEl.id,
+    resolved: suggested.id===actualEl.id, suggestedPts:null, actualPts:null });
+  fplTrackSave(FPL.id, log);
+}
+
+async function fplTrackResolveOutstanding(){
+  if(!FPL.bootstrap || !FPL.id) return false;
+  const log = fplTrackLoad(FPL.id);
+  const finishedEvents = new Set((FPL.bootstrap.events||[]).filter(e=>e.finished).map(e=>e.id));
+  const pending = log.filter(e=>!e.resolved && finishedEvents.has(e.event));
+  if(!pending.length) return false;
+  let changed = false;
+  for(const entry of pending){
+    try{
+      const [sHist, aHist] = await Promise.all([
+        getJSON(fplProxyUrl(`element-summary/${entry.suggestedId}/`), 9000),
+        getJSON(fplProxyUrl(`element-summary/${entry.actualId}/`), 9000)
+      ]);
+      const sRound = (sHist.history||[]).find(h=>h.round===entry.event);
+      const aRound = (aHist.history||[]).find(h=>h.round===entry.event);
+      if(sRound && aRound){
+        entry.suggestedPts = sRound.total_points * 2; // captain multiplier
+        entry.actualPts = aRound.total_points * 2;
+        entry.resolved = true;
+        changed = true;
+      }
+    }catch(e){ /* leave unresolved, try again next visit */ }
+  }
+  if(changed) fplTrackSave(FPL.id, log);
+  return changed;
+}
+
+function fplTrackCard(entry){
+  if(entry.same){
+    return `<div class="pcard"><div class="pcard-top"><div class="pcard-nm">Gameweek ${entry.event}</div><span class="pcard-stat">Matched</span></div>
+      <p class="pcard-note">Suggestion and your actual captain were the same: ${entry.actualName}.</p></div>`;
+  }
+  if(!entry.resolved){
+    return `<div class="pcard"><div class="pcard-top"><div class="pcard-nm">Gameweek ${entry.event}</div><span class="pcard-stat">Pending</span></div>
+      <p class="pcard-note">Suggested ${entry.suggestedName} over your captain ${entry.actualName} — result not final yet.</p></div>`;
+  }
+  const diff = entry.suggestedPts - entry.actualPts;
+  const verdict = diff>0 ? `Suggestion would have scored ${diff} more` : diff<0 ? `Your captain outscored the suggestion by ${-diff}` : "Tied";
+  return `<div class="pcard"><div class="pcard-top"><div class="pcard-nm">Gameweek ${entry.event}</div><span class="pcard-stat">${diff>0?"+":""}${diff}</span></div>
+    <p class="pcard-note">Suggested ${entry.suggestedName} (${entry.suggestedPts} pts) vs your captain ${entry.actualName} (${entry.actualPts} pts) — ${verdict}.</p></div>`;
+}
+
 function fplPickCard(pick){
   const el = fplElement(pick.element);
   if(!el) return `<div class="pcard"><p class="pcard-note">Player data unavailable for this pick.</p></div>`;
@@ -1111,6 +1198,24 @@ function viewFantasyMyTeam(){
     html += sectionHead("Chip strategy", "use sparingly");
     chipRecs.forEach(r=> html += fplChipCard(r));
     html += `<p class="note">Chips are powerful but limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so these are signals for your own judgement, not automatic triggers. Bench Boost and Triple Captain compare your live squad's real expected points and fixtures against your own history; Wildcard and Free Hit look at how many of your players have a meaningfully better alternative, or no fixture at all, next gameweek.</p>`;
+  }
+
+  const dt = fplDreamTeamCompare();
+  if(dt){
+    html += sectionHead("Vs. the real Dream Team", `Gameweek ${dt.event}`);
+    if(dt.matched.length){
+      html += `<div class="banner">${dt.matched.length} of ${dt.total} in the official Gameweek ${dt.event} Dream Team were in your squad: <b>${dt.matched.map(m=>m.web_name).join(", ")}</b>.</div>`;
+    } else {
+      html += `<div class="banner">None of your Gameweek ${dt.event} squad made the official Dream Team.</div>`;
+    }
+    html += `<p class="note">The Dream Team is FPL's own real highest-scoring XI for that gameweek, fetched after the fact — this is a benchmark, not a prediction.</p>`;
+  }
+
+  const trackLog = FPL.id ? fplTrackLoad(FPL.id).slice().sort((a,b)=>b.event-a.event) : [];
+  if(trackLog.length){
+    html += sectionHead("Track record", "captain calls");
+    trackLog.slice(0,6).forEach(entry=> html += fplTrackCard(entry));
+    html += `<p class="note">A history, not a self-tuning model — this app doesn't quietly change its own thresholds based on this log. Each week's captain suggestion is recorded, and once that gameweek finishes, real final scores fill in what actually happened, so you can judge accuracy for yourself over time.</p>`;
   }
 
   const picks = (FPL.picks.picks||[]).slice().sort((a,b)=>a.position-b.position);
