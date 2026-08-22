@@ -1060,11 +1060,10 @@ function fplTransferCard(s){
   }
   const outPrice = (s.out.now_cost/10).toFixed(1), inPrice = (s.in.now_cost/10).toFixed(1);
   const bankAfter = fplBankAfter(s.out, s.in);
-  const signed = n => `${n>=0?"+":""}${n.toFixed(1)}`;
   return `<div class="pcard"><div class="pcard-top">
-    <div><div class="pcard-nm">${s.out.web_name} (£${outPrice}m) → ${s.in.web_name} (£${inPrice}m)</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
-    <span class="pcard-stat">net ${signed(s.net)}</span></div>
-    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>${signed(s.net)} net</b> · Bank after: <b>£${(bankAfter/10).toFixed(1)}m</b></p>
+    <div><div class="pcard-nm">${fplOutTag()} ${s.out.web_name} (£${outPrice}m) → ${fplInTag()} ${s.in.web_name} (£${inPrice}m)</div><div class="pcard-club">${outTeam?outTeam.name:""} → ${inTeam?inTeam.name:""}</div></div>
+    <span class="pcard-stat">net ${fplSigned(s.net)}</span></div>
+    <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>${fplSigned(s.net)} net</b> · Bank after: <b>£${(bankAfter/10).toFixed(1)}m</b></p>
     ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
 }
 
@@ -1276,6 +1275,14 @@ function fplHealthChecklistHtml(){
   return `<div class="pcard">${lines.map(l=>`<p class="pcard-note">${l}</p>`).join("")}</div>`;
 }
 
+/* One real in/out pair per position, at a glance — every position with any
+   real, affordable, fit upgrade shows it (the single best one for that
+   position by expected-points gain), even when it doesn't clear the
+   transfer-cost bar the main Suggested Transfers section requires. That bar
+   still applies to whether it's worth USING a transfer on (shown via net),
+   but a visitor asking "who's in and out for this position" gets a real
+   answer either way instead of "no change needed" whenever nothing happens
+   to be one of the (at most 2) squad-wide suggestions. */
 function fplPositionSummary(){
   const groups = { GKP:[], DEF:[], MID:[], FWD:[] };
   (FPL.picks.picks||[]).forEach(p=>{
@@ -1284,12 +1291,18 @@ function fplPositionSummary(){
     const pos = FPL_ELEMENT_POS[el.element_type];
     if(groups[pos]) groups[pos].push(el);
   });
-  const suggByOutId = {};
-  fplTransferSuggestions().forEach(s=>{ suggByOutId[s.out.id] = s; });
-  return Object.keys(groups).map(pos=>({
-    pos, players: groups[pos],
-    swap: groups[pos].map(p=>suggByOutId[p.id]).find(Boolean) || null
-  }));
+  const ft = fplFreeTransfers();
+  const candByOutId = {};
+  fplTransferCandidates().forEach(c=>{ candByOutId[c.out.id] = c; });
+  return Object.keys(groups).map(pos=>{
+    const best = groups[pos].map(p=>candByOutId[p.id]).filter(Boolean).sort((a,b)=>b.gain-a.gain)[0] || null;
+    let swap = null;
+    if(best && ft){
+      const cost = ft.chipActive ? 0 : (ft.remaining>0 ? 0 : 4);
+      swap = { out: best.out, in: best.in, gain: best.gain, cost, net: best.gain - cost };
+    }
+    return { pos, players: groups[pos], swap };
+  });
 }
 
 /* Club short-name tag next to a player's name, so a visitor never selects
@@ -1303,14 +1316,21 @@ function fplBankAfter(out, inEl){
   const bank = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
   return bank - (inEl.now_cost - out.now_cost);
 }
+function fplSigned(n){ return `${n>=0?"+":""}${n.toFixed(1)}`; }
+// Green "IN" / red "OUT" tags used everywhere a swap is shown, so it's obvious
+// at a glance which player is arriving and which is leaving without reading text.
+function fplInTag(){ return `<span style="color:#22c55e;font-weight:800">▲ IN</span>`; }
+function fplOutTag(){ return `<span style="color:var(--live);font-weight:800">▼ OUT</span>`; }
 function fplPositionSummaryHtml(){
   const groups = fplPositionSummary();
   return groups.map(g=>{
     const names = g.players.map(p=>`${p.web_name}${fplClubTag(p)}`).join(", ");
-    let action = `No change needed`;
+    let action = `<span class="note">No real upgrade found — hold.</span>`;
     if(g.swap){
       const bankAfter = fplBankAfter(g.swap.out, g.swap.in);
-      action = `<b>OUT:</b> ${g.swap.out.web_name}${fplClubTag(g.swap.out)} → <b>IN:</b> ${g.swap.in.web_name}${fplClubTag(g.swap.in)} <span class="pcard-stat" style="margin-left:6px">net +${g.swap.net.toFixed(1)}</span><br><span class="note">Bank after: £${(bankAfter/10).toFixed(1)}m</span>`;
+      const worthIt = g.swap.net > 0;
+      action = `${fplOutTag()} ${g.swap.out.web_name}${fplClubTag(g.swap.out)} → ${fplInTag()} ${g.swap.in.web_name}${fplClubTag(g.swap.in)} <span class="pcard-stat" style="margin-left:6px">net ${fplSigned(g.swap.net)}</span><br>
+        <span class="note">Bank after: £${(bankAfter/10).toFixed(1)}m${worthIt?"":" — gains points but doesn't clear the transfer-cost bar, so it's not in Suggested Transfers below"}</span>`;
     }
     return `<div class="pcard"><div class="pcard-nm">${POS_LABELS[g.pos==="GKP"?"GK":g.pos]||g.pos}</div>
       <p class="pcard-note">${names}</p>
@@ -1351,8 +1371,14 @@ function fplWeeklyBriefing(){
   const dt = fplDreamTeamCompare();
   if(dt) parts.push(`${dt.matched.length} of your players made the official Gameweek ${dt.event} Dream Team.`);
 
-  const league = fplLeagueSummary();
-  if(league && league.entryRank) parts.push(`You're currently <b>#${league.entryRank}</b> in ${league.name}.`);
+  const h2h = fplHeadToHead();
+  if(h2h){
+    const diff = h2h.diff;
+    parts.push(diff===0 ? `You're tied with ${h2h.rival.entry_name} in ${h2h.leagueName}.` : `You're ${diff>0?"ahead of":"behind"} ${h2h.rival.entry_name} by <b>${Math.abs(diff)} points</b> in ${h2h.leagueName}.`);
+  } else {
+    const league = fplLeagueSummary();
+    if(league && league.entryRank) parts.push(`You're currently <b>#${league.entryRank}</b> in ${league.name}.`);
+  }
 
   return parts.join(" ");
 }
@@ -1375,10 +1401,13 @@ function fplDreamTeamCompare(){
    estimated. Standings are paginated by the FPL API (page 1 = roughly the
    top 50), so if the visitor isn't on that first page this only shows
    their real rank/total from their own entry record, not a fabricated row. */
+// FPL.id is the string from the ID input; a standings row's entry is a real
+// number from the API — compared as strings so "is this me" actually matches.
+function fplIsMe(entryId){ return String(entryId)===String(FPL.id); }
 function fplLeagueSummary(){
   if(!FPL.league) return null;
   const results = (FPL.leagueStandings && FPL.leagueStandings.standings && FPL.leagueStandings.standings.results) || [];
-  const userRow = results.find(r=>r.entry===FPL.id) || null;
+  const userRow = results.find(r=>fplIsMe(r.entry)) || null;
   return {
     name: FPL.league.name,
     entryRank: FPL.league.entry_rank || (userRow && userRow.rank) || null,
@@ -1388,18 +1417,47 @@ function fplLeagueSummary(){
     loaded: !!FPL.leagueStandings
   };
 }
+/* A genuine 2-manager private league (e.g. a family league) is a head-to-head,
+   not a standings table — shown as a direct you-vs-them comparison using the
+   real total (season) and event_total (this gameweek, when the API includes
+   it) fields from the same real standings response, rather than a generic
+   top-5 list with just two rows in it. Never hardcodes a rival's name — it's
+   whichever real second entry the league actually has. */
+function fplHeadToHead(){
+  const results = (FPL.leagueStandings && FPL.leagueStandings.standings && FPL.leagueStandings.standings.results) || [];
+  if(results.length !== 2) return null;
+  const me = results.find(r=>fplIsMe(r.entry));
+  const rival = results.find(r=>!fplIsMe(r.entry));
+  if(!me || !rival) return null;
+  return { me, rival, diff: me.total - rival.total, leagueName: FPL.league && FPL.league.name };
+}
+function fplHeadToHeadHtml(){
+  const h2h = fplHeadToHead();
+  if(!h2h) return "";
+  const { me, rival, diff } = h2h;
+  const ahead = diff>0, tied = diff===0;
+  const weekLine = (me.event_total!=null && rival.event_total!=null)
+    ? `<p class="pcard-note">This gameweek: <b>${me.event_total}</b> vs <b>${rival.event_total}</b> (${rival.entry_name}).</p>` : "";
+  return `<div class="pcard"><div class="pcard-nm">${h2h.leagueName || "Head-to-head"}</div>
+    <div class="pcard-top"><div><div class="pcard-nm">You — ${me.entry_name}</div><div class="pcard-club">${me.player_name}</div></div><span class="pcard-stat">${me.total} pts</span></div>
+    <div class="pcard-top"><div><div class="pcard-nm">${rival.entry_name}</div><div class="pcard-club">${rival.player_name}</div></div><span class="pcard-stat">${rival.total} pts</span></div>
+    <p class="pcard-note">${tied?"Tied on points overall.":`${ahead?"You're":rival.entry_name+" is"} ahead by <b>${Math.abs(diff)} ${Math.abs(diff)===1?"point":"points"}</b> overall.`}</p>
+    ${weekLine}</div>`;
+}
 function fplLeagueSummaryHtml(){
   const l = fplLeagueSummary();
   if(!l) return "";
+  const h2h = fplHeadToHeadHtml();
+  if(h2h) return h2h;
   let html = `<div class="banner">${l.entryRank?`Your rank: <b>#${l.entryRank}</b>${l.entryLastRank?` (was #${l.entryLastRank})`:""}`:"Your rank in this league isn't available this time."}</div>`;
   if(l.top.length){
     html += l.top.map(r=>{
-      const mine = r.entry===FPL.id;
+      const mine = fplIsMe(r.entry);
       return `<div class="pcard"${mine?' style="border-color:var(--accent,#3b82f6)"':""}><div class="pcard-top">
         <div><div class="pcard-nm">${mine?"👉 ":""}${r.entry_name}</div><div class="pcard-club">${r.player_name}</div></div>
         <span class="pcard-stat">#${r.rank} · ${r.total} pts</span></div></div>`;
     }).join("");
-    if(l.userRow && !l.top.some(r=>r.entry===FPL.id)){
+    if(l.userRow && !l.top.some(r=>fplIsMe(r.entry))){
       html += `<div class="pcard" style="border-color:var(--accent,#3b82f6)"><div class="pcard-top">
         <div><div class="pcard-nm">👉 ${l.userRow.entry_name}</div><div class="pcard-club">${l.userRow.player_name}</div></div>
         <span class="pcard-stat">#${l.userRow.rank} · ${l.userRow.total} pts</span></div></div>`;
