@@ -1199,9 +1199,9 @@ function viewFantasyMyTeam(){
     html += `<p class="note">No changes suggested — your captain and starting XI already line up with the official expected-points model.</p>`;
   }
 
+  html += sectionHead("Suggested transfers", "from official FPL data");
   const ft = fplFreeTransfers();
   if(ft){
-    html += sectionHead("Suggested transfers", "from official FPL data");
     html += `<div class="banner">Free transfers available: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} used so far this gameweek`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
     const suggestions = fplTransferSuggestions();
     if(suggestions.length){
@@ -1210,13 +1210,19 @@ function viewFantasyMyTeam(){
     } else {
       html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
     }
+  } else if(FPL.event && FPL.event < 2){
+    html += `<p class="note">Transfer rules — and this section — apply from Gameweek 2 onward.</p>`;
+  } else {
+    html += `<p class="note">Couldn't work out your free transfers this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
 
+  html += sectionHead("Chip strategy", "use sparingly");
   const chipRecs = fplChipRecommendations();
   if(chipRecs.length){
-    html += sectionHead("Chip strategy", "use sparingly");
     chipRecs.forEach(r=> html += fplChipCard(r));
     html += `<p class="note">Chips are powerful but limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so these are signals for your own judgement, not automatic triggers. Bench Boost and Triple Captain compare your live squad's real expected points and fixtures against your own history; Wildcard and Free Hit look at how many of your players have a meaningfully better alternative, or no fixture at all, next gameweek.</p>`;
+  } else {
+    html += `<p class="note">Couldn't work out chip guidance this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
 
   const dt = fplDreamTeamCompare();
@@ -1228,6 +1234,9 @@ function viewFantasyMyTeam(){
       html += `<div class="banner">None of your Gameweek ${dt.event} squad made the official Dream Team.</div>`;
     }
     html += `<p class="note">The Dream Team is FPL's own real highest-scoring XI for that gameweek, fetched after the fact — this is a benchmark, not a prediction.</p>`;
+  } else if(FPL.dreamTeamEvent){
+    html += sectionHead("Vs. the real Dream Team", `Gameweek ${FPL.dreamTeamEvent}`);
+    html += `<p class="note">Couldn't load the official Dream Team this time — try tapping Load again.</p>`;
   }
 
   const trackLog = FPL.id ? fplTrackLoad(FPL.id).slice().sort((a,b)=>b.event-a.event) : [];
