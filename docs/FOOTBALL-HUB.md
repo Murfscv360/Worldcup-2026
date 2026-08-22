@@ -313,7 +313,13 @@ in this season.
   card shows both players' actual prices so that's visible, not implied.
   Squad value and bank are also always shown in the summary banner. Every
   suggestion shows its exact point math (gain, cost, net) rather than a
-  bare verdict.
+  bare verdict. `fplClubCounts()` enforces the real FPL squad rule of a
+  maximum of 3 players from any one club — computed excluding the player
+  being replaced, so a same-club swap (e.g. one Arsenal player for another)
+  is still allowed while a swap that would push a club to 4 is rejected
+  before it's ever shown. The same check applies to the Wildcard signal
+  below, so its "meaningfully better alternative" count never includes an
+  illegal swap either.
 - **Fixture-difficulty index** — `fplUpcomingFixtures()` reads the real
   `fixtures/` endpoint (added to the proxy whitelist alongside the others)
   and averages FPL's own published Fixture Difficulty Rating (1 easiest–5

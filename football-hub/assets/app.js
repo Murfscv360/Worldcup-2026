@@ -845,6 +845,21 @@ function fplFreeTransfers(){
    and bank are also always shown alongside these suggestions so the
    budget picture is never hidden. */
 const FPL_EP_TOLERANCE = 0.3;
+const FPL_MAX_PER_CLUB = 3; // real FPL squad rule: no more than 3 players from one club
+
+/* Club counts across the current 15, optionally excluding one element
+   (the player being replaced) — used to check whether adding a candidate
+   would push their club over the real 3-per-club squad limit. */
+function fplClubCounts(excludeElementId){
+  const counts = {};
+  (FPL.picks && FPL.picks.picks || []).forEach(p=>{
+    if(p.element===excludeElementId) return;
+    const el = fplElement(p.element);
+    if(el) counts[el.team] = (counts[el.team]||0)+1;
+  });
+  return counts;
+}
+
 function fplTransferSuggestions(){
   if(!FPL.picks || !FPL.bootstrap) return [];
   const ft = fplFreeTransfers();
@@ -859,8 +874,10 @@ function fplTransferSuggestions(){
     if(!cur) return;
     const budget = cur.now_cost + bank;
     const curEp = parseFloat(cur.ep_next||0);
+    const clubCounts = fplClubCounts(cur.id); // excludes the player being replaced
     const fits = elements.filter(cand=>
-      !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" && cand.now_cost<=budget);
+      !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" && cand.now_cost<=budget &&
+      (clubCounts[cand.team]||0) < FPL_MAX_PER_CLUB);
     if(!fits.length) return;
     const bestEp = fits.reduce((m,c)=> Math.max(m, parseFloat(c.ep_next||0)), curEp);
     if(bestEp<=curEp) return; // no real upgrade available for this slot
@@ -972,9 +989,11 @@ function fplWildcardSignal(){
     if(!cur) return;
     const budget = cur.now_cost + bank;
     const curEp = parseFloat(cur.ep_next||0);
+    const clubCounts = fplClubCounts(cur.id);
     const hasUpgrade = elements.some(cand=>
       !squadIds.has(cand.id) && cand.element_type===cur.element_type && cand.status==="a" &&
-      cand.now_cost<=budget && parseFloat(cand.ep_next||0)-curEp>=1.5);
+      cand.now_cost<=budget && parseFloat(cand.ep_next||0)-curEp>=1.5 &&
+      (clubCounts[cand.team]||0) < FPL_MAX_PER_CLUB);
     if(hasUpgrade) meaningfulUpgrades++;
   });
   return { meaningfulUpgrades, worth: meaningfulUpgrades>=5 };
@@ -1187,7 +1206,7 @@ function viewFantasyMyTeam(){
     const suggestions = fplTransferSuggestions();
     if(suggestions.length){
       suggestions.forEach(s=> html += fplTransferCard(s));
-      html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Among affordable options within ${FPL_EP_TOLERANCE} expected points of the best one for a slot, the cheapest is suggested — not always the priciest name — so a swap doesn't need to burn your whole budget. Only swaps with a positive net gain after any point-hit are shown.</p>`;
+      html += `<p class="note">Budget check uses each squad player's current market price as a stand-in for your actual sell value (FPL's exact sell price isn't in the public API and can run below market price after a rise). Among affordable options within ${FPL_EP_TOLERANCE} expected points of the best one for a slot, the cheapest is suggested — not always the priciest name — so a swap doesn't need to burn your whole budget. No suggestion would push any club above the real 3-players-per-club squad limit. Only swaps with a positive net gain after any point-hit are shown.</p>`;
     } else {
       html += `<p class="note">No transfer currently looks worth it once the point cost is factored in.</p>`;
     }
