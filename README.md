@@ -29,9 +29,12 @@ countdown** to kickoff, a **My Teams** tab to follow multiple clubs across both 
 always shows the full club roster (zero-seeded until each club has played), a summer
 transfer-window tracker, curated news, a title-odds market snapshot, and a **Fantasy**
 tab with a curated top-3-per-position "best XI" grounded in real 2025-26 season stats
-and honours. No starting lineups or live per-gameweek fantasy points are shown, since
-no data source for either exists yet — the app says so honestly rather than fabricating
-them. See
+and honours, plus a **My Team** view that loads a visitor's own live squad directly
+from the official Fantasy Premier League API (given their team ID) and suggests
+captain/bench changes by comparing the API's own expected-points and injury data —
+no separate prediction model, and no fabricated stats if that live fetch can't reach
+the visitor's browser. No starting lineups are shown, since no data source for that
+exists yet — the app says so honestly rather than fabricating them. See
 [`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
 
 🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/

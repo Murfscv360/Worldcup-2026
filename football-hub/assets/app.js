@@ -643,7 +643,23 @@ function viewOdds(){
 }
 
 const POS_LABELS = { GK:"Goalkeepers", DEF:"Defenders", MID:"Midfielders", FWD:"Forwards" };
+const FPL_ELEMENT_POS = { 1:"GKP", 2:"DEF", 3:"MID", 4:"FWD" };
+const FPL_KEY = "fh_fpl_id";
+const FPL_API = "https://fantasy.premierleague.com/api";
+let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null };
+
+function fantasySwitcher(){
+  return `<div class="stat-controls">
+    <button class="chipbtn ${state.fantasySub!=="myteam"?"on":""}" data-fsub="best">Best XI</button>
+    <button class="chipbtn ${state.fantasySub==="myteam"?"on":""}" data-fsub="myteam">My Team</button>
+  </div>`;
+}
 function viewFantasy(){
+  let html = fantasySwitcher();
+  html += state.fantasySub==="myteam" ? viewFantasyMyTeam() : viewFantasyBest();
+  return html;
+}
+function viewFantasyBest(){
   let html = sectionHead("Fantasy watch — best XI", `snapshot ${fmtDate(PLAYERS.asOf)}`);
   html += `<div class="banner">${PLAYERS.note}</div>`;
   Object.keys(POS_LABELS).forEach(pos=>{
@@ -659,6 +675,142 @@ function viewFantasy(){
     html += `</div>`;
   });
   html += `<p class="note">Premier League only, based on real 2025-26 season honours and stats (Golden Boot, Golden Glove, Playmaker of the Season, Team of the Season). This is a curated editorial guide, not a live per-gameweek Fantasy Premier League points feed — see docs/FOOTBALL-HUB.md for sources.</p>`;
+  return html;
+}
+
+/* ---------- Live "My FPL Team" (official Fantasy Premier League API) ---------- */
+
+function storedFplId(){ try{ return localStorage.getItem(FPL_KEY); }catch(e){ return null; } }
+
+async function loadFplTeam(id){
+  FPL = { id, event: FPL.event, loading:true, error:null, bootstrap:null, entry:null, picks:null };
+  try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
+  if(state.view==="fantasy") render();
+  try{
+    const bootstrap = await getJSON(`${FPL_API}/bootstrap-static/`, 9000);
+    const events = bootstrap.events || [];
+    const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
+    const event = current ? current.id : 1;
+    const [entry, picks] = await Promise.all([
+      getJSON(`${FPL_API}/entry/${id}/`, 9000).catch(()=>null),
+      getJSON(`${FPL_API}/entry/${id}/event/${event}/picks/`, 9000)
+    ]);
+    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event;
+  }catch(e){
+    FPL.error = "Couldn't load your live team in this browser. The official Fantasy Premier League API doesn't reliably allow direct requests from other websites, so this may not work even with a valid team ID — see the note below.";
+  }
+  FPL.loading = false;
+  if(state.view==="fantasy") render();
+}
+
+function fplElement(id){ return FPL.bootstrap && (FPL.bootstrap.elements||[]).find(e=>e.id===id); }
+function fplTeamMeta(id){ return FPL.bootstrap && (FPL.bootstrap.teams||[]).find(t=>t.id===id); }
+function fplStatusFlag(el){
+  if(!el) return "";
+  const labels = { d:"Doubtful", i:"Injured", s:"Suspended", u:"Unavailable", n:"Not available" };
+  if(el.status && el.status!=="a" && labels[el.status]) return labels[el.status];
+  if(el.chance_of_playing_next_round!=null && el.chance_of_playing_next_round<100) return `${el.chance_of_playing_next_round}% chance of playing`;
+  return "";
+}
+
+function fplRecommendations(){
+  const recs = [];
+  if(!FPL.picks || !FPL.bootstrap) return recs;
+  const picks = FPL.picks.picks || [];
+  const starting = picks.filter(p=>p.position<=11);
+  const bench = picks.filter(p=>p.position>11);
+
+  const capPick = starting.find(p=>p.is_captain);
+  const capEl = capPick && fplElement(capPick.element);
+  if(capEl){
+    let best = null, bestEp = parseFloat(capEl.ep_next||0);
+    starting.forEach(p=>{
+      const el = fplElement(p.element);
+      if(!el) return;
+      const ep = parseFloat(el.ep_next||0);
+      if(ep > bestEp){ bestEp = ep; best = el; }
+    });
+    if(best){
+      recs.push({title:`Consider captaining ${best.web_name} instead of ${capEl.web_name}`,
+        body:`${best.web_name}'s official expected points for the next gameweek (${bestEp.toFixed(1)}) is higher than your current captain's (${parseFloat(capEl.ep_next||0).toFixed(1)}).`});
+    }
+  }
+
+  starting.forEach(p=>{
+    const el = fplElement(p.element);
+    if(!el) return;
+    const flagged = (el.status && el.status!=="a") || (el.chance_of_playing_next_round!=null && el.chance_of_playing_next_round<75);
+    if(!flagged) return;
+    const alt = bench.map(b=>fplElement(b.element)).filter(Boolean).filter(b=>(!b.status || b.status==="a"))
+      .sort((a,b)=>parseFloat(b.ep_next||0)-parseFloat(a.ep_next||0))[0];
+    recs.push({title:`${el.web_name} is flagged`,
+      body:`${el.news || fplStatusFlag(el) || "Reduced chance of playing this gameweek."}${alt?` Your bench has ${alt.web_name} (${parseFloat(alt.ep_next||0).toFixed(1)} expected pts) available as a fit alternative.`:""}`});
+  });
+
+  return recs;
+}
+
+function fplPickCard(pick){
+  const el = fplElement(pick.element);
+  if(!el) return `<div class="pcard"><p class="pcard-note">Player data unavailable for this pick.</p></div>`;
+  const team = fplTeamMeta(el.team);
+  const tag = pick.is_captain ? " (C)" : pick.is_vice_captain ? " (VC)" : "";
+  const flag = fplStatusFlag(el);
+  return `<div class="pcard"><div class="pcard-top">
+    <div><div class="pcard-nm">${el.web_name}${tag}</div><div class="pcard-club">${team?team.name:""} · ${FPL_ELEMENT_POS[el.element_type]||""}</div></div>
+    <span class="pcard-stat">${el.ep_next?parseFloat(el.ep_next).toFixed(1)+" xPts":"–"}</span></div>
+    ${flag?`<p class="pcard-note">⚠️ ${el.news || flag}</p>`:""}</div>`;
+}
+
+function viewFantasyMyTeam(){
+  const sid = storedFplId();
+  let html = `<div class="fpl-form"><label for="fplIdInput">Your FPL Team ID</label>
+    <div class="fpl-form-row"><input id="fplIdInput" class="fpl-input" inputmode="numeric" placeholder="e.g. 5933243" value="${sid?String(sid):""}" />
+    <button class="chipbtn on" id="fplLoadBtn">Load</button></div>
+    <p class="note">Find this in your team's URL on fantasy.premierleague.com — the number right after <code>/entry/</code>. Stored only in your browser, never sent anywhere but the official FPL site.</p></div>`;
+
+  if(!sid && !FPL.id){
+    html += `<div class="empty">Enter your team ID above to load your live squad and get recommendations.</div>`;
+    return html;
+  }
+  if(FPL.loading){
+    html += `<div class="empty">Loading your live team from the official Fantasy Premier League site…</div>`;
+    return html;
+  }
+  if(FPL.error){
+    const linkId = FPL.id || sid;
+    html += `<div class="banner">${FPL.error}</div>
+      <p class="note"><a href="https://fantasy.premierleague.com/entry/${linkId}/event/1" target="_blank" rel="noopener">View your team directly on fantasy.premierleague.com →</a></p>`;
+    return html;
+  }
+  if(!FPL.picks || !FPL.bootstrap){
+    html += `<div class="empty">Not loaded yet — click Load.</div>`;
+    return html;
+  }
+
+  const entryName = FPL.entry && FPL.entry.name;
+  const managerName = FPL.entry ? `${FPL.entry.player_first_name||""} ${FPL.entry.player_last_name||""}`.trim() : "";
+  const gwPoints = FPL.picks.entry_history && FPL.picks.entry_history.points;
+  const overallRank = (FPL.entry && FPL.entry.summary_overall_rank) || (FPL.picks.entry_history && FPL.picks.entry_history.overall_rank);
+
+  html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
+  html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}</div>`;
+
+  const recs = fplRecommendations();
+  html += sectionHead("Recommendations", "from official FPL data");
+  if(recs.length){
+    recs.forEach(r=> html += `<div class="pcard"><div class="pcard-nm">${r.title}</div><p class="pcard-note">${r.body}</p></div>`);
+  } else {
+    html += `<p class="note">No changes suggested — your captain and starting XI already line up with the official expected-points model.</p>`;
+  }
+
+  const picks = (FPL.picks.picks||[]).slice().sort((a,b)=>a.position-b.position);
+  html += sectionHead("Starting XI");
+  picks.filter(p=>p.position<=11).forEach(p=> html += fplPickCard(p));
+  html += sectionHead("Bench");
+  picks.filter(p=>p.position>11).forEach(p=> html += fplPickCard(p));
+
+  html += `<p class="note">Squad, form, expected points ("xPts" = FPL's own <code>ep_next</code> model) and injury/rotation flags are pulled live from the official Fantasy Premier League API. Recommendations compare real values across your own squad — not a separate prediction model.</p>`;
   return html;
 }
 
@@ -767,7 +919,7 @@ function viewLive(){
 const VIEWS = { today:viewToday, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds, fantasy:viewFantasy };
 const TAB_LABELS = { today:"Today", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds", fantasy:"Fantasy" };
 
-const state = { view:"today", comp:"epl" };
+const state = { view:"today", comp:"epl", fantasySub:"best" };
 
 function render(){
   const fn = VIEWS[state.view];
@@ -784,8 +936,22 @@ function render(){
   });
   document.querySelectorAll("[data-goto]").forEach(b=> b.addEventListener("click", ()=> setView(b.dataset.goto)));
   document.querySelectorAll("[data-comp]").forEach(b=> b.addEventListener("click", ()=>{ state.comp = b.dataset.comp; render(); }));
+  document.querySelectorAll("[data-fsub]").forEach(b=> b.addEventListener("click", ()=>{ state.fantasySub = b.dataset.fsub; render(); }));
   document.getElementById("myTeamsPick")?.addEventListener("click", openFavSheet);
   document.getElementById("myTeamsEdit")?.addEventListener("click", openFavSheet);
+  const fplBtn = document.getElementById("fplLoadBtn");
+  if(fplBtn){
+    const fire = ()=>{
+      const v = document.getElementById("fplIdInput").value.trim();
+      if(/^\d+$/.test(v)) loadFplTeam(v);
+    };
+    fplBtn.addEventListener("click", fire);
+    document.getElementById("fplIdInput")?.addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); fire(); } });
+  }
+  if(state.view==="fantasy" && state.fantasySub==="myteam"){
+    const sid = storedFplId();
+    if(sid && !FPL.loading && FPL.id!==sid) loadFplTeam(sid);
+  }
   tickCountdowns();
 }
 function setView(v){ state.view = v; render(); window.scrollTo({top:0, behavior:"smooth"}); }
