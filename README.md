@@ -25,9 +25,13 @@ the Prem, Paramount+/CBS for the Championship) and **live radio links** (talkSPO
 Radio 5 Live, TuneIn), and professional "Analyst's Desk" commentary generated from real
 table/form data. A **real-time, second-by-second
 countdown** to kickoff, a **My Teams** tab to follow multiple clubs across both divisions
-(fixtures, results, and club-tagged news/transfers), real final tables for both divisions
-as a reference until 2026-27 results land, a summer transfer-window tracker, curated
-news, and a title-odds market snapshot. See
+(fixtures, results, and club-tagged news/transfers), a live table for both divisions that
+always shows the full club roster (zero-seeded until each club has played), a summer
+transfer-window tracker, curated news, a title-odds market snapshot, and a **Fantasy**
+tab with a curated top-3-per-position "best XI" grounded in real 2025-26 season stats
+and honours. No starting lineups or live per-gameweek fantasy points are shown, since
+no data source for either exists yet — the app says so honestly rather than fabricating
+them. See
 [`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
 
 🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/

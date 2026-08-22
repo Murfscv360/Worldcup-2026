@@ -1,8 +1,11 @@
 {
-  "_source": "Curated from press-reported confirmed deals (FootballTransfers, CaughtOffside, Sky Sports) as of 2026-07-23. Fees are best-available press reports and may be rounded/estimated — see docs/FOOTBALL-HUB.md. \"clubs\" tags (= [from, to]) drive the My Teams view.",
+  "_source": "Curated from press-reported confirmed deals (Sky Sports, ESPN, FootballTransfers, Arsenal.com, Liverpool FC) as of 2026-08-17. Fees are best-available press reports and may be rounded/estimated — see docs/FOOTBALL-HUB.md. \"clubs\" tags (= [from, to]) drive the My Teams view.",
   "windowOpens": "2026-06-15",
   "windowCloses": "2026-09-01",
   "deals": [
+    {"date":"2026-08-08","player":"Bruno Guimarães","from":"Newcastle United","to":"Arsenal","fee":"£75m","status":"confirmed","note":"Four-year deal with a further one-year option; Arsenal's third summer signing after Illan Meslier and Christos Tzolis","clubs":["Newcastle United","Arsenal"]},
+    {"date":"2026-08-06","player":"Ronald Araújo","from":"Barcelona","to":"Liverpool","fee":"loan, €55m option","status":"confirmed","note":"Season-long loan with no fee, Liverpool covering wages; replaces Ibrahima Konaté, who left for Real Madrid","clubs":["Liverpool"]},
+    {"date":"2026-08-05","player":"Christian Nørgaard","from":"Arsenal","to":"Everton","fee":"€8.2m","status":"confirmed","note":"Two-year deal; started just 7 league games in Arsenal's title-winning 2025-26 season","clubs":["Arsenal","Everton"]},
     {"date":"2026-07-22","player":"Morgan Rogers","from":"Aston Villa","to":"Chelsea","fee":"£117m","status":"confirmed","note":"Reported British transfer record","clubs":["Aston Villa","Chelsea"]},
     {"date":"2026-07-21","player":"Elliot Anderson","from":"Nottingham Forest","to":"Manchester City","fee":"€135m","status":"confirmed","note":"Reported record fee for an English player","clubs":["Nottingham Forest","Manchester City"]},
     {"date":"2026-07-18","player":"Sandro Tonali","from":"Newcastle United","to":"Tottenham Hotspur","fee":"undisclosed","status":"confirmed","note":"Part of Spurs' summer spending spree, reported combined spend ~€267m","clubs":["Newcastle United","Tottenham Hotspur"]},

@@ -1,0 +1,27 @@
+{
+  "_source": "Curated editorial picks based on real, verified 2025-26 Premier League season data (Premier League awards, Sky Sports, ESPN, Opta Analyst) plus confirmed 2026-27 form where noted. Not a live per-gameweek Fantasy Premier League feed — see docs/FOOTBALL-HUB.md.",
+  "asOf": "2026-08-17",
+  "note": "Three picks per position, grounded in real 2025-26 season honours and stats — a curated \"who to watch\" guide, not a live fantasy-points tracker.",
+  "positions": {
+    "GK": [
+      {"name": "David Raya", "club": "Arsenal FC", "stat": "19 clean sheets", "note": "Won a third straight Golden Glove in 2025-26 and started the new season as first choice behind the league's best defensive record."},
+      {"name": "Gianluigi Donnarumma", "club": "Manchester City FC", "stat": "15 clean sheets", "note": "Kept 15 clean sheets in his debut Premier League season after joining Manchester City, finishing runner-up in the 2025-26 Golden Glove race."},
+      {"name": "Bart Verbruggen", "club": "Brighton & Hove Albion FC", "stat": "67.4% save rate", "note": "Sharply improved shot-stopping numbers in 2025-26 made him one of the league's most in-form goalkeepers heading into 2026-27."}
+    ],
+    "DEF": [
+      {"name": "William Saliba", "club": "Arsenal FC", "stat": "Dribbled past 7 times all season", "note": "Anchored the league's meanest defence in Arsenal's title-winning 2025-26 campaign, one of the hardest defenders in the league to beat 1v1."},
+      {"name": "Gabriel Magalhães", "club": "Arsenal FC", "stat": "15 clean sheets alongside Saliba", "note": "In the conversation for Player of the Season for long spells of 2025-26 as one half of the league's best centre-back pairing."},
+      {"name": "Jurrien Timber", "club": "Arsenal FC", "stat": "Team of the Season pick", "note": "Converted from centre-back to a marauding right-back and was one of the league's standout defenders in Arsenal's title season."}
+    ],
+    "MID": [
+      {"name": "Bruno Fernandes", "club": "Manchester United FC", "stat": "21 assists (PL record)", "note": "Broke the Premier League single-season assists record in 2025-26 and won the Playmaker of the Season award by nine clear assists."},
+      {"name": "Rayan Cherki", "club": "Manchester City FC", "stat": "5 goals, 10 assists", "note": "A creative spark in his debut Premier League season at Manchester City, finishing second in the league's assists chart behind Bruno Fernandes."},
+      {"name": "Martin Ødegaard", "club": "Arsenal FC", "stat": "Scored in the 2026-27 opener", "note": "Arsenal's captain and the engine of their 2025-26 title win, off the mark again with a goal in the 3-0 season-opening win over Coventry City."}
+    ],
+    "FWD": [
+      {"name": "Erling Haaland", "club": "Manchester City FC", "stat": "27 goals — Golden Boot", "note": "Won a third Golden Boot in four seasons in 2025-26, five goals clear of nearest challenger Igor Thiago."},
+      {"name": "Igor Thiago", "club": "Brentford FC", "stat": "22 goals", "note": "The breakout striker of 2025-26, finishing as the league's second-top scorer for newly ambitious Brentford."},
+      {"name": "Viktor Gyökeres", "club": "Arsenal FC", "stat": "14 goals", "note": "Scored 14 in his first Premier League season after a big-money move from Sporting CP, part of the title-winning Arsenal squad."}
+    ]
+  }
+}

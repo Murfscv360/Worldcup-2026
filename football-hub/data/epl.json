@@ -500,9 +500,9 @@
     "note": "Full 380-fixture list published by the Premier League; this app surfaces confirmed headline fixtures and switches to the live 2026-27 results feed automatically once openfootball publishes it."
   },
   "titleOdds": {
-    "asOf": "2026-07-23",
-    "source": "Polymarket (\"Premier League Winner 2026\") + UK bookmaker prices, converted to implied probability",
-    "sourceUrl": "https://polymarket.com/event/premier-league-winner",
+    "asOf": "2026-08-17",
+    "source": "UK/US bookmaker outright prices for the 2026-27 title race, converted to implied probability",
+    "sourceUrl": "https://www.sportsbettingdime.com/soccer/futures/epl-trophy-odds/",
     "market": [
       [
         "Arsenal",
@@ -510,7 +510,7 @@
       ],
       [
         "Manchester City",
-        29.0
+        26.0
       ],
       [
         "Liverpool",
@@ -518,23 +518,23 @@
       ],
       [
         "Manchester United",
-        7.5
+        9.0
       ],
       [
         "Chelsea",
-        3.5
+        6.0
       ],
       [
         "Newcastle United",
-        1.5
+        2.0
       ],
       [
         "Aston Villa",
-        1.2
+        1.5
       ],
       [
         "Tottenham Hotspur",
-        0.9
+        1.3
       ],
       [
         "Brighton",
@@ -545,6 +545,6 @@
         0.3
       ]
     ],
-    "note": "Preseason outright market — a snapshot, not a live feed. Manchester City enter their first title race of the post-Pep Guardiola era under new manager Enzo Maresca."
+    "note": "Early-season outright market — a snapshot, not a live feed. Arsenal open as clear favourites to defend their title; Manchester City begin their first campaign under new manager Enzo Maresca, who succeeded Pep Guardiola after his decade-long spell ended in May 2026."
   }
 }

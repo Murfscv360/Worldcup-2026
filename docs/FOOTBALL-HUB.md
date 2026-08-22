@@ -146,6 +146,7 @@ live.
 | **Teams** | `viewTeams` | this season's clubs for the selected competition — ground, city, founded, promoted/relegated flags | crest colours |
 | **Champions League** | `viewUCL` | 25-26 result recap, 26-27 English entrants, format, key dates | — |
 | **Odds** | `viewOdds` | title-winner market snapshot (dated, sourced) | weekly 1X2 predictor (activates once fixtures are live), clearly labelled informational |
+| **Fantasy** | `viewFantasy` | — | curated "top 3 per position" guide (`data/players.json`), grounded in real 2025-26 Premier League honours and stats |
 
 Table/Fixtures/Teams share a **competition switcher** (`compSwitcher()`) so
 the same tab serves both divisions instead of doubling the tab bar; `My
@@ -231,6 +232,24 @@ in this season.
   from **real** inputs only — league position, points, and a 5-match form
   streak computed from actual results — never fabricated stats, scorers, or
   play-by-play we don't have data for.
+- **Fantasy watch** — `viewFantasy()` renders `data/players.json`, three
+  players per position (GK/DEF/MID/FWD) with a real stat line and a short
+  editorial note each. This is a **curated snapshot**, not a live Fantasy
+  Premier League integration: this app has no player-level data feed (the
+  openfootball results feed only carries team scores, not lineups or
+  individual stats), and the public FPL API
+  (`fantasy.premierleague.com/api/bootstrap-static/`) was unreachable from
+  this app's build environment and its cross-origin support for a static
+  page was never verified — so rather than wire up an unverified live
+  integration or fabricate player stats, the picks are hand-researched from
+  real, sourced 2025-26 season honours (Golden Boot, Golden Glove, Playmaker
+  of the Season, PFA/fan Team of the Season) and dated like the rest of the
+  app's curated content.
+- **Lineups** — this app does not show starting lineups, for the same
+  reason: no data source has that information. Rather than fabricate an XI,
+  `lineupsNote()` shows an honest note on each live/upcoming match card
+  pointing to the official match centre (premierleague.com or efl.com),
+  where confirmed lineups are published shortly before kickoff.
 - **Live refresh cadence** — mirrors the World Cup app: countdowns tick
   every 1s, dynamic views (Live/Today) re-render every 20s to pick up
   status transitions, and the full data set re-fetches over the network
@@ -251,6 +270,7 @@ in this season.
 | **`data/epl.json` / `data/championship.json`** | Clubs, promoted/relegated, Golden Boot, title-odds snapshot | ✅ Hand-curated from verified sources (see file header); last-season tables are **computed**, not typed — see §1a and the load scripts in the PR history. The Championship table applies a real 6-point deduction to Leicester City (EFL Profit & Sustainability Rules breach, upheld on appeal) — without it, a pure results table would incorrectly keep Leicester up and Blackburn Rovers down, which the real, confirmed 2026-27 fixture list (Blackburn present, Leicester absent) proved wrong. The 2026-27 Championship club roster (incl. Bolton Wanderers, Cardiff City, Lincoln City up from League One) is cross-checked against that same real fixture list, not assumed. |
 | **`data/ucl.json`** | UCL 25-26 recap + 26-27 entrants/dates | ✅ Hand-curated (draw is 27 Aug 2026 — the 26-27 league-phase table does not exist yet and is **not fabricated**) |
 | **`data/news.json` / `data/transfers.json`** | Editorial feed, club-tagged (`clubs: [...]`) | ✅ Hand-curated, dated, sourced |
+| **`data/players.json`** | Fantasy tab — top 3 per position | ✅ Hand-curated from real, sourced 2025-26 Premier League honours/stats (Golden Boot, Golden Glove, Playmaker/Team of the Season) — not a live FPL feed, see §5 |
 | **flashscore / BBC Sport / ESPN / premierleague.com** | (referenced in the original build brief as the desired live-score experience) | ❌ Not used as a source — no public API, no CORS, scraping would violate ToS. See §1a. |
 | **A live in-play provider** (API-Football, Opta, etc.) | Minute-by-minute live scores during matches | 🔌 Integration-ready — same proxy pattern documented in the World Cup app's `docs/ROADMAP.md` M1: a serverless function holds the key, the client fetches the function. Until wired up, this app's "live" table/results reflect the openfootball feed's own update cadence (after full time, not per-minute in-play); the Live tab's "LIVE" badge/clock is a kickoff-time estimate, not a synced in-play feed (see the note printed on that tab). |
 | **US TV rights (Premier League)** | `tvNote("epl")` copy | ✅ Verified: NBCUniversal holds exclusive US rights through 2027-28; Peacock streams all matches, NBC/USA Network carry marquee fixtures. [NBCUniversal six-year extension](https://corporate.comcast.com/press/releases/nbcuniversal-six-year-extension-exclusive-us-home-of-premier-league), [RenderFoot 2026/27 guide](https://www.renderfoot.com/blog/how-to-watch-premier-league-in-usa) |
@@ -290,6 +310,7 @@ football-hub/
   data/ucl.json                             # UCL 25-26 recap + 26-27 entrants/format/dates
   data/news.json                             # curated news feed, club-tagged
   data/transfers.json                         # curated transfer tracker, club-tagged
+  data/players.json                            # Fantasy tab — top 3 per position, curated from real 2025-26 honours/stats
   manifest.webmanifest                         # PWA manifest
   sw.js                                         # service worker (same network-first shell pattern)
   icon.svg                                       # app icon

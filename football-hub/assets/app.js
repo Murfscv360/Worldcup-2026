@@ -31,7 +31,7 @@ const COMPS = {
 const SEASON_OPENER = { epl: "2026-08-21", championship: "2026-08-14" };
 
 const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, table, archive, dataSource, currentClubs}
-let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null;
+let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null, PLAYERS = null;
 let CLUB_BY_FULL = {};    // "Arsenal FC" -> club meta (comp-agnostic, covers any club in either feed)
 let CLUB_BY_SHORT = {};   // "Arsenal" -> club meta (this season's 44 clubs, comp-correct)
 
@@ -81,9 +81,10 @@ function parseFootballTxt(text){
   return matches;
 }
 
-function computeTable(matches){
+function computeTable(matches, roster){
   const teams = {};
   const row = t => teams[t] || (teams[t] = {name:t, p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0});
+  if(roster) roster.forEach(row);
   matches.forEach(x=>{
     const sc = x.score; const ft = sc && (Array.isArray(sc) ? sc : sc.ft);
     if(!ft) return;
@@ -100,8 +101,8 @@ function computeTable(matches){
   return tbl;
 }
 
-async function loadCompetition(comp){
-  const [meta, archiveFile] = await Promise.all([getJSON(comp.localMeta), getJSON(comp.localArchive)]);
+async function loadCompetition(comp, meta, roster){
+  const archiveFile = await getJSON(comp.localArchive);
   let matches, dataSource;
   try{
     const d = await getJSON(comp.remoteJson, 6000);
@@ -122,20 +123,27 @@ async function loadCompetition(comp){
     }
   }
   const leagueMatches = matches.filter(m=> m.round !== "Playoffs");
-  const table = computeTable(leagueMatches);
+  const table = computeTable(leagueMatches, roster);
   return { meta, matches, leagueMatches, table, archive: archiveFile.matches, dataSource };
 }
 
 async function loadData(){
-  [NEWS, TRANSFERS, UCL] = await Promise.all([getJSON("data/news.json"), getJSON("data/transfers.json"), getJSON("data/ucl.json")]);
-  const [eplData, chaData] = await Promise.all([loadCompetition(COMPS.epl), loadCompetition(COMPS.championship)]);
-  DATA.epl = eplData; DATA.championship = chaData;
-  EPL = eplData.meta; CHA = chaData.meta;
+  [NEWS, TRANSFERS, UCL, PLAYERS] = await Promise.all([getJSON("data/news.json"), getJSON("data/transfers.json"), getJSON("data/ucl.json"), getJSON("data/players.json")]);
+  [EPL, CHA] = await Promise.all([getJSON(COMPS.epl.localMeta), getJSON(COMPS.championship.localMeta)]);
 
   CLUB_BY_FULL = {};
   EPL.clubs.forEach(c => CLUB_BY_FULL[c.full] = c);
   EPL.promoted2627.forEach(c => CLUB_BY_FULL[c.full] = c);
   CHA.clubs.forEach(c => CLUB_BY_FULL[c.full] = c);
+
+  const eplRoster = EPL.clubs.filter(c=>!c.relegated).concat(EPL.promoted2627).map(c=>c.full);
+  const chaRoster = CHA.clubs.concat(EPL.clubs.filter(c=>c.relegated)).map(c=>c.full);
+
+  const [eplData, chaData] = await Promise.all([
+    loadCompetition(COMPS.epl, EPL, eplRoster),
+    loadCompetition(COMPS.championship, CHA, chaRoster)
+  ]);
+  DATA.epl = eplData; DATA.championship = chaData;
 
   DATA.epl.currentClubs = EPL.clubs.filter(c=>!c.relegated).concat(EPL.promoted2627).map(c=>({...c, comp:"epl"}));
   DATA.championship.currentClubs = CHA.clubs.concat(EPL.clubs.filter(c=>c.relegated)).map(c=>({...c, comp:"championship"}));
@@ -485,7 +493,8 @@ function viewTable(){
   const comp = state.comp, d = DATA[comp];
   let html = compSwitcher();
   const opener = d.meta.season2627.openingMatch || d.meta.season2627.communityShield;
-  if(d.table.length === 0){
+  const started = d.leagueMatches.some(m=>m.score);
+  if(!started){
     html += sectionHead(`${compLabel(comp)} 2026-27`, "season not yet started");
     html += `<div class="banner">Kicks off <b>${fmtDate(opener.date)}</b> (${daysUntil(opener.date)} days away). The table below fills in automatically, matchday by matchday, once real results start landing — no app update needed.</div>`;
     html += sectionHead(`${d.meta.lastSeason.year} final table`, "reference");
@@ -633,6 +642,26 @@ function viewOdds(){
   return html;
 }
 
+const POS_LABELS = { GK:"Goalkeepers", DEF:"Defenders", MID:"Midfielders", FWD:"Forwards" };
+function viewFantasy(){
+  let html = sectionHead("Fantasy watch — best XI", `snapshot ${fmtDate(PLAYERS.asOf)}`);
+  html += `<div class="banner">${PLAYERS.note}</div>`;
+  Object.keys(POS_LABELS).forEach(pos=>{
+    const list = PLAYERS.positions[pos] || [];
+    html += `<div class="posgroup"><div class="posgroup-h"><h3>${POS_LABELS[pos]}</h3><span>Top 3</span></div>`;
+    list.forEach(p=>{
+      const meta = CLUB_BY_FULL[p.club];
+      html += `<div class="pcard"><div class="pcard-top">${meta?crest(p.club,30):""}
+        <div><div class="pcard-nm">${p.name}</div><div class="pcard-club">${meta?meta.name:p.club}</div></div>
+        <span class="pcard-stat">${p.stat}</span></div>
+        <p class="pcard-note">${p.note}</p></div>`;
+    });
+    html += `</div>`;
+  });
+  html += `<p class="note">Premier League only, based on real 2025-26 season honours and stats (Golden Boot, Golden Glove, Playmaker of the Season, Team of the Season). This is a curated editorial guide, not a live per-gameweek Fantasy Premier League points feed — see docs/FOOTBALL-HUB.md for sources.</p>`;
+  return html;
+}
+
 function myTeamCard(name){
   const c = CLUB_BY_SHORT[name];
   if(!c) return `<div class="report"><div class="rp-title">${name}</div><p class="note">Not in a followed division this season.</p></div>`;
@@ -685,6 +714,11 @@ function statusBadge(status){
   if(status.state==="pending") return `<span class="chip">Full-time · result pending</span>`;
   return `<span class="chip" style="color:var(--accent2)">Upcoming</span>`;
 }
+function lineupsNote(comp, status){
+  if(status.state!=="live" && status.state!=="upcoming") return "";
+  const url = comp==="epl" ? "https://www.premierleague.com/matchcentre" : "https://www.efl.com/clubs-and-fixtures/";
+  return `<p class="note">👕 Starting lineups aren't in this app's results feed (it only carries full-time scores). Confirmed XIs are published around an hour before kickoff on the <a href="${url}" target="_blank" rel="noopener">official match centre</a>.</p>`;
+}
 function liveMatchCard(m, comp){
   const status = matchStatus(m);
   const home = clubName(m.team1), away = clubName(m.team2);
@@ -697,7 +731,7 @@ function liveMatchCard(m, comp){
       <div class="score">${ft?ft[0]:"–"}</div>
       <div class="team"><span class="flag">${crest(m.team2,21)}</span><span class="name">${away}</span></div>
       <div class="score">${ft?ft[1]:"–"}</div>
-    </div>${meta}${radio}
+    </div>${meta}${radio}${lineupsNote(comp, status)}
     <div class="analyst compact"><div class="analyst-head"><span class="analyst-badge">Analyst's Desk</span>${status.state==="live"?'<span class="analyst-live">LIVE</span>':""}</div>
       <div class="analyst-body">${commentaryFor(m, comp)}</div></div>
   </div>`;
@@ -730,8 +764,8 @@ function viewLive(){
   return html;
 }
 
-const VIEWS = { today:viewToday, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
-const TAB_LABELS = { today:"Today", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
+const VIEWS = { today:viewToday, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds, fantasy:viewFantasy };
+const TAB_LABELS = { today:"Today", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds", fantasy:"Fantasy" };
 
 const state = { view:"today", comp:"epl" };
 
