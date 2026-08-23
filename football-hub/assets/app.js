@@ -818,21 +818,37 @@ async function loadFplTeam(id){
       ALFRED = _ar.ok ? await _ar.json() : null;
     } catch (e) { ALFRED = null; }
 
+    const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
+    const events = bootstrap.events || [];
+    const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
+    const event = current ? current.id : 1;
+    const lastFinished = events.filter(e=>e.finished).sort((a,b)=>b.id-a.id)[0];
+    const [entry, picks, history, fixtures, dreamTeam] = await Promise.all([
+      getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
+      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000),
+      getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null),
+      getJSON(fplProxyUrl("fixtures/"), 9000).catch(()=>null),
+      lastFinished ? getJSON(fplProxyUrl(`dream-team/${lastFinished.id}/`), 9000).catch(()=>null) : Promise.resolve(null)
+    ]);
+    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
     /* OVERRIDE THE SQUAD ITSELF, not just the banner. Showing an "Alfred says" card above a squad
        list still full of Mitchell / F.Kadioglu / Calvert-Lewin is worse than useless — the stale
        list reads as fact and drives the transfer suggestions underneath it. When Alfred's decision
        is AHEAD of the gameweek the public API can see, rebuild FPL.picks from the golden record so
        every section below (defenders, midfielders, forwards, recommendations, transfers) renders
-       the squad John actually owns. Resolution is by exact web_name within the club, and if ANY of
+       the squad John actually owns. MOVED here 2026-08-23: it originally sat
+       ABOVE `const bootstrap = ...`, so referencing bootstrap threw a temporal-dead-zone
+       ReferenceError that my own try/catch swallowed — the override never ran once, while
+       the card above it rendered fine and made it look like it had. Resolution is by exact web_name within the club, and if ANY of
        the 15 fails to resolve we abandon the override entirely rather than show a half-real squad. */
     try {
-      if (ALFRED && ALFRED.xi && bootstrap && bootstrap.elements) {
-        const short = {}; (bootstrap.teams||[]).forEach(t => short[t.id] = t.short_name);
+      if (ALFRED && ALFRED.xi && FPL.bootstrap && FPL.bootstrap.elements) {
+        const short = {}; (FPL.bootstrap.teams||[]).forEach(t => short[t.id] = t.short_name);
         const fold = x => (x||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\./g,"").trim();
         const find = (nm, club) => {
           const w = fold(nm);
-          let c = bootstrap.elements.filter(e => short[e.team] === club && fold(e.web_name) === w);
-          if (!c.length) c = bootstrap.elements.filter(e => short[e.team] === club && fold(e.web_name).indexOf(w) >= 0);
+          let c = FPL.bootstrap.elements.filter(e => short[e.team] === club && fold(e.web_name) === w);
+          if (!c.length) c = FPL.bootstrap.elements.filter(e => short[e.team] === club && fold(e.web_name).indexOf(w) >= 0);
           return c.length ? c[0] : null;
         };
         const list = ALFRED.xi.concat(ALFRED.bench || []);
@@ -850,19 +866,6 @@ async function loadFplTeam(id){
         }
       }
     } catch (e) { /* leave the API squad in place rather than show something half-built */ }
-    const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
-    const events = bootstrap.events || [];
-    const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
-    const event = current ? current.id : 1;
-    const lastFinished = events.filter(e=>e.finished).sort((a,b)=>b.id-a.id)[0];
-    const [entry, picks, history, fixtures, dreamTeam] = await Promise.all([
-      getJSON(fplProxyUrl(`entry/${id}/`), 9000).catch(()=>null),
-      getJSON(fplProxyUrl(`entry/${id}/event/${event}/picks/`), 9000),
-      getJSON(fplProxyUrl(`entry/${id}/history/`), 9000).catch(()=>null),
-      getJSON(fplProxyUrl("fixtures/"), 9000).catch(()=>null),
-      lastFinished ? getJSON(fplProxyUrl(`dream-team/${lastFinished.id}/`), 9000).catch(()=>null) : Promise.resolve(null)
-    ]);
-    FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
     FPL.dreamTeam = dreamTeam; FPL.dreamTeamEvent = lastFinished ? lastFinished.id : null;
     const league = fplPickLeague(entry);
     FPL.league = league;

@@ -8,7 +8,7 @@
    No manual cache-version bumps needed. */
 'use strict';
 
-const BUILD = '202608231206';
+const BUILD = '202608231213';
 const CACHE = 'wc2026-' + BUILD;
 const SHELL = [
   './', 'index.html',
