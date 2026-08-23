@@ -1,0 +1,134 @@
+{
+ "generated": "2026-08-23 11:21:27",
+ "tz": "America/Chicago",
+ "gw": 2,
+ "deadline": "2026-08-28T12:30:00",
+ "formation": "3-4-3",
+ "source": "SESSION 2026-08-23 11:08 \u2014 confirmed by John from the FPL app Pick Team screen (second update: defence changed, -4 hit taken) and verified against the live bootstrap-static API",
+ "chips_active": [],
+ "captain": "Haaland",
+ "vice": "B.Fernandes",
+ "captain_current": "Haaland",
+ "vice_current": "B.Fernandes",
+ "xi": [
+  {
+   "name": "Raya",
+   "pos": "GKP",
+   "club": "ARS",
+   "score": 13.0,
+   "ep": 4.0
+  },
+  {
+   "name": "De Cuyper",
+   "pos": "DEF",
+   "club": "BHA",
+   "score": 9.17,
+   "ep": 1.7
+  },
+  {
+   "name": "Kayode",
+   "pos": "DEF",
+   "club": "BRE",
+   "score": 7.67,
+   "ep": 1.7
+  },
+  {
+   "name": "Truffert",
+   "pos": "DEF",
+   "club": "BOU",
+   "score": 7.67,
+   "ep": 2.5
+  },
+  {
+   "name": "B.Fernandes",
+   "pos": "MID",
+   "club": "MUN",
+   "score": 12.56,
+   "ep": 4.0
+  },
+  {
+   "name": "Rice",
+   "pos": "MID",
+   "club": "ARS",
+   "score": 8.43,
+   "ep": 2.6
+  },
+  {
+   "name": "Lewis-Potter",
+   "pos": "MID",
+   "club": "BRE",
+   "score": 8.26,
+   "ep": 2.0
+  },
+  {
+   "name": "Ampadu",
+   "pos": "MID",
+   "club": "LEE",
+   "score": 6.86,
+   "ep": 2.0
+  },
+  {
+   "name": "Haaland",
+   "pos": "FWD",
+   "club": "MCI",
+   "score": 12.91,
+   "ep": 4.0
+  },
+  {
+   "name": "Thiago",
+   "pos": "FWD",
+   "club": "BRE",
+   "score": 8.29,
+   "ep": 2.5
+  },
+  {
+   "name": "Emersonn",
+   "pos": "FWD",
+   "club": "IPS",
+   "score": 7.71,
+   "ep": 1.8
+  }
+ ],
+ "bench": [
+  {
+   "name": "Petrovi\u0107",
+   "pos": "GKP",
+   "club": "BOU",
+   "order": 0
+  },
+  {
+   "name": "Keane",
+   "pos": "DEF",
+   "club": "EVE",
+   "order": 1
+  },
+  {
+   "name": "Cash",
+   "pos": "DEF",
+   "club": "AVL",
+   "order": 2
+  },
+  {
+   "name": "Zubimendi",
+   "pos": "MID",
+   "club": "ARS",
+   "order": 3
+  }
+ ],
+ "changes": [
+  {
+   "in": "Truffert",
+   "out": "Cash"
+  },
+  {
+   "in": "Thiago",
+   "out": "Zubimendi"
+  }
+ ],
+ "transfers_recommended": [],
+ "note": "Alfred decision from the session-maintained golden record. The public FPL API cannot see this gameweek until the deadline passes, so prefer this over the API-derived squad.",
+ "changelog": [
+  "2026-08-23 10:xx \u2014 GW2 squad recorded: Mitchell->Kayode, Calvert-Lewin->Emersonn",
+  "2026-08-23 11:08 \u2014 DEFENCE CHANGED: Mings OUT -> De Cuyper (BHA) IN, John took the -4 hit. Vice moved from Raya to B.Fernandes per this session's recommendation. Shape now 3-5-2."
+ ]
+}
