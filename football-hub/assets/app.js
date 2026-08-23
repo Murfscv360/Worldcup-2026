@@ -751,6 +751,7 @@ function tagClubsInText(text){
   if(!text) return [];
   return Object.keys(CLUB_BY_SHORT).filter(name=> text.includes(name));
 }
+let ALFRED = null;  // Alfred's authoritative GW decision (data/alfred-fpl.json)
 let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null, league:null, leagueStandings:null };
 
 /* Picks which of the visitor's real FPL leagues (entry.leagues.classic) to
@@ -807,6 +808,15 @@ async function loadFplTeam(id){
   try{ localStorage.setItem(FPL_KEY, id); }catch(e){}
   if(state.view==="fantasy") render();
   try{
+    /* ALFRED OVERRIDE. The public FPL API only exposes COMPLETED gameweeks, so the squad
+       fetched below is a gameweek behind — it listed Mitchell/F.Kadioglu/Calvert-Lewin long after
+       they were transferred out, and suggested moves that could not be made. data/alfred-fpl.json
+       is the session-maintained golden record. Fetched defensively: any failure leaves ALFRED null
+       and the page behaves exactly as it did before. */
+    try {
+      const _ar = await fetch("/data/alfred-fpl.json", { cache: "no-store" });
+      ALFRED = _ar.ok ? await _ar.json() : null;
+    } catch (e) { ALFRED = null; }
     const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
@@ -879,6 +889,40 @@ function fplStatusFlag(el){
   if(el.status && el.status!=="a" && labels[el.status]) return labels[el.status];
   if(el.chance_of_playing_next_round!=null && el.chance_of_playing_next_round<100) return `${el.chance_of_playing_next_round}% chance of playing`;
   return "";
+}
+
+/* Alfred's decision, rendered at the top of the Fantasy view. Read-only: it does not touch the
+   squad model below, so a missing or malformed JSON leaves the rest of the page unaffected. */
+function fplAlfredHtml(){
+  const A = ALFRED;
+  if(!A || !A.gw) return "";
+  const stale = (typeof FPL.event === "number") && (A.gw > FPL.event);
+  let left = "";
+  try {
+    const ms = new Date(String(A.deadline).replace(" ", "T")) - new Date();
+    if(ms > 0){
+      const h = Math.floor(ms/3600000);
+      left = h >= 24 ? Math.floor(h/24)+"d "+(h%24)+"h remaining" : h+"h remaining";
+    } else { left = "deadline passed"; }
+  } catch(e){}
+  const chg = (A.changes||[]).map(function(c){
+    return "<li><b>"+c.in+"</b> into the XI &nbsp;·&nbsp; <span style=\"opacity:.6;text-decoration:line-through\">"+c.out+"</span> to the bench</li>";
+  }).join("") || "<li>Starting XI is already optimal — no changes needed.</li>";
+  const capLine = (A.captain === A.captain_current)
+    ? "Captain <b>"+A.captain+"</b>" : "Captain <b>"+A.captain+"</b> — change from "+A.captain_current;
+  const viceLine = (A.vice === A.vice_current)
+    ? "Vice <b>"+A.vice+"</b>" : "Vice <b>"+A.vice+"</b> — change from "+A.vice_current;
+  const warn = stale
+    ? "<p class=\"note\" style=\"margin:8px 0 0\">FPL's public API still reports Gameweek "+FPL.event+", so the squad shown further down is a gameweek behind. Alfred's Gameweek "+A.gw+" decision above is the current one.</p>"
+    : "";
+  return sectionHead("Alfred — this week's decision", "GW"+A.gw+" · "+left) +
+    "<div class=\"analyst\"><div class=\"analyst-head\"><span class=\"analyst-badge\">Alfred</span></div>" +
+    "<div class=\"analyst-body\">" +
+    "<ul style=\"margin:4px 0 10px;padding-left:18px\">"+chg+"</ul>" +
+    "<p style=\"margin:6px 0\">"+capLine+"<br>"+viceLine+"</p>" +
+    "<p class=\"note\" style=\"margin:6px 0 0\">Formation "+A.formation+" · "+((A.transfers_recommended||[]).length?"":"no transfers recommended")+" · "+((A.chips_active||[]).length?"chip active":"no chips")+"</p>" +
+    "<p class=\"note\" style=\"margin:6px 0 0;font-style:italic\">Updated "+A.generated+" "+(A.tz||"")+"</p>" +
+    warn + "</div></div>";
 }
 
 function fplRecommendations(){
@@ -1588,6 +1632,7 @@ function viewFantasyMyTeam(){
   html += sectionHead(entryName || "Your FPL team", `Gameweek ${FPL.event}`);
   html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
 
+  html += fplAlfredHtml();
   html += sectionHead("Scout's Desk", `Gameweek ${FPL.event} briefing`);
   html += `<div class="analyst"><div class="analyst-head"><span class="analyst-badge">Scout's Desk</span></div>
     <div class="analyst-body">${fplWeeklyBriefing()}</div></div>`;
