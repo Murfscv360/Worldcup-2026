@@ -817,6 +817,39 @@ async function loadFplTeam(id){
       const _ar = await fetch("/data/alfred-fpl.json", { cache: "no-store" });
       ALFRED = _ar.ok ? await _ar.json() : null;
     } catch (e) { ALFRED = null; }
+
+    /* OVERRIDE THE SQUAD ITSELF, not just the banner. Showing an "Alfred says" card above a squad
+       list still full of Mitchell / F.Kadioglu / Calvert-Lewin is worse than useless — the stale
+       list reads as fact and drives the transfer suggestions underneath it. When Alfred's decision
+       is AHEAD of the gameweek the public API can see, rebuild FPL.picks from the golden record so
+       every section below (defenders, midfielders, forwards, recommendations, transfers) renders
+       the squad John actually owns. Resolution is by exact web_name within the club, and if ANY of
+       the 15 fails to resolve we abandon the override entirely rather than show a half-real squad. */
+    try {
+      if (ALFRED && ALFRED.xi && bootstrap && bootstrap.elements) {
+        const short = {}; (bootstrap.teams||[]).forEach(t => short[t.id] = t.short_name);
+        const fold = x => (x||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\./g,"").trim();
+        const find = (nm, club) => {
+          const w = fold(nm);
+          let c = bootstrap.elements.filter(e => short[e.team] === club && fold(e.web_name) === w);
+          if (!c.length) c = bootstrap.elements.filter(e => short[e.team] === club && fold(e.web_name).indexOf(w) >= 0);
+          return c.length ? c[0] : null;
+        };
+        const list = ALFRED.xi.concat(ALFRED.bench || []);
+        const built = []; let ok = true;
+        list.forEach((p, i) => {
+          const e = find(p.name, p.club);
+          if (!e) { ok = false; return; }
+          built.push({ element: e.id, position: i + 1, multiplier: i < 11 ? 1 : 0,
+                       is_captain: p.name === ALFRED.captain,
+                       is_vice_captain: p.name === ALFRED.vice });
+        });
+        if (ok && built.length === 15) {
+          FPL.picks = Object.assign({}, FPL.picks || {}, { picks: built });
+          ALFRED.overrode = true;
+        }
+      }
+    } catch (e) { /* leave the API squad in place rather than show something half-built */ }
     const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
     const events = bootstrap.events || [];
     const current = events.find(e=>e.is_current) || events.slice().reverse().find(e=>e.finished) || events[0];
@@ -912,6 +945,7 @@ function fplAlfredHtml(){
     ? "Captain <b>"+A.captain+"</b>" : "Captain <b>"+A.captain+"</b> — change from "+A.captain_current;
   const viceLine = (A.vice === A.vice_current)
     ? "Vice <b>"+A.vice+"</b>" : "Vice <b>"+A.vice+"</b> — change from "+A.vice_current;
+  const src = A.overrode ? "<p class=\"note\" style=\"margin:8px 0 0\">Squad below is Alfred's current GW"+A.gw+" record, not the FPL API's older snapshot.</p>" : "";
   const warn = stale
     ? "<p class=\"note\" style=\"margin:8px 0 0\">FPL's public API still reports Gameweek "+FPL.event+", so the squad shown further down is a gameweek behind. Alfred's Gameweek "+A.gw+" decision above is the current one.</p>"
     : "";
@@ -922,7 +956,7 @@ function fplAlfredHtml(){
     "<p style=\"margin:6px 0\">"+capLine+"<br>"+viceLine+"</p>" +
     "<p class=\"note\" style=\"margin:6px 0 0\">Formation "+A.formation+" · "+((A.transfers_recommended||[]).length?"":"no transfers recommended")+" · "+((A.chips_active||[]).length?"chip active":"no chips")+"</p>" +
     "<p class=\"note\" style=\"margin:6px 0 0;font-style:italic\">Updated "+A.generated+" "+(A.tz||"")+"</p>" +
-    warn + "</div></div>";
+    warn + src + "</div></div>";
 }
 
 function fplRecommendations(){
