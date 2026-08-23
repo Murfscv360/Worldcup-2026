@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23 12:31:53",
+ "generated": "2026-08-23 18:00:08",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
@@ -48,6 +48,20 @@
    "player_changes": [
     "Pedro Porro (TOT, 16% owned): Lack of match fitness - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-23",
+   "ts": "2026-08-23 18:00:04",
+   "new_headlines": 12,
+   "key": [
+    "[BOU/MCI] Maresca's Manchester City reign begins with dramatic comeback against Bournemouth",
+    "[AVL/BHA] Brighton dominate 10-man Villa",
+    "[AVL] 'It would appear he's no longer wanting to play for Aston Villa' - does Watkins want out?",
+    "[ARS] Al-Hilal open talks to sign Arsenal winger Martinelli",
+    "[CHE/MCI] Monday's gossip: Man City ready to meet Chelsea's Fernandez demand"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
