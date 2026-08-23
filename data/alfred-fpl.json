@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23 12:01:37",
+ "generated": "2026-08-23 12:20:23",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -281,471 +281,10 @@
      "yours": false
     }
    ],
-   "kickoff": "2026-08-28 19:00"
-  },
-  {
-   "home": "LIV",
-   "away": "NFO",
-   "xg_home": 2.13,
-   "xg_away": 0.92,
-   "win": 65,
-   "draw": 20,
-   "loss": 15,
-   "scorelines": [
-    {
-     "score": "2-0",
-     "pct": 10.8
-    },
-    {
-     "score": "1-0",
-     "pct": 10.2
-    },
-    {
-     "score": "2-1",
-     "pct": 9.9
-    }
-   ],
-   "watch": [
-    {
-     "name": "A.Becker",
-     "club": "LIV",
-     "pos": "GKP",
-     "score": 8.9,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Virgil",
-     "club": "LIV",
-     "pos": "DEF",
-     "score": 8.6,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Gibbs-White",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 7.7,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Murillo",
-     "club": "NFO",
-     "pos": "DEF",
-     "score": 7.4,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff": "2026-08-29 11:30"
-  },
-  {
-   "home": "BOU",
-   "away": "EVE",
-   "xg_home": 1.6,
-   "xg_away": 1.09,
-   "win": 49,
-   "draw": 25,
-   "loss": 26,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 11.9
-    },
-    {
-     "score": "1-0",
-     "pct": 10.9
-    },
-    {
-     "score": "2-1",
-     "pct": 9.5
-    }
-   ],
-   "watch": [
-    {
-     "name": "Pickford",
-     "club": "EVE",
-     "pos": "GKP",
-     "score": 9.3,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Tarkowski",
-     "club": "EVE",
-     "pos": "DEF",
-     "score": 7.9,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Hill",
-     "club": "BOU",
-     "pos": "DEF",
-     "score": 6.7,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Truffert",
-     "club": "BOU",
-     "pos": "DEF",
-     "score": 6.7,
-     "side": "H",
-     "yours": true
-    }
-   ],
-   "kickoff": "2026-08-29 14:00"
-  },
-  {
-   "home": "COV",
-   "away": "HUL",
-   "xg_home": 1.36,
-   "xg_away": 0.93,
-   "win": 47,
-   "draw": 28,
-   "loss": 26,
-   "scorelines": [
-    {
-     "score": "1-0",
-     "pct": 13.8
-    },
-    {
-     "score": "1-1",
-     "pct": 12.8
-    },
-    {
-     "score": "0-0",
-     "pct": 10.2
-    }
-   ],
-   "watch": [
-    {
-     "name": "Tzolakis",
-     "club": "HUL",
-     "pos": "GKP",
-     "score": 5.8,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Torp",
-     "club": "COV",
-     "pos": "MID",
-     "score": 5.7,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Tchaouna",
-     "club": "COV",
-     "pos": "MID",
-     "score": 5.5,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "McBurnie",
-     "club": "HUL",
-     "pos": "FWD",
-     "score": 5.3,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff": "2026-08-29 14:00"
-  },
-  {
-   "home": "TOT",
-   "away": "NEW",
-   "xg_home": 2.04,
-   "xg_away": 1.09,
-   "win": 59,
-   "draw": 21,
-   "loss": 20,
-   "scorelines": [
-    {
-     "score": "2-1",
-     "pct": 10.0
-    },
-    {
-     "score": "1-1",
-     "pct": 9.8
-    },
-    {
-     "score": "2-0",
-     "pct": 9.2
-    }
-   ],
-   "watch": [
-    {
-     "name": "Senesi",
-     "club": "TOT",
-     "pos": "DEF",
-     "score": 7.7,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Pope",
-     "club": "NEW",
-     "pos": "GKP",
-     "score": 7.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Horn\u00ed\u010dek",
-     "club": "NEW",
-     "pos": "GKP",
-     "score": 7.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Maddison",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 6.3,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff": "2026-08-29 16:30"
-  },
-  {
-   "home": "CHE",
-   "away": "BHA",
-   "xg_home": 2.72,
-   "xg_away": 0.92,
-   "win": 75,
-   "draw": 15,
-   "loss": 10,
-   "scorelines": [
-    {
-     "score": "2-0",
-     "pct": 10.0
-    },
-    {
-     "score": "2-1",
-     "pct": 9.1
-    },
-    {
-     "score": "3-0",
-     "pct": 9.0
-    }
-   ],
-   "watch": [
-    {
-     "name": "Palmer",
-     "club": "CHE",
-     "pos": "MID",
-     "score": 8.5,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Hinshelwood",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 8.5,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Lacroix",
-     "club": "CHE",
-     "pos": "DEF",
-     "score": 7.7,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "De Cuyper",
-     "club": "BHA",
-     "pos": "DEF",
-     "score": 7.2,
-     "side": "A",
-     "yours": true
-    }
-   ],
-   "kickoff": "2026-08-30 13:00"
-  },
-  {
-   "home": "LEE",
-   "away": "BRE",
-   "xg_home": 1.07,
-   "xg_away": 1.09,
-   "win": 35,
-   "draw": 29,
-   "loss": 36,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 13.5
-    },
-    {
-     "score": "0-1",
-     "pct": 12.6
-    },
-    {
-     "score": "1-0",
-     "pct": 12.4
-    }
-   ],
-   "watch": [
-    {
-     "name": "Trafford",
-     "club": "LEE",
-     "pos": "GKP",
-     "score": 7.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Kelleher",
-     "club": "BRE",
-     "pos": "GKP",
-     "score": 7.7,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Thiago",
-     "club": "BRE",
-     "pos": "FWD",
-     "score": 7.7,
-     "side": "A",
-     "yours": true
-    },
-    {
-     "name": "Bijol",
-     "club": "LEE",
-     "pos": "DEF",
-     "score": 6.9,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff": "2026-08-30 13:00"
-  },
-  {
-   "home": "SUN",
-   "away": "FUL",
-   "xg_home": 1.36,
-   "xg_away": 1.09,
-   "win": 43,
-   "draw": 27,
-   "loss": 30,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 12.8
-    },
-    {
-     "score": "1-0",
-     "pct": 11.8
-    },
-    {
-     "score": "0-1",
-     "pct": 9.4
-    }
-   ],
-   "watch": [
-    {
-     "name": "Roefs",
-     "club": "SUN",
-     "pos": "GKP",
-     "score": 7.0,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Mukiele",
-     "club": "SUN",
-     "pos": "DEF",
-     "score": 6.9,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Leno",
-     "club": "FUL",
-     "pos": "GKP",
-     "score": 5.4,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Iwobi",
-     "club": "FUL",
-     "pos": "MID",
-     "score": 5.3,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff": "2026-08-30 13:00"
-  },
-  {
-   "home": "MUN",
-   "away": "IPS",
-   "xg_home": 2.72,
-   "xg_away": 0.61,
-   "win": 81,
-   "draw": 13,
-   "loss": 6,
-   "scorelines": [
-    {
-     "score": "2-0",
-     "pct": 13.5
-    },
-    {
-     "score": "3-0",
-     "pct": 12.3
-    },
-    {
-     "score": "1-0",
-     "pct": 9.9
-    }
-   ],
-   "watch": [
-    {
-     "name": "B.Fernandes",
-     "club": "MUN",
-     "pos": "MID",
-     "score": 11.2,
-     "side": "H",
-     "yours": true
-    },
-    {
-     "name": "Mbeumo",
-     "club": "MUN",
-     "pos": "MID",
-     "score": 8.3,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Emersonn",
-     "club": "IPS",
-     "pos": "FWD",
-     "score": 6.5,
-     "side": "A",
-     "yours": true
-    },
-    {
-     "name": "Clarke",
-     "club": "IPS",
-     "pos": "MID",
-     "score": 6.4,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff": "2026-08-30 15:30"
+   "kickoff_utc": "2026-08-28T19:00:00Z",
+   "kickoff": "Fri 28 Aug 14:00",
+   "day": "Fri 28 Aug",
+   "monday": false
   },
   {
    "home": "AVL",
@@ -803,7 +342,498 @@
      "yours": false
     }
    ],
-   "kickoff": "2026-08-31 19:00"
+   "kickoff_utc": "2026-08-31T19:00:00Z",
+   "kickoff": "Mon 31 Aug 14:00",
+   "day": "Mon 31 Aug",
+   "monday": true
+  },
+  {
+   "home": "LIV",
+   "away": "NFO",
+   "xg_home": 2.13,
+   "xg_away": 0.92,
+   "win": 65,
+   "draw": 20,
+   "loss": 15,
+   "scorelines": [
+    {
+     "score": "2-0",
+     "pct": 10.8
+    },
+    {
+     "score": "1-0",
+     "pct": 10.2
+    },
+    {
+     "score": "2-1",
+     "pct": 9.9
+    }
+   ],
+   "watch": [
+    {
+     "name": "A.Becker",
+     "club": "LIV",
+     "pos": "GKP",
+     "score": 9.0,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Virgil",
+     "club": "LIV",
+     "pos": "DEF",
+     "score": 8.6,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 7.7,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Murillo",
+     "club": "NFO",
+     "pos": "DEF",
+     "score": 7.4,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-08-29T11:30:00Z",
+   "kickoff": "Sat 29 Aug 06:30",
+   "day": "Sat 29 Aug",
+   "monday": false
+  },
+  {
+   "home": "BOU",
+   "away": "EVE",
+   "xg_home": 1.6,
+   "xg_away": 1.09,
+   "win": 49,
+   "draw": 25,
+   "loss": 26,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 11.9
+    },
+    {
+     "score": "1-0",
+     "pct": 10.9
+    },
+    {
+     "score": "2-1",
+     "pct": 9.5
+    }
+   ],
+   "watch": [
+    {
+     "name": "Pickford",
+     "club": "EVE",
+     "pos": "GKP",
+     "score": 9.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Tarkowski",
+     "club": "EVE",
+     "pos": "DEF",
+     "score": 7.9,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Hill",
+     "club": "BOU",
+     "pos": "DEF",
+     "score": 6.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Truffert",
+     "club": "BOU",
+     "pos": "DEF",
+     "score": 6.7,
+     "side": "H",
+     "yours": true
+    }
+   ],
+   "kickoff_utc": "2026-08-29T14:00:00Z",
+   "kickoff": "Sat 29 Aug 09:00",
+   "day": "Sat 29 Aug",
+   "monday": false
+  },
+  {
+   "home": "COV",
+   "away": "HUL",
+   "xg_home": 1.36,
+   "xg_away": 0.93,
+   "win": 47,
+   "draw": 28,
+   "loss": 26,
+   "scorelines": [
+    {
+     "score": "1-0",
+     "pct": 13.8
+    },
+    {
+     "score": "1-1",
+     "pct": 12.8
+    },
+    {
+     "score": "0-0",
+     "pct": 10.2
+    }
+   ],
+   "watch": [
+    {
+     "name": "Tzolakis",
+     "club": "HUL",
+     "pos": "GKP",
+     "score": 5.8,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Torp",
+     "club": "COV",
+     "pos": "MID",
+     "score": 5.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Tchaouna",
+     "club": "COV",
+     "pos": "MID",
+     "score": 5.5,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "McBurnie",
+     "club": "HUL",
+     "pos": "FWD",
+     "score": 5.3,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-08-29T14:00:00Z",
+   "kickoff": "Sat 29 Aug 09:00",
+   "day": "Sat 29 Aug",
+   "monday": false
+  },
+  {
+   "home": "TOT",
+   "away": "NEW",
+   "xg_home": 2.04,
+   "xg_away": 1.09,
+   "win": 59,
+   "draw": 21,
+   "loss": 20,
+   "scorelines": [
+    {
+     "score": "2-1",
+     "pct": 10.0
+    },
+    {
+     "score": "1-1",
+     "pct": 9.8
+    },
+    {
+     "score": "2-0",
+     "pct": 9.2
+    }
+   ],
+   "watch": [
+    {
+     "name": "Senesi",
+     "club": "TOT",
+     "pos": "DEF",
+     "score": 7.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Pope",
+     "club": "NEW",
+     "pos": "GKP",
+     "score": 7.2,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Horn\u00ed\u010dek",
+     "club": "NEW",
+     "pos": "GKP",
+     "score": 7.2,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Maddison",
+     "club": "TOT",
+     "pos": "MID",
+     "score": 6.3,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-08-29T16:30:00Z",
+   "kickoff": "Sat 29 Aug 11:30",
+   "day": "Sat 29 Aug",
+   "monday": false
+  },
+  {
+   "home": "CHE",
+   "away": "BHA",
+   "xg_home": 2.72,
+   "xg_away": 0.92,
+   "win": 75,
+   "draw": 15,
+   "loss": 10,
+   "scorelines": [
+    {
+     "score": "2-0",
+     "pct": 10.0
+    },
+    {
+     "score": "2-1",
+     "pct": 9.1
+    },
+    {
+     "score": "3-0",
+     "pct": 9.0
+    }
+   ],
+   "watch": [
+    {
+     "name": "Palmer",
+     "club": "CHE",
+     "pos": "MID",
+     "score": 8.5,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Hinshelwood",
+     "club": "BHA",
+     "pos": "MID",
+     "score": 8.5,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Lacroix",
+     "club": "CHE",
+     "pos": "DEF",
+     "score": 7.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "De Cuyper",
+     "club": "BHA",
+     "pos": "DEF",
+     "score": 7.2,
+     "side": "A",
+     "yours": true
+    }
+   ],
+   "kickoff_utc": "2026-08-30T13:00:00Z",
+   "kickoff": "Sun 30 Aug 08:00",
+   "day": "Sun 30 Aug",
+   "monday": false
+  },
+  {
+   "home": "LEE",
+   "away": "BRE",
+   "xg_home": 1.07,
+   "xg_away": 1.09,
+   "win": 35,
+   "draw": 29,
+   "loss": 36,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 13.5
+    },
+    {
+     "score": "0-1",
+     "pct": 12.6
+    },
+    {
+     "score": "1-0",
+     "pct": 12.4
+    }
+   ],
+   "watch": [
+    {
+     "name": "Trafford",
+     "club": "LEE",
+     "pos": "GKP",
+     "score": 7.8,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Kelleher",
+     "club": "BRE",
+     "pos": "GKP",
+     "score": 7.7,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Thiago",
+     "club": "BRE",
+     "pos": "FWD",
+     "score": 7.7,
+     "side": "A",
+     "yours": true
+    },
+    {
+     "name": "Bijol",
+     "club": "LEE",
+     "pos": "DEF",
+     "score": 6.9,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-08-30T13:00:00Z",
+   "kickoff": "Sun 30 Aug 08:00",
+   "day": "Sun 30 Aug",
+   "monday": false
+  },
+  {
+   "home": "SUN",
+   "away": "FUL",
+   "xg_home": 1.36,
+   "xg_away": 1.09,
+   "win": 43,
+   "draw": 27,
+   "loss": 30,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 12.8
+    },
+    {
+     "score": "1-0",
+     "pct": 11.8
+    },
+    {
+     "score": "0-1",
+     "pct": 9.4
+    }
+   ],
+   "watch": [
+    {
+     "name": "Roefs",
+     "club": "SUN",
+     "pos": "GKP",
+     "score": 7.0,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Mukiele",
+     "club": "SUN",
+     "pos": "DEF",
+     "score": 6.9,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Leno",
+     "club": "FUL",
+     "pos": "GKP",
+     "score": 5.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Iwobi",
+     "club": "FUL",
+     "pos": "MID",
+     "score": 5.3,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-08-30T13:00:00Z",
+   "kickoff": "Sun 30 Aug 08:00",
+   "day": "Sun 30 Aug",
+   "monday": false
+  },
+  {
+   "home": "MUN",
+   "away": "IPS",
+   "xg_home": 2.72,
+   "xg_away": 0.61,
+   "win": 81,
+   "draw": 13,
+   "loss": 6,
+   "scorelines": [
+    {
+     "score": "2-0",
+     "pct": 13.5
+    },
+    {
+     "score": "3-0",
+     "pct": 12.3
+    },
+    {
+     "score": "1-0",
+     "pct": 9.9
+    }
+   ],
+   "watch": [
+    {
+     "name": "B.Fernandes",
+     "club": "MUN",
+     "pos": "MID",
+     "score": 11.2,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Mbeumo",
+     "club": "MUN",
+     "pos": "MID",
+     "score": 8.3,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Emersonn",
+     "club": "IPS",
+     "pos": "FWD",
+     "score": 6.5,
+     "side": "A",
+     "yours": true
+    },
+    {
+     "name": "Clarke",
+     "club": "IPS",
+     "pos": "MID",
+     "score": 6.4,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-08-30T15:30:00Z",
+   "kickoff": "Sun 30 Aug 10:30",
+   "day": "Sun 30 Aug",
+   "monday": false
   }
  ]
 }
