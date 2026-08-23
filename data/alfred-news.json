@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23 12:17:38",
+ "generated": "2026-08-23 12:31:53",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
@@ -38,6 +38,16 @@
     "[AVL] New-look Villa turn to Scandinavia as they rebuild squad"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-23",
+   "ts": "2026-08-23 12:31:51",
+   "new_headlines": 1,
+   "key": [],
+   "player_changes": [
+    "Pedro Porro (TOT, 16% owned): Lack of match fitness - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
