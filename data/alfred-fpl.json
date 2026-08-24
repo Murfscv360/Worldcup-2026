@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-24 18:03:49",
+ "generated": "2026-08-24 18:04:23",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
  "formation": "3-4-3",
- "source": "SESSION 2026-08-24 18:02 \u2014 confirmed by John from the FPL app Pick Team screen (GW2, deadline Fri 28 Aug 12:30). Thiago started, Zubimendi benched; Cash kept in the XI and Truffert benched, contrary to the matrix recommendation.",
+ "source": "SESSION 2026-08-24 18:03 \u2014 confirmed by John from the FPL app Pick Team screen (GW2, deadline Fri 28 Aug 12:30). Final XI: Cash benched, Keane started.",
  "chips_active": [],
  "captain": "Haaland",
  "vice": "B.Fernandes",
@@ -118,14 +118,15 @@
  "changes": [
   {
    "in": "Truffert",
-   "out": "Cash"
+   "out": "Keane"
   }
  ],
  "transfers_recommended": [],
  "note": "Alfred decision from the session-maintained golden record. The public FPL API cannot see this gameweek until the deadline passes, so prefer this over the API-derived squad.",
  "changelog": [
   "2026-08-23 10:xx \u2014 GW2 squad recorded: Mitchell->Kayode, Calvert-Lewin->Emersonn",
-  "2026-08-24 18:02 \u2014 GW2 XI confirmed from Pick Team: Thiago IN / Zubimendi OUT. Cash retained in XI, Truffert on bench (John overrode the suggestion). Captain Haaland, vice B.Fernandes."
+  "2026-08-24 18:02 \u2014 GW2 XI confirmed from Pick Team: Thiago IN / Zubimendi OUT. Cash retained in XI, Truffert on bench (John overrode the suggestion). Captain Haaland, vice B.Fernandes.",
+  "2026-08-24 18:03 \u2014 GW2 XI final: Cash OUT of XI, Keane IN. Bench order: Petrovic, Truffert, Cash, Zubimendi. Captain Haaland, vice B.Fernandes."
  ],
  "availability": [
   {
