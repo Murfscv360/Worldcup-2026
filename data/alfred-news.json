@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23 18:00:08",
+ "generated": "2026-08-24 08:00:08",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
@@ -60,6 +60,19 @@
     "[AVL] 'It would appear he's no longer wanting to play for Aston Villa' - does Watkins want out?",
     "[ARS] Al-Hilal open talks to sign Arsenal winger Martinelli",
     "[CHE/MCI] Monday's gossip: Man City ready to meet Chelsea's Fernandez demand"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-24",
+   "ts": "2026-08-24 08:00:03",
+   "new_headlines": 20,
+   "key": [
+    "[BOU/MCI] Maresca's Man City reign begins with dramatic comeback against Bournemouth",
+    "[MUN/HUL] How Hull kept plan to stun Man Utd secret",
+    "[AVL/BHA] Why 'woeful' Villa crumbled against Brighton",
+    "[CHE/MCI] Man City ready to meet Chelsea's Fernandez demand - Monday's gossip"
    ],
    "player_changes": [],
    "unreachable": []
