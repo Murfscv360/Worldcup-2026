@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-24 17:59:15",
+ "generated": "2026-08-24 18:00:22",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -128,8 +128,7 @@
  "transfers_recommended": [],
  "note": "Alfred decision from the session-maintained golden record. The public FPL API cannot see this gameweek until the deadline passes, so prefer this over the API-derived squad.",
  "changelog": [
-  "2026-08-23 10:xx \u2014 GW2 squad recorded: Mitchell->Kayode, Calvert-Lewin->Emersonn",
-  "2026-08-23 11:08 \u2014 DEFENCE CHANGED: Mings OUT -> De Cuyper (BHA) IN, John took the -4 hit. Vice moved from Raya to B.Fernandes per this session's recommendation. Shape now 3-5-2."
+  "2026-08-23 10:xx \u2014 GW2 squad recorded: Mitchell->Kayode, Calvert-Lewin->Emersonn"
  ],
  "availability": [
   {
