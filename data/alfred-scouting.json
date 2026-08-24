@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23 12:22:57",
+ "generated": "2026-08-24 17:58:46",
  "tz": "America/Chicago",
  "gw": 2,
  "fixtures": [
@@ -30,7 +30,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 11.8,
+     "score": 11.7,
      "side": "A",
      "yours": true
     },
@@ -160,16 +160,8 @@
      "name": "Virgil",
      "club": "LIV",
      "pos": "DEF",
-     "score": 8.5,
+     "score": 8.6,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Gibbs-White",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 7.7,
-     "side": "A",
      "yours": false
     },
     {
@@ -177,6 +169,14 @@
      "club": "NFO",
      "pos": "DEF",
      "score": 7.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Sels",
+     "club": "NFO",
+     "pos": "GKP",
+     "score": 7.3,
      "side": "A",
      "yours": false
     }
@@ -226,20 +226,20 @@
      "yours": false
     },
     {
+     "name": "Tavernier",
+     "club": "BOU",
+     "pos": "MID",
+     "score": 7.0,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Hill",
      "club": "BOU",
      "pos": "DEF",
      "score": 6.7,
      "side": "H",
      "yours": false
-    },
-    {
-     "name": "Truffert",
-     "club": "BOU",
-     "pos": "DEF",
-     "score": 6.7,
-     "side": "H",
-     "yours": true
     }
    ],
    "kickoff_utc": "2026-08-29T14:00:00Z",
@@ -351,7 +351,7 @@
      "name": "Horn\u00ed\u010dek",
      "club": "NEW",
      "pos": "GKP",
-     "score": 7.2,
+     "score": 7.0,
      "side": "A",
      "yours": false
     },
@@ -393,26 +393,26 @@
    ],
    "watch": [
     {
-     "name": "Palmer",
-     "club": "CHE",
-     "pos": "MID",
-     "score": 8.5,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Hinshelwood",
      "club": "BHA",
      "pos": "MID",
-     "score": 8.5,
+     "score": 8.8,
      "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Rogers",
+     "club": "CHE",
+     "pos": "MID",
+     "score": 8.3,
+     "side": "H",
      "yours": false
     },
     {
      "name": "Lacroix",
      "club": "CHE",
      "pos": "DEF",
-     "score": 7.7,
+     "score": 8.1,
      "side": "H",
      "yours": false
     },
@@ -420,7 +420,7 @@
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 7.2,
+     "score": 7.3,
      "side": "A",
      "yours": true
     }
@@ -478,9 +478,9 @@
      "yours": true
     },
     {
-     "name": "Bijol",
+     "name": "Stach",
      "club": "LEE",
-     "pos": "DEF",
+     "pos": "MID",
      "score": 6.9,
      "side": "H",
      "yours": false
@@ -531,18 +531,18 @@
      "yours": false
     },
     {
-     "name": "Leno",
+     "name": "Gonzalo",
      "club": "FUL",
-     "pos": "GKP",
-     "score": 5.4,
+     "pos": "FWD",
+     "score": 6.4,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Iwobi",
+     "name": "Andersen",
      "club": "FUL",
-     "pos": "MID",
-     "score": 5.3,
+     "pos": "DEF",
+     "score": 6.1,
      "side": "A",
      "yours": false
     }
