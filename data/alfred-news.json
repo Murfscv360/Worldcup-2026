@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-25 08:00:07",
+ "generated": "2026-08-25 18:00:07",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
@@ -107,6 +107,22 @@
    ],
    "player_changes": [
     "Palmer (CHE, 12% owned): now available"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-25",
+   "ts": "2026-08-25 18:00:04",
+   "new_headlines": 16,
+   "key": [
+    "[MUN] Man Utd's midfield spending is done - now for a left-back?",
+    "[squad] Fernandes and Shaw win PFA player of the year awards",
+    "[BHA/MUN] Baleba completes \u00a370m Man Utd move from Brighton",
+    "[AVL] Villa make offer for Mateta - Wednesday's gossip",
+    "[squad] 'I'm very proud of this' - Fernandes wins PFA player of the year"
+   ],
+   "player_changes": [
+    "Pedro Porro (TOT, 14% owned): now available"
    ],
    "unreachable": []
   }
