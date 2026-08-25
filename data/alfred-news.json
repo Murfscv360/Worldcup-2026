@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-24 18:00:05",
+ "generated": "2026-08-25 08:00:07",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
@@ -92,6 +92,21 @@
    "player_changes": [
     "Palmer (CHE, 12% owned): Calf injury - 75% chance of playing",
     "Gibbs-White (NFO, 11% owned): Knee injury - 75% chance of playing"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-25",
+   "ts": "2026-08-25 08:00:04",
+   "new_headlines": 18,
+   "key": [
+    "[MCI/TOT] Tottenham sign Savinho from Man City for \u00a375m",
+    "[LEE] Leeds and Rangers co-owner jailed after prostitution arrest",
+    "[MCI] Grealish back for Man City - but for how long?",
+    "[AVL] 'It would appear he no longer wants to play for Villa' - does Watkins want out?"
+   ],
+   "player_changes": [
+    "Palmer (CHE, 12% owned): now available"
    ],
    "unreachable": []
   }
