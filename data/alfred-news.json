@@ -1,45 +1,8 @@
 {
- "generated": "2026-08-25 18:00:07",
+ "generated": "2026-08-26 08:00:10",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-23",
-   "ts": "2026-08-23 12:17:37",
-   "new_headlines": 78,
-   "key": [
-    "[MUN] 'They just didn't look fit at all' - Shearer on Man Utd",
-    "[MUN/HUL] Hull shock Man Utd with dream Premier League return",
-    "[BHA] Watkins' absence at Brighton a question for him - Emery",
-    "[BOU/MCI] Gvardiol rescues result for Maresca - player ratings for Man City v Bournemouth",
-    "[MCI] The maths whizz turned \u00a386m teenage star heading to Man City",
-    "[MUN/HUL] Rooney says Man Utd must become feared - but what went wrong at Hull?",
-    "[squad] 'New season, new trim' - Haaland reveals buzzcut",
-    "[AVL/BHA] Aston Villa 'must accept everything' - Emery after Brighton thrashing",
-    "[MCI] Man City 'completely deserved to win' - Maresca",
-    "[BRE/TOT] Brentford beat lacklustre Spurs in comfortable opening day win",
-    "[IPS/SUN] Late drama as Ipswich stun Sunderland",
-    "[LEE/NFO] Leeds score late winner to silence Forest fans",
-    "[CRY/EVE] Wasteful Palace punished by Everton in Sage's first game",
-    "[MCI] What does Savinho's \u00a375m move reveal about Man City's multi-club model?",
-    "[TOT] De Zerbi learns cash alone cannot fix Spurs' losing mentality",
-    "[ARS/COV] Arsenal start title defence with comfortable win over Coventry",
-    "[ARS/COV] How Arsenal 'punished' newly promoted Coventry",
-    "[BRE/TOT] Why Spurs' defeat to Brentford is 'worrying' after summer signings",
-    "[IPS] How the 'new boys' of Ipswich got their season off to a dream start",
-    "[ARS] Alvarez open to Arsenal transfer - Sunday's gossip",
-    "[MCI] Man City agree \u00a386m deal for teen midfielder Bouaddi",
-    "[MUN] Man Utd 'didn't look ready' - but hurting Carrick remains calm",
-    "[LEE] Farke turnaround has Leeds aiming to thrive not just survive",
-    "[MCI] Man City will 'try to find the new Rodri' - Maresca",
-    "[BRE/TOT] Tonali nightmare as Sangare stars - Brentford v Spurs player ratings",
-    "[MUN] Where does Man Utd defeat rank among shock opening-game losses?",
-    "[EVE] Is Barry emerging as frontman Everton can finally count on?",
-    "[AVL] New-look Villa turn to Scandinavia as they rebuild squad"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-23",
    "ts": "2026-08-23 12:31:51",
@@ -124,6 +87,20 @@
    "player_changes": [
     "Pedro Porro (TOT, 14% owned): now available"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-26",
+   "ts": "2026-08-26 08:00:05",
+   "new_headlines": 19,
+   "key": [
+    "[MCI] Man City complete \u00a386m Bouaddi signing from Lille",
+    "[MCI] Man City to make offer for \u00a3120m-rated Fernandez",
+    "[MCI/NEW] Newcastle agree \u00a352m deal for Man City's Gonzalez",
+    "[MCI/TOT] Tottenham agree loan for Man City's Marmoush",
+    "[ARS] Taekwondo, stats and \u00a31m record - the rise of Arsenal striker Smith"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
