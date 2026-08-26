@@ -1,18 +1,8 @@
 {
- "generated": "2026-08-26 08:00:10",
+ "generated": "2026-08-26 18:00:08",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-23",
-   "ts": "2026-08-23 12:31:51",
-   "new_headlines": 1,
-   "key": [],
-   "player_changes": [
-    "Pedro Porro (TOT, 16% owned): Lack of match fitness - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-08-23",
    "ts": "2026-08-23 18:00:04",
@@ -99,6 +89,21 @@
     "[MCI/NEW] Newcastle agree \u00a352m deal for Man City's Gonzalez",
     "[MCI/TOT] Tottenham agree loan for Man City's Marmoush",
     "[ARS] Taekwondo, stats and \u00a31m record - the rise of Arsenal striker Smith"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-26",
+   "ts": "2026-08-26 18:00:04",
+   "new_headlines": 28,
+   "key": [
+    "[AVL/CHE] Villa close to \u00a365m move for Chelsea's Jackson",
+    "[BRE] West Ham accept \u00a340m Brentford bid for Diouf",
+    "[BHA/LIV] Liverpool turn attention to Sarr after Brighton reject Minteh bids",
+    "[AVL/CHE] Chelsea in contact over move for Villa goalkeeper Martinez",
+    "[AVL/CRY] Palace attempt to hijack Villa move for Ordonez",
+    "[BRE/COV] Coventry sign defender Pinnock from Brentford"
    ],
    "player_changes": [],
    "unreachable": []
