@@ -1,21 +1,8 @@
 {
- "generated": "2026-08-27 08:00:06",
+ "generated": "2026-08-27 18:00:07",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-24",
-   "ts": "2026-08-24 08:00:03",
-   "new_headlines": 20,
-   "key": [
-    "[BOU/MCI] Maresca's Man City reign begins with dramatic comeback against Bournemouth",
-    "[MUN/HUL] How Hull kept plan to stun Man Utd secret",
-    "[AVL/BHA] Why 'woeful' Villa crumbled against Brighton",
-    "[CHE/MCI] Man City ready to meet Chelsea's Fernandez demand - Monday's gossip"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-24",
    "ts": "2026-08-24 18:00:03",
@@ -108,6 +95,25 @@
    "player_changes": [
     "Anderson (MCI, 6% owned): now available"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-27",
+   "ts": "2026-08-27 18:00:03",
+   "new_headlines": 22,
+   "key": [
+    "[MCI] Cherki faces fight for Man City starting spot",
+    "[AVL/MCI] Man City and Aston Villa to face champions PSG",
+    "[AVL/CHE] Chelsea agree \u00a37.5m fee for Villa's Martinez",
+    "[ARS] Arsenal continue Alvarez pursuit - Friday's gossip",
+    "[IPS] Ipswich sign Argentina World Cup winner Palacios",
+    "[ARS] Arsenal only likely exit for Alvarez as striker skips training",
+    "[AVL] Villa sign Goretzka - what went wrong at Bayern and what will he bring?",
+    "[MCI/TOT] Tottenham sign Man City's Marmoush on loan",
+    "[MUN] Fiorentina in talks with Man United over Zirkzee loan",
+    "[EVE/MCI] Grealish keen on Everton, Man City look at Ndiaye"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
