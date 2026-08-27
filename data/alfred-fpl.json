@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-27 12:15:07",
+ "generated": "2026-08-27 15:15:08",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -627,14 +627,6 @@
      "yours": false
     },
     {
-     "name": "Hinshelwood",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 9.0,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
@@ -649,6 +641,14 @@
      "score": 7.8,
      "side": "A",
      "yours": true
+    },
+    {
+     "name": "Wieffer",
+     "club": "BHA",
+     "pos": "DEF",
+     "score": 6.9,
+     "side": "A",
+     "yours": false
     }
    ],
    "kickoff_utc": "2026-08-30T13:00:00Z",
