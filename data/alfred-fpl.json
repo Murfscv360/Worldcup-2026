@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-28 15:15:09",
+ "generated": "2026-08-28 18:15:06",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -7,7 +7,7 @@
  "source": "SESSION 2026-08-25 11:02 \u2014 confirmed from FPL Pick Team screen (GW2). 4-5-1: Truffert IN, Emersonn benched.",
  "chips_active": [],
  "captain": "De Cuyper",
- "vice": "Kayode",
+ "vice": "Haaland",
  "captain_current": "Haaland",
  "vice_current": "B.Fernandes",
  "xi": [
@@ -71,8 +71,8 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 16.31,
-   "ep": 5.0
+   "score": 24.14,
+   "ep": 7.5
   },
   {
    "name": "Emersonn",
@@ -253,10 +253,10 @@
    ],
    "watch": [
     {
-     "name": "Gu\u00e9hi",
+     "name": "Cherki",
      "club": "MCI",
-     "pos": "DEF",
-     "score": 15.8,
+     "pos": "MID",
+     "score": 31.1,
      "side": "A",
      "yours": false
     },
@@ -264,23 +264,23 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 14.6,
+     "score": 21.3,
      "side": "A",
      "yours": true
+    },
+    {
+     "name": "Yeremy",
+     "club": "CRY",
+     "pos": "MID",
+     "score": 8.4,
+     "side": "H",
+     "yours": false
     },
     {
      "name": "Wharton",
      "club": "CRY",
      "pos": "MID",
-     "score": 7.1,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Kamada",
-     "club": "CRY",
-     "pos": "MID",
-     "score": 5.7,
+     "score": 8.4,
      "side": "H",
      "yours": false
     }
