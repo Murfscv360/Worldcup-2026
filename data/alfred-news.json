@@ -1,23 +1,8 @@
 {
- "generated": "2026-08-28 08:00:05",
+ "generated": "2026-08-28 18:00:10",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-25",
-   "ts": "2026-08-25 08:00:04",
-   "new_headlines": 18,
-   "key": [
-    "[MCI/TOT] Tottenham sign Savinho from Man City for \u00a375m",
-    "[LEE] Leeds and Rangers co-owner jailed after prostitution arrest",
-    "[MCI] Grealish back for Man City - but for how long?",
-    "[AVL] 'It would appear he no longer wants to play for Villa' - does Watkins want out?"
-   ],
-   "player_changes": [
-    "Palmer (CHE, 12% owned): now available"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-08-25",
    "ts": "2026-08-25 18:00:04",
@@ -111,6 +96,23 @@
    ],
    "player_changes": [
     "Gibbs-White (NFO, 8% owned): now available"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-28",
+   "ts": "2026-08-28 18:00:03",
+   "new_headlines": 27,
+   "key": [
+    "[AVL] What will Jackson bring to Villa with Watkins set for exit?",
+    "[CRY/MCI] Cherki genius and Wharton excels -  Palace v Man City player ratings",
+    "[ARS] Arsenal & Barca monitor Rashford - Saturday's gossip",
+    "[MUN] Man Utd sign Swedish winger Jusu Bah for \u00a3400k",
+    "[BHA] Ruiz named Brighton boss after shock Vidosic exit",
+    "[CRY/MCI] Haaland and Cherki fire impressive Man City to victory at Palace"
+   ],
+   "player_changes": [
+    "Mateta (CRY, 5% owned): Hamstring injury - Expected back 11 Oct"
    ],
    "unreachable": []
   }
