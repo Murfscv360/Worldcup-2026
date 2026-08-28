@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-28 03:15:09",
+ "generated": "2026-08-28 06:15:08",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -391,18 +391,18 @@
      "yours": false
     },
     {
-     "name": "Murillo",
+     "name": "Gibbs-White",
      "club": "NFO",
-     "pos": "DEF",
-     "score": 7.4,
+     "pos": "MID",
+     "score": 7.8,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Sels",
+     "name": "Murillo",
      "club": "NFO",
-     "pos": "GKP",
-     "score": 7.3,
+     "pos": "DEF",
+     "score": 7.4,
      "side": "A",
      "yours": false
     }
