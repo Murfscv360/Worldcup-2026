@@ -1,26 +1,8 @@
 {
- "generated": "2026-08-27 18:00:07",
+ "generated": "2026-08-28 08:00:05",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-24",
-   "ts": "2026-08-24 18:00:03",
-   "new_headlines": 22,
-   "key": [
-    "[AVL] Watkins' departure would cut deepest - and Villa did not see it coming",
-    "[MCI] Man City agree deal for Palmeiras winger Allan",
-    "[ARS] Alvarez's Arsenal dilemma amid summer's most bitter transfer tussle",
-    "[ARS] Al-Hilal in advanced talks to sign Arsenal's Martinelli",
-    "[MCI] Man City enter race for Gakpo - Tuesday's gossip",
-    "[AVL] Villa in talks with Club Brugge for defender Ordonez"
-   ],
-   "player_changes": [
-    "Palmer (CHE, 12% owned): Calf injury - 75% chance of playing",
-    "Gibbs-White (NFO, 11% owned): Knee injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-08-25",
    "ts": "2026-08-25 08:00:04",
@@ -114,6 +96,22 @@
     "[EVE/MCI] Grealish keen on Everton, Man City look at Ndiaye"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-28",
+   "ts": "2026-08-28 08:00:02",
+   "new_headlines": 23,
+   "key": [
+    "[BOU/SUN] Sunderland and Bournemouth draw AC Milan in Europa League",
+    "[BHA] Vidosic makes shock Brighton exit before WSL season",
+    "[BRE] Brentford sign \u00a340m defender Diouf from West Ham",
+    "[MUN] Sell Man Utd players already? FPL gameweek two dilemmas",
+    "[BHA] Rangers remain in talks for Brighton winger Cozier-Duberry - gossip"
+   ],
+   "player_changes": [
+    "Gibbs-White (NFO, 8% owned): now available"
+   ],
    "unreachable": []
   }
  ],
