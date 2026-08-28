@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-24 17:58:46",
+ "generated": "2026-08-28 07:00:07",
  "tz": "America/Chicago",
  "gw": 2,
  "fixtures": [
@@ -30,7 +30,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 11.7,
+     "score": 11.8,
      "side": "A",
      "yours": true
     },
@@ -165,18 +165,18 @@
      "yours": false
     },
     {
-     "name": "Murillo",
+     "name": "Gibbs-White",
      "club": "NFO",
-     "pos": "DEF",
-     "score": 7.4,
+     "pos": "MID",
+     "score": 7.8,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Sels",
+     "name": "Murillo",
      "club": "NFO",
-     "pos": "GKP",
-     "score": 7.3,
+     "pos": "DEF",
+     "score": 7.4,
      "side": "A",
      "yours": false
     }
@@ -298,7 +298,7 @@
      "name": "McBurnie",
      "club": "HUL",
      "pos": "FWD",
-     "score": 5.3,
+     "score": 5.4,
      "side": "A",
      "yours": false
     }
@@ -356,10 +356,10 @@
      "yours": false
     },
     {
-     "name": "Maddison",
+     "name": "Pedro Porro",
      "club": "TOT",
-     "pos": "MID",
-     "score": 6.3,
+     "pos": "DEF",
+     "score": 6.9,
      "side": "H",
      "yours": false
     }
@@ -393,26 +393,18 @@
    ],
    "watch": [
     {
-     "name": "Hinshelwood",
-     "club": "BHA",
+     "name": "Palmer",
+     "club": "CHE",
      "pos": "MID",
-     "score": 8.8,
-     "side": "A",
+     "score": 10.3,
+     "side": "H",
      "yours": false
     },
     {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
-     "score": 8.3,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Lacroix",
-     "club": "CHE",
-     "pos": "DEF",
-     "score": 8.1,
+     "score": 8.7,
      "side": "H",
      "yours": false
     },
@@ -420,9 +412,17 @@
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 7.3,
+     "score": 7.8,
      "side": "A",
      "yours": true
+    },
+    {
+     "name": "Wieffer",
+     "club": "BHA",
+     "pos": "DEF",
+     "score": 6.9,
+     "side": "A",
+     "yours": false
     }
    ],
    "kickoff_utc": "2026-08-30T13:00:00Z",
@@ -534,7 +534,7 @@
      "name": "Gonzalo",
      "club": "FUL",
      "pos": "FWD",
-     "score": 6.4,
+     "score": 6.5,
      "side": "A",
      "yours": false
     },
@@ -579,7 +579,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 11.2,
+     "score": 11.3,
      "side": "H",
      "yours": true
     },
@@ -587,7 +587,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 8.3,
+     "score": 8.4,
      "side": "H",
      "yours": false
     },
@@ -595,7 +595,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 6.5,
+     "score": 6.7,
      "side": "A",
      "yours": true
     },
@@ -603,7 +603,7 @@
      "name": "Clarke",
      "club": "IPS",
      "pos": "MID",
-     "score": 6.4,
+     "score": 6.5,
      "side": "A",
      "yours": false
     }
