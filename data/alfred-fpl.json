@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 06:15:16",
+ "generated": "2026-08-29 09:15:13",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -36,8 +36,8 @@
    "name": "Truffert",
    "pos": "DEF",
    "club": "BOU",
-   "score": 1.58,
-   "ep": 0.5
+   "score": 3.17,
+   "ep": 1.0
   },
   {
    "name": "Lewis-Potter",
@@ -378,31 +378,31 @@
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
-     "score": 17.3,
+     "score": 23.8,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 20.9,
+     "side": "A",
      "yours": false
     },
     {
      "name": "Szoboszlai",
      "club": "LIV",
      "pos": "MID",
-     "score": 12.3,
+     "score": 17.0,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Aina",
+     "name": "Ndoye",
      "club": "NFO",
-     "pos": "DEF",
-     "score": 7.5,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Murillo",
-     "club": "NFO",
-     "pos": "DEF",
-     "score": 6.1,
+     "pos": "MID",
+     "score": 16.9,
      "side": "A",
      "yours": false
     }
@@ -439,7 +439,7 @@
      "name": "Dewsbury-Hall",
      "club": "EVE",
      "pos": "MID",
-     "score": 15.7,
+     "score": 16.7,
      "side": "A",
      "yours": false
     },
@@ -447,7 +447,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 14.4,
+     "score": 15.4,
      "side": "H",
      "yours": false
     },
@@ -455,7 +455,7 @@
      "name": "Ndiaye",
      "club": "EVE",
      "pos": "MID",
-     "score": 13.2,
+     "score": 14.2,
      "side": "A",
      "yours": false
     },
@@ -463,7 +463,7 @@
      "name": "Evanilson",
      "club": "BOU",
      "pos": "FWD",
-     "score": 5.9,
+     "score": 7.1,
      "side": "H",
      "yours": false
     }
@@ -500,7 +500,7 @@
      "name": "Mendy",
      "club": "HUL",
      "pos": "DEF",
-     "score": 21.3,
+     "score": 22.2,
      "side": "A",
      "yours": false
     },
@@ -508,7 +508,7 @@
      "name": "Ajayi",
      "club": "HUL",
      "pos": "DEF",
-     "score": 20.2,
+     "score": 21.1,
      "side": "A",
      "yours": false
     },
@@ -516,7 +516,7 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.2,
+     "score": 5.5,
      "side": "H",
      "yours": false
     },
@@ -524,7 +524,7 @@
      "name": "Tchaouna",
      "club": "COV",
      "pos": "MID",
-     "score": 2.9,
+     "score": 4.2,
      "side": "H",
      "yours": false
     }
