@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 12:15:13",
+ "generated": "2026-08-29 15:15:15",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -561,31 +561,31 @@
      "name": "Elanga",
      "club": "NEW",
      "pos": "MID",
-     "score": 14.0,
+     "score": 23.5,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Willock",
+     "name": "Hall",
      "club": "NEW",
-     "pos": "MID",
-     "score": 10.0,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Van Hecke",
-     "club": "TOT",
      "pos": "DEF",
-     "score": 5.5,
-     "side": "H",
+     "score": 19.3,
+     "side": "A",
      "yours": false
     },
     {
      "name": "Robertson",
      "club": "TOT",
      "pos": "DEF",
-     "score": 5.5,
+     "score": 6.9,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Tel",
+     "club": "TOT",
+     "pos": "MID",
+     "score": 5.6,
      "side": "H",
      "yours": false
     }
