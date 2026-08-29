@@ -1,24 +1,8 @@
 {
- "generated": "2026-08-28 18:00:10",
+ "generated": "2026-08-29 08:00:06",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-25",
-   "ts": "2026-08-25 18:00:04",
-   "new_headlines": 16,
-   "key": [
-    "[MUN] Man Utd's midfield spending is done - now for a left-back?",
-    "[squad] Fernandes and Shaw win PFA player of the year awards",
-    "[BHA/MUN] Baleba completes \u00a370m Man Utd move from Brighton",
-    "[AVL] Villa make offer for Mateta - Wednesday's gossip",
-    "[squad] 'I'm very proud of this' - Fernandes wins PFA player of the year"
-   ],
-   "player_changes": [
-    "Pedro Porro (TOT, 14% owned): now available"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-08-26",
    "ts": "2026-08-26 08:00:05",
@@ -114,6 +98,18 @@
    "player_changes": [
     "Mateta (CRY, 5% owned): Hamstring injury - Expected back 11 Oct"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-29",
+   "ts": "2026-08-29 08:00:02",
+   "new_headlines": 16,
+   "key": [
+    "[EVE/NFO] Forest to bid \u00a340m for Everton teenager Armstrong",
+    "[MCI] A magician and a maverick - this could be Cherki's moment for Man City",
+    "[MUN] Man Utd sign Swedish winger Jusu Bah for \u00a3400K"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
