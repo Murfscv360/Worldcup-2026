@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 15:15:15",
+ "generated": "2026-08-29 18:15:16",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -452,19 +452,19 @@
      "yours": false
     },
     {
-     "name": "Tavernier",
-     "club": "BOU",
-     "pos": "MID",
-     "score": 18.1,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Ndiaye",
      "club": "EVE",
      "pos": "MID",
      "score": 18.1,
      "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Tavernier",
+     "club": "BOU",
+     "pos": "MID",
+     "score": 15.3,
+     "side": "H",
      "yours": false
     }
    ],
@@ -524,7 +524,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 5.7,
+     "score": 5.8,
      "side": "H",
      "yours": false
     }
@@ -643,10 +643,10 @@
      "yours": false
     },
     {
-     "name": "Wieffer",
+     "name": "Hinshelwood",
      "club": "BHA",
-     "pos": "DEF",
-     "score": 10.3,
+     "pos": "MID",
+     "score": 12.7,
      "side": "A",
      "yours": false
     }
