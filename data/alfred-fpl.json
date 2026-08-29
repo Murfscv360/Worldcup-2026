@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-28 18:15:06",
+ "generated": "2026-08-28 21:15:08",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -71,7 +71,7 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 24.14,
+   "score": 24.22,
    "ep": 7.5
   },
   {
@@ -264,7 +264,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 21.3,
+     "score": 21.4,
      "side": "A",
      "yours": true
     },
