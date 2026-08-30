@@ -1,23 +1,8 @@
 {
- "generated": "2026-08-29 18:00:08",
+ "generated": "2026-08-30 08:00:06",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-26",
-   "ts": "2026-08-26 18:00:04",
-   "new_headlines": 28,
-   "key": [
-    "[AVL/CHE] Villa close to \u00a365m move for Chelsea's Jackson",
-    "[BRE] West Ham accept \u00a340m Brentford bid for Diouf",
-    "[BHA/LIV] Liverpool turn attention to Sarr after Brighton reject Minteh bids",
-    "[AVL/CHE] Chelsea in contact over move for Villa goalkeeper Martinez",
-    "[AVL/CRY] Palace attempt to hijack Villa move for Ordonez",
-    "[BRE/COV] Coventry sign defender Pinnock from Brentford"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-27",
    "ts": "2026-08-27 08:00:04",
@@ -109,6 +94,23 @@
     "[BOU] 'Confidence' and 'desire' - why Bournemouth's Scott is in demand",
     "[EVE] Moyes 'disappointed' with Everton performance",
     "[EVE] 'Slapstick' - Rose laments late Everton equaliser"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-30",
+   "ts": "2026-08-30 08:00:03",
+   "new_headlines": 15,
+   "key": [
+    "[AVL/CHE] Martinez is eighth Chelsea-Villa deal in four years",
+    "[EVE] Everton call off Armstrong sale after fan backlash",
+    "[MUN] Man Utd pay tribute to 'proud Red' crash death officer",
+    "[EVE/TOT] Tottenham make Ndiaye move with Richarlison set for Everton",
+    "[MCI/COV] Coventry sign Mfuni on loan from Man City",
+    "[ARS] Hamburg in advanced talks for Arsenal's Vieira",
+    "[MUN] West Brom sign Collyer from Manchester United",
+    "[ARS] Teenage Cardiff midfielder Donczew joins Arsenal"
    ],
    "player_changes": [],
    "unreachable": []
