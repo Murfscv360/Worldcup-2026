@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 15:15:18",
+ "generated": "2026-08-30 18:15:13",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -57,7 +57,7 @@
    "name": "Ampadu",
    "pos": "MID",
    "club": "LEE",
-   "score": 11.13,
+   "score": 11.12,
    "ep": 3.5
   },
   {
@@ -85,7 +85,7 @@
    "name": "Thiago",
    "pos": "FWD",
    "club": "BRE",
-   "score": 3.81,
+   "score": 3.83,
    "ep": 1.0
   }
  ],
@@ -630,7 +630,7 @@
      "name": "Palmer",
      "club": "CHE",
      "pos": "MID",
-     "score": 28.1,
+     "score": 28.0,
      "side": "H",
      "yours": false
     },
