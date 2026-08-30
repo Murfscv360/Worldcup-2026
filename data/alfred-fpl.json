@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 06:15:06",
+ "generated": "2026-08-30 09:15:16",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -7,7 +7,7 @@
  "source": "SESSION 2026-08-25 11:02 \u2014 confirmed from FPL Pick Team screen (GW2). 4-5-1: Truffert IN, Emersonn benched.",
  "chips_active": [],
  "captain": "De Cuyper",
- "vice": "Haaland",
+ "vice": "Lewis-Potter",
  "captain_current": "Haaland",
  "vice_current": "B.Fernandes",
  "xi": [
@@ -22,15 +22,15 @@
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 28.23,
+   "score": 27.76,
    "ep": 8.5
   },
   {
    "name": "Kayode",
    "pos": "DEF",
    "club": "BRE",
-   "score": 20.98,
-   "ep": 6.5
+   "score": 22.43,
+   "ep": 7.0
   },
   {
    "name": "Truffert",
@@ -43,15 +43,15 @@
    "name": "Lewis-Potter",
    "pos": "MID",
    "club": "BRE",
-   "score": 16.43,
-   "ep": 5.0
+   "score": 25.79,
+   "ep": 8.0
   },
   {
    "name": "Ampadu",
    "pos": "MID",
    "club": "LEE",
-   "score": 7.94,
-   "ep": 2.5
+   "score": 9.53,
+   "ep": 3.0
   },
   {
    "name": "Rice",
@@ -85,8 +85,8 @@
    "name": "Thiago",
    "pos": "FWD",
    "club": "BRE",
-   "score": 0.79,
-   "ep": 0.0
+   "score": 2.12,
+   "ep": 0.5
   }
  ],
  "bench": [
@@ -619,10 +619,18 @@
    ],
    "watch": [
     {
+     "name": "Jo\u00e3o Pedro",
+     "club": "CHE",
+     "pos": "FWD",
+     "score": 27.1,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 25.3,
+     "score": 23.9,
      "side": "A",
      "yours": true
     },
@@ -630,23 +638,15 @@
      "name": "Palmer",
      "club": "CHE",
      "pos": "MID",
-     "score": 19.0,
+     "score": 19.6,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Jo\u00e3o Pedro",
-     "club": "CHE",
-     "pos": "FWD",
-     "score": 16.1,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Hinshelwood",
+     "name": "Yalcouy\u00e9",
      "club": "BHA",
      "pos": "MID",
-     "score": 12.7,
+     "score": 13.7,
      "side": "A",
      "yours": false
     }
@@ -680,26 +680,26 @@
    ],
    "watch": [
     {
+     "name": "Lewis-Potter",
+     "club": "BRE",
+     "pos": "MID",
+     "score": 22.4,
+     "side": "A",
+     "yours": true
+    },
+    {
      "name": "M.Sangar\u00e9",
      "club": "BRE",
      "pos": "MID",
-     "score": 20.0,
+     "score": 20.8,
      "side": "A",
      "yours": false
-    },
-    {
-     "name": "Kayode",
-     "club": "BRE",
-     "pos": "DEF",
-     "score": 18.8,
-     "side": "A",
-     "yours": true
     },
     {
      "name": "Stach",
      "club": "LEE",
      "pos": "MID",
-     "score": 18.3,
+     "score": 19.2,
      "side": "H",
      "yours": false
     },
@@ -707,7 +707,7 @@
      "name": "Bijol",
      "club": "LEE",
      "pos": "DEF",
-     "score": 14.3,
+     "score": 15.2,
      "side": "H",
      "yours": false
     }
@@ -744,7 +744,7 @@
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
-     "score": 12.7,
+     "score": 16.5,
      "side": "H",
      "yours": false
     },
@@ -752,7 +752,7 @@
      "name": "King",
      "club": "FUL",
      "pos": "MID",
-     "score": 10.1,
+     "score": 11.3,
      "side": "A",
      "yours": false
     },
@@ -760,7 +760,7 @@
      "name": "Gonzalo",
      "club": "FUL",
      "pos": "FWD",
-     "score": 9.1,
+     "score": 10.0,
      "side": "A",
      "yours": false
     },
@@ -768,7 +768,7 @@
      "name": "Angulo",
      "club": "SUN",
      "pos": "MID",
-     "score": 7.3,
+     "score": 8.4,
      "side": "H",
      "yours": false
     }
