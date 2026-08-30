@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 12:15:18",
+ "generated": "2026-08-30 15:15:18",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -43,8 +43,8 @@
    "name": "B.Fernandes",
    "pos": "MID",
    "club": "MUN",
-   "score": 35.71,
-   "ep": 11.0
+   "score": 40.44,
+   "ep": 12.5
   },
   {
    "name": "Lewis-Potter",
@@ -744,7 +744,7 @@
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
-     "score": 16.5,
+     "score": 20.6,
      "side": "H",
      "yours": false
     },
@@ -757,10 +757,10 @@
      "yours": false
     },
     {
-     "name": "Mukiele",
+     "name": "Isidor",
      "club": "SUN",
-     "pos": "DEF",
-     "score": 15.5,
+     "pos": "FWD",
+     "score": 14.1,
      "side": "H",
      "yours": false
     },
@@ -805,15 +805,15 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 31.5,
+     "score": 35.5,
      "side": "H",
      "yours": true
     },
     {
-     "name": "Cunha",
+     "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 16.8,
+     "score": 18.9,
      "side": "H",
      "yours": false
     },
@@ -826,10 +826,10 @@
      "yours": true
     },
     {
-     "name": "Davis",
+     "name": "Enciso",
      "club": "IPS",
-     "pos": "DEF",
-     "score": 11.1,
+     "pos": "MID",
+     "score": 14.3,
      "side": "A",
      "yours": false
     }
