@@ -1,24 +1,8 @@
 {
- "generated": "2026-08-31 08:00:07",
+ "generated": "2026-08-31 18:00:07",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-28",
-   "ts": "2026-08-28 08:00:02",
-   "new_headlines": 23,
-   "key": [
-    "[BOU/SUN] Sunderland and Bournemouth draw AC Milan in Europa League",
-    "[BHA] Vidosic makes shock Brighton exit before WSL season",
-    "[BRE] Brentford sign \u00a340m defender Diouf from West Ham",
-    "[MUN] Sell Man Utd players already? FPL gameweek two dilemmas",
-    "[BHA] Rangers remain in talks for Brighton winger Cozier-Duberry - gossip"
-   ],
-   "player_changes": [
-    "Gibbs-White (NFO, 8% owned): now available"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-08-28",
    "ts": "2026-08-28 18:00:03",
@@ -120,6 +104,24 @@
    "player_changes": [
     "Emersonn (IPS, YOUR PLAYER): Knee injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-31",
+   "ts": "2026-08-31 18:00:04",
+   "new_headlines": 26,
+   "key": [
+    "[CHE/MCI] Man City open talks with Chelsea over Fernandez move",
+    "[MCI] Man City's \u00a380m move for Gakpo close to collapse",
+    "[ARS/AVL] How did match-winner Saka do? Aston Villa v Arsenal ratings",
+    "[EVE/MCI] Man City agree \u00a365m deal for Everton's Ndiaye",
+    "[ARS/AVL] Saka earns Arsenal hard-fought win at Aston Villa",
+    "[ARS] Arsenal explore move for winger Fofana - Tuesday gossip",
+    "[EVE] Everton agree \u00a340m fee for Monaco striker Balogun",
+    "[EVE/HUL] Hull agree \u00a322m fee for Everton's Iroegbunam",
+    "[EVE] Everton forced to move EFL Cup tie at short notice"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
