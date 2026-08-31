@@ -1,27 +1,8 @@
 {
- "generated": "2026-08-30 18:00:10",
+ "generated": "2026-08-31 08:00:07",
  "tz": "America/Chicago",
  "gw": 2,
  "days": [
-  {
-   "date": "2026-08-27",
-   "ts": "2026-08-27 18:00:03",
-   "new_headlines": 22,
-   "key": [
-    "[MCI] Cherki faces fight for Man City starting spot",
-    "[AVL/MCI] Man City and Aston Villa to face champions PSG",
-    "[AVL/CHE] Chelsea agree \u00a37.5m fee for Villa's Martinez",
-    "[ARS] Arsenal continue Alvarez pursuit - Friday's gossip",
-    "[IPS] Ipswich sign Argentina World Cup winner Palacios",
-    "[ARS] Arsenal only likely exit for Alvarez as striker skips training",
-    "[AVL] Villa sign Goretzka - what went wrong at Bayern and what will he bring?",
-    "[MCI/TOT] Tottenham sign Man City's Marmoush on loan",
-    "[MUN] Fiorentina in talks with Man United over Zirkzee loan",
-    "[EVE/MCI] Grealish keen on Everton, Man City look at Ndiaye"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-28",
    "ts": "2026-08-28 08:00:02",
@@ -121,6 +102,24 @@
     "[LEE] 'Never underestimate Daniel'- Andrews hails Farke after Leeds comeback"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-08-31",
+   "ts": "2026-08-31 08:00:04",
+   "new_headlines": 15,
+   "key": [
+    "[MCI] Man City sign Palmeiras winger Allan for \u00a334m",
+    "[AVL/CHE] 'It's not a good relationship, it's a deal for money' - Emery on Villa-Chelsea moves",
+    "[MUN] Driven & hungry Rashford a Man Utd asset - Maguire",
+    "[MCI] Germany's Wamser completes move to Man City",
+    "[MUN] Man Utd near deal for Mexico's Bernal",
+    "[BRE] Given credits Farke's second-half tactical shift in Brentford draw",
+    "[MCI] Swansea agree loan of Manchester City's Monga"
+   ],
+   "player_changes": [
+    "Emersonn (IPS, YOUR PLAYER): Knee injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
