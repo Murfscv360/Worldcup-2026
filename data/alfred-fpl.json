@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 15:15:06",
+ "generated": "2026-08-31 18:15:06",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -15,8 +15,8 @@
    "name": "Raya",
    "pos": "GKP",
    "club": "ARS",
-   "score": 11.08,
-   "ep": 3.5
+   "score": 19.0,
+   "ep": 6.0
   },
   {
    "name": "De Cuyper",
@@ -54,18 +54,18 @@
    "ep": 8.0
   },
   {
-   "name": "Rice",
-   "pos": "MID",
-   "club": "ARS",
-   "score": 11.24,
-   "ep": 3.5
-  },
-  {
    "name": "Ampadu",
    "pos": "MID",
    "club": "LEE",
    "score": 11.12,
    "ep": 3.5
+  },
+  {
+   "name": "Rice",
+   "pos": "MID",
+   "club": "ARS",
+   "score": 9.6,
+   "ep": 3.0
   },
   {
    "name": "Haaland",
@@ -314,18 +314,18 @@
    ],
    "watch": [
     {
-     "name": "\u00d8degaard",
+     "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 20.8,
+     "score": 28.1,
      "side": "A",
      "yours": false
     },
     {
-     "name": "White",
+     "name": "Calafiori",
      "club": "ARS",
      "pos": "DEF",
-     "score": 16.9,
+     "score": 27.8,
      "side": "A",
      "yours": false
     },
