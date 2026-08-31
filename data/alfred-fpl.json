@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 03:15:05",
+ "generated": "2026-08-31 06:15:05",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -43,7 +43,7 @@
    "name": "B.Fernandes",
    "pos": "MID",
    "club": "MUN",
-   "score": 40.44,
+   "score": 40.53,
    "ep": 12.5
   },
   {
@@ -78,8 +78,8 @@
    "name": "Emersonn",
    "pos": "FWD",
    "club": "IPS",
-   "score": 16.31,
-   "ep": 5.0
+   "score": 6.71,
+   "ep": 3.8
   },
   {
    "name": "Thiago",
@@ -199,8 +199,8 @@
   {
    "name": "Emersonn",
    "club": "IPS",
-   "status": "a",
-   "available": true
+   "status": "d",
+   "available": false
   },
   {
    "name": "Petrovi\u0107",
@@ -227,7 +227,7 @@
    "available": true
   }
  ],
- "all_available": true,
+ "all_available": false,
  "fixtures": [
   {
    "home": "CRY",
@@ -805,7 +805,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 35.5,
+     "score": 35.7,
      "side": "H",
      "yours": true
     },
@@ -813,23 +813,23 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 18.9,
+     "score": 19.0,
      "side": "H",
      "yours": false
-    },
-    {
-     "name": "Emersonn",
-     "club": "IPS",
-     "pos": "FWD",
-     "score": 14.4,
-     "side": "A",
-     "yours": true
     },
     {
      "name": "Enciso",
      "club": "IPS",
      "pos": "MID",
      "score": 14.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Davis",
+     "club": "IPS",
+     "pos": "DEF",
+     "score": 11.1,
      "side": "A",
      "yours": false
     }
