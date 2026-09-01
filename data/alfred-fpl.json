@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 18:15:06",
+ "generated": "2026-08-31 21:15:04",
  "tz": "America/Chicago",
  "gw": 2,
  "deadline": "2026-08-28T12:30:00",
@@ -54,18 +54,18 @@
    "ep": 8.0
   },
   {
+   "name": "Rice",
+   "pos": "MID",
+   "club": "ARS",
+   "score": 12.77,
+   "ep": 4.0
+  },
+  {
    "name": "Ampadu",
    "pos": "MID",
    "club": "LEE",
    "score": 11.12,
    "ep": 3.5
-  },
-  {
-   "name": "Rice",
-   "pos": "MID",
-   "club": "ARS",
-   "score": 9.6,
-   "ep": 3.0
   },
   {
    "name": "Haaland",
