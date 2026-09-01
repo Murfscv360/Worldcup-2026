@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-01 09:15:05",
+ "generated": "2026-09-01 12:15:07",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-04T17:30:00",
@@ -119,16 +119,8 @@
  ],
  "changes": [
   {
-   "in": "Tzolakis",
-   "out": "Raya"
-  },
-  {
-   "in": "Cherki",
+   "in": "Jo\u00e3o Pedro",
    "out": "Kayode"
-  },
-  {
-   "in": "Elanga",
-   "out": "Wissa"
   }
  ],
  "transfers_recommended": [],
@@ -144,7 +136,8 @@
   "2026-09-01 08:39 \u2014 GW3 Pick Team screen confirmed. XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Emersonn/Joao Pedro (4-3-3). Bench order: Tzolakis, Elanga, Rice, Thiaw. Captain Haaland, vice Palmer. LOCKED.",
   "2026-09-01 08:47 \u2014 John made further wildcard transfers (still free, wildcard active until GW3 deadline): Thiaw->Egan, Rice->Cherki, Emersonn->Wissa. Egan pushed HUL to 4 players -> blocked by FPL's 3-per-club rule (Alfred's error: recommended Egan without checking existing HUL count from Tzolakis/Mendy/Ajayi).",
   "2026-09-01 08:49 \u2014 Fixed: Egan->Castagne (FUL). Transfers screenshot confirms squad valid, no club-limit error, budget \u00a34.0m. XI/bench/captain NOT yet reconfirmed for this exact 15 -- screen shown was Transfers (squad-build), not Pick Team, and personnel changed since the last locked XI.",
-  "2026-09-01 08:55 \u2014 GW3 Pick Team screen confirmed (final, post-transfers). XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Wissa/Joao Pedro (4-3-3). Bench order: Tzolakis, Elanga, Cherki, Castagne. Captain Haaland (kept over the model's Cherki suggestion, per Alfred's advice), vice Palmer. LOCKED."
+  "2026-09-01 08:55 \u2014 GW3 Pick Team screen confirmed (post-transfers). XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Wissa/Joao Pedro (4-3-3). Captain Haaland, vice Palmer.",
+  "2026-09-01 09:34 \u2014 GW3 Pick Team RE-CONFIRMED after lineup optimization (Alfred recommended the alt-XI structure from fpl_gw_report.py's real-vs-model comparison). FINAL: Tzolakis; De Cuyper/Kayode/Mendy/Ajayi; Palmer(V)/Lewis-Potter/Stach/Cherki/Elanga; Haaland(C) (4-5-1). Bench order: Raya, Joao Pedro, Wissa, Castagne. Predicted total (ep_next) 105.0, up from 97.5 pre-optimization. LOCKED."
  ],
  "availability": [
   {
