@@ -1,15 +1,15 @@
 {
- "generated": "2026-09-01 08:45:11",
+ "generated": "2026-09-01 09:15:05",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-04T17:30:00",
- "formation": "4-4-2",
+ "formation": "3-5-2",
  "source": "SESSION 2026-09-01 08:36 \u2014 confirmed from FPL Transfers screen screenshot (GW3, WILDCARD ACTIVE). Full 15-man squad rebuild.",
  "chips_active": [
   "wildcard"
  ],
- "captain": "Jo\u00e3o Pedro",
- "vice": "Palmer",
+ "captain": "Cherki",
+ "vice": "Jo\u00e3o Pedro",
  "captain_current": "Haaland",
  "vice_current": "Palmer",
  "xi": [
@@ -42,11 +42,11 @@
    "ep": 8.0
   },
   {
-   "name": "Kayode",
-   "pos": "DEF",
-   "club": "BRE",
-   "score": 25.55,
-   "ep": 7.5
+   "name": "Cherki",
+   "pos": "MID",
+   "club": "MCI",
+   "score": 38.23,
+   "ep": 11.0
   },
   {
    "name": "Palmer",
@@ -99,21 +99,21 @@
    "order": 0
   },
   {
-   "name": "Thiaw",
+   "name": "Kayode",
    "pos": "DEF",
-   "club": "NEW",
+   "club": "BRE",
    "order": 1
   },
   {
-   "name": "Rice",
-   "pos": "MID",
-   "club": "ARS",
+   "name": "Wissa",
+   "pos": "FWD",
+   "club": "NEW",
    "order": 2
   },
   {
-   "name": "Emersonn",
-   "pos": "FWD",
-   "club": "IPS",
+   "name": "Castagne",
+   "pos": "DEF",
+   "club": "FUL",
    "order": 3
   }
  ],
@@ -123,8 +123,12 @@
    "out": "Raya"
   },
   {
+   "in": "Cherki",
+   "out": "Kayode"
+  },
+  {
    "in": "Elanga",
-   "out": "Emersonn"
+   "out": "Wissa"
   }
  ],
  "transfers_recommended": [],
@@ -137,7 +141,10 @@
   "2026-08-25 11:02 \u2014 GW2 XI: Truffert IN, Emersonn OUT (4-5-1). Bench: Petrovic, Emersonn, Cash, Thiago.",
   "2026-08-25 17:12 \u2014 GW2 LINEUP LOCKED (John).",
   "2026-09-01 08:36 \u2014 GW3 WILDCARD played. Full squad rebuild confirmed from Transfers screenshot: kept Raya/De Cuyper/Kayode/Rice/Lewis-Potter/Haaland/Emersonn; dropped B.Fernandes/Zubimendi/Ampadu/Petrovic/Truffert/Keane/Thiago/Cash; added Tzolakis/Mendy/Ajayi/Thiaw/Palmer/Stach/Elanga/Joao Pedro. XI/bench/captain unconfirmed at that point.",
-  "2026-09-01 08:39 \u2014 GW3 Pick Team screen confirmed. XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Emersonn/Joao Pedro (4-3-3). Bench order: Tzolakis, Elanga, Rice, Thiaw. Captain Haaland, vice Palmer. LOCKED."
+  "2026-09-01 08:39 \u2014 GW3 Pick Team screen confirmed. XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Emersonn/Joao Pedro (4-3-3). Bench order: Tzolakis, Elanga, Rice, Thiaw. Captain Haaland, vice Palmer. LOCKED.",
+  "2026-09-01 08:47 \u2014 John made further wildcard transfers (still free, wildcard active until GW3 deadline): Thiaw->Egan, Rice->Cherki, Emersonn->Wissa. Egan pushed HUL to 4 players -> blocked by FPL's 3-per-club rule (Alfred's error: recommended Egan without checking existing HUL count from Tzolakis/Mendy/Ajayi).",
+  "2026-09-01 08:49 \u2014 Fixed: Egan->Castagne (FUL). Transfers screenshot confirms squad valid, no club-limit error, budget \u00a34.0m. XI/bench/captain NOT yet reconfirmed for this exact 15 -- screen shown was Transfers (squad-build), not Pick Team, and personnel changed since the last locked XI.",
+  "2026-09-01 08:55 \u2014 GW3 Pick Team screen confirmed (final, post-transfers). XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Wissa/Joao Pedro (4-3-3). Bench order: Tzolakis, Elanga, Cherki, Castagne. Captain Haaland (kept over the model's Cherki suggestion, per Alfred's advice), vice Palmer. LOCKED."
  ],
  "availability": [
   {
@@ -177,8 +184,8 @@
    "available": true
   },
   {
-   "name": "Thiaw",
-   "club": "NEW",
+   "name": "Castagne",
+   "club": "FUL",
    "status": "a",
    "available": true
   },
@@ -207,8 +214,8 @@
    "available": true
   },
   {
-   "name": "Rice",
-   "club": "ARS",
+   "name": "Cherki",
+   "club": "MCI",
    "status": "a",
    "available": true
   },
@@ -219,10 +226,10 @@
    "available": true
   },
   {
-   "name": "Emersonn",
-   "club": "IPS",
-   "status": "d",
-   "available": false
+   "name": "Wissa",
+   "club": "NEW",
+   "status": "a",
+   "available": true
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -231,7 +238,7 @@
    "available": true
   }
  ],
- "all_available": false,
+ "all_available": true,
  "fixtures": [
   {
    "home": "IPS",
@@ -506,7 +513,7 @@
      "pos": "DEF",
      "score": 15.0,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "King",
@@ -567,7 +574,7 @@
      "pos": "MID",
      "score": 29.5,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Haaland",
