@@ -1,20 +1,8 @@
 {
- "generated": "2026-09-01 08:00:07",
+ "generated": "2026-09-01 18:00:06",
  "tz": "America/Chicago",
- "gw": 2,
+ "gw": 3,
  "days": [
-  {
-   "date": "2026-08-29",
-   "ts": "2026-08-29 08:00:02",
-   "new_headlines": 16,
-   "key": [
-    "[EVE/NFO] Forest to bid \u00a340m for Everton teenager Armstrong",
-    "[MCI] A magician and a maverick - this could be Cherki's moment for Man City",
-    "[MUN] Man Utd sign Swedish winger Jusu Bah for \u00a3400K"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-29",
    "ts": "2026-08-29 18:00:05",
@@ -120,6 +108,28 @@
     "[ARS] Arsenal explore late move for Alvarez - Tuesday gossip"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-01",
+   "ts": "2026-09-01 18:00:02",
+   "new_headlines": 27,
+   "key": [
+    "[MCI] Fernandez joins Man City for joint-British record \u00a3125m",
+    "[CHE] Camara's \u00a347.1m move from Monaco to Chelsea collapses",
+    "[MCI] Ndiaye's journey from non-league football to \u00a365m Man City move",
+    "[CHE/TOT] Tottenham sign Chelsea pair Mudryk and Tosin",
+    "[NEW] Newcastle sign Fernandez-Pardo from Lille for \u00a351m",
+    "[EVE/HUL] Hull sign Iroegbunam from Everton and Vaz from Roma",
+    "[FUL] Angel becomes Fulham's third Real Madrid signing of summer",
+    "[ARS] Arsenal's Nwaneri joins Dortmund on loan",
+    "[BHA] Brighton agree \u00a315m deal for Millwall winger Azeez",
+    "[MCI/MUN] Man Utd fail in attempt to sign Ait-Nouri from Man City",
+    "[CHE] Chelsea goalkeeper Sanchez joins Como on loan"
+   ],
+   "player_changes": [
+    "Watkins (AVL, 6% owned): Has joined Al Hilal permanently"
+   ],
    "unreachable": []
   }
  ],
