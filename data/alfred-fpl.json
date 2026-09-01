@@ -1,128 +1,130 @@
 {
- "generated": "2026-09-01 06:15:05",
+ "generated": "2026-09-01 08:45:11",
  "tz": "America/Chicago",
- "gw": 2,
- "deadline": "2026-08-28T12:30:00",
- "formation": "3-4-3",
- "source": "SESSION 2026-08-25 11:02 \u2014 confirmed from FPL Pick Team screen (GW2). 4-5-1: Truffert IN, Emersonn benched.",
- "chips_active": [],
- "captain": "B.Fernandes",
- "vice": "De Cuyper",
+ "gw": 3,
+ "deadline": "2026-09-04T17:30:00",
+ "formation": "4-4-2",
+ "source": "SESSION 2026-09-01 08:36 \u2014 confirmed from FPL Transfers screen screenshot (GW3, WILDCARD ACTIVE). Full 15-man squad rebuild.",
+ "chips_active": [
+  "wildcard"
+ ],
+ "captain": "Jo\u00e3o Pedro",
+ "vice": "Palmer",
  "captain_current": "Haaland",
- "vice_current": "B.Fernandes",
+ "vice_current": "Palmer",
  "xi": [
   {
-   "name": "Raya",
+   "name": "Tzolakis",
    "pos": "GKP",
-   "club": "ARS",
-   "score": 19.0,
-   "ep": 6.0
+   "club": "HUL",
+   "score": 33.33,
+   "ep": 10.0
+  },
+  {
+   "name": "Ajayi",
+   "pos": "DEF",
+   "club": "HUL",
+   "score": 33.75,
+   "ep": 10.0
   },
   {
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 27.55,
+   "score": 29.6,
    "ep": 8.5
+  },
+  {
+   "name": "Mendy",
+   "pos": "DEF",
+   "club": "HUL",
+   "score": 26.96,
+   "ep": 8.0
   },
   {
    "name": "Kayode",
    "pos": "DEF",
    "club": "BRE",
-   "score": 24.02,
+   "score": 25.55,
    "ep": 7.5
   },
   {
-   "name": "Truffert",
-   "pos": "DEF",
-   "club": "BOU",
-   "score": 7.94,
-   "ep": 2.5
+   "name": "Palmer",
+   "pos": "MID",
+   "club": "CHE",
+   "score": 34.21,
+   "ep": 10.0
   },
   {
-   "name": "B.Fernandes",
+   "name": "Elanga",
    "pos": "MID",
-   "club": "MUN",
-   "score": 40.53,
-   "ep": 12.5
+   "club": "NEW",
+   "score": 28.73,
+   "ep": 8.5
+  },
+  {
+   "name": "Stach",
+   "pos": "MID",
+   "club": "LEE",
+   "score": 28.48,
+   "ep": 8.5
   },
   {
    "name": "Lewis-Potter",
    "pos": "MID",
    "club": "BRE",
-   "score": 25.69,
+   "score": 27.37,
    "ep": 8.0
   },
   {
-   "name": "Rice",
-   "pos": "MID",
-   "club": "ARS",
-   "score": 12.77,
-   "ep": 4.0
-  },
-  {
-   "name": "Ampadu",
-   "pos": "MID",
-   "club": "LEE",
-   "score": 11.12,
-   "ep": 3.5
+   "name": "Jo\u00e3o Pedro",
+   "pos": "FWD",
+   "club": "CHE",
+   "score": 34.64,
+   "ep": 10.0
   },
   {
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 24.22,
+   "score": 25.95,
    "ep": 7.5
+  }
+ ],
+ "bench": [
+  {
+   "name": "Raya",
+   "pos": "GKP",
+   "club": "ARS",
+   "order": 0
+  },
+  {
+   "name": "Thiaw",
+   "pos": "DEF",
+   "club": "NEW",
+   "order": 1
+  },
+  {
+   "name": "Rice",
+   "pos": "MID",
+   "club": "ARS",
+   "order": 2
   },
   {
    "name": "Emersonn",
    "pos": "FWD",
    "club": "IPS",
-   "score": 6.71,
-   "ep": 3.8
-  },
-  {
-   "name": "Thiago",
-   "pos": "FWD",
-   "club": "BRE",
-   "score": 3.83,
-   "ep": 1.0
-  }
- ],
- "bench": [
-  {
-   "name": "Petrovi\u0107",
-   "pos": "GKP",
-   "club": "BOU",
-   "order": 0
-  },
-  {
-   "name": "Zubimendi",
-   "pos": "MID",
-   "club": "ARS",
-   "order": 1
-  },
-  {
-   "name": "Cash",
-   "pos": "DEF",
-   "club": "AVL",
-   "order": 2
-  },
-  {
-   "name": "Keane",
-   "pos": "DEF",
-   "club": "EVE",
    "order": 3
   }
  ],
  "changes": [
   {
-   "in": "Emersonn",
-   "out": "Zubimendi"
+   "in": "Tzolakis",
+   "out": "Raya"
   },
   {
-   "in": "Thiago",
-   "out": "Keane"
+   "in": "Elanga",
+   "out": "Emersonn"
   }
  ],
  "transfers_recommended": [],
@@ -133,12 +135,20 @@
   "2026-08-24 18:03 \u2014 GW2 XI final: Cash OUT of XI, Keane IN. Bench order: Petrovic, Truffert, Cash, Zubimendi. Captain Haaland, vice B.Fernandes.",
   "2026-08-25 10:59 \u2014 GW2 XI: Zubimendi IN, Thiago OUT (3-5-2). Bench: Petrovic, Truffert, Cash, Thiago.",
   "2026-08-25 11:02 \u2014 GW2 XI: Truffert IN, Emersonn OUT (4-5-1). Bench: Petrovic, Emersonn, Cash, Thiago.",
-  "2026-08-25 17:12 \u2014 GW2 LINEUP LOCKED (John)."
+  "2026-08-25 17:12 \u2014 GW2 LINEUP LOCKED (John).",
+  "2026-09-01 08:36 \u2014 GW3 WILDCARD played. Full squad rebuild confirmed from Transfers screenshot: kept Raya/De Cuyper/Kayode/Rice/Lewis-Potter/Haaland/Emersonn; dropped B.Fernandes/Zubimendi/Ampadu/Petrovic/Truffert/Keane/Thiago/Cash; added Tzolakis/Mendy/Ajayi/Thiaw/Palmer/Stach/Elanga/Joao Pedro. XI/bench/captain unconfirmed at that point.",
+  "2026-09-01 08:39 \u2014 GW3 Pick Team screen confirmed. XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Emersonn/Joao Pedro (4-3-3). Bench order: Tzolakis, Elanga, Rice, Thiaw. Captain Haaland, vice Palmer. LOCKED."
  ],
  "availability": [
   {
    "name": "Raya",
    "club": "ARS",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Tzolakis",
+   "club": "HUL",
    "status": "a",
    "available": true
   },
@@ -149,20 +159,32 @@
    "available": true
   },
   {
-   "name": "Cash",
-   "club": "AVL",
-   "status": "a",
-   "available": true
-  },
-  {
    "name": "Kayode",
    "club": "BRE",
    "status": "a",
    "available": true
   },
   {
-   "name": "B.Fernandes",
-   "club": "MUN",
+   "name": "Mendy",
+   "club": "HUL",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Ajayi",
+   "club": "HUL",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Thiaw",
+   "club": "NEW",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Palmer",
+   "club": "CHE",
    "status": "a",
    "available": true
   },
@@ -173,20 +195,20 @@
    "available": true
   },
   {
-   "name": "Zubimendi",
-   "club": "ARS",
+   "name": "Stach",
+   "club": "LEE",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Elanga",
+   "club": "NEW",
    "status": "a",
    "available": true
   },
   {
    "name": "Rice",
    "club": "ARS",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "Ampadu",
-   "club": "LEE",
    "status": "a",
    "available": true
   },
@@ -203,26 +225,8 @@
    "available": false
   },
   {
-   "name": "Petrovi\u0107",
-   "club": "BOU",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "Truffert",
-   "club": "BOU",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "Keane",
-   "club": "EVE",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "Thiago",
-   "club": "BRE",
+   "name": "Jo\u00e3o Pedro",
+   "club": "CHE",
    "status": "a",
    "available": true
   }
@@ -230,147 +234,25 @@
  "all_available": false,
  "fixtures": [
   {
-   "home": "CRY",
-   "away": "MCI",
-   "xg_home": 1.35,
-   "xg_away": 1.82,
-   "win": 29,
-   "draw": 23,
-   "loss": 48,
+   "home": "IPS",
+   "away": "LIV",
+   "xg_home": 0.9,
+   "xg_away": 1.85,
+   "win": 18,
+   "draw": 22,
+   "loss": 60,
    "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 10.4
-    },
-    {
-     "score": "1-2",
-     "pct": 9.4
-    },
     {
      "score": "0-1",
-     "pct": 7.7
-    }
-   ],
-   "watch": [
-    {
-     "name": "Cherki",
-     "club": "MCI",
-     "pos": "MID",
-     "score": 31.2,
-     "side": "A",
-     "yours": false
+     "pct": 11.9
     },
     {
-     "name": "Haaland",
-     "club": "MCI",
-     "pos": "FWD",
-     "score": 21.5,
-     "side": "A",
-     "yours": true
+     "score": "0-2",
+     "pct": 11.0
     },
-    {
-     "name": "Yeremy",
-     "club": "CRY",
-     "pos": "MID",
-     "score": 8.4,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Wharton",
-     "club": "CRY",
-     "pos": "MID",
-     "score": 8.4,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-08-28T19:00:00Z",
-   "kickoff": "Fri 28 Aug 14:00",
-   "day": "Fri 28 Aug",
-   "monday": false
-  },
-  {
-   "home": "AVL",
-   "away": "ARS",
-   "xg_home": 1.35,
-   "xg_away": 1.53,
-   "win": 34,
-   "draw": 25,
-   "loss": 42,
-   "scorelines": [
     {
      "score": "1-1",
-     "pct": 11.6
-    },
-    {
-     "score": "1-2",
-     "pct": 8.9
-    },
-    {
-     "score": "0-1",
-     "pct": 8.6
-    }
-   ],
-   "watch": [
-    {
-     "name": "Saka",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 28.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Calafiori",
-     "club": "ARS",
-     "pos": "DEF",
-     "score": 27.8,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Goretzka",
-     "club": "AVL",
-     "pos": "MID",
-     "score": 5.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Barkley",
-     "club": "AVL",
-     "pos": "MID",
-     "score": 5.6,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-08-31T19:00:00Z",
-   "kickoff": "Mon 31 Aug 14:00",
-   "day": "Mon 31 Aug",
-   "monday": true
-  },
-  {
-   "home": "LIV",
-   "away": "NFO",
-   "xg_home": 2.13,
-   "xg_away": 0.92,
-   "win": 65,
-   "draw": 20,
-   "loss": 15,
-   "scorelines": [
-    {
-     "score": "2-0",
-     "pct": 10.8
-    },
-    {
-     "score": "1-0",
-     "pct": 10.2
-    },
-    {
-     "score": "2-1",
-     "pct": 9.9
+     "pct": 10.7
     }
    ],
    "watch": [
@@ -378,15 +260,7 @@
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
-     "score": 23.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Gibbs-White",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 20.9,
+     "score": 22.1,
      "side": "A",
      "yours": false
     },
@@ -394,271 +268,35 @@
      "name": "Szoboszlai",
      "club": "LIV",
      "pos": "MID",
-     "score": 17.1,
+     "score": 16.2,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Enciso",
+     "club": "IPS",
+     "pos": "MID",
+     "score": 13.6,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Ndoye",
-     "club": "NFO",
+     "name": "Clarke",
+     "club": "IPS",
      "pos": "MID",
-     "score": 17.0,
-     "side": "A",
+     "score": 10.5,
+     "side": "H",
      "yours": false
     }
    ],
-   "kickoff_utc": "2026-08-29T11:30:00Z",
-   "kickoff": "Sat 29 Aug 06:30",
-   "day": "Sat 29 Aug",
+   "kickoff_utc": "2026-09-04T19:00:00Z",
+   "kickoff": "Fri 04 Sep 14:00",
+   "day": "Fri 04 Sep",
    "monday": false
   },
   {
-   "home": "BOU",
-   "away": "EVE",
-   "xg_home": 1.6,
-   "xg_away": 1.09,
-   "win": 49,
-   "draw": 25,
-   "loss": 26,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 11.9
-    },
-    {
-     "score": "1-0",
-     "pct": 10.9
-    },
-    {
-     "score": "2-1",
-     "pct": 9.5
-    }
-   ],
-   "watch": [
-    {
-     "name": "Tarkowski",
-     "club": "EVE",
-     "pos": "DEF",
-     "score": 24.6,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Scott",
-     "club": "BOU",
-     "pos": "MID",
-     "score": 19.3,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Ndiaye",
-     "club": "EVE",
-     "pos": "MID",
-     "score": 18.1,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Tavernier",
-     "club": "BOU",
-     "pos": "MID",
-     "score": 15.4,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-08-29T14:00:00Z",
-   "kickoff": "Sat 29 Aug 09:00",
-   "day": "Sat 29 Aug",
-   "monday": false
-  },
-  {
-   "home": "COV",
-   "away": "HUL",
-   "xg_home": 1.36,
-   "xg_away": 0.93,
-   "win": 47,
-   "draw": 28,
-   "loss": 26,
-   "scorelines": [
-    {
-     "score": "1-0",
-     "pct": 13.8
-    },
-    {
-     "score": "1-1",
-     "pct": 12.8
-    },
-    {
-     "score": "0-0",
-     "pct": 10.2
-    }
-   ],
-   "watch": [
-    {
-     "name": "Ajayi",
-     "club": "HUL",
-     "pos": "DEF",
-     "score": 27.5,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Tzolakis",
-     "club": "HUL",
-     "pos": "GKP",
-     "score": 27.3,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Thomas",
-     "club": "COV",
-     "pos": "DEF",
-     "score": 15.1,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Rudoni",
-     "club": "COV",
-     "pos": "MID",
-     "score": 5.8,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-08-29T14:00:00Z",
-   "kickoff": "Sat 29 Aug 09:00",
-   "day": "Sat 29 Aug",
-   "monday": false
-  },
-  {
-   "home": "TOT",
-   "away": "NEW",
-   "xg_home": 2.04,
-   "xg_away": 1.09,
-   "win": 59,
-   "draw": 21,
-   "loss": 20,
-   "scorelines": [
-    {
-     "score": "2-1",
-     "pct": 10.0
-    },
-    {
-     "score": "1-1",
-     "pct": 9.8
-    },
-    {
-     "score": "2-0",
-     "pct": 9.2
-    }
-   ],
-   "watch": [
-    {
-     "name": "Elanga",
-     "club": "NEW",
-     "pos": "MID",
-     "score": 23.5,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Hall",
-     "club": "NEW",
-     "pos": "DEF",
-     "score": 19.3,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Robertson",
-     "club": "TOT",
-     "pos": "DEF",
-     "score": 6.9,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Tel",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 5.7,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-08-29T16:30:00Z",
-   "kickoff": "Sat 29 Aug 11:30",
-   "day": "Sat 29 Aug",
-   "monday": false
-  },
-  {
-   "home": "CHE",
-   "away": "BHA",
-   "xg_home": 2.72,
-   "xg_away": 0.92,
-   "win": 75,
-   "draw": 15,
-   "loss": 10,
-   "scorelines": [
-    {
-     "score": "2-0",
-     "pct": 10.0
-    },
-    {
-     "score": "2-1",
-     "pct": 9.1
-    },
-    {
-     "score": "3-0",
-     "pct": 9.0
-    }
-   ],
-   "watch": [
-    {
-     "name": "Jo\u00e3o Pedro",
-     "club": "CHE",
-     "pos": "FWD",
-     "score": 28.3,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Palmer",
-     "club": "CHE",
-     "pos": "MID",
-     "score": 28.1,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "De Cuyper",
-     "club": "BHA",
-     "pos": "DEF",
-     "score": 23.7,
-     "side": "A",
-     "yours": true
-    },
-    {
-     "name": "Gro\u00df",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 20.7,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-08-30T13:00:00Z",
-   "kickoff": "Sun 30 Aug 08:00",
-   "day": "Sun 30 Aug",
-   "monday": false
-  },
-  {
-   "home": "LEE",
-   "away": "BRE",
+   "home": "NEW",
+   "away": "BOU",
    "xg_home": 1.07,
    "xg_away": 1.09,
    "win": 35,
@@ -680,46 +318,107 @@
    ],
    "watch": [
     {
-     "name": "M.Sangar\u00e9",
-     "club": "BRE",
+     "name": "Elanga",
+     "club": "NEW",
      "pos": "MID",
-     "score": 24.9,
+     "score": 21.5,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Hall",
+     "club": "NEW",
+     "pos": "DEF",
+     "score": 17.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Scott",
+     "club": "BOU",
+     "pos": "MID",
+     "score": 17.7,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Stach",
-     "club": "LEE",
+     "name": "Tavernier",
+     "club": "BOU",
      "pos": "MID",
-     "score": 23.3,
+     "score": 14.3,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-09-05T11:30:00Z",
+   "kickoff": "Sat 05 Sep 06:30",
+   "day": "Sat 05 Sep",
+   "monday": false
+  },
+  {
+   "home": "BRE",
+   "away": "SUN",
+   "xg_home": 2.04,
+   "xg_away": 1.09,
+   "win": 59,
+   "draw": 21,
+   "loss": 20,
+   "scorelines": [
+    {
+     "score": "2-1",
+     "pct": 10.0
+    },
+    {
+     "score": "1-1",
+     "pct": 9.8
+    },
+    {
+     "score": "2-0",
+     "pct": 9.2
+    }
+   ],
+   "watch": [
+    {
+     "name": "M.Sangar\u00e9",
+     "club": "BRE",
+     "pos": "MID",
+     "score": 22.7,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Mundle",
+     "club": "SUN",
+     "pos": "MID",
+     "score": 21.7,
+     "side": "A",
      "yours": false
     },
     {
      "name": "Lewis-Potter",
      "club": "BRE",
      "pos": "MID",
-     "score": 22.3,
-     "side": "A",
+     "score": 20.6,
+     "side": "H",
      "yours": true
     },
     {
-     "name": "Justin",
-     "club": "LEE",
-     "pos": "DEF",
-     "score": 16.5,
-     "side": "H",
+     "name": "Xhaka",
+     "club": "SUN",
+     "pos": "MID",
+     "score": 18.8,
+     "side": "A",
      "yours": false
     }
    ],
-   "kickoff_utc": "2026-08-30T13:00:00Z",
-   "kickoff": "Sun 30 Aug 08:00",
-   "day": "Sun 30 Aug",
+   "kickoff_utc": "2026-09-05T14:00:00Z",
+   "kickoff": "Sat 05 Sep 09:00",
+   "day": "Sat 05 Sep",
    "monday": false
   },
   {
-   "home": "SUN",
-   "away": "FUL",
+   "home": "BHA",
+   "away": "LEE",
    "xg_home": 1.36,
    "xg_away": 1.09,
    "win": 43,
@@ -741,26 +440,71 @@
    ],
    "watch": [
     {
-     "name": "Xhaka",
-     "club": "SUN",
+     "name": "De Cuyper",
+     "club": "BHA",
+     "pos": "DEF",
+     "score": 22.0,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Stach",
+     "club": "LEE",
      "pos": "MID",
-     "score": 20.7,
+     "score": 21.0,
+     "side": "A",
+     "yours": true
+    },
+    {
+     "name": "Gro\u00df",
+     "club": "BHA",
+     "pos": "MID",
+     "score": 18.9,
      "side": "H",
      "yours": false
     },
     {
+     "name": "Justin",
+     "club": "LEE",
+     "pos": "DEF",
+     "score": 15.0,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-09-05T14:00:00Z",
+   "kickoff": "Sat 05 Sep 09:00",
+   "day": "Sat 05 Sep",
+   "monday": false
+  },
+  {
+   "home": "FUL",
+   "away": "CRY",
+   "xg_home": 1.07,
+   "xg_away": 1.09,
+   "win": 35,
+   "draw": 29,
+   "loss": 36,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 13.5
+    },
+    {
+     "score": "0-1",
+     "pct": 12.6
+    },
+    {
+     "score": "1-0",
+     "pct": 12.4
+    }
+   ],
+   "watch": [
+    {
      "name": "Castagne",
      "club": "FUL",
      "pos": "DEF",
-     "score": 16.5,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Isidor",
-     "club": "SUN",
-     "pos": "FWD",
-     "score": 14.1,
+     "score": 15.0,
      "side": "H",
      "yours": false
     },
@@ -768,36 +512,235 @@
      "name": "King",
      "club": "FUL",
      "pos": "MID",
-     "score": 12.6,
+     "score": 11.8,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Yeremy",
+     "club": "CRY",
+     "pos": "MID",
+     "score": 7.9,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Wharton",
+     "club": "CRY",
+     "pos": "MID",
+     "score": 7.8,
      "side": "A",
      "yours": false
     }
    ],
-   "kickoff_utc": "2026-08-30T13:00:00Z",
-   "kickoff": "Sun 30 Aug 08:00",
-   "day": "Sun 30 Aug",
+   "kickoff_utc": "2026-09-05T14:00:00Z",
+   "kickoff": "Sat 05 Sep 09:00",
+   "day": "Sat 05 Sep",
    "monday": false
   },
   {
-   "home": "MUN",
-   "away": "IPS",
+   "home": "MCI",
+   "away": "COV",
    "xg_home": 2.72,
-   "xg_away": 0.61,
-   "win": 81,
-   "draw": 13,
-   "loss": 6,
+   "xg_away": 0.53,
+   "win": 83,
+   "draw": 12,
+   "loss": 5,
    "scorelines": [
     {
      "score": "2-0",
-     "pct": 13.5
+     "pct": 14.6
     },
     {
      "score": "3-0",
-     "pct": 12.3
+     "pct": 13.2
     },
     {
      "score": "1-0",
+     "pct": 10.7
+    }
+   ],
+   "watch": [
+    {
+     "name": "Cherki",
+     "club": "MCI",
+     "pos": "MID",
+     "score": 29.5,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Haaland",
+     "club": "MCI",
+     "pos": "FWD",
+     "score": 20.5,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Thomas",
+     "club": "COV",
+     "pos": "DEF",
+     "score": 13.8,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Rudoni",
+     "club": "COV",
+     "pos": "MID",
+     "score": 5.6,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-09-05T14:00:00Z",
+   "kickoff": "Sat 05 Sep 09:00",
+   "day": "Sat 05 Sep",
+   "monday": false
+  },
+  {
+   "home": "NFO",
+   "away": "TOT",
+   "xg_home": 1.6,
+   "xg_away": 1.09,
+   "win": 49,
+   "draw": 25,
+   "loss": 26,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 11.9
+    },
+    {
+     "score": "1-0",
+     "pct": 10.9
+    },
+    {
+     "score": "2-1",
+     "pct": 9.5
+    }
+   ],
+   "watch": [
+    {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 19.4,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Ndoye",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 16.0,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Robertson",
+     "club": "TOT",
+     "pos": "DEF",
+     "score": 6.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Tel",
+     "club": "TOT",
+     "pos": "MID",
+     "score": 5.4,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-09-05T14:00:00Z",
+   "kickoff": "Sat 05 Sep 09:00",
+   "day": "Sat 05 Sep",
+   "monday": false
+  },
+  {
+   "home": "HUL",
+   "away": "AVL",
+   "xg_home": 1.07,
+   "xg_away": 1.85,
+   "win": 22,
+   "draw": 23,
+   "loss": 56,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 10.7
+    },
+    {
+     "score": "0-1",
+     "pct": 10.0
+    },
+    {
+     "score": "1-2",
      "pct": 9.9
+    }
+   ],
+   "watch": [
+    {
+     "name": "Ajayi",
+     "club": "HUL",
+     "pos": "DEF",
+     "score": 25.1,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Tzolakis",
+     "club": "HUL",
+     "pos": "GKP",
+     "score": 24.5,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Barkley",
+     "club": "AVL",
+     "pos": "MID",
+     "score": 5.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Buend\u00eda",
+     "club": "AVL",
+     "pos": "MID",
+     "score": 5.2,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-09-05T16:30:00Z",
+   "kickoff": "Sat 05 Sep 11:30",
+   "day": "Sat 05 Sep",
+   "monday": false
+  },
+  {
+   "home": "EVE",
+   "away": "MUN",
+   "xg_home": 1.35,
+   "xg_away": 1.45,
+   "win": 35,
+   "draw": 25,
+   "loss": 40,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 11.9
+    },
+    {
+     "score": "0-1",
+     "pct": 8.9
+    },
+    {
+     "score": "1-2",
+     "pct": 8.7
     }
    ],
    "watch": [
@@ -805,38 +748,99 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 35.8,
+     "score": 34.1,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Tarkowski",
+     "club": "EVE",
+     "pos": "DEF",
+     "score": 22.1,
      "side": "H",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 19.1,
+     "score": 18.6,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Ndiaye",
+     "club": "EVE",
+     "pos": "MID",
+     "score": 16.6,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-09-06T13:00:00Z",
+   "kickoff": "Sun 06 Sep 08:00",
+   "day": "Sun 06 Sep",
+   "monday": false
+  },
+  {
+   "home": "ARS",
+   "away": "CHE",
+   "xg_home": 1.8,
+   "xg_away": 1.07,
+   "win": 54,
+   "draw": 23,
+   "loss": 23,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 11.0
+    },
+    {
+     "score": "1-0",
+     "pct": 10.3
+    },
+    {
+     "score": "2-1",
+     "pct": 9.8
+    }
+   ],
+   "watch": [
+    {
+     "name": "Jo\u00e3o Pedro",
+     "club": "CHE",
+     "pos": "FWD",
+     "score": 26.5,
+     "side": "A",
+     "yours": true
+    },
+    {
+     "name": "Saka",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 26.4,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Enciso",
-     "club": "IPS",
+     "name": "Palmer",
+     "club": "CHE",
      "pos": "MID",
-     "score": 14.3,
+     "score": 26.2,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
-     "name": "Davis",
-     "club": "IPS",
+     "name": "Calafiori",
+     "club": "ARS",
      "pos": "DEF",
-     "score": 11.1,
-     "side": "A",
+     "score": 25.6,
+     "side": "H",
      "yours": false
     }
    ],
-   "kickoff_utc": "2026-08-30T15:30:00Z",
-   "kickoff": "Sun 30 Aug 10:30",
-   "day": "Sun 30 Aug",
+   "kickoff_utc": "2026-09-06T15:30:00Z",
+   "kickoff": "Sun 06 Sep 10:30",
+   "day": "Sun 06 Sep",
    "monday": false
   }
  ]
