@@ -1,8 +1,8 @@
 {
- "generated": "2026-09-02 15:15:07",
+ "generated": "2026-09-02 18:15:09",
  "tz": "America/Chicago",
  "gw": 3,
- "deadline": "2026-09-04T17:30:00",
+ "deadline": "2026-09-04T12:30:00",
  "formation": "3-5-2",
  "source": "SESSION 2026-09-01 08:36 \u2014 confirmed from FPL Transfers screen screenshot (GW3, WILDCARD ACTIVE). Full 15-man squad rebuild.",
  "chips_active": [
@@ -35,11 +35,11 @@
    "ep": 8.5
   },
   {
-   "name": "Mendy",
+   "name": "Egan",
    "pos": "DEF",
    "club": "HUL",
-   "score": 26.96,
-   "ep": 8.0
+   "score": 28.33,
+   "ep": 8.5
   },
   {
    "name": "Cherki",
@@ -56,6 +56,13 @@
    "ep": 10.0
   },
   {
+   "name": "M.Sangar\u00e9",
+   "pos": "MID",
+   "club": "BRE",
+   "score": 30.45,
+   "ep": 9.0
+  },
+  {
    "name": "Elanga",
    "pos": "MID",
    "club": "NEW",
@@ -68,13 +75,6 @@
    "club": "LEE",
    "score": 28.48,
    "ep": 8.5
-  },
-  {
-   "name": "Lewis-Potter",
-   "pos": "MID",
-   "club": "BRE",
-   "score": 27.37,
-   "ep": 8.0
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -137,7 +137,9 @@
   "2026-09-01 08:47 \u2014 John made further wildcard transfers (still free, wildcard active until GW3 deadline): Thiaw->Egan, Rice->Cherki, Emersonn->Wissa. Egan pushed HUL to 4 players -> blocked by FPL's 3-per-club rule (Alfred's error: recommended Egan without checking existing HUL count from Tzolakis/Mendy/Ajayi).",
   "2026-09-01 08:49 \u2014 Fixed: Egan->Castagne (FUL). Transfers screenshot confirms squad valid, no club-limit error, budget \u00a34.0m. XI/bench/captain NOT yet reconfirmed for this exact 15 -- screen shown was Transfers (squad-build), not Pick Team, and personnel changed since the last locked XI.",
   "2026-09-01 08:55 \u2014 GW3 Pick Team screen confirmed (post-transfers). XI: Raya; De Cuyper/Kayode/Mendy/Ajayi; Palmer/Lewis-Potter/Stach; Haaland/Wissa/Joao Pedro (4-3-3). Captain Haaland, vice Palmer.",
-  "2026-09-01 09:34 \u2014 GW3 Pick Team RE-CONFIRMED after lineup optimization (Alfred recommended the alt-XI structure from fpl_gw_report.py's real-vs-model comparison). FINAL: Tzolakis; De Cuyper/Kayode/Mendy/Ajayi; Palmer(V)/Lewis-Potter/Stach/Cherki/Elanga; Haaland(C) (4-5-1). Bench order: Raya, Joao Pedro, Wissa, Castagne. Predicted total (ep_next) 105.0, up from 97.5 pre-optimization. LOCKED."
+  "2026-09-01 09:34 \u2014 GW3 Pick Team RE-CONFIRMED after lineup optimization (Alfred recommended the alt-XI structure from fpl_gw_report.py's real-vs-model comparison). FINAL: Tzolakis; De Cuyper/Kayode/Mendy/Ajayi; Palmer(V)/Lewis-Potter/Stach/Cherki/Elanga; Haaland(C) (4-5-1). Bench order: Raya, Joao Pedro, Wissa, Castagne. Predicted total (ep_next) 105.0, up from 97.5 pre-optimization. LOCKED.",
+  "2026-09-02 17:32 \u2014 DEADLINE CORRECTED from 17:30 to 12:30 -- confirmed from live Pick Team screenshot ('Gameweek 3 \u2022 Deadline: Fri 4 Sep at 12:30'). Previous 17:30 value was wrong by 5 hours.",
+  "2026-09-02 17:32 \u2014 Two free wildcard transfers applied (John, confirmed via Pick Team screenshot): Mendy(HUL)->Egan(HUL) in DEF, Lewis-Potter(BRE)->M.Sangar\u00e9(BRE) in MID -- both model-recommended (fpl_optimizer.plan_transfers, net +0.82 and +2.11). Formation unchanged 4-5-1, captain Haaland, vice Palmer, bench unchanged (Raya, Joao Pedro, Wissa, Castagne). LOCKED."
  ],
  "availability": [
   {
@@ -165,7 +167,7 @@
    "available": true
   },
   {
-   "name": "Mendy",
+   "name": "Egan",
    "club": "HUL",
    "status": "a",
    "available": true
@@ -189,7 +191,7 @@
    "available": true
   },
   {
-   "name": "Lewis-Potter",
+   "name": "M.Sangar\u00e9",
    "club": "BRE",
    "status": "a",
    "available": true
@@ -384,7 +386,7 @@
      "pos": "MID",
      "score": 22.7,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Mundle",
@@ -400,7 +402,7 @@
      "pos": "MID",
      "score": 20.6,
      "side": "H",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Xhaka",
