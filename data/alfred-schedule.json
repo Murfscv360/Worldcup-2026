@@ -1,10 +1,14 @@
 {
- "generated": "2026-09-01 06:30:04",
+ "generated": "2026-09-02 06:30:06",
  "tz": "America/Chicago",
  "season_fixtures": 380,
  "next_gw": 3,
  "horizon_gws": 6,
- "changes": [],
+ "changes": [
+  "RESCHEDULED: LEE v CRY Sat 19 Sep 09:00 -> Sun 20 Sep 08:00",
+  "RESCHEDULED: LIV v BHA Sat 24 Oct 09:00 -> Sun 25 Oct 09:00",
+  "RESCHEDULED: AVL v FUL Sun 01 Nov 09:00 -> Sat 31 Oct 15:00"
+ ],
  "unscheduled": 0,
  "provisional": 0,
  "runs": {
@@ -146,7 +150,7 @@
      "opp": "LIV",
      "home": false,
      "fdr": 4,
-     "when": "Sat 24 Oct 09:00"
+     "when": "Sun 25 Oct 09:00"
     }
    ],
    "avg_fdr": 3.0,
@@ -365,7 +369,7 @@
      "opp": "LEE",
      "home": false,
      "fdr": 3,
-     "when": "Sat 19 Sep 09:00"
+     "when": "Sun 20 Sep 08:00"
     },
     {
      "gw": 6,
@@ -605,7 +609,7 @@
      "opp": "CRY",
      "home": true,
      "fdr": 3,
-     "when": "Sat 19 Sep 09:00"
+     "when": "Sun 20 Sep 08:00"
     },
     {
      "gw": 6,
@@ -674,7 +678,7 @@
      "opp": "BHA",
      "home": true,
      "fdr": 2,
-     "when": "Sat 24 Oct 09:00"
+     "when": "Sun 25 Oct 09:00"
     }
    ],
    "avg_fdr": 2.67,
