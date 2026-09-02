@@ -1,23 +1,8 @@
 {
- "generated": "2026-09-01 18:00:06",
+ "generated": "2026-09-02 08:00:08",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-08-29",
-   "ts": "2026-08-29 18:00:05",
-   "new_headlines": 29,
-   "key": [
-    "[LIV/MCI] Man City open talks with Liverpool over Gakpo",
-    "[EVE] 'Supporters aren't always wrong' - Moyes on Everton fans' anger",
-    "[BOU/EVE] Tarkowski strikes late to rescue point for Everton at Bournemouth",
-    "[BOU] 'Confidence' and 'desire' - why Bournemouth's Scott is in demand",
-    "[EVE] Moyes 'disappointed' with Everton performance",
-    "[EVE] 'Slapstick' - Rose laments late Everton equaliser"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-30",
    "ts": "2026-08-30 08:00:03",
@@ -130,6 +115,21 @@
    "player_changes": [
     "Watkins (AVL, 6% owned): Has joined Al Hilal permanently"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-02",
+   "ts": "2026-09-02 08:00:06",
+   "new_headlines": 25,
+   "key": [
+    "[ARS] Have title contenders done enough in transfer window to challenge Arsenal?",
+    "[ARS] Are Arsenal taking a risk in not signing a world-class forward?",
+    "[MCI] Deadlines, acrimony and a record as Man City back Maresca for Fernandez deal",
+    "[NEW] Woltemade move underlines summer of change at Newcastle",
+    "[MCI] PSG reject Man City offers for midfielder Echegini",
+    "[BHA] Brighton sign winger Azeez from Millwall"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
