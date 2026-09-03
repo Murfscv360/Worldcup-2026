@@ -1,26 +1,8 @@
 {
- "generated": "2026-09-03 08:00:07",
+ "generated": "2026-09-03 18:00:08",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-08-31",
-   "ts": "2026-08-31 08:00:04",
-   "new_headlines": 15,
-   "key": [
-    "[MCI] Man City sign Palmeiras winger Allan for \u00a334m",
-    "[AVL/CHE] 'It's not a good relationship, it's a deal for money' - Emery on Villa-Chelsea moves",
-    "[MUN] Driven & hungry Rashford a Man Utd asset - Maguire",
-    "[MCI] Germany's Wamser completes move to Man City",
-    "[MUN] Man Utd near deal for Mexico's Bernal",
-    "[BRE] Given credits Farke's second-half tactical shift in Brentford draw",
-    "[MCI] Swansea agree loan of Manchester City's Monga"
-   ],
-   "player_changes": [
-    "Emersonn (IPS, YOUR PLAYER): Knee injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-08-31",
    "ts": "2026-08-31 18:00:04",
@@ -110,6 +92,20 @@
     "[CHE] Chelsea make contact with Wijnaldum - Thursday's gossip",
     "[CHE] Late-night transfer fallout sparks Chelsea-Monaco row",
     "[HUL] Racist abuse of new signing Vaz abhorrent - Hull"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-03",
+   "ts": "2026-09-03 18:00:03",
+   "new_headlines": 24,
+   "key": [
+    "[LEE] Leeds' Rodon out for up to 10 weeks with hamstring injury",
+    "[CHE] Breaking down Chelsea's staggering 39 summer exits",
+    "[ARS] Arsenal's Martinelli joins Al-Hilal in \u00a360m move",
+    "[ARS] Arsenal sign France defender De Almeida from PSG",
+    "[MCI] Man City sign England goalkeeper Moorhouse on loan"
    ],
    "player_changes": [],
    "unreachable": []
