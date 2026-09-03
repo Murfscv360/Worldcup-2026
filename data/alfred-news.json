@@ -1,32 +1,8 @@
 {
- "generated": "2026-09-02 18:02:14",
+ "generated": "2026-09-03 08:00:07",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-08-30",
-   "ts": "2026-08-30 18:00:04",
-   "new_headlines": 28,
-   "key": [
-    "[MUN] How did Rashford do on return to Man Utd XI? Player ratings",
-    "[MUN] A new Man Utd era - but Fernandes still sets the standard",
-    "[MUN] Why Man Utd goal was allowed to stand - despite Maguire 'handball'",
-    "[IPS/MUN] Fernandes hat-trick inspires five-goal Man Utd comeback against Ipswich",
-    "[BHA/CHE] Chelsea maintain perfect start in seven-goal Brighton thriller",
-    "[BRE/LEE] Calvert-Lewin rescues point for Leeds against Brentford",
-    "[MUN] MOTD pundits debate controversial own goal in Man Utd victory",
-    "[ARS] Barcelona close to deal for Arsenal's Jesus",
-    "[BHA/CHE] Joao Pedro and debutant Yalcouye star - Chelsea v Brighton player ratings",
-    "[MUN] Sons of officer who died in A66 crash lead out Man Utd as mascots",
-    "[squad] 'He's on it all the time' - White praises 'unbelievable' Fernandes",
-    "[MUN] Carrick 'really pleased' as Fernandes hat-trick sparks Man Utd comeback",
-    "[BHA] Alonso praises Joao Pedro's 'desire' after seven-goal Brighton thriller",
-    "[LEE] 'A hard but precious point' - Farke praises Leeds character",
-    "[LEE] 'Never underestimate Daniel'- Andrews hails Farke after Leeds comeback"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-08-31",
    "ts": "2026-08-31 08:00:04",
@@ -124,6 +100,19 @@
    "unreachable": [
     "bbc"
    ]
+  },
+  {
+   "date": "2026-09-03",
+   "ts": "2026-09-03 08:00:04",
+   "new_headlines": 19,
+   "key": [
+    "[MCI] Man City buy costly new midfield - but have they overlooked Haaland cover?",
+    "[CHE] Chelsea make contact with Wijnaldum - Thursday's gossip",
+    "[CHE] Late-night transfer fallout sparks Chelsea-Monaco row",
+    "[HUL] Racist abuse of new signing Vaz abhorrent - Hull"
+   ],
+   "player_changes": [],
+   "unreachable": []
   }
  ],
  "note": "Rolling week of football news filtered to this squad. Accumulated daily, deduped; \"unreachable\" means a source could not be asked that day, which is not the same as no news."
