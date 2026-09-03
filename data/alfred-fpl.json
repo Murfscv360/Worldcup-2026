@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-03 06:15:06",
+ "generated": "2026-09-03 09:15:05",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-04T12:30:00",
@@ -275,18 +275,18 @@
      "yours": false
     },
     {
-     "name": "Enciso",
+     "name": "Emersonn",
      "club": "IPS",
-     "pos": "MID",
-     "score": 13.6,
+     "pos": "FWD",
+     "score": 13.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Clarke",
+     "name": "Enciso",
      "club": "IPS",
      "pos": "MID",
-     "score": 10.5,
+     "score": 13.6,
      "side": "H",
      "yours": false
     }
