@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-04 15:15:06",
+ "generated": "2026-09-04 18:15:06",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-04T12:30:00",
@@ -262,7 +262,7 @@
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
-     "score": 22.6,
+     "score": 23.9,
      "side": "A",
      "yours": false
     },
@@ -270,7 +270,7 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 19.9,
+     "score": 20.8,
      "side": "A",
      "yours": false
     },
@@ -278,7 +278,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 10.4,
+     "score": 11.0,
      "side": "H",
      "yours": false
     },
@@ -286,7 +286,7 @@
      "name": "Enciso",
      "club": "IPS",
      "pos": "MID",
-     "score": 9.3,
+     "score": 10.1,
      "side": "H",
      "yours": false
     }
