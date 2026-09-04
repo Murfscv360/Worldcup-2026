@@ -1,26 +1,8 @@
 {
- "generated": "2026-09-03 18:00:08",
+ "generated": "2026-09-04 08:00:09",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-08-31",
-   "ts": "2026-08-31 18:00:04",
-   "new_headlines": 26,
-   "key": [
-    "[CHE/MCI] Man City open talks with Chelsea over Fernandez move",
-    "[MCI] Man City's \u00a380m move for Gakpo close to collapse",
-    "[ARS/AVL] How did match-winner Saka do? Aston Villa v Arsenal ratings",
-    "[EVE/MCI] Man City agree \u00a365m deal for Everton's Ndiaye",
-    "[ARS/AVL] Saka earns Arsenal hard-fought win at Aston Villa",
-    "[ARS] Arsenal explore move for winger Fofana - Tuesday gossip",
-    "[EVE] Everton agree \u00a340m fee for Monaco striker Balogun",
-    "[EVE/HUL] Hull agree \u00a322m fee for Everton's Iroegbunam",
-    "[EVE] Everton forced to move EFL Cup tie at short notice"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-01",
    "ts": "2026-09-01 08:00:02",
@@ -106,6 +88,17 @@
     "[ARS] Arsenal's Martinelli joins Al-Hilal in \u00a360m move",
     "[ARS] Arsenal sign France defender De Almeida from PSG",
     "[MCI] Man City sign England goalkeeper Moorhouse on loan"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-04",
+   "ts": "2026-09-04 08:00:04",
+   "new_headlines": 23,
+   "key": [
+    "[ARS] Arsenal to face Barca & Lyon in Women's Champions League",
+    "[MCI] Who are best Man City players to buy? FPL gameweek three dilemmas"
    ],
    "player_changes": [],
    "unreachable": []
