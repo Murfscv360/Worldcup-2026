@@ -1,23 +1,8 @@
 {
- "generated": "2026-09-04 08:00:09",
+ "generated": "2026-09-04 18:00:09",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-01",
-   "ts": "2026-09-01 08:00:02",
-   "new_headlines": 21,
-   "key": [
-    "[AVL] Aston Villa sign Mbaye and Harwood-Bellis",
-    "[EVE/MCI] Everton agree to re-sign Grealish on loan from Man City",
-    "[ARS] Dortmund agree loan move for Arsenal's Nwaneri",
-    "[LEE] Leeds close in on Nice defender Bard",
-    "[ARS] Arsenal agree terms to sign De Almeida from PSG",
-    "[ARS] Arsenal explore late move for Alvarez - Tuesday gossip"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-01",
    "ts": "2026-09-01 18:00:02",
@@ -99,6 +84,17 @@
    "key": [
     "[ARS] Arsenal to face Barca & Lyon in Women's Champions League",
     "[MCI] Who are best Man City players to buy? FPL gameweek three dilemmas"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-04",
+   "ts": "2026-09-04 18:00:04",
+   "new_headlines": 25,
+   "key": [
+    "[MCI] Birmingham relishing Man City challenge on WSL return",
+    "[CHE] Bissouma was offered to Chelsea - Saturday's gossip"
    ],
    "player_changes": [],
    "unreachable": []
