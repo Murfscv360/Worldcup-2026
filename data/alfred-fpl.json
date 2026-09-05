@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05 15:15:18",
+ "generated": "2026-09-05 18:15:21",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -64,7 +64,7 @@
    "name": "M.Sangar\u00e9",
    "pos": "MID",
    "club": "BRE",
-   "score": 20.44,
+   "score": 20.45,
    "ep": 6.0
   },
   {
@@ -367,7 +367,7 @@
      "name": "Janelt",
      "club": "BRE",
      "pos": "MID",
-     "score": 16.0,
+     "score": 17.7,
      "side": "H",
      "yours": false
     },
@@ -489,7 +489,7 @@
      "name": "King",
      "club": "FUL",
      "pos": "MID",
-     "score": 16.3,
+     "score": 16.2,
      "side": "H",
      "yours": false
     },
@@ -497,7 +497,7 @@
      "name": "Mitchell",
      "club": "CRY",
      "pos": "DEF",
-     "score": 13.4,
+     "score": 13.3,
      "side": "A",
      "yours": false
     },
@@ -611,7 +611,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 15.5,
+     "score": 15.6,
      "side": "H",
      "yours": false
     },
@@ -619,15 +619,15 @@
      "name": "N.Williams",
      "club": "NFO",
      "pos": "DEF",
-     "score": 11.9,
+     "score": 12.7,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Pedro Porro",
+     "name": "Van de Ven",
      "club": "TOT",
      "pos": "DEF",
-     "score": 9.1,
+     "score": 8.3,
      "side": "A",
      "yours": false
     },
@@ -680,7 +680,7 @@
      "name": "Ajayi",
      "club": "HUL",
      "pos": "DEF",
-     "score": 20.7,
+     "score": 20.6,
      "side": "H",
      "yours": true
     },
@@ -693,10 +693,10 @@
      "yours": false
     },
     {
-     "name": "Mings",
+     "name": "Maatsen",
      "club": "AVL",
      "pos": "DEF",
-     "score": 7.5,
+     "score": 6.8,
      "side": "A",
      "yours": false
     }
