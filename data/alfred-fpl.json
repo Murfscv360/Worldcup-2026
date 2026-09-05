@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05 11:35:14",
+ "generated": "2026-09-05 11:35:43",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -8,8 +8,8 @@
  "chips_active": [],
  "captain": "Cherki",
  "vice": "Haaland",
- "captain_current": null,
- "vice_current": null,
+ "captain_current": "Haaland",
+ "vice_current": "Palmer",
  "xi": [
   {
    "name": "Tzolakis",
@@ -672,7 +672,7 @@
      "name": "Ajayi",
      "club": "HUL",
      "pos": "DEF",
-     "score": 17.5,
+     "score": 17.8,
      "side": "H",
      "yours": true
     },
@@ -680,7 +680,7 @@
      "name": "Tzolakis",
      "club": "HUL",
      "pos": "GKP",
-     "score": 16.9,
+     "score": 17.2,
      "side": "H",
      "yours": true
     },
@@ -693,10 +693,10 @@
      "yours": false
     },
     {
-     "name": "Harwood-Bellis",
+     "name": "Barkley",
      "club": "AVL",
-     "pos": "DEF",
-     "score": 4.5,
+     "pos": "MID",
+     "score": 4.6,
      "side": "A",
      "yours": false
     }
