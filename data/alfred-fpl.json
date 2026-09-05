@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05 12:15:19",
+ "generated": "2026-09-05 15:15:18",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -15,8 +15,22 @@
    "name": "Tzolakis",
    "pos": "GKP",
    "club": "HUL",
-   "score": 23.33,
-   "ep": 7.0
+   "score": 29.0,
+   "ep": 8.7
+  },
+  {
+   "name": "Ajayi",
+   "pos": "DEF",
+   "club": "HUL",
+   "score": 27.92,
+   "ep": 8.3
+  },
+  {
+   "name": "Egan",
+   "pos": "DEF",
+   "club": "HUL",
+   "score": 25.67,
+   "ep": 7.7
   },
   {
    "name": "De Cuyper",
@@ -24,20 +38,6 @@
    "club": "BHA",
    "score": 24.28,
    "ep": 7.0
-  },
-  {
-   "name": "Ajayi",
-   "pos": "DEF",
-   "club": "HUL",
-   "score": 23.65,
-   "ep": 7.0
-  },
-  {
-   "name": "Egan",
-   "pos": "DEF",
-   "club": "HUL",
-   "score": 20.0,
-   "ep": 6.0
   },
   {
    "name": "Cherki",
@@ -78,7 +78,7 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 27.84,
+   "score": 27.99,
    "ep": 8.0
   },
   {
@@ -558,7 +558,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 22.0,
+     "score": 22.3,
      "side": "H",
      "yours": true
     },
@@ -574,7 +574,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 5.7,
+     "score": 5.8,
      "side": "A",
      "yours": false
     }
@@ -669,18 +669,18 @@
    ],
    "watch": [
     {
-     "name": "Ajayi",
+     "name": "Tzolakis",
      "club": "HUL",
-     "pos": "DEF",
-     "score": 17.7,
+     "pos": "GKP",
+     "score": 21.3,
      "side": "H",
      "yours": true
     },
     {
-     "name": "Tzolakis",
+     "name": "Ajayi",
      "club": "HUL",
-     "pos": "GKP",
-     "score": 17.3,
+     "pos": "DEF",
+     "score": 20.7,
      "side": "H",
      "yours": true
     },
@@ -688,15 +688,15 @@
      "name": "Suzuki",
      "club": "AVL",
      "pos": "GKP",
-     "score": 6.2,
+     "score": 10.5,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Barkley",
+     "name": "Mings",
      "club": "AVL",
-     "pos": "MID",
-     "score": 5.4,
+     "pos": "DEF",
+     "score": 7.5,
      "side": "A",
      "yours": false
     }
