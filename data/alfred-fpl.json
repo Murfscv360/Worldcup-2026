@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05 11:35:43",
+ "generated": "2026-09-05 12:15:19",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -15,8 +15,8 @@
    "name": "Tzolakis",
    "pos": "GKP",
    "club": "HUL",
-   "score": 22.33,
-   "ep": 6.7
+   "score": 23.33,
+   "ep": 7.0
   },
   {
    "name": "De Cuyper",
@@ -29,15 +29,15 @@
    "name": "Ajayi",
    "pos": "DEF",
    "club": "HUL",
-   "score": 22.75,
-   "ep": 6.7
+   "score": 23.65,
+   "ep": 7.0
   },
   {
    "name": "Egan",
    "pos": "DEF",
    "club": "HUL",
-   "score": 19.0,
-   "ep": 5.7
+   "score": 20.0,
+   "ep": 6.0
   },
   {
    "name": "Cherki",
@@ -672,7 +672,7 @@
      "name": "Ajayi",
      "club": "HUL",
      "pos": "DEF",
-     "score": 17.8,
+     "score": 17.7,
      "side": "H",
      "yours": true
     },
@@ -680,15 +680,15 @@
      "name": "Tzolakis",
      "club": "HUL",
      "pos": "GKP",
-     "score": 17.2,
+     "score": 17.3,
      "side": "H",
      "yours": true
     },
     {
-     "name": "Mbaye",
+     "name": "Suzuki",
      "club": "AVL",
-     "pos": "MID",
-     "score": 5.1,
+     "pos": "GKP",
+     "score": 6.2,
      "side": "A",
      "yours": false
     },
@@ -696,7 +696,7 @@
      "name": "Barkley",
      "club": "AVL",
      "pos": "MID",
-     "score": 4.6,
+     "score": 5.4,
      "side": "A",
      "yours": false
     }
