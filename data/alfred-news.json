@@ -1,30 +1,8 @@
 {
- "generated": "2026-09-04 18:00:09",
+ "generated": "2026-09-05 18:00:10",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-01",
-   "ts": "2026-09-01 18:00:02",
-   "new_headlines": 27,
-   "key": [
-    "[MCI] Fernandez joins Man City for joint-British record \u00a3125m",
-    "[CHE] Camara's \u00a347.1m move from Monaco to Chelsea collapses",
-    "[MCI] Ndiaye's journey from non-league football to \u00a365m Man City move",
-    "[CHE/TOT] Tottenham sign Chelsea pair Mudryk and Tosin",
-    "[NEW] Newcastle sign Fernandez-Pardo from Lille for \u00a351m",
-    "[EVE/HUL] Hull sign Iroegbunam from Everton and Vaz from Roma",
-    "[FUL] Angel becomes Fulham's third Real Madrid signing of summer",
-    "[ARS] Arsenal's Nwaneri joins Dortmund on loan",
-    "[BHA] Brighton agree \u00a315m deal for Millwall winger Azeez",
-    "[MCI/MUN] Man Utd fail in attempt to sign Ait-Nouri from Man City",
-    "[CHE] Chelsea goalkeeper Sanchez joins Como on loan"
-   ],
-   "player_changes": [
-    "Watkins (AVL, 6% owned): Has joined Al Hilal permanently"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-02",
    "ts": "2026-09-02 08:00:06",
@@ -97,6 +75,33 @@
     "[CHE] Bissouma was offered to Chelsea - Saturday's gossip"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-05",
+   "ts": "2026-09-05 18:00:04",
+   "new_headlines": 39,
+   "key": [
+    "[CRY/FUL] Chilwell scores on Palace return in victory at Fulham",
+    "[ARS] Arsenal had more than 20 players on shortlist to capitalise on title win",
+    "[HUL] Seven points from three games - are Hull on track to avoid relegation?",
+    "[MCI] Fernandez and Ndiaye show signs of promise on Man City debuts",
+    "[MCI] Haaland header maintains perfect winning start for Man City",
+    "[BOU/NEW] Ramsey strikes late as Newcastle salvage Bournemouth draw",
+    "[BHA/LEE] Late Vuskovic header rescues point for Brighton against Leeds",
+    "[BRE/SUN] Le Fee penalty saves point for Sunderland at Brentford",
+    "[AVL/HUL] Aston Villa still winless after stalemate at Hull",
+    "[FUL] Fulham booed off after third defeat in a row",
+    "[CHE] New season, same flaw - Chelsea title hopes already under scrutiny",
+    "[BRE] We played 'ugly side of the game' - Andrews proud of Brentford display",
+    "[BRE] 'One of our best first halves' - Le Bris pleased despite Brentford draw",
+    "[AVL/CHE] Chelsea drop points against Aston Villa for the first time in WSL",
+    "[BOU/NEW] Jaissle fumes at 'slapstick' goals as Newcastle rescue Bournemouth draw",
+    "[AVL/CHE] 'It's not Chelsea's standard' - McCabe on 'frustrating' draw against Aston Villa"
+   ],
+   "player_changes": [
+    "O'Reilly (MCI, 18% owned): Back injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
