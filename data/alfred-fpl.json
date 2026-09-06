@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-06 15:15:09",
+ "generated": "2026-09-06 18:15:08",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -85,7 +85,7 @@
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
-   "score": 24.23,
+   "score": 24.24,
    "ep": 7.0
   }
  ],
@@ -794,7 +794,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 21.2,
+     "score": 21.3,
      "side": "H",
      "yours": false
     },
