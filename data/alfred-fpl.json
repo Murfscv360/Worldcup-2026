@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-06 12:15:05",
+ "generated": "2026-09-06 15:15:09",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -50,8 +50,8 @@
    "name": "Palmer",
    "pos": "MID",
    "club": "CHE",
-   "score": 23.05,
-   "ep": 6.7
+   "score": 23.97,
+   "ep": 7.0
   },
   {
    "name": "Stach",
@@ -85,8 +85,8 @@
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
-   "score": 23.39,
-   "ep": 6.7
+   "score": 24.23,
+   "ep": 7.0
   }
  ],
  "bench": [
@@ -733,7 +733,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 24.6,
+     "score": 24.5,
      "side": "A",
      "yours": false
     },
@@ -794,7 +794,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 21.1,
+     "score": 21.2,
      "side": "H",
      "yours": false
     },
@@ -802,7 +802,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 19.6,
+     "score": 19.5,
      "side": "H",
      "yours": false
     },
