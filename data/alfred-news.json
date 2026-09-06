@@ -1,23 +1,8 @@
 {
- "generated": "2026-09-05 18:00:10",
+ "generated": "2026-09-06 08:00:08",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-02",
-   "ts": "2026-09-02 08:00:06",
-   "new_headlines": 25,
-   "key": [
-    "[ARS] Have title contenders done enough in transfer window to challenge Arsenal?",
-    "[ARS] Are Arsenal taking a risk in not signing a world-class forward?",
-    "[MCI] Deadlines, acrimony and a record as Man City back Maresca for Fernandez deal",
-    "[NEW] Woltemade move underlines summer of change at Newcastle",
-    "[MCI] PSG reject Man City offers for midfielder Echegini",
-    "[BHA] Brighton sign winger Azeez from Millwall"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-02",
    "ts": "2026-09-02 18:00:03",
@@ -102,6 +87,16 @@
    "player_changes": [
     "O'Reilly (MCI, 18% owned): Back injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-06",
+   "ts": "2026-09-06 08:00:03",
+   "new_headlines": 10,
+   "key": [
+    "[CRY/FUL] How Crystal Palace exposed Fulham's defence"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
