@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-06 06:15:07",
+ "generated": "2026-09-06 09:15:08",
  "tz": "America/Chicago",
  "gw": 3,
  "deadline": "2026-09-12T12:30:00Z",
@@ -733,7 +733,15 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 24.5,
+     "score": 24.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Mbeumo",
+     "club": "MUN",
+     "pos": "MID",
+     "score": 20.1,
      "side": "A",
      "yours": false
     },
@@ -741,23 +749,15 @@
      "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
-     "score": 15.3,
+     "score": 15.6,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Mbeumo",
-     "club": "MUN",
-     "pos": "MID",
-     "score": 13.5,
-     "side": "A",
      "yours": false
     },
     {
      "name": "Dewsbury-Hall",
      "club": "EVE",
      "pos": "MID",
-     "score": 11.6,
+     "score": 12.1,
      "side": "H",
      "yours": false
     }
