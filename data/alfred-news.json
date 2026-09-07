@@ -1,21 +1,8 @@
 {
- "generated": "2026-09-06 18:00:09",
+ "generated": "2026-09-07 08:00:06",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-03",
-   "ts": "2026-09-03 08:00:04",
-   "new_headlines": 19,
-   "key": [
-    "[MCI] Man City buy costly new midfield - but have they overlooked Haaland cover?",
-    "[CHE] Chelsea make contact with Wijnaldum - Thursday's gossip",
-    "[CHE] Late-night transfer fallout sparks Chelsea-Monaco row",
-    "[HUL] Racist abuse of new signing Vaz abhorrent - Hull"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-03",
    "ts": "2026-09-03 18:00:03",
@@ -104,6 +91,17 @@
     "[MCI] Shaw double leads Man City to victory over Birmingham",
     "[ARS/BHA] Baum scores on debut as Arsenal edge Brighton",
     "[ARS/CHE] Chelsea defeat by Arsenal hurts - Alonso"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-07",
+   "ts": "2026-09-07 08:00:01",
+   "new_headlines": 16,
+   "key": [
+    "[ARS/SUN] Why is Sunderland vs Arsenal at 8pm on Saturday?",
+    "[CHE] Odegaard 'desire' in Chelsea win impresses Rooney"
    ],
    "player_changes": [],
    "unreachable": []
