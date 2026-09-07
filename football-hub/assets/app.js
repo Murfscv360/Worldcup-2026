@@ -813,10 +813,20 @@ async function loadFplTeam(id){
        they were transferred out, and suggested moves that could not be made. data/alfred-fpl.json
        is the session-maintained golden record. Fetched defensively: any failure leaves ALFRED null
        and the page behaves exactly as it did before. */
-    try {
-      const _ar = await fetch("/data/alfred-fpl.json", { cache: "no-store" });
-      ALFRED = _ar.ok ? await _ar.json() : null;
-    } catch (e) { ALFRED = null; }
+    /* PATH. This app is served from two origins with different roots — Netlify at
+       /football-hub/ and GitHub Pages at /Worldcup-2026/football-hub/ — so the absolute
+       "/data/alfred-fpl.json" resolved only on Netlify and 404'd on Pages. That 404 was
+       swallowed by the catch, leaving ALFRED null and the page silently running on the API's
+       older squad — the very failure the override exists to prevent, and on Pages it had
+       never worked at all. Resolved relative to the document so it works from either root,
+       with the original absolute path kept as a fallback. */
+    ALFRED = null;
+    for (const _u of [new URL("../data/alfred-fpl.json", location.href).href, "/data/alfred-fpl.json"]) {
+      try {
+        const _ar = await fetch(_u, { cache: "no-store" });
+        if (_ar.ok) { ALFRED = await _ar.json(); break; }
+      } catch (e) { /* fall through to the next candidate */ }
+    }
 
     const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
     const events = bootstrap.events || [];
