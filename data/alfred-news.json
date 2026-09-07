@@ -1,22 +1,8 @@
 {
- "generated": "2026-09-07 08:00:06",
+ "generated": "2026-09-07 18:00:09",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-03",
-   "ts": "2026-09-03 18:00:03",
-   "new_headlines": 24,
-   "key": [
-    "[LEE] Leeds' Rodon out for up to 10 weeks with hamstring injury",
-    "[CHE] Breaking down Chelsea's staggering 39 summer exits",
-    "[ARS] Arsenal's Martinelli joins Al-Hilal in \u00a360m move",
-    "[ARS] Arsenal sign France defender De Almeida from PSG",
-    "[MCI] Man City sign England goalkeeper Moorhouse on loan"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-04",
    "ts": "2026-09-04 08:00:04",
@@ -102,6 +88,16 @@
    "key": [
     "[ARS/SUN] Why is Sunderland vs Arsenal at 8pm on Saturday?",
     "[CHE] Odegaard 'desire' in Chelsea win impresses Rooney"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-07",
+   "ts": "2026-09-07 18:00:04",
+   "new_headlines": 10,
+   "key": [
+    "[CHE/FUL] Chelsea explored move for Fulham midfielder Berge"
    ],
    "player_changes": [],
    "unreachable": []
