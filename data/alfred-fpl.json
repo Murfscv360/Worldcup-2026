@@ -1,7 +1,9 @@
 {
- "generated": "2026-09-07 15:15:10",
+ "generated": "2026-09-07 15:36:08",
  "tz": "America/Chicago",
  "gw": 3,
+ "gw_for": 4,
+ "squad_as_of": 3,
  "deadline": "2026-09-12T12:30:00Z",
  "formation": "3-5-2",
  "source": "public /entry/5933243/event/3/picks/ (post-deadline, authoritative for the live GW)",
