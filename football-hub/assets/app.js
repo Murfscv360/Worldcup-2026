@@ -831,6 +831,18 @@ async function loadFplTeam(id){
       lastFinished ? getJSON(fplProxyUrl(`dream-team/${lastFinished.id}/`), 9000).catch(()=>null) : Promise.resolve(null)
     ]);
     FPL.bootstrap = bootstrap; FPL.entry = entry; FPL.picks = picks; FPL.event = event; FPL.history = history; FPL.fixtures = fixtures;
+    /* THE GAMEWEEK BEING PLANNED, kept separate from the gameweek the API can see.
+       `event` is the gameweek FPL reports as current, which stays pinned to the one just
+       PLAYED for the whole run-up to the next deadline. Every forward-looking number on this
+       page — free transfers, chips, transfer suggestions — is about the NEXT one. Conflating
+       the two is what showed a Wildcard played in GW3 as "active" for GW4. */
+    const nextEv = events.find(e=>e.is_next);
+    FPL.picksFinished = !!(current && current.finished);
+    FPL.planning = nextEv ? nextEv.id : (FPL.picksFinished ? event + 1 : event);
+    /* Provenance of the 15 currently in FPL.picks: which gameweek they are actually known
+       to be correct for. The API can only ever vouch for a COMPLETED gameweek. */
+    FPL.squadSource = "api";
+    FPL.squadFor = event;
     /* OVERRIDE THE SQUAD ITSELF, not just the banner. Showing an "Alfred says" card above a squad
        list still full of Mitchell / F.Kadioglu / Calvert-Lewin is worse than useless — the stale
        list reads as fact and drives the transfer suggestions underneath it. When Alfred's decision
@@ -842,7 +854,14 @@ async function loadFplTeam(id){
        the card above it rendered fine and made it look like it had. Resolution is by exact web_name within the club, and if ANY of
        the 15 fails to resolve we abandon the override entirely rather than show a half-real squad. */
     try {
-      if (ALFRED && ALFRED.xi && FPL.bootstrap && FPL.bootstrap.elements) {
+      /* FRESHNESS GATE. The override was written to be AHEAD of the public API; nothing
+         checked that it still was. A golden file left behind by a failed publish is silently
+         a gameweek (or more) old, and installing it replaces a correct API squad with players
+         already transferred out — which is exactly how OUT Zubimendi / OUT Keane, both sold in
+         GW3's wildcard, came to be recommended. Alfred's record is used only when it is at
+         least as new as what the API can see; otherwise the API squad stands. */
+      const _aFor = ALFRED && (typeof ALFRED.gw_for === "number" ? ALFRED.gw_for : ALFRED.gw);
+      if (ALFRED && ALFRED.xi && FPL.bootstrap && FPL.bootstrap.elements && _aFor >= event) {
         const short = {}; (FPL.bootstrap.teams||[]).forEach(t => short[t.id] = t.short_name);
         const fold = x => (x||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\./g,"").trim();
         const find = (nm, club) => {
@@ -863,6 +882,8 @@ async function loadFplTeam(id){
         if (ok && built.length === 15) {
           FPL.picks = Object.assign({}, FPL.picks || {}, { picks: built });
           ALFRED.overrode = true;
+          FPL.squadSource = "alfred";
+          FPL.squadFor = _aFor;
         }
       }
     } catch (e) { /* leave the API squad in place rather than show something half-built */ }
@@ -1021,13 +1042,25 @@ function fplFreeTransfers(){
   // `r.event<event` naturally has nothing to replay in that case (no history exists before
   // GW1), leaving `free` at the correct baseline of 1 rather than blocking the whole engine.
   let free = 1;
-  (h.current||[]).filter(r=>r.event<event).sort((a,b)=>a.event-b.event).forEach(r=>{
+  /* Once `event` is FINISHED we are budgeting for the gameweek after it, so that gameweek's
+     own transfers belong in the replay rather than being subtracted from the next one's
+     allowance. Verified against the live account: replaying GW1-GW3 (0, 4, then a wildcard
+     week that leaves the bank unchanged) yields 1 free transfer for GW4 — the figure the
+     official FPL app shows. */
+  const planningNext = !!FPL.picksFinished;
+  (h.current||[]).filter(r=> planningNext ? r.event<=event : r.event<event).sort((a,b)=>a.event-b.event).forEach(r=>{
     const chip = chipByEvent[r.event];
     if(chip==="wildcard" || chip==="freehit") return; // banked count carries over unchanged
     free = Math.min(5, Math.max(0, free - (r.event_transfers||0)) + 1);
   });
-  const usedThisGw = picks.entry_history.event_transfers || 0;
-  const activeChip = picks.active_chip || null;
+  /* A chip is only "active" for the gameweek it was played in. `picks.active_chip` belongs to
+     `event`; when `event` has finished, that chip is SPENT. Reporting it as active for the next
+     gameweek printed "Free transfers available for Gameweek 4: unlimited (wildcard active)"
+     while the real account had exactly 1 — and, worse, told the transfer engine every move was
+     free, so it happily proposed hits it had no allowance for. The public API cannot see a chip
+     activated for a gameweek that has not started; absent is therefore the only honest answer. */
+  const usedThisGw = planningNext ? 0 : (picks.entry_history.event_transfers || 0);
+  const activeChip = planningNext ? null : (picks.active_chip || null);
   const unlimited = activeChip==="wildcard" || activeChip==="freehit";
   return { atGwStart: free, usedThisGw, remaining: unlimited ? Infinity : Math.max(0, free - usedThisGw), chipActive: activeChip };
 }
@@ -1095,10 +1128,33 @@ function fplTransferCandidates(){
   return candidates;
 }
 
+/* The 15 element ids actually held right now, and whether that set can be trusted for the
+   gameweek being planned. John, 2026-09-07: "I need better controls on recommendations, don't
+   list players I don't have." Two separate protections, because they fail differently:
+     - fplOwnedIds() is the hard backstop — a suggestion may never name an OUT player who is
+       not in the squad, whatever produced it;
+     - fplSquadTrust() is the honest one — if the best squad available is only known good for
+       an EARLIER gameweek, transfers made since are invisible, so no suggestion built on it
+       can be relied on. Say so rather than inventing moves. */
+function fplOwnedIds(){
+  return new Set(((FPL.picks && FPL.picks.picks) || []).map(p=>p.element));
+}
+function fplPlanningGw(){
+  return FPL.planning || (typeof FPL.event === "number" ? FPL.event + 1 : null);
+}
+function fplSquadTrust(){
+  const planning = fplPlanningGw();
+  if(!planning || typeof FPL.squadFor !== "number") return { ok:false, planning:planning };
+  if(FPL.squadFor >= planning) return { ok:true, planning:planning, source:FPL.squadSource };
+  return { ok:false, planning:planning, knownFor:FPL.squadFor, source:FPL.squadSource };
+}
+
 function fplTransferSuggestions(){
+  if(!fplSquadTrust().ok) return [];   // single choke point — every caller inherits the gate
   const ft = fplFreeTransfers();
   if(!ft) return [];
-  const candidates = fplTransferCandidates();
+  const owned = fplOwnedIds();
+  const candidates = fplTransferCandidates().filter(c=> owned.has(c.out.id));
   const suggestions = [];
   const usedIn = new Set(); // a single incoming player can't fill two squad slots at once
   for(const c of candidates){
@@ -1116,9 +1172,11 @@ function fplTransferSuggestions(){
    transfer currently looks worth it" is visibly a real comparison the app
    actually ran, not just silence with no player named. */
 function fplClosestTransferCandidate(){
+  if(!fplSquadTrust().ok) return null;
   const ft = fplFreeTransfers();
   if(!ft) return null;
-  const candidates = fplTransferCandidates();
+  const owned = fplOwnedIds();
+  const candidates = fplTransferCandidates().filter(c=> owned.has(c.out.id));
   if(!candidates.length) return null;
   const c = candidates[0];
   const cost = ft.chipActive ? 0 : (ft.remaining>0 ? 0 : 4);
@@ -1317,7 +1375,7 @@ function fplSingleChipDecision(){
 }
 
 function fplChipCard(rec, isThePick){
-  const statusLabel = !rec.available ? "Already used" : isThePick ? `▶ Play for GW${FPL.event+1}` : rec.worth ? "Eligible, not picked" : "Hold";
+  const statusLabel = !rec.available ? "Already used" : isThePick ? `▶ Play for GW${fplPlanningGw()}` : rec.worth ? "Eligible, not picked" : "Hold";
   return `<div class="pcard"><div class="pcard-top">
     <div class="pcard-nm">${rec.chip}</div><span class="pcard-stat">${statusLabel}</span></div>
     <p class="pcard-note">${rec.body}${!rec.available?" You've already played this chip this half of the season.":rec.worth&&!isThePick?" Cleared its own bar this week, but only one chip can be played — see the priority pick above.":""}</p></div>`;
@@ -1348,11 +1406,11 @@ function fplHealthChecklistHtml(){
     ? `⚠️ ${h.flagged.length} player${h.flagged.length>1?"s":""} flagged: ${h.flagged.map(f=>f.title.replace(" is flagged","")).join(", ")}.`
     : `✅ No injury/rotation flags on your starters.`);
   lines.push(h.transfers.length
-    ? `🔁 ${h.transfers.length} transfer${h.transfers.length>1?"s":""} worth making for Gameweek ${FPL.event+1} — see below.`
-    : `✅ No transfer for Gameweek ${FPL.event+1} clears the point cost — hold.`);
+    ? `🔁 ${h.transfers.length} transfer${h.transfers.length>1?"s":""} worth making for Gameweek ${fplPlanningGw()} — see below.`
+    : `✅ No transfer for Gameweek ${fplPlanningGw()} clears the point cost — hold.`);
   lines.push(h.chipPick
-    ? `🎴 Play now, for Gameweek ${FPL.event+1}: ${h.chipPick.chip}.`
-    : `✅ No chip needed for Gameweek ${FPL.event+1} — save them.`);
+    ? `🎴 Play now, for Gameweek ${fplPlanningGw()}: ${h.chipPick.chip}.`
+    : `✅ No chip needed for Gameweek ${fplPlanningGw()} — save them.`);
   return `<div class="pcard">${lines.map(l=>`<p class="pcard-note">${l}</p>`).join("")}</div>`;
 }
 
@@ -1444,10 +1502,10 @@ function fplWeeklyBriefing(){
   const suggestions = fplTransferSuggestions();
   if(suggestions.length){
     const top = suggestions[0];
-    parts.push(`The strongest move for Gameweek ${FPL.event+1} is <b>${top.out.web_name} → ${top.in.web_name}</b>, worth a net +${top.net.toFixed(1)} points.`);
+    parts.push(`The strongest move for Gameweek ${fplPlanningGw()} is <b>${top.out.web_name} → ${top.in.web_name}</b>, worth a net +${top.net.toFixed(1)} points.`);
   }
   const chipPick = fplSingleChipDecision();
-  if(chipPick) parts.push(`<b>${chipPick.chip}</b> looks worth playing for Gameweek ${FPL.event+1} — ${chipPick.reason}`);
+  if(chipPick) parts.push(`<b>${chipPick.chip}</b> looks worth playing for Gameweek ${fplPlanningGw()} — ${chipPick.reason}`);
 
   const dt = fplDreamTeamCompare();
   if(dt) parts.push(`${dt.matched.length} of your players made the official Gameweek ${dt.event} Dream Team.`);
@@ -1686,10 +1744,16 @@ function viewFantasyMyTeam(){
     html += `<p class="note">No changes suggested — your captain and starting XI already line up with the official expected-points model.</p>`;
   }
 
-  html += sectionHead("Suggested transfers", "from official FPL data");
+  const planGw = fplPlanningGw();
+  const trust = fplSquadTrust();
+  html += sectionHead("Suggested transfers", trust.ok ? "from official FPL data" : "unavailable — squad not confirmed");
   const ft = fplFreeTransfers();
-  if(ft){
-    html += `<div class="banner">Free transfers available for Gameweek ${FPL.event+1}: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} already used`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
+  if(!trust.ok){
+    /* No suggestion at all rather than one built on a squad we cannot vouch for. A named
+       transfer out of a player already sold is worse than no suggestion: it reads as fact. */
+    html += `<p class="note">No transfers are being suggested for Gameweek ${planGw||"—"}. The most recent squad on record${typeof trust.knownFor==="number"?` is Gameweek ${trust.knownFor}'s`:" could not be confirmed"}, and FPL's public API only publishes a squad once its gameweek has finished — so any transfer already made for Gameweek ${planGw||"—"} is invisible here. Suggesting moves against that squad would risk naming players you no longer own, so this section stays empty until the squad is confirmed.</p>`;
+  } else if(ft){
+    html += `<div class="banner">Free transfers available for Gameweek ${planGw}: <b>${ft.chipActive ? `unlimited (${ft.chipActive} active)` : ft.remaining}</b>${ft.chipActive?"":` — banked ${ft.atGwStart}, ${ft.usedThisGw} already used`}. Any transfer beyond that costs <b>4 points</b>, per the real 2026-27 FPL rules.</div>`;
     const suggestions = fplTransferSuggestions();
     if(suggestions.length){
       suggestions.forEach(s=> html += fplTransferCard(s));
@@ -1700,7 +1764,7 @@ function viewFantasyMyTeam(){
         html += fplTransferCard(closest);
         html += `<p class="note">Closest real option — shown so "no transfer worth it" isn't just silence — but it doesn't clear the bar: +${closest.gain.toFixed(1)} xPts${closest.cost?` − ${closest.cost}pt hit`:""} nets ${closest.net>0?"+":""}${closest.net.toFixed(1)}, not a real gain.</p>`;
       } else {
-        html += `<p class="note">No transfer currently looks worth it once the point cost is factored in — no affordable, fit replacement beats any of your 15 players' expected points for Gameweek ${FPL.event+1}.</p>`;
+        html += `<p class="note">No transfer currently looks worth it once the point cost is factored in — no affordable, fit replacement beats any of your 15 players' expected points for Gameweek ${planGw}.</p>`;
       }
     }
   } else {
@@ -1712,10 +1776,10 @@ function viewFantasyMyTeam(){
   const chipPickCard = fplSingleChipDecision();
   if(chipRecs.length){
     if(chipPickCard){
-      html += `<div class="banner">🎴 Pick for Gameweek ${FPL.event+1}: <b>${chipPickCard.chip}</b> — ${chipPickCard.reason}</div>`;
+      html += `<div class="banner">🎴 Pick for Gameweek ${planGw}: <b>${chipPickCard.chip}</b> — ${chipPickCard.reason}</div>`;
     }
     chipRecs.forEach(r=> html += fplChipCard(r, chipPickCard && chipPickCard.chip===r.chip));
-    html += `<p class="note">A chip you activate now applies to Gameweek ${FPL.event+1} — Gameweek ${FPL.event}'s points are already locked in, so nothing here changes what you already scored. You can only play one chip per gameweek, so when more than one clears its own bar the same week, this picks a single one for you by priority: Free Hit first (the exact situation it exists for — a bad week of blanks), then Wildcard (a structural rebuild worth more than one week's bump), then whichever of Bench Boost or Triple Captain has the larger real point value that week. Chips are also limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so this is a signal for your own judgement, not an automatic trigger.</p>`;
+    html += `<p class="note">A chip you activate now applies to Gameweek ${planGw} — Gameweek ${FPL.event}'s points are already locked in, so nothing here changes what you already scored. You can only play one chip per gameweek, so when more than one clears its own bar the same week, this picks a single one for you by priority: Free Hit first (the exact situation it exists for — a bad week of blanks), then Wildcard (a structural rebuild worth more than one week's bump), then whichever of Bench Boost or Triple Captain has the larger real point value that week. Chips are also limited — 1 Wildcard, 1 Free Hit, 1 Bench Boost and 1 Triple Captain per half of the 2026-27 season (2 of each in total) — so this is a signal for your own judgement, not an automatic trigger.</p>`;
   } else {
     html += `<p class="note">Couldn't work out chip guidance this time — your gameweek history didn't load from the FPL API. Tap Load again to retry.</p>`;
   }
