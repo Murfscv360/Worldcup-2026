@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-08 15:08:38",
+ "generated": "2026-09-08 15:11:05",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -8,8 +8,8 @@
  "formation": "3-5-2",
  "source": "public /entry/5933243/event/3/picks/ (post-deadline, authoritative for the live GW)",
  "chips_active": [],
- "captain": "Cherki",
- "vice": "Haaland",
+ "captain": "Haaland",
+ "vice": "Ajayi",
  "captain_current": "Haaland",
  "vice_current": "Palmer",
  "xi": [
