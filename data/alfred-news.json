@@ -1,19 +1,8 @@
 {
- "generated": "2026-09-07 18:00:09",
+ "generated": "2026-09-08 08:00:11",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-04",
-   "ts": "2026-09-04 08:00:04",
-   "new_headlines": 23,
-   "key": [
-    "[ARS] Arsenal to face Barca & Lyon in Women's Champions League",
-    "[MCI] Who are best Man City players to buy? FPL gameweek three dilemmas"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-04",
    "ts": "2026-09-04 18:00:04",
@@ -98,6 +87,17 @@
    "new_headlines": 10,
    "key": [
     "[CHE/FUL] Chelsea explored move for Fulham midfielder Berge"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-08",
+   "ts": "2026-09-08 08:00:05",
+   "new_headlines": 18,
+   "key": [
+    "[NEW] Newcastle were 'preparing for months' for Howe departure",
+    "[MCI] Non-league to Champions League: The Porto boss out to stun Man City"
    ],
    "player_changes": [],
    "unreachable": []
