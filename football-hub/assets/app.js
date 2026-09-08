@@ -1003,16 +1003,33 @@ function fplRecommendations(){
   const capPick = starting.find(p=>p.is_captain);
   const capEl = capPick && fplElement(capPick.element);
   if(capEl){
-    let best = null, bestEp = parseFloat(capEl.ep_next||0);
-    starting.forEach(p=>{
-      const el = fplElement(p.element);
-      if(!el) return;
-      const ep = parseFloat(el.ep_next||0);
-      if(ep > bestEp){ bestEp = ep; best = el; }
-    });
-    if(best){
-      recs.push({title:`Consider captaining ${best.web_name} instead of ${capEl.web_name}`,
-        body:`${best.web_name}'s official expected points for the next gameweek (${bestEp.toFixed(1)}) is higher than your current captain's (${parseFloat(capEl.ep_next||0).toFixed(1)}).`});
+    /* SINGLE DECISION (John 2026-09-08: "There needs to be consistent replies").
+       This panel used to scan every starter's ep_next with NO position filter and NO minutes
+       floor, which on 2026-09-08 recommended captaining the GOALKEEPER (Tzolakis 8.7 over
+       Haaland 8.0): a keeper's clean-sheet points inflate ep_next, and ep_next is ~92% a form
+       echo. Alfred already publishes the armband in data/alfred-fpl.json, chosen from OUTFIELD
+       starters that clear a minutes floor. Defer to it; only fall back if it is absent, and
+       even then never suggest a goalkeeper. */
+    const trust = fplSquadTrust();
+    const alfredCap = (trust.ok && ALFRED && ALFRED.captain) ? String(ALFRED.captain) : null;
+    const capName = String(capEl.web_name || "");
+    if(alfredCap){
+      if(capName.toLowerCase().indexOf(alfredCap.toLowerCase()) === -1){
+        recs.push({title:`Captain ${alfredCap} instead of ${capName}`,
+          body:`Alfred's published decision for Gameweek ${ALFRED.gw_for||ALFRED.gw}. Chosen from outfield starters that clear the minutes floor, so a rotation risk cannot take the armband.`});
+      }
+    } else {
+      let best = null, bestEp = parseFloat(capEl.ep_next||0);
+      starting.forEach(p=>{
+        const el = fplElement(p.element);
+        if(!el || el.element_type === 1) return;   /* never captain a goalkeeper */
+        const ep = parseFloat(el.ep_next||0);
+        if(ep > bestEp){ bestEp = ep; best = el; }
+      });
+      if(best){
+        recs.push({title:`Consider captaining ${best.web_name} instead of ${capName}`,
+          body:`${best.web_name}'s expected points (${bestEp.toFixed(1)}) exceed your captain's (${parseFloat(capEl.ep_next||0).toFixed(1)}). No published decision was available, so this is a raw projection comparison.`});
+      }
     }
   }
 
