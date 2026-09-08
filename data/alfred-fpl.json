@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-08 15:16:07",
+ "generated": "2026-09-08 15:23:45",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
  "squad_as_of": 3,
  "deadline": "2026-09-12T12:30:00Z",
- "formation": "3-5-2",
+ "formation": "3-4-3",
  "source": "public /entry/5933243/event/3/picks/ (post-deadline, authoritative for the live GW)",
  "chips_active": [],
  "captain": "Haaland",
@@ -70,18 +70,18 @@
    "ep": 6.0
   },
   {
-   "name": "Elanga",
-   "pos": "MID",
-   "club": "NEW",
-   "score": 21.58,
-   "ep": 6.0
-  },
-  {
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
    "score": 29.98,
    "ep": 8.0
+  },
+  {
+   "name": "Isak",
+   "pos": "FWD",
+   "club": "LIV",
+   "score": 28.69,
+   "ep": 7.7
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -99,15 +99,15 @@
    "order": 0
   },
   {
-   "name": "Kayode",
-   "pos": "DEF",
-   "club": "BRE",
+   "name": "Elanga",
+   "pos": "MID",
+   "club": "NEW",
    "order": 1
   },
   {
-   "name": "Wissa",
-   "pos": "FWD",
-   "club": "NEW",
+   "name": "Kayode",
+   "pos": "DEF",
+   "club": "BRE",
    "order": 2
   },
   {
@@ -119,13 +119,23 @@
  ],
  "changes": [
   {
+   "in": "Isak",
+   "out": "Elanga"
+  },
+  {
    "in": "Jo\u00e3o Pedro",
    "out": "Kayode"
   }
  ],
  "transfers_recommended": [],
  "note": "Alfred decision from the session-maintained golden record. The public FPL API cannot see this gameweek until the deadline passes, so prefer this over the API-derived squad.",
- "changelog": [],
+ "changelog": [
+  {
+   "ts": "2026-09-08 15:23:33",
+   "change": "transfer Wissa -> Isak",
+   "source": "John confirmed in-app 2026-09-08 15:18; FPL public API cannot show pending GW4 picks"
+  }
+ ],
  "availability": [
   {
    "name": "Tzolakis",
@@ -206,8 +216,8 @@
    "available": true
   },
   {
-   "name": "Wissa",
-   "club": "NEW",
+   "name": "Isak",
+   "club": "LIV",
    "status": "a",
    "available": true
   },
@@ -257,7 +267,7 @@
      "pos": "FWD",
      "score": 19.7,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Emersonn",
