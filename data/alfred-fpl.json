@@ -1,12 +1,12 @@
 {
- "generated": "2026-09-08 15:23:45",
+ "generated": "2026-09-08 18:15:16",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
  "squad_as_of": 3,
  "deadline": "2026-09-12T12:30:00Z",
- "formation": "3-4-3",
- "source": "public /entry/5933243/event/3/picks/ (post-deadline, authoritative for the live GW)",
+ "formation": "3-5-2",
+ "source": "API /entry/5933243/event/3/picks (unauthenticated, synced 2026-09-08 16:50)",
  "chips_active": [],
  "captain": "Haaland",
  "vice": "Ajayi",
@@ -70,18 +70,18 @@
    "ep": 6.0
   },
   {
+   "name": "Elanga",
+   "pos": "MID",
+   "club": "NEW",
+   "score": 21.58,
+   "ep": 6.0
+  },
+  {
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
    "score": 29.98,
    "ep": 8.0
-  },
-  {
-   "name": "Isak",
-   "pos": "FWD",
-   "club": "LIV",
-   "score": 28.69,
-   "ep": 7.7
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -99,15 +99,15 @@
    "order": 0
   },
   {
-   "name": "Elanga",
-   "pos": "MID",
-   "club": "NEW",
-   "order": 1
-  },
-  {
    "name": "Kayode",
    "pos": "DEF",
    "club": "BRE",
+   "order": 1
+  },
+  {
+   "name": "Wissa",
+   "pos": "FWD",
+   "club": "NEW",
    "order": 2
   },
   {
@@ -118,10 +118,6 @@
   }
  ],
  "changes": [
-  {
-   "in": "Isak",
-   "out": "Elanga"
-  },
   {
    "in": "Jo\u00e3o Pedro",
    "out": "Kayode"
@@ -134,7 +130,8 @@
    "ts": "2026-09-08 15:23:33",
    "change": "transfer Wissa -> Isak",
    "source": "John confirmed in-app 2026-09-08 15:18; FPL public API cannot show pending GW4 picks"
-  }
+  },
+  "2026-09-08 16:50 \u2014 squad reconciled from FPL history GW3"
  ],
  "availability": [
   {
@@ -216,8 +213,8 @@
    "available": true
   },
   {
-   "name": "Isak",
-   "club": "LIV",
+   "name": "Wissa",
+   "club": "NEW",
    "status": "a",
    "available": true
   },
@@ -267,7 +264,7 @@
      "pos": "FWD",
      "score": 19.7,
      "side": "A",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Emersonn",
