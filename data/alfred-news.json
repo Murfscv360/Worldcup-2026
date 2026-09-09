@@ -1,18 +1,8 @@
 {
- "generated": "2026-09-09 08:00:08",
+ "generated": "2026-09-09 18:00:09",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-06",
-   "ts": "2026-09-06 08:00:03",
-   "new_headlines": 10,
-   "key": [
-    "[CRY/FUL] How Crystal Palace exposed Fulham's defence"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-06",
    "ts": "2026-09-06 18:00:03",
@@ -82,6 +72,22 @@
     "[CHE] Where Estevao fits into Chelsea's all-star attack"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-09",
+   "ts": "2026-09-09 18:00:05",
+   "new_headlines": 23,
+   "key": [
+    "[ARS] Arsenal are passing every test - and Odegaard is in form of his life",
+    "[ARS] Odegaard strike earns Arsenal narrow victory at Napoli",
+    "[NEW] Newcastle still open to Hall sale - Thursday's gossip",
+    "[MCI] Haaland strikes twice as Manchester City secure win at Porto"
+   ],
+   "player_changes": [
+    "Cash (AVL, 7% owned): Muscular injury - 75% chance of playing",
+    "Gakpo (LIV, 14% owned): Thigh injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
