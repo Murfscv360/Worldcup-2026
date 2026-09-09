@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09 06:15:30",
+ "generated": "2026-09-09 09:15:29",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -373,14 +373,6 @@
    ],
    "watch": [
     {
-     "name": "Mundle",
-     "club": "SUN",
-     "pos": "MID",
-     "score": 18.0,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Janelt",
      "club": "BRE",
      "pos": "MID",
@@ -401,6 +393,14 @@
      "club": "SUN",
      "pos": "MID",
      "score": 13.7,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Isidor",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 11.6,
      "side": "A",
      "yours": false
     }
