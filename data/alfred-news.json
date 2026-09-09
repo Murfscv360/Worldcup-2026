@@ -1,35 +1,8 @@
 {
- "generated": "2026-09-08 18:00:12",
+ "generated": "2026-09-09 08:00:08",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-05",
-   "ts": "2026-09-05 18:00:04",
-   "new_headlines": 39,
-   "key": [
-    "[CRY/FUL] Chilwell scores on Palace return in victory at Fulham",
-    "[ARS] Arsenal had more than 20 players on shortlist to capitalise on title win",
-    "[HUL] Seven points from three games - are Hull on track to avoid relegation?",
-    "[MCI] Fernandez and Ndiaye show signs of promise on Man City debuts",
-    "[MCI] Haaland header maintains perfect winning start for Man City",
-    "[BOU/NEW] Ramsey strikes late as Newcastle salvage Bournemouth draw",
-    "[BHA/LEE] Late Vuskovic header rescues point for Brighton against Leeds",
-    "[BRE/SUN] Le Fee penalty saves point for Sunderland at Brentford",
-    "[AVL/HUL] Aston Villa still winless after stalemate at Hull",
-    "[FUL] Fulham booed off after third defeat in a row",
-    "[CHE] New season, same flaw - Chelsea title hopes already under scrutiny",
-    "[BRE] We played 'ugly side of the game' - Andrews proud of Brentford display",
-    "[BRE] 'One of our best first halves' - Le Bris pleased despite Brentford draw",
-    "[AVL/CHE] Chelsea drop points against Aston Villa for the first time in WSL",
-    "[BOU/NEW] Jaissle fumes at 'slapstick' goals as Newcastle rescue Bournemouth draw",
-    "[AVL/CHE] 'It's not Chelsea's standard' - McCabe on 'frustrating' draw against Aston Villa"
-   ],
-   "player_changes": [
-    "O'Reilly (MCI, 18% owned): Back injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-06",
    "ts": "2026-09-06 08:00:03",
@@ -97,6 +70,16 @@
    "new_headlines": 16,
    "key": [
     "[MCI] Bouaddi impresses on first start - have Man City found 'a gem'?"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-09",
+   "ts": "2026-09-09 08:00:04",
+   "new_headlines": 11,
+   "key": [
+    "[CHE] Where Estevao fits into Chelsea's all-star attack"
    ],
    "player_changes": [],
    "unreachable": []
