@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09 06:05:08",
+ "generated": "2026-09-09 09:05:08",
  "tz": "America/Chicago",
  "gw": 4,
  "fixtures": [
@@ -470,18 +470,18 @@
      "yours": false
     },
     {
-     "name": "Mundle",
-     "club": "SUN",
-     "pos": "MID",
-     "score": 18.0,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
      "score": 13.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Isidor",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 11.6,
      "side": "H",
      "yours": false
     }
