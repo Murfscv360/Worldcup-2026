@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09 12:05:09",
+ "generated": "2026-09-09 15:05:11",
  "tz": "America/Chicago",
  "gw": 4,
  "fixtures": [
@@ -332,18 +332,18 @@
    ],
    "watch": [
     {
-     "name": "Gakpo",
-     "club": "LIV",
-     "pos": "MID",
-     "score": 22.0,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
      "score": 19.7,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Gakpo",
+     "club": "LIV",
+     "pos": "MID",
+     "score": 16.5,
      "side": "H",
      "yours": false
     },
