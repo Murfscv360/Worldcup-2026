@@ -1,27 +1,8 @@
 {
- "generated": "2026-09-09 18:00:09",
+ "generated": "2026-09-10 08:00:07",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-06",
-   "ts": "2026-09-06 18:00:03",
-   "new_headlines": 23,
-   "key": [
-    "[MCI] New contenders emerge on WSL return - but Man City start strong",
-    "[CHE] No new striker, no worries - Havertz and Odegaard torment Chelsea",
-    "[CHE] Two right-backs in midfield - are Chelsea short despite \u00a3349m spent?",
-    "[MCI] When Man City call you don't say no - Ndiaye",
-    "[ARS/CHE] Champions Arsenal come from behind to beat Chelsea",
-    "[CHE] Chelsea plot early move for Scott - Monday's gossip",
-    "[ARS/CHE] Odegaard and Saka star - player ratings for Arsenal v Chelsea",
-    "[MCI] Shaw double leads Man City to victory over Birmingham",
-    "[ARS/BHA] Baum scores on debut as Arsenal edge Brighton",
-    "[ARS/CHE] Chelsea defeat by Arsenal hurts - Alonso"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-07",
    "ts": "2026-09-07 08:00:01",
@@ -88,6 +69,16 @@
     "Cash (AVL, 7% owned): Muscular injury - 75% chance of playing",
     "Gakpo (LIV, 14% owned): Thigh injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-10",
+   "ts": "2026-09-10 08:00:03",
+   "new_headlines": 14,
+   "key": [
+    "[CHE] Star subs rescue Chelsea as Alonso 'takes blame'"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
