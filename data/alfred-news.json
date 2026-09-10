@@ -1,19 +1,8 @@
 {
- "generated": "2026-09-10 08:00:07",
+ "generated": "2026-09-10 18:00:11",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-07",
-   "ts": "2026-09-07 08:00:01",
-   "new_headlines": 16,
-   "key": [
-    "[ARS/SUN] Why is Sunderland vs Arsenal at 8pm on Saturday?",
-    "[CHE] Odegaard 'desire' in Chelsea win impresses Rooney"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-07",
    "ts": "2026-09-07 18:00:04",
@@ -77,6 +66,19 @@
    "new_headlines": 14,
    "key": [
     "[CHE] Star subs rescue Chelsea as Alonso 'takes blame'"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-10",
+   "ts": "2026-09-10 18:00:06",
+   "new_headlines": 26,
+   "key": [
+    "[ARS] Arsenal close to finalising new contract for Arteta",
+    "[CHE] Can you make a case for Chelsea being stripped of 2016-17 title?",
+    "[ARS/CHE] Chelsea and Real Madrid keen on Arsenal's Zubimendi - Friday's gossip",
+    "[LEE] Leeds' Okafor says he won't play for Swiss again under Yakin"
    ],
    "player_changes": [],
    "unreachable": []
