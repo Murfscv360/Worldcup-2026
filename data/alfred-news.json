@@ -1,18 +1,8 @@
 {
- "generated": "2026-09-10 18:00:11",
+ "generated": "2026-09-11 08:00:08",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-07",
-   "ts": "2026-09-07 18:00:04",
-   "new_headlines": 10,
-   "key": [
-    "[CHE/FUL] Chelsea explored move for Fulham midfielder Berge"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-08",
    "ts": "2026-09-08 08:00:05",
@@ -81,6 +71,22 @@
     "[LEE] Leeds' Okafor says he won't play for Swiss again under Yakin"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-11",
+   "ts": "2026-09-11 08:00:04",
+   "new_headlines": 21,
+   "key": [
+    "[NEW] Hall signs new contract with Newcastle until 2031",
+    "[LEE] Leeds want boss Farke to stay 'long-term'",
+    "[HUL] Hull winger Thomas unhurt after car crash",
+    "[ARS] 'I want to play for mum' \u2013 Arsenal's Cooney-Cross",
+    "[CHE] Is triple Chelsea attack worth it? FPL gameweek four dilemmas"
+   ],
+   "player_changes": [
+    "O'Reilly (MCI, 14% owned): now available"
+   ],
    "unreachable": []
   }
  ],
