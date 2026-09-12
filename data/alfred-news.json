@@ -1,18 +1,8 @@
 {
- "generated": "2026-09-12 08:00:09",
+ "generated": "2026-09-12 18:00:11",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-09",
-   "ts": "2026-09-09 08:00:04",
-   "new_headlines": 11,
-   "key": [
-    "[CHE] Where Estevao fits into Chelsea's all-star attack"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-09",
    "ts": "2026-09-09 18:00:05",
@@ -94,6 +84,26 @@
     "[MCI] Maresca is 'perfect person' for Man City job - Dias"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-12",
+   "ts": "2026-09-12 18:00:06",
+   "new_headlines": 22,
+   "key": [
+    "[ARS/SUN] Arsenal hold off energetic Sunderland to continue perfect title defence",
+    "[CHE/HUL] Hull remain unbeaten in league after impressive Chelsea draw",
+    "[BRE/BOU] Brentford hold Bournemouth as Rose's wait for a win continues",
+    "[FUL/LIV] Fulham take first point of the season at lacklustre Liverpool",
+    "[ARS/SUN] Guimaraes and Raya crucial - Sunderland v Arsenal player ratings",
+    "[CHE] New system, same problems - Alonso not happy with 'soft' Chelsea",
+    "[ARS] Arsenal monitoring Como's Paz - Sunday's gossip",
+    "[HUL] We got what we deserved - Alonso on draw with Hull"
+   ],
+   "player_changes": [
+    "Mendy (HUL, 8% owned): Concussion - 50% chance of playing",
+    "Gakpo (LIV, 12% owned): now available"
+   ],
    "unreachable": []
   }
  ],
