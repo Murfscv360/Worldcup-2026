@@ -1,18 +1,8 @@
 {
- "generated": "2026-09-11 18:00:12",
+ "generated": "2026-09-12 08:00:09",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-08",
-   "ts": "2026-09-08 18:00:04",
-   "new_headlines": 16,
-   "key": [
-    "[MCI] Bouaddi impresses on first start - have Man City found 'a gem'?"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-09",
    "ts": "2026-09-09 08:00:04",
@@ -91,6 +81,19 @@
     "Shaw (MUN, 12% owned): Unspecified injury - 75% chance of playing",
     "Pedro Porro (TOT, 11% owned): Unspecified injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-12",
+   "ts": "2026-09-12 08:00:03",
+   "new_headlines": 9,
+   "key": [
+    "[MCI] 'A legacy' at 26 - how Hemp has grown at Man City",
+    "[MCI] New Man City signings desperate to win - Dias",
+    "[CHE] 'I've turned the page' - Camara on Chelsea deal collapse",
+    "[MCI] Maresca is 'perfect person' for Man City job - Dias"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
