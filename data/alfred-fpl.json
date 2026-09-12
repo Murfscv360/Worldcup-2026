@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 15:15:20",
+ "generated": "2026-09-12 15:35:19",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -14,11 +14,11 @@
  "vice_current": "Palmer",
  "xi": [
   {
-   "name": "Tzolakis",
+   "name": "Raya",
    "pos": "GKP",
-   "club": "HUL",
-   "score": 24.5,
-   "ep": 7.0
+   "club": "ARS",
+   "score": 25.2,
+   "ep": 7.2
   },
   {
    "name": "Ajayi",
@@ -93,9 +93,9 @@
  ],
  "bench": [
   {
-   "name": "Raya",
+   "name": "Tzolakis",
    "pos": "GKP",
-   "club": "ARS",
+   "club": "HUL",
    "order": 0
   },
   {
@@ -118,6 +118,10 @@
   }
  ],
  "changes": [
+  {
+   "in": "Raya",
+   "out": "Tzolakis"
+  },
   {
    "in": "Jo\u00e3o Pedro",
    "out": "Elanga"
@@ -396,7 +400,7 @@
      "name": "Isidor",
      "club": "SUN",
      "pos": "FWD",
-     "score": 9.2,
+     "score": 9.6,
      "side": "A",
      "yours": false
     },
@@ -404,7 +408,7 @@
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
-     "score": 9.1,
+     "score": 8.7,
      "side": "A",
      "yours": false
     }
@@ -815,7 +819,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 15.3,
+     "score": 14.7,
      "side": "H",
      "yours": false
     },
@@ -831,7 +835,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 14.0,
+     "score": 14.5,
      "side": "H",
      "yours": false
     }
