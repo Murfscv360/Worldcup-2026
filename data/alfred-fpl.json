@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 12:15:18",
+ "generated": "2026-09-12 12:35:17",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -640,7 +640,7 @@
      "name": "Van de Ven",
      "club": "TOT",
      "pos": "DEF",
-     "score": 6.7,
+     "score": 6.2,
      "side": "A",
      "yours": false
     },
@@ -762,7 +762,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 9.4,
+     "score": 9.3,
      "side": "H",
      "yours": false
     },
@@ -770,7 +770,7 @@
      "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
-     "score": 9.2,
+     "score": 9.3,
      "side": "H",
      "yours": false
     }
