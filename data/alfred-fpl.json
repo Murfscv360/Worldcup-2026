@@ -1,15 +1,15 @@
 {
- "generated": "2026-09-12 09:35:21",
+ "generated": "2026-09-12 12:15:18",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
  "squad_as_of": 3,
  "deadline": "2026-09-12T12:30:00Z",
- "formation": "3-5-2",
+ "formation": "4-4-2",
  "source": "API /entry/5933243/event/3/picks (unauthenticated, synced 2026-09-08 16:50)",
  "chips_active": [],
  "captain": "Jo\u00e3o Pedro",
- "vice": "Ajayi",
+ "vice": "Palmer",
  "captain_current": "Haaland",
  "vice_current": "Palmer",
  "xi": [
@@ -17,22 +17,22 @@
    "name": "Tzolakis",
    "pos": "GKP",
    "club": "HUL",
-   "score": 23.8,
-   "ep": 6.8
+   "score": 24.5,
+   "ep": 7.0
   },
   {
    "name": "Ajayi",
    "pos": "DEF",
    "club": "HUL",
-   "score": 23.09,
+   "score": 23.11,
    "ep": 6.5
   },
   {
    "name": "Egan",
    "pos": "DEF",
    "club": "HUL",
-   "score": 21.0,
-   "ep": 6.0
+   "score": 21.72,
+   "ep": 6.2
   },
   {
    "name": "De Cuyper",
@@ -40,6 +40,13 @@
    "club": "BHA",
    "score": 19.62,
    "ep": 5.2
+  },
+  {
+   "name": "Castagne",
+   "pos": "DEF",
+   "club": "FUL",
+   "score": 17.4,
+   "ep": 4.8
   },
   {
    "name": "Cherki",
@@ -52,15 +59,15 @@
    "name": "Palmer",
    "pos": "MID",
    "club": "CHE",
-   "score": 20.13,
-   "ep": 5.5
+   "score": 23.67,
+   "ep": 6.5
   },
   {
    "name": "M.Sangar\u00e9",
    "pos": "MID",
    "club": "BRE",
-   "score": 17.38,
-   "ep": 4.8
+   "score": 19.89,
+   "ep": 5.5
   },
   {
    "name": "Stach",
@@ -70,18 +77,11 @@
    "ep": 4.8
   },
   {
-   "name": "Elanga",
-   "pos": "MID",
-   "club": "NEW",
-   "score": 16.33,
-   "ep": 4.5
-  },
-  {
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
-   "score": 23.99,
-   "ep": 6.5
+   "score": 29.88,
+   "ep": 8.2
   },
   {
    "name": "Haaland",
@@ -99,15 +99,15 @@
    "order": 0
   },
   {
-   "name": "Kayode",
-   "pos": "DEF",
-   "club": "BRE",
+   "name": "Elanga",
+   "pos": "MID",
+   "club": "NEW",
    "order": 1
   },
   {
-   "name": "Castagne",
+   "name": "Kayode",
    "pos": "DEF",
-   "club": "FUL",
+   "club": "BRE",
    "order": 2
   },
   {
@@ -120,6 +120,10 @@
  "changes": [
   {
    "in": "Jo\u00e3o Pedro",
+   "out": "Elanga"
+  },
+  {
+   "in": "Castagne",
    "out": "Kayode"
   }
  ],
@@ -254,7 +258,7 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 14.6,
+     "score": 14.5,
      "side": "A",
      "yours": false
     },
@@ -262,7 +266,7 @@
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
-     "score": 14.5,
+     "score": 14.4,
      "side": "A",
      "yours": false
     },
@@ -270,15 +274,15 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 11.6,
+     "score": 12.9,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Enciso",
+     "name": "Davis",
      "club": "IPS",
-     "pos": "MID",
-     "score": 7.5,
+     "pos": "DEF",
+     "score": 10.3,
      "side": "H",
      "yours": false
     }
@@ -315,7 +319,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 12.9,
+     "score": 14.9,
      "side": "A",
      "yours": false
     },
@@ -323,7 +327,7 @@
      "name": "Scott",
      "club": "BOU",
      "pos": "MID",
-     "score": 11.1,
+     "score": 12.3,
      "side": "A",
      "yours": false
     },
@@ -373,10 +377,10 @@
    ],
    "watch": [
     {
-     "name": "Lewis-Potter",
+     "name": "Schade",
      "club": "BRE",
      "pos": "MID",
-     "score": 10.2,
+     "score": 13.6,
      "side": "H",
      "yours": false
     },
@@ -384,7 +388,7 @@
      "name": "Janelt",
      "club": "BRE",
      "pos": "MID",
-     "score": 10.1,
+     "score": 11.0,
      "side": "H",
      "yours": false
     },
@@ -498,31 +502,31 @@
      "name": "King",
      "club": "FUL",
      "pos": "MID",
-     "score": 10.8,
+     "score": 11.1,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Mitchell",
-     "club": "CRY",
-     "pos": "DEF",
-     "score": 7.7,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Gonzalo",
+     "name": "Castagne",
      "club": "FUL",
-     "pos": "FWD",
-     "score": 7.6,
+     "pos": "DEF",
+     "score": 9.0,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Chilwell",
      "club": "CRY",
      "pos": "DEF",
-     "score": 7.6,
+     "score": 8.2,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Kamada",
+     "club": "CRY",
+     "pos": "MID",
+     "score": 7.9,
      "side": "A",
      "yours": false
     }
@@ -620,7 +624,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 10.2,
+     "score": 13.7,
      "side": "H",
      "yours": false
     },
@@ -628,7 +632,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.8,
+     "score": 9.1,
      "side": "H",
      "yours": false
     },
@@ -636,7 +640,7 @@
      "name": "Van de Ven",
      "club": "TOT",
      "pos": "DEF",
-     "score": 5.8,
+     "score": 6.7,
      "side": "A",
      "yours": false
     },
@@ -644,7 +648,7 @@
      "name": "Van Hecke",
      "club": "TOT",
      "pos": "DEF",
-     "score": 4.5,
+     "score": 5.0,
      "side": "A",
      "yours": false
     }
@@ -678,18 +682,18 @@
    ],
    "watch": [
     {
-     "name": "Ajayi",
+     "name": "Belloumi",
      "club": "HUL",
-     "pos": "DEF",
-     "score": 11.3,
+     "pos": "MID",
+     "score": 11.7,
      "side": "H",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Tzolakis",
      "club": "HUL",
      "pos": "GKP",
-     "score": 11.0,
+     "score": 11.4,
      "side": "H",
      "yours": true
     },
@@ -697,15 +701,15 @@
      "name": "Suzuki",
      "club": "AVL",
      "pos": "GKP",
-     "score": 7.5,
+     "score": 6.4,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Mings",
+     "name": "McGinn",
      "club": "AVL",
-     "pos": "DEF",
-     "score": 5.2,
+     "pos": "MID",
+     "score": 5.7,
      "side": "A",
      "yours": false
     }
@@ -758,7 +762,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 9.7,
+     "score": 9.4,
      "side": "H",
      "yours": false
     },
@@ -766,7 +770,7 @@
      "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
-     "score": 8.7,
+     "score": 9.2,
      "side": "H",
      "yours": false
     }
@@ -800,10 +804,18 @@
    ],
    "watch": [
     {
+     "name": "Jo\u00e3o Pedro",
+     "club": "CHE",
+     "pos": "FWD",
+     "score": 16.4,
+     "side": "A",
+     "yours": true
+    },
+    {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
-     "score": 15.6,
+     "score": 14.6,
      "side": "A",
      "yours": false
     },
@@ -814,14 +826,6 @@
      "score": 14.5,
      "side": "H",
      "yours": false
-    },
-    {
-     "name": "Jo\u00e3o Pedro",
-     "club": "CHE",
-     "pos": "FWD",
-     "score": 14.1,
-     "side": "A",
-     "yours": true
     },
     {
      "name": "Saka",
