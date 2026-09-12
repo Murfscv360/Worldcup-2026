@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 12:05:13",
+ "generated": "2026-09-12 15:05:11",
  "tz": "America/Chicago",
  "gw": 5,
  "fixtures": [
@@ -88,27 +88,27 @@
    ],
    "watch": [
     {
+     "name": "Van de Ven",
+     "club": "TOT",
+     "pos": "DEF",
+     "score": 7.8,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Van Hecke",
+     "club": "TOT",
+     "pos": "DEF",
+     "score": 7.6,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Suzuki",
      "club": "AVL",
      "pos": "GKP",
      "score": 6.4,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Van de Ven",
-     "club": "TOT",
-     "pos": "DEF",
-     "score": 6.1,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Tonali",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 6.0,
-     "side": "H",
      "yours": false
     },
     {
@@ -152,7 +152,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 14.5,
+     "score": 15.4,
      "side": "A",
      "yours": false
     },
@@ -160,7 +160,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 13.6,
+     "score": 14.1,
      "side": "A",
      "yours": false
     },
@@ -218,18 +218,10 @@
      "yours": false
     },
     {
-     "name": "Davis",
-     "club": "IPS",
-     "pos": "DEF",
-     "score": 10.3,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Barry",
+     "name": "Maitland-Niles",
      "club": "EVE",
-     "pos": "FWD",
-     "score": 9.6,
+     "pos": "DEF",
+     "score": 12.7,
      "side": "H",
      "yours": false
     },
@@ -237,8 +229,16 @@
      "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
-     "score": 9.2,
+     "score": 12.0,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Davis",
+     "club": "IPS",
+     "pos": "DEF",
+     "score": 10.3,
+     "side": "A",
      "yours": false
     }
    ],
@@ -542,7 +542,7 @@
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
-     "score": 8.5,
+     "score": 9.1,
      "side": "A",
      "yours": false
     }
@@ -603,7 +603,7 @@
      "name": "Castagne",
      "club": "FUL",
      "pos": "DEF",
-     "score": 9.0,
+     "score": 8.9,
      "side": "H",
      "yours": true
     }
