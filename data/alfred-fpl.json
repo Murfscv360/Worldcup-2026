@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 15:35:19",
+ "generated": "2026-09-12 18:15:25",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -397,18 +397,18 @@
      "yours": false
     },
     {
-     "name": "Isidor",
+     "name": "Xhaka",
      "club": "SUN",
-     "pos": "FWD",
+     "pos": "MID",
      "score": 9.6,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Xhaka",
+     "name": "Isidor",
      "club": "SUN",
-     "pos": "MID",
-     "score": 8.7,
+     "pos": "FWD",
+     "score": 8.8,
      "side": "A",
      "yours": false
     }
@@ -633,10 +633,10 @@
      "yours": false
     },
     {
-     "name": "Ndoye",
+     "name": "Murillo",
      "club": "NFO",
-     "pos": "MID",
-     "score": 9.1,
+     "pos": "DEF",
+     "score": 8.9,
      "side": "H",
      "yours": false
     },
@@ -689,7 +689,7 @@
      "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 11.7,
+     "score": 11.6,
      "side": "H",
      "yours": false
     },
@@ -705,7 +705,7 @@
      "name": "Suzuki",
      "club": "AVL",
      "pos": "GKP",
-     "score": 6.4,
+     "score": 6.2,
      "side": "A",
      "yours": false
     },
@@ -808,10 +808,18 @@
    ],
    "watch": [
     {
+     "name": "Saka",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 17.6,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Jo\u00e3o Pedro",
      "club": "CHE",
      "pos": "FWD",
-     "score": 16.4,
+     "score": 16.5,
      "side": "A",
      "yours": true
     },
@@ -829,14 +837,6 @@
      "pos": "MID",
      "score": 14.6,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Saka",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 14.5,
-     "side": "H",
      "yours": false
     }
    ],
