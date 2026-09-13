@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13 06:35:11",
+ "generated": "2026-09-13 09:15:12",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -38,8 +38,8 @@
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 19.62,
-   "ep": 5.2
+   "score": 20.45,
+   "ep": 5.5
   },
   {
    "name": "Castagne",
@@ -450,20 +450,20 @@
      "yours": false
     },
     {
+     "name": "Gro\u00df",
+     "club": "BHA",
+     "pos": "MID",
+     "score": 11.0,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
      "score": 10.7,
      "side": "H",
      "yours": true
-    },
-    {
-     "name": "Gro\u00df",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 8.7,
-     "side": "H",
-     "yours": false
     },
     {
      "name": "Stach",
@@ -583,15 +583,15 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 7.0,
+     "score": 7.3,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Awoniyi",
+     "name": "Rudoni",
      "club": "COV",
-     "pos": "FWD",
-     "score": 5.3,
+     "pos": "MID",
+     "score": 6.9,
      "side": "A",
      "yours": false
     }
