@@ -1,24 +1,8 @@
 {
- "generated": "2026-09-12 18:00:11",
+ "generated": "2026-09-13 08:00:12",
  "tz": "America/Chicago",
  "gw": 3,
  "days": [
-  {
-   "date": "2026-09-09",
-   "ts": "2026-09-09 18:00:05",
-   "new_headlines": 23,
-   "key": [
-    "[ARS] Arsenal are passing every test - and Odegaard is in form of his life",
-    "[ARS] Odegaard strike earns Arsenal narrow victory at Napoli",
-    "[NEW] Newcastle still open to Hall sale - Thursday's gossip",
-    "[MCI] Haaland strikes twice as Manchester City secure win at Porto"
-   ],
-   "player_changes": [
-    "Cash (AVL, 7% owned): Muscular injury - 75% chance of playing",
-    "Gakpo (LIV, 14% owned): Thigh injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-10",
    "ts": "2026-09-10 08:00:03",
@@ -104,6 +88,17 @@
     "Mendy (HUL, 8% owned): Concussion - 50% chance of playing",
     "Gakpo (LIV, 12% owned): now available"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-13",
+   "ts": "2026-09-13 08:00:05",
+   "new_headlines": 7,
+   "key": [
+    "[ARS] 'Today the game was unprotected' - Arteta fumes but Arsenal survive",
+    "[CHE] Chelsea's defence looks 'weak & disjointed' - analysis"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
