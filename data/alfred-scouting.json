@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13 09:05:20",
+ "generated": "2026-09-13 12:05:22",
  "tz": "America/Chicago",
  "gw": 5,
  "fixtures": [
@@ -157,6 +157,14 @@
      "yours": false
     },
     {
+     "name": "Gro\u00df",
+     "club": "BHA",
+     "pos": "MID",
+     "score": 15.8,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
@@ -165,18 +173,10 @@
      "yours": false
     },
     {
-     "name": "Gro\u00df",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 11.1,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 10.8,
+     "score": 14.5,
      "side": "H",
      "yours": true
     }
@@ -348,18 +348,18 @@
      "yours": false
     },
     {
-     "name": "Thomas",
+     "name": "Rudoni",
      "club": "COV",
-     "pos": "DEF",
-     "score": 7.3,
+     "pos": "MID",
+     "score": 6.9,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Rudoni",
+     "name": "Thomas",
      "club": "COV",
-     "pos": "MID",
-     "score": 6.8,
+     "pos": "DEF",
+     "score": 6.7,
      "side": "A",
      "yours": false
     }
@@ -406,7 +406,7 @@
      "pos": "FWD",
      "score": 14.5,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Gakpo",
@@ -518,7 +518,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 17.4,
+     "score": 19.7,
      "side": "H",
      "yours": true
     },
@@ -526,7 +526,7 @@
      "name": "Cherki",
      "club": "MCI",
      "pos": "MID",
-     "score": 16.6,
+     "score": 15.8,
      "side": "H",
      "yours": true
     },
@@ -579,7 +579,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 18.0,
+     "score": 17.3,
      "side": "A",
      "yours": false
     },
@@ -587,7 +587,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 13.6,
+     "score": 13.3,
      "side": "A",
      "yours": false
     },
