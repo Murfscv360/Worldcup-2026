@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13 09:15:12",
+ "generated": "2026-09-13 09:35:11",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -9,7 +9,7 @@
  "source": "API /entry/5933243/event/3/picks (unauthenticated, synced 2026-09-08 16:50)",
  "chips_active": [],
  "captain": "Jo\u00e3o Pedro",
- "vice": "Palmer",
+ "vice": "De Cuyper",
  "captain_current": "Haaland",
  "vice_current": "Palmer",
  "xi": [
@@ -19,6 +19,13 @@
    "club": "ARS",
    "score": 25.2,
    "ep": 7.2
+  },
+  {
+   "name": "De Cuyper",
+   "pos": "DEF",
+   "club": "BHA",
+   "score": 28.4,
+   "ep": 7.8
   },
   {
    "name": "Ajayi",
@@ -33,13 +40,6 @@
    "club": "HUL",
    "score": 21.72,
    "ep": 6.2
-  },
-  {
-   "name": "De Cuyper",
-   "pos": "DEF",
-   "club": "BHA",
-   "score": 20.45,
-   "ep": 5.5
   },
   {
    "name": "Castagne",
@@ -442,18 +442,10 @@
    ],
    "watch": [
     {
-     "name": "Bogle",
-     "club": "LEE",
-     "pos": "DEF",
-     "score": 11.3,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.0,
+     "score": 14.9,
      "side": "H",
      "yours": false
     },
@@ -461,9 +453,17 @@
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 10.7,
+     "score": 14.3,
      "side": "H",
      "yours": true
+    },
+    {
+     "name": "Bogle",
+     "club": "LEE",
+     "pos": "DEF",
+     "score": 11.3,
+     "side": "A",
+     "yours": false
     },
     {
      "name": "Stach",
@@ -583,7 +583,7 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 7.3,
+     "score": 7.1,
      "side": "A",
      "yours": false
     },
