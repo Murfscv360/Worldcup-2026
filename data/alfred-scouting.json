@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 21:05:10",
+ "generated": "2026-09-13 00:05:10",
  "tz": "America/Chicago",
  "gw": 5,
  "fixtures": [
@@ -152,7 +152,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 17.6,
+     "score": 17.4,
      "side": "A",
      "yours": false
     },
@@ -534,7 +534,7 @@
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
-     "score": 9.6,
+     "score": 9.1,
      "side": "A",
      "yours": false
     },
