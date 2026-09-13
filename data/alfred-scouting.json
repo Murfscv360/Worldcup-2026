@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13 12:05:22",
+ "generated": "2026-09-13 15:05:22",
  "tz": "America/Chicago",
  "gw": 5,
  "fixtures": [
@@ -359,7 +359,7 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 6.7,
+     "score": 6.6,
      "side": "A",
      "yours": false
     }
@@ -518,7 +518,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 19.7,
+     "score": 19.9,
      "side": "H",
      "yours": true
     },
@@ -579,7 +579,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 17.3,
+     "score": 17.1,
      "side": "A",
      "yours": false
     },
@@ -587,7 +587,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 13.3,
+     "score": 13.8,
      "side": "A",
      "yours": false
     },
