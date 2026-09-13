@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 18:05:12",
+ "generated": "2026-09-12 21:05:10",
  "tz": "America/Chicago",
  "gw": 5,
  "fixtures": [
@@ -91,7 +91,7 @@
      "name": "Van de Ven",
      "club": "TOT",
      "pos": "DEF",
-     "score": 7.8,
+     "score": 7.9,
      "side": "H",
      "yours": false
     },
