@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12 18:35:25",
+ "generated": "2026-09-12 21:15:32",
  "tz": "America/Chicago",
  "gw": 3,
  "gw_for": 4,
@@ -400,7 +400,7 @@
      "name": "Xhaka",
      "club": "SUN",
      "pos": "MID",
-     "score": 9.6,
+     "score": 9.1,
      "side": "A",
      "yours": false
     },
@@ -811,7 +811,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 17.6,
+     "score": 17.4,
      "side": "H",
      "yours": false
     },
