@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13 06:05:11",
+ "generated": "2026-09-13 09:05:20",
  "tz": "America/Chicago",
  "gw": 5,
  "fixtures": [
@@ -165,20 +165,20 @@
      "yours": false
     },
     {
-     "name": "De Cuyper",
-     "club": "BHA",
-     "pos": "DEF",
-     "score": 10.7,
-     "side": "H",
-     "yours": true
-    },
-    {
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 8.7,
+     "score": 11.1,
      "side": "H",
      "yours": false
+    },
+    {
+     "name": "De Cuyper",
+     "club": "BHA",
+     "pos": "DEF",
+     "score": 10.8,
+     "side": "H",
+     "yours": true
     }
    ],
    "kickoff_utc": "2026-09-19T14:00:00Z",
@@ -351,15 +351,15 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 7.0,
+     "score": 7.3,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Awoniyi",
+     "name": "Rudoni",
      "club": "COV",
-     "pos": "FWD",
-     "score": 5.3,
+     "pos": "MID",
+     "score": 6.8,
      "side": "A",
      "yours": false
     }
