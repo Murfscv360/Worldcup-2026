@@ -1,16 +1,8 @@
 {
- "generated": "2026-09-19 08:00:09",
+ "generated": "2026-09-19 18:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-16",
-   "ts": "2026-09-16 08:00:08",
-   "new_headlines": 17,
-   "key": [],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-16",
    "ts": "2026-09-16 18:00:08",
@@ -101,6 +93,29 @@
    "player_changes": [
     "Jo\u00e3o Pedro (CHE, 68% owned): Knee injury - 75% chance of playing",
     "Pedro Porro (TOT, 8% owned): Unspecified injury - 75% chance of playing"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-19",
+   "ts": "2026-09-19 18:00:04",
+   "new_headlines": 32,
+   "key": [
+    "[MCI] Gvardiol signals return to best at left-back for Man City",
+    "[ARS/BHA] Brighton cruise past Arsenal to end champions' perfect start",
+    "[NEW/HUL] Newcastle hold off Hull at St James' Park",
+    "[ARS/BHA] Brighton humbling 'a big lesson' for Arsenal - Arteta",
+    "[BHA] From near oblivion to Europe - Brighton celebrate 125th anniversary in style",
+    "[ARS] Arsenal may move for Endrick in January - Sunday's gossip",
+    "[ARS/MUN] Arsenal score last-minute equaliser to deny Man Utd first WSL win",
+    "[BHA] 'It's a big lesson to learn' - Arteta on 'painful' Brighton defeat",
+    "[CHE] Malard scores on debut as Chelsea beat Birmingham",
+    "[ARS/BHA] 'Stay humble' - Hurzeler's plea to Brighton after huge Arsenal win"
+   ],
+   "player_changes": [
+    "van Ewijk (COV, 9% owned): Hamstring injury - 75% chance of playing",
+    "Mendy (HUL, 6% owned): now available",
+    "Pedro Porro (TOT, 8% owned): Hamstring injury - 75% chance of playing"
    ],
    "unreachable": []
   }
