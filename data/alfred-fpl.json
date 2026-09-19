@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19 15:15:12",
+ "generated": "2026-09-19 17:58:52",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -9,9 +9,9 @@
  "source": "API /entry/5933243/event/4/picks \u2014 auto-advanced 2026-09-13 13:54",
  "chips_active": [],
  "captain": "Gro\u00df",
- "vice": "De Cuyper",
+ "vice": "Schade",
  "captain_current": "Haaland",
- "vice_current": "Jo\u00e3o Pedro",
+ "vice_current": "Gvardiol",
  "xi": [
   {
    "name": "Tzolakis",
@@ -35,6 +35,13 @@
    "ep": 7.4
   },
   {
+   "name": "Gvardiol",
+   "pos": "DEF",
+   "club": "MCI",
+   "score": 24.44,
+   "ep": 6.6
+  },
+  {
    "name": "Ajayi",
    "pos": "DEF",
    "club": "HUL",
@@ -42,18 +49,18 @@
    "ep": 5.4
   },
   {
-   "name": "Egan",
-   "pos": "DEF",
-   "club": "HUL",
-   "score": 19.09,
-   "ep": 5.2
-  },
-  {
    "name": "Gro\u00df",
    "pos": "MID",
    "club": "BHA",
    "score": 35.85,
    "ep": 9.4
+  },
+  {
+   "name": "Schade",
+   "pos": "MID",
+   "club": "BRE",
+   "score": 29.59,
+   "ep": 7.8
   },
   {
    "name": "Palmer",
@@ -68,13 +75,6 @@
    "club": "MCI",
    "score": 21.25,
    "ep": 5.2
-  },
-  {
-   "name": "Stach",
-   "pos": "MID",
-   "club": "LEE",
-   "score": 16.91,
-   "ep": 4.4
   },
   {
    "name": "Haaland",
@@ -99,15 +99,15 @@
    "order": 0
   },
   {
-   "name": "M.Sangar\u00e9",
-   "pos": "MID",
-   "club": "BRE",
+   "name": "Egan",
+   "pos": "DEF",
+   "club": "HUL",
    "order": 1
   },
   {
-   "name": "Castagne",
-   "pos": "DEF",
-   "club": "FUL",
+   "name": "M.Sangar\u00e9",
+   "pos": "MID",
+   "club": "BRE",
    "order": 2
   },
   {
@@ -123,8 +123,8 @@
    "out": "Raya"
   },
   {
-   "in": "Stach",
-   "out": "Jo\u00e3o Pedro"
+   "in": "Palmer",
+   "out": "Egan"
   }
  ],
  "transfers_recommended": [],
@@ -135,7 +135,12 @@
    "change": "transfer Wissa -> Isak",
    "source": "John confirmed in-app 2026-09-08 15:18; FPL public API cannot show pending GW4 picks"
   },
-  "2026-09-08 16:50 \u2014 squad reconciled from FPL history GW3"
+  "2026-09-08 16:50 \u2014 squad reconciled from FPL history GW3",
+  {
+   "ts": "2026-09-19 17:58",
+   "change": "GW6 squad from screenshots: OUT Stach, Castagne; IN Schade, Gvardiol; C Haaland V Gvardiol",
+   "source": "screenshot"
+  }
  ],
  "availability": [
   {
@@ -169,8 +174,14 @@
    "available": true
   },
   {
-   "name": "Palmer",
-   "club": "CHE",
+   "name": "Gvardiol",
+   "club": "MCI",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Schade",
+   "club": "BRE",
    "status": "a",
    "available": true
   },
@@ -193,12 +204,6 @@
    "available": true
   },
   {
-   "name": "Jo\u00e3o Pedro",
-   "club": "CHE",
-   "status": "d",
-   "available": false
-  },
-  {
    "name": "Isak",
    "club": "LIV",
    "status": "a",
@@ -211,14 +216,14 @@
    "available": true
   },
   {
-   "name": "Castagne",
-   "club": "FUL",
-   "status": "a",
-   "available": true
+   "name": "Jo\u00e3o Pedro",
+   "club": "CHE",
+   "status": "d",
+   "available": false
   },
   {
-   "name": "Stach",
-   "club": "LEE",
+   "name": "Palmer",
+   "club": "CHE",
    "status": "a",
    "available": true
   },
@@ -268,7 +273,7 @@
      "pos": "MID",
      "score": 11.3,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Rogers",
@@ -571,7 +576,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.4,
+     "score": 7.5,
      "side": "H",
      "yours": false
     },
@@ -579,7 +584,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 7.4,
+     "score": 7.5,
      "side": "A",
      "yours": false
     },
