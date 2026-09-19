@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19 12:05:13",
+ "generated": "2026-09-19 15:05:12",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -30,7 +30,7 @@
      "name": "Hall",
      "club": "NEW",
      "pos": "DEF",
-     "score": 8.0,
+     "score": 8.2,
      "side": "A",
      "yours": false
     },
@@ -46,7 +46,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 7.1,
+     "score": 7.4,
      "side": "H",
      "yours": false
     },
@@ -54,7 +54,7 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.5,
+     "score": 6.2,
      "side": "H",
      "yours": false
     }
@@ -91,7 +91,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 14.3,
+     "score": 14.7,
      "side": "H",
      "yours": false
     },
@@ -107,7 +107,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 11.0,
+     "score": 11.1,
      "side": "H",
      "yours": false
     },
@@ -343,7 +343,7 @@
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 10.4,
+     "score": 10.7,
      "side": "A",
      "yours": true
     },
@@ -412,7 +412,7 @@
      "name": "Van Hecke",
      "club": "TOT",
      "pos": "DEF",
-     "score": 6.3,
+     "score": 6.4,
      "side": "A",
      "yours": false
     },
@@ -457,7 +457,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 10.6,
+     "score": 10.7,
      "side": "A",
      "yours": false
     },
@@ -473,7 +473,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.7,
+     "score": 7.4,
      "side": "A",
      "yours": false
     },
@@ -515,14 +515,6 @@
    ],
    "watch": [
     {
-     "name": "Maitland-Niles",
-     "club": "EVE",
-     "pos": "DEF",
-     "score": 10.2,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
@@ -531,10 +523,18 @@
      "yours": false
     },
     {
+     "name": "Maitland-Niles",
+     "club": "EVE",
+     "pos": "DEF",
+     "score": 10.1,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 8.5,
+     "score": 8.8,
      "side": "H",
      "yours": false
     },
