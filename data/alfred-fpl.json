@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19 12:15:13",
+ "generated": "2026-09-19 15:15:12",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -24,8 +24,8 @@
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 28.36,
-   "ep": 7.4
+   "score": 29.12,
+   "ep": 7.6
   },
   {
    "name": "Bogle",
@@ -324,19 +324,19 @@
      "yours": false
     },
     {
+     "name": "Van Hecke",
+     "club": "TOT",
+     "pos": "DEF",
+     "score": 6.4,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Buend\u00eda",
      "club": "AVL",
      "pos": "MID",
      "score": 6.4,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Van Hecke",
-     "club": "TOT",
-     "pos": "DEF",
-     "score": 6.3,
-     "side": "H",
      "yours": false
     },
     {
@@ -380,7 +380,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 14.3,
+     "score": 14.7,
      "side": "A",
      "yours": false
     },
@@ -396,7 +396,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 11.0,
+     "score": 11.1,
      "side": "A",
      "yours": false
     },
@@ -404,7 +404,7 @@
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
-     "score": 10.4,
+     "score": 10.7,
      "side": "H",
      "yours": true
     }
@@ -438,7 +438,7 @@
    ],
    "watch": [
     {
-     "name": "Maitland-Niles",
+     "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
      "score": 10.2,
@@ -446,10 +446,10 @@
      "yours": false
     },
     {
-     "name": "Tarkowski",
+     "name": "Maitland-Niles",
      "club": "EVE",
      "pos": "DEF",
-     "score": 10.2,
+     "score": 10.1,
      "side": "H",
      "yours": false
     },
@@ -502,7 +502,7 @@
      "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 8.5,
+     "score": 8.8,
      "side": "A",
      "yours": false
     },
@@ -510,7 +510,7 @@
      "name": "Hall",
      "club": "NEW",
      "pos": "DEF",
-     "score": 8.0,
+     "score": 8.2,
      "side": "H",
      "yours": false
     },
@@ -563,7 +563,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 11.2,
+     "score": 10.7,
      "side": "H",
      "yours": false
     },
@@ -571,7 +571,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.6,
+     "score": 7.4,
      "side": "H",
      "yours": false
     },
@@ -579,7 +579,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 6.9,
+     "score": 7.4,
      "side": "A",
      "yours": false
     },
@@ -587,7 +587,7 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.5,
+     "score": 6.2,
      "side": "A",
      "yours": false
     }
