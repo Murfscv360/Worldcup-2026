@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19 15:05:12",
+ "generated": "2026-09-19 18:05:14",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -46,7 +46,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 7.4,
+     "score": 7.5,
      "side": "H",
      "yours": false
     },
@@ -162,7 +162,7 @@
      "pos": "MID",
      "score": 11.3,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Manzambi",
@@ -473,7 +473,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.4,
+     "score": 7.5,
      "side": "A",
      "yours": false
     },
