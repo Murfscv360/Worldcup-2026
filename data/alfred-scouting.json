@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19 06:05:15",
+ "generated": "2026-09-19 09:05:12",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -165,18 +165,18 @@
      "yours": false
     },
     {
-     "name": "McGinn",
+     "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 4.2,
+     "score": 7.7,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Suzuki",
+     "name": "Buend\u00eda",
      "club": "AVL",
-     "pos": "GKP",
-     "score": 4.0,
+     "pos": "MID",
+     "score": 6.4,
      "side": "H",
      "yours": false
     }
@@ -409,18 +409,18 @@
      "yours": false
     },
     {
-     "name": "Van de Ven",
+     "name": "Van Hecke",
      "club": "TOT",
      "pos": "DEF",
-     "score": 5.8,
+     "score": 6.3,
      "side": "A",
      "yours": false
     },
     {
-     "name": "S\u00e1vio",
+     "name": "Van de Ven",
      "club": "TOT",
-     "pos": "MID",
-     "score": 5.0,
+     "pos": "DEF",
+     "score": 5.6,
      "side": "A",
      "yours": false
     }
