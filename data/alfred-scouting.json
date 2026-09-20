@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-20 06:05:15",
+ "generated": "2026-09-20 09:05:13",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -99,7 +99,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 11.9,
+     "score": 11.7,
      "side": "A",
      "yours": true
     },
@@ -115,7 +115,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 9.1,
+     "score": 8.8,
      "side": "A",
      "yours": false
     }
@@ -213,7 +213,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 11.6,
+     "score": 11.3,
      "side": "A",
      "yours": false
     },
@@ -237,7 +237,7 @@
      "name": "Scott",
      "club": "BOU",
      "pos": "MID",
-     "score": 8.2,
+     "score": 8.4,
      "side": "A",
      "yours": false
     }
@@ -351,15 +351,15 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 8.0,
+     "score": 8.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Isidor",
+     "name": "Brobbey",
      "club": "SUN",
      "pos": "FWD",
-     "score": 7.5,
+     "score": 8.3,
      "side": "H",
      "yours": false
     }
@@ -579,7 +579,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 17.4,
+     "score": 16.7,
      "side": "A",
      "yours": true
     },
@@ -587,7 +587,7 @@
      "name": "Cherki",
      "club": "MCI",
      "pos": "MID",
-     "score": 13.2,
+     "score": 14.0,
      "side": "A",
      "yours": true
     },
@@ -595,7 +595,7 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 12.0,
+     "score": 11.5,
      "side": "H",
      "yours": true
     },
@@ -603,7 +603,7 @@
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
-     "score": 10.7,
+     "score": 10.8,
      "side": "H",
      "yours": false
     }
