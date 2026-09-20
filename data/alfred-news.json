@@ -1,19 +1,8 @@
 {
- "generated": "2026-09-20 08:00:10",
+ "generated": "2026-09-20 18:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-17",
-   "ts": "2026-09-17 08:00:16",
-   "new_headlines": 18,
-   "key": [
-    "[CHE] Chelsea's Lavia out to 'change narrative' after injuries",
-    "[CHE] Boehly and Walter sell Chelsea stakes to Clearlake"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-17",
    "ts": "2026-09-17 18:00:10",
@@ -112,6 +101,29 @@
     "[NEW/HUL] How Newcastle unpicked Hull's back three - Shearer"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-20",
+   "ts": "2026-09-20 18:00:03",
+   "new_headlines": 24,
+   "key": [
+    "[BOU/LIV] Liverpool boss Iraola makes winning return to Bournemouth",
+    "[MCI/SUN] Man City beat Sunderland in eight-goal thriller to go three points clear",
+    "[FUL] Cunha's late strike denies Fulham first league win of season",
+    "[CRY/LEE] Leeds continue unbeaten start in league with draw against Palace",
+    "[ARS/MCI] Perfect 24 hours for Maresca as Man City put pressure on Arsenal",
+    "[FUL/MUN] Who rated highest in Fulham v Man Utd?",
+    "[LIV] Impressive defence seals solid start at Liverpool for Iraola",
+    "[BOU/LIV] Jacquet and Alisson impress - Bournemouth v Liverpool ratings",
+    "[MCI/SUN] Brobbey hits hat-trick on losing side - player ratings for Man City v Sunderland",
+    "[FUL/MUN] Carrick impressed Man Utd 'kept belief' to earn draw at Fulham",
+    "[AVL/BHA] Late Wilms goal helps Villa snatch point against wasteful Brighton"
+   ],
+   "player_changes": [
+    "White (ARS, 5% owned): Groin injury - 75% chance of playing",
+    "Shaw (MUN, 8% owned): now available"
+   ],
    "unreachable": []
   }
  ],
