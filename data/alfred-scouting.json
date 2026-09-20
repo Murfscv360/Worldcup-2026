@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19 18:05:14",
+ "generated": "2026-09-19 21:05:15",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -162,7 +162,7 @@
      "pos": "MID",
      "score": 11.3,
      "side": "A",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Manzambi",
