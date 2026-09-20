@@ -1,24 +1,8 @@
 {
- "generated": "2026-09-19 18:00:10",
+ "generated": "2026-09-20 08:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-16",
-   "ts": "2026-09-16 18:00:08",
-   "new_headlines": 14,
-   "key": [
-    "[ARS] League Two Fleetwood host Arsenal in EFL Cup",
-    "[CHE] What's gone wrong for Chelsea talent Kendry Paez?",
-    "[ARS] Arsenal rejected Dowman loan offers - Thursday's gossip",
-    "[CHE/EVE] 'Mini Valverde' wanted by Chelsea - Garner is now Everton's main man"
-   ],
-   "player_changes": [
-    "Cash (AVL, 5% owned): now available",
-    "Jo\u00e3o Pedro (CHE, 75% owned): Unspecified injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-17",
    "ts": "2026-09-17 08:00:16",
@@ -117,6 +101,17 @@
     "Mendy (HUL, 6% owned): now available",
     "Pedro Porro (TOT, 8% owned): Hamstring injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-20",
+   "ts": "2026-09-20 08:00:04",
+   "new_headlines": 9,
+   "key": [
+    "[ARS/BHA] 'Brave' Brighton put in 'complete' performance to beat Arsenal - Murphy",
+    "[NEW/HUL] How Newcastle unpicked Hull's back three - Shearer"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
