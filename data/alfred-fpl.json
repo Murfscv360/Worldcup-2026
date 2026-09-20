@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-20 12:15:15",
+ "generated": "2026-09-20 15:15:06",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -59,7 +59,7 @@
    "name": "Cherki",
    "pos": "MID",
    "club": "MCI",
-   "score": 26.75,
+   "score": 26.72,
    "ep": 6.8
   },
   {
@@ -73,8 +73,8 @@
    "name": "Stach",
    "pos": "MID",
    "club": "LEE",
-   "score": 19.0,
-   "ep": 5.0
+   "score": 20.49,
+   "ep": 5.4
   },
   {
    "name": "Haaland",
@@ -99,15 +99,15 @@
    "order": 0
   },
   {
-   "name": "Castagne",
-   "pos": "DEF",
-   "club": "FUL",
-   "order": 1
-  },
-  {
    "name": "M.Sangar\u00e9",
    "pos": "MID",
    "club": "BRE",
+   "order": 1
+  },
+  {
+   "name": "Castagne",
+   "pos": "DEF",
+   "club": "FUL",
    "order": 2
   },
   {
@@ -386,7 +386,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 14.7,
+     "score": 14.1,
      "side": "A",
      "yours": false
     },
@@ -399,20 +399,20 @@
      "yours": true
     },
     {
-     "name": "\u00d8degaard",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 11.1,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "De Cuyper",
      "club": "BHA",
      "pos": "DEF",
      "score": 10.7,
      "side": "H",
      "yours": true
+    },
+    {
+     "name": "\u00d8degaard",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 9.8,
+     "side": "A",
+     "yours": false
     }
    ],
    "kickoff_utc": "2026-09-19T14:00:00Z",
@@ -574,6 +574,14 @@
      "yours": false
     },
     {
+     "name": "Rudoni",
+     "club": "COV",
+     "pos": "MID",
+     "score": 7.9,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
@@ -582,18 +590,10 @@
      "yours": false
     },
     {
-     "name": "Rudoni",
-     "club": "COV",
-     "pos": "MID",
-     "score": 7.5,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 6.2,
+     "score": 6.6,
      "side": "A",
      "yours": false
     }
@@ -691,7 +691,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 12.6,
+     "score": 12.5,
      "side": "H",
      "yours": true
     },
@@ -715,7 +715,7 @@
      "name": "Mitchell",
      "club": "CRY",
      "pos": "DEF",
-     "score": 6.6,
+     "score": 6.4,
      "side": "A",
      "yours": false
     }
@@ -760,7 +760,7 @@
      "name": "Cherki",
      "club": "MCI",
      "pos": "MID",
-     "score": 13.5,
+     "score": 13.4,
      "side": "H",
      "yours": true
     },
@@ -768,7 +768,7 @@
      "name": "Brobbey",
      "club": "SUN",
      "pos": "FWD",
-     "score": 10.7,
+     "score": 10.1,
      "side": "A",
      "yours": false
     },
@@ -813,7 +813,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 14.1,
+     "score": 14.0,
      "side": "A",
      "yours": false
     },
