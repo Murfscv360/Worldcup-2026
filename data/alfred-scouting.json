@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21 10:25:48",
+ "generated": "2026-09-21 12:05:15",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -152,7 +152,15 @@
      "name": "Carvalho",
      "club": "BRE",
      "pos": "MID",
-     "score": 46.7,
+     "score": 46.9,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Schade",
+     "club": "BRE",
+     "pos": "MID",
+     "score": 9.0,
      "side": "A",
      "yours": false
     },
@@ -162,14 +170,6 @@
      "pos": "MID",
      "score": 8.6,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Schade",
-     "club": "BRE",
-     "pos": "MID",
-     "score": 8.4,
-     "side": "A",
      "yours": false
     },
     {
@@ -420,7 +420,7 @@
      "name": "Gallagher",
      "club": "TOT",
      "pos": "MID",
-     "score": 5.1,
+     "score": 5.3,
      "side": "A",
      "yours": false
     }
