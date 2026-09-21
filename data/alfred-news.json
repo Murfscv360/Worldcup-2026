@@ -1,21 +1,8 @@
 {
- "generated": "2026-09-20 18:00:10",
+ "generated": "2026-09-21 08:00:09",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-17",
-   "ts": "2026-09-17 18:00:10",
-   "new_headlines": 15,
-   "key": [
-    "[MCI] 'Just the beginning' - Samba, 17, steals Man City show",
-    "[ARS] Junior Kroupi on Arsenal radar - Friday's gossip"
-   ],
-   "player_changes": [
-    "Mendy (HUL, 7% owned): Concussion - Expected back 11 Oct"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-18",
    "ts": "2026-09-18 08:00:02",
@@ -124,6 +111,19 @@
     "White (ARS, 5% owned): Groin injury - 75% chance of playing",
     "Shaw (MUN, 8% owned): now available"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-21",
+   "ts": "2026-09-21 08:00:03",
+   "new_headlines": 27,
+   "key": [
+    "[LIV] Ex-Liverpool forward Salah gets six-month driving ban",
+    "[squad] Gibbs-White set to replace Palmer in England squad",
+    "[squad] 'I think he's a genius' - Hart hails Cherki strike",
+    "[LIV] How Liverpool are getting more from Isak - Edwards"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
