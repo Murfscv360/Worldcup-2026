@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-21 09:15:13",
+ "generated": "2026-09-21 10:25:16",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
  "squad_as_of": 5,
  "deadline": "2026-10-10T10:00:00Z",
- "formation": "3-4-3",
+ "formation": "4-3-3",
  "source": "API /entry/5933243/event/5/picks (unauthenticated, synced 2026-09-19 20:50)",
  "chips_active": [],
  "captain": "Gro\u00df",
@@ -24,8 +24,8 @@
    "name": "Bogle",
    "pos": "DEF",
    "club": "LEE",
-   "score": 33.4,
-   "ep": 8.4
+   "score": 35.7,
+   "ep": 9.0
   },
   {
    "name": "De Cuyper",
@@ -42,6 +42,13 @@
    "ep": 4.5
   },
   {
+   "name": "Castagne",
+   "pos": "DEF",
+   "club": "FUL",
+   "score": 16.13,
+   "ep": 4.0
+  },
+  {
    "name": "Gro\u00df",
    "pos": "MID",
    "club": "BHA",
@@ -54,13 +61,6 @@
    "club": "MCI",
    "score": 28.3,
    "ep": 6.8
-  },
-  {
-   "name": "Stach",
-   "pos": "MID",
-   "club": "LEE",
-   "score": 21.57,
-   "ep": 5.4
   },
   {
    "name": "M.Sangar\u00e9",
@@ -99,9 +99,9 @@
    "order": 0
   },
   {
-   "name": "Castagne",
-   "pos": "DEF",
-   "club": "FUL",
+   "name": "Stach",
+   "pos": "MID",
+   "club": "LEE",
    "order": 1
   },
   {
@@ -119,11 +119,11 @@
  ],
  "changes": [
   {
-   "in": "Stach",
+   "in": "M.Sangar\u00e9",
    "out": "Ajayi"
   },
   {
-   "in": "M.Sangar\u00e9",
+   "in": "Castagne",
    "out": "Palmer"
   }
  ],
