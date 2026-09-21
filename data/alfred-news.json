@@ -1,27 +1,8 @@
 {
- "generated": "2026-09-21 08:00:09",
+ "generated": "2026-09-21 18:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-18",
-   "ts": "2026-09-18 08:00:02",
-   "new_headlines": 22,
-   "key": [
-    "[CHE] From depression after Chelsea injury to playing non-league at 37",
-    "[squad] Tuchel recalls Alexander-Arnold and Palmer with warning",
-    "[LIV/NEW] Moving from Newcastle to Liverpool easy decision - Isak",
-    "[squad] Keep or sell Cherki? FPL gameweek five dilemmas",
-    "[squad] Tuchel recalls Palmer and Alexander-Arnold for England",
-    "[squad] I feel like I'm in a good place  - Isak"
-   ],
-   "player_changes": [
-    "White (ARS, 6% owned): now available",
-    "James (CHE, 7% owned): Unspecified injury - 75% chance of playing",
-    "Pedro Porro (TOT, 8% owned): now available"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-18",
    "ts": "2026-09-18 18:00:04",
@@ -124,6 +105,20 @@
     "[LIV] How Liverpool are getting more from Isak - Edwards"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-21",
+   "ts": "2026-09-21 18:00:04",
+   "new_headlines": 16,
+   "key": [
+    "[squad] Palmer & Rice among five withdrawals from England squad",
+    "[LIV] Liverpool eye in-demand right-back Read - Tuesday's gossip"
+   ],
+   "player_changes": [
+    "Rice (ARS, 12% owned): Unspecified injury - 75% chance of playing",
+    "Palmer (CHE, YOUR PLAYER): Muscular injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
