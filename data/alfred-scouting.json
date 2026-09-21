@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21 09:05:16",
+ "generated": "2026-09-21 10:25:48",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -99,7 +99,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 9.4,
+     "score": 9.7,
      "side": "A",
      "yours": true
     },
@@ -115,7 +115,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 8.2,
+     "score": 8.6,
      "side": "A",
      "yours": false
     }
@@ -274,7 +274,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 8.1,
+     "score": 7.6,
      "side": "H",
      "yours": false
     },
@@ -295,10 +295,10 @@
      "yours": false
     },
     {
-     "name": "Enciso",
+     "name": "Akpom",
      "club": "IPS",
-     "pos": "MID",
-     "score": 6.1,
+     "pos": "FWD",
+     "score": 6.2,
      "side": "H",
      "yours": false
     }
@@ -351,7 +351,7 @@
      "name": "Brobbey",
      "club": "SUN",
      "pos": "FWD",
-     "score": 9.3,
+     "score": 9.7,
      "side": "H",
      "yours": false
     },
@@ -359,7 +359,7 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 8.5,
+     "score": 8.7,
      "side": "H",
      "yours": false
     }
@@ -457,7 +457,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 9.4,
+     "score": 9.8,
      "side": "A",
      "yours": false
     },
@@ -465,7 +465,7 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 8.9,
+     "score": 9.0,
      "side": "H",
      "yours": false
     },
@@ -481,7 +481,7 @@
      "name": "Yeremy",
      "club": "CRY",
      "pos": "MID",
-     "score": 5.1,
+     "score": 5.3,
      "side": "H",
      "yours": false
     }
@@ -518,7 +518,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 9.4,
+     "score": 8.9,
      "side": "A",
      "yours": false
     },
