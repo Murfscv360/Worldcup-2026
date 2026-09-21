@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21 10:25:16",
+ "generated": "2026-09-21 12:15:13",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -63,11 +63,11 @@
    "ep": 6.8
   },
   {
-   "name": "M.Sangar\u00e9",
+   "name": "Stach",
    "pos": "MID",
-   "club": "BRE",
-   "score": 17.83,
-   "ep": 4.4
+   "club": "LEE",
+   "score": 14.28,
+   "ep": 3.5
   },
   {
    "name": "Haaland",
@@ -99,31 +99,31 @@
    "order": 0
   },
   {
-   "name": "Stach",
-   "pos": "MID",
-   "club": "LEE",
-   "order": 1
-  },
-  {
    "name": "Ajayi",
    "pos": "DEF",
    "club": "HUL",
-   "order": 2
+   "order": 1
   },
   {
    "name": "Palmer",
    "pos": "MID",
    "club": "CHE",
+   "order": 2
+  },
+  {
+   "name": "M.Sangar\u00e9",
+   "pos": "MID",
+   "club": "BRE",
    "order": 3
   }
  ],
  "changes": [
   {
-   "in": "M.Sangar\u00e9",
+   "in": "Castagne",
    "out": "Ajayi"
   },
   {
-   "in": "Castagne",
+   "in": "Stach",
    "out": "Palmer"
   }
  ],
@@ -264,7 +264,7 @@
      "name": "Carvalho",
      "club": "BRE",
      "pos": "MID",
-     "score": 46.7,
+     "score": 46.9,
      "side": "H",
      "yours": false
     },
@@ -280,7 +280,7 @@
      "name": "Schade",
      "club": "BRE",
      "pos": "MID",
-     "score": 8.4,
+     "score": 9.0,
      "side": "H",
      "yours": false
     },
@@ -338,19 +338,19 @@
      "yours": false
     },
     {
+     "name": "Gallagher",
+     "club": "TOT",
+     "pos": "MID",
+     "score": 5.3,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "N.Jackson",
      "club": "AVL",
      "pos": "FWD",
      "score": 5.2,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Gallagher",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 5.1,
-     "side": "H",
      "yours": false
     }
    ],
