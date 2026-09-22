@@ -1,10 +1,32 @@
 {
- "generated": "2026-09-21 06:30:07",
+ "generated": "2026-09-22 06:30:07",
  "tz": "America/Chicago",
  "season_fixtures": 380,
  "next_gw": 6,
  "horizon_gws": 6,
- "changes": [],
+ "changes": [
+  "RESCHEDULED: EVE v COV Sat 07 Nov 10:00 -> Fri 06 Nov 15:00",
+  "RESCHEDULED: LEE v TOT Sat 07 Nov 10:00 -> Sat 07 Nov 07:30",
+  "RESCHEDULED: NFO v MCI Sat 07 Nov 10:00 -> Sat 07 Nov 12:30",
+  "RESCHEDULED: BHA v BRE Sat 07 Nov 10:00 -> Sun 08 Nov 09:00",
+  "RESCHEDULED: CRY v LIV Sat 07 Nov 10:00 -> Sun 08 Nov 09:00",
+  "RESCHEDULED: IPS v BOU Sat 07 Nov 10:00 -> Sun 08 Nov 09:00",
+  "RESCHEDULED: SUN v CHE Sat 07 Nov 10:00 -> Sun 08 Nov 09:00",
+  "RESCHEDULED: MUN v AVL Sat 07 Nov 10:00 -> Sun 08 Nov 11:30",
+  "RESCHEDULED: MCI v FUL Sat 21 Nov 10:00 -> Sat 21 Nov 07:30",
+  "RESCHEDULED: NEW v ARS Sat 21 Nov 10:00 -> Sat 21 Nov 12:30",
+  "RESCHEDULED: HUL v BHA Sat 21 Nov 10:00 -> Sun 22 Nov 09:00",
+  "RESCHEDULED: LIV v MUN Sat 21 Nov 10:00 -> Sun 22 Nov 11:30",
+  "RESCHEDULED: BRE v EVE Sat 21 Nov 10:00 -> Mon 23 Nov 15:00",
+  "RESCHEDULED: NFO v CHE Sat 28 Nov 10:00 -> Fri 27 Nov 15:00",
+  "RESCHEDULED: IPS v AVL Sat 28 Nov 10:00 -> Sat 28 Nov 12:30",
+  "RESCHEDULED: EVE v LIV Sat 28 Nov 10:00 -> Sun 29 Nov 07:00",
+  "RESCHEDULED: BHA v NEW Sat 28 Nov 10:00 -> Sun 29 Nov 09:05",
+  "RESCHEDULED: CRY v HUL Sat 28 Nov 10:00 -> Sun 29 Nov 09:05",
+  "RESCHEDULED: FUL v BOU Sat 28 Nov 10:00 -> Sun 29 Nov 09:05",
+  "RESCHEDULED: SUN v TOT Sat 28 Nov 10:00 -> Sun 29 Nov 09:05",
+  "RESCHEDULED: ARS v MCI Sat 28 Nov 10:00 -> Sun 29 Nov 11:30"
+ ],
  "unscheduled": 0,
  "provisional": 0,
  "runs": {
@@ -50,7 +72,7 @@
      "opp": "NEW",
      "home": false,
      "fdr": 3,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sat 21 Nov 12:30"
     }
    ],
    "avg_fdr": 2.83,
@@ -91,7 +113,7 @@
      "opp": "MUN",
      "home": false,
      "fdr": 4,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 11:30"
     },
     {
      "gw": 11,
@@ -139,14 +161,14 @@
      "opp": "BRE",
      "home": true,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
      "opp": "HUL",
      "home": false,
      "fdr": 2,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sun 22 Nov 09:00"
     }
    ],
    "avg_fdr": 3.33,
@@ -187,7 +209,7 @@
      "opp": "IPS",
      "home": false,
      "fdr": 2,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
@@ -235,14 +257,14 @@
      "opp": "BHA",
      "home": false,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
      "opp": "EVE",
      "home": true,
      "fdr": 3,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Mon 23 Nov 15:00"
     }
    ],
    "avg_fdr": 3.17,
@@ -283,7 +305,7 @@
      "opp": "SUN",
      "home": false,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
@@ -331,7 +353,7 @@
      "opp": "EVE",
      "home": false,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Fri 06 Nov 15:00"
     },
     {
      "gw": 11,
@@ -379,7 +401,7 @@
      "opp": "LIV",
      "home": true,
      "fdr": 4,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
@@ -427,14 +449,14 @@
      "opp": "COV",
      "home": true,
      "fdr": 2,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Fri 06 Nov 15:00"
     },
     {
      "gw": 11,
      "opp": "BRE",
      "home": false,
      "fdr": 3,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Mon 23 Nov 15:00"
     }
    ],
    "avg_fdr": 3.17,
@@ -482,7 +504,7 @@
      "opp": "MCI",
      "home": false,
      "fdr": 5,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sat 21 Nov 07:30"
     }
    ],
    "avg_fdr": 2.83,
@@ -530,7 +552,7 @@
      "opp": "BHA",
      "home": true,
      "fdr": 2,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sun 22 Nov 09:00"
     }
    ],
    "avg_fdr": 3.0,
@@ -571,7 +593,7 @@
      "opp": "BOU",
      "home": true,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
@@ -619,7 +641,7 @@
      "opp": "TOT",
      "home": true,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sat 07 Nov 07:30"
     },
     {
      "gw": 11,
@@ -667,14 +689,14 @@
      "opp": "CRY",
      "home": false,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
      "opp": "MUN",
      "home": true,
      "fdr": 4,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sun 22 Nov 11:30"
     }
    ],
    "avg_fdr": 3.33,
@@ -715,14 +737,14 @@
      "opp": "NFO",
      "home": false,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sat 07 Nov 12:30"
     },
     {
      "gw": 11,
      "opp": "FUL",
      "home": true,
      "fdr": 2,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sat 21 Nov 07:30"
     }
    ],
    "avg_fdr": 2.83,
@@ -763,14 +785,14 @@
      "opp": "AVL",
      "home": true,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 11:30"
     },
     {
      "gw": 11,
      "opp": "LIV",
      "home": false,
      "fdr": 4,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sun 22 Nov 11:30"
     }
    ],
    "avg_fdr": 3.33,
@@ -818,7 +840,7 @@
      "opp": "ARS",
      "home": true,
      "fdr": 4,
-     "when": "Sat 21 Nov 10:00"
+     "when": "Sat 21 Nov 12:30"
     }
    ],
    "avg_fdr": 3.0,
@@ -859,7 +881,7 @@
      "opp": "MCI",
      "home": true,
      "fdr": 4,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sat 07 Nov 12:30"
     },
     {
      "gw": 11,
@@ -907,7 +929,7 @@
      "opp": "CHE",
      "home": true,
      "fdr": 4,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sun 08 Nov 09:00"
     },
     {
      "gw": 11,
@@ -955,7 +977,7 @@
      "opp": "LEE",
      "home": false,
      "fdr": 3,
-     "when": "Sat 07 Nov 10:00"
+     "when": "Sat 07 Nov 07:30"
     },
     {
      "gw": 11,
