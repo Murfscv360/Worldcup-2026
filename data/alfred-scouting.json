@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22 09:05:16",
+ "generated": "2026-09-22 12:05:22",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -35,17 +35,17 @@
      "yours": false
     },
     {
-     "name": "Willock",
+     "name": "Barnes",
      "club": "NEW",
      "pos": "MID",
-     "score": 6.4,
+     "score": 6.3,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Wissa",
+     "name": "Willock",
      "club": "NEW",
-     "pos": "FWD",
+     "pos": "MID",
      "score": 6.2,
      "side": "A",
      "yours": false
@@ -584,6 +584,14 @@
      "yours": true
     },
     {
+     "name": "Isak",
+     "club": "LIV",
+     "pos": "FWD",
+     "score": 12.9,
+     "side": "H",
+     "yours": true
+    },
+    {
      "name": "Doku",
      "club": "MCI",
      "pos": "MID",
@@ -592,18 +600,10 @@
      "yours": false
     },
     {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 12.3,
-     "side": "H",
-     "yours": true
-    },
-    {
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
-     "score": 9.5,
+     "score": 8.8,
      "side": "H",
      "yours": false
     }
