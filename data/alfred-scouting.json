@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22 06:05:13",
+ "generated": "2026-09-22 09:05:16",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -168,15 +168,15 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 8.6,
+     "score": 8.9,
      "side": "H",
      "yours": false
     },
     {
-     "name": "N.Jackson",
+     "name": "Buend\u00eda",
      "club": "AVL",
-     "pos": "FWD",
-     "score": 5.2,
+     "pos": "MID",
+     "score": 5.3,
      "side": "H",
      "yours": false
     }
@@ -221,7 +221,15 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 9.4,
+     "score": 8.9,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Scott",
+     "club": "BOU",
+     "pos": "MID",
+     "score": 6.6,
      "side": "A",
      "yours": false
     },
@@ -232,14 +240,6 @@
      "score": 6.3,
      "side": "H",
      "yours": true
-    },
-    {
-     "name": "Gannon-Doak",
-     "club": "BOU",
-     "pos": "MID",
-     "score": 6.3,
-     "side": "A",
-     "yours": false
     }
    ],
    "kickoff_utc": "2026-10-10T14:00:00Z",
@@ -335,15 +335,15 @@
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.6,
+     "score": 11.5,
      "side": "A",
      "yours": true
     },
     {
-     "name": "O'Riley",
+     "name": "Yalcouy\u00e9",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.1,
+     "score": 10.2,
      "side": "A",
      "yours": false
     },
@@ -412,7 +412,7 @@
      "name": "S\u00e1vio",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.0,
+     "score": 6.2,
      "side": "A",
      "yours": false
     },
@@ -579,7 +579,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 17.6,
+     "score": 18.3,
      "side": "A",
      "yours": true
     },
