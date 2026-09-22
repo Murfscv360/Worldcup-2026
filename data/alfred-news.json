@@ -1,28 +1,8 @@
 {
- "generated": "2026-09-21 18:00:10",
+ "generated": "2026-09-22 08:00:11",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-18",
-   "ts": "2026-09-18 18:00:04",
-   "new_headlines": 31,
-   "key": [
-    "[CHE] Chelsea miss Joao Pedro... and can't stop conceding goals",
-    "[BRE/CHE] A weight off Igor Thiago's shoulders - Brentford v Chelsea ratings",
-    "[BRE/CHE] Brentford stay unbeaten as they put three past Chelsea",
-    "[ARS] Arsenal open to Dowman loan in right circumstances",
-    "[LIV] Liverpool watch \u00a351.5m-rated Smit - Saturday's gossip",
-    "[LIV] How Iraola is moving Liverpool on from the Slot era",
-    "[BRE] 'We're unpredictable' - Andrews delighted with 'brilliant' Brentford",
-    "[BRE] 'Everything was disappointing' - Alonso on Brentford defeat"
-   ],
-   "player_changes": [
-    "James (CHE, 6% owned): Hamstring injury - 75% chance of playing",
-    "Shaw (MUN, 8% owned): Unspecified injury - 50% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-19",
    "ts": "2026-09-19 08:00:04",
@@ -119,6 +99,19 @@
     "Rice (ARS, 12% owned): Unspecified injury - 75% chance of playing",
     "Palmer (CHE, YOUR PLAYER): Muscular injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-22",
+   "ts": "2026-09-22 08:00:03",
+   "new_headlines": 14,
+   "key": [
+    "[MCI/MUN] Man City\u2019s perfect start, Man Utd show progress & the Champions League returns",
+    "[ARS] Arteta agrees new deal with champions Arsenal",
+    "[AVL/CHE] Chelsea struggles to Villa bench - Garnacho faces defining season",
+    "[squad] Egan's late career resurgence back to Premier League"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
