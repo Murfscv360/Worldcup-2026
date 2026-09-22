@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22 06:15:11",
+ "generated": "2026-09-22 09:15:13",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -9,7 +9,7 @@
  "source": "API /entry/5933243/event/5/picks (unauthenticated, synced 2026-09-19 20:50)",
  "chips_active": [],
  "captain": "Gro\u00df",
- "vice": "Bogle",
+ "vice": "Haaland",
  "captain_current": "Haaland",
  "vice_current": "Gvardiol",
  "xi": [
@@ -31,8 +31,8 @@
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 30.7,
-   "ep": 7.6
+   "score": 21.5,
+   "ep": 5.2
   },
   {
    "name": "Egan",
@@ -52,15 +52,15 @@
    "name": "Gro\u00df",
    "pos": "MID",
    "club": "BHA",
-   "score": 37.77,
-   "ep": 9.4
+   "score": 44.67,
+   "ep": 11.2
   },
   {
    "name": "Cherki",
    "pos": "MID",
    "club": "MCI",
-   "score": 28.3,
-   "ep": 6.8
+   "score": 27.15,
+   "ep": 6.5
   },
   {
    "name": "Stach",
@@ -73,8 +73,8 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 33.2,
-   "ep": 7.8
+   "score": 38.57,
+   "ep": 9.2
   },
   {
    "name": "Isak",
@@ -325,7 +325,7 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 8.6,
+     "score": 8.9,
      "side": "A",
      "yours": false
     },
@@ -333,7 +333,7 @@
      "name": "S\u00e1vio",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.0,
+     "score": 6.2,
      "side": "H",
      "yours": false
     },
@@ -346,10 +346,10 @@
      "yours": false
     },
     {
-     "name": "N.Jackson",
+     "name": "Buend\u00eda",
      "club": "AVL",
-     "pos": "FWD",
-     "score": 5.2,
+     "pos": "MID",
+     "score": 5.3,
      "side": "A",
      "yours": false
     }
@@ -394,15 +394,15 @@
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.6,
+     "score": 11.5,
      "side": "H",
      "yours": true
     },
     {
-     "name": "O'Riley",
+     "name": "Yalcouy\u00e9",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.1,
+     "score": 10.2,
      "side": "H",
      "yours": false
     },
@@ -646,15 +646,15 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 9.4,
+     "score": 8.9,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Gannon-Doak",
+     "name": "Scott",
      "club": "BOU",
      "pos": "MID",
-     "score": 6.3,
+     "score": 6.6,
      "side": "H",
      "yours": false
     }
@@ -752,7 +752,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 17.6,
+     "score": 18.3,
      "side": "H",
      "yours": true
     },
