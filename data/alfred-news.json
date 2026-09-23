@@ -1,31 +1,8 @@
 {
- "generated": "2026-09-22 18:00:11",
+ "generated": "2026-09-23 08:00:12",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-19",
-   "ts": "2026-09-19 18:00:04",
-   "new_headlines": 32,
-   "key": [
-    "[MCI] Gvardiol signals return to best at left-back for Man City",
-    "[ARS/BHA] Brighton cruise past Arsenal to end champions' perfect start",
-    "[NEW/HUL] Newcastle hold off Hull at St James' Park",
-    "[ARS/BHA] Brighton humbling 'a big lesson' for Arsenal - Arteta",
-    "[BHA] From near oblivion to Europe - Brighton celebrate 125th anniversary in style",
-    "[ARS] Arsenal may move for Endrick in January - Sunday's gossip",
-    "[ARS/MUN] Arsenal score last-minute equaliser to deny Man Utd first WSL win",
-    "[BHA] 'It's a big lesson to learn' - Arteta on 'painful' Brighton defeat",
-    "[CHE] Malard scores on debut as Chelsea beat Birmingham",
-    "[ARS/BHA] 'Stay humble' - Hurzeler's plea to Brighton after huge Arsenal win"
-   ],
-   "player_changes": [
-    "van Ewijk (COV, 9% owned): Hamstring injury - 75% chance of playing",
-    "Mendy (HUL, 6% owned): now available",
-    "Pedro Porro (TOT, 8% owned): Hamstring injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-20",
    "ts": "2026-09-20 08:00:04",
@@ -108,6 +85,14 @@
     "[LIV] I was close to joining Liverpool in 2016 - Mbappe",
     "[LIV/MUN] Man Utd & Liverpool eye Mitchell - Wednesday's gossip"
    ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-23",
+   "ts": "2026-09-23 08:00:05",
+   "new_headlines": 19,
+   "key": [],
    "player_changes": [],
    "unreachable": []
   }
