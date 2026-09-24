@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-24 15:15:32",
+ "generated": "2026-09-24 18:15:14",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -765,18 +765,18 @@
      "yours": false
     },
     {
-     "name": "Brobbey",
-     "club": "SUN",
-     "pos": "FWD",
-     "score": 9.7,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
      "score": 8.7,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Isidor",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 6.7,
      "side": "A",
      "yours": false
     }
