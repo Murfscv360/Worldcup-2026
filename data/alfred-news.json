@@ -1,31 +1,8 @@
 {
- "generated": "2026-09-23 18:00:14",
+ "generated": "2026-09-24 08:00:12",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-20",
-   "ts": "2026-09-20 18:00:03",
-   "new_headlines": 24,
-   "key": [
-    "[BOU/LIV] Liverpool boss Iraola makes winning return to Bournemouth",
-    "[MCI/SUN] Man City beat Sunderland in eight-goal thriller to go three points clear",
-    "[FUL] Cunha's late strike denies Fulham first league win of season",
-    "[CRY/LEE] Leeds continue unbeaten start in league with draw against Palace",
-    "[ARS/MCI] Perfect 24 hours for Maresca as Man City put pressure on Arsenal",
-    "[FUL/MUN] Who rated highest in Fulham v Man Utd?",
-    "[LIV] Impressive defence seals solid start at Liverpool for Iraola",
-    "[BOU/LIV] Jacquet and Alisson impress - Bournemouth v Liverpool ratings",
-    "[MCI/SUN] Brobbey hits hat-trick on losing side - player ratings for Man City v Sunderland",
-    "[FUL/MUN] Carrick impressed Man Utd 'kept belief' to earn draw at Fulham",
-    "[AVL/BHA] Late Wilms goal helps Villa snatch point against wasteful Brighton"
-   ],
-   "player_changes": [
-    "White (ARS, 5% owned): Groin injury - 75% chance of playing",
-    "Shaw (MUN, 8% owned): now available"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-21",
    "ts": "2026-09-21 08:00:03",
@@ -91,6 +68,18 @@
    "new_headlines": 12,
    "key": [],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-24",
+   "ts": "2026-09-24 08:00:03",
+   "new_headlines": 12,
+   "key": [
+    "[MCI] How Man City overhauled their squad from a 650,000-strong database"
+   ],
+   "player_changes": [
+    "Semenyo (MCI, 16% owned): Ankle injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
