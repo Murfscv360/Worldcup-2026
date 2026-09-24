@@ -1,21 +1,8 @@
 {
- "generated": "2026-09-24 08:00:12",
+ "generated": "2026-09-24 18:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-21",
-   "ts": "2026-09-21 08:00:03",
-   "new_headlines": 27,
-   "key": [
-    "[LIV] Ex-Liverpool forward Salah gets six-month driving ban",
-    "[squad] Gibbs-White set to replace Palmer in England squad",
-    "[squad] 'I think he's a genius' - Hart hails Cherki strike",
-    "[LIV] How Liverpool are getting more from Isak - Edwards"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-21",
    "ts": "2026-09-21 18:00:04",
@@ -79,6 +66,21 @@
    ],
    "player_changes": [
     "Semenyo (MCI, 16% owned): Ankle injury - 75% chance of playing"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-24",
+   "ts": "2026-09-24 18:00:03",
+   "new_headlines": 18,
+   "key": [
+    "[CHE] Chelsea lead race for Scott - Friday's gossip",
+    "[CHE] Kaptein scores stunning long-range goal in Chelsea win",
+    "[ARS] Fox makes 'easy decision' to sign three-year Arsenal deal"
+   ],
+   "player_changes": [
+    "Havertz (ARS, 8% owned): Hamstring injury - 75% chance of playing",
+    "Brobbey (SUN, 7% owned): Hamstring injury - 75% chance of playing"
    ],
    "unreachable": []
   }
