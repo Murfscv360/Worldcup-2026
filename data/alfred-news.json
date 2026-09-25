@@ -1,22 +1,8 @@
 {
- "generated": "2026-09-24 18:00:10",
+ "generated": "2026-09-25 08:00:12",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-21",
-   "ts": "2026-09-21 18:00:04",
-   "new_headlines": 16,
-   "key": [
-    "[squad] Palmer & Rice among five withdrawals from England squad",
-    "[LIV] Liverpool eye in-demand right-back Read - Tuesday's gossip"
-   ],
-   "player_changes": [
-    "Rice (ARS, 12% owned): Unspecified injury - 75% chance of playing",
-    "Palmer (CHE, YOUR PLAYER): Muscular injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-22",
    "ts": "2026-09-22 08:00:03",
@@ -82,6 +68,16 @@
     "Havertz (ARS, 8% owned): Hamstring injury - 75% chance of playing",
     "Brobbey (SUN, 7% owned): Hamstring injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-25",
+   "ts": "2026-09-25 08:00:06",
+   "new_headlines": 16,
+   "key": [
+    "[CHE] Chelsea charged by FA over discriminatory chanting"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
