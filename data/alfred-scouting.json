@@ -1,28 +1,28 @@
 {
- "generated": "2026-09-25 03:05:14",
+ "generated": "2026-09-25 06:05:14",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
   {
    "home": "COV",
    "away": "NEW",
-   "xg_home": 1.36,
+   "xg_home": 1.03,
    "xg_away": 1.39,
-   "win": 37,
-   "draw": 26,
-   "loss": 38,
+   "win": 28,
+   "draw": 27,
+   "loss": 45,
    "scorelines": [
     {
      "score": "1-1",
-     "pct": 12.1
+     "pct": 12.7
     },
     {
      "score": "0-1",
-     "pct": 8.9
+     "pct": 12.4
     },
     {
      "score": "1-0",
-     "pct": 8.7
+     "pct": 9.2
     }
    ],
    "watch": [
@@ -54,7 +54,7 @@
      "name": "Thomas",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.4,
+     "score": 4.3,
      "side": "H",
      "yours": false
     }
@@ -67,23 +67,23 @@
   {
    "home": "ARS",
    "away": "LEE",
-   "xg_home": 2.72,
+   "xg_home": 2.06,
    "xg_away": 0.8,
-   "win": 77,
-   "draw": 14,
-   "loss": 9,
+   "win": 66,
+   "draw": 20,
+   "loss": 14,
    "scorelines": [
     {
      "score": "2-0",
-     "pct": 11.2
+     "pct": 12.2
     },
     {
-     "score": "3-0",
-     "pct": 10.1
+     "score": "1-0",
+     "pct": 11.8
     },
     {
      "score": "2-1",
-     "pct": 9.0
+     "pct": 9.8
     }
    ],
    "watch": [
@@ -91,7 +91,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 13.5,
+     "score": 13.4,
      "side": "H",
      "yours": false
     },
@@ -107,7 +107,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 8.9,
+     "score": 8.8,
      "side": "H",
      "yours": false
     },
@@ -128,23 +128,23 @@
   {
    "home": "AVL",
    "away": "BRE",
-   "xg_home": 1.6,
-   "xg_away": 0.92,
-   "win": 53,
+   "xg_home": 1.55,
+   "xg_away": 1.09,
+   "win": 48,
    "draw": 25,
-   "loss": 22,
+   "loss": 27,
    "scorelines": [
     {
-     "score": "1-0",
-     "pct": 12.9
-    },
-    {
      "score": "1-1",
-     "pct": 11.9
+     "pct": 12.1
     },
     {
-     "score": "2-0",
-     "pct": 10.3
+     "score": "1-0",
+     "pct": 11.1
+    },
+    {
+     "score": "2-1",
+     "pct": 9.3
     }
    ],
    "watch": [
@@ -189,23 +189,23 @@
   {
    "home": "CHE",
    "away": "BOU",
-   "xg_home": 2.13,
+   "xg_home": 2.06,
    "xg_away": 0.92,
-   "win": 65,
+   "win": 64,
    "draw": 20,
-   "loss": 15,
+   "loss": 16,
    "scorelines": [
     {
      "score": "2-0",
-     "pct": 10.8
+     "pct": 10.9
     },
     {
      "score": "1-0",
-     "pct": 10.2
+     "pct": 10.6
     },
     {
      "score": "2-1",
-     "pct": 9.9
+     "pct": 10.0
     }
    ],
    "watch": [
@@ -221,7 +221,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 8.9,
+     "score": 8.8,
      "side": "A",
      "yours": false
     },
@@ -229,7 +229,7 @@
      "name": "Scott",
      "club": "BOU",
      "pos": "MID",
-     "score": 6.6,
+     "score": 6.5,
      "side": "A",
      "yours": false
     },
@@ -237,7 +237,7 @@
      "name": "Jo\u00e3o Pedro",
      "club": "CHE",
      "pos": "FWD",
-     "score": 5.9,
+     "score": 6.0,
      "side": "H",
      "yours": true
     }
@@ -250,23 +250,23 @@
   {
    "home": "IPS",
    "away": "FUL",
-   "xg_home": 1.36,
+   "xg_home": 1.31,
    "xg_away": 1.39,
-   "win": 37,
+   "win": 35,
    "draw": 26,
-   "loss": 38,
+   "loss": 39,
    "scorelines": [
     {
      "score": "1-1",
-     "pct": 12.1
+     "pct": 12.2
     },
     {
      "score": "0-1",
-     "pct": 8.9
+     "pct": 9.3
     },
     {
      "score": "1-0",
-     "pct": 8.7
+     "pct": 8.8
     }
    ],
    "watch": [
@@ -311,23 +311,23 @@
   {
    "home": "SUN",
    "away": "BHA",
-   "xg_home": 1.36,
-   "xg_away": 1.09,
-   "win": 43,
-   "draw": 27,
-   "loss": 30,
+   "xg_home": 1.55,
+   "xg_away": 1.45,
+   "win": 40,
+   "draw": 24,
+   "loss": 36,
    "scorelines": [
     {
      "score": "1-1",
-     "pct": 12.8
+     "pct": 11.2
     },
     {
-     "score": "1-0",
-     "pct": 11.8
+     "score": "2-1",
+     "pct": 8.7
     },
     {
-     "score": "0-1",
-     "pct": 9.4
+     "score": "1-2",
+     "pct": 8.1
     }
    ],
    "watch": [
@@ -335,7 +335,7 @@
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.5,
+     "score": 11.6,
      "side": "A",
      "yours": true
     },
@@ -343,7 +343,7 @@
      "name": "Yalcouy\u00e9",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.2,
+     "score": 10.3,
      "side": "A",
      "yours": false
     },
@@ -351,7 +351,7 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 8.7,
+     "score": 8.6,
      "side": "H",
      "yours": false
     },
@@ -359,7 +359,7 @@
      "name": "Isidor",
      "club": "SUN",
      "pos": "FWD",
-     "score": 6.7,
+     "score": 6.6,
      "side": "H",
      "yours": false
     }
@@ -372,23 +372,23 @@
   {
    "home": "MUN",
    "away": "TOT",
-   "xg_home": 2.13,
+   "xg_home": 2.63,
    "xg_away": 0.92,
-   "win": 65,
-   "draw": 20,
-   "loss": 15,
+   "win": 73,
+   "draw": 16,
+   "loss": 11,
    "scorelines": [
     {
      "score": "2-0",
-     "pct": 10.8
-    },
-    {
-     "score": "1-0",
      "pct": 10.2
     },
     {
      "score": "2-1",
-     "pct": 9.9
+     "pct": 9.3
+    },
+    {
+     "score": "3-0",
+     "pct": 8.9
     }
    ],
    "watch": [
@@ -396,7 +396,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 13.5,
+     "score": 13.6,
      "side": "H",
      "yours": false
     },
@@ -404,7 +404,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 11.0,
+     "score": 11.1,
      "side": "H",
      "yours": false
     },
@@ -433,23 +433,23 @@
   {
    "home": "CRY",
    "away": "NFO",
-   "xg_home": 1.6,
+   "xg_home": 1.03,
    "xg_away": 1.09,
-   "win": 49,
-   "draw": 25,
-   "loss": 26,
+   "win": 34,
+   "draw": 30,
+   "loss": 37,
    "scorelines": [
     {
      "score": "1-1",
-     "pct": 11.9
+     "pct": 13.5
+    },
+    {
+     "score": "0-1",
+     "pct": 13.1
     },
     {
      "score": "1-0",
-     "pct": 10.9
-    },
-    {
-     "score": "2-1",
-     "pct": 9.5
+     "pct": 12.4
     }
    ],
    "watch": [
@@ -465,7 +465,7 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 9.0,
+     "score": 8.9,
      "side": "H",
      "yours": false
     },
@@ -481,7 +481,7 @@
      "name": "Yeremy",
      "club": "CRY",
      "pos": "MID",
-     "score": 5.3,
+     "score": 5.1,
      "side": "H",
      "yours": false
     }
@@ -494,11 +494,11 @@
   {
    "home": "HUL",
    "away": "EVE",
-   "xg_home": 1.07,
+   "xg_home": 1.03,
    "xg_away": 1.39,
-   "win": 29,
+   "win": 28,
    "draw": 27,
-   "loss": 44,
+   "loss": 45,
    "scorelines": [
     {
      "score": "1-1",
@@ -506,7 +506,7 @@
     },
     {
      "score": "0-1",
-     "pct": 11.9
+     "pct": 12.4
     },
     {
      "score": "1-0",
@@ -555,23 +555,23 @@
   {
    "home": "LIV",
    "away": "MCI",
-   "xg_home": 1.8,
+   "xg_home": 1.73,
    "xg_away": 1.53,
-   "win": 44,
+   "win": 43,
    "draw": 23,
-   "loss": 33,
+   "loss": 34,
    "scorelines": [
     {
      "score": "1-1",
-     "pct": 9.9
+     "pct": 10.2
     },
     {
      "score": "2-1",
-     "pct": 8.9
+     "pct": 8.8
     },
     {
      "score": "1-2",
-     "pct": 7.6
+     "pct": 7.8
     }
    ],
    "watch": [
@@ -579,16 +579,8 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 18.3,
+     "score": 18.4,
      "side": "A",
-     "yours": true
-    },
-    {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 12.9,
-     "side": "H",
      "yours": true
     },
     {
@@ -598,6 +590,14 @@
      "score": 12.9,
      "side": "A",
      "yours": false
+    },
+    {
+     "name": "Isak",
+     "club": "LIV",
+     "pos": "FWD",
+     "score": 12.8,
+     "side": "H",
+     "yours": true
     },
     {
      "name": "Gakpo",
