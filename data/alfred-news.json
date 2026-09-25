@@ -1,21 +1,8 @@
 {
- "generated": "2026-09-25 08:00:12",
+ "generated": "2026-09-25 18:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-22",
-   "ts": "2026-09-22 08:00:03",
-   "new_headlines": 14,
-   "key": [
-    "[MCI/MUN] Man City\u2019s perfect start, Man Utd show progress & the Champions League returns",
-    "[ARS] Arteta agrees new deal with champions Arsenal",
-    "[AVL/CHE] Chelsea struggles to Villa bench - Garnacho faces defining season",
-    "[squad] Egan's late career resurgence back to Premier League"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-22",
    "ts": "2026-09-22 18:00:03",
@@ -76,6 +63,24 @@
    "new_headlines": 16,
    "key": [
     "[CHE] Chelsea charged by FA over discriminatory chanting"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-25",
+   "ts": "2026-09-25 18:00:05",
+   "new_headlines": 18,
+   "key": [
+    "[squad] Palmer misses too many opportunities to play for England - Tuchel",
+    "[MCI] Clubs seek legal advice over Man City charges compensation",
+    "[MCI] Relegation? Titles stripped? Appeals? What next for Man City",
+    "[MCI] Rodri believes in Man City's 'innocence'",
+    "[MCI] Man City fans face up to reality of guilty verdict",
+    "[squad] No relegation clause in Haaland's City deal - Saturday's gossip",
+    "[MCI] Man City guilty of majority of 115 charges\u00a0- 5 Live reaction",
+    "[MCI] What could the potential sanctions for Man City be?",
+    "[MCI] Who is hacker whose revelations led to Man City charges?"
    ],
    "player_changes": [],
    "unreachable": []
