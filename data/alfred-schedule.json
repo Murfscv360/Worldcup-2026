@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-24 06:30:08",
+ "generated": "2026-09-25 06:30:10",
  "tz": "America/Chicago",
  "season_fixtures": 380,
  "next_gw": 6,
@@ -14,7 +14,7 @@
      "gw": 6,
      "opp": "LEE",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 10 Oct 06:30"
     },
     {
@@ -53,7 +53,7 @@
      "when": "Sat 21 Nov 12:30"
     }
    ],
-   "avg_fdr": 2.83,
+   "avg_fdr": 3.0,
    "count": 6
   },
   "AVL": {
@@ -97,11 +97,11 @@
      "gw": 11,
      "opp": "SUN",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "BHA": {
@@ -117,7 +117,7 @@
      "gw": 7,
      "opp": "CRY",
      "home": true,
-     "fdr": 3,
+     "fdr": 2,
      "when": "Sun 18 Oct 08:00"
     },
     {
@@ -149,7 +149,7 @@
      "when": "Sun 22 Nov 09:00"
     }
    ],
-   "avg_fdr": 3.33,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "BOU": {
@@ -165,7 +165,7 @@
      "gw": 7,
      "opp": "SUN",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sun 18 Oct 08:00"
     },
     {
@@ -179,7 +179,7 @@
      "gw": 9,
      "opp": "LEE",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 31 Oct 10:00"
     },
     {
@@ -197,7 +197,7 @@
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 2.83,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "BRE": {
@@ -206,7 +206,7 @@
      "gw": 6,
      "opp": "AVL",
      "home": false,
-     "fdr": 4,
+     "fdr": 3,
      "when": "Sat 10 Oct 09:00"
     },
     {
@@ -234,7 +234,7 @@
      "gw": 10,
      "opp": "BHA",
      "home": false,
-     "fdr": 3,
+     "fdr": 4,
      "when": "Sun 08 Nov 09:00"
     },
     {
@@ -268,7 +268,7 @@
      "gw": 8,
      "opp": "TOT",
      "home": true,
-     "fdr": 3,
+     "fdr": 2,
      "when": "Sat 24 Oct 11:30"
     },
     {
@@ -289,7 +289,7 @@
      "gw": 11,
      "opp": "LEE",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 21 Nov 10:00"
     }
    ],
@@ -302,7 +302,7 @@
      "gw": 6,
      "opp": "NEW",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Mon 12 Oct 14:00"
     },
     {
@@ -323,7 +323,7 @@
      "gw": 9,
      "opp": "SUN",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 31 Oct 10:00"
     },
     {
@@ -337,11 +337,11 @@
      "gw": 11,
      "opp": "CRY",
      "home": true,
-     "fdr": 3,
+     "fdr": 2,
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 2.5,
+   "avg_fdr": 2.67,
    "count": 6
   },
   "CRY": {
@@ -357,14 +357,14 @@
      "gw": 7,
      "opp": "BHA",
      "home": false,
-     "fdr": 3,
+     "fdr": 4,
      "when": "Sun 18 Oct 08:00"
     },
     {
      "gw": 8,
      "opp": "NEW",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sun 25 Oct 09:00"
     },
     {
@@ -389,7 +389,7 @@
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 2.83,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "EVE": {
@@ -467,14 +467,14 @@
      "gw": 9,
      "opp": "AVL",
      "home": false,
-     "fdr": 4,
+     "fdr": 3,
      "when": "Sat 31 Oct 15:00"
     },
     {
      "gw": 10,
      "opp": "NEW",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 07 Nov 10:00"
     },
     {
@@ -529,11 +529,11 @@
      "gw": 11,
      "opp": "BHA",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sun 22 Nov 09:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "IPS": {
@@ -618,7 +618,7 @@
      "gw": 10,
      "opp": "TOT",
      "home": true,
-     "fdr": 3,
+     "fdr": 2,
      "when": "Sat 07 Nov 07:30"
     },
     {
@@ -629,7 +629,7 @@
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 3.67,
+   "avg_fdr": 3.5,
    "count": 6
   },
   "LIV": {
@@ -652,7 +652,7 @@
      "gw": 8,
      "opp": "BHA",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sun 25 Oct 09:00"
     },
     {
@@ -677,7 +677,7 @@
      "when": "Sun 22 Nov 11:30"
     }
    ],
-   "avg_fdr": 3.33,
+   "avg_fdr": 3.5,
    "count": 6
   },
   "MCI": {
@@ -700,14 +700,14 @@
      "gw": 8,
      "opp": "AVL",
      "home": false,
-     "fdr": 4,
+     "fdr": 3,
      "when": "Sat 24 Oct 06:30"
     },
     {
      "gw": 9,
      "opp": "BHA",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 31 Oct 10:00"
     },
     {
@@ -734,7 +734,7 @@
      "gw": 6,
      "opp": "TOT",
      "home": true,
-     "fdr": 3,
+     "fdr": 2,
      "when": "Sat 10 Oct 11:30"
     },
     {
@@ -773,7 +773,7 @@
      "when": "Sun 22 Nov 11:30"
     }
    ],
-   "avg_fdr": 3.33,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "NEW": {
@@ -878,7 +878,7 @@
      "gw": 6,
      "opp": "BHA",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sat 10 Oct 09:00"
     },
     {
@@ -892,7 +892,7 @@
      "gw": 8,
      "opp": "LEE",
      "home": true,
-     "fdr": 2,
+     "fdr": 3,
      "when": "Sun 25 Oct 11:30"
     },
     {
@@ -913,11 +913,11 @@
      "gw": 11,
      "opp": "AVL",
      "home": false,
-     "fdr": 4,
+     "fdr": 3,
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 2.83,
+   "avg_fdr": 3.0,
    "count": 6
   },
   "TOT": {
@@ -947,7 +947,7 @@
      "gw": 9,
      "opp": "CRY",
      "home": true,
-     "fdr": 3,
+     "fdr": 2,
      "when": "Sat 31 Oct 12:30"
     },
     {
@@ -965,7 +965,7 @@
      "when": "Sat 21 Nov 10:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 2.83,
    "count": 6
   }
  },
