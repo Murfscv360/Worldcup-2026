@@ -1,19 +1,8 @@
 {
- "generated": "2026-09-25 18:00:10",
+ "generated": "2026-09-26 08:00:10",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-22",
-   "ts": "2026-09-22 18:00:03",
-   "new_headlines": 12,
-   "key": [
-    "[LIV] I was close to joining Liverpool in 2016 - Mbappe",
-    "[LIV/MUN] Man Utd & Liverpool eye Mitchell - Wednesday's gossip"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-23",
    "ts": "2026-09-23 08:00:05",
@@ -81,6 +70,19 @@
     "[MCI] Man City guilty of majority of 115 charges\u00a0- 5 Live reaction",
     "[MCI] What could the potential sanctions for Man City be?",
     "[MCI] Who is hacker whose revelations led to Man City charges?"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-26",
+   "ts": "2026-09-26 08:00:04",
+   "new_headlines": 15,
+   "key": [
+    "[MCI] Man City legal fight could spiral out of control - Purslow",
+    "[MCI] The computer hacker who tried to take down Man City",
+    "[LIV] Ward appointed Liverpool's sporting director",
+    "[BHA] The MMA fighter helping Brighton - and filling stadiums"
    ],
    "player_changes": [],
    "unreachable": []
