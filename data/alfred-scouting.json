@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-27 03:05:12",
+ "generated": "2026-09-27 06:05:13",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -592,20 +592,20 @@
      "yours": false
     },
     {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 12.8,
-     "side": "H",
-     "yours": true
-    },
-    {
      "name": "Gakpo",
      "club": "LIV",
      "pos": "MID",
      "score": 8.8,
      "side": "H",
      "yours": false
+    },
+    {
+     "name": "Isak",
+     "club": "LIV",
+     "pos": "FWD",
+     "score": 7.8,
+     "side": "H",
+     "yours": true
     }
    ],
    "kickoff_utc": "2026-10-11T15:30:00Z",
