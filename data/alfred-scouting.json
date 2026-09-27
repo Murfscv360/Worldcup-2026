@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-27 12:05:15",
+ "generated": "2026-09-27 15:05:15",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -465,7 +465,7 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 8.9,
+     "score": 8.8,
      "side": "H",
      "yours": false
     },
@@ -478,10 +478,10 @@
      "yours": false
     },
     {
-     "name": "Yeremy",
+     "name": "Mitchell",
      "club": "CRY",
-     "pos": "MID",
-     "score": 5.1,
+     "pos": "DEF",
+     "score": 5.8,
      "side": "H",
      "yours": false
     }
@@ -579,7 +579,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 18.4,
+     "score": 17.8,
      "side": "A",
      "yours": true
     },
@@ -587,7 +587,7 @@
      "name": "Doku",
      "club": "MCI",
      "pos": "MID",
-     "score": 12.9,
+     "score": 13.0,
      "side": "A",
      "yours": false
     },
