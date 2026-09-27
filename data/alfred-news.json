@@ -1,20 +1,8 @@
 {
- "generated": "2026-09-27 08:00:10",
+ "generated": "2026-09-27 18:00:11",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-24",
-   "ts": "2026-09-24 08:00:03",
-   "new_headlines": 12,
-   "key": [
-    "[MCI] How Man City overhauled their squad from a 650,000-strong database"
-   ],
-   "player_changes": [
-    "Semenyo (MCI, 16% owned): Ankle injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-24",
    "ts": "2026-09-24 18:00:03",
@@ -97,6 +85,23 @@
    ],
    "player_changes": [
     "Isak (LIV, YOUR PLAYER): Foot injury - 75% chance of playing"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-27",
+   "ts": "2026-09-27 18:00:05",
+   "new_headlines": 13,
+   "key": [
+    "[MCI] Why Premier League faces uncertainty and chaos after Man City ruling",
+    "[CHE] Chelsea restore resilience - are they title contenders again?",
+    "[CHE] Barcelona monitor Chelsea's Estevao - Monday's gossip",
+    "[ARS/CHE] Thompson goal enough to give Chelsea feisty derby win over Arsenal",
+    "[EVE/LIV] Swedish duo help Liverpool to derby win over Everton"
+   ],
+   "player_changes": [
+    "Gakpo (LIV, 12% owned): Ankle injury - 75% chance of playing",
+    "Isak (LIV, YOUR PLAYER): Thigh injury - 75% chance of playing"
    ],
    "unreachable": []
   }
