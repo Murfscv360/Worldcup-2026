@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-27 15:15:07",
+ "generated": "2026-09-27 18:15:25",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -635,14 +635,6 @@
      "yours": false
     },
     {
-     "name": "Gakpo",
-     "club": "LIV",
-     "pos": "MID",
-     "score": 8.8,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
@@ -656,6 +648,14 @@
      "pos": "MID",
      "score": 6.5,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Szoboszlai",
+     "club": "LIV",
+     "pos": "MID",
+     "score": 6.5,
+     "side": "A",
      "yours": false
     }
    ],
