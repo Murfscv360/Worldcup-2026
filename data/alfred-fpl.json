@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-27 03:15:13",
+ "generated": "2026-09-27 06:15:21",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -80,8 +80,8 @@
    "name": "Isak",
    "pos": "FWD",
    "club": "LIV",
-   "score": 32.53,
-   "ep": 7.8
+   "score": 20.53,
+   "ep": 5.8
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -207,8 +207,8 @@
   {
    "name": "Isak",
    "club": "LIV",
-   "status": "a",
-   "available": true
+   "status": "d",
+   "available": false
   },
   {
    "name": "Tzolakis",
@@ -627,14 +627,6 @@
    ],
    "watch": [
     {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 12.8,
-     "side": "A",
-     "yours": true
-    },
-    {
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
@@ -649,6 +641,14 @@
      "score": 8.8,
      "side": "A",
      "yours": false
+    },
+    {
+     "name": "Isak",
+     "club": "LIV",
+     "pos": "FWD",
+     "score": 7.8,
+     "side": "A",
+     "yours": true
     },
     {
      "name": "Scott",
