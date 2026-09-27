@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-27 12:15:16",
+ "generated": "2026-09-27 15:15:07",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -9,7 +9,7 @@
  "source": "API /entry/5933243/event/5/picks (unauthenticated, synced 2026-09-19 20:50)",
  "chips_active": [],
  "captain": "Gro\u00df",
- "vice": "Haaland",
+ "vice": "Bogle",
  "captain_current": "Haaland",
  "vice_current": "Gvardiol",
  "xi": [
@@ -59,8 +59,8 @@
    "name": "Cherki",
    "pos": "MID",
    "club": "MCI",
-   "score": 27.15,
-   "ep": 6.5
+   "score": 17.57,
+   "ep": 4.0
   },
   {
    "name": "Stach",
@@ -73,8 +73,8 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 38.57,
-   "ep": 9.2
+   "score": 33.97,
+   "ep": 8.0
   },
   {
    "name": "Isak",
@@ -699,7 +699,7 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 8.9,
+     "score": 8.8,
      "side": "A",
      "yours": false
     },
@@ -712,10 +712,10 @@
      "yours": false
     },
     {
-     "name": "Yeremy",
+     "name": "Mitchell",
      "club": "CRY",
-     "pos": "MID",
-     "score": 5.1,
+     "pos": "DEF",
+     "score": 5.8,
      "side": "A",
      "yours": false
     }
@@ -752,7 +752,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 18.4,
+     "score": 17.8,
      "side": "H",
      "yours": true
     },
@@ -760,7 +760,7 @@
      "name": "Doku",
      "club": "MCI",
      "pos": "MID",
-     "score": 12.9,
+     "score": 13.0,
      "side": "H",
      "yours": false
     },
