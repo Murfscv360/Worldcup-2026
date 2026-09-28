@@ -1,23 +1,8 @@
 {
- "generated": "2026-09-27 18:00:11",
+ "generated": "2026-09-28 08:00:12",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-24",
-   "ts": "2026-09-24 18:00:03",
-   "new_headlines": 18,
-   "key": [
-    "[CHE] Chelsea lead race for Scott - Friday's gossip",
-    "[CHE] Kaptein scores stunning long-range goal in Chelsea win",
-    "[ARS] Fox makes 'easy decision' to sign three-year Arsenal deal"
-   ],
-   "player_changes": [
-    "Havertz (ARS, 8% owned): Hamstring injury - 75% chance of playing",
-    "Brobbey (SUN, 7% owned): Hamstring injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-25",
    "ts": "2026-09-25 08:00:06",
@@ -103,6 +88,18 @@
     "Gakpo (LIV, 12% owned): Ankle injury - 75% chance of playing",
     "Isak (LIV, YOUR PLAYER): Thigh injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-28",
+   "ts": "2026-09-28 08:00:06",
+   "new_headlines": 18,
+   "key": [
+    "[MCI] The four 'what next?' scenarios for Premier League after Man City ruling",
+    "[MCI] Man City rule breaches not my concern - Mancini",
+    "[squad] Bellamy sure Wales belong as Haaland threat looms"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
