@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28 09:05:16",
+ "generated": "2026-09-28 12:05:22",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -38,7 +38,7 @@
      "name": "Barnes",
      "club": "NEW",
      "pos": "MID",
-     "score": 6.3,
+     "score": 6.9,
      "side": "A",
      "yours": false
     },
@@ -46,15 +46,15 @@
      "name": "Willock",
      "club": "NEW",
      "pos": "MID",
-     "score": 6.2,
+     "score": 6.3,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Thomas",
+     "name": "Dasilva",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.3,
+     "score": 4.6,
      "side": "H",
      "yours": false
     }
@@ -210,6 +210,14 @@
    ],
    "watch": [
     {
+     "name": "Tavernier",
+     "club": "BOU",
+     "pos": "MID",
+     "score": 9.6,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
@@ -218,18 +226,10 @@
      "yours": false
     },
     {
-     "name": "Tavernier",
+     "name": "Gannon-Doak",
      "club": "BOU",
      "pos": "MID",
-     "score": 8.8,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Scott",
-     "club": "BOU",
-     "pos": "MID",
-     "score": 6.5,
+     "score": 6.4,
      "side": "A",
      "yours": false
     },
@@ -412,15 +412,15 @@
      "name": "S\u00e1vio",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.2,
+     "score": 6.5,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Gallagher",
+     "name": "Van Hecke",
      "club": "TOT",
-     "pos": "MID",
-     "score": 5.3,
+     "pos": "DEF",
+     "score": 5.7,
      "side": "A",
      "yours": false
     }
@@ -518,7 +518,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 8.9,
+     "score": 9.0,
      "side": "A",
      "yours": false
     },
@@ -526,7 +526,7 @@
      "name": "Cho",
      "club": "HUL",
      "pos": "MID",
-     "score": 7.5,
+     "score": 7.8,
      "side": "H",
      "yours": false
     },
@@ -542,7 +542,7 @@
      "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 7.0,
+     "score": 7.1,
      "side": "H",
      "yours": false
     }
