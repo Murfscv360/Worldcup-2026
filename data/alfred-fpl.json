@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28 09:15:14",
+ "generated": "2026-09-28 12:15:17",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -35,18 +35,18 @@
    "ep": 5.2
   },
   {
-   "name": "Egan",
-   "pos": "DEF",
-   "club": "HUL",
-   "score": 17.28,
-   "ep": 4.5
-  },
-  {
    "name": "Castagne",
    "pos": "DEF",
    "club": "FUL",
    "score": 14.22,
    "ep": 3.5
+  },
+  {
+   "name": "Egan",
+   "pos": "DEF",
+   "club": "HUL",
+   "score": 11.53,
+   "ep": 3.0
   },
   {
    "name": "Gro\u00df",
@@ -119,11 +119,11 @@
  ],
  "changes": [
   {
-   "in": "Stach",
+   "in": "Castagne",
    "out": "Ajayi"
   },
   {
-   "in": "Castagne",
+   "in": "Stach",
    "out": "Palmer"
   }
  ],
@@ -333,7 +333,15 @@
      "name": "S\u00e1vio",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.2,
+     "score": 6.5,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Van Hecke",
+     "club": "TOT",
+     "pos": "DEF",
+     "score": 5.7,
      "side": "H",
      "yours": false
     },
@@ -343,14 +351,6 @@
      "pos": "FWD",
      "score": 5.4,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Gallagher",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 5.3,
-     "side": "H",
      "yours": false
     }
    ],
@@ -524,7 +524,7 @@
      "name": "Barnes",
      "club": "NEW",
      "pos": "MID",
-     "score": 6.3,
+     "score": 6.9,
      "side": "H",
      "yours": false
     },
@@ -532,7 +532,7 @@
      "name": "Willock",
      "club": "NEW",
      "pos": "MID",
-     "score": 6.2,
+     "score": 6.3,
      "side": "H",
      "yours": false
     }
