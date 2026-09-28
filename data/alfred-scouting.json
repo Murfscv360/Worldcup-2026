@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28 06:05:18",
+ "generated": "2026-09-28 09:05:16",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -454,14 +454,6 @@
    ],
    "watch": [
     {
-     "name": "Gibbs-White",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 9.8,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
@@ -470,10 +462,18 @@
      "yours": false
     },
     {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 8.7,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.2,
+     "score": 6.2,
      "side": "A",
      "yours": false
     },
@@ -603,7 +603,7 @@
      "name": "Szoboszlai",
      "club": "LIV",
      "pos": "MID",
-     "score": 6.5,
+     "score": 6.4,
      "side": "H",
      "yours": false
     }
