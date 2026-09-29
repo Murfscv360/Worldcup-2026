@@ -1,26 +1,8 @@
 {
- "generated": "2026-09-28 18:00:12",
+ "generated": "2026-09-29 08:00:14",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-25",
-   "ts": "2026-09-25 18:00:05",
-   "new_headlines": 18,
-   "key": [
-    "[squad] Palmer misses too many opportunities to play for England - Tuchel",
-    "[MCI] Clubs seek legal advice over Man City charges compensation",
-    "[MCI] Relegation? Titles stripped? Appeals? What next for Man City",
-    "[MCI] Rodri believes in Man City's 'innocence'",
-    "[MCI] Man City fans face up to reality of guilty verdict",
-    "[squad] No relegation clause in Haaland's City deal - Saturday's gossip",
-    "[MCI] Man City guilty of majority of 115 charges\u00a0- 5 Live reaction",
-    "[MCI] What could the potential sanctions for Man City be?",
-    "[MCI] Who is hacker whose revelations led to Man City charges?"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-26",
    "ts": "2026-09-26 08:00:04",
@@ -101,6 +83,17 @@
     "[MCI] Hart trusts Man City chair Al Mubarak over ruling",
     "[ARS/MUN] Man Utd & Arsenal eye Porto's Costa - Tuesday's gossip",
     "[MCI] How does Cas work and why can't Man City appeal to it?"
+   ],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-09-29",
+   "ts": "2026-09-29 08:00:07",
+   "new_headlines": 17,
+   "key": [
+    "[MCI/MUN] Man Utd do not deserve Man City titles - Rooney",
+    "[LIV] Inside Liverpool's increasing global investment in youth"
    ],
    "player_changes": [],
    "unreachable": []
