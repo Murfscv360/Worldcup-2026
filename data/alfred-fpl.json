@@ -1,15 +1,15 @@
 {
- "generated": "2026-09-29 06:15:19",
+ "generated": "2026-09-29 09:15:22",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
  "squad_as_of": 5,
  "deadline": "2026-10-10T10:00:00Z",
- "formation": "4-3-3",
+ "formation": "5-3-2",
  "source": "API /entry/5933243/event/5/picks (unauthenticated, synced 2026-09-19 20:50)",
  "chips_active": [],
- "captain": "Gro\u00df",
- "vice": "Bogle",
+ "captain": "Bogle",
+ "vice": "Gro\u00df",
  "captain_current": "Haaland",
  "vice_current": "Gvardiol",
  "xi": [
@@ -24,22 +24,15 @@
    "name": "Bogle",
    "pos": "DEF",
    "club": "LEE",
-   "score": 35.7,
-   "ep": 9.0
+   "score": 44.52,
+   "ep": 11.3
   },
   {
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 21.5,
-   "ep": 5.2
-  },
-  {
-   "name": "Castagne",
-   "pos": "DEF",
-   "club": "FUL",
-   "score": 14.22,
-   "ep": 3.5
+   "score": 28.4,
+   "ep": 7.0
   },
   {
    "name": "Egan",
@@ -49,11 +42,25 @@
    "ep": 3.0
   },
   {
+   "name": "Castagne",
+   "pos": "DEF",
+   "club": "FUL",
+   "score": 11.15,
+   "ep": 2.7
+  },
+  {
+   "name": "Ajayi",
+   "pos": "DEF",
+   "club": "HUL",
+   "score": 9.28,
+   "ep": 2.3
+  },
+  {
    "name": "Gro\u00df",
    "pos": "MID",
    "club": "BHA",
-   "score": 44.67,
-   "ep": 11.2
+   "score": 42.75,
+   "ep": 10.7
   },
   {
    "name": "Cherki",
@@ -66,8 +73,8 @@
    "name": "Stach",
    "pos": "MID",
    "club": "LEE",
-   "score": 14.28,
-   "ep": 3.5
+   "score": 13.52,
+   "ep": 3.3
   },
   {
    "name": "Haaland",
@@ -82,13 +89,6 @@
    "club": "LIV",
    "score": 20.45,
    "ep": 5.8
-  },
-  {
-   "name": "Jo\u00e3o Pedro",
-   "pos": "FWD",
-   "club": "CHE",
-   "score": 12.85,
-   "ep": 4.1
   }
  ],
  "bench": [
@@ -99,9 +99,9 @@
    "order": 0
   },
   {
-   "name": "Ajayi",
-   "pos": "DEF",
-   "club": "HUL",
+   "name": "Jo\u00e3o Pedro",
+   "pos": "FWD",
+   "club": "CHE",
    "order": 1
   },
   {
@@ -119,11 +119,11 @@
  ],
  "changes": [
   {
-   "in": "Castagne",
-   "out": "Ajayi"
+   "in": "Stach",
+   "out": "Jo\u00e3o Pedro"
   },
   {
-   "in": "Stach",
+   "in": "Castagne",
    "out": "Palmer"
   }
  ],
@@ -264,7 +264,7 @@
      "name": "Carvalho",
      "club": "BRE",
      "pos": "MID",
-     "score": 46.9,
+     "score": 47.2,
      "side": "H",
      "yours": false
     },
@@ -272,7 +272,7 @@
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
-     "score": 9.5,
+     "score": 9.6,
      "side": "A",
      "yours": false
     },
@@ -280,7 +280,7 @@
      "name": "Schade",
      "club": "BRE",
      "pos": "MID",
-     "score": 9.0,
+     "score": 8.9,
      "side": "H",
      "yours": false
     },
@@ -288,7 +288,7 @@
      "name": "Jo\u00e3o Pedro",
      "club": "CHE",
      "pos": "FWD",
-     "score": 6.0,
+     "score": 5.5,
      "side": "A",
      "yours": true
     }
@@ -394,12 +394,12 @@
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.6,
+     "score": 11.3,
      "side": "H",
      "yours": true
     },
     {
-     "name": "Yalcouy\u00e9",
+     "name": "O'Riley",
      "club": "BHA",
      "pos": "MID",
      "score": 10.3,
@@ -691,7 +691,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 9.7,
+     "score": 10.8,
      "side": "H",
      "yours": true
     },
@@ -707,7 +707,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 8.6,
+     "score": 8.1,
      "side": "H",
      "yours": false
     },
@@ -768,15 +768,15 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 8.6,
+     "score": 8.7,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Isidor",
+     "name": "Brobbey",
      "club": "SUN",
      "pos": "FWD",
-     "score": 6.6,
+     "score": 6.2,
      "side": "A",
      "yours": false
     }
@@ -829,7 +829,7 @@
      "name": "King",
      "club": "FUL",
      "pos": "MID",
-     "score": 7.2,
+     "score": 7.6,
      "side": "H",
      "yours": false
     },
