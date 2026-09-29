@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-29 06:05:24",
+ "generated": "2026-09-29 09:05:33",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -99,7 +99,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 9.7,
+     "score": 10.8,
      "side": "A",
      "yours": true
     },
@@ -115,7 +115,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 8.6,
+     "score": 8.1,
      "side": "A",
      "yours": false
     }
@@ -152,15 +152,7 @@
      "name": "Carvalho",
      "club": "BRE",
      "pos": "MID",
-     "score": 46.9,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Schade",
-     "club": "BRE",
-     "pos": "MID",
-     "score": 9.0,
+     "score": 47.2,
      "side": "A",
      "yours": false
     },
@@ -170,6 +162,14 @@
      "pos": "MID",
      "score": 8.9,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Schade",
+     "club": "BRE",
+     "pos": "MID",
+     "score": 8.9,
+     "side": "A",
      "yours": false
     },
     {
@@ -210,19 +210,19 @@
    ],
    "watch": [
     {
+     "name": "Rogers",
+     "club": "CHE",
+     "pos": "MID",
+     "score": 9.6,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
      "score": 9.6,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Rogers",
-     "club": "CHE",
-     "pos": "MID",
-     "score": 9.5,
-     "side": "H",
      "yours": false
     },
     {
@@ -237,7 +237,7 @@
      "name": "Jo\u00e3o Pedro",
      "club": "CHE",
      "pos": "FWD",
-     "score": 6.0,
+     "score": 5.5,
      "side": "H",
      "yours": true
     }
@@ -282,7 +282,7 @@
      "name": "King",
      "club": "FUL",
      "pos": "MID",
-     "score": 7.2,
+     "score": 7.6,
      "side": "A",
      "yours": false
     },
@@ -335,12 +335,12 @@
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.6,
+     "score": 11.3,
      "side": "A",
      "yours": true
     },
     {
-     "name": "Yalcouy\u00e9",
+     "name": "O'Riley",
      "club": "BHA",
      "pos": "MID",
      "score": 10.3,
@@ -351,15 +351,15 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 8.6,
+     "score": 8.7,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Isidor",
+     "name": "Brobbey",
      "club": "SUN",
      "pos": "FWD",
-     "score": 6.6,
+     "score": 6.2,
      "side": "H",
      "yours": false
     }
