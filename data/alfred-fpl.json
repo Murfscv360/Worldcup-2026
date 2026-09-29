@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-29 09:15:22",
+ "generated": "2026-09-29 12:15:25",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -455,7 +455,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 7.6,
+     "score": 8.1,
      "side": "A",
      "yours": false
     },
@@ -468,10 +468,10 @@
      "yours": false
     },
     {
-     "name": "Akpom",
+     "name": "Flemming",
      "club": "IPS",
      "pos": "FWD",
-     "score": 6.2,
+     "score": 5.9,
      "side": "A",
      "yours": false
     }
@@ -813,7 +813,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 13.6,
+     "score": 11.0,
      "side": "A",
      "yours": false
     },
@@ -821,7 +821,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 11.1,
+     "score": 10.2,
      "side": "A",
      "yours": false
     },
