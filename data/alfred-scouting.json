@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-30 12:05:21",
+ "generated": "2026-09-30 15:05:21",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -91,7 +91,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 13.4,
+     "score": 12.5,
      "side": "H",
      "yours": false
     },
@@ -107,7 +107,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 8.8,
+     "score": 9.1,
      "side": "H",
      "yours": false
     },
@@ -160,7 +160,7 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 8.9,
+     "score": 9.5,
      "side": "H",
      "yours": false
     },
@@ -173,10 +173,10 @@
      "yours": false
     },
     {
-     "name": "N.Jackson",
+     "name": "Buend\u00eda",
      "club": "AVL",
-     "pos": "FWD",
-     "score": 5.4,
+     "pos": "MID",
+     "score": 5.8,
      "side": "H",
      "yours": false
     }
