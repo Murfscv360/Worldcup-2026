@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-30 09:15:30",
+ "generated": "2026-09-30 12:15:32",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -338,9 +338,9 @@
      "yours": false
     },
     {
-     "name": "Van Hecke",
+     "name": "Gallagher",
      "club": "TOT",
-     "pos": "DEF",
+     "pos": "MID",
      "score": 5.7,
      "side": "H",
      "yours": false
