@@ -1,20 +1,8 @@
 {
- "generated": "2026-10-01 08:00:14",
+ "generated": "2026-10-01 18:00:14",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-28",
-   "ts": "2026-09-28 08:00:06",
-   "new_headlines": 18,
-   "key": [
-    "[MCI] The four 'what next?' scenarios for Premier League after Man City ruling",
-    "[MCI] Man City rule breaches not my concern - Mancini",
-    "[squad] Bellamy sure Wales belong as Haaland threat looms"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-28",
    "ts": "2026-09-28 18:00:05",
@@ -95,6 +83,21 @@
     "[ARS] Unusual Williamson handball sees Arsenal slip to draw with Paris FC"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-01",
+   "ts": "2026-10-01 18:00:06",
+   "new_headlines": 17,
+   "key": [
+    "[MCI] HMRC urged to scrutinise tax implications of Man City case",
+    "[MCI] Man City not 'above the rules', says No 10 after backlash to Burnham remarks",
+    "[MCI] Why Andy Burnham's about-turn on Manchester City matters",
+    "[MCI] Man City hold on to claim draw against Real Madrid"
+   ],
+   "player_changes": [
+    "O'Reilly (MCI, 11% owned): Unspecified injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
