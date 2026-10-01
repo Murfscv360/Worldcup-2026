@@ -1,25 +1,8 @@
 {
- "generated": "2026-09-30 18:00:11",
+ "generated": "2026-10-01 08:00:14",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-27",
-   "ts": "2026-09-27 18:00:05",
-   "new_headlines": 13,
-   "key": [
-    "[MCI] Why Premier League faces uncertainty and chaos after Man City ruling",
-    "[CHE] Chelsea restore resilience - are they title contenders again?",
-    "[CHE] Barcelona monitor Chelsea's Estevao - Monday's gossip",
-    "[ARS/CHE] Thompson goal enough to give Chelsea feisty derby win over Arsenal",
-    "[EVE/LIV] Swedish duo help Liverpool to derby win over Everton"
-   ],
-   "player_changes": [
-    "Gakpo (LIV, 12% owned): Ankle injury - 75% chance of playing",
-    "Isak (LIV, YOUR PLAYER): Thigh injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-09-28",
    "ts": "2026-09-28 08:00:06",
@@ -101,6 +84,17 @@
    "player_changes": [
     "Van Hecke (TOT, 6% owned): Foot injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-01",
+   "ts": "2026-10-01 08:00:06",
+   "new_headlines": 23,
+   "key": [
+    "[HUL] Second Hull City player crashes near training ground",
+    "[ARS] Unusual Williamson handball sees Arsenal slip to draw with Paris FC"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
