@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-02 15:05:16",
+ "generated": "2026-10-02 18:05:20",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -603,7 +603,7 @@
      "name": "Szoboszlai",
      "club": "LIV",
      "pos": "MID",
-     "score": 6.4,
+     "score": 6.3,
      "side": "H",
      "yours": false
     }
