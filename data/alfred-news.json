@@ -1,21 +1,8 @@
 {
- "generated": "2026-10-01 18:00:14",
+ "generated": "2026-10-02 08:00:14",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-28",
-   "ts": "2026-09-28 18:00:05",
-   "new_headlines": 13,
-   "key": [
-    "[MCI] Man City CEO defiant over Premier League charges",
-    "[MCI] Hart trusts Man City chair Al Mubarak over ruling",
-    "[ARS/MUN] Man Utd & Arsenal eye Porto's Costa - Tuesday's gossip",
-    "[MCI] How does Cas work and why can't Man City appeal to it?"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-29",
    "ts": "2026-09-29 08:00:07",
@@ -98,6 +85,20 @@
    "player_changes": [
     "O'Reilly (MCI, 11% owned): Unspecified injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-02",
+   "ts": "2026-10-02 08:00:06",
+   "new_headlines": 21,
+   "key": [
+    "[MCI] Man City confirm appeal against guilty verdict",
+    "[MCI] What does Man City guilty verdict mean for their squad?",
+    "[squad] Haaland 'gave me his shirt... but didn't take mine'",
+    "[MCI] Man City appeal plan emerges as HMRC urged to examine case findings",
+    "[MCI] Why Burnham's about-turn on Manchester City matters"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
