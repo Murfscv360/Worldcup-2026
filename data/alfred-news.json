@@ -1,19 +1,8 @@
 {
- "generated": "2026-10-02 08:00:14",
+ "generated": "2026-10-02 18:00:22",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-29",
-   "ts": "2026-09-29 08:00:07",
-   "new_headlines": 17,
-   "key": [
-    "[MCI/MUN] Man Utd do not deserve Man City titles - Rooney",
-    "[LIV] Inside Liverpool's increasing global investment in youth"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-29",
    "ts": "2026-09-29 18:00:03",
@@ -99,6 +88,20 @@
     "[MCI] Why Burnham's about-turn on Manchester City matters"
    ],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-02",
+   "ts": "2026-10-02 18:00:08",
+   "new_headlines": 11,
+   "key": [
+    "[MCI] Which clubs did Man City's 'inflated' money flow to in transfer market?",
+    "[MCI] Man City whistleblower set to lose protection amid fears for life",
+    "[LIV] Chiesa eyes Liverpool exit - Saturday's gossip"
+   ],
+   "player_changes": [
+    "Tzolis (ARS, 12% owned): Hamstring injury - 75% chance of playing"
+   ],
    "unreachable": []
   }
  ],
