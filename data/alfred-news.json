@@ -1,19 +1,8 @@
 {
- "generated": "2026-10-03 08:00:18",
+ "generated": "2026-10-03 18:00:23",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-30",
-   "ts": "2026-09-30 08:00:03",
-   "new_headlines": 14,
-   "key": [
-    "[MCI] Richards 'devastated' by Man City guilty verdicts",
-    "[MCI] \u00a31.2bn on transfers with \u00a3830m inflated in sponsorships - Man City's 'asterisk era'"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-30",
    "ts": "2026-09-30 18:00:04",
@@ -91,6 +80,16 @@
   {
    "date": "2026-10-03",
    "ts": "2026-10-03 08:00:04",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-03",
+   "ts": "2026-10-03 18:00:06",
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
