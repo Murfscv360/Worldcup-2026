@@ -724,12 +724,10 @@ const FPL_KEY = "fh_fpl_id";
    freshly-deployed function; everywhere else (e.g. GitHub Pages), call
    the production Vercel function directly — it sets permissive CORS
    headers so any origin can read it.
-   NOTE: "worldcup-2026" is the expected Vercel project name/domain once
-   the repo is imported at vercel.com -- confirm this matches the real
-   assigned domain after that one-time account step and update if not. */
+   Project domain confirmed by John 2026-10-02: englishfootballleague.vercel.app. */
 const FPL_PROXY = location.hostname.endsWith("vercel.app")
   ? "/api/fpl-proxy"
-  : "https://worldcup-2026.vercel.app/api/fpl-proxy";
+  : "https://englishfootballleague.vercel.app/api/fpl-proxy";
 function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
 
 /* Live news — same relative/absolute host-detection pattern as the FPL
@@ -739,7 +737,7 @@ function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)
    the FPL proxy, same date, same reason. */
 const NEWS_PROXY = location.hostname.endsWith("vercel.app")
   ? "/api/news-proxy"
-  : "https://worldcup-2026.vercel.app/api/news-proxy";
+  : "https://englishfootballleague.vercel.app/api/news-proxy";
 async function loadLiveNews(){
   try{
     const d = await getJSON(`${NEWS_PROXY}?feed=football`, 7000);
