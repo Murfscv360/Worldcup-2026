@@ -1,24 +1,8 @@
 {
- "generated": "2026-10-02 18:00:22",
+ "generated": "2026-10-03 08:00:18",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-29",
-   "ts": "2026-09-29 18:00:03",
-   "new_headlines": 17,
-   "key": [
-    "[MCI] The intricate web Man City spun to con the Premier League",
-    "[MCI] Man City guilty of 'sham' contracts and \u00a3830m 'disguised funding scheme'",
-    "[MCI] I'd stick my Man City medals in bin - Keane",
-    "[squad] England's Palmer a 'victim' of 'sick' schedule, says PFA chief",
-    "[MCI] Premier League confirm Man City guilty of all charges - 5 Live reaction",
-    "[MCI] What have Man City been found guilty of doing?",
-    "[MCI] Man City CEO refuses to answer questions on guilty verdict"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-09-30",
    "ts": "2026-09-30 08:00:03",
@@ -103,6 +87,16 @@
     "Tzolis (ARS, 12% owned): Hamstring injury - 75% chance of playing"
    ],
    "unreachable": []
+  },
+  {
+   "date": "2026-10-03",
+   "ts": "2026-10-03 08:00:04",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
   }
  ],
  "note": "Rolling week of football news filtered to this squad. Accumulated daily, deduped; \"unreachable\" means a source could not be asked that day, which is not the same as no news."
