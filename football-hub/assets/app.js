@@ -715,24 +715,31 @@ const FPL_ELEMENT_POS = { 1:"GKP", 2:"DEF", 3:"MID", 4:"FWD" };
 const FPL_KEY = "fh_fpl_id";
 /* The official FPL API doesn't reliably allow direct cross-origin requests
    from third-party browser JS (confirmed by hand — the direct fetch failed
-   on the deployed preview). Route through this app's own Netlify Function
+   on the deployed preview). Route through this app's own Vercel Function
    proxy instead, which fetches server-side where CORS doesn't apply.
-   On a netlify.app host, use a relative path so each deploy (production or
-   a PR preview) talks to its own freshly-deployed function; everywhere
-   else (e.g. GitHub Pages), call the production Netlify function directly
-   — it sets permissive CORS headers so any origin can read it. */
-const FPL_PROXY = location.hostname.endsWith("netlify.app")
-  ? "/.netlify/functions/fpl-proxy"
-  : "https://worldcupfootball26.netlify.app/.netlify/functions/fpl-proxy";
+   MOVED OFF NETLIFY 2026-10-02 (John: Netlify downgraded to its free tier
+   and its current resource/credit allowance is used up -- its Functions
+   can no longer be relied on). On a vercel.app host, use a relative path
+   so each deploy (production or a PR preview) talks to its own
+   freshly-deployed function; everywhere else (e.g. GitHub Pages), call
+   the production Vercel function directly — it sets permissive CORS
+   headers so any origin can read it.
+   NOTE: "worldcup-2026" is the expected Vercel project name/domain once
+   the repo is imported at vercel.com -- confirm this matches the real
+   assigned domain after that one-time account step and update if not. */
+const FPL_PROXY = location.hostname.endsWith("vercel.app")
+  ? "/api/fpl-proxy"
+  : "https://worldcup-2026.vercel.app/api/fpl-proxy";
 function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
 
 /* Live news — same relative/absolute host-detection pattern as the FPL
    proxy, for the same reason: a direct browser fetch of BBC Sport's RSS
-   feed fails CORS, so netlify/functions/news-proxy.js re-fetches it
-   server-side and returns real, parsed BBC headlines as JSON. */
-const NEWS_PROXY = location.hostname.endsWith("netlify.app")
-  ? "/.netlify/functions/news-proxy"
-  : "https://worldcupfootball26.netlify.app/.netlify/functions/news-proxy";
+   feed fails CORS, so api/news-proxy.js re-fetches it server-side and
+   returns real, parsed BBC headlines as JSON. Moved off Netlify same as
+   the FPL proxy, same date, same reason. */
+const NEWS_PROXY = location.hostname.endsWith("vercel.app")
+  ? "/api/news-proxy"
+  : "https://worldcup-2026.vercel.app/api/news-proxy";
 async function loadLiveNews(){
   try{
     const d = await getJSON(`${NEWS_PROXY}?feed=football`, 7000);
