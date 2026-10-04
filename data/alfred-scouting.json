@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-04 12:05:26",
+ "generated": "2026-10-04 15:05:21",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -274,7 +274,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 8.1,
+     "score": 9.0,
      "side": "H",
      "yours": false
     },
@@ -295,10 +295,10 @@
      "yours": false
     },
     {
-     "name": "Flemming",
+     "name": "Davis",
      "club": "IPS",
-     "pos": "FWD",
-     "score": 5.9,
+     "pos": "DEF",
+     "score": 6.7,
      "side": "H",
      "yours": false
     }
@@ -595,12 +595,12 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 7.8,
+     "score": 6.8,
      "side": "H",
      "yours": true
     },
     {
-     "name": "Szoboszlai",
+     "name": "Wirtz",
      "club": "LIV",
      "pos": "MID",
      "score": 6.3,
