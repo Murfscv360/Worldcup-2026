@@ -1,28 +1,8 @@
 {
- "generated": "2026-10-03 18:00:23",
+ "generated": "2026-10-04 08:00:23",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-09-30",
-   "ts": "2026-09-30 18:00:04",
-   "new_headlines": 19,
-   "key": [
-    "[MCI] Punish Man City this season, say other club chiefs",
-    "[MCI] Burnham 'really concerned' if Man City owners sell up after rule breaches",
-    "[MCI] Guardiola backing Man City after guilty verdicts",
-    "[MCI] Criminal investigation? Relegation or expulsion? The key Man City questions",
-    "[LIV] Liverpool contenders for Schade - Thursday's gossip",
-    "[MCI] 'Business as usual' for Man City Women despite Premier League guilty verdicts",
-    "[MCI] Haaland 'no different' following Man City verdict",
-    "[ARS] Arsenal let two-goal lead slip to draw with Paris FC",
-    "[CHE] Late drama as Chelsea draw away at Lyon"
-   ],
-   "player_changes": [
-    "Van Hecke (TOT, 6% owned): Foot injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-10-01",
    "ts": "2026-10-01 08:00:06",
@@ -90,6 +70,16 @@
   {
    "date": "2026-10-03",
    "ts": "2026-10-03 18:00:06",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-04",
+   "ts": "2026-10-04 08:00:03",
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
