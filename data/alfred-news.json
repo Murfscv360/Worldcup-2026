@@ -1,19 +1,8 @@
 {
- "generated": "2026-10-04 08:00:23",
+ "generated": "2026-10-04 18:00:18",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-10-01",
-   "ts": "2026-10-01 08:00:06",
-   "new_headlines": 23,
-   "key": [
-    "[HUL] Second Hull City player crashes near training ground",
-    "[ARS] Unusual Williamson handball sees Arsenal slip to draw with Paris FC"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-10-01",
    "ts": "2026-10-01 18:00:06",
@@ -80,6 +69,16 @@
   {
    "date": "2026-10-04",
    "ts": "2026-10-04 08:00:03",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-04",
+   "ts": "2026-10-04 18:00:03",
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
