@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-05 06:05:23",
+ "generated": "2026-10-05 09:05:31",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -35,7 +35,7 @@
      "yours": false
     },
     {
-     "name": "Barnes",
+     "name": "Willock",
      "club": "NEW",
      "pos": "MID",
      "score": 6.9,
@@ -43,10 +43,10 @@
      "yours": false
     },
     {
-     "name": "Willock",
+     "name": "Barnes",
      "club": "NEW",
      "pos": "MID",
-     "score": 6.3,
+     "score": 5.8,
      "side": "A",
      "yours": false
     },
@@ -221,7 +221,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 9.6,
+     "score": 8.7,
      "side": "A",
      "yours": false
     },
