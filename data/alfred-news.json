@@ -1,22 +1,8 @@
 {
- "generated": "2026-10-05 08:00:21",
+ "generated": "2026-10-05 18:00:25",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-10-02",
-   "ts": "2026-10-02 08:00:06",
-   "new_headlines": 21,
-   "key": [
-    "[MCI] Man City confirm appeal against guilty verdict",
-    "[MCI] What does Man City guilty verdict mean for their squad?",
-    "[squad] Haaland 'gave me his shirt... but didn't take mine'",
-    "[MCI] Man City appeal plan emerges as HMRC urged to examine case findings",
-    "[MCI] Why Burnham's about-turn on Manchester City matters"
-   ],
-   "player_changes": [],
-   "unreachable": []
-  },
   {
    "date": "2026-10-02",
    "ts": "2026-10-02 18:00:08",
@@ -80,6 +66,16 @@
     "Konsa (ARS, 19% owned): Unspecified injury - 75% chance of playing",
     "Scott (BOU, 6% owned): Thigh injury - 50% chance of playing"
    ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-05",
+   "ts": "2026-10-05 18:00:07",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
    "unreachable": [
     "bbc"
    ]
