@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-05 15:05:22",
+ "generated": "2026-10-05 18:05:22",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -91,7 +91,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 12.5,
+     "score": 12.6,
      "side": "H",
      "yours": false
     },
