@@ -1,23 +1,8 @@
 {
- "generated": "2026-10-04 18:00:18",
+ "generated": "2026-10-05 08:00:21",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-10-01",
-   "ts": "2026-10-01 18:00:06",
-   "new_headlines": 17,
-   "key": [
-    "[MCI] HMRC urged to scrutinise tax implications of Man City case",
-    "[MCI] Man City not 'above the rules', says No 10 after backlash to Burnham remarks",
-    "[MCI] Why Andy Burnham's about-turn on Manchester City matters",
-    "[MCI] Man City hold on to claim draw against Real Madrid"
-   ],
-   "player_changes": [
-    "O'Reilly (MCI, 11% owned): Unspecified injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-10-02",
    "ts": "2026-10-02 08:00:06",
@@ -82,6 +67,19 @@
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-05",
+   "ts": "2026-10-05 08:00:07",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Konsa (ARS, 19% owned): Unspecified injury - 75% chance of playing",
+    "Scott (BOU, 6% owned): Thigh injury - 50% chance of playing"
+   ],
    "unreachable": [
     "bbc"
    ]
