@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-06 15:05:21",
+ "generated": "2026-10-06 18:05:25",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -213,7 +213,7 @@
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
-     "score": 9.4,
+     "score": 9.5,
      "side": "H",
      "yours": false
     },
