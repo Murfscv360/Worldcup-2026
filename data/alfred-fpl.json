@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-06 06:15:33",
+ "generated": "2026-10-06 09:15:25",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -451,7 +451,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 9.0,
+     "score": 9.4,
      "side": "H",
      "yours": false
     },
@@ -464,10 +464,10 @@
      "yours": false
     },
     {
-     "name": "Maitland-Niles",
+     "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
-     "score": 7.4,
+     "score": 7.5,
      "side": "H",
      "yours": false
     },
@@ -825,7 +825,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 10.2,
+     "score": 9.2,
      "side": "A",
      "yours": false
     },
