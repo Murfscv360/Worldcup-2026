@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-08 06:05:28",
+ "generated": "2026-10-08 09:05:17",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -356,10 +356,10 @@
      "yours": false
     },
     {
-     "name": "Brobbey",
+     "name": "Isidor",
      "club": "SUN",
      "pos": "FWD",
-     "score": 7.1,
+     "score": 5.3,
      "side": "H",
      "yours": false
     }
