@@ -1,21 +1,8 @@
 {
- "generated": "2026-10-08 08:00:23",
+ "generated": "2026-10-08 18:00:21",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-10-05",
-   "ts": "2026-10-05 08:00:07",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Konsa (ARS, 19% owned): Unspecified injury - 75% chance of playing",
-    "Scott (BOU, 6% owned): Thigh injury - 50% chance of playing"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-05",
    "ts": "2026-10-05 18:00:07",
@@ -72,6 +59,19 @@
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-08",
+   "ts": "2026-10-08 18:00:08",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Scott (BOU, 5% owned): Thigh injury - Unknown return date",
+    "Brobbey (SUN, 7% owned): Hamstring injury - Expected back 25 Oct"
+   ],
    "unreachable": [
     "bbc"
    ]
