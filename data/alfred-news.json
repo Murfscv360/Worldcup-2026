@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-07 18:00:16",
+ "generated": "2026-10-08 08:00:23",
  "tz": "America/Chicago",
  "gw": 5,
  "days": [
-  {
-   "date": "2026-10-04",
-   "ts": "2026-10-04 18:00:03",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-05",
    "ts": "2026-10-05 08:00:07",
@@ -69,6 +59,16 @@
   {
    "date": "2026-10-07",
    "ts": "2026-10-07 18:00:06",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-08",
+   "ts": "2026-10-08 08:00:11",
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
