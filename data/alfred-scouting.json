@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 09:12:57",
+ "generated": "2026-10-09 12:05:24",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -178,7 +178,7 @@
      "pos": "MID",
      "score": 6.4,
      "side": "H",
-     "yours": false
+     "yours": true
     }
    ],
    "kickoff_utc": "2026-10-10T14:00:00Z",
@@ -210,6 +210,14 @@
    ],
    "watch": [
     {
+     "name": "Jo\u00e3o Pedro",
+     "club": "CHE",
+     "pos": "FWD",
+     "score": 10.2,
+     "side": "H",
+     "yours": true
+    },
+    {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
@@ -232,14 +240,6 @@
      "score": 6.4,
      "side": "A",
      "yours": false
-    },
-    {
-     "name": "Jo\u00e3o Pedro",
-     "club": "CHE",
-     "pos": "FWD",
-     "score": 6.2,
-     "side": "H",
-     "yours": true
     }
    ],
    "kickoff_utc": "2026-10-10T14:00:00Z",
