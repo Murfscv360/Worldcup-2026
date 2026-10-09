@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 03:05:15",
+ "generated": "2026-10-09 06:05:29",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -340,10 +340,10 @@
      "yours": true
     },
     {
-     "name": "O'Riley",
+     "name": "Hinshelwood",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.5,
+     "score": 11.0,
      "side": "A",
      "yours": false
     },
