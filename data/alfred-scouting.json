@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 09:05:18",
+ "generated": "2026-10-09 09:12:57",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -170,7 +170,7 @@
      "pos": "MID",
      "score": 10.5,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Buend\u00eda",
