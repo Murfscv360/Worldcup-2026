@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 09:59:29",
+ "generated": "2026-10-09 10:04:29",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -14,7 +14,7 @@
  "vice_model": "Schade",
  "captain_override_reason": "GW6 after the break: ep_next is one GW of form; xGI/90 over 450 min Haaland 0.99 vs Gro\u00df 0.53 vs Schade 0.37; 74% owned. Alfred call 2026-10-09 09:40 CDT.",
  "captain_current": "Haaland",
- "vice_current": "Gro\u00df",
+ "vice_current": "Raya",
  "xi": [
   {
    "name": "Raya",
@@ -59,18 +59,18 @@
    "ep": 12.0
   },
   {
+   "name": "Buend\u00eda",
+   "pos": "MID",
+   "club": "AVL",
+   "score": 27.7,
+   "ep": 7.0
+  },
+  {
    "name": "Cherki",
    "pos": "MID",
    "club": "MCI",
    "score": 19.48,
    "ep": 4.5
-  },
-  {
-   "name": "Palmer",
-   "pos": "MID",
-   "club": "CHE",
-   "score": 14.85,
-   "ep": 3.5
   },
   {
    "name": "Kostoulas",
@@ -102,9 +102,9 @@
    "order": 0
   },
   {
-   "name": "M.Sangar\u00e9",
+   "name": "Palmer",
    "pos": "MID",
-   "club": "BRE",
+   "club": "CHE",
    "order": 1
   },
   {
@@ -122,11 +122,11 @@
  ],
  "changes": [
   {
-   "in": "Gvardiol",
+   "in": "Buend\u00eda",
    "out": "Egan"
   },
   {
-   "in": "Schade",
+   "in": "Jo\u00e3o Pedro",
    "out": "Ajayi"
   }
  ],
@@ -152,6 +152,10 @@
   {
    "ts": "2026-10-09T09:58:23-0500",
    "note": "captain override Haaland (C) Gro\u00df (V) for GW6"
+  },
+  {
+   "ts": "2026-10-09T10:04:05-0500",
+   "note": "Pick Team confirmed: Sangar\u00e9 out, Buend\u00eda in; 5-3-2; C Haaland V Raya"
   }
  ],
  "availability": [
@@ -222,12 +226,6 @@
    "available": true
   },
   {
-   "name": "M.Sangar\u00e9",
-   "club": "BRE",
-   "status": "a",
-   "available": true
-  },
-  {
    "name": "Haaland",
    "club": "MCI",
    "status": "a",
@@ -242,6 +240,12 @@
   {
    "name": "Jo\u00e3o Pedro",
    "club": "CHE",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Buend\u00eda",
+   "club": "AVL",
    "status": "a",
    "available": true
   }
@@ -354,7 +358,7 @@
      "pos": "MID",
      "score": 6.4,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Gallagher",
