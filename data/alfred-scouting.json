@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 12:05:24",
+ "generated": "2026-10-09 15:05:17",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -170,7 +170,7 @@
      "pos": "MID",
      "score": 10.5,
      "side": "A",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Buend\u00eda",
@@ -178,7 +178,7 @@
      "pos": "MID",
      "score": 6.4,
      "side": "H",
-     "yours": true
+     "yours": false
     }
    ],
    "kickoff_utc": "2026-10-10T14:00:00Z",
