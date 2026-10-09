@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 06:05:29",
+ "generated": "2026-10-09 09:05:18",
  "tz": "America/Chicago",
  "gw": 6,
  "fixtures": [
@@ -478,10 +478,10 @@
      "yours": false
     },
     {
-     "name": "Kamada",
+     "name": "Khalaili",
      "club": "CRY",
-     "pos": "MID",
-     "score": 5.2,
+     "pos": "DEF",
+     "score": 5.4,
      "side": "H",
      "yours": false
     }
@@ -592,18 +592,18 @@
      "yours": false
     },
     {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 6.8,
-     "side": "H",
-     "yours": true
-    },
-    {
      "name": "Wirtz",
      "club": "LIV",
      "pos": "MID",
      "score": 6.3,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Szoboszlai",
+     "club": "LIV",
+     "pos": "MID",
+     "score": 6.2,
      "side": "H",
      "yours": false
     }
