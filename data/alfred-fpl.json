@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 09:15:21",
+ "generated": "2026-10-09 09:58:40",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -8,10 +8,13 @@
  "formation": "3-4-3",
  "source": "Alfred-maintained golden record; screenshot 2026-10-09; API bootstrap-static same morning (GW5 finished+checked, GW6 next)",
  "chips_active": [],
- "captain": "Gro\u00df",
- "vice": "Schade",
+ "captain": "Haaland",
+ "vice": "Gro\u00df",
+ "captain_model": "Gro\u00df",
+ "vice_model": "Schade",
+ "captain_override_reason": "GW6 after the break: ep_next is one GW of form; xGI/90 over 450 min Haaland 0.99 vs Gro\u00df 0.53 vs Schade 0.37; 74% owned. Alfred call 2026-10-09 09:40 CDT.",
  "captain_current": "Haaland",
- "vice_current": "Gvardiol",
+ "vice_current": "Gro\u00df",
  "xi": [
   {
    "name": "Raya",
@@ -63,11 +66,11 @@
    "ep": 4.5
   },
   {
-   "name": "M.Sangar\u00e9",
+   "name": "Palmer",
    "pos": "MID",
-   "club": "BRE",
-   "score": 8.63,
-   "ep": 2.0
+   "club": "CHE",
+   "score": 14.85,
+   "ep": 3.5
   },
   {
    "name": "Kostoulas",
@@ -87,8 +90,8 @@
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
-   "score": 14.47,
-   "ep": 4.5
+   "score": 24.97,
+   "ep": 6.0
   }
  ],
  "bench": [
@@ -99,9 +102,9 @@
    "order": 0
   },
   {
-   "name": "Palmer",
+   "name": "M.Sangar\u00e9",
    "pos": "MID",
-   "club": "CHE",
+   "club": "BRE",
    "order": 1
   },
   {
@@ -120,14 +123,10 @@
  "changes": [
   {
    "in": "Gvardiol",
-   "out": "Palmer"
-  },
-  {
-   "in": "Schade",
    "out": "Egan"
   },
   {
-   "in": "Kostoulas",
+   "in": "Schade",
    "out": "Ajayi"
   }
  ],
@@ -149,6 +148,10 @@
   {
    "ts": "2026-10-09T09:12:25-0500",
    "note": "GW6 squad from screenshot: out Isak, Castagne, Stach; in Gvardiol, Schade, Kostoulas; bank 3.5; 0 FT, -4 pending"
+  },
+  {
+   "ts": "2026-10-09T09:58:23-0500",
+   "note": "captain override Haaland (C) Gro\u00df (V) for GW6"
   }
  ],
  "availability": [
@@ -215,8 +218,8 @@
   {
    "name": "Palmer",
    "club": "CHE",
-   "status": "d",
-   "available": false
+   "status": "a",
+   "available": true
   },
   {
    "name": "M.Sangar\u00e9",
@@ -239,11 +242,11 @@
   {
    "name": "Jo\u00e3o Pedro",
    "club": "CHE",
-   "status": "d",
-   "available": false
+   "status": "a",
+   "available": true
   }
  ],
- "all_available": false,
+ "all_available": true,
  "fixtures": [
   {
    "home": "BRE",
@@ -285,20 +288,20 @@
      "yours": true
     },
     {
+     "name": "Jo\u00e3o Pedro",
+     "club": "CHE",
+     "pos": "FWD",
+     "score": 10.2,
+     "side": "A",
+     "yours": true
+    },
+    {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
      "score": 9.5,
      "side": "A",
      "yours": false
-    },
-    {
-     "name": "Jo\u00e3o Pedro",
-     "club": "CHE",
-     "pos": "FWD",
-     "score": 6.2,
-     "side": "A",
-     "yours": true
     }
    ],
    "kickoff_utc": "2026-09-18T19:00:00Z",
