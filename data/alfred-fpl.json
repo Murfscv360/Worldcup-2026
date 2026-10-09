@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 03:15:38",
+ "generated": "2026-10-09 06:15:27",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
@@ -403,10 +403,10 @@
      "yours": false
     },
     {
-     "name": "O'Riley",
+     "name": "Hinshelwood",
      "club": "BHA",
      "pos": "MID",
-     "score": 10.5,
+     "score": 11.0,
      "side": "H",
      "yours": false
     },
