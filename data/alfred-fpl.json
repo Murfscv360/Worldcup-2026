@@ -1,15 +1,15 @@
 {
- "generated": "2026-10-09 06:15:27",
+ "generated": "2026-10-09 09:12:43",
  "tz": "America/Chicago",
  "gw": 5,
  "gw_for": 6,
  "squad_as_of": 5,
  "deadline": "2026-10-10T10:00:00Z",
  "formation": "3-4-3",
- "source": "API /entry/5933243/event/5/picks (unauthenticated, synced 2026-09-19 20:50)",
+ "source": "Alfred-maintained golden record; screenshot 2026-10-09; API bootstrap-static same morning (GW5 finished+checked, GW6 next)",
  "chips_active": [],
  "captain": "Gro\u00df",
- "vice": "Bogle",
+ "vice": "Schade",
  "captain_current": "Haaland",
  "vice_current": "Gvardiol",
  "xi": [
@@ -35,11 +35,11 @@
    "ep": 8.5
   },
   {
-   "name": "Castagne",
+   "name": "Gvardiol",
    "pos": "DEF",
-   "club": "FUL",
-   "score": 14.22,
-   "ep": 3.5
+   "club": "MCI",
+   "score": 29.42,
+   "ep": 7.5
   },
   {
    "name": "Gro\u00df",
@@ -49,6 +49,13 @@
    "ep": 15.5
   },
   {
+   "name": "Schade",
+   "pos": "MID",
+   "club": "BRE",
+   "score": 47.23,
+   "ep": 12.0
+  },
+  {
    "name": "Cherki",
    "pos": "MID",
    "club": "MCI",
@@ -56,18 +63,18 @@
    "ep": 4.5
   },
   {
-   "name": "Stach",
-   "pos": "MID",
-   "club": "LEE",
-   "score": 16.2,
-   "ep": 4.0
-  },
-  {
    "name": "M.Sangar\u00e9",
    "pos": "MID",
    "club": "BRE",
    "score": 8.63,
    "ep": 2.0
+  },
+  {
+   "name": "Kostoulas",
+   "pos": "FWD",
+   "club": "BHA",
+   "score": 39.53,
+   "ep": 10.0
   },
   {
    "name": "Haaland",
@@ -82,13 +89,6 @@
    "club": "CHE",
    "score": 14.47,
    "ep": 4.5
-  },
-  {
-   "name": "Isak",
-   "pos": "FWD",
-   "club": "LIV",
-   "score": 12.2,
-   "ep": 3.8
   }
  ],
  "bench": [
@@ -119,15 +119,15 @@
  ],
  "changes": [
   {
-   "in": "Castagne",
+   "in": "Gvardiol",
    "out": "Palmer"
   },
   {
-   "in": "Stach",
+   "in": "Schade",
    "out": "Egan"
   },
   {
-   "in": "M.Sangar\u00e9",
+   "in": "Kostoulas",
    "out": "Ajayi"
   }
  ],
@@ -145,12 +145,22 @@
    "change": "GW6 squad from screenshots: OUT Stach, Castagne; IN Schade, Gvardiol; C Haaland V Gvardiol",
    "source": "screenshot"
   },
-  "2026-09-19 20:50 \u2014 squad reconciled from FPL history GW5"
+  "2026-09-19 20:50 \u2014 squad reconciled from FPL history GW5",
+  {
+   "ts": "2026-10-09T09:12:25-0500",
+   "note": "GW6 squad from screenshot: out Isak, Castagne, Stach; in Gvardiol, Schade, Kostoulas; bank 3.5; 0 FT, -4 pending"
+  }
  ],
  "availability": [
   {
    "name": "Raya",
    "club": "ARS",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Tzolakis",
+   "club": "HUL",
    "status": "a",
    "available": true
   },
@@ -179,10 +189,16 @@
    "available": true
   },
   {
-   "name": "Palmer",
-   "club": "CHE",
-   "status": "d",
-   "available": false
+   "name": "Gvardiol",
+   "club": "MCI",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Schade",
+   "club": "BRE",
+   "status": "a",
+   "available": true
   },
   {
    "name": "Gro\u00df",
@@ -197,8 +213,26 @@
    "available": true
   },
   {
+   "name": "Palmer",
+   "club": "CHE",
+   "status": "d",
+   "available": false
+  },
+  {
+   "name": "M.Sangar\u00e9",
+   "club": "BRE",
+   "status": "a",
+   "available": true
+  },
+  {
    "name": "Haaland",
    "club": "MCI",
+   "status": "a",
+   "available": true
+  },
+  {
+   "name": "Kostoulas",
+   "club": "BHA",
    "status": "a",
    "available": true
   },
@@ -207,36 +241,6 @@
    "club": "CHE",
    "status": "d",
    "available": false
-  },
-  {
-   "name": "Isak",
-   "club": "LIV",
-   "status": "d",
-   "available": false
-  },
-  {
-   "name": "Tzolakis",
-   "club": "HUL",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "Castagne",
-   "club": "FUL",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "Stach",
-   "club": "LEE",
-   "status": "a",
-   "available": true
-  },
-  {
-   "name": "M.Sangar\u00e9",
-   "club": "BRE",
-   "status": "a",
-   "available": true
   }
  ],
  "all_available": false,
@@ -278,7 +282,7 @@
      "pos": "MID",
      "score": 10.5,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Rogers",
@@ -639,14 +643,6 @@
      "yours": false
     },
     {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 6.8,
-     "side": "A",
-     "yours": true
-    },
-    {
      "name": "Gannon-Doak",
      "club": "BOU",
      "pos": "MID",
@@ -659,6 +655,14 @@
      "club": "LIV",
      "pos": "MID",
      "score": 6.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Szoboszlai",
+     "club": "LIV",
+     "pos": "MID",
+     "score": 6.2,
      "side": "A",
      "yours": false
     }
@@ -716,10 +720,10 @@
      "yours": false
     },
     {
-     "name": "Kamada",
+     "name": "Khalaili",
      "club": "CRY",
-     "pos": "MID",
-     "score": 5.2,
+     "pos": "DEF",
+     "score": 5.4,
      "side": "A",
      "yours": false
     }
