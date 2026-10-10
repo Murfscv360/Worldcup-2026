@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10 12:05:28",
+ "generated": "2026-10-10 15:05:20",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -35,18 +35,18 @@
      "yours": false
     },
     {
-     "name": "S\u00e1vio",
+     "name": "Gallagher",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.2,
+     "score": 6.3,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Kudus",
+     "name": "S\u00e1vio",
      "club": "TOT",
      "pos": "MID",
-     "score": 5.8,
+     "score": 6.1,
      "side": "H",
      "yours": false
     },
@@ -91,7 +91,7 @@
      "name": "Jo\u00e3o Pedro",
      "club": "CHE",
      "pos": "FWD",
-     "score": 11.4,
+     "score": 11.7,
      "side": "A",
      "yours": true
     },
@@ -99,7 +99,7 @@
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
-     "score": 9.7,
+     "score": 9.6,
      "side": "A",
      "yours": false
     },
@@ -457,7 +457,7 @@
      "name": "Hadjam",
      "club": "BHA",
      "pos": "DEF",
-     "score": 25.2,
+     "score": 20.8,
      "side": "H",
      "yours": false
     },
@@ -465,7 +465,7 @@
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.5,
+     "score": 11.8,
      "side": "H",
      "yours": true
     },
@@ -518,7 +518,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 10.2,
+     "score": 9.4,
      "side": "A",
      "yours": false
     },
@@ -526,7 +526,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 8.5,
+     "score": 9.4,
      "side": "A",
      "yours": false
     },
@@ -534,7 +534,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 7.7,
+     "score": 7.8,
      "side": "H",
      "yours": true
     },
@@ -579,7 +579,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 11.2,
+     "score": 11.4,
      "side": "A",
      "yours": false
     },
