@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-10 08:00:22",
+ "generated": "2026-10-10 18:00:18",
  "tz": "America/Chicago",
- "gw": 5,
+ "gw": 6,
  "days": [
-  {
-   "date": "2026-10-07",
-   "ts": "2026-10-07 18:00:06",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-08",
    "ts": "2026-10-08 08:00:11",
@@ -86,6 +76,19 @@
     "Rice (ARS, 11% owned): now available",
     "Havertz (ARS, 7% owned): now available",
     "Konsa (ARS, 17% owned): now available"
+   ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-10",
+   "ts": "2026-10-10 18:00:07",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Schade (BRE, YOUR PLAYER): Shoulder injury - 75% chance of playing",
+    "James (CHE, 5% owned): Unspecified injury - 75% chance of playing"
    ],
    "unreachable": [
     "bbc"
