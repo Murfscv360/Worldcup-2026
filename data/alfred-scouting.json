@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10 06:05:27",
+ "generated": "2026-10-10 09:05:18",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -162,7 +162,7 @@
      "pos": "MID",
      "score": 8.5,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Szoboszlai",
@@ -353,7 +353,7 @@
      "pos": "MID",
      "score": 5.4,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Wissa",
@@ -523,14 +523,6 @@
      "yours": false
     },
     {
-     "name": "Bogle",
-     "club": "LEE",
-     "pos": "DEF",
-     "score": 8.7,
-     "side": "H",
-     "yours": true
-    },
-    {
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
@@ -539,10 +531,18 @@
      "yours": false
     },
     {
+     "name": "Bogle",
+     "club": "LEE",
+     "pos": "DEF",
+     "score": 7.7,
+     "side": "H",
+     "yours": true
+    },
+    {
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 8.1,
+     "score": 7.4,
      "side": "H",
      "yours": false
     }
@@ -579,7 +579,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 12.2,
+     "score": 11.2,
      "side": "A",
      "yours": false
     },
@@ -595,7 +595,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 7.4,
+     "score": 7.8,
      "side": "A",
      "yours": false
     },
