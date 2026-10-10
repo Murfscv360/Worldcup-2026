@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10 15:05:20",
+ "generated": "2026-10-10 18:05:23",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -43,10 +43,10 @@
      "yours": false
     },
     {
-     "name": "S\u00e1vio",
+     "name": "Solanke",
      "club": "TOT",
-     "pos": "MID",
-     "score": 6.1,
+     "pos": "FWD",
+     "score": 6.2,
      "side": "H",
      "yours": false
     },
@@ -160,7 +160,7 @@
      "name": "Anthony",
      "club": "BRE",
      "pos": "MID",
-     "score": 7.7,
+     "score": 7.4,
      "side": "H",
      "yours": false
     },
@@ -335,7 +335,7 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 9.8,
+     "score": 10.2,
      "side": "A",
      "yours": false
     },
@@ -343,7 +343,7 @@
      "name": "N.Jackson",
      "club": "AVL",
      "pos": "FWD",
-     "score": 6.8,
+     "score": 7.1,
      "side": "A",
      "yours": false
     },
