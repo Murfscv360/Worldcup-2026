@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10 09:15:25",
+ "generated": "2026-10-10 12:15:26",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -11,7 +11,7 @@
  "captain": "Haaland",
  "vice": "Gro\u00df",
  "captain_model": "Gro\u00df",
- "vice_model": "Schade",
+ "vice_model": "De Cuyper",
  "captain_override_reason": "GW6 after the break: ep_next is one GW of form; xGI/90 over 450 min Haaland 0.99 vs Gro\u00df 0.53 vs Schade 0.37; 74% owned. Alfred call 2026-10-09 09:40 CDT.",
  "captain_current": "Haaland",
  "vice_current": "Gro\u00df",
@@ -24,18 +24,18 @@
    "ep": 6.0
   },
   {
+   "name": "De Cuyper",
+   "pos": "DEF",
+   "club": "BHA",
+   "score": 42.55,
+   "ep": 10.7
+  },
+  {
    "name": "Bogle",
    "pos": "DEF",
    "club": "LEE",
    "score": 27.93,
    "ep": 7.0
-  },
-  {
-   "name": "De Cuyper",
-   "pos": "DEF",
-   "club": "BHA",
-   "score": 23.42,
-   "ep": 5.7
   },
   {
    "name": "Gvardiol",
@@ -48,36 +48,43 @@
    "name": "Gro\u00df",
    "pos": "MID",
    "club": "BHA",
-   "score": 41.22,
-   "ep": 10.3
-  },
-  {
-   "name": "Schade",
-   "pos": "MID",
-   "club": "BRE",
-   "score": 31.9,
-   "ep": 8.0
+   "score": 48.75,
+   "ep": 12.3
   },
   {
    "name": "Buend\u00eda",
    "pos": "MID",
    "club": "AVL",
-   "score": 18.88,
-   "ep": 4.7
+   "score": 24.0,
+   "ep": 6.0
   },
   {
-   "name": "Cherki",
+   "name": "Schade",
    "pos": "MID",
-   "club": "MCI",
-   "score": 13.73,
-   "ep": 3.0
+   "club": "BRE",
+   "score": 20.88,
+   "ep": 6.2
+  },
+  {
+   "name": "Palmer",
+   "pos": "MID",
+   "club": "CHE",
+   "score": 20.4,
+   "ep": 5.0
+  },
+  {
+   "name": "Jo\u00e3o Pedro",
+   "pos": "FWD",
+   "club": "CHE",
+   "score": 32.7,
+   "ep": 8.0
   },
   {
    "name": "Kostoulas",
    "pos": "FWD",
    "club": "BHA",
-   "score": 26.88,
-   "ep": 6.7
+   "score": 27.87,
+   "ep": 7.0
   },
   {
    "name": "Haaland",
@@ -85,13 +92,6 @@
    "club": "MCI",
    "score": 22.47,
    "ep": 5.0
-  },
-  {
-   "name": "Jo\u00e3o Pedro",
-   "pos": "FWD",
-   "club": "CHE",
-   "score": 17.3,
-   "ep": 4.0
   }
  ],
  "bench": [
@@ -102,9 +102,9 @@
    "order": 0
   },
   {
-   "name": "Palmer",
+   "name": "Cherki",
    "pos": "MID",
-   "club": "CHE",
+   "club": "MCI",
    "order": 1
   },
   {
@@ -123,7 +123,7 @@
  "changes": [
   {
    "in": "Kostoulas",
-   "out": "Palmer"
+   "out": "Cherki"
   }
  ],
  "transfers_recommended": [],
@@ -187,8 +187,8 @@
   {
    "name": "Schade",
    "club": "BRE",
-   "status": "a",
-   "available": true
+   "status": "d",
+   "available": false
   },
   {
    "name": "Gro\u00df",
@@ -251,7 +251,7 @@
    "available": true
   }
  ],
- "all_available": true,
+ "all_available": false,
  "fixtures": [
   {
    "home": "COV",
@@ -410,23 +410,23 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 9.5,
+     "score": 9.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Schade",
+     "name": "Anthony",
      "club": "BRE",
      "pos": "MID",
-     "score": 8.8,
+     "score": 7.7,
      "side": "A",
-     "yours": true
+     "yours": false
     },
     {
      "name": "N.Jackson",
      "club": "AVL",
      "pos": "FWD",
-     "score": 6.6,
+     "score": 6.8,
      "side": "H",
      "yours": false
     }
@@ -460,33 +460,33 @@
    ],
    "watch": [
     {
-     "name": "Rogers",
-     "club": "CHE",
-     "pos": "MID",
-     "score": 9.8,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Jo\u00e3o Pedro",
      "club": "CHE",
      "pos": "FWD",
-     "score": 9.0,
+     "score": 11.4,
      "side": "H",
      "yours": true
+    },
+    {
+     "name": "Rogers",
+     "club": "CHE",
+     "pos": "MID",
+     "score": 9.7,
+     "side": "H",
+     "yours": false
     },
     {
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 7.7,
+     "score": 7.3,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Gannon-Doak",
+     "name": "Evanilson",
      "club": "BOU",
-     "pos": "MID",
+     "pos": "FWD",
      "score": 6.2,
      "side": "A",
      "yours": false
@@ -524,7 +524,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 7.8,
+     "score": 8.0,
      "side": "H",
      "yours": false
     },
@@ -532,24 +532,24 @@
      "name": "Gonzalo",
      "club": "FUL",
      "pos": "FWD",
-     "score": 6.5,
+     "score": 6.7,
      "side": "A",
      "yours": false
     },
     {
-     "name": "King",
+     "name": "Enciso",
+     "club": "IPS",
+     "pos": "MID",
+     "score": 6.2,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Bobb",
      "club": "FUL",
      "pos": "MID",
-     "score": 5.9,
+     "score": 6.2,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Flemming",
-     "club": "IPS",
-     "pos": "FWD",
-     "score": 5.7,
-     "side": "H",
      "yours": false
     }
    ],
@@ -582,34 +582,34 @@
    ],
    "watch": [
     {
+     "name": "Hadjam",
+     "club": "BHA",
+     "pos": "DEF",
+     "score": 25.2,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Gro\u00df",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.3,
+     "score": 11.5,
      "side": "A",
      "yours": true
     },
     {
-     "name": "Hinshelwood",
-     "club": "BHA",
+     "name": "E.Le F\u00e9e",
+     "club": "SUN",
      "pos": "MID",
-     "score": 10.9,
-     "side": "A",
+     "score": 7.2,
+     "side": "H",
      "yours": false
     },
     {
      "name": "Isidor",
      "club": "SUN",
      "pos": "FWD",
-     "score": 8.5,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "E.Le F\u00e9e",
-     "club": "SUN",
-     "pos": "MID",
-     "score": 7.6,
+     "score": 5.3,
      "side": "H",
      "yours": false
     }
@@ -646,7 +646,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 10.5,
+     "score": 9.9,
      "side": "H",
      "yours": false
     },
@@ -654,23 +654,23 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 8.7,
+     "score": 8.3,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "S\u00e1vio",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 6.2,
-     "side": "A",
      "yours": false
     },
     {
      "name": "Gallagher",
      "club": "TOT",
      "pos": "MID",
-     "score": 5.3,
+     "score": 6.5,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "S\u00e1vio",
+     "club": "TOT",
+     "pos": "MID",
+     "score": 5.8,
      "side": "A",
      "yours": false
     }
