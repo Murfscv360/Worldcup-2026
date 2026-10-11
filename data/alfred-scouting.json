@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11 06:05:27",
+ "generated": "2026-10-11 09:05:19",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -107,15 +107,15 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 8.6,
+     "score": 8.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Maitland-Niles",
+     "name": "Tarkowski",
      "club": "EVE",
      "pos": "DEF",
-     "score": 6.2,
+     "score": 6.3,
      "side": "H",
      "yours": false
     }
@@ -218,19 +218,19 @@
      "yours": false
     },
     {
+     "name": "Gelhardt",
+     "club": "HUL",
+     "pos": "MID",
+     "score": 6.9,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Gonzalo",
      "club": "FUL",
      "pos": "FWD",
      "score": 6.7,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Belloumi",
-     "club": "HUL",
-     "pos": "MID",
-     "score": 6.4,
-     "side": "A",
      "yours": false
     },
     {
@@ -481,7 +481,7 @@
      "name": "Kamada",
      "club": "CRY",
      "pos": "MID",
-     "score": 4.3,
+     "score": 6.6,
      "side": "A",
      "yours": false
     }
@@ -587,7 +587,15 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 8.2,
+     "score": 8.3,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Ndoye",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 7.8,
      "side": "H",
      "yours": false
     },
@@ -597,14 +605,6 @@
      "pos": "MID",
      "score": 7.8,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Ndoye",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 6.1,
-     "side": "H",
      "yours": false
     }
    ],
