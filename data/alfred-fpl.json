@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11 15:15:15",
+ "generated": "2026-10-11 18:15:16",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -829,7 +829,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 16.0,
+     "score": 16.4,
      "side": "A",
      "yours": true
     },
@@ -837,7 +837,7 @@
      "name": "Cherki",
      "club": "MCI",
      "pos": "MID",
-     "score": 12.1,
+     "score": 11.7,
      "side": "A",
      "yours": true
     },
@@ -853,7 +853,7 @@
      "name": "Jacquet",
      "club": "LIV",
      "pos": "DEF",
-     "score": 5.2,
+     "score": 5.3,
      "side": "H",
      "yours": false
     }
