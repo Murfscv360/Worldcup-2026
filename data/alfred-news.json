@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-10 18:00:18",
+ "generated": "2026-10-11 08:00:21",
  "tz": "America/Chicago",
  "gw": 6,
  "days": [
-  {
-   "date": "2026-10-08",
-   "ts": "2026-10-08 08:00:11",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-08",
    "ts": "2026-10-08 18:00:08",
@@ -89,6 +79,18 @@
    "player_changes": [
     "Schade (BRE, YOUR PLAYER): Shoulder injury - 75% chance of playing",
     "James (CHE, 5% owned): Unspecified injury - 75% chance of playing"
+   ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-11",
+   "ts": "2026-10-11 08:00:10",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "N.Williams (NFO, 7% owned): now available"
    ],
    "unreachable": [
     "bbc"
