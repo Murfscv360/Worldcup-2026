@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11 12:15:16",
+ "generated": "2026-10-11 15:15:15",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -83,8 +83,8 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 30.88,
-   "ep": 7.3
+   "score": 29.73,
+   "ep": 7.0
   },
   {
    "name": "Kostoulas",
@@ -723,7 +723,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.5,
+     "score": 7.7,
      "side": "A",
      "yours": false
     },
@@ -731,7 +731,7 @@
      "name": "Strand Larsen",
      "club": "CRY",
      "pos": "FWD",
-     "score": 7.0,
+     "score": 6.9,
      "side": "H",
      "yours": false
     }
@@ -829,7 +829,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 16.1,
+     "score": 16.0,
      "side": "A",
      "yours": true
     },
