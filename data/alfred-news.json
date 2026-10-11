@@ -1,21 +1,8 @@
 {
- "generated": "2026-10-11 08:00:21",
+ "generated": "2026-10-11 18:00:20",
  "tz": "America/Chicago",
  "gw": 6,
  "days": [
-  {
-   "date": "2026-10-08",
-   "ts": "2026-10-08 18:00:08",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Scott (BOU, 5% owned): Thigh injury - Unknown return date",
-    "Brobbey (SUN, 7% owned): Hamstring injury - Expected back 25 Oct"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-09",
    "ts": "2026-10-09 08:00:06",
@@ -91,6 +78,20 @@
    "key": [],
    "player_changes": [
     "N.Williams (NFO, 7% owned): now available"
+   ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-11",
+   "ts": "2026-10-11 18:00:07",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Szoboszlai (LIV, 29% owned): Hamstring injury - 75% chance of playing",
+    "O'Reilly (MCI, 10% owned): now available",
+    "Semenyo (MCI, 14% owned): now available"
    ],
    "unreachable": [
     "bbc"
