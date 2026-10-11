@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11 09:05:19",
+ "generated": "2026-10-11 12:05:21",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -96,6 +96,14 @@
      "yours": true
     },
     {
+     "name": "Barry",
+     "club": "EVE",
+     "pos": "FWD",
+     "score": 9.8,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Rogers",
      "club": "CHE",
      "pos": "MID",
@@ -104,18 +112,10 @@
      "yours": false
     },
     {
-     "name": "Barry",
+     "name": "Dewsbury-Hall",
      "club": "EVE",
-     "pos": "FWD",
-     "score": 8.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Tarkowski",
-     "club": "EVE",
-     "pos": "DEF",
-     "score": 6.3,
+     "pos": "MID",
+     "score": 7.5,
      "side": "H",
      "yours": false
     }
@@ -165,18 +165,18 @@
      "yours": false
     },
     {
-     "name": "Szoboszlai",
+     "name": "Wirtz",
      "club": "LIV",
      "pos": "MID",
-     "score": 5.8,
+     "score": 5.9,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Koumas",
+     "name": "Jacquet",
      "club": "LIV",
-     "pos": "MID",
-     "score": 5.7,
+     "pos": "DEF",
+     "score": 5.5,
      "side": "A",
      "yours": false
     }
@@ -210,18 +210,18 @@
    ],
    "watch": [
     {
-     "name": "Cho",
+     "name": "Gelhardt",
      "club": "HUL",
      "pos": "MID",
-     "score": 7.6,
+     "score": 12.8,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Gelhardt",
+     "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 6.9,
+     "score": 7.8,
      "side": "A",
      "yours": false
     },
@@ -274,7 +274,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 16.4,
+     "score": 16.5,
      "side": "H",
      "yours": true
     },
@@ -282,7 +282,7 @@
      "name": "Doku",
      "club": "MCI",
      "pos": "MID",
-     "score": 13.0,
+     "score": 11.9,
      "side": "H",
      "yours": false
     },
@@ -473,15 +473,15 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 8.1,
+     "score": 8.0,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Kamada",
+     "name": "Strand Larsen",
      "club": "CRY",
-     "pos": "MID",
-     "score": 6.6,
+     "pos": "FWD",
+     "score": 7.0,
      "side": "A",
      "yours": false
     }
@@ -587,15 +587,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 8.3,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Ndoye",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 7.8,
+     "score": 8.5,
      "side": "H",
      "yours": false
     },
@@ -605,6 +597,14 @@
      "pos": "MID",
      "score": 7.8,
      "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Ndoye",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 7.5,
+     "side": "H",
      "yours": false
     }
    ],
