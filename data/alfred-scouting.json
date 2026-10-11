@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11 12:05:21",
+ "generated": "2026-10-11 15:05:18",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -176,7 +176,7 @@
      "name": "Jacquet",
      "club": "LIV",
      "pos": "DEF",
-     "score": 5.5,
+     "score": 5.2,
      "side": "A",
      "yours": false
     }
@@ -274,17 +274,17 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 16.5,
+     "score": 16.0,
      "side": "H",
      "yours": true
     },
     {
-     "name": "Doku",
+     "name": "Cherki",
      "club": "MCI",
      "pos": "MID",
-     "score": 11.9,
+     "score": 12.1,
      "side": "H",
-     "yours": false
+     "yours": true
     },
     {
      "name": "Emersonn",
@@ -481,7 +481,7 @@
      "name": "Strand Larsen",
      "club": "CRY",
      "pos": "FWD",
-     "score": 7.0,
+     "score": 6.9,
      "side": "A",
      "yours": false
     }
@@ -603,7 +603,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.5,
+     "score": 7.7,
      "side": "H",
      "yours": false
     }
