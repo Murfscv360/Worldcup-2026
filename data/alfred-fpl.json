@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11 09:15:19",
+ "generated": "2026-10-11 12:15:16",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -41,8 +41,8 @@
    "name": "Gvardiol",
    "pos": "DEF",
    "club": "MCI",
-   "score": 19.83,
-   "ep": 5.0
+   "score": 24.88,
+   "ep": 6.3
   },
   {
    "name": "Gro\u00df",
@@ -50,6 +50,13 @@
    "club": "BHA",
    "score": 48.88,
    "ep": 12.3
+  },
+  {
+   "name": "Cherki",
+   "pos": "MID",
+   "club": "MCI",
+   "score": 26.62,
+   "ep": 6.3
   },
   {
    "name": "Buend\u00eda",
@@ -66,13 +73,6 @@
    "ep": 6.2
   },
   {
-   "name": "Palmer",
-   "pos": "MID",
-   "club": "CHE",
-   "score": 20.4,
-   "ep": 5.0
-  },
-  {
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
@@ -80,18 +80,18 @@
    "ep": 8.0
   },
   {
+   "name": "Haaland",
+   "pos": "FWD",
+   "club": "MCI",
+   "score": 30.88,
+   "ep": 7.3
+  },
+  {
    "name": "Kostoulas",
    "pos": "FWD",
    "club": "BHA",
    "score": 27.9,
    "ep": 7.0
-  },
-  {
-   "name": "Haaland",
-   "pos": "FWD",
-   "club": "MCI",
-   "score": 22.47,
-   "ep": 5.0
   }
  ],
  "bench": [
@@ -102,9 +102,9 @@
    "order": 0
   },
   {
-   "name": "Cherki",
+   "name": "Palmer",
    "pos": "MID",
-   "club": "MCI",
+   "club": "CHE",
    "order": 1
   },
   {
@@ -123,7 +123,7 @@
  "changes": [
   {
    "in": "Kostoulas",
-   "out": "Cherki"
+   "out": "Palmer"
   }
  ],
  "transfers_recommended": [],
@@ -707,7 +707,7 @@
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 8.3,
+     "score": 8.5,
      "side": "A",
      "yours": false
     },
@@ -715,7 +715,7 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 8.1,
+     "score": 8.0,
      "side": "H",
      "yours": false
     },
@@ -723,15 +723,15 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.6,
+     "score": 7.5,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Kamada",
+     "name": "Strand Larsen",
      "club": "CRY",
-     "pos": "MID",
-     "score": 6.6,
+     "pos": "FWD",
+     "score": 7.0,
      "side": "H",
      "yours": false
     }
@@ -765,34 +765,34 @@
    ],
    "watch": [
     {
+     "name": "Gelhardt",
+     "club": "HUL",
+     "pos": "MID",
+     "score": 12.8,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 8.8,
+     "score": 9.8,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Cho",
+     "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 7.6,
+     "score": 7.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Gelhardt",
-     "club": "HUL",
-     "pos": "MID",
-     "score": 6.9,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Tarkowski",
+     "name": "Dewsbury-Hall",
      "club": "EVE",
-     "pos": "DEF",
-     "score": 6.1,
+     "pos": "MID",
+     "score": 7.5,
      "side": "A",
      "yours": false
     }
@@ -829,31 +829,31 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 16.4,
+     "score": 16.1,
      "side": "A",
      "yours": true
     },
     {
-     "name": "Doku",
+     "name": "Cherki",
      "club": "MCI",
      "pos": "MID",
-     "score": 13.0,
+     "score": 12.1,
      "side": "A",
-     "yours": false
+     "yours": true
     },
     {
-     "name": "Szoboszlai",
+     "name": "Wirtz",
      "club": "LIV",
      "pos": "MID",
-     "score": 5.8,
+     "score": 5.9,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Koumas",
+     "name": "Jacquet",
      "club": "LIV",
-     "pos": "MID",
-     "score": 5.7,
+     "pos": "DEF",
+     "score": 5.2,
      "side": "H",
      "yours": false
     }
