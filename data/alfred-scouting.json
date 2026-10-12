@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12 09:05:21",
+ "generated": "2026-10-12 12:05:21",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -38,7 +38,7 @@
      "name": "Gallagher",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.3,
+     "score": 7.1,
      "side": "H",
      "yours": false
     },
@@ -46,7 +46,7 @@
      "name": "Solanke",
      "club": "TOT",
      "pos": "FWD",
-     "score": 6.2,
+     "score": 6.7,
      "side": "H",
      "yours": false
     },
@@ -99,7 +99,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 9.8,
+     "score": 10.4,
      "side": "H",
      "yours": false
     },
@@ -115,7 +115,7 @@
      "name": "Dewsbury-Hall",
      "club": "EVE",
      "pos": "MID",
-     "score": 7.5,
+     "score": 8.5,
      "side": "H",
      "yours": false
     }
@@ -168,7 +168,7 @@
      "name": "Wirtz",
      "club": "LIV",
      "pos": "MID",
-     "score": 5.9,
+     "score": 6.1,
      "side": "A",
      "yours": false
     },
@@ -176,7 +176,7 @@
      "name": "Jacquet",
      "club": "LIV",
      "pos": "DEF",
-     "score": 5.3,
+     "score": 4.5,
      "side": "A",
      "yours": false
     }
@@ -213,15 +213,15 @@
      "name": "Gelhardt",
      "club": "HUL",
      "pos": "MID",
-     "score": 12.9,
+     "score": 13.6,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Belloumi",
+     "name": "Cho",
      "club": "HUL",
      "pos": "MID",
-     "score": 7.8,
+     "score": 7.9,
      "side": "A",
      "yours": false
     },
@@ -290,7 +290,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 8.0,
+     "score": 6.4,
      "side": "A",
      "yours": false
     },
@@ -584,10 +584,10 @@
      "yours": false
     },
     {
-     "name": "Gibbs-White",
+     "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 8.5,
+     "score": 8.2,
      "side": "H",
      "yours": false
     },
@@ -600,10 +600,10 @@
      "yours": false
     },
     {
-     "name": "Ndoye",
+     "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.7,
+     "score": 7.5,
      "side": "H",
      "yours": false
     }
