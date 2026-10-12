@@ -1,22 +1,8 @@
 {
- "generated": "2026-10-12 08:00:16",
+ "generated": "2026-10-12 18:00:24",
  "tz": "America/Chicago",
  "gw": 6,
  "days": [
-  {
-   "date": "2026-10-09",
-   "ts": "2026-10-09 09:12:58",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Tzolis (ARS, 11% owned): Hamstring injury - Expected back 24 Oct",
-    "Gakpo (LIV, 11% owned): Ankle injury - Unknown return date",
-    "Isak (LIV, 21% owned): Thigh injury - Unknown return date"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-09",
    "ts": "2026-10-09 18:00:08",
@@ -93,6 +79,19 @@
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-12",
+   "ts": "2026-10-12 18:00:07",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "van Ewijk (COV, 7% owned): now available",
+    "Shaw (MUN, 7% owned): Unspecified injury - 75% chance of playing"
+   ],
    "unreachable": [
     "bbc"
    ]
