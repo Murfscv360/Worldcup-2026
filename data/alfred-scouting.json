@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12 12:05:21",
+ "generated": "2026-10-12 15:05:22",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -30,7 +30,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 7.3,
+     "score": 9.8,
      "side": "A",
      "yours": false
     },
@@ -54,7 +54,7 @@
      "name": "Dasilva",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.2,
+     "score": 4.3,
      "side": "A",
      "yours": false
     }
@@ -356,10 +356,10 @@
      "yours": false
     },
     {
-     "name": "Wissa",
+     "name": "Barnes",
      "club": "NEW",
-     "pos": "FWD",
-     "score": 5.0,
+     "pos": "MID",
+     "score": 5.4,
      "side": "H",
      "yours": false
     }
@@ -396,7 +396,7 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 7.2,
+     "score": 7.8,
      "side": "A",
      "yours": false
     },
@@ -420,7 +420,7 @@
      "name": "Isidor",
      "club": "SUN",
      "pos": "FWD",
-     "score": 5.3,
+     "score": 5.4,
      "side": "A",
      "yours": false
     }
@@ -579,7 +579,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 11.4,
+     "score": 10.4,
      "side": "A",
      "yours": false
     },
@@ -592,19 +592,19 @@
      "yours": false
     },
     {
-     "name": "\u00d8degaard",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 7.8,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
      "score": 7.5,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "\u00d8degaard",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 7.5,
+     "side": "A",
      "yours": false
     }
    ],
