@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12 15:05:22",
+ "generated": "2026-10-12 18:05:19",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -30,7 +30,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 9.8,
+     "score": 8.9,
      "side": "A",
      "yours": false
     },
@@ -51,10 +51,10 @@
      "yours": false
     },
     {
-     "name": "Dasilva",
+     "name": "Mfuni",
      "club": "COV",
      "pos": "DEF",
-     "score": 4.3,
+     "score": 6.3,
      "side": "A",
      "yours": false
     }
@@ -351,7 +351,7 @@
      "name": "Willock",
      "club": "NEW",
      "pos": "MID",
-     "score": 5.9,
+     "score": 6.1,
      "side": "H",
      "yours": false
     },
