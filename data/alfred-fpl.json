@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12 12:15:12",
+ "generated": "2026-10-12 15:15:13",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -17,11 +17,11 @@
  "vice_current": "Gro\u00df",
  "xi": [
   {
-   "name": "Raya",
+   "name": "Tzolakis",
    "pos": "GKP",
-   "club": "ARS",
-   "score": 23.0,
-   "ep": 6.0
+   "club": "HUL",
+   "score": 15.33,
+   "ep": 4.0
   },
   {
    "name": "De Cuyper",
@@ -96,9 +96,9 @@
  ],
  "bench": [
   {
-   "name": "Tzolakis",
+   "name": "Raya",
    "pos": "GKP",
-   "club": "HUL",
+   "club": "ARS",
    "order": 0
   },
   {
@@ -121,6 +121,10 @@
   }
  ],
  "changes": [
+  {
+   "in": "Tzolakis",
+   "out": "Raya"
+  },
   {
    "in": "Kostoulas",
    "out": "Schade"
@@ -280,7 +284,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 7.3,
+     "score": 9.5,
      "side": "H",
      "yours": false
     },
@@ -288,23 +292,23 @@
      "name": "Willock",
      "club": "NEW",
      "pos": "MID",
-     "score": 5.9,
+     "score": 5.8,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Wissa",
+     "name": "Barnes",
      "club": "NEW",
+     "pos": "MID",
+     "score": 5.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Cherif",
+     "club": "COV",
      "pos": "FWD",
      "score": 5.0,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Dasilva",
-     "club": "COV",
-     "pos": "DEF",
-     "score": 4.2,
      "side": "H",
      "yours": false
     }
@@ -341,15 +345,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 11.4,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "\u00d8degaard",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 7.8,
+     "score": 10.4,
      "side": "H",
      "yours": false
     },
@@ -360,6 +356,14 @@
      "score": 7.8,
      "side": "A",
      "yours": true
+    },
+    {
+     "name": "\u00d8degaard",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 7.5,
+     "side": "H",
+     "yours": false
     },
     {
      "name": "Calvert-Lewin",
@@ -601,7 +605,7 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 7.2,
+     "score": 7.8,
      "side": "H",
      "yours": false
     },
@@ -609,7 +613,7 @@
      "name": "Isidor",
      "club": "SUN",
      "pos": "FWD",
-     "score": 5.3,
+     "score": 5.4,
      "side": "H",
      "yours": false
     }
