@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12 09:15:17",
+ "generated": "2026-10-12 12:15:12",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -108,13 +108,13 @@
    "order": 1
   },
   {
-   "name": "Egan",
+   "name": "Ajayi",
    "pos": "DEF",
    "club": "HUL",
    "order": 2
   },
   {
-   "name": "Ajayi",
+   "name": "Egan",
    "pos": "DEF",
    "club": "HUL",
    "order": 3
@@ -662,7 +662,7 @@
      "name": "Gallagher",
      "club": "TOT",
      "pos": "MID",
-     "score": 6.3,
+     "score": 7.1,
      "side": "A",
      "yours": false
     },
@@ -670,7 +670,7 @@
      "name": "Solanke",
      "club": "TOT",
      "pos": "FWD",
-     "score": 6.2,
+     "score": 6.7,
      "side": "A",
      "yours": false
     }
@@ -776,7 +776,15 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 9.8,
+     "score": 10.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Dewsbury-Hall",
+     "club": "EVE",
+     "pos": "MID",
+     "score": 8.5,
      "side": "A",
      "yours": false
     },
@@ -786,14 +794,6 @@
      "pos": "MID",
      "score": 7.9,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Dewsbury-Hall",
-     "club": "EVE",
-     "pos": "MID",
-     "score": 7.5,
-     "side": "A",
      "yours": false
     }
    ],
