@@ -1,22 +1,8 @@
 {
- "generated": "2026-10-13 08:00:19",
+ "generated": "2026-10-13 18:00:17",
  "tz": "America/Chicago",
  "gw": 6,
  "days": [
-  {
-   "date": "2026-10-10",
-   "ts": "2026-10-10 08:00:04",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Rice (ARS, 11% owned): now available",
-    "Havertz (ARS, 7% owned): now available",
-    "Konsa (ARS, 17% owned): now available"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-10",
    "ts": "2026-10-10 18:00:07",
@@ -87,6 +73,16 @@
    "player_changes": [
     "Tzolis (ARS, 7% owned): Hamstring injury - Expected back 1 Nov"
    ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "ts": "2026-10-13 18:00:08",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
    "unreachable": [
     "bbc"
    ]
