@@ -819,6 +819,7 @@ function viewOdds(){
 const POS_LABELS = { GK:"Goalkeepers", DEF:"Defenders", MID:"Midfielders", FWD:"Forwards" };
 const FPL_ELEMENT_POS = { 1:"GKP", 2:"DEF", 3:"MID", 4:"FWD" };
 const FPL_KEY = "fh_fpl_id";
+const FPL_PLANNER_KEY_PREFIX = "fh_fpl_planner_";
 /* The official FPL API doesn't reliably allow direct cross-origin requests
    from third-party browser JS (confirmed by hand — the direct fetch failed
    on the deployed preview). Route through this app's own Vercel Function
@@ -902,13 +903,16 @@ function fplPickLeague(entry){
 
 function fantasySwitcher(){
   return `<div class="stat-controls">
-    <button class="chipbtn ${state.fantasySub!=="myteam"?"on":""}" data-fsub="best">Best XI</button>
+    <button class="chipbtn ${state.fantasySub==="best"?"on":""}" data-fsub="best">Best XI</button>
     <button class="chipbtn ${state.fantasySub==="myteam"?"on":""}" data-fsub="myteam">My Team</button>
+    <button class="chipbtn ${state.fantasySub==="planner"?"on":""}" data-fsub="planner">Planner</button>
   </div>`;
 }
 function viewFantasy(){
   let html = fantasySwitcher();
-  html += state.fantasySub==="myteam" ? viewFantasyMyTeam() : viewFantasyBest();
+  if(state.fantasySub==="myteam") html += viewFantasyMyTeam();
+  else if(state.fantasySub==="planner") html += viewFantasyPlanner();
+  else html += viewFantasyBest();
   return html;
 }
 function viewFantasyBest(){
@@ -1035,6 +1039,16 @@ async function loadFplTeam(id){
     if(league){
       FPL.leagueStandings = await getJSON(fplProxyUrl(`leagues-classic/${league.id}/standings/`), 9000).catch(()=>null);
     }
+    /* Restore any in-progress Planner sandbox for THIS team and THIS planning
+       gameweek — scoped by both so a plan left over from a finished gameweek,
+       or from a different team ID typed into the same browser, never bleeds
+       into the one being built now. Re-validated against the squad/bootstrap
+       that just loaded (fplPlannerSanitize), since a saved move can reference
+       a player who's since gone unavailable or been sold. */
+    const planner = fplPlannerLoad();
+    state.plannerMoves = planner.moves;
+    state.plannerChip = planner.chip;
+    state.plannerLineup = planner.lineup;
     fplTrackRecordWeek();
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
@@ -1412,6 +1426,241 @@ function fplTransferCard(s){
     <span class="pcard-stat">net ${fplSigned(s.net)}</span></div>
     <p class="pcard-note">+${s.gain.toFixed(1)} xPts next GW${s.cost?` − ${s.cost}pt hit`:""} = <b>${fplSigned(s.net)} net</b> · Bank after: <b>£${(bankAfter/10).toFixed(1)}m</b></p>
     ${fixtureNote?`<p class="pcard-note">📅 ${fixtureNote}</p>`:""}</div>`;
+}
+
+/* ---------- Squad Planner — a local, rules-aware sandbox ----------
+   Suggested Transfers above only ever surfaces the single best swap (or the
+   top 2) the app itself would make. This lets you try ANY combination of
+   your own, slot by slot, with the same real rules checked live as you
+   build it: budget (market price, same stand-in for sell value used
+   everywhere else on this tab), the 3-players-per-club limit, and the
+   4-point cost per transfer beyond your real banked free transfers (0 while
+   simulating a Wildcard or Free Hit). A swap is always offered a same-position
+   replacement, so the squad's 2-5-5-3 shape can never break by using it.
+   Saved per team ID and per planning gameweek in this browser only — nothing
+   here is ever sent anywhere, let alone to the real FPL account. */
+
+function fplPlannerKey(id, gw){ return `${FPL_PLANNER_KEY_PREFIX}${id}_${gw}`; }
+
+/* The real starting-XI/bench split and captain/vice straight off the picks
+   just loaded — the Planner's own starting point before any simulated sub
+   or armband change, keyed by original squad slot id (same key space as
+   `moves`) so a transfer and a sub on the same slot compose correctly. */
+function fplPlannerDefaultLineup(){
+  const picks = (FPL.picks && FPL.picks.picks) || [];
+  const cap = picks.find(p=>p.is_captain), vc = picks.find(p=>p.is_vice_captain);
+  return { startOrigIds: picks.filter(p=>p.position<=11).map(p=>p.element), captainOrig: cap?cap.element:null, viceOrig: vc?vc.element:null };
+}
+/* Re-checks every saved move/lineup choice against the squad/bootstrap that
+   just loaded — a move saved last visit can name a player since transferred
+   out (origId no longer owned), sold to someone else's squad, flagged
+   unavailable, or moved to a different position than before; a saved
+   starter/captain/vice can likewise name a slot no longer owned. Dropping
+   anything that no longer holds is safer than showing a plan that quietly
+   drifted from legal. */
+function fplPlannerSanitize(raw){
+  const owned = fplOwnedIds();
+  const moves = {};
+  Object.keys((raw && raw.moves) || {}).forEach(k=>{
+    const origId = Number(k), inId = Number(raw.moves[k]);
+    if(!owned.has(origId)) return;
+    const origEl = fplElement(origId), inEl = fplElement(inId);
+    if(!origEl || !inEl || origEl.element_type !== inEl.element_type || inEl.status!=="a") return;
+    moves[origId] = inId;
+  });
+  const chip = (raw && (raw.chip==="wildcard" || raw.chip==="freehit")) ? raw.chip : null;
+  const def = fplPlannerDefaultLineup();
+  let startOrigIds = Array.isArray(raw && raw.lineup && raw.lineup.startOrigIds)
+    ? raw.lineup.startOrigIds.map(Number).filter(id=>owned.has(id)) : null;
+  if(!startOrigIds || !startOrigIds.length) startOrigIds = def.startOrigIds;
+  let captainOrig = raw && raw.lineup && owned.has(Number(raw.lineup.captainOrig)) ? Number(raw.lineup.captainOrig) : def.captainOrig;
+  let viceOrig = raw && raw.lineup && owned.has(Number(raw.lineup.viceOrig)) ? Number(raw.lineup.viceOrig) : def.viceOrig;
+  if(!startOrigIds.includes(captainOrig)) captainOrig = null;
+  if(!startOrigIds.includes(viceOrig)) viceOrig = null;
+  return { chip, moves, lineup: { startOrigIds, captainOrig, viceOrig } };
+}
+function fplPlannerLoad(){
+  const gw = fplPlanningGw();
+  if(!FPL.id || !gw) return { chip:null, moves:{}, lineup:{ startOrigIds:[], captainOrig:null, viceOrig:null } };
+  let raw = null;
+  try{ raw = JSON.parse(localStorage.getItem(fplPlannerKey(FPL.id, gw)) || "null"); }catch(e){}
+  return fplPlannerSanitize(raw || {});
+}
+function fplPlannerPersist(){
+  const gw = fplPlanningGw();
+  if(!FPL.id || !gw) return;
+  try{ localStorage.setItem(fplPlannerKey(FPL.id, gw), JSON.stringify({ chip: state.plannerChip, moves: state.plannerMoves, lineup: state.plannerLineup })); }catch(e){}
+}
+/* Whether the simulated starting XI is a real, legal FPL lineup: exactly 11
+   starters, exactly 1 goalkeeper, and outfield counts within the real
+   formation bounds (3-5 DEF, 2-5 MID, 1-3 FWD) — checked against each
+   slot's EFFECTIVE player, so a simulated transfer that changes a starter's
+   position is reflected here too. */
+function fplPlannerLineupCheck(){
+  const lineup = state.plannerLineup, moves = state.plannerMoves;
+  const counts = { GKP:0, DEF:0, MID:0, FWD:0 };
+  lineup.startOrigIds.forEach(origId=>{
+    const effId = moves[origId]!=null ? moves[origId] : origId;
+    const el = fplElement(effId);
+    if(el){ const pos = FPL_ELEMENT_POS[el.element_type]; if(counts[pos]!=null) counts[pos]++; }
+  });
+  const n = lineup.startOrigIds.length;
+  const ok = n===11 && counts.GKP===1 && counts.DEF>=3 && counts.DEF<=5 && counts.MID>=2 && counts.MID<=5 && counts.FWD>=1 && counts.FWD<=3;
+  return { counts, n, ok };
+}
+
+/* The 15 effective element ids once `moves` is applied — each original squad
+   slot either kept as-is or replaced by its mapped-in player. excludeOrigId
+   lets a slot see what the REST of the squad looks like without its own
+   current pick, so it can check budget/club-limit against everyone else's
+   moves without double-counting itself. */
+function fplPlannerEffectiveIds(moves, excludeOrigId){
+  return Array.from(fplOwnedIds()).filter(id=> id!==excludeOrigId).map(id=> moves[id]!=null ? moves[id] : id);
+}
+function fplPlannerClubCounts(moves, excludeOrigId){
+  const counts = {};
+  fplPlannerEffectiveIds(moves, excludeOrigId).forEach(id=>{
+    const el = fplElement(id);
+    if(el) counts[el.team] = (counts[el.team]||0)+1;
+  });
+  return counts;
+}
+/* Bank remaining once every OTHER slot's move is paid for — excludeOrigId's
+   own move (if any) is left out so a slot's own candidate list isn't
+   budgeted against money it's already "spent" on its own previous pick. */
+function fplPlannerBudget(moves, excludeOrigId){
+  const bank0 = (FPL.picks.entry_history && FPL.picks.entry_history.bank) || 0;
+  let bank = bank0;
+  Object.keys(moves).forEach(k=>{
+    const origId = Number(k);
+    if(origId===excludeOrigId) return;
+    const origEl = fplElement(origId), inEl = fplElement(moves[k]);
+    if(origEl && inEl) bank += (origEl.now_cost - inEl.now_cost);
+  });
+  return bank;
+}
+/* Every real, affordable, fit, not-already-in-the-plan replacement for one
+   squad slot — same shape of search fplTransferCandidates() runs for the
+   single auto-suggested swap, just scoped to this one slot and aware of
+   every other move already in the plan (so two slots can't both claim the
+   same incoming player, and each slot's budget reflects what every other
+   move has already spent). */
+function fplPlannerCandidatesFor(origId){
+  const origEl = fplElement(origId);
+  if(!origEl || !FPL.bootstrap) return [];
+  const moves = state.plannerMoves;
+  const budget = fplPlannerBudget(moves, origId) + origEl.now_cost;
+  const takenElsewhere = new Set(fplPlannerEffectiveIds(moves, origId));
+  const clubCounts = fplPlannerClubCounts(moves, origId);
+  return (FPL.bootstrap.elements||[])
+    .filter(e=> e.element_type===origEl.element_type && e.id!==origId && !takenElsewhere.has(e.id) &&
+                e.status==="a" && e.now_cost<=budget && (clubCounts[e.team]||0) < FPL_MAX_PER_CLUB)
+    .sort((a,b)=> parseFloat(b.ep_next||0) - parseFloat(a.ep_next||0));
+}
+/* The whole plan's bottom line: real expected-points swing, the real transfer-
+   cost rule (0 while a Wildcard/Free Hit is being simulated, else 4pts per
+   move beyond real banked free transfers), and bank remaining. */
+function fplPlannerSummary(){
+  const moves = state.plannerMoves;
+  const n = Object.keys(moves).length;
+  let gain = 0;
+  Object.keys(moves).forEach(k=>{
+    const origEl = fplElement(Number(k)), inEl = fplElement(moves[k]);
+    if(origEl && inEl) gain += parseFloat(inEl.ep_next||0) - parseFloat(origEl.ep_next||0);
+  });
+  const ft = fplFreeTransfers();
+  const chipFree = state.plannerChip==="wildcard" || state.plannerChip==="freehit";
+  const cost = chipFree ? 0 : Math.max(0, n - (ft ? ft.remaining : 0)) * 4;
+  return { n, gain, cost, net: gain-cost, bank: fplPlannerBudget(moves, null), chipFree, ft };
+}
+
+function fplPlannerSlotHtml(origId){
+  const origEl = fplElement(origId);
+  if(!origEl) return "";
+  const moves = state.plannerMoves;
+  const chosenId = moves[origId];
+  const chosenEl = chosenId!=null ? fplElement(chosenId) : null;
+  const team = fplTeamMeta(origEl.team);
+  const options = [`<option value="">${origEl.web_name} — keep · £${(origEl.now_cost/10).toFixed(1)}m · ${parseFloat(origEl.ep_next||0).toFixed(1)} xPts</option>`]
+    .concat(fplPlannerCandidatesFor(origId).map(c=>{
+      const ct = fplTeamMeta(c.team);
+      return `<option value="${c.id}" ${chosenId===c.id?"selected":""}>${c.web_name}${ct?` (${ct.short_name})`:""} — £${(c.now_cost/10).toFixed(1)}m · ${parseFloat(c.ep_next||0).toFixed(1)} xPts</option>`;
+    }));
+  const swapNote = chosenEl
+    ? `<p class="pcard-note">${fplOutTag()} ${origEl.web_name} → ${fplInTag()} ${chosenEl.web_name} &nbsp;(${fplSigned(parseFloat(chosenEl.ep_next||0)-parseFloat(origEl.ep_next||0))} xPts)</p>`
+    : "";
+  const lineup = state.plannerLineup;
+  const starting = lineup.startOrigIds.includes(origId);
+  const effName = chosenEl ? chosenEl.web_name : origEl.web_name;
+  const armband = starting
+    ? `<div style="margin-top:8px;display:flex;gap:6px;align-items:center">
+        <button class="chipbtn ${lineup.captainOrig===origId?"on":""}" data-captainslot="${origId}" style="font-size:11px;padding:4px 10px">C${lineup.captainOrig===origId?` — ${effName}`:""}</button>
+        <button class="chipbtn ${lineup.viceOrig===origId?"on":""}" data-viceslot="${origId}" style="font-size:11px;padding:4px 10px">VC${lineup.viceOrig===origId?` — ${effName}`:""}</button>
+      </div>`
+    : "";
+  return `<div class="pcard"><div class="pcard-top">
+    <div><div class="pcard-nm">${origEl.web_name}${fplClubTag(origEl)}</div><div class="pcard-club">${team?team.name:""} · ${FPL_ELEMENT_POS[origEl.element_type]||""}</div></div></div>
+    <select class="fpl-input" data-slot="${origId}" style="width:100%">${options.join("")}</select>
+    ${swapNote}
+    <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px"><input type="checkbox" data-startslot="${origId}" ${starting?"checked":""}/> Starting XI (vs. bench)</label>
+    ${armband}</div>`;
+}
+
+function viewFantasyPlanner(){
+  let html = fplIdFormHtml();
+  if(FPL.loading){ html += `<div class="empty">Loading your live team…</div>`; return html; }
+  if(FPL.error){ html += `<div class="banner">${FPL.error}</div>`; return html; }
+  if(!FPL.picks || !FPL.bootstrap){ html += `<div class="empty">Load your team above, then come back here to plan moves.</div>`; return html; }
+
+  html += sectionHead("Squad Planner", "sandbox — nothing here is submitted");
+
+  const trust = fplSquadTrust();
+  if(!trust.ok){
+    html += `<p class="note">Planner is unavailable for Gameweek ${fplPlanningGw()||"—"}: the most recent squad on record${typeof trust.knownFor==="number"?` is Gameweek ${trust.knownFor}'s`:" could not be confirmed"}, and FPL's public API only publishes a squad once its gameweek has finished — so any transfer already made for Gameweek ${fplPlanningGw()||"—"} is invisible here. Building a plan on a squad that might already be wrong risks simulating moves on players you no longer own, so this stays empty until the squad is confirmed.</p>`;
+    return html;
+  }
+
+  const chips = fplChipStatus();
+  const wcAvail = !!(chips && chips.status.wildcard.availableThisHalf);
+  const fhAvail = !!(chips && chips.status.freehit.availableThisHalf);
+  html += `<p class="note">Simulate playing a chip this week — it changes the real transfer-cost math below, same as it would for real.</p>
+    <div class="stat-controls">
+    <button class="chipbtn ${!state.plannerChip?"on":""}" data-planchip="">No chip</button>
+    <button class="chipbtn ${state.plannerChip==="wildcard"?"on":""}" data-planchip="wildcard"${wcAvail?"":" disabled"}>Wildcard${wcAvail?"":" (used)"}</button>
+    <button class="chipbtn ${state.plannerChip==="freehit"?"on":""}" data-planchip="freehit"${fhAvail?"":" disabled"}>Free Hit${fhAvail?"":" (used)"}</button>
+  </div>`;
+
+  const s = fplPlannerSummary();
+  const ftLine = s.chipFree
+    ? `${state.plannerChip==="wildcard"?"Wildcard":"Free Hit"} active — transfers unlimited and free this simulated week`
+    : (s.ft ? `${s.ft.remaining===Infinity?"unlimited":s.ft.remaining} free transfer${s.ft.remaining===1?"":"s"} banked for real` : "free transfers unknown — reload your team");
+  html += `<div class="banner">Gameweek ${fplPlanningGw()} plan: <b>${s.n}</b> move${s.n===1?"":"s"} · points swing <b>${fplSigned(s.gain)}</b>${(!s.chipFree && s.cost)?` − ${s.cost}pt hit`:""} = <b>${fplSigned(s.net)} net</b><br>
+    Bank after: <b>£${(s.bank/10).toFixed(1)}m</b>${s.bank<0?" ⚠️ over budget":""} · ${ftLine}</div>`;
+
+  const lineup = state.plannerLineup;
+  const lc = fplPlannerLineupCheck();
+  const capEl = lineup.captainOrig!=null ? fplElement(state.plannerMoves[lineup.captainOrig]!=null ? state.plannerMoves[lineup.captainOrig] : lineup.captainOrig) : null;
+  const vcEl = lineup.viceOrig!=null ? fplElement(state.plannerMoves[lineup.viceOrig]!=null ? state.plannerMoves[lineup.viceOrig] : lineup.viceOrig) : null;
+  html += `<div class="banner">Starting XI: <b>${lc.n}/11</b>${lc.ok?" ✓ legal formation":" ⚠️"} (${lc.counts.GKP} GK · ${lc.counts.DEF} DEF · ${lc.counts.MID} MID · ${lc.counts.FWD} FWD)${!lc.ok?" — needs exactly 1 GK, 3-5 DEF, 2-5 MID, 1-3 FWD, 11 in total":""}<br>
+    Captain: <b>${capEl?capEl.web_name:"— pick one ⚠️"}</b> · Vice: <b>${vcEl?vcEl.web_name:"— pick one ⚠️"}</b></div>
+    <p class="note">Tick "Starting XI" on each player below to simulate subs — toggling moves them between your XI and bench, same as the real Pick Team screen, with the real formation rule (1 GK, 3-5 DEF, 2-5 MID, 1-3 FWD, 11 total) checked live above. Pick C/VC from whoever's currently starting.</p>`;
+  html += `<button class="chipbtn" id="plannerReset">Reset all moves &amp; lineup</button>`;
+
+  Object.keys(POS_LABELS).forEach(posKey=>{
+    const wantPos = posKey==="GK" ? "GKP" : posKey;
+    const slotIds = Array.from(fplOwnedIds()).filter(id=>{
+      const el = fplElement(id);
+      return el && FPL_ELEMENT_POS[el.element_type]===wantPos;
+    }).sort((a,b)=> a-b);
+    if(!slotIds.length) return;
+    html += `<div class="posgroup"><div class="posgroup-h"><h3>${POS_LABELS[posKey]}</h3></div>`;
+    slotIds.forEach(id=> html += fplPlannerSlotHtml(id));
+    html += `</div>`;
+  });
+
+  html += `<p class="note">Every option listed is a real, affordable, fit replacement — same market price, expected-points ("xPts" = FPL's own <code>ep_next</code>), and 3-players-per-club rule as the rest of this app, checked live as you build this plan; a slot already used by another move in the plan won't be offered twice. Budget uses each player's current market price as a stand-in for your actual FPL sell value (the exact sell price isn't in the public, unauthenticated API). This plan is saved only in your browser, scoped to this team and Gameweek ${fplPlanningGw()} — it is never submitted anywhere. Once you're happy with it, make the moves yourself on fantasy.premierleague.com.</p>
+    <a class="launch-enter" style="display:block;text-align:center;text-decoration:none;margin:4px 0 14px" href="https://fantasy.premierleague.com/transfers" target="_blank" rel="noopener">Open FPL Transfers to make these changes →</a>`;
+  return html;
 }
 
 /* ---------- Chip strategy (Wildcard / Free Hit / Bench Boost / Triple Captain) ---------- */
@@ -1898,12 +2147,21 @@ function fplPickCard(pick){
     ${runText?`<p class="pcard-note">📅 ${runText}</p>`:""}</div>`;
 }
 
-function viewFantasyMyTeam(){
+/* The team-ID input box, identical wherever a tab needs the live squad loaded
+   (My Team, Planner) — factored out so both show the exact same control rather
+   than two input boxes with the same id drifting apart over time. Only one of
+   them is ever actually in the DOM at once (whichever sub-tab is rendered). */
+function fplIdFormHtml(){
   const sid = storedFplId();
-  let html = `<div class="fpl-form"><label for="fplIdInput">Your FPL Team ID</label>
+  return `<div class="fpl-form"><label for="fplIdInput">Your FPL Team ID</label>
     <div class="fpl-form-row"><input id="fplIdInput" class="fpl-input" inputmode="numeric" placeholder="e.g. 5933243" value="${sid?String(sid):""}" />
     <button class="chipbtn on" id="fplLoadBtn">Load</button></div>
     <p class="note">Find this in your team's URL on fantasy.premierleague.com — the number right after <code>/entry/</code>. Stored only in your browser, never sent anywhere but the official FPL site.</p></div>`;
+}
+
+function viewFantasyMyTeam(){
+  const sid = storedFplId();
+  let html = fplIdFormHtml();
 
   if(!sid && !FPL.id){
     html += `<div class="empty">Enter your team ID above to load your live squad and get recommendations.</div>`;
@@ -2149,7 +2407,7 @@ function viewLive(){
 const VIEWS = { today:viewToday, fantasy:viewFantasy, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
 const TAB_LABELS = { today:"Today", fantasy:"Fantasy", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
 
-const state = { view:"today", comp:"epl", fantasySub:"best" };
+const state = { view:"today", comp:"epl", fantasySub:"best", plannerMoves:{}, plannerChip:null, plannerLineup:{ startOrigIds:[], captainOrig:null, viceOrig:null } };
 
 function render(){
   const fn = VIEWS[state.view];
@@ -2178,7 +2436,51 @@ function render(){
     fplBtn.addEventListener("click", fire);
     document.getElementById("fplIdInput")?.addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); fire(); } });
   }
-  if(state.view==="fantasy" && state.fantasySub==="myteam"){
+  document.querySelectorAll("[data-slot]").forEach(sel=> sel.addEventListener("change", e=>{
+    const origId = Number(e.target.dataset.slot);
+    const val = e.target.value;
+    if(val) state.plannerMoves[origId] = Number(val); else delete state.plannerMoves[origId];
+    fplPlannerPersist();
+    render();
+  }));
+  document.querySelectorAll("[data-planchip]").forEach(b=> b.addEventListener("click", ()=>{
+    if(b.disabled) return;
+    state.plannerChip = b.dataset.planchip || null;
+    fplPlannerPersist();
+    render();
+  }));
+  document.querySelectorAll("[data-startslot]").forEach(cb=> cb.addEventListener("change", e=>{
+    const origId = Number(e.target.dataset.startslot);
+    const set = new Set(state.plannerLineup.startOrigIds);
+    if(e.target.checked) set.add(origId); else set.delete(origId);
+    state.plannerLineup.startOrigIds = Array.from(set);
+    if(!set.has(state.plannerLineup.captainOrig)) state.plannerLineup.captainOrig = null;
+    if(!set.has(state.plannerLineup.viceOrig)) state.plannerLineup.viceOrig = null;
+    fplPlannerPersist();
+    render();
+  }));
+  document.querySelectorAll("[data-captainslot]").forEach(b=> b.addEventListener("click", ()=>{
+    const origId = Number(b.dataset.captainslot);
+    state.plannerLineup.captainOrig = origId;
+    if(state.plannerLineup.viceOrig===origId) state.plannerLineup.viceOrig = null;
+    fplPlannerPersist();
+    render();
+  }));
+  document.querySelectorAll("[data-viceslot]").forEach(b=> b.addEventListener("click", ()=>{
+    const origId = Number(b.dataset.viceslot);
+    state.plannerLineup.viceOrig = origId;
+    if(state.plannerLineup.captainOrig===origId) state.plannerLineup.captainOrig = null;
+    fplPlannerPersist();
+    render();
+  }));
+  document.getElementById("plannerReset")?.addEventListener("click", ()=>{
+    state.plannerMoves = {};
+    state.plannerChip = null;
+    state.plannerLineup = fplPlannerDefaultLineup();
+    fplPlannerPersist();
+    render();
+  });
+  if(state.view==="fantasy" && (state.fantasySub==="myteam" || state.fantasySub==="planner")){
     const sid = storedFplId();
     if(sid && !FPL.loading && FPL.id!==sid) loadFplTeam(sid);
   }
