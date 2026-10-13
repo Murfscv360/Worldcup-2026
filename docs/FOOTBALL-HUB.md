@@ -514,6 +514,67 @@ in this season.
 
 ---
 
+## 5a. Alfred — the live-data companion session
+
+A cloud session building this app cannot reach `fantasy.premierleague.com`,
+BBC's news feeds, or even this app's own deployed API proxy — its network
+egress policy blocks everything outside a narrow allowlist. Rather than
+work around that from inside the sandbox, the project uses a second,
+persistent **Claude Code session running on the owner's own home
+hardware** ("Alfred"), which has normal, unrestricted internet access.
+Alfred runs continuously on its own schedule (roughly every 3 hours, plus
+dedicated daily/Friday jobs) and commits its output straight to
+`data/alfred-*.json` on `main`. The static app just reads these like any
+other bundled JSON — no live fetch, no credential, no cloud-session network
+problem to solve.
+
+Four files, three of them wired into the UI as of this writing:
+
+- **`data/alfred-fpl.json`** → `ALFRED` global, rendered by `fplAlfredHtml()`
+  at the top of the Fantasy → My Team view. The public FPL API only exposes
+  a **completed** gameweek's picks, so a transfer made this week is
+  invisible to it until the deadline passes — exactly the window a visitor
+  most wants transfer/captain advice for. Alfred maintains a "golden
+  record" instead: reconciled against the real API after every deadline,
+  and in between built from what the owner tells it directly (the file's
+  own `changelog` array keeps the full provenance — screenshot, in-app
+  confirmation, API reconciliation, each timestamped). `fetchAlfredFile()`
+  loads it defensively (`ALFRED` stays `null` on any failure), and
+  `fplSquadTrust()` is the single gate that decides whether it's current
+  enough to override the API-derived squad — never substituted in if it's
+  older than what the API already shows.
+- **`data/alfred-news.json`** → `ALFRED_NEWS`, rendered by
+  `fplAlfredNewsHtml()`. A rolling ~1-week window of real player
+  availability/injury changes, pre-filtered to this specific squad and
+  deduped by Alfred before it's ever written — the render function doesn't
+  re-filter or guess at relevance. A source that couldn't be reached on a
+  given check is listed under `unreachable` rather than silently absorbed
+  into "no news" — the file's own `note` field states this distinction and
+  is rendered verbatim.
+- **`data/alfred-scouting.json`** → `ALFRED_SCOUT`, rendered by
+  `fplAlfredScoutingHtml()`. A Friday dispatch covering every fixture in
+  the upcoming gameweek: a real Poisson win/draw/loss model (FPL team
+  strength × fixture difficulty) plus the players worth watching in each,
+  with squad members starred. The model's own honest limitation — "a 60%
+  favourite still loses four times in ten... early season these ratings
+  haven't absorbed recent results" — lives in the file's `note` field and
+  is shown verbatim, never replaced with copy that sounds more confident
+  than the model actually is.
+- **`data/alfred-schedule.json`** — per-club fixture-difficulty runs several
+  gameweeks out. Not yet wired into the UI; `fplUpcomingFixtures()` already
+  computes a similar run client-side from the real `fixtures/` endpoint, so
+  wiring this in would mainly be worth it if a longer horizon than that
+  function's `FPL_FIXTURE_HORIZON` is ever needed.
+
+**The account-automation line still holds.** Alfred reads the public API
+and records what the owner reports doing on the real site — it has never
+been given FPL write/login access, and nothing in this codebase accepts or
+stores an FPL credential. Every recommendation, from either the API-derived
+logic or Alfred's golden record, is still something the visitor reads and
+acts on at fantasy.premierleague.com themselves.
+
+---
+
 ## 6. Data sources & integration notes
 
 | Source | Use | Status |

@@ -1,0 +1,74 @@
+name: Mirror football-hub live scores
+
+# Same pattern as live-scores.yml (the World Cup app's live-score mirror),
+# applied to football-hub's Premier League/Championship Live tab, which
+# until now only had a kickoff-clock estimate (see docs/FOOTBALL-HUB.md §5a
+# — this is the companion to that estimate, not a replacement for the
+# kickoff-driven fallback the app already has if this mirror is ever stale
+# or missing).
+#
+# GitHub's cron is best-effort and often only fires every 60-90 min, too
+# slow for live matches, so each run holds a poll loop: fetch ESPN's
+# scoreboard every 30s for ~55 minutes and republish only when something
+# changed. The schedule just needs to (re)start a loop roughly once an hour;
+# concurrency+cancel-in-progress means a newer run always replaces an older
+# loop so only one is ever active.
+#
+# The app reads the published snapshot from this repo's own
+# raw.githubusercontent.com origin — no CORS, no geo-blocking, no uptime
+# dependency on a proxy.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # best-effort; really fires ~hourly, restarts the loop
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: football-hub-live-scores
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare publish branch
+        run: |
+          git config user.name  "football-hub-bot"
+          git config user.email "football-hub-bot@users.noreply.github.com"
+          git checkout --orphan fh-scores-pub
+          git reset -q            # unstage repo files; the script stays on disk, just untracked
+
+      - name: Poll & mirror live scores (~55 min loop)
+        run: |
+          END=$((SECONDS + 3300))   # ~55 minutes, then the run ends and a new one starts
+          last=""
+          while :; do
+            if node .github/scripts/mirror-football-hub-scores.js > /tmp/new.json 2> /tmp/err.log; then
+              cur=$(sha256sum /tmp/new.json | cut -d' ' -f1)
+              if [ "$cur" != "$last" ]; then
+                ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+                cp /tmp/new.json scores.json
+                git add -f scores.json
+                git commit -q -m "football-hub live scores @ $ts"
+                for try in 1 2 3; do
+                  git push -f origin fh-scores-pub:fh-scores-pub && break
+                  git fetch -q origin || true
+                  sleep $((try * 2))
+                done
+                last=$cur
+                echo "published $ts"
+              fi
+            else
+              echo "$(date -u +%H:%M:%S) fetch failed — keeping previous mirror"
+              cat /tmp/err.log || true
+            fi
+            [ $SECONDS -ge $END ] && break
+            sleep 30
+          done
