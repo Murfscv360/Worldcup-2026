@@ -1,25 +1,8 @@
 {
- "generated": "2026-10-12 18:00:24",
+ "generated": "2026-10-13 08:00:19",
  "tz": "America/Chicago",
  "gw": 6,
  "days": [
-  {
-   "date": "2026-10-09",
-   "ts": "2026-10-09 18:00:08",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "James (CHE, 5% owned): now available",
-    "Palmer (CHE, YOUR PLAYER): now available",
-    "Jo\u00e3o Pedro (CHE, 64% owned): now available",
-    "N.Williams (NFO, 8% owned): Illness - 50% chance of playing",
-    "Van Hecke (TOT, 6% owned): now available",
-    "Pedro Porro (TOT, 7% owned): Hamstring injury - Unknown return date"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-10",
    "ts": "2026-10-10 08:00:04",
@@ -91,6 +74,18 @@
    "player_changes": [
     "van Ewijk (COV, 7% owned): now available",
     "Shaw (MUN, 7% owned): Unspecified injury - 75% chance of playing"
+   ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "ts": "2026-10-13 08:00:08",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Tzolis (ARS, 7% owned): Hamstring injury - Expected back 1 Nov"
    ],
    "unreachable": [
     "bbc"
