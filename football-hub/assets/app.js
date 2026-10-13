@@ -32,6 +32,7 @@ const SEASON_OPENER = { epl: "2026-08-21", championship: "2026-08-14" };
 
 const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, table, archive, dataSource, currentClubs}
 let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null, PLAYERS = null;
+let LIVE_SCORES_MIRROR = null; // real in-play scores — see loadLiveScoresMirror() below
 let CLUB_BY_FULL = {};    // "Arsenal FC" -> club meta (comp-agnostic, covers any club in either feed)
 let CLUB_BY_SHORT = {};   // "Arsenal" -> club meta (this season's 44 clubs, comp-correct)
 
@@ -197,7 +198,28 @@ async function loadData(){
   // re-render they trigger can never race viewToday()/myTeamCard() reading undefined data.
   loadUclMatches().then(d=>{ DATA.ucl = d; if(state.view==="live" || state.view==="ucl") render(); });
   loadLiveNews().then(items=>{ DATA.liveNews = items; if(state.view==="news" || state.view==="today" || state.view==="myteams") render(); });
+  loadLiveScoresMirror().then(d=>{ LIVE_SCORES_MIRROR = d; if(state.view==="live") render(); });
 }
+
+/* Real in-play scores, mirrored by .github/workflows/football-hub-live-scores.yml
+   (a GitHub Action with real internet access — this is a static site, it has none
+   of its own) to this repo's own fh-scores-pub branch, polled every ~30s while any
+   match could be live and read here via raw.githubusercontent.com — same-origin,
+   no CORS, no geo-blocking, no proxy uptime to depend on. Source is ESPN's public
+   scoreboard API: free and widely used for exactly this, but undocumented, so this
+   is read defensively — a missing, stale, or malformed mirror just leaves
+   LIVE_SCORES_MIRROR null and the Live tab behaves exactly as it did before this
+   existed (kickoff-clock estimate, see MATCH_ENVELOPE_MS). Team names are matched
+   against this app's own fixture list client-side (fhMirrorEventFor()), not here —
+   so a matching bug is a one-file JS fix, never a workflow re-run away. */
+async function loadLiveScoresMirror(){
+  try{
+    const d = await getJSON("https://raw.githubusercontent.com/Murfscv360/Worldcup-2026/fh-scores-pub/scores.json", 7000);
+    if(!d || !d.leagues) return null;
+    return d;
+  }catch(e){ return null; }
+}
+
 
 function seasonState(){
   if(DATA.epl.matches.some(m=>m.score)) return "in-season";
@@ -343,12 +365,85 @@ function tickCountdowns(){
 /* ---------- Match status + professional commentary (generated from real
    table/form data only — no fabricated stats, no play-by-play we don't have) ---------- */
 
+/* Club-name aliases for matching this app's own (openfootball-derived) club
+   names against whatever a live-score mirror calls the same club — ESPN's
+   scoreboard isn't documented, so its exact displayName/abbreviation per
+   club can't be verified ahead of time. Each entry lists every common short
+   form/nickname a data source plausibly uses; fhNormalizeClubName() then
+   does loosely-tokenized matching on top of this rather than requiring an
+   exact string, so a form not listed here still has a real chance to match
+   — but if nothing matches with confidence, the match is skipped entirely
+   (see fhMirrorEventFor()) rather than risk pairing the wrong two clubs. */
+const FH_CLUB_ALIASES = {
+  "Arsenal": ["arsenal"], "Manchester City": ["man city","manchester city","mancity"],
+  "Manchester United": ["man utd","man united","manchester united"], "Aston Villa": ["aston villa","villa"],
+  "Liverpool": ["liverpool"], "Bournemouth": ["bournemouth"], "Sunderland": ["sunderland"],
+  "Brighton": ["brighton","brighton & hove albion","brighton and hove albion"], "Brentford": ["brentford"],
+  "Chelsea": ["chelsea"], "Fulham": ["fulham"], "Newcastle United": ["newcastle","newcastle united"],
+  "Everton": ["everton"], "Leeds United": ["leeds","leeds united"], "Crystal Palace": ["crystal palace","palace"],
+  "Nottingham Forest": ["nottm forest","nott'm forest","nottingham forest","forest"],
+  "Tottenham Hotspur": ["tottenham","spurs","tottenham hotspur"], "West Ham United": ["west ham","west ham united"],
+  "Burnley": ["burnley"], "Wolverhampton Wanderers": ["wolves","wolverhampton","wolverhampton wanderers"],
+  "Coventry City": ["coventry","coventry city"], "Ipswich Town": ["ipswich","ipswich town"], "Hull City": ["hull","hull city"],
+  "Birmingham City": ["birmingham","birmingham city"], "Blackburn Rovers": ["blackburn","blackburn rovers"],
+  "Bolton Wanderers": ["bolton","bolton wanderers"], "Bristol City": ["bristol city"],
+  "Cardiff City": ["cardiff","cardiff city"], "Charlton Athletic": ["charlton","charlton athletic"],
+  "Derby County": ["derby","derby county"], "Lincoln City": ["lincoln","lincoln city"],
+  "Middlesbrough": ["middlesbrough","boro"], "Millwall": ["millwall"], "Norwich City": ["norwich","norwich city"],
+  "Portsmouth": ["portsmouth","pompey"], "Preston North End": ["preston","preston north end"],
+  "Queens Park Rangers": ["qpr","queens park rangers"], "Sheffield United": ["sheffield united","sheff utd","sheff united"],
+  "Southampton": ["southampton"], "Stoke City": ["stoke","stoke city"], "Swansea City": ["swansea","swansea city"],
+  "Watford": ["watford"], "West Bromwich Albion": ["west brom","west bromwich","west bromwich albion","wba"],
+  "Wrexham": ["wrexham"]
+};
+function fhNormalizeClubName(s){
+  return (s||"").toLowerCase().replace(/[^a-z0-9 ]/g,"").replace(/\s+/g," ").trim();
+}
+// True when `mirrorName` (whatever a live mirror calls a club) confidently
+// identifies `ourFullName` (this app's own openfootball-style full name) —
+// via its real short name, its alias list, or a plain substring match either
+// direction, so an unlisted-but-close name (e.g. a mirror abbreviating
+// slightly differently) still has a fair chance without a hardcoded exact form.
+function fhClubNameMatches(mirrorName, ourFullName){
+  const mn = fhNormalizeClubName(mirrorName);
+  if(!mn) return false;
+  const ourShort = clubName(ourFullName); // e.g. "Arsenal" from "Arsenal FC"
+  const aliases = (FH_CLUB_ALIASES[ourShort] || [fhNormalizeClubName(ourShort)]).map(fhNormalizeClubName);
+  if(aliases.includes(mn)) return true;
+  return aliases.some(a=> a.length>=4 && (mn.includes(a) || a.includes(mn)));
+}
+// Finds a confident live-mirror event for match `m` in competition `comp` —
+// same date, both home and away club names resolve via fhClubNameMatches().
+// Returns null (never a guess) if the mirror is missing, stale for this
+// date, or either side can't be matched with confidence.
+function fhMirrorEventFor(m, comp){
+  if(!LIVE_SCORES_MIRROR || !m.date) return null;
+  const events = LIVE_SCORES_MIRROR.leagues && LIVE_SCORES_MIRROR.leagues[comp];
+  if(!events || !events.length) return null;
+  return events.find(ev=>
+    ev.date===m.date &&
+    fhClubNameMatches(ev.home && ev.home.name, m.team1) &&
+    fhClubNameMatches(ev.away && ev.away.name, m.team2)
+  ) || null;
+}
+
 const MATCH_ENVELOPE_MS = 115 * 60000; // kickoff -> full-time incl. stoppage + break, for the simulated clock only
-function matchStatus(m){
+function matchStatus(m, comp){
   if(m.score) return { state:"ft" };
   if(!m.time) return { state:"upcoming" };
   const kickoff = kickoffInstant(m.date, m.time).getTime();
   const now = Date.now();
+  // Real in-play data, when the mirror has a confident match for this fixture — see
+  // fhMirrorEventFor(). Only "live" and "finished" are trusted from it: "scheduled"
+  // tells us nothing our own kickoff-time math doesn't already know, so that case
+  // falls through to the clock estimate below exactly as if there were no mirror.
+  const mirrored = comp ? fhMirrorEventFor(m, comp) : null;
+  if(mirrored && mirrored.state==="live"){
+    return { state:"live", kickoff, clock: mirrored.clock || liveClockText(now-kickoff), liveScore:[mirrored.home.score, mirrored.away.score], mirrored:true };
+  }
+  if(mirrored && mirrored.state==="finished" && mirrored.home.score!=null && mirrored.away.score!=null){
+    return { state:"pending", kickoff, liveScore:[mirrored.home.score, mirrored.away.score], mirrored:true };
+  }
   if(now < kickoff) return { state:"upcoming", kickoff };
   if(now < kickoff + MATCH_ENVELOPE_MS) return { state:"live", kickoff, clock: liveClockText(now-kickoff) };
   return { state:"pending", kickoff };
@@ -756,8 +851,28 @@ function tagClubsInText(text){
   if(!text) return [];
   return Object.keys(CLUB_BY_SHORT).filter(name=> text.includes(name));
 }
-let ALFRED = null;  // Alfred's authoritative GW decision (data/alfred-fpl.json)
+let ALFRED = null;       // Alfred's authoritative GW decision (data/alfred-fpl.json)
+let ALFRED_NEWS = null;  // Alfred's rolling squad-relevant news watch (data/alfred-news.json)
+let ALFRED_SCOUT = null; // Alfred's Friday scouting dispatch (data/alfred-scouting.json)
 let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entry:null, picks:null, history:null, league:null, leagueStandings:null };
+
+/* Shared fetch for every data/alfred-*.json file. This app is served from two
+   origins with different roots — Netlify/Vercel at /football-hub/ and GitHub
+   Pages at /Worldcup-2026/football-hub/ — so an absolute "/data/..." path
+   only resolves on one of them. Resolved relative to the document first (works
+   on either root), with the original absolute path kept as a fallback.
+   Defensive by design: any failure (missing file, bad JSON, wrong origin)
+   leaves the caller's variable null and the rest of the page behaves exactly
+   as if the file didn't exist — never a half-read or stale-looking object. */
+async function fetchAlfredFile(name){
+  for (const _u of [new URL(`../data/${name}`, location.href).href, `/data/${name}`]) {
+    try {
+      const _r = await fetch(_u, { cache: "no-store" });
+      if (_r.ok) return await _r.json();
+    } catch (e) { /* fall through to the next candidate */ }
+  }
+  return null;
+}
 
 /* Picks which of the visitor's real FPL leagues (entry.leagues.classic) to
    compare against. FPL auto-enrols everyone in system-wide leagues (the
@@ -824,14 +939,15 @@ async function loadFplTeam(id){
        swallowed by the catch, leaving ALFRED null and the page silently running on the API's
        older squad — the very failure the override exists to prevent, and on Pages it had
        never worked at all. Resolved relative to the document so it works from either root,
-       with the original absolute path kept as a fallback. */
-    ALFRED = null;
-    for (const _u of [new URL("../data/alfred-fpl.json", location.href).href, "/data/alfred-fpl.json"]) {
-      try {
-        const _ar = await fetch(_u, { cache: "no-store" });
-        if (_ar.ok) { ALFRED = await _ar.json(); break; }
-      } catch (e) { /* fall through to the next candidate */ }
-    }
+       with the original absolute path kept as a fallback. Now shared via fetchAlfredFile()
+       so the news-watch and scouting-dispatch files below get the same two-origin handling
+       without repeating the loop a third time. Fetched in parallel — independent files, no
+       reason to serialize three round trips before the rest of loadFplTeam can start. */
+    [ALFRED, ALFRED_NEWS, ALFRED_SCOUT] = await Promise.all([
+      fetchAlfredFile("alfred-fpl.json"),
+      fetchAlfredFile("alfred-news.json"),
+      fetchAlfredFile("alfred-scouting.json")
+    ]);
 
     const bootstrap = await getJSON(fplProxyUrl("bootstrap-static/"), 9000);
     const events = bootstrap.events || [];
@@ -996,6 +1112,55 @@ function fplAlfredHtml(){
     "<p class=\"note\" style=\"margin:6px 0 0\">Formation "+A.formation+" · "+((A.transfers_recommended||[]).length?"":"no transfers recommended")+" · "+((A.chips_active||[]).length?"chip active":"no chips")+"</p>" +
     "<p class=\"note\" style=\"margin:6px 0 0;font-style:italic\">Updated "+A.generated+" "+(A.tz||"")+"</p>" +
     warn + src + "</div></div>";
+}
+
+/* Alfred's rolling news watch (data/alfred-news.json) — real player status changes,
+   already filtered upstream to this squad (the file's own `note` says so; this
+   function doesn't re-filter or guess at relevance). Shows the most recent few
+   check-ins rather than the full rolling week, newest first, so it reads as a
+   quick "what changed" rather than a log dump. A day with zero player_changes is
+   skipped entirely — "nothing changed" isn't worth a line, but a check that
+   genuinely couldn't reach a source (unreachable) is disclosed rather than
+   silently blended into "no news". */
+function fplAlfredNewsHtml(){
+  const N = ALFRED_NEWS;
+  if(!N || !N.days || !N.days.length) return "";
+  const withChanges = N.days.filter(d=> (d.player_changes||[]).length || (d.key||[]).length).slice(-4).reverse();
+  if(!withChanges.length){
+    return sectionHead("Alfred — news watch", "GW"+N.gw) +
+      `<div class="pcard"><p class="pcard-note">No player status changes for your squad in the last ${N.days.length} check${N.days.length>1?"s":""}.</p></div>`;
+  }
+  const items = withChanges.map(d=>{
+    const lines = (d.key||[]).concat(d.player_changes||[]).map(c=> `<li>${c}</li>`).join("");
+    const unreachable = (d.unreachable||[]).length ? `<p class="note" style="margin:4px 0 0">Couldn't reach: ${d.unreachable.join(", ")} this check — not the same as "no news" from it.</p>` : "";
+    return `<div class="pcard"><div class="pcard-nm">${d.ts||d.date}</div>
+      <ul style="margin:4px 0 0;padding-left:18px">${lines}</ul>${unreachable}</div>`;
+  }).join("");
+  return sectionHead("Alfred — news watch", "GW"+N.gw) + items +
+    `<p class="note">${N.note||""}</p>`;
+}
+
+/* Alfred's Friday scouting dispatch (data/alfred-scouting.json) — every fixture in
+   the upcoming gameweek with a real Poisson win/draw/loss model (team strength +
+   fixture difficulty) and the players most worth watching in each, your own squad
+   members marked. The file's own `note` carries the honest caveat about what a
+   Poisson model can and can't tell you — used verbatim, never replaced with
+   something that sounds more confident than the real model actually is. */
+function fplAlfredScoutingHtml(){
+  const S = ALFRED_SCOUT;
+  if(!S || !S.fixtures || !S.fixtures.length) return "";
+  const cards = S.fixtures.map(f=>{
+    const watch = (f.watch||[]).map(p=> `<span class="rp-chip"${p.yours?' style="font-weight:800"':""}>${p.yours?"★ ":""}${p.name} (${p.club})</span>`).join("");
+    const top = (f.scorelines||[])[0];
+    return `<div class="pcard"><div class="pcard-top">
+      <div><div class="pcard-nm">${f.home} vs ${f.away}</div><div class="pcard-club">${f.day||f.kickoff||""}</div></div>
+      <span class="pcard-stat">${f.win}% / ${f.draw}% / ${f.loss}%</span></div>
+      <p class="pcard-note">Most likely: <b>${top?top.score:"—"}</b>${top?` (${top.pct}%)`:""} · xG ${f.xg_home!=null?f.xg_home.toFixed(2):"–"}–${f.xg_away!=null?f.xg_away.toFixed(2):"–"}</p>
+      ${watch?`<div class="rp-stats">${watch}</div>`:""}
+    </div>`;
+  }).join("");
+  return sectionHead("Alfred — scouting dispatch", "GW"+S.gw) + cards +
+    `<p class="note">${S.note||""} Win/draw/loss is home/draw/away. ★ marks your own players.</p>`;
 }
 
 function fplRecommendations(){
@@ -1760,12 +1925,14 @@ function viewFantasyMyTeam(){
   html += `<div class="banner">${managerName?`<b>${managerName}</b><br>`:""}${gwPoints!=null?`GW${FPL.event} points: <b>${gwPoints}</b>`:""}${overallRank?` · Overall rank: <b>${Number(overallRank).toLocaleString()}</b>`:""}${squadValue!=null?`<br>Squad value: <b>£${squadValue}m</b>${bankValue!=null?` · Bank: <b>£${bankValue}m</b>`:""}`:""}</div>`;
 
   html += fplAlfredHtml();
+  html += fplAlfredNewsHtml();
   html += sectionHead("Scout's Desk", `Gameweek ${FPL.event} briefing`);
   html += `<div class="analyst"><div class="analyst-head"><span class="analyst-badge">Scout's Desk</span></div>
     <div class="analyst-body">${fplWeeklyBriefing()}</div></div>`;
   html += fplHealthChecklistHtml();
   html += `<a class="launch-enter" style="display:block;text-align:center;text-decoration:none;margin:4px 0 14px" href="https://fantasy.premierleague.com/transfers" target="_blank" rel="noopener">Open FPL Transfers to make these changes →</a>`;
   html += fplPositionSummaryHtml();
+  html += fplAlfredScoutingHtml();
   html += `<p class="note">Everything below repeats this in more detail — the sections above are all you need for a quick weekly check.</p>`;
 
   const recs = fplRecommendations();
@@ -1917,18 +2084,19 @@ function lineupsNote(comp, status){
   return `<p class="note">👕 Starting lineups aren't in this app's results feed (it only carries full-time scores). Confirmed XIs are published around an hour before kickoff on the <a href="${url}" target="_blank" rel="noopener">official match centre</a>.</p>`;
 }
 function liveMatchCard(m, comp){
-  const status = matchStatus(m);
+  const status = matchStatus(m, comp);
   const home = clubName(m.team1), away = clubName(m.team2);
-  const ft = ftOf(m);
+  const ft = ftOf(m) || status.liveScore || null;
   const meta = m.time ? `<div class="match-meta"><span>🕐 ${m.time} UK · ${fmtCentral(m.date, m.time)} Central</span><span>${tvNote(comp)}</span></div>` : "";
   const radio = (status.state==="live" || status.state==="upcoming") ? radioBlock(comp, m) : "";
+  const mirrorNote = status.mirrored ? `<p class="note">🔴 Real in-play score, mirrored from a live feed every ~30s while the match is on — not yet this app's own confirmed result.</p>` : "";
   return `<div class="match ${status.state==='live'?'is-live-card':''}"><div class="top"><span>${compLabel(comp)} · ${m.round}</span>${statusBadge(status)}</div>
     <div class="rows">
       <div class="team"><span class="flag">${crest(m.team1,21)}</span><span class="name">${home}</span></div>
       <div class="score">${ft?ft[0]:"–"}</div>
       <div class="team"><span class="flag">${crest(m.team2,21)}</span><span class="name">${away}</span></div>
       <div class="score">${ft?ft[1]:"–"}</div>
-    </div>${meta}${radio}${lineupsNote(comp, status)}
+    </div>${meta}${mirrorNote}${radio}${lineupsNote(comp, status)}
     <div class="analyst compact"><div class="analyst-head"><span class="analyst-badge">Analyst's Desk</span>${status.state==="live"?'<span class="analyst-live">LIVE</span>':""}</div>
       <div class="analyst-body">${commentaryFor(m, comp)}</div></div>
   </div>`;
@@ -1936,7 +2104,7 @@ function liveMatchCard(m, comp){
 function viewLive(){
   const todayIso = new Date().toISOString().slice(0,10);
   let html = sectionHead("Live & Today", "Central Time (Chicago)");
-  html += `<p class="note">Kickoff-driven status &amp; clock — this app's results feed updates after full time, not per-minute in-play, so the "LIVE" clock is an estimate from the real kickoff time until a final score lands. See docs/FOOTBALL-HUB.md.</p>`;
+  html += `<p class="note">Real in-play scores and clock when a live mirror has a confident match for the fixture (🔴 tag on the card) — that mirror is best-effort, so for any match it can't confirm, the "LIVE" clock falls back to a kickoff-time estimate until this app's own results feed publishes a final score. See docs/FOOTBALL-HUB.md.</p>`;
 
   const uclMatches = (DATA.ucl && DATA.ucl.englishMatches) || [];
   const compsToday = [["epl", DATA.epl.matches], ["championship", DATA.championship.matches], ["ucl", uclMatches]];

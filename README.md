@@ -30,16 +30,22 @@ always shows the full club roster (zero-seeded until each club has played), a su
 transfer-window tracker, curated news, a title-odds market snapshot, and a **Fantasy**
 tab with a curated top-3-per-position "best XI" grounded in real 2025-26 season stats
 and honours, plus a **My Team** view that loads a visitor's own live squad (given
-their team ID) via a small Netlify Function proxy — added after a direct
+their team ID) via a small serverless proxy (Vercel, migrated off Netlify
+2026-10-02 once Netlify's free tier ran out — see `api/`) — added after a direct
 browser-to-FPL-API fetch was tested and confirmed to fail on CORS grounds — and
 suggests captain/bench changes and full **squad transfers** by comparing the
 official API's own expected-points and injury data against the entire player pool,
 factoring in the real 2026-27 transfer-cost rules (1 free transfer a gameweek,
 banked up to 5, −4 points per extra one) reconstructed from the visitor's own
 gameweek-by-gameweek history — no separate prediction model, no fabricated point
-values. No starting lineups are shown, since no data source for that exists yet —
-the app says so honestly rather than fabricating them. See
-[`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
+values. For the owner's own team, a companion session ("Alfred," running on real
+hardware with real internet access) keeps `data/alfred-*.json` current around the
+clock — the authoritative squad record for gameweeks the public API can't see yet,
+a rolling real injury/news watch pre-filtered to the squad, and a Friday scouting
+dispatch (a real Poisson model over every fixture in the upcoming gameweek) — all
+read-only, never touching the real account. No starting lineups are shown, since no
+data source for that exists yet — the app says so honestly rather than fabricating
+them. See [`docs/FOOTBALL-HUB.md`](docs/FOOTBALL-HUB.md) for the design and data sources.
 
 🔗 **Live:** https://murfscv360.github.io/Worldcup-2026/football-hub/
 
