@@ -418,10 +418,21 @@ function fhClubNameMatches(mirrorName, ourFullName){
 // date, or either side can't be matched with confidence.
 function fhMirrorEventFor(m, comp){
   if(!LIVE_SCORES_MIRROR || !m.date) return null;
-  const events = LIVE_SCORES_MIRROR.leagues && LIVE_SCORES_MIRROR.leagues[comp];
-  if(!events || !events.length) return null;
-  return events.find(ev=>
-    ev.date===m.date &&
+  /* Searches EVERY league bucket the mirror has, not just leagues[comp]. Verified
+     against a real run of the mirror workflow (2026-10-13): ESPN's own "eng.2"
+     bucket — assumed to mean the Championship — included Wolverhampton Wanderers
+     and Burnley, both of which are this app's own real, roster-verified EPL
+     clubs this season. Trusting ESPN's bucketing would have silently never
+     surfaced live data for them (DATA.epl.matches would ask leagues.epl, which
+     never has them). Matching is still fully confident either way — both the
+     home AND away club name must resolve via fhClubNameMatches() to THIS
+     fixture's two specific teams — so pooling the buckets doesn't add any real
+     risk of pairing the wrong match, just removes a dependency on a label this
+     app never actually needed to trust. */
+  const pool = LIVE_SCORES_MIRROR.leagues ? Object.values(LIVE_SCORES_MIRROR.leagues).flat() : [];
+  if(!pool.length) return null;
+  return pool.find(ev=>
+    ev && ev.date===m.date &&
     fhClubNameMatches(ev.home && ev.home.name, m.team1) &&
     fhClubNameMatches(ev.away && ev.away.name, m.team2)
   ) || null;
