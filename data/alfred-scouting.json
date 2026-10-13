@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-13 06:05:28",
+ "generated": "2026-10-13 09:05:18",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -30,7 +30,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 9.0,
+     "score": 9.6,
      "side": "A",
      "yours": false
     },
@@ -43,19 +43,19 @@
      "yours": false
     },
     {
+     "name": "Mfuni",
+     "club": "COV",
+     "pos": "DEF",
+     "score": 7.3,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Solanke",
      "club": "TOT",
      "pos": "FWD",
      "score": 6.9,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Mfuni",
-     "club": "COV",
-     "pos": "DEF",
-     "score": 6.2,
-     "side": "A",
      "yours": false
     }
    ],
@@ -457,17 +457,17 @@
      "name": "Hadjam",
      "club": "BHA",
      "pos": "DEF",
-     "score": 20.8,
+     "score": 21.4,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Gro\u00df",
+     "name": "Hinshelwood",
      "club": "BHA",
      "pos": "MID",
-     "score": 11.9,
+     "score": 10.9,
      "side": "H",
-     "yours": true
+     "yours": false
     },
     {
      "name": "Nketiah",
