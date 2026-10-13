@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-13 10:25:15",
+ "generated": "2026-10-13 12:15:14",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -41,8 +41,8 @@
    "name": "Gvardiol",
    "pos": "DEF",
    "club": "MCI",
-   "score": 26.08,
-   "ep": 6.3
+   "score": 16.88,
+   "ep": 4.0
   },
   {
    "name": "Gro\u00df",
@@ -52,18 +52,18 @@
    "ep": 10.0
   },
   {
+   "name": "Cherki",
+   "pos": "MID",
+   "club": "MCI",
+   "score": 38.76,
+   "ep": 9.0
+  },
+  {
    "name": "Buend\u00eda",
    "pos": "MID",
    "club": "AVL",
    "score": 33.28,
    "ep": 8.0
-  },
-  {
-   "name": "Cherki",
-   "pos": "MID",
-   "club": "MCI",
-   "score": 27.96,
-   "ep": 6.3
   },
   {
    "name": "Palmer",
@@ -76,8 +76,8 @@
    "name": "Haaland",
    "pos": "FWD",
    "club": "MCI",
-   "score": 31.64,
-   "ep": 7.0
+   "score": 27.64,
+   "ep": 6.0
   },
   {
    "name": "Jo\u00e3o Pedro",
