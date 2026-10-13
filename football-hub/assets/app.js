@@ -1048,6 +1048,7 @@ async function loadFplTeam(id){
     const planner = fplPlannerLoad();
     state.plannerMoves = planner.moves;
     state.plannerChip = planner.chip;
+    state.plannerLineup = planner.lineup;
     fplTrackRecordWeek();
   }catch(e){
     FPL.error = "Couldn't load your live team right now — either the team ID doesn't exist, or the Fantasy Premier League site is temporarily unreachable. Double-check the ID and try again.";
@@ -1441,11 +1442,22 @@ function fplTransferCard(s){
 
 function fplPlannerKey(id, gw){ return `${FPL_PLANNER_KEY_PREFIX}${id}_${gw}`; }
 
-/* Re-checks every saved move against the squad/bootstrap that just loaded —
-   a move saved last visit can name a player since transferred out (origId no
-   longer owned), sold to someone else's squad, flagged unavailable, or moved
-   to a different position than before. Dropping anything that no longer
-   holds is safer than showing a plan that quietly drifted from legal. */
+/* The real starting-XI/bench split and captain/vice straight off the picks
+   just loaded — the Planner's own starting point before any simulated sub
+   or armband change, keyed by original squad slot id (same key space as
+   `moves`) so a transfer and a sub on the same slot compose correctly. */
+function fplPlannerDefaultLineup(){
+  const picks = (FPL.picks && FPL.picks.picks) || [];
+  const cap = picks.find(p=>p.is_captain), vc = picks.find(p=>p.is_vice_captain);
+  return { startOrigIds: picks.filter(p=>p.position<=11).map(p=>p.element), captainOrig: cap?cap.element:null, viceOrig: vc?vc.element:null };
+}
+/* Re-checks every saved move/lineup choice against the squad/bootstrap that
+   just loaded — a move saved last visit can name a player since transferred
+   out (origId no longer owned), sold to someone else's squad, flagged
+   unavailable, or moved to a different position than before; a saved
+   starter/captain/vice can likewise name a slot no longer owned. Dropping
+   anything that no longer holds is safer than showing a plan that quietly
+   drifted from legal. */
 function fplPlannerSanitize(raw){
   const owned = fplOwnedIds();
   const moves = {};
@@ -1457,11 +1469,19 @@ function fplPlannerSanitize(raw){
     moves[origId] = inId;
   });
   const chip = (raw && (raw.chip==="wildcard" || raw.chip==="freehit")) ? raw.chip : null;
-  return { chip, moves };
+  const def = fplPlannerDefaultLineup();
+  let startOrigIds = Array.isArray(raw && raw.lineup && raw.lineup.startOrigIds)
+    ? raw.lineup.startOrigIds.map(Number).filter(id=>owned.has(id)) : null;
+  if(!startOrigIds || !startOrigIds.length) startOrigIds = def.startOrigIds;
+  let captainOrig = raw && raw.lineup && owned.has(Number(raw.lineup.captainOrig)) ? Number(raw.lineup.captainOrig) : def.captainOrig;
+  let viceOrig = raw && raw.lineup && owned.has(Number(raw.lineup.viceOrig)) ? Number(raw.lineup.viceOrig) : def.viceOrig;
+  if(!startOrigIds.includes(captainOrig)) captainOrig = null;
+  if(!startOrigIds.includes(viceOrig)) viceOrig = null;
+  return { chip, moves, lineup: { startOrigIds, captainOrig, viceOrig } };
 }
 function fplPlannerLoad(){
   const gw = fplPlanningGw();
-  if(!FPL.id || !gw) return { chip:null, moves:{} };
+  if(!FPL.id || !gw) return { chip:null, moves:{}, lineup:{ startOrigIds:[], captainOrig:null, viceOrig:null } };
   let raw = null;
   try{ raw = JSON.parse(localStorage.getItem(fplPlannerKey(FPL.id, gw)) || "null"); }catch(e){}
   return fplPlannerSanitize(raw || {});
@@ -1469,7 +1489,24 @@ function fplPlannerLoad(){
 function fplPlannerPersist(){
   const gw = fplPlanningGw();
   if(!FPL.id || !gw) return;
-  try{ localStorage.setItem(fplPlannerKey(FPL.id, gw), JSON.stringify({ chip: state.plannerChip, moves: state.plannerMoves })); }catch(e){}
+  try{ localStorage.setItem(fplPlannerKey(FPL.id, gw), JSON.stringify({ chip: state.plannerChip, moves: state.plannerMoves, lineup: state.plannerLineup })); }catch(e){}
+}
+/* Whether the simulated starting XI is a real, legal FPL lineup: exactly 11
+   starters, exactly 1 goalkeeper, and outfield counts within the real
+   formation bounds (3-5 DEF, 2-5 MID, 1-3 FWD) — checked against each
+   slot's EFFECTIVE player, so a simulated transfer that changes a starter's
+   position is reflected here too. */
+function fplPlannerLineupCheck(){
+  const lineup = state.plannerLineup, moves = state.plannerMoves;
+  const counts = { GKP:0, DEF:0, MID:0, FWD:0 };
+  lineup.startOrigIds.forEach(origId=>{
+    const effId = moves[origId]!=null ? moves[origId] : origId;
+    const el = fplElement(effId);
+    if(el){ const pos = FPL_ELEMENT_POS[el.element_type]; if(counts[pos]!=null) counts[pos]++; }
+  });
+  const n = lineup.startOrigIds.length;
+  const ok = n===11 && counts.GKP===1 && counts.DEF>=3 && counts.DEF<=5 && counts.MID>=2 && counts.MID<=5 && counts.FWD>=1 && counts.FWD<=3;
+  return { counts, n, ok };
 }
 
 /* The 15 effective element ids once `moves` is applied — each original squad
@@ -1552,10 +1589,21 @@ function fplPlannerSlotHtml(origId){
   const swapNote = chosenEl
     ? `<p class="pcard-note">${fplOutTag()} ${origEl.web_name} → ${fplInTag()} ${chosenEl.web_name} &nbsp;(${fplSigned(parseFloat(chosenEl.ep_next||0)-parseFloat(origEl.ep_next||0))} xPts)</p>`
     : "";
+  const lineup = state.plannerLineup;
+  const starting = lineup.startOrigIds.includes(origId);
+  const effName = chosenEl ? chosenEl.web_name : origEl.web_name;
+  const armband = starting
+    ? `<div style="margin-top:8px;display:flex;gap:6px;align-items:center">
+        <button class="chipbtn ${lineup.captainOrig===origId?"on":""}" data-captainslot="${origId}" style="font-size:11px;padding:4px 10px">C${lineup.captainOrig===origId?` — ${effName}`:""}</button>
+        <button class="chipbtn ${lineup.viceOrig===origId?"on":""}" data-viceslot="${origId}" style="font-size:11px;padding:4px 10px">VC${lineup.viceOrig===origId?` — ${effName}`:""}</button>
+      </div>`
+    : "";
   return `<div class="pcard"><div class="pcard-top">
     <div><div class="pcard-nm">${origEl.web_name}${fplClubTag(origEl)}</div><div class="pcard-club">${team?team.name:""} · ${FPL_ELEMENT_POS[origEl.element_type]||""}</div></div></div>
     <select class="fpl-input" data-slot="${origId}" style="width:100%">${options.join("")}</select>
-    ${swapNote}</div>`;
+    ${swapNote}
+    <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px"><input type="checkbox" data-startslot="${origId}" ${starting?"checked":""}/> Starting XI (vs. bench)</label>
+    ${armband}</div>`;
 }
 
 function viewFantasyPlanner(){
@@ -1588,7 +1636,15 @@ function viewFantasyPlanner(){
     : (s.ft ? `${s.ft.remaining===Infinity?"unlimited":s.ft.remaining} free transfer${s.ft.remaining===1?"":"s"} banked for real` : "free transfers unknown — reload your team");
   html += `<div class="banner">Gameweek ${fplPlanningGw()} plan: <b>${s.n}</b> move${s.n===1?"":"s"} · points swing <b>${fplSigned(s.gain)}</b>${(!s.chipFree && s.cost)?` − ${s.cost}pt hit`:""} = <b>${fplSigned(s.net)} net</b><br>
     Bank after: <b>£${(s.bank/10).toFixed(1)}m</b>${s.bank<0?" ⚠️ over budget":""} · ${ftLine}</div>`;
-  if(s.n) html += `<button class="chipbtn" id="plannerReset">Reset all moves</button>`;
+
+  const lineup = state.plannerLineup;
+  const lc = fplPlannerLineupCheck();
+  const capEl = lineup.captainOrig!=null ? fplElement(state.plannerMoves[lineup.captainOrig]!=null ? state.plannerMoves[lineup.captainOrig] : lineup.captainOrig) : null;
+  const vcEl = lineup.viceOrig!=null ? fplElement(state.plannerMoves[lineup.viceOrig]!=null ? state.plannerMoves[lineup.viceOrig] : lineup.viceOrig) : null;
+  html += `<div class="banner">Starting XI: <b>${lc.n}/11</b>${lc.ok?" ✓ legal formation":" ⚠️"} (${lc.counts.GKP} GK · ${lc.counts.DEF} DEF · ${lc.counts.MID} MID · ${lc.counts.FWD} FWD)${!lc.ok?" — needs exactly 1 GK, 3-5 DEF, 2-5 MID, 1-3 FWD, 11 in total":""}<br>
+    Captain: <b>${capEl?capEl.web_name:"— pick one ⚠️"}</b> · Vice: <b>${vcEl?vcEl.web_name:"— pick one ⚠️"}</b></div>
+    <p class="note">Tick "Starting XI" on each player below to simulate subs — toggling moves them between your XI and bench, same as the real Pick Team screen, with the real formation rule (1 GK, 3-5 DEF, 2-5 MID, 1-3 FWD, 11 total) checked live above. Pick C/VC from whoever's currently starting.</p>`;
+  html += `<button class="chipbtn" id="plannerReset">Reset all moves &amp; lineup</button>`;
 
   Object.keys(POS_LABELS).forEach(posKey=>{
     const wantPos = posKey==="GK" ? "GKP" : posKey;
@@ -2351,7 +2407,7 @@ function viewLive(){
 const VIEWS = { today:viewToday, fantasy:viewFantasy, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
 const TAB_LABELS = { today:"Today", fantasy:"Fantasy", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
 
-const state = { view:"today", comp:"epl", fantasySub:"best", plannerMoves:{}, plannerChip:null };
+const state = { view:"today", comp:"epl", fantasySub:"best", plannerMoves:{}, plannerChip:null, plannerLineup:{ startOrigIds:[], captainOrig:null, viceOrig:null } };
 
 function render(){
   const fn = VIEWS[state.view];
@@ -2393,8 +2449,36 @@ function render(){
     fplPlannerPersist();
     render();
   }));
+  document.querySelectorAll("[data-startslot]").forEach(cb=> cb.addEventListener("change", e=>{
+    const origId = Number(e.target.dataset.startslot);
+    const set = new Set(state.plannerLineup.startOrigIds);
+    if(e.target.checked) set.add(origId); else set.delete(origId);
+    state.plannerLineup.startOrigIds = Array.from(set);
+    if(!set.has(state.plannerLineup.captainOrig)) state.plannerLineup.captainOrig = null;
+    if(!set.has(state.plannerLineup.viceOrig)) state.plannerLineup.viceOrig = null;
+    fplPlannerPersist();
+    render();
+  }));
+  document.querySelectorAll("[data-captainslot]").forEach(b=> b.addEventListener("click", ()=>{
+    const origId = Number(b.dataset.captainslot);
+    state.plannerLineup.captainOrig = origId;
+    if(state.plannerLineup.viceOrig===origId) state.plannerLineup.viceOrig = null;
+    fplPlannerPersist();
+    render();
+  }));
+  document.querySelectorAll("[data-viceslot]").forEach(b=> b.addEventListener("click", ()=>{
+    const origId = Number(b.dataset.viceslot);
+    state.plannerLineup.viceOrig = origId;
+    if(state.plannerLineup.captainOrig===origId) state.plannerLineup.captainOrig = null;
+    fplPlannerPersist();
+    render();
+  }));
   document.getElementById("plannerReset")?.addEventListener("click", ()=>{
-    state.plannerMoves = {}; state.plannerChip = null; fplPlannerPersist(); render();
+    state.plannerMoves = {};
+    state.plannerChip = null;
+    state.plannerLineup = fplPlannerDefaultLineup();
+    fplPlannerPersist();
+    render();
   });
   if(state.view==="fantasy" && (state.fantasySub==="myteam" || state.fantasySub==="planner")){
     const sid = storedFplId();
