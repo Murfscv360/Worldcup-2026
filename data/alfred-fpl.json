@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12 21:15:10",
+ "generated": "2026-10-13 00:15:14",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -292,7 +292,7 @@
      "name": "Mfuni",
      "club": "COV",
      "pos": "DEF",
-     "score": 6.3,
+     "score": 6.2,
      "side": "H",
      "yours": false
     },
@@ -308,7 +308,7 @@
      "name": "Barnes",
      "club": "NEW",
      "pos": "MID",
-     "score": 5.4,
+     "score": 5.6,
      "side": "A",
      "yours": false
     }
