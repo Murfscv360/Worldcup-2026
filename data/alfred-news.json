@@ -1,20 +1,8 @@
 {
- "generated": "2026-10-14 08:00:18",
+ "generated": "2026-10-14 18:00:16",
  "tz": "America/Chicago",
  "gw": 6,
  "days": [
-  {
-   "date": "2026-10-11",
-   "ts": "2026-10-11 08:00:10",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "N.Williams (NFO, 7% owned): now available"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-11",
    "ts": "2026-10-11 18:00:07",
@@ -77,6 +65,16 @@
   {
    "date": "2026-10-14",
    "ts": "2026-10-14 08:00:08",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-14",
+   "ts": "2026-10-14 18:00:07",
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
