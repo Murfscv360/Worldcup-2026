@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-14 12:15:23",
+ "generated": "2026-10-14 15:15:23",
  "tz": "America/Chicago",
  "gw": 6,
  "gw_for": 7,
@@ -31,18 +31,18 @@
    "ep": 10.5
   },
   {
-   "name": "Bogle",
-   "pos": "DEF",
-   "club": "LEE",
-   "score": 29.28,
-   "ep": 7.0
-  },
-  {
    "name": "Gvardiol",
    "pos": "DEF",
    "club": "MCI",
    "score": 16.88,
    "ep": 4.0
+  },
+  {
+   "name": "Bogle",
+   "pos": "DEF",
+   "club": "LEE",
+   "score": 13.28,
+   "ep": 3.0
   },
   {
    "name": "Gro\u00df",
