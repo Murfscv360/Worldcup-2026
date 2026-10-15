@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-15 09:05:21",
+ "generated": "2026-10-15 12:05:21",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -393,6 +393,14 @@
    ],
    "watch": [
     {
+     "name": "Brobbey",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 8.2,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
@@ -414,14 +422,6 @@
      "pos": "MID",
      "score": 6.3,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Isidor",
-     "club": "SUN",
-     "pos": "FWD",
-     "score": 5.7,
-     "side": "A",
      "yours": false
     }
    ],
