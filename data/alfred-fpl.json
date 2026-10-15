@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-15 12:15:22",
+ "generated": "2026-10-15 15:15:29",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 7,
@@ -709,18 +709,18 @@
    ],
    "watch": [
     {
-     "name": "Hadjam",
+     "name": "Hinshelwood",
      "club": "BHA",
-     "pos": "DEF",
-     "score": 23.6,
+     "pos": "MID",
+     "score": 23.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Hinshelwood",
+     "name": "Hadjam",
      "club": "BHA",
-     "pos": "MID",
-     "score": 13.1,
+     "pos": "DEF",
+     "score": 23.6,
      "side": "H",
      "yours": false
     },
