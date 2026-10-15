@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-15 08:00:23",
+ "generated": "2026-10-15 18:00:24",
  "tz": "America/Chicago",
- "gw": 6,
+ "gw": 7,
  "days": [
-  {
-   "date": "2026-10-12",
-   "ts": "2026-10-12 08:00:05",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-12",
    "ts": "2026-10-12 18:00:07",
@@ -74,6 +64,18 @@
    "new_headlines": 0,
    "key": [],
    "player_changes": [],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-15",
+   "ts": "2026-10-15 18:00:09",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Brobbey (SUN, 5% owned): now available"
+   ],
    "unreachable": [
     "bbc"
    ]
