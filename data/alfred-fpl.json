@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16 15:21:12",
+ "generated": "2026-10-16 18:15:25",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 7,
@@ -529,7 +529,7 @@
      "name": "Haaland",
      "club": "MCI",
      "pos": "FWD",
-     "score": 15.5,
+     "score": 15.6,
      "side": "H",
      "yours": true
     },
@@ -773,7 +773,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 10.4,
+     "score": 10.3,
      "side": "A",
      "yours": false
     },
