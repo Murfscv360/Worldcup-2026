@@ -1,20 +1,8 @@
 {
- "generated": "2026-10-16 08:00:30",
+ "generated": "2026-10-16 18:00:32",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-13",
-   "ts": "2026-10-13 08:00:08",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Tzolis (ARS, 7% owned): Hamstring injury - Expected back 1 Nov"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-13",
    "ts": "2026-10-13 18:00:08",
@@ -77,6 +65,18 @@
     "Gakpo (LIV, 7% owned): Ankle injury - 25% chance of playing",
     "Szoboszlai (LIV, 26% owned): Hamstring injury - 25% chance of playing",
     "Isak (LIV, 13% owned): Thigh injury - 25% chance of playing"
+   ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "ts": "2026-10-16 18:00:04",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [
+    "Gibbs-White (NFO, 14% owned): Muscular injury - 75% chance of playing"
    ],
    "unreachable": [
     "bbc"
