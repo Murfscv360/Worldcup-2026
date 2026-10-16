@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16 03:05:16",
+ "generated": "2026-10-16 06:05:24",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -165,18 +165,18 @@
      "yours": false
     },
     {
-     "name": "Wirtz",
+     "name": "Isak",
      "club": "LIV",
-     "pos": "MID",
-     "score": 5.0,
+     "pos": "FWD",
+     "score": 5.9,
      "side": "A",
      "yours": false
     },
     {
-     "name": "Koumas",
+     "name": "Wirtz",
      "club": "LIV",
      "pos": "MID",
-     "score": 4.6,
+     "score": 5.0,
      "side": "A",
      "yours": false
     }
