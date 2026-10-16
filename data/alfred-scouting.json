@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16 12:05:23",
+ "generated": "2026-10-16 15:05:21",
  "tz": "America/Chicago",
  "gw": 7,
  "fixtures": [
@@ -218,14 +218,6 @@
      "yours": false
     },
     {
-     "name": "Cho",
-     "club": "HUL",
-     "pos": "MID",
-     "score": 7.7,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Gonzalo",
      "club": "FUL",
      "pos": "FWD",
@@ -239,6 +231,14 @@
      "pos": "MID",
      "score": 5.8,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Thomas",
+     "club": "HUL",
+     "pos": "MID",
+     "score": 4.9,
+     "side": "A",
      "yours": false
     }
    ],
@@ -592,18 +592,18 @@
      "yours": false
     },
     {
-     "name": "Gibbs-White",
-     "club": "NFO",
-     "pos": "MID",
-     "score": 7.9,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
      "score": 7.8,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Delap",
+     "club": "NFO",
+     "pos": "FWD",
+     "score": 6.9,
      "side": "H",
      "yours": false
     }
