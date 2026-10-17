@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17 12:15:20",
+ "generated": "2026-10-17 15:15:18",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -346,7 +346,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 8.4,
+     "score": 8.3,
      "side": "H",
      "yours": false
     },
@@ -415,7 +415,7 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 9.9,
+     "score": 10.0,
      "side": "A",
      "yours": false
     },
@@ -587,34 +587,34 @@
    ],
    "watch": [
     {
-     "name": "Manzambi",
-     "club": "AVL",
-     "pos": "MID",
-     "score": 9.6,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "N.Jackson",
      "club": "AVL",
      "pos": "FWD",
-     "score": 5.8,
+     "score": 5.5,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Osula",
-     "club": "NEW",
-     "pos": "FWD",
-     "score": 5.7,
-     "side": "H",
      "yours": false
     },
     {
      "name": "Wissa",
      "club": "NEW",
      "pos": "FWD",
-     "score": 4.9,
+     "score": 5.2,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Manzambi",
+     "club": "AVL",
+     "pos": "MID",
+     "score": 4.8,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Willock",
+     "club": "NEW",
+     "pos": "MID",
+     "score": 4.6,
      "side": "H",
      "yours": false
     }
