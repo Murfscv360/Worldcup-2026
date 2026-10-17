@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T10:19:56-0500",
+ "generated": "2026-10-17T10:35:40-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -1369,7 +1369,8 @@
     0
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1381,7 +1382,8 @@
     0
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1393,7 +1395,8 @@
     0
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1405,7 +1408,8 @@
     0
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1417,7 +1421,8 @@
     1
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1429,7 +1434,8 @@
     1
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1441,7 +1447,8 @@
     0
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1453,7 +1460,8 @@
     1
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1465,7 +1473,8 @@
     2
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1477,7 +1486,8 @@
     3
    ],
    "gw": 1,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1489,7 +1499,8 @@
     4
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1501,7 +1512,8 @@
     1
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1513,7 +1525,8 @@
     1
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1525,7 +1538,8 @@
     2
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1537,7 +1551,8 @@
     2
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1549,7 +1564,8 @@
     3
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1561,7 +1577,8 @@
     1
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1573,7 +1590,8 @@
     2
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1585,7 +1603,8 @@
     0
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1597,7 +1616,8 @@
     1
    ],
    "gw": 2,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1609,7 +1629,8 @@
     2
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1621,7 +1642,8 @@
     1
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1633,7 +1655,8 @@
     1
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1645,7 +1668,8 @@
     3
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1657,7 +1681,8 @@
     0
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1669,7 +1694,8 @@
     0
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1681,7 +1707,8 @@
     2
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1693,7 +1720,8 @@
     0
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1705,7 +1733,8 @@
     1
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1717,7 +1746,8 @@
     2
    ],
    "gw": 3,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1729,7 +1759,8 @@
     2
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1741,7 +1772,8 @@
     2
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1753,7 +1785,8 @@
     2
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1765,7 +1798,8 @@
     3
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1777,7 +1811,8 @@
     0
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1789,7 +1824,8 @@
     2
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1801,7 +1837,8 @@
     0
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1813,7 +1850,8 @@
     5
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1825,7 +1863,8 @@
     1
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1837,7 +1876,8 @@
     1
    ],
    "gw": 4,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1849,7 +1889,8 @@
     0
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1861,7 +1902,8 @@
     0
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1873,7 +1915,8 @@
     0
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1885,7 +1928,8 @@
     1
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1897,7 +1941,8 @@
     1
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1909,7 +1954,8 @@
     3
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1921,7 +1967,8 @@
     1
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1933,7 +1980,8 @@
     1
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1945,7 +1993,8 @@
     0
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1957,7 +2006,8 @@
     3
    ],
    "gw": 5,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1969,7 +2019,8 @@
     1
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1981,7 +2032,8 @@
     2
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -1993,7 +2045,8 @@
     1
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2005,7 +2058,8 @@
     1
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2017,7 +2071,8 @@
     1
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2029,7 +2084,8 @@
     2
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2041,7 +2097,8 @@
     1
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2053,7 +2110,8 @@
     2
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2065,7 +2123,8 @@
     3
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2077,7 +2136,21 @@
     1
    ],
    "gw": 6,
-   "source": "fantasy.premierleague.com fixtures"
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": false
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-17",
+   "team1": "Everton FC",
+   "team2": "Chelsea FC",
+   "ft": [
+    0,
+    2
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
   }
  ],
  "unmapped_clubs": []
