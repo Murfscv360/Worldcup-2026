@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17 12:05:18",
+ "generated": "2026-10-17 15:05:13",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -104,18 +104,18 @@
      "yours": false
     },
     {
-     "name": "Manzambi",
+     "name": "N.Jackson",
      "club": "AVL",
-     "pos": "MID",
-     "score": 8.2,
+     "pos": "FWD",
+     "score": 5.5,
      "side": "H",
      "yours": false
     },
     {
-     "name": "N.Jackson",
+     "name": "Manzambi",
      "club": "AVL",
-     "pos": "FWD",
-     "score": 5.7,
+     "pos": "MID",
+     "score": 4.8,
      "side": "H",
      "yours": false
     }
@@ -168,7 +168,7 @@
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
-     "score": 8.4,
+     "score": 8.3,
      "side": "A",
      "yours": false
     },
@@ -348,10 +348,10 @@
      "yours": false
     },
     {
-     "name": "Osula",
+     "name": "Wissa",
      "club": "NEW",
      "pos": "FWD",
-     "score": 5.7,
+     "score": 5.2,
      "side": "A",
      "yours": false
     },
@@ -359,7 +359,7 @@
      "name": "Willock",
      "club": "NEW",
      "pos": "MID",
-     "score": 5.0,
+     "score": 4.6,
      "side": "A",
      "yours": false
     }
@@ -473,7 +473,7 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 9.9,
+     "score": 10.0,
      "side": "H",
      "yours": false
     },
