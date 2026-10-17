@@ -1,0 +1,187 @@
+{
+ "generated": "2026-10-17T10:08:32-0500",
+ "by": "Alfred (fpl_crests.py)",
+ "sources": {
+  "premierleague": "FPL bootstrap-static team code -> resources.premierleague.com badge",
+  "espn": "site.web.api.espn.com team logos"
+ },
+ "crests": {
+  "AFC Bournemouth": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t91.png"
+  },
+  "Arsenal FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t3.png"
+  },
+  "Aston Villa FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t7.png"
+  },
+  "Birmingham City FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/392.png"
+  },
+  "Blackburn Rovers FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png"
+  },
+  "Bolton Wanderers FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png"
+  },
+  "Brentford FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t94.png"
+  },
+  "Brighton & Hove Albion FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t36.png"
+  },
+  "Bristol City FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/333.png"
+  },
+  "Burnley FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png"
+  },
+  "Cardiff City FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/347.png"
+  },
+  "Charlton Athletic FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png"
+  },
+  "Chelsea FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t8.png"
+  },
+  "Coventry City FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t9.png"
+  },
+  "Crystal Palace FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t31.png"
+  },
+  "Derby County FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/374.png"
+  },
+  "Everton FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t11.png"
+  },
+  "Fulham FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t54.png"
+  },
+  "Hull City AFC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t88.png"
+  },
+  "Ipswich Town FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t40.png"
+  },
+  "Leeds United FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t2.png"
+  },
+  "Lincoln City FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/314.png"
+  },
+  "Liverpool FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t14.png"
+  },
+  "Manchester City FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t43.png"
+  },
+  "Manchester United FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t1.png"
+  },
+  "Middlesbrough FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png"
+  },
+  "Millwall FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/391.png"
+  },
+  "Newcastle United FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t4.png"
+  },
+  "Norwich City FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/381.png"
+  },
+  "Nottingham Forest FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t17.png"
+  },
+  "Portsmouth FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/385.png"
+  },
+  "Preston North End FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/394.png"
+  },
+  "Queens Park Rangers FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/334.png"
+  },
+  "Sheffield United FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/398.png"
+  },
+  "Southampton FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png"
+  },
+  "Stoke City FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png"
+  },
+  "Sunderland AFC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t56.png"
+  },
+  "Swansea City AFC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/318.png"
+  },
+  "Tottenham Hotspur FC": {
+   "src": "premierleague",
+   "url": "https://resources.premierleague.com/premierleague/badges/100/t6.png"
+  },
+  "Watford FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png"
+  },
+  "West Bromwich Albion FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png"
+  },
+  "West Ham United FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png"
+  },
+  "Wolverhampton Wanderers FC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png"
+  },
+  "Wrexham AFC": {
+   "src": "espn",
+   "url": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png"
+  }
+ },
+ "missing": []
+}

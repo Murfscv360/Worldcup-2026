@@ -768,7 +768,7 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
 .launch-sub{color:#b6a9d6;font-size:11px;text-transform:uppercase;letter-spacing:2.5px;margin:5px 0 16px}
 .launch-list{list-style:none;margin:0 0 18px;padding:0;text-align:left;display:flex;flex-direction:column;gap:8px}
 .launch-list li{font-size:13px;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
-.launch-list b{color:#fff}
+.launch-list b{color:var(--accent);font-weight:700}   /* 2026-10-17: was #fff on the light card -- invisible */
 .launch-enter{width:100%;background:linear-gradient(135deg,var(--accent2),#6f9bff);color:#05070e;font-weight:800;font-size:15px;border:0;border-radius:12px;padding:14px;cursor:pointer;letter-spacing:.3px}
 .launch-more{width:100%;background:none;border:0;color:var(--accent2);font-weight:700;font-size:13px;margin-top:10px;cursor:pointer}
 
@@ -817,3 +817,8 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
   /* Don't print other tabs' content if somehow visible. */
   @page{margin:14mm}
 }
+
+/* Real club crests (2026-10-17): the image covers the coloured code circle; if it fails it removes itself and the circle shows */
+.crest{position:relative;overflow:hidden}
+.crest .crest-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;box-sizing:border-box}
+.crest.has-logo{background:transparent !important;color:transparent !important;border-radius:0}

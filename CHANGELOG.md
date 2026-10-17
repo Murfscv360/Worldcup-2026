@@ -33,3 +33,12 @@ are labelled in‑app; scores, scorers, standings & clean sheets come from live 
 ## v0.6 — Foundation
 - Schedule (104 matches, CT + local times, US TV), 12 groups & live standings, 48 teams, 16 venues.
 - Built on the public‑domain openfootball feed; no build step; deploys as a static site.
+
+## 2026-10-17 — FPL naming, real club crests, review fixes (Alfred)
+- **Real club crests**: `data/alfred-crests.json` (Alfred, `fpl_crests.py`) maps all 44 clubs the app knows — 20 official Premier League
+  badges (FPL `code` → resources.premierleague.com) + 24 ESPN logos (Championship); `crest()` shows the badge over the coloured club-code
+  circle, and the circle returns if an image ever fails. Verified in WebKit at 390 px: 20/20 crests loaded on the Table view.
+- **Renamed to FPL** so it is easy to find: home-screen/app name `FPL`, install name and page title `FPL — English Football 26/27`,
+  launch card eyebrow `FPL · English Football`.
+- **Review fix**: launch-card highlights were white (#fff) on the light card — invisible; now the accent colour.
+- OTA: the Pages workflow stamps a new BUILD into `sw.js`, so installed copies drop the old cache and update on next open.

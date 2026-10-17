@@ -33,6 +33,7 @@ const SEASON_OPENER = { epl: "2026-08-21", championship: "2026-08-14" };
 const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, table, archive, dataSource, currentClubs}
 let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null, PLAYERS = null;
 let LIVE_SCORES_MIRROR = null; // real in-play scores — see loadLiveScoresMirror() below
+let CRESTS = {};          // "Arsenal FC" -> {src,url}: real club crests from Alfred (data/alfred-crests.json, 2026-10-17)
 let CLUB_BY_FULL = {};    // "Arsenal FC" -> club meta (comp-agnostic, covers any club in either feed)
 let CLUB_BY_SHORT = {};   // "Arsenal" -> club meta (this season's 44 clubs, comp-correct)
 
@@ -178,6 +179,9 @@ async function loadData(){
   EPL.clubs.forEach(c => CLUB_BY_FULL[c.full] = c);
   EPL.promoted2627.forEach(c => CLUB_BY_FULL[c.full] = c);
   CHA.clubs.forEach(c => CLUB_BY_FULL[c.full] = c);
+  // Real crests (official Premier League badges / ESPN for the Championship), published by Alfred. Never blocks the app:
+  // a missing file or a failed image falls back to the coloured club-code circle.
+  try { const cj = await fetchAlfredFile("alfred-crests.json"); if (cj && cj.crests) CRESTS = cj.crests; } catch (e) { /* fallback circles */ }
 
   const eplRoster = EPL.clubs.filter(c=>!c.relegated).concat(EPL.promoted2627).map(c=>c.full);
   const chaRoster = CHA.clubs.concat(EPL.clubs.filter(c=>c.relegated)).map(c=>c.full);
@@ -242,7 +246,9 @@ function crest(full, size){
   const bg = clubColor(full);
   const dark = /^#f/i.test(bg) || bg.toUpperCase()==="#FFFFFF";
   const fg = dark ? "#0a0713" : "#fff";
-  return `<span class="crest" style="width:${size}px;height:${size}px;line-height:${size}px;font-size:${Math.round(size*0.34)}px;background:${bg};color:${fg}">${code3(full)}</span>`;
+  const logo = CRESTS[full] && CRESTS[full].url;
+  const img = logo ? `<img class="crest-logo" src="${logo}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove('has-logo');this.remove()">` : "";
+  return `<span class="crest${logo ? " has-logo" : ""}" title="${clubName(full)}" style="width:${size}px;height:${size}px;line-height:${size}px;font-size:${Math.round(size*0.34)}px;background:${bg};color:${fg}">${img}${code3(full)}</span>`;
 }
 function clubMeta(nameKey){ return CLUB_BY_SHORT[nameKey]; } // this season's meta, comp-correct
 function compLabel(comp){ return comp==="epl" ? "Premier League" : comp==="ucl" ? "Champions League" : "Championship"; }
