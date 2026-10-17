@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T12:40:02-0500",
+ "generated": "2026-10-17T18:40:04-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -8,64 +8,64 @@
  "top_lines": [
   {
    "plan": "Egan -> Castagne",
-   "net": 93.2,
-   "raw": 93.2,
+   "net": 93.24,
+   "raw": 93.24,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.28
   },
   {
    "plan": "Ajayi -> Castagne",
-   "net": 93.2,
-   "raw": 93.2,
+   "net": 93.24,
+   "raw": 93.24,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.28
   },
   {
    "plan": "HOLD \u2014 no transfer",
-   "net": 92.92,
-   "raw": 92.92,
+   "net": 92.96,
+   "raw": 92.96,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Kayode",
-   "net": 92.92,
-   "raw": 92.92,
-   "hit": 0,
-   "captain": "Haaland",
-   "vs_hold": 0.0
-  },
-  {
-   "plan": "Egan -> Affengruber",
-   "net": 92.92,
-   "raw": 92.92,
+   "net": 92.96,
+   "raw": 92.96,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Jacquet",
-   "net": 92.92,
-   "raw": 92.92,
+   "net": 92.96,
+   "raw": 92.96,
+   "hit": 0,
+   "captain": "Haaland",
+   "vs_hold": 0.0
+  },
+  {
+   "plan": "Egan -> Affengruber",
+   "net": 92.96,
+   "raw": 92.96,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Hall",
-   "net": 92.92,
-   "raw": 92.92,
+   "net": 92.96,
+   "raw": 92.96,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Ajayi -> Kayode",
-   "net": 92.92,
-   "raw": 92.92,
+   "net": 92.96,
+   "raw": 92.96,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
@@ -100,7 +100,7 @@
     "fix": "CRY (A)",
     "diff": 3,
     "risk": 1,
-    "total": 36.6,
+    "total": 36.2,
     "price": 15.7,
     "status": "a"
    },
@@ -142,8 +142,8 @@
     "fix": "CRY (A)",
     "diff": 3,
     "risk": 1,
-    "total": 26.36,
-    "price": 7.9,
+    "total": 25.96,
+    "price": 8.0,
     "status": "a"
    },
    {
@@ -240,7 +240,7 @@
     "fix": "CRY (A)",
     "diff": 3,
     "risk": 1,
-    "total": 11.28,
+    "total": 10.88,
     "price": 5.8,
     "status": "a"
    },
