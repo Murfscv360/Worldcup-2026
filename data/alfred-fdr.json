@@ -1,0 +1,728 @@
+{
+ "generated": "2026-10-17T10:21:32-0500",
+ "by": "Alfred (fpl_app_data.py)",
+ "source": "fantasy.premierleague.com/api fixtures (team_h/a_difficulty)",
+ "from_gw": 8,
+ "clubs": {
+  "ARS": {
+   "name": "Arsenal",
+   "full": "Arsenal FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "LIV",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 10,
+     "opp": "HUL",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 11,
+     "opp": "NEW",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "MCI",
+     "home": true,
+     "fdr": 4
+    }
+   ]
+  },
+  "AVL": {
+   "name": "Aston Villa",
+   "full": "Aston Villa FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "MCI",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 9,
+     "opp": "FUL",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 10,
+     "opp": "MUN",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 11,
+     "opp": "SUN",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "IPS",
+     "home": false,
+     "fdr": 2
+    }
+   ]
+  },
+  "BOU": {
+   "name": "Bournemouth",
+   "full": "AFC Bournemouth",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "MUN",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 9,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "IPS",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 11,
+     "opp": "NFO",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "FUL",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  "BRE": {
+   "name": "Brentford",
+   "full": "Brentford FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "HUL",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 9,
+     "opp": "NFO",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 11,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "MUN",
+     "home": false,
+     "fdr": 4
+    }
+   ]
+  },
+  "BHA": {
+   "name": "Brighton",
+   "full": "Brighton & Hove Albion FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "LIV",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 9,
+     "opp": "MCI",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 10,
+     "opp": "BRE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "HUL",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 12,
+     "opp": "NEW",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  "CHE": {
+   "name": "Chelsea",
+   "full": "Chelsea FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 9,
+     "opp": "MUN",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 10,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  "COV": {
+   "name": "Coventry City",
+   "full": "Coventry City FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "FUL",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 9,
+     "opp": "SUN",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "EVE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "CRY",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 12,
+     "opp": "LEE",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  "CRY": {
+   "name": "Crystal Palace",
+   "full": "Crystal Palace FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "NEW",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "TOT",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "LIV",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 11,
+     "opp": "COV",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 12,
+     "opp": "HUL",
+     "home": true,
+     "fdr": 2
+    }
+   ]
+  },
+  "EVE": {
+   "name": "Everton",
+   "full": "Everton FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 9,
+     "opp": "NEW",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "COV",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 11,
+     "opp": "BRE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "LIV",
+     "home": true,
+     "fdr": 4
+    }
+   ]
+  },
+  "FUL": {
+   "name": "Fulham",
+   "full": "Fulham FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "COV",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 9,
+     "opp": "AVL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "NEW",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "MCI",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 12,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  "HUL": {
+   "name": "Hull City",
+   "full": "Hull City AFC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "BRE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "IPS",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 10,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    },
+    {
+     "gw": 11,
+     "opp": "BHA",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "CRY",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  "IPS": {
+   "name": "Ipswich Town",
+   "full": "Ipswich Town FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "NFO",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "HUL",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 10,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "TOT",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "AVL",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  "LEE": {
+   "name": "Leeds",
+   "full": "Leeds United FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "BOU",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 11,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 12,
+     "opp": "COV",
+     "home": true,
+     "fdr": 2
+    }
+   ]
+  },
+  "LIV": {
+   "name": "Liverpool",
+   "full": "Liverpool FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "BHA",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "ARS",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 10,
+     "opp": "CRY",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "MUN",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 12,
+     "opp": "EVE",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  "MCI": {
+   "name": "Man City",
+   "full": "Manchester City FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "AVL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "BHA",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "NFO",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "FUL",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 12,
+     "opp": "ARS",
+     "home": false,
+     "fdr": 5
+    }
+   ]
+  },
+  "MUN": {
+   "name": "Man Utd",
+   "full": "Manchester United FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "BOU",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 10,
+     "opp": "AVL",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "LIV",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 12,
+     "opp": "BRE",
+     "home": true,
+     "fdr": 3
+    }
+   ]
+  },
+  "NEW": {
+   "name": "Newcastle",
+   "full": "Newcastle United FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "CRY",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "FUL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "ARS",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 12,
+     "opp": "BHA",
+     "home": false,
+     "fdr": 4
+    }
+   ]
+  },
+  "NFO": {
+   "name": "Nott'm Forest",
+   "full": "Nottingham Forest FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "IPS",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 9,
+     "opp": "BRE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 10,
+     "opp": "MCI",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 11,
+     "opp": "BOU",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "CHE",
+     "home": true,
+     "fdr": 4
+    }
+   ]
+  },
+  "TOT": {
+   "name": "Spurs",
+   "full": "Tottenham Hotspur FC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4
+    },
+    {
+     "gw": 9,
+     "opp": "CRY",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 10,
+     "opp": "LEE",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 11,
+     "opp": "IPS",
+     "home": true,
+     "fdr": 2
+    },
+    {
+     "gw": 12,
+     "opp": "SUN",
+     "home": false,
+     "fdr": 3
+    }
+   ]
+  },
+  "SUN": {
+   "name": "Sunderland",
+   "full": "Sunderland AFC",
+   "next": [
+    {
+     "gw": 8,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 3
+    },
+    {
+     "gw": 9,
+     "opp": "COV",
+     "home": false,
+     "fdr": 2
+    },
+    {
+     "gw": 10,
+     "opp": "CHE",
+     "home": true,
+     "fdr": 4
+    },
+    {
+     "gw": 11,
+     "opp": "AVL",
+     "home": false,
+     "fdr": 3
+    },
+    {
+     "gw": 12,
+     "opp": "TOT",
+     "home": true,
+     "fdr": 2
+    }
+   ]
+  }
+ }
+}
