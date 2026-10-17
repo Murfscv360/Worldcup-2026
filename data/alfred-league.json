@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T12:40:02-0500",
+ "generated": "2026-10-17T18:40:04-0500",
  "by": "Alfred (fpl_app_data.py)",
  "source": "fantasy.premierleague.com/api entry + leagues-classic (public)",
  "entry": 5933243,
@@ -49,9 +49,9 @@
   },
   {
    "gw": 7,
-   "points": 0,
-   "total": 324,
-   "overall_rank": 6984295,
+   "points": 22,
+   "total": 346,
+   "overall_rank": 7279804,
    "transfers_cost": 0
   }
  ],
@@ -59,7 +59,7 @@
   {
    "id": 579859,
    "name": "The City invitational league championship",
-   "size_hint": 34,
+   "size_hint": 35,
    "my_rank": 34,
    "my_last_rank": 30,
    "gws": [
@@ -88,7 +88,7 @@
       1,
       5,
       2,
-      2
+      1
      ]
     },
     {
@@ -107,7 +107,7 @@
       2,
       1,
       1,
-      1
+      2
      ]
     },
     {
@@ -116,8 +116,8 @@
      "manager": "Johan Langbjenne",
      "rank": 3,
      "last_rank": 3,
-     "total": 461,
-     "gw_points": 33,
+     "total": 462,
+     "gw_points": 34,
      "me": false,
      "rank_by_gw": [
       2,
@@ -183,7 +183,7 @@
       13,
       11,
       13,
-      13
+      6
      ]
     },
     {
@@ -202,7 +202,7 @@
       11,
       6,
       6,
-      6
+      7
      ]
     },
     {
@@ -259,14 +259,33 @@
       14,
       10,
       15,
-      15
+      10
+     ]
+    },
+    {
+     "entry": 4100562,
+     "team": "TE's Utd are back",
+     "manager": "Thiru Elankumaran",
+     "rank": 11,
+     "last_rank": 11,
+     "total": 426,
+     "gw_points": 35,
+     "me": false,
+     "rank_by_gw": [
+      18,
+      15,
+      17,
+      10,
+      15,
+      11,
+      11
      ]
     },
     {
      "entry": 5876550,
      "team": "Farcenal FC",
      "manager": "Arijit Mukerji",
-     "rank": 11,
+     "rank": 12,
      "last_rank": 13,
      "total": 425,
      "gw_points": 35,
@@ -278,14 +297,14 @@
       20,
       17,
       14,
-      14
+      12
      ]
     },
     {
      "entry": 3791882,
      "team": "Monzennakacho Monks",
      "manager": "Daisuke Go",
-     "rank": 12,
+     "rank": 13,
      "last_rank": 7,
      "total": 424,
      "gw_points": 20,
@@ -297,26 +316,7 @@
       4,
       8,
       7,
-      7
-     ]
-    },
-    {
-     "entry": 4100562,
-     "team": "TE's Utd are back",
-     "manager": "Thiru Elankumaran",
-     "rank": 13,
-     "last_rank": 11,
-     "total": 423,
-     "gw_points": 32,
-     "me": false,
-     "rank_by_gw": [
-      18,
-      15,
-      17,
-      10,
-      15,
-      11,
-      11
+      13
      ]
     },
     {
@@ -335,7 +335,7 @@
       12,
       9,
       10,
-      10
+      14
      ]
     },
     {
@@ -354,7 +354,7 @@
       8,
       18,
       12,
-      12
+      15
      ]
     },
     {
@@ -363,8 +363,8 @@
      "manager": "Steve Davenport",
      "rank": 16,
      "last_rank": 16,
-     "total": 416,
-     "gw_points": 32,
+     "total": 419,
+     "gw_points": 35,
      "me": false,
      "rank_by_gw": [
       19,
@@ -411,55 +411,17 @@
       22,
       25,
       19,
-      19
-     ]
-    },
-    {
-     "entry": 3799393,
-     "team": "Vinirejects",
-     "manager": "Audie Garth",
-     "rank": 19,
-     "last_rank": 21,
-     "total": 407,
-     "gw_points": 39,
-     "me": false,
-     "rank_by_gw": [
-      24,
-      30,
-      24,
-      25,
-      22,
-      21,
-      21
-     ]
-    },
-    {
-     "entry": 4655543,
-     "team": "Kaycedo FC",
-     "manager": "Jack Kay",
-     "rank": 20,
-     "last_rank": 25,
-     "total": 403,
-     "gw_points": 45,
-     "me": false,
-     "rank_by_gw": [
-      30,
-      26,
-      32,
-      29,
-      30,
-      25,
-      25
+      18
      ]
     },
     {
      "entry": 1124365,
      "team": "Tarlton Athletic",
      "manager": "Mike Tarlton",
-     "rank": 21,
+     "rank": 19,
      "last_rank": 20,
-     "total": 403,
-     "gw_points": 34,
+     "total": 409,
+     "gw_points": 40,
      "me": false,
      "rank_by_gw": [
       20,
@@ -472,10 +434,67 @@
      ]
     },
     {
+     "entry": 3799393,
+     "team": "Vinirejects",
+     "manager": "Audie Garth",
+     "rank": 20,
+     "last_rank": 21,
+     "total": 409,
+     "gw_points": 41,
+     "me": false,
+     "rank_by_gw": [
+      24,
+      30,
+      24,
+      25,
+      22,
+      21,
+      19
+     ]
+    },
+    {
+     "entry": 4655543,
+     "team": "Kaycedo FC",
+     "manager": "Jack Kay",
+     "rank": 21,
+     "last_rank": 25,
+     "total": 403,
+     "gw_points": 45,
+     "me": false,
+     "rank_by_gw": [
+      30,
+      26,
+      32,
+      29,
+      30,
+      25,
+      21
+     ]
+    },
+    {
+     "entry": 1290930,
+     "team": "YNWA",
+     "manager": "Jerry Zhang",
+     "rank": 22,
+     "last_rank": 26,
+     "total": 400,
+     "gw_points": 43,
+     "me": false,
+     "rank_by_gw": [
+      15,
+      24,
+      23,
+      26,
+      26,
+      26,
+      22
+     ]
+    },
+    {
      "entry": 2870376,
      "team": "Pierre 'the' Sage FC",
      "manager": "Thomas Boatwright",
-     "rank": 22,
+     "rank": 23,
      "last_rank": 18,
      "total": 399,
      "gw_points": 17,
@@ -487,33 +506,33 @@
       18,
       19,
       18,
-      18
+      23
      ]
     },
     {
-     "entry": 1290930,
-     "team": "YNWA",
-     "manager": "Jerry Zhang",
-     "rank": 23,
-     "last_rank": 26,
-     "total": 398,
-     "gw_points": 41,
+     "entry": 4647253,
+     "team": "kierondyersbluearmy",
+     "manager": "Damian Herinckx",
+     "rank": 24,
+     "last_rank": 22,
+     "total": 383,
+     "gw_points": 21,
      "me": false,
      "rank_by_gw": [
-      15,
-      24,
-      23,
-      26,
-      26,
-      26,
-      26
+      16,
+      29,
+      22,
+      21,
+      20,
+      22,
+      24
      ]
     },
     {
      "entry": 749194,
      "team": "Earthy, Wind & Fire",
      "manager": "Tim Sharman",
-     "rank": 24,
+     "rank": 25,
      "last_rank": 23,
      "total": 382,
      "gw_points": 17,
@@ -525,26 +544,7 @@
       9,
       16,
       23,
-      23
-     ]
-    },
-    {
-     "entry": 4647253,
-     "team": "kierondyersbluearmy",
-     "manager": "Damian Herinckx",
-     "rank": 25,
-     "last_rank": 22,
-     "total": 381,
-     "gw_points": 19,
-     "me": false,
-     "rank_by_gw": [
-      16,
-      29,
-      22,
-      21,
-      20,
-      22,
-      22
+      25
      ]
     },
     {
@@ -563,7 +563,7 @@
       30,
       28,
       29,
-      29
+      26
      ]
     },
     {
@@ -582,7 +582,7 @@
       23,
       23,
       28,
-      28
+      27
      ]
     },
     {
@@ -601,7 +601,7 @@
       24,
       27,
       24,
-      24
+      28
      ]
     },
     {
@@ -610,8 +610,8 @@
      "manager": "Martin Hindley",
      "rank": 29,
      "last_rank": 27,
-     "total": 369,
-     "gw_points": 17,
+     "total": 371,
+     "gw_points": 19,
      "me": false,
      "rank_by_gw": [
       32,
@@ -620,7 +620,7 @@
       27,
       24,
       27,
-      27
+      29
      ]
     },
     {
@@ -639,7 +639,7 @@
       31,
       34,
       33,
-      33
+      30
      ]
     },
     {
@@ -648,8 +648,8 @@
      "manager": "Fadhli Nor",
      "rank": 31,
      "last_rank": 33,
-     "total": 358,
-     "gw_points": 44,
+     "total": 361,
+     "gw_points": 47,
      "me": false,
      "rank_by_gw": [
       26,
@@ -658,7 +658,7 @@
       33,
       33,
       34,
-      34
+      31
      ]
     },
     {
@@ -696,7 +696,7 @@
       34,
       32,
       31,
-      31
+      33
      ]
     },
     {
@@ -715,7 +715,7 @@
       32,
       31,
       30,
-      30
+      34
      ]
     },
     {
