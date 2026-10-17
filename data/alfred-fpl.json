@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17 09:15:15",
+ "generated": "2026-10-17 12:15:20",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -10,8 +10,8 @@
  "chips_active": [],
  "captain": "De Cuyper",
  "vice": "Jo\u00e3o Pedro",
- "captain_model": "De Cuyper",
- "vice_model": "Gro\u00df",
+ "captain_model": "Haaland",
+ "vice_model": "De Cuyper",
  "captain_override_reason": "John GW7 Pick Team screenshot 2026-10-15 09:50",
  "captain_current": "De Cuyper",
  "vice_current": "Jo\u00e3o Pedro",
@@ -20,8 +20,8 @@
    "name": "Tzolakis",
    "pos": "GKP",
    "club": "HUL",
-   "score": 10.8,
-   "ep": 2.7
+   "score": 14.8,
+   "ep": 3.7
   },
   {
    "name": "De Cuyper",
@@ -73,18 +73,18 @@
    "ep": 4.0
   },
   {
+   "name": "Haaland",
+   "pos": "FWD",
+   "club": "MCI",
+   "score": 37.0,
+   "ep": 8.3
+  },
+  {
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
    "score": 21.12,
    "ep": 4.7
-  },
-  {
-   "name": "Haaland",
-   "pos": "FWD",
-   "club": "MCI",
-   "score": 19.64,
-   "ep": 4.0
   },
   {
    "name": "Kostoulas",
@@ -108,13 +108,13 @@
    "order": 1
   },
   {
-   "name": "Ajayi",
+   "name": "Egan",
    "pos": "DEF",
    "club": "HUL",
    "order": 2
   },
   {
-   "name": "Egan",
+   "name": "Ajayi",
    "pos": "DEF",
    "club": "HUL",
    "order": 3
@@ -415,7 +415,7 @@
      "name": "Isak",
      "club": "LIV",
      "pos": "FWD",
-     "score": 10.4,
+     "score": 9.9,
      "side": "A",
      "yours": false
     },
@@ -431,7 +431,7 @@
      "name": "Thiago",
      "club": "BRE",
      "pos": "FWD",
-     "score": 6.8,
+     "score": 6.9,
      "side": "H",
      "yours": false
     }
@@ -468,7 +468,7 @@
      "name": "Gelhardt",
      "club": "HUL",
      "pos": "MID",
-     "score": 14.8,
+     "score": 11.2,
      "side": "A",
      "yours": false
     },
@@ -481,18 +481,18 @@
      "yours": false
     },
     {
-     "name": "Bobb",
+     "name": "Iwobi",
      "club": "FUL",
      "pos": "MID",
-     "score": 5.8,
+     "score": 6.1,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Thomas",
+     "name": "Belloumi",
      "club": "HUL",
      "pos": "MID",
-     "score": 4.9,
+     "score": 4.3,
      "side": "A",
      "yours": false
     }
@@ -526,34 +526,34 @@
    ],
    "watch": [
     {
-     "name": "Doku",
+     "name": "Haaland",
+     "club": "MCI",
+     "pos": "FWD",
+     "score": 16.2,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Foden",
      "club": "MCI",
      "pos": "MID",
-     "score": 17.6,
+     "score": 12.6,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Haaland",
-     "club": "MCI",
+     "name": "Flemming",
+     "club": "IPS",
      "pos": "FWD",
-     "score": 15.3,
-     "side": "H",
-     "yours": true
+     "score": 8.0,
+     "side": "A",
+     "yours": false
     },
     {
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 6.6,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Enciso",
-     "club": "IPS",
-     "pos": "MID",
-     "score": 6.5,
+     "score": 6.0,
      "side": "A",
      "yours": false
     }
@@ -590,7 +590,15 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 9.0,
+     "score": 9.6,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "N.Jackson",
+     "club": "AVL",
+     "pos": "FWD",
+     "score": 5.8,
      "side": "A",
      "yours": false
     },
@@ -603,18 +611,10 @@
      "yours": false
     },
     {
-     "name": "N.Jackson",
-     "club": "AVL",
-     "pos": "FWD",
-     "score": 5.7,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Willock",
+     "name": "Wissa",
      "club": "NEW",
-     "pos": "MID",
-     "score": 5.1,
+     "pos": "FWD",
+     "score": 4.9,
      "side": "H",
      "yours": false
     }
