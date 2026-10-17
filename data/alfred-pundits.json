@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T14:45:07-0500",
+ "generated": "2026-10-17T15:15:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,22 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-13",
-   "comp": "championship",
-   "team1": "Cardiff City FC",
-   "team2": "Watford FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Under-pressure Dionisi addresses sacking 'fake news'",
-     "standfirst": "Under pressure Watford manager Alessio Dionisi says reports he would lose his job after Tuesday's heavy defeat at Cardiff were \"fake news\".",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cvrly0n268xwo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-16T08:59:43Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-13",
    "comp": "championship",
@@ -396,7 +380,7 @@
      "source": "Guardian",
      "comp": "epl",
      "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
-     "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer, which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa en",
+     "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed summer move from Freiburg to Newcastle. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa ended up paying and he duly delig",
      "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
      "published": "2026-10-17T18:38:58Z"
     }
@@ -408,6 +392,14 @@
    "team1": "Swansea City AFC",
    "team2": "West Ham United FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "West Ham unstoppable, Norwich in trouble - Aaron McLean's EFL takeaways",
+     "standfirst": "BBC Final Score pundit Aaron McLean looks at the weekend's talking points in the EFL, including West Ham win over in-form Swansea City and Norwich City's woes.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/ckgelq3gxx49o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:43:05Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "championship",
@@ -460,6 +452,22 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Wirtz delivers but remains Liverpool's conundrum",
+   "standfirst": "Florian Wirtz is instrumental as Liverpool return to winning ways in the Premier League, but does he remain boss Andoni Iraola's great conundrum?",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c9j34rke27zjo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T20:07:40Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "West Ham unstoppable, Norwich in trouble - Aaron McLean's EFL takeaways",
+   "standfirst": "BBC Final Score pundit Aaron McLean looks at the weekend's talking points in the EFL, including West Ham win over in-form Swansea City and Norwich City's woes.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ckgelq3gxx49o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:43:05Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -528,7 +536,7 @@
    "source": "Guardian",
    "comp": "epl",
    "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
-   "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer, which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa en",
+   "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed summer move from Freiburg to Newcastle. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa ended up paying and he duly delig",
    "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
    "published": "2026-10-17T18:38:58Z"
   },
@@ -683,22 +691,6 @@
    "standfirst": "Chelsea manager Xabi Alonso describes his side's 2-0 victory over Everton as ''professional and solid' as they move up to fifth in the Premier League table.",
    "link": "https://www.bbc.co.uk/sport/football/videos/c5vgjny1082lo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T14:53:23Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Dionisi: 'I am very happy. It wasn't easy'",
-   "standfirst": "Alessio Dionisi reacts after Watford beat Charlton Athletic 2-0 in the Championship.",
-   "link": "https://www.bbc.co.uk/sounds/play/p0ph81jw?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T14:48:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Everton did not play well - Moyes",
-   "standfirst": "Everton manager David Moyes reacts to their defeat against Chelsea at the Hill Dickinson Stadium.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/ck0j04346n70o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T14:42:46Z"
   }
  ]
 }
