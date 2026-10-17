@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-16 06:30:15",
+ "generated": "2026-10-17 06:30:13",
  "tz": "America/Chicago",
  "season_fixtures": 380,
- "next_gw": 7,
+ "next_gw": 8,
  "horizon_gws": 6,
  "changes": [],
  "unscheduled": 0,
@@ -11,13 +11,6 @@
   "ARS": {
    "games": [
     {
-     "gw": 7,
-     "opp": "NFO",
-     "home": false,
-     "fdr": 3,
-     "when": "Sun 18 Oct 10:30"
-    },
-    {
      "gw": 8,
      "opp": "EVE",
      "home": true,
@@ -51,6 +44,13 @@
      "home": true,
      "fdr": 4,
      "when": "Sun 29 Nov 11:30"
+    },
+    {
+     "gw": 13,
+     "opp": "BRE",
+     "home": false,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.17,
@@ -59,13 +59,6 @@
   "AVL": {
    "games": [
     {
-     "gw": 7,
-     "opp": "NEW",
-     "home": false,
-     "fdr": 3,
-     "when": "Sat 17 Oct 11:30"
-    },
-    {
      "gw": 8,
      "opp": "MCI",
      "home": true,
@@ -99,6 +92,13 @@
      "home": false,
      "fdr": 2,
      "when": "Sat 28 Nov 12:30"
+    },
+    {
+     "gw": 13,
+     "opp": "EVE",
+     "home": true,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.0,
@@ -106,13 +106,6 @@
   },
   "BHA": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "CRY",
-     "home": true,
-     "fdr": 2,
-     "when": "Sun 18 Oct 08:00"
-    },
     {
      "gw": 8,
      "opp": "LIV",
@@ -147,20 +140,20 @@
      "home": true,
      "fdr": 3,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "BOU",
+     "home": false,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.17,
+   "avg_fdr": 3.33,
    "count": 6
   },
   "BOU": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "SUN",
-     "home": true,
-     "fdr": 3,
-     "when": "Sun 18 Oct 08:00"
-    },
     {
      "gw": 8,
      "opp": "MUN",
@@ -195,6 +188,13 @@
      "home": false,
      "fdr": 3,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "BHA",
+     "home": true,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.0,
@@ -202,13 +202,6 @@
   },
   "BRE": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "LIV",
-     "home": true,
-     "fdr": 4,
-     "when": "Sat 17 Oct 09:00"
-    },
     {
      "gw": 8,
      "opp": "HUL",
@@ -243,6 +236,13 @@
      "home": false,
      "fdr": 4,
      "when": "Sat 28 Nov 10:00"
+    },
+    {
+     "gw": 13,
+     "opp": "ARS",
+     "home": true,
+     "fdr": 4,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.33,
@@ -250,13 +250,6 @@
   },
   "CHE": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "EVE",
-     "home": false,
-     "fdr": 3,
-     "when": "Sat 17 Oct 06:30"
-    },
     {
      "gw": 8,
      "opp": "TOT",
@@ -291,20 +284,20 @@
      "home": false,
      "fdr": 3,
      "when": "Fri 27 Nov 15:00"
+    },
+    {
+     "gw": 13,
+     "opp": "CRY",
+     "home": true,
+     "fdr": 2,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 2.83,
    "count": 6
   },
   "COV": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "TOT",
-     "home": false,
-     "fdr": 3,
-     "when": "Mon 19 Oct 14:00"
-    },
     {
      "gw": 8,
      "opp": "FUL",
@@ -339,20 +332,20 @@
      "home": false,
      "fdr": 3,
      "when": "Sat 28 Nov 10:00"
+    },
+    {
+     "gw": 13,
+     "opp": "IPS",
+     "home": true,
+     "fdr": 2,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 2.67,
+   "avg_fdr": 2.5,
    "count": 6
   },
   "CRY": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "BHA",
-     "home": false,
-     "fdr": 4,
-     "when": "Sun 18 Oct 08:00"
-    },
     {
      "gw": 8,
      "opp": "NEW",
@@ -387,6 +380,13 @@
      "home": true,
      "fdr": 2,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "CHE",
+     "home": false,
+     "fdr": 4,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.0,
@@ -394,13 +394,6 @@
   },
   "EVE": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "CHE",
-     "home": true,
-     "fdr": 4,
-     "when": "Sat 17 Oct 06:30"
-    },
     {
      "gw": 8,
      "opp": "ARS",
@@ -435,20 +428,20 @@
      "home": true,
      "fdr": 4,
      "when": "Sun 29 Nov 07:00"
+    },
+    {
+     "gw": 13,
+     "opp": "AVL",
+     "home": false,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.5,
+   "avg_fdr": 3.33,
    "count": 6
   },
   "FUL": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "HUL",
-     "home": true,
-     "fdr": 2,
-     "when": "Sat 17 Oct 09:00"
-    },
     {
      "gw": 8,
      "opp": "COV",
@@ -483,20 +476,20 @@
      "home": true,
      "fdr": 3,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "TOT",
+     "home": false,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "HUL": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "FUL",
-     "home": false,
-     "fdr": 3,
-     "when": "Sat 17 Oct 09:00"
-    },
     {
      "gw": 8,
      "opp": "BRE",
@@ -531,6 +524,13 @@
      "home": false,
      "fdr": 3,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "NFO",
+     "home": true,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.17,
@@ -538,13 +538,6 @@
   },
   "IPS": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "MCI",
-     "home": false,
-     "fdr": 5,
-     "when": "Sat 17 Oct 09:00"
-    },
     {
      "gw": 8,
      "opp": "NFO",
@@ -579,20 +572,20 @@
      "home": true,
      "fdr": 3,
      "when": "Sat 28 Nov 12:30"
+    },
+    {
+     "gw": 13,
+     "opp": "COV",
+     "home": false,
+     "fdr": 2,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.17,
+   "avg_fdr": 2.67,
    "count": 6
   },
   "LEE": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "MUN",
-     "home": true,
-     "fdr": 4,
-     "when": "Sun 18 Oct 08:00"
-    },
     {
      "gw": 8,
      "opp": "SUN",
@@ -627,20 +620,20 @@
      "home": true,
      "fdr": 2,
      "when": "Sat 28 Nov 10:00"
+    },
+    {
+     "gw": 13,
+     "opp": "MCI",
+     "home": false,
+     "fdr": 5,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "LIV": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "BRE",
-     "home": false,
-     "fdr": 3,
-     "when": "Sat 17 Oct 09:00"
-    },
     {
      "gw": 8,
      "opp": "BHA",
@@ -675,6 +668,13 @@
      "home": false,
      "fdr": 3,
      "when": "Sun 29 Nov 07:00"
+    },
+    {
+     "gw": 13,
+     "opp": "SUN",
+     "home": true,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.33,
@@ -682,13 +682,6 @@
   },
   "MCI": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "IPS",
-     "home": true,
-     "fdr": 2,
-     "when": "Sat 17 Oct 09:00"
-    },
     {
      "gw": 8,
      "opp": "AVL",
@@ -723,20 +716,20 @@
      "home": false,
      "fdr": 5,
      "when": "Sun 29 Nov 11:30"
+    },
+    {
+     "gw": 13,
+     "opp": "LEE",
+     "home": true,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.0,
+   "avg_fdr": 3.17,
    "count": 6
   },
   "MUN": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "LEE",
-     "home": false,
-     "fdr": 3,
-     "when": "Sun 18 Oct 08:00"
-    },
     {
      "gw": 8,
      "opp": "BOU",
@@ -771,6 +764,13 @@
      "home": true,
      "fdr": 3,
      "when": "Sat 28 Nov 10:00"
+    },
+    {
+     "gw": 13,
+     "opp": "NEW",
+     "home": false,
+     "fdr": 3,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 3.33,
@@ -778,13 +778,6 @@
   },
   "NEW": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "AVL",
-     "home": true,
-     "fdr": 3,
-     "when": "Sat 17 Oct 11:30"
-    },
     {
      "gw": 8,
      "opp": "CRY",
@@ -819,20 +812,20 @@
      "home": false,
      "fdr": 4,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "MUN",
+     "home": true,
+     "fdr": 4,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.33,
+   "avg_fdr": 3.5,
    "count": 6
   },
   "NFO": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "ARS",
-     "home": true,
-     "fdr": 4,
-     "when": "Sun 18 Oct 10:30"
-    },
     {
      "gw": 8,
      "opp": "IPS",
@@ -867,20 +860,20 @@
      "home": true,
      "fdr": 4,
      "when": "Fri 27 Nov 15:00"
+    },
+    {
+     "gw": 13,
+     "opp": "HUL",
+     "home": false,
+     "fdr": 2,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 3.33,
+   "avg_fdr": 3.0,
    "count": 6
   },
   "SUN": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "BOU",
-     "home": false,
-     "fdr": 3,
-     "when": "Sun 18 Oct 08:00"
-    },
     {
      "gw": 8,
      "opp": "LEE",
@@ -915,20 +908,20 @@
      "home": true,
      "fdr": 2,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "LIV",
+     "home": false,
+     "fdr": 4,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
-   "avg_fdr": 2.83,
+   "avg_fdr": 3.0,
    "count": 6
   },
   "TOT": {
    "games": [
-    {
-     "gw": 7,
-     "opp": "COV",
-     "home": true,
-     "fdr": 2,
-     "when": "Mon 19 Oct 14:00"
-    },
     {
      "gw": 8,
      "opp": "CHE",
@@ -963,6 +956,13 @@
      "home": false,
      "fdr": 3,
      "when": "Sun 29 Nov 09:05"
+    },
+    {
+     "gw": 13,
+     "opp": "FUL",
+     "home": true,
+     "fdr": 2,
+     "when": "Wed 02 Dec 15:00"
     }
    ],
    "avg_fdr": 2.67,
