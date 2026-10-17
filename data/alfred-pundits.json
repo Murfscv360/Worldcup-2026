@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T13:45:08-0500",
+ "generated": "2026-10-17T14:15:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -131,6 +131,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Liverpool come from behind to beat nine-man Brentford",
+     "standfirst": "Liverpool come from behind to beat Brentford 2-1 at the Gtech Community Stadium as the hosts finish with nine men after red cards for Yehor Yarmoliuk and Vitaly Janelt.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c65yn28p859wo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:00:13Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Yarmoliuk red card changed game dynamic - Andrews",
      "standfirst": "Brentford manager Keith Andrews says Yehor Yarmoliuk's first-half red card changed the dynamic of their game against Liverpool which ended in a 2-1 defeat for the Bees.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c6eq373g3vx9o?at_medium=RSS&at_campaign=rss",
@@ -187,6 +195,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Neto scores twice as Chelsea win at Everton",
+     "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:00:03Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Chelsea's Martinez taken to hospital for 'precautionary tests'",
      "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
      "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
@@ -223,14 +239,6 @@
      "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
      "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
      "published": "2026-10-17T13:53:13Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
-     "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T13:39:16Z"
     }
    ]
   },
@@ -240,6 +248,14 @@
    "team1": "Fulham FC",
    "team2": "Hull City AFC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Iwobi delivers Fulham's first win of season",
+     "standfirst": "Alex Iwobi fires Fulham to their first Premier League win of the season against Hull.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c6rmy7w1kdgeo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:00:06Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -280,6 +296,14 @@
    "team1": "Manchester City FC",
    "team2": "Ipswich Town FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Haaland nets double as Man City go six points clear at the top",
+     "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:00:09Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -329,20 +353,28 @@
    "team2": "Aston Villa FC",
    "reports": [
     {
-     "source": "Guardian",
+     "source": "BBC Sport",
      "comp": "epl",
-     "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
-     "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa end",
-     "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
-     "published": "2026-10-17T18:38:58Z"
+     "title": "Manzambi heads Villa to victory at Newcastle",
+     "standfirst": "Johan Manzambi heads the winner for Aston Villa against Newcastle, marking manager Unai Emery's 100th Premier League victory.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cwdd897vvl8vo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:12:02Z"
     },
     {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 live reaction",
-     "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
+     "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 as it happened",
+     "standfirst": "Johan Manzambi scored the only goal to give Aston Villa deserved win at St James\u2019 Park A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gonzalez, Joelinton; Willock, ",
      "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-     "published": "2026-10-17T18:25:35Z"
+     "published": "2026-10-17T19:00:05Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
+     "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer, which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa en",
+     "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
+     "published": "2026-10-17T18:38:58Z"
     }
    ]
   },
@@ -405,10 +437,58 @@
  ],
  "latest": [
   {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Manzambi heads Villa to victory at Newcastle",
+   "standfirst": "Johan Manzambi heads the winner for Aston Villa against Newcastle, marking manager Unai Emery's 100th Premier League victory.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cwdd897vvl8vo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:12:02Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Liverpool come from behind to beat nine-man Brentford",
+   "standfirst": "Liverpool come from behind to beat Brentford 2-1 at the Gtech Community Stadium as the hosts finish with nine men after red cards for Yehor Yarmoliuk and Vitaly Janelt.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c65yn28p859wo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:00:13Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Haaland nets double as Man City go six points clear at the top",
+   "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:00:09Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Iwobi delivers Fulham's first win of season",
+   "standfirst": "Alex Iwobi fires Fulham to their first Premier League win of the season against Hull.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c6rmy7w1kdgeo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:00:06Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 as it happened",
+   "standfirst": "Johan Manzambi scored the only goal to give Aston Villa deserved win at St James\u2019 Park A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gonzalez, Joelinton; Willock, ",
+   "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
+   "published": "2026-10-17T19:00:05Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Neto scores twice as Chelsea win at Everton",
+   "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:00:03Z"
+  },
+  {
    "source": "Guardian",
    "comp": "epl",
    "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
-   "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa end",
+   "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer, which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa en",
    "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
    "published": "2026-10-17T18:38:58Z"
   },
@@ -419,14 +499,6 @@
    "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
    "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
    "published": "2026-10-17T18:30:17Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 live reaction",
-   "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
-   "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T18:25:35Z"
   },
   {
    "source": "BBC Sport",
@@ -603,46 +675,6 @@
    "standfirst": "Tommy Conway spoke to Mark Drury following Middlesbrough's 2-2 draw with Cardiff City.",
    "link": "https://www.bbc.co.uk/sounds/play/p0ph7w53?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T13:53:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
-   "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T13:39:16Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Matos on tactics, Klopp's influence, and taking Swans to top of league",
-   "standfirst": "Swansea boss Vitor Matos spent five years as an elite development coach at Liverpool, but it would be unfair to paint him with a Jurgen Klopp-shaped brush entirely.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/crp3gq832gqxo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T05:56:25Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "championship",
-   "title": "Wolves extend Burnley\u2019s home woes to a full year as Vardy strikes in vain",
-   "standfirst": "The Wolves substitute Tawanda Chirewa struck within seconds of coming off the bench as C\u00e9sar Peixoto\u2019s side came from behind to extend Burnley\u2019s home misery at Turf Moor to 21 games without a win. Chirewa had just replaced Sean Neave in the 72nd minute when Mateus Man\u00e9 pounced on Igor Julio\u2019s heavy touch and sent the 2",
-   "link": "https://www.theguardian.com/football/2026/oct/16/wolves-chirewa-extends-burnleys-home-woes-as-vardys-strike-is-in-vain",
-   "published": "2026-10-16T21:45:35Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Ranking the Premier League's all-time greatest super subs",
-   "standfirst": "Some players are destined to make their biggest impact off the bench, but who are the top 10 Premier League super subs of all time?",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cqn73xe5eelgo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T21:15:47Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Premier League team news: predicted lineups for the weekend action",
-   "standfirst": "In-form Everton kick things off against Chelsea while struggling Manchester United face a tough trip to Leeds Saturday 12.30pm TNT Sports 1 Venue Hill Dickinson Stadium Continue reading...",
-   "link": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
-   "published": "2026-10-16T18:07:45Z"
   }
  ]
 }
