@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T13:15:07-0500",
+ "generated": "2026-10-17T13:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -268,7 +268,7 @@
      "source": "Guardian",
      "comp": "epl",
      "title": "Pressure on Arbeloa lifted after Alex Iwobi sinks Hull for Fulham\u2019s first win",
-     "standfirst": "After such a dominant performance against a team so blunt going forward, it almost felt inevitable that \u00c1lvaro Arbeloa was going to be denied his first Premier League win as Fulham head coach in similar fashion as the weeks and games before. After all their chances and possession, Craven Cottage should not have been a ",
+     "standfirst": "It was not until his post-match lap of the pitch that \u00c1lvaro Arbeloa allowed himself a smile. After an uncomfortable week when his future was being called into question , the former Real Madrid manager has a Premier League win under his belt at the seventh attempt, lifting his side off the foot of the table. But it is ",
      "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
      "published": "2026-10-17T16:08:39Z"
     }
@@ -319,6 +319,30 @@
      "standfirst": "Tommy Conway spoke to Mark Drury following Middlesbrough's 2-2 draw with Cardiff City.",
      "link": "https://www.bbc.co.uk/sounds/play/p0ph7w53?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T13:53:00Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "epl",
+   "team1": "Newcastle United FC",
+   "team2": "Aston Villa FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
+     "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa end",
+     "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
+     "published": "2026-10-17T18:38:58Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 live reaction",
+     "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
+     "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
+     "published": "2026-10-17T18:25:35Z"
     }
    ]
   },
@@ -383,10 +407,26 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Newcastle v Aston Villa: Premier League \u2013 live",
+   "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
+   "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed move from Freiburg to Newcastle this summer which appeared nailed on. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa end",
+   "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
+   "published": "2026-10-17T18:38:58Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
+   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
+   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
+   "published": "2026-10-17T18:30:17Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 live reaction",
    "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T18:14:16Z"
+   "published": "2026-10-17T18:25:35Z"
   },
   {
    "source": "BBC Sport",
@@ -495,14 +535,6 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
-   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
-   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
-   "published": "2026-10-17T16:09:39Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
    "title": "Haaland helps Maresca achieve record start as Manchester City defeat Ipswich",
    "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d, but they were able to forget the cacophony of noise around the club as Enzo Mares",
    "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
@@ -512,7 +544,7 @@
    "source": "Guardian",
    "comp": "epl",
    "title": "Pressure on Arbeloa lifted after Alex Iwobi sinks Hull for Fulham\u2019s first win",
-   "standfirst": "After such a dominant performance against a team so blunt going forward, it almost felt inevitable that \u00c1lvaro Arbeloa was going to be denied his first Premier League win as Fulham head coach in similar fashion as the weeks and games before. After all their chances and possession, Craven Cottage should not have been a ",
+   "standfirst": "It was not until his post-match lap of the pitch that \u00c1lvaro Arbeloa allowed himself a smile. After an uncomfortable week when his future was being called into question , the former Real Madrid manager has a Premier League win under his belt at the seventh attempt, lifting his side off the foot of the table. But it is ",
    "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
    "published": "2026-10-17T16:08:39Z"
   },
@@ -611,14 +643,6 @@
    "standfirst": "In-form Everton kick things off against Chelsea while struggling Manchester United face a tough trip to Leeds Saturday 12.30pm TNT Sports 1 Venue Hill Dickinson Stadium Continue reading...",
    "link": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
    "published": "2026-10-16T18:07:45Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Carrick includes Mart\u00ednez in squad; Madrid call for Tebas to quit over Goebbels comparison: football news \u2013 as it happened",
-   "standfirst": "Michael Carrick said Manchester United have moved on from Mart\u00ednezgate, while Enzo Maresca feels \u2018no stress\u2019 over Manchester City\u2019s off-field strife Sky are reporting that Reece James, who Chelsea confirmed this morning had undergone minor knee surgery, is expected to be out for three months. Fulham fans fretting about",
-   "link": "https://www.theguardian.com/football/live/2026/oct/16/martinez-sorry-outburst-european-reaction-premier-league-latest-football-news-live",
-   "published": "2026-10-16T17:14:02Z"
   }
  ]
 }
