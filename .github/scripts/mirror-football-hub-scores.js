@@ -80,10 +80,10 @@ async function run() {
       const events = Array.isArray(data.events) ? data.events : [];
       out.leagues[league] = events.map(ev => normalizeEvent(ev, league)).filter(Boolean);
       anyOk = true;
-      console.log(`${league}: ${out.leagues[league].length} events`);
+      console.error(`${league}: ${out.leagues[league].length} events`);
     } catch (e) {
       out.leagues[league] = null; // explicit "this league's fetch failed", not an empty array (which would mean "no matches today")
-      console.log(`${league}: FAILED — ${e.message}`);
+      console.error(`${league}: FAILED — ${e.message}`);
     }
   }
   if (!anyOk) { console.error('Both leagues failed — not publishing a snapshot this run.'); process.exit(1); }
