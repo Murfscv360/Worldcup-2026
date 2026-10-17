@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T11:45:07-0500",
+ "generated": "2026-10-17T12:15:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -161,6 +161,14 @@
    "team2": "Liverpool FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Liverpool players in 'delicate' situation with 'demanding' schedule - Iraola",
+     "standfirst": "Andoni Iraola Liverpool's demanding schedule is putting his players in a \"delicate situation\" after Dominik Szoboszlai was forced off with a first-half injury during their 2-1 victory at Brentford.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/ckgelqlz37w3o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T16:56:12Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
@@ -172,7 +180,7 @@
      "source": "Guardian",
      "comp": "epl",
      "title": "Isak completes Liverpool\u2019s comeback win as Brentford finish with nine",
-     "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a head-butt on J\u00e9r\u00e9my Jacquet just before half-time and, while Andoni Iraola will hope that surviving one of the toughest tests ",
+     "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a butt on J\u00e9r\u00e9my Jacquet just before half-time. While Andoni Iraola will hope surviving one of the toughest tests the Premier Le",
      "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
      "published": "2026-10-17T16:21:40Z"
     }
@@ -241,6 +249,14 @@
    "team2": "Hull City AFC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "'Men against boys' - Jakirovic criticises Hull City after Fulham defeat",
+     "standfirst": "Hull City manager Sergej Jakirovic says Fulham were \"much better\" during his side's 1-0 defeat at Craven Cottage.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cqkgj5jzvxldo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T16:48:52Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
@@ -273,6 +289,14 @@
    "team2": "Ipswich Town FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Man City's Maresca 'very happy' after Ipswich win",
+     "standfirst": "Manchester City manager Enzo Maresca praises his side after their beat Ipswich Town at home in the Premier League.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cmp3gkge7064o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T17:08:01Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
@@ -283,7 +307,7 @@
     {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Haaland helps extend record start for Maresca as Manchester City defeat Ipswich",
+     "title": "Haaland helps Maresca achieve record start as Manchester City defeat Ipswich",
      "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d but they were able to forget the cacophony of noise around the club as Enzo Maresc",
      "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
      "published": "2026-10-17T16:08:40Z"
@@ -354,7 +378,31 @@
    "title": "Newcastle v Aston Villa: Premier League \u2013 live",
    "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T16:45:01Z"
+   "published": "2026-10-17T17:13:54Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Man City's Maresca 'very happy' after Ipswich win",
+   "standfirst": "Manchester City manager Enzo Maresca praises his side after their beat Ipswich Town at home in the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cmp3gkge7064o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T17:08:01Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Liverpool players in 'delicate' situation with 'demanding' schedule - Iraola",
+   "standfirst": "Andoni Iraola Liverpool's demanding schedule is putting his players in a \"delicate situation\" after Dominik Szoboszlai was forced off with a first-half injury during their 2-1 victory at Brentford.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/ckgelqlz37w3o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T16:56:12Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "'Men against boys' - Jakirovic criticises Hull City after Fulham defeat",
+   "standfirst": "Hull City manager Sergej Jakirovic says Fulham were \"much better\" during his side's 1-0 defeat at Craven Cottage.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cqkgj5jzvxldo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T16:48:52Z"
   },
   {
    "source": "Guardian",
@@ -384,7 +432,7 @@
    "source": "Guardian",
    "comp": "epl",
    "title": "Isak completes Liverpool\u2019s comeback win as Brentford finish with nine",
-   "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a head-butt on J\u00e9r\u00e9my Jacquet just before half-time and, while Andoni Iraola will hope that surviving one of the toughest tests ",
+   "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a butt on J\u00e9r\u00e9my Jacquet just before half-time. While Andoni Iraola will hope surviving one of the toughest tests the Premier Le",
    "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
    "published": "2026-10-17T16:21:40Z"
   },
@@ -399,7 +447,7 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Haaland helps extend record start for Maresca as Manchester City defeat Ipswich",
+   "title": "Haaland helps Maresca achieve record start as Manchester City defeat Ipswich",
    "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d but they were able to forget the cacophony of noise around the club as Enzo Maresc",
    "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
    "published": "2026-10-17T16:08:40Z"
@@ -563,30 +611,6 @@
    "standfirst": "Manchester United boss Michael Carrick says he is telling the truth about the club moving on from Lisandro Martinez's explosive post-match interview.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm4g189leelno?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-16T13:59:12Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Chelsea's James out for three months after knee surgery",
-   "standfirst": "Chelsea captain Reece James is set to miss three months of action after undergoing knee surgery.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cq073d9l0ly9o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T13:36:09Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Cohen prepares for The Den after Hammers defeat",
-   "standfirst": "Lincoln City head coach Chris Cohen speaks to BBC Radio Lincolnshire about the unrelenting nature of the Championship.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cmkge6dz3z99o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T13:08:39Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Wrexham's Parkinson issues response to pressure talk",
-   "standfirst": "Phil Parkinson has responded to suggestions he is under increased pressure amid Wrexham's slow start to the 2026-27 Championship season.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6rryq00r1v1o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T12:47:26Z"
   }
  ]
 }
