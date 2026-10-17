@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T14:15:07-0500",
+ "generated": "2026-10-17T14:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -307,6 +307,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "O'Neil 'unbelievably proud' of Ipswich Town despite loss to Man City",
+     "standfirst": "Ipswich Town manager Gary O'Neil reacts to defeat against Manchester City at the Etihad Stadium in the Premier League.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c5x2vkvjer7vo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T17:18:52Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Man City's Maresca 'very happy' after Ipswich win",
      "standfirst": "Manchester City manager Enzo Maresca praises his side after their beat Ipswich Town at home in the Premier League.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cmp3gkge7064o?at_medium=RSS&at_campaign=rss",
@@ -352,6 +360,22 @@
    "team1": "Newcastle United FC",
    "team2": "Aston Villa FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Newcastle made 'wrong decisions' in final third - Jaissle",
+     "standfirst": "Newcastle boss Matthias Jaissle criticises his team's decision-making in the final third after their 1-0 defeat by Aston Villa at St. James' Park.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cmrryqykeelko?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:38:28Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Emery praises Manzambi's 'skills and intelligence'",
+     "standfirst": "Aston Villa manager Unai Emery reacts to his 100th Premier League win after victory against Newcastle at St James Park.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cw80zpzx3vxjo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:29:21Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -439,6 +463,22 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
+   "title": "Newcastle made 'wrong decisions' in final third - Jaissle",
+   "standfirst": "Newcastle boss Matthias Jaissle criticises his team's decision-making in the final third after their 1-0 defeat by Aston Villa at St. James' Park.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cmrryqykeelko?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:38:28Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Emery praises Manzambi's 'skills and intelligence'",
+   "standfirst": "Aston Villa manager Unai Emery reacts to his 100th Premier League win after victory against Newcastle at St James Park.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cw80zpzx3vxjo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T19:29:21Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
    "title": "Manzambi heads Villa to victory at Newcastle",
    "standfirst": "Johan Manzambi heads the winner for Aston Villa against Newcastle, marking manager Unai Emery's 100th Premier League victory.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cwdd897vvl8vo?at_medium=RSS&at_campaign=rss",
@@ -523,6 +563,14 @@
    "standfirst": "James Morrison speaks after comeback win against Blackburn.",
    "link": "https://www.bbc.co.uk/sounds/play/p0ph8gn4?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T17:30:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "O'Neil 'unbelievably proud' of Ipswich Town despite loss to Man City",
+   "standfirst": "Ipswich Town manager Gary O'Neil reacts to defeat against Manchester City at the Etihad Stadium in the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c5x2vkvjer7vo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T17:18:52Z"
   },
   {
    "source": "BBC Sport",
@@ -651,30 +699,6 @@
    "standfirst": "Everton manager David Moyes reacts to their defeat against Chelsea at the Hill Dickinson Stadium.",
    "link": "https://www.bbc.co.uk/sport/football/videos/ck0j04346n70o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T14:42:46Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Everton 0-2 Chelsea: Premier League \u2013 as it happened",
-   "standfirst": "Pedro Neto\u2019s goals bookended the second half and earned Chelsea a rare victory at Everton Everton kick off, and launch it long. Martinez claims the punt. Before the kick-off, everyone takes the knee. It\u2019s the first of two weeks of the Premier League\u2019s No Room For Racism campaign. Challenge it, report it, change it. Con",
-   "link": "https://www.theguardian.com/football/live/2026/oct/17/everton-v-chelsea-premier-league-live",
-   "published": "2026-10-17T14:13:31Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Neto double at Everton leads Chelsea to victory marred by Mart\u00ednez head injury",
-   "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
-   "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
-   "published": "2026-10-17T13:53:13Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Conway: 'Buzzing' to score first Boro goal this season",
-   "standfirst": "Tommy Conway spoke to Mark Drury following Middlesbrough's 2-2 draw with Cardiff City.",
-   "link": "https://www.bbc.co.uk/sounds/play/p0ph7w53?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T13:53:00Z"
   }
  ]
 }
