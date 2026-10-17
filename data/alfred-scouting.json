@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17 15:05:13",
+ "generated": "2026-10-17 18:05:32",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -115,7 +115,7 @@
      "name": "Manzambi",
      "club": "AVL",
      "pos": "MID",
-     "score": 4.8,
+     "score": 5.0,
      "side": "H",
      "yours": false
     }
@@ -229,7 +229,7 @@
      "name": "Iwobi",
      "club": "FUL",
      "pos": "MID",
-     "score": 6.1,
+     "score": 6.0,
      "side": "A",
      "yours": false
     },
@@ -351,7 +351,7 @@
      "name": "Wissa",
      "club": "NEW",
      "pos": "FWD",
-     "score": 5.2,
+     "score": 5.1,
      "side": "A",
      "yours": false
     },
