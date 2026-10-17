@@ -865,3 +865,4 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
 .mc-stat em{font-style:normal;opacity:.7}
 .mc-key,.mc-com{font-size:13px;padding:6px 0;border-bottom:1px solid var(--line);line-height:1.4}
 .mc-kt{opacity:.7}
+.press{padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.4}.press a{color:var(--ink);text-decoration:none}.press p{margin:4px 0 0;opacity:.8}

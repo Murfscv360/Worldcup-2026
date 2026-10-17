@@ -34,6 +34,7 @@ const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, tabl
 let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null, PLAYERS = null;
 let LIVE_SCORES_MIRROR = null; // real in-play scores — see loadLiveScoresMirror() below
 let CRESTS = {};
+let ALFRED_PUNDITS = null, PUNDITS_TRIED = false; // data/alfred-pundits.json (post-match press, 2026-10-17)
 let ALFRED_RESULTS = null; // data/alfred-results.json (real finals, 2026-10-17)          // "Arsenal FC" -> {src,url}: real club crests from Alfred (data/alfred-crests.json, 2026-10-17)
 let CLUB_BY_FULL = {};    // "Arsenal FC" -> club meta (comp-agnostic, covers any club in either feed)
 let CLUB_BY_SHORT = {};   // "Arsenal" -> club meta (this season's 44 clubs, comp-correct)
@@ -625,6 +626,16 @@ function newsCard(n){
 function viewNews(){
   const live = DATA.liveNews || [];
   let html = "";
+  if(!ALFRED_PUNDITS && !PUNDITS_TRIED) loadPundits().then(d=>{ if(d && state.view==="news") render(); });
+  const pm = ((ALFRED_PUNDITS && ALFRED_PUNDITS.matches) || []).slice().sort((a,b)=> b.date.localeCompare(a.date));
+  if(pm.length){
+    html += sectionHead("Post-match: press & pundits", `${pm.length} matches · Guardian & BBC Sport`);
+    pm.slice(0,10).forEach(x=>{
+      html += `<div class="report"><div class="rp-head"><span class="rp-tag">${x.comp==="epl"?"Premier League":"Championship"}</span><span class="rp-when">${fmtDate(x.date)}</span></div>
+        <h3 class="rp-title"><span class="flag">${crest(x.team1,18)}</span> ${clubName(x.team1)} v ${clubName(x.team2)} <span class="flag">${crest(x.team2,18)}</span></h3>${pressHtml(x.reports.slice(0,3))}</div>`;
+    });
+    html += `<p class="note">Publishers' own headlines and standfirsts, quoted with links — attached to a fixture only when both clubs are named. Refreshed every 30 min.</p>`;
+  }
   html += sectionHead("Live from BBC Sport", live.length?`${live.length} headlines`:"loading…");
   if(live.length){
     live.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,12).forEach(n=> html += newsCard(n));
@@ -2218,13 +2229,26 @@ function lineupsNote(comp, status){
    with confidence (fhMirrorEventFor: both clubs must resolve). Stats, key events and minute-by-minute commentary; refreshes
    every 30 s while open. "Listen" reads NEW commentary lines aloud with the device's own speech voice — it is text-to-speech
    of the written commentary, not a radio broadcast. If ESPN can't be reached the sheet says so (couldn't ask != no events). */
+async function loadPundits(){
+  if(!ALFRED_PUNDITS && !PUNDITS_TRIED){ PUNDITS_TRIED = true; try{ ALFRED_PUNDITS = await fetchAlfredFile("alfred-pundits.json"); }catch(e){ ALFRED_PUNDITS = null; } }
+  return ALFRED_PUNDITS;
+}
+function pressFor(t1, t2){
+  const ms = (ALFRED_PUNDITS && ALFRED_PUNDITS.matches) || [];
+  const hit = ms.filter(x=> x.team1===t1 && x.team2===t2).sort((a,b)=> b.date.localeCompare(a.date))[0];
+  return hit ? hit.reports : [];
+}
+function pressHtml(reports){
+  return reports.map(r=>`<div class="press"><div class="ni-meta">${mcEsc(r.source)} · ${mcEsc(fmtDate(r.published.slice(0,10)))}</div>
+    <a href="${mcEsc(r.link)}" target="_blank" rel="noopener"><b>${mcEsc(r.title)}</b></a>${r.standfirst?`<p>“${mcEsc(r.standfirst)}”</p>`:""}</div>`).join("");
+}
 function mcEsc(t){ return String(t==null?"":t).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function mcButton(m, comp, status){
-  if(!status.mirrored || comp==="ucl") return "";
+  if(comp==="ucl") return "";   // any fixture the mirror matched with confidence (live, or finished today even after the final score lands)
   const ev = fhMirrorEventFor(m, comp);
   if(!ev || !ev.id) return "";
   const slug = ev.slug || (comp==="epl" ? "eng.1" : "eng.2");
-  return `<button class="mc-open" data-mc="${mcEsc(ev.id)}" data-slug="${mcEsc(slug)}" data-title="${mcEsc(clubName(m.team1)+" v "+clubName(m.team2))}">📊 Match centre · stats &amp; play-by-play</button>`;
+  return `<button class="mc-open" data-mc="${mcEsc(ev.id)}" data-slug="${mcEsc(slug)}" data-t1="${mcEsc(m.team1)}" data-t2="${mcEsc(m.team2)}" data-title="${mcEsc(clubName(m.team1)+" v "+clubName(m.team2))}">📊 Match centre · stats &amp; play-by-play</button>`;
 }
 const MC = { id:null, slug:null, title:"", timer:null, listen:false, spoken:new Set(), data:null, err:null };
 async function mcFetch(){
@@ -2272,7 +2296,7 @@ function mcRender(){
   const listenOk = "speechSynthesis" in window;
   body.innerHTML = `${score}
     <div class="mc-tools">${listenOk?`<button id="mcListen" class="mc-listen ${MC.listen?"on":""}">${MC.listen?"🔊 Listening — reads new lines aloud":"🔈 Listen to play-by-play"}</button>`:""}<span class="ni-meta">Source: ESPN · refreshes every 30 s${MC.err?" · last refresh failed, showing previous":""}</span></div>
-    ${stats}${keyHtml}${comHtml}`;
+    ${stats}${keyHtml}${(()=>{ const pr = pressFor(MC.t1, MC.t2); return pr.length ? `<h4>What the press says</h4>${pressHtml(pr)}<p class="ni-meta">Publishers' own headlines and standfirsts, quoted and linked — not rewritten.</p>` : ""; })()}${comHtml}`;
   document.getElementById("mcListen")?.addEventListener("click", ()=>{
     MC.listen = !MC.listen;
     if(!MC.listen) speechSynthesis.cancel();
@@ -2280,11 +2304,11 @@ function mcRender(){
     mcRender();
   });
 }
-function openMatchCentre(id, slug, title){
+function openMatchCentre(id, slug, title, t1, t2){
   closeMatchCentre();
-  Object.assign(MC, { id, slug, title, listen:false, spoken:new Set(), data:null, err:null });
+  Object.assign(MC, { id, slug, title, t1, t2, listen:false, spoken:new Set(), data:null, err:null });
   document.getElementById("mcSheet").hidden = false;
-  mcRender(); mcFetch();
+  mcRender(); mcFetch(); loadPundits().then(mcRender);
   MC.timer = setInterval(mcFetch, 30000);
 }
 function closeMatchCentre(){
@@ -2365,7 +2389,7 @@ function render(){
   });
   document.querySelectorAll("[data-goto]").forEach(b=> b.addEventListener("click", ()=> setView(b.dataset.goto)));
   document.querySelectorAll("[data-comp]").forEach(b=> b.addEventListener("click", ()=>{ state.comp = b.dataset.comp; render(); }));
-  document.querySelectorAll("[data-mc]").forEach(b=> b.addEventListener("click", ()=> openMatchCentre(b.dataset.mc, b.dataset.slug, b.dataset.title)));
+  document.querySelectorAll("[data-mc]").forEach(b=> b.addEventListener("click", ()=> openMatchCentre(b.dataset.mc, b.dataset.slug, b.dataset.title, b.dataset.t1, b.dataset.t2)));
   document.querySelectorAll("[data-fsub]").forEach(b=> b.addEventListener("click", ()=>{ state.fantasySub = b.dataset.fsub; render(); }));
   document.querySelectorAll("[data-goto-fantasy-ai]").forEach(b=> b.addEventListener("click", ()=>{ state.view = "fantasy"; state.fantasySub = "ai"; render(); window.scrollTo(0,0); }));
   document.getElementById("myTeamsPick")?.addEventListener("click", openFavSheet);

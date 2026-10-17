@@ -70,3 +70,7 @@ are labelled in‑app; scores, scorers, standings & clean sheets come from live 
   play-by-play. Source ESPN summary (fetched in the browser), refreshes every 30 s while open; a failed refresh says so.
 - **Listen**: reads NEW play-by-play lines aloud with the device's speech voice (text-to-speech of the written commentary,
   not a radio broadcast). Radio links stay on each card (talkSPORT / BBC 5 Live / club BBC local radio — region-limited).
+- **Post-match: press & pundits** (News tab, top; and "What the press says" inside the Match centre): Guardian + BBC Sport
+  post-match reports and manager/pundit reaction for finished EPL and EFL fixtures — the publishers' own headlines and
+  standfirsts, quoted with links, attached only when both clubs are named (`data/alfred-pundits.json`, Alfred every 30 min).
+  Match centre now also opens for today's finished fixtures.
