@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T10:24:39-0500",
+ "generated": "2026-10-17T10:29:38-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -8,64 +8,64 @@
  "top_lines": [
   {
    "plan": "HOLD \u2014 no transfer",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Kayode",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Van Hecke",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Hall",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Ajayi -> Kayode",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Ajayi -> Araujo",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Ajayi -> Hall",
-   "net": 91.27,
-   "raw": 91.27,
+   "net": 90.98,
+   "raw": 90.98,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan->Van Hecke + Ajayi->Kayode",
-   "net": 87.27,
-   "raw": 91.27,
+   "net": 86.98,
+   "raw": 90.98,
    "hit": 4,
    "captain": "Haaland",
    "vs_hold": -4.0
