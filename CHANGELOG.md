@@ -42,3 +42,8 @@ are labelled in‑app; scores, scorers, standings & clean sheets come from live 
   launch card eyebrow `FPL · English Football`.
 - **Review fix**: launch-card highlights were white (#fff) on the light card — invisible; now the accent colour.
 - OTA: the Pages workflow stamps a new BUILD into `sw.js`, so installed copies drop the old cache and update on next open.
+
+## 2026-10-17 — Capstone 1: real results feed (Alfred)
+- `data/alfred-results.json`: every finished match (Premier League via the FPL fixtures API, Championship via ESPN), source per match.
+- `loadCompetition()` fills scores openfootball has not published yet; the data-source line credits them ("+ N results from Alfred").
+- Closes the REQUESTS.md item of 2026-10-13 (21 weekend results).

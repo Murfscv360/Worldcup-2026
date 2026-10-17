@@ -33,7 +33,8 @@ const SEASON_OPENER = { epl: "2026-08-21", championship: "2026-08-14" };
 const DATA = {};          // DATA[compKey] = {meta, matches, leagueMatches, table, archive, dataSource, currentClubs}
 let EPL = null, CHA = null, UCL = null, NEWS = null, TRANSFERS = null, PLAYERS = null;
 let LIVE_SCORES_MIRROR = null; // real in-play scores — see loadLiveScoresMirror() below
-let CRESTS = {};          // "Arsenal FC" -> {src,url}: real club crests from Alfred (data/alfred-crests.json, 2026-10-17)
+let CRESTS = {};
+let ALFRED_RESULTS = null; // data/alfred-results.json (real finals, 2026-10-17)          // "Arsenal FC" -> {src,url}: real club crests from Alfred (data/alfred-crests.json, 2026-10-17)
 let CLUB_BY_FULL = {};    // "Arsenal FC" -> club meta (comp-agnostic, covers any club in either feed)
 let CLUB_BY_SHORT = {};   // "Arsenal" -> club meta (this season's 44 clubs, comp-correct)
 
@@ -123,6 +124,19 @@ async function loadCompetition(comp, meta, roster){
         matches = []; dataSource = "Unavailable";
       }
     }
+  }
+  // Real final scores from Alfred (data/alfred-results.json: FPL fixtures API for the Premier League, ESPN for the Championship;
+  // finished matches only, source disclosed). Fills scores openfootball has not published yet; never overwrites one it has.
+  const compKey = comp.localMeta === "data/epl.json" ? "epl" : "championship";
+  if (!ALFRED_RESULTS) { try { ALFRED_RESULTS = await fetchAlfredFile("alfred-results.json"); } catch (e) { ALFRED_RESULTS = null; } }
+  let filled = 0;
+  if (ALFRED_RESULTS && Array.isArray(ALFRED_RESULTS.matches) && Array.isArray(matches)) {
+    const day = d => new Date(d + "T12:00:00Z").getTime();
+    ALFRED_RESULTS.matches.filter(r => r.comp === compKey).forEach(r => {
+      const m = matches.find(x => x.team1 === r.team1 && x.team2 === r.team2 && Math.abs(day(x.date) - day(r.date)) <= 4 * 864e5);
+      if (m && !ftOf(m)) { m.score = { ft: r.ft }; m.alfred = r.source; filled++; }
+    });
+    if (filled) dataSource += ` + ${filled} result${filled > 1 ? "s" : ""} from Alfred`;
   }
   const leagueMatches = matches.filter(m=> m.round !== "Playoffs");
   const table = computeTable(leagueMatches, roster);

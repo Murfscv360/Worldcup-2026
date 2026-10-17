@@ -1,0 +1,2084 @@
+{
+ "generated": "2026-10-17T10:16:50-0500",
+ "by": "Alfred (fpl_results.py)",
+ "sources": {
+  "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
+  "championship": "site.web.api.espn.com eng.2 scoreboard (completed only)"
+ },
+ "matches": [
+  {
+   "comp": "championship",
+   "date": "2026-08-14",
+   "team1": "Wolverhampton Wanderers FC",
+   "team2": "Blackburn Rovers FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Bolton Wanderers FC",
+   "team2": "Preston North End FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Bristol City FC",
+   "team2": "Millwall FC",
+   "ft": [
+    0,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Charlton Athletic FC",
+   "team2": "Derby County FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Middlesbrough FC",
+   "team2": "Lincoln City FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Norwich City FC",
+   "team2": "West Bromwich Albion FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Portsmouth FC",
+   "team2": "Queens Park Rangers FC",
+   "ft": [
+    1,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Sheffield United FC",
+   "team2": "Birmingham City FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-15",
+   "team1": "Stoke City FC",
+   "team2": "Swansea City AFC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-16",
+   "team1": "Burnley FC",
+   "team2": "West Ham United FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-16",
+   "team1": "Watford FC",
+   "team2": "Southampton FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-17",
+   "team1": "Cardiff City FC",
+   "team2": "Wrexham AFC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Birmingham City FC",
+   "team2": "Bristol City FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Blackburn Rovers FC",
+   "team2": "Middlesbrough FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Derby County FC",
+   "team2": "Cardiff City FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Lincoln City FC",
+   "team2": "Portsmouth FC",
+   "ft": [
+    1,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Millwall FC",
+   "team2": "Norwich City FC",
+   "ft": [
+    3,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Preston North End FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "ft": [
+    1,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Queens Park Rangers FC",
+   "team2": "Bolton Wanderers FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Southampton FC",
+   "team2": "Stoke City FC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Swansea City AFC",
+   "team2": "Sheffield United FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "West Ham United FC",
+   "team2": "Charlton Athletic FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-22",
+   "team1": "Wrexham AFC",
+   "team2": "Watford FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-23",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Burnley FC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-28",
+   "team1": "Wrexham AFC",
+   "team2": "Birmingham City FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Blackburn Rovers FC",
+   "team2": "Queens Park Rangers FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Bolton Wanderers FC",
+   "team2": "Lincoln City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Bristol City FC",
+   "team2": "Portsmouth FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Cardiff City FC",
+   "team2": "Sheffield United FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Charlton Athletic FC",
+   "team2": "Preston North End FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Derby County FC",
+   "team2": "Swansea City AFC",
+   "ft": [
+    0,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Middlesbrough FC",
+   "team2": "West Bromwich Albion FC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Norwich City FC",
+   "team2": "Burnley FC",
+   "ft": [
+    4,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Southampton FC",
+   "team2": "Millwall FC",
+   "ft": [
+    5,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Watford FC",
+   "team2": "West Ham United FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-08-29",
+   "team1": "Wolverhampton Wanderers FC",
+   "team2": "Stoke City FC",
+   "ft": [
+    4,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Birmingham City FC",
+   "team2": "Southampton FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Lincoln City FC",
+   "team2": "Blackburn Rovers FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Portsmouth FC",
+   "team2": "Derby County FC",
+   "ft": [
+    0,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Preston North End FC",
+   "team2": "Bristol City FC",
+   "ft": [
+    1,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Sheffield United FC",
+   "team2": "Bolton Wanderers FC",
+   "ft": [
+    3,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Stoke City FC",
+   "team2": "Norwich City FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "Swansea City AFC",
+   "team2": "Watford FC",
+   "ft": [
+    2,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-01",
+   "team1": "West Ham United FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "ft": [
+    4,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-02",
+   "team1": "Burnley FC",
+   "team2": "Middlesbrough FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-02",
+   "team1": "Millwall FC",
+   "team2": "Wrexham AFC",
+   "ft": [
+    0,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-02",
+   "team1": "Queens Park Rangers FC",
+   "team2": "Cardiff City FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-02",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Charlton Athletic FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Burnley FC",
+   "team2": "Bristol City FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Lincoln City FC",
+   "team2": "Southampton FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Millwall FC",
+   "team2": "Bolton Wanderers FC",
+   "ft": [
+    4,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Portsmouth FC",
+   "team2": "Cardiff City FC",
+   "ft": [
+    2,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Preston North End FC",
+   "team2": "Blackburn Rovers FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Queens Park Rangers FC",
+   "team2": "Middlesbrough FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Sheffield United FC",
+   "team2": "Norwich City FC",
+   "ft": [
+    1,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Stoke City FC",
+   "team2": "Charlton Athletic FC",
+   "ft": [
+    4,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "Swansea City AFC",
+   "team2": "Wrexham AFC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Watford FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-05",
+   "team1": "West Ham United FC",
+   "team2": "Derby County FC",
+   "ft": [
+    3,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-06",
+   "team1": "Birmingham City FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-08",
+   "team1": "Blackburn Rovers FC",
+   "team2": "Sheffield United FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-08",
+   "team1": "Bolton Wanderers FC",
+   "team2": "West Ham United FC",
+   "ft": [
+    2,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-08",
+   "team1": "Cardiff City FC",
+   "team2": "Stoke City FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-08",
+   "team1": "Southampton FC",
+   "team2": "Swansea City AFC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-08",
+   "team1": "Watford FC",
+   "team2": "Preston North End FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-08",
+   "team1": "Wrexham AFC",
+   "team2": "Burnley FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-09",
+   "team1": "Charlton Athletic FC",
+   "team2": "Queens Park Rangers FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-09",
+   "team1": "Derby County FC",
+   "team2": "West Bromwich Albion FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-09",
+   "team1": "Norwich City FC",
+   "team2": "Birmingham City FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-11",
+   "team1": "West Ham United FC",
+   "team2": "Wrexham AFC",
+   "ft": [
+    6,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Blackburn Rovers FC",
+   "team2": "Millwall FC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Bolton Wanderers FC",
+   "team2": "Cardiff City FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Charlton Athletic FC",
+   "team2": "Portsmouth FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Derby County FC",
+   "team2": "Birmingham City FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Middlesbrough FC",
+   "team2": "Norwich City FC",
+   "ft": [
+    4,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Preston North End FC",
+   "team2": "Lincoln City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Southampton FC",
+   "team2": "Bristol City FC",
+   "ft": [
+    4,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Swansea City AFC",
+   "team2": "Burnley FC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "Watford FC",
+   "team2": "Stoke City FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-12",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Queens Park Rangers FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-13",
+   "team1": "Sheffield United FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-15",
+   "team1": "Bristol City FC",
+   "team2": "Lincoln City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-15",
+   "team1": "Middlesbrough FC",
+   "team2": "Millwall FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-18",
+   "team1": "Bristol City FC",
+   "team2": "Watford FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Birmingham City FC",
+   "team2": "Middlesbrough FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Burnley FC",
+   "team2": "Derby County FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Cardiff City FC",
+   "team2": "Charlton Athletic FC",
+   "ft": [
+    3,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Lincoln City FC",
+   "team2": "Swansea City AFC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Millwall FC",
+   "team2": "West Ham United FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Portsmouth FC",
+   "team2": "Blackburn Rovers FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Queens Park Rangers FC",
+   "team2": "Preston North End FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Stoke City FC",
+   "team2": "Sheffield United FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-19",
+   "team1": "Wrexham AFC",
+   "team2": "Southampton FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-20",
+   "team1": "Norwich City FC",
+   "team2": "Bolton Wanderers FC",
+   "ft": [
+    3,
+    4
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-09-20",
+   "team1": "Wolverhampton Wanderers FC",
+   "team2": "West Bromwich Albion FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-09",
+   "team1": "West Ham United FC",
+   "team2": "Queens Park Rangers FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Blackburn Rovers FC",
+   "team2": "Cardiff City FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Bolton Wanderers FC",
+   "team2": "Stoke City FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Charlton Athletic FC",
+   "team2": "Bristol City FC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Derby County FC",
+   "team2": "Wrexham AFC",
+   "ft": [
+    1,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Middlesbrough FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Preston North End FC",
+   "team2": "Millwall FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Sheffield United FC",
+   "team2": "Lincoln City FC",
+   "ft": [
+    3,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Swansea City AFC",
+   "team2": "Norwich City FC",
+   "ft": [
+    2,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "Watford FC",
+   "team2": "Burnley FC",
+   "ft": [
+    0,
+    4
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-10",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Birmingham City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-11",
+   "team1": "Southampton FC",
+   "team2": "Portsmouth FC",
+   "ft": [
+    1,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Birmingham City FC",
+   "team2": "Preston North End FC",
+   "ft": [
+    4,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Bristol City FC",
+   "team2": "Blackburn Rovers FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Burnley FC",
+   "team2": "Charlton Athletic FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Cardiff City FC",
+   "team2": "Watford FC",
+   "ft": [
+    5,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Millwall FC",
+   "team2": "Swansea City AFC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Stoke City FC",
+   "team2": "Middlesbrough FC",
+   "ft": [
+    2,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Wolverhampton Wanderers FC",
+   "team2": "Bolton Wanderers FC",
+   "ft": [
+    1,
+    3
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-13",
+   "team1": "Wrexham AFC",
+   "team2": "West Bromwich Albion FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-14",
+   "team1": "Lincoln City FC",
+   "team2": "West Ham United FC",
+   "ft": [
+    0,
+    6
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-14",
+   "team1": "Norwich City FC",
+   "team2": "Southampton FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-14",
+   "team1": "Portsmouth FC",
+   "team2": "Sheffield United FC",
+   "ft": [
+    3,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-14",
+   "team1": "Queens Park Rangers FC",
+   "team2": "Derby County FC",
+   "ft": [
+    4,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-16",
+   "team1": "Burnley FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "ft": [
+    1,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Middlesbrough FC",
+   "team2": "Cardiff City FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Millwall FC",
+   "team2": "Lincoln City FC",
+   "ft": [
+    2,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Watford FC",
+   "team2": "Charlton Athletic FC",
+   "ft": [
+    2,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-21",
+   "team1": "Arsenal FC",
+   "team2": "Coventry City FC",
+   "ft": [
+    3,
+    0
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-22",
+   "team1": "Brentford FC",
+   "team2": "Tottenham Hotspur FC",
+   "ft": [
+    3,
+    0
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-22",
+   "team1": "Everton FC",
+   "team2": "Crystal Palace FC",
+   "ft": [
+    2,
+    0
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-22",
+   "team1": "Hull City AFC",
+   "team2": "Manchester United FC",
+   "ft": [
+    2,
+    0
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-22",
+   "team1": "Ipswich Town FC",
+   "team2": "Sunderland AFC",
+   "ft": [
+    2,
+    1
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-22",
+   "team1": "Nottingham Forest FC",
+   "team2": "Leeds United FC",
+   "ft": [
+    0,
+    1
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-23",
+   "team1": "Brighton & Hove Albion FC",
+   "team2": "Aston Villa FC",
+   "ft": [
+    4,
+    0
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-23",
+   "team1": "Manchester City FC",
+   "team2": "AFC Bournemouth",
+   "ft": [
+    2,
+    1
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-23",
+   "team1": "Newcastle United FC",
+   "team2": "Liverpool FC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-24",
+   "team1": "Fulham FC",
+   "team2": "Chelsea FC",
+   "ft": [
+    2,
+    3
+   ],
+   "gw": 1,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-28",
+   "team1": "Crystal Palace FC",
+   "team2": "Manchester City FC",
+   "ft": [
+    1,
+    4
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-29",
+   "team1": "AFC Bournemouth",
+   "team2": "Everton FC",
+   "ft": [
+    1,
+    1
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-29",
+   "team1": "Coventry City FC",
+   "team2": "Hull City AFC",
+   "ft": [
+    0,
+    1
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-29",
+   "team1": "Liverpool FC",
+   "team2": "Nottingham Forest FC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-29",
+   "team1": "Tottenham Hotspur FC",
+   "team2": "Newcastle United FC",
+   "ft": [
+    0,
+    2
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-30",
+   "team1": "Chelsea FC",
+   "team2": "Brighton & Hove Albion FC",
+   "ft": [
+    4,
+    3
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-30",
+   "team1": "Leeds United FC",
+   "team2": "Brentford FC",
+   "ft": [
+    1,
+    1
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-30",
+   "team1": "Manchester United FC",
+   "team2": "Ipswich Town FC",
+   "ft": [
+    5,
+    2
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-30",
+   "team1": "Sunderland AFC",
+   "team2": "Fulham FC",
+   "ft": [
+    1,
+    0
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-08-31",
+   "team1": "Aston Villa FC",
+   "team2": "Arsenal FC",
+   "ft": [
+    0,
+    1
+   ],
+   "gw": 2,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-04",
+   "team1": "Ipswich Town FC",
+   "team2": "Liverpool FC",
+   "ft": [
+    0,
+    2
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Brentford FC",
+   "team2": "Sunderland AFC",
+   "ft": [
+    1,
+    1
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Brighton & Hove Albion FC",
+   "team2": "Leeds United FC",
+   "ft": [
+    1,
+    1
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Fulham FC",
+   "team2": "Crystal Palace FC",
+   "ft": [
+    2,
+    3
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Hull City AFC",
+   "team2": "Aston Villa FC",
+   "ft": [
+    0,
+    0
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Manchester City FC",
+   "team2": "Coventry City FC",
+   "ft": [
+    1,
+    0
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Newcastle United FC",
+   "team2": "AFC Bournemouth",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-05",
+   "team1": "Nottingham Forest FC",
+   "team2": "Tottenham Hotspur FC",
+   "ft": [
+    0,
+    0
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-06",
+   "team1": "Arsenal FC",
+   "team2": "Chelsea FC",
+   "ft": [
+    2,
+    1
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-06",
+   "team1": "Everton FC",
+   "team2": "Manchester United FC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 3,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "AFC Bournemouth",
+   "team2": "Brentford FC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "Aston Villa FC",
+   "team2": "Nottingham Forest FC",
+   "ft": [
+    1,
+    2
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "Chelsea FC",
+   "team2": "Hull City AFC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "Crystal Palace FC",
+   "team2": "Ipswich Town FC",
+   "ft": [
+    2,
+    3
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "Liverpool FC",
+   "team2": "Fulham FC",
+   "ft": [
+    0,
+    0
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "Sunderland AFC",
+   "team2": "Arsenal FC",
+   "ft": [
+    0,
+    2
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-12",
+   "team1": "Tottenham Hotspur FC",
+   "team2": "Everton FC",
+   "ft": [
+    0,
+    0
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-13",
+   "team1": "Coventry City FC",
+   "team2": "Brighton & Hove Albion FC",
+   "ft": [
+    0,
+    5
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-13",
+   "team1": "Manchester United FC",
+   "team2": "Manchester City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-14",
+   "team1": "Leeds United FC",
+   "team2": "Newcastle United FC",
+   "ft": [
+    4,
+    1
+   ],
+   "gw": 4,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-18",
+   "team1": "Brentford FC",
+   "team2": "Chelsea FC",
+   "ft": [
+    3,
+    0
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-19",
+   "team1": "Brighton & Hove Albion FC",
+   "team2": "Arsenal FC",
+   "ft": [
+    3,
+    0
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-19",
+   "team1": "Everton FC",
+   "team2": "Ipswich Town FC",
+   "ft": [
+    1,
+    0
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-19",
+   "team1": "Newcastle United FC",
+   "team2": "Hull City AFC",
+   "ft": [
+    2,
+    1
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-19",
+   "team1": "Nottingham Forest FC",
+   "team2": "Coventry City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-19",
+   "team1": "Tottenham Hotspur FC",
+   "team2": "Aston Villa FC",
+   "ft": [
+    2,
+    3
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-20",
+   "team1": "AFC Bournemouth",
+   "team2": "Liverpool FC",
+   "ft": [
+    0,
+    1
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-20",
+   "team1": "Fulham FC",
+   "team2": "Manchester United FC",
+   "ft": [
+    1,
+    1
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-20",
+   "team1": "Leeds United FC",
+   "team2": "Crystal Palace FC",
+   "ft": [
+    0,
+    0
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-09-20",
+   "team1": "Manchester City FC",
+   "team2": "Sunderland AFC",
+   "ft": [
+    5,
+    3
+   ],
+   "gw": 5,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-10",
+   "team1": "Arsenal FC",
+   "team2": "Leeds United FC",
+   "ft": [
+    2,
+    1
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-10",
+   "team1": "Aston Villa FC",
+   "team2": "Brentford FC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-10",
+   "team1": "Chelsea FC",
+   "team2": "AFC Bournemouth",
+   "ft": [
+    5,
+    1
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-10",
+   "team1": "Ipswich Town FC",
+   "team2": "Fulham FC",
+   "ft": [
+    2,
+    1
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-10",
+   "team1": "Manchester United FC",
+   "team2": "Tottenham Hotspur FC",
+   "ft": [
+    1,
+    1
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-10",
+   "team1": "Sunderland AFC",
+   "team2": "Brighton & Hove Albion FC",
+   "ft": [
+    0,
+    2
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-11",
+   "team1": "Crystal Palace FC",
+   "team2": "Nottingham Forest FC",
+   "ft": [
+    3,
+    1
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-11",
+   "team1": "Hull City AFC",
+   "team2": "Everton FC",
+   "ft": [
+    2,
+    2
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-11",
+   "team1": "Liverpool FC",
+   "team2": "Manchester City FC",
+   "ft": [
+    0,
+    3
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-12",
+   "team1": "Coventry City FC",
+   "team2": "Newcastle United FC",
+   "ft": [
+    4,
+    1
+   ],
+   "gw": 6,
+   "source": "fantasy.premierleague.com fixtures"
+  }
+ ],
+ "unmapped_clubs": []
+}

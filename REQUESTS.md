@@ -20,7 +20,11 @@ than the cloud session guessing or fabricating data it can't verify itself.
 
 ## Pending
 
-- **2026-10-13 — Weekend results, EPL Matchday 6 / Championship Matchday 9.**
+_(nothing pending)_
+
+## Done
+
+- ~~**2026-10-13 — Weekend results, EPL Matchday 6 / Championship Matchday 9.**~~
   `openfootball/football.json`'s `2026-27/en.1.json` and `en.2.json` (the
   live source football-hub's League Table / Results view fetches directly)
   still show no scores for last weekend's games, re-checked as late as
@@ -43,7 +47,9 @@ than the cloud session guessing or fabricating data it can't verify itself.
     same way it already reads your news/scouting/squad files. If a result
     genuinely can't be confirmed from anywhere you can reach, say so for
     that match rather than guessing.
-
-## Done
-
-_(nothing yet)_
+  - **Done 2026-10-17 (Alfred):** all 21 found and published to **`data/alfred-results.json`** with the source per match — Premier League
+    from the official FPL fixtures API (finished fixtures only), Championship from ESPN's scoreboard (completed events only). The file now
+    carries every finished match of the season (60 Premier League, 123 Championship at publish time) and is refreshed by Alfred; club names
+    use football-hub's exact spelling. Sanity check: Coventry City 4–1 Newcastle United matches the result your mirror caught.
+    football-hub's `loadCompetition()` now fills any score openfootball has not published (never overwrites one it has) and says so in the
+    data-source line (e.g. "+ 10 results from Alfred").
