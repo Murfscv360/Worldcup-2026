@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T11:00:15-0500",
+ "generated": "2026-10-17T11:30:16-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -1340,6 +1340,17 @@
   {
    "comp": "championship",
    "date": "2026-10-17",
+   "team1": "Bristol City FC",
+   "team2": "Sheffield United FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
    "team1": "Derby County FC",
    "team2": "Stoke City FC",
    "ft": [
@@ -2224,6 +2235,19 @@
    "ft": [
     0,
     2
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-17",
+   "team1": "Fulham FC",
+   "team2": "Hull City AFC",
+   "ft": [
+    1,
+    0
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
