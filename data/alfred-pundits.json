@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T12:15:06-0500",
+ "generated": "2026-10-17T12:45:10-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,22 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-13",
-   "comp": "championship",
-   "team1": "Bristol City FC",
-   "team2": "Blackburn Rovers FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Mowbray: 'We made life difficult for them'",
-     "standfirst": "Blackburn boss Tony Mowbray celebrates a clean sheet - and three points away at Bristol.",
-     "link": "https://www.bbc.co.uk/sounds/play/p0pgjbd5?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-13T21:20:00Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-13",
    "comp": "championship",
@@ -91,22 +75,6 @@
    ]
   },
   {
-   "date": "2026-10-13",
-   "comp": "championship",
-   "team1": "Wolverhampton Wanderers FC",
-   "team2": "Bolton Wanderers FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Schumacher: 'Confidence should be high'",
-     "standfirst": "Bolton boss Steven Schumacher after his side's 3-1 away win at Wolverhampton Wanderers",
-     "link": "https://www.bbc.co.uk/sounds/play/p0pgjc4d?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-13T21:33:00Z"
-    }
-   ]
-  },
-  {
    "date": "2026-10-14",
    "comp": "championship",
    "team1": "Lincoln City FC",
@@ -163,6 +131,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Yarmoliuk red card changed game dynamic - Andrews",
+     "standfirst": "Brentford manager Keith Andrews says Yehor Yarmoliuk's first-half red card changed the dynamic of their game against Liverpool which ended in a 2-1 defeat for the Bees.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c6eq373g3vx9o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T17:14:21Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Liverpool players in 'delicate' situation with 'demanding' schedule - Iraola",
      "standfirst": "Andoni Iraola Liverpool's demanding schedule is putting his players in a \"delicate situation\" after Dominik Szoboszlai was forced off with a first-half injury during their 2-1 victory at Brentford.",
      "link": "https://www.bbc.co.uk/sport/football/videos/ckgelqlz37w3o?at_medium=RSS&at_campaign=rss",
@@ -183,6 +159,22 @@
      "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a butt on J\u00e9r\u00e9my Jacquet just before half-time. While Andoni Iraola will hope surviving one of the toughest tests the Premier Le",
      "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
      "published": "2026-10-17T16:21:40Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "championship",
+   "team1": "Bristol City FC",
+   "team2": "Sheffield United FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Wilder: 'Big result'",
+     "standfirst": "Sheffield United manager Chris Wilder after the 1-0 win at Bristol City.",
+     "link": "https://www.bbc.co.uk/sounds/play/p0ph8h5j?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T17:00:00Z"
     }
    ]
   },
@@ -337,6 +329,14 @@
    "team2": "West Ham United FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Nuno: 'A really good performance overall'",
+     "standfirst": "West Ham boss Nuno Espirito Santo speaks to Andy Rowley after a 1-0 win at Swansea.",
+     "link": "https://www.bbc.co.uk/sounds/play/p0ph8ftg?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T16:58:00Z"
+    },
+    {
      "source": "Guardian",
      "comp": "championship",
      "title": "Championship roundup: West Ham go second; Norwich beaten again",
@@ -378,7 +378,23 @@
    "title": "Newcastle v Aston Villa: Premier League \u2013 live",
    "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T17:13:54Z"
+   "published": "2026-10-17T17:43:57Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Morrison: 'We keep going until the end'",
+   "standfirst": "James Morrison speaks after comeback win against Blackburn.",
+   "link": "https://www.bbc.co.uk/sounds/play/p0ph8gn4?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T17:30:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Yarmoliuk red card changed game dynamic - Andrews",
+   "standfirst": "Brentford manager Keith Andrews says Yehor Yarmoliuk's first-half red card changed the dynamic of their game against Liverpool which ended in a 2-1 defeat for the Bees.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c6eq373g3vx9o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T17:14:21Z"
   },
   {
    "source": "BBC Sport",
@@ -387,6 +403,22 @@
    "standfirst": "Manchester City manager Enzo Maresca praises his side after their beat Ipswich Town at home in the Premier League.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cmp3gkge7064o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T17:08:01Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Wilder: 'Big result'",
+   "standfirst": "Sheffield United manager Chris Wilder after the 1-0 win at Bristol City.",
+   "link": "https://www.bbc.co.uk/sounds/play/p0ph8h5j?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T17:00:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Nuno: 'A really good performance overall'",
+   "standfirst": "West Ham boss Nuno Espirito Santo speaks to Andy Rowley after a 1-0 win at Swansea.",
+   "link": "https://www.bbc.co.uk/sounds/play/p0ph8ftg?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T16:58:00Z"
   },
   {
    "source": "BBC Sport",
@@ -527,7 +559,7 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
-   "title": "Matos on tactics, Klopp's influence, and taking Swans to top of the league",
+   "title": "Matos on tactics, Klopp's influence, and taking Swans to top of league",
    "standfirst": "Swansea boss Vitor Matos spent five years as an elite development coach at Liverpool, but it would be unfair to paint him with a Jurgen Klopp-shaped brush entirely.",
    "link": "https://www.bbc.co.uk/sport/football/articles/crp3gq832gqxo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T05:56:25Z"
@@ -579,38 +611,6 @@
    "standfirst": "Lewis Koumas on breaking Steven Gerrard's record, seizing his opportunity under Andoni Iraola, and why he couldn't sleep after playing Manchester City.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cwy7l5e4376no?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-16T16:06:37Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Arteta told Arsenal job cuts will help create success",
-   "standfirst": "Arsenal boss Mikel Arteta says he was told the club's decision to cut 60 jobs had been made to \"achieve the success we want to create\".",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cr3wv4xd2l6yo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T15:31:54Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Stoke building an improved culture - Robins",
-   "standfirst": "Stoke City boss Mark Robins tells BBC Radio Stoke they are seeing the results of an improved culture at the club.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c5n491w1x01mo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T15:20:09Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Morrison faces Mowbray test as Baggies host Blackburn",
-   "standfirst": "West Bromwich Albion boss James Morrison pits his wits against Blackburn's Tony Mowbray, who he worked for as player and coach.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c9zrdylyjrx5o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T14:26:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "'I am telling you the truth' - Carrick on Martinez fallout",
-   "standfirst": "Manchester United boss Michael Carrick says he is telling the truth about the club moving on from Lisandro Martinez's explosive post-match interview.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm4g189leelno?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T13:59:12Z"
   }
  ]
 }
