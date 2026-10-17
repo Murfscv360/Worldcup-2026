@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-16 18:00:32",
+ "generated": "2026-10-17 08:00:17",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-13",
-   "ts": "2026-10-13 18:00:08",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-14",
    "ts": "2026-10-14 08:00:08",
@@ -78,6 +68,16 @@
    "player_changes": [
     "Gibbs-White (NFO, 14% owned): Muscular injury - 75% chance of playing"
    ],
+   "unreachable": [
+    "bbc"
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "ts": "2026-10-17 08:00:07",
+   "new_headlines": 0,
+   "key": [],
+   "player_changes": [],
    "unreachable": [
     "bbc"
    ]
