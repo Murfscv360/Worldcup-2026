@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T11:30:16-0500",
+ "generated": "2026-10-17T12:00:19-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -2230,6 +2230,19 @@
   {
    "comp": "epl",
    "date": "2026-10-17",
+   "team1": "Brentford FC",
+   "team2": "Liverpool FC",
+   "ft": [
+    1,
+    2
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-17",
    "team1": "Everton FC",
    "team2": "Chelsea FC",
    "ft": [
@@ -2248,6 +2261,19 @@
    "ft": [
     1,
     0
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-17",
+   "team1": "Manchester City FC",
+   "team2": "Ipswich Town FC",
+   "ft": [
+    3,
+    2
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
