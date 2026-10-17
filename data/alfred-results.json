@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T14:00:15-0500",
+ "generated": "2026-10-17T14:30:13-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -2274,6 +2274,19 @@
    "ft": [
     3,
     2
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-17",
+   "team1": "Newcastle United FC",
+   "team2": "Aston Villa FC",
+   "ft": [
+    0,
+    1
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
