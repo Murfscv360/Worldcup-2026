@@ -850,3 +850,18 @@ h1,h2,h3,.sec-title h2,.rp-title,.award .ah h3{ font-family:"Archivo","Inter",sa
 .ai-today{border:1px solid var(--line);border-radius:14px;padding:14px;margin:8px 0 16px;background:var(--card2);cursor:pointer}
 .ai-today-h{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
 @media (max-width:380px){.fdr i{width:24px}.ai-row{grid-template-columns:22px 30px 1fr}.ai-row .fdr{grid-column:1/-1}}
+
+/* Match centre (2026-10-17) */
+.mc-open{margin-top:10px;width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:10px;font-weight:600;cursor:pointer}
+.mc-panel{overflow-y:auto}
+.mc-score{display:flex;justify-content:center;align-items:center;gap:14px;font-size:15px}
+.mc-score b{font-size:26px}
+.mc-status{text-align:center;opacity:.75;font-size:12px;margin-bottom:8px}
+.mc-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.mc-listen{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
+.mc-listen.on{border-color:#e5484d;color:#e5484d}
+.mc-panel h4{margin:14px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;opacity:.8}
+.mc-stat{display:grid;grid-template-columns:1fr 2fr 1fr;text-align:center;padding:4px 0;border-bottom:1px solid var(--line);font-size:13px}
+.mc-stat em{font-style:normal;opacity:.7}
+.mc-key,.mc-com{font-size:13px;padding:6px 0;border-bottom:1px solid var(--line);line-height:1.4}
+.mc-kt{opacity:.7}

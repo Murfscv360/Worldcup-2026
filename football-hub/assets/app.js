@@ -232,9 +232,12 @@ async function loadData(){
    so a matching bug is a one-file JS fix, never a workflow re-run away. */
 async function loadLiveScoresMirror(){
   try{
-    const d = await getJSON("https://raw.githubusercontent.com/Murfscv360/Worldcup-2026/fh-scores-pub/scores.json", 7000);
-    if(!d || !d.leagues) return null;
-    return d;
+    // 2026-10-17 (John: "Go with 30s"): Alfred's VPS serves the same mirror refreshed every 30 s and never cached; the GitHub copy is
+    // the fallback (its CDN caches 5 min).
+    for (const u of ["https://212-28-185-173.sslip.io/fh/scores.json", "https://raw.githubusercontent.com/Murfscv360/Worldcup-2026/fh-scores-pub/scores.json"]) {
+      try { const d = await getJSON(u + "?t=" + Date.now(), 7000); if (d && d.leagues) return d; } catch (e) { /* next source */ }
+    }
+    return null;
   }catch(e){ return null; }
 }
 
@@ -2210,6 +2213,86 @@ function lineupsNote(comp, status){
   const url = comp==="epl" ? "https://www.premierleague.com/matchcentre" : "https://www.efl.com/clubs-and-fixtures/";
   return `<p class="note">👕 Starting lineups aren't in this app's results feed (it only carries full-time scores). Confirmed XIs are published around an hour before kickoff on the <a href="${url}" target="_blank" rel="noopener">official match centre</a>.</p>`;
 }
+/* ---- Match centre (John 2026-10-17: "one stop view ... live stats and metrics", "listen to in game play by play").
+   Source: ESPN's keyless summary endpoint (CORS *), fetched in the browser for the fixture the live mirror already matched
+   with confidence (fhMirrorEventFor: both clubs must resolve). Stats, key events and minute-by-minute commentary; refreshes
+   every 30 s while open. "Listen" reads NEW commentary lines aloud with the device's own speech voice — it is text-to-speech
+   of the written commentary, not a radio broadcast. If ESPN can't be reached the sheet says so (couldn't ask != no events). */
+function mcEsc(t){ return String(t==null?"":t).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function mcButton(m, comp, status){
+  if(!status.mirrored || comp==="ucl") return "";
+  const ev = fhMirrorEventFor(m, comp);
+  if(!ev || !ev.id) return "";
+  const slug = ev.slug || (comp==="epl" ? "eng.1" : "eng.2");
+  return `<button class="mc-open" data-mc="${mcEsc(ev.id)}" data-slug="${mcEsc(slug)}" data-title="${mcEsc(clubName(m.team1)+" v "+clubName(m.team2))}">📊 Match centre · stats &amp; play-by-play</button>`;
+}
+const MC = { id:null, slug:null, title:"", timer:null, listen:false, spoken:new Set(), data:null, err:null };
+async function mcFetch(){
+  try{
+    const r = await fetch(`https://site.web.api.espn.com/apis/site/v2/sports/soccer/${MC.slug}/summary?event=${encodeURIComponent(MC.id)}`, {cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    MC.data = await r.json(); MC.err = null;
+  }catch(e){ MC.err = String(e.message||e); }
+  mcRender();
+}
+function mcCommentary(d){
+  return (d && d.commentary || []).filter(c=>c && c.text).map(c=>({ key:(c.sequence!=null?c.sequence:"")+"|"+((c.time&&c.time.displayValue)||"")+"|"+c.text, t:(c.time&&c.time.displayValue)||"", text:c.text }));
+}
+function mcSpeak(lines){
+  if(!MC.listen || !("speechSynthesis" in window)) return;
+  lines.forEach(l=>{ const u = new SpeechSynthesisUtterance((l.t? l.t.replace("'"," minutes")+". " : "")+l.text); u.lang = "en-GB"; u.rate = 1.02; speechSynthesis.speak(u); });
+}
+function mcRender(){
+  const body = document.getElementById("mcBody"); if(!body) return;
+  const d = MC.data;
+  document.getElementById("mcTitle").textContent = MC.title;
+  if(!d){ body.innerHTML = MC.err ? `<p class="note">Couldn't reach the live stats feed (${mcEsc(MC.err)}). Retrying every 30 s — this is a connection problem, not "no events".</p>` : `<p class="note">Loading…</p>`; return; }
+  const comp = (d.header && d.header.competitions && d.header.competitions[0]) || {};
+  const st = (comp.status && comp.status.type) || {};
+  const sides = (comp.competitors || []).slice().sort((a,b)=> (a.homeAway==="home"?0:1)-(b.homeAway==="home"?0:1));
+  const score = sides.length===2 ? `<div class="mc-score"><span>${mcEsc(sides[0].team && sides[0].team.shortDisplayName)}</span><b>${mcEsc(sides[0].score)} – ${mcEsc(sides[1].score)}</b><span>${mcEsc(sides[1].team && sides[1].team.shortDisplayName)}</span></div><div class="mc-status">${mcEsc(st.detail || st.description || "")}</div>` : "";
+  // team stats: pair home/away by label
+  const teams = (d.boxscore && d.boxscore.teams) || [];
+  const tsort = teams.slice().sort((a,b)=> (a.homeAway==="home"?0:1)-(b.homeAway==="home"?0:1));
+  let stats = "";
+  if(tsort.length===2){
+    const want = ["Possession","SHOTS","ON GOAL","Corner Kicks","Fouls","Yellow Cards","Red Cards","Offsides","Saves","Passes","Pass Completion %"];
+    const get = (t, lbl)=> ((t.statistics||[]).find(x=> (x.label||x.name)===lbl) || {}).displayValue;
+    const fmt = (lbl, v)=>{ if(v==null||v==="") return v; const n = parseFloat(v); if(lbl==="Possession") return v+"%"; if(lbl==="Pass Completion %" && !isNaN(n)) return Math.round(n<=1?n*100:n)+"%"; return v; };
+    const rows = want.map(lbl=>{ const a = fmt(lbl, get(tsort[0], lbl)), b = fmt(lbl, get(tsort[1], lbl)); return (a==null && b==null) ? "" : `<div class="mc-stat"><span>${mcEsc(a??"–")}</span><em>${mcEsc(lbl.replace("SHOTS","Shots").replace("ON GOAL","On target").replace(" %",""))}</em><span>${mcEsc(b??"–")}</span></div>`; }).join("");
+    if(rows) stats = `<h4>Match stats</h4>${rows}`;
+  }
+  const keys = (d.keyEvents||[]).filter(k=>k && (k.text || (k.type&&k.type.text)));
+  const keyHtml = keys.length ? `<h4>Key events</h4>` + keys.slice().reverse().map(k=>`<div class="mc-key"><b>${mcEsc((k.clock&&k.clock.displayValue)||"")}</b> <span class="mc-kt">${mcEsc((k.type&&k.type.text)||"")}</span> ${mcEsc(k.text||"")}</div>`).join("") : "";
+  const com = mcCommentary(d);
+  const fresh = com.filter(c=> !MC.spoken.has(c.key));
+  if(MC.spoken.size) mcSpeak(fresh.slice(-3)); // first load is silent: only lines that arrive while listening are read
+  com.forEach(c=> MC.spoken.add(c.key));
+  const comHtml = com.length ? `<h4>Play-by-play</h4>` + com.slice().reverse().slice(0,60).map(c=>`<div class="mc-com"><b>${mcEsc(c.t)}</b> ${mcEsc(c.text)}</div>`).join("") : `<p class="note">No written commentary yet for this match.</p>`;
+  const listenOk = "speechSynthesis" in window;
+  body.innerHTML = `${score}
+    <div class="mc-tools">${listenOk?`<button id="mcListen" class="mc-listen ${MC.listen?"on":""}">${MC.listen?"🔊 Listening — reads new lines aloud":"🔈 Listen to play-by-play"}</button>`:""}<span class="ni-meta">Source: ESPN · refreshes every 30 s${MC.err?" · last refresh failed, showing previous":""}</span></div>
+    ${stats}${keyHtml}${comHtml}`;
+  document.getElementById("mcListen")?.addEventListener("click", ()=>{
+    MC.listen = !MC.listen;
+    if(!MC.listen) speechSynthesis.cancel();
+    else { const last = com[com.length-1]; if(last) mcSpeak([last]); } // speak the latest line now so the tap is the user gesture iOS needs
+    mcRender();
+  });
+}
+function openMatchCentre(id, slug, title){
+  closeMatchCentre();
+  Object.assign(MC, { id, slug, title, listen:false, spoken:new Set(), data:null, err:null });
+  document.getElementById("mcSheet").hidden = false;
+  mcRender(); mcFetch();
+  MC.timer = setInterval(mcFetch, 30000);
+}
+function closeMatchCentre(){
+  if(MC.timer) clearInterval(MC.timer); MC.timer = null;
+  if("speechSynthesis" in window) speechSynthesis.cancel();
+  MC.listen = false;
+  const sh = document.getElementById("mcSheet"); if(sh) sh.hidden = true;
+}
 function liveMatchCard(m, comp){
   const status = matchStatus(m, comp);
   const home = clubName(m.team1), away = clubName(m.team2);
@@ -2223,7 +2306,7 @@ function liveMatchCard(m, comp){
       <div class="score">${ft?ft[0]:"–"}</div>
       <div class="team"><span class="flag">${crest(m.team2,21)}</span><span class="name">${away}</span></div>
       <div class="score">${ft?ft[1]:"–"}</div>
-    </div>${meta}${mirrorNote}${radio}${lineupsNote(comp, status)}
+    </div>${meta}${mirrorNote}${mcButton(m, comp, status)}${radio}${lineupsNote(comp, status)}
     <div class="analyst compact"><div class="analyst-head"><span class="analyst-badge">Analyst's Desk</span>${status.state==="live"?'<span class="analyst-live">LIVE</span>':""}</div>
       <div class="analyst-body">${commentaryFor(m, comp)}</div></div>
   </div>`;
@@ -2282,6 +2365,7 @@ function render(){
   });
   document.querySelectorAll("[data-goto]").forEach(b=> b.addEventListener("click", ()=> setView(b.dataset.goto)));
   document.querySelectorAll("[data-comp]").forEach(b=> b.addEventListener("click", ()=>{ state.comp = b.dataset.comp; render(); }));
+  document.querySelectorAll("[data-mc]").forEach(b=> b.addEventListener("click", ()=> openMatchCentre(b.dataset.mc, b.dataset.slug, b.dataset.title)));
   document.querySelectorAll("[data-fsub]").forEach(b=> b.addEventListener("click", ()=>{ state.fantasySub = b.dataset.fsub; render(); }));
   document.querySelectorAll("[data-goto-fantasy-ai]").forEach(b=> b.addEventListener("click", ()=>{ state.view = "fantasy"; state.fantasySub = "ai"; render(); window.scrollTo(0,0); }));
   document.getElementById("myTeamsPick")?.addEventListener("click", openFavSheet);
@@ -2345,6 +2429,7 @@ function wireChrome(){
 
   document.getElementById("favBtn").addEventListener("click", openFavSheet);
   document.getElementById("favClose").addEventListener("click", ()=> document.getElementById("favSheet").hidden = true);
+  document.getElementById("mcClose")?.addEventListener("click", closeMatchCentre);
   document.getElementById("favSearch").addEventListener("input", e=> renderFavList(e.target.value));
   updateFavBtn();
 
@@ -2381,6 +2466,11 @@ async function init(){
   setInterval(async ()=>{
     try{ await loadData(); setLivePill(); if(DYNAMIC_VIEWS.includes(state.view)) render(); }catch(e){}
   }, 60000);
+  // live scores only, every 30 s (light: one small JSON) -- John 2026-10-17
+  setInterval(async ()=>{
+    if (document.hidden) return;
+    try{ const m = await loadLiveScoresMirror(); if (m) { LIVE_SCORES_MIRROR = m; setLivePill(); if(DYNAMIC_VIEWS.includes(state.view)) render(); } }catch(e){}
+  }, 30000);
 }
 
 document.addEventListener("DOMContentLoaded", init);

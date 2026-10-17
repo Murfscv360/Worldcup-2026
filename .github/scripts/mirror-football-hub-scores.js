@@ -61,6 +61,8 @@ function normalizeEvent(ev, league) {
     return {
       league,
       date: (ev.date || '').slice(0, 10),
+      id: ev.id || null,                    // ESPN event id -> the app's match centre fetches summary?event=<id> (stats, play-by-play)
+      slug: league === 'epl' ? 'eng.1' : 'eng.2',
       kickoff_utc: ev.date || null,
       state,
       clock: (comp.status && comp.status.displayClock) || null,

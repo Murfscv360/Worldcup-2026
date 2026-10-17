@@ -60,3 +60,13 @@ are labelled in‑app; scores, scorers, standings & clean sheets come from live 
 - **Deadline notification**: Alfred's fpl_deadline re-enabled (T-24h, T-6h, T-90m) and now reads the PUBLISHED decision.
 - **One host**: the Netlify copy was decommissioned 2026-10-03; GitHub Pages is the only host (monitor updated).
 - Review fixes: price arrows only at >= 0.5 % pressure; bench-only swaps that tie with HOLD collapsed into one line.
+
+## 2026-10-17 — Live every 30 s + Match centre with play-by-play (Alfred)
+- **Live scores every 30 s** (EPL + Championship): the VPS runs the repo's own mirror script every 30 s and serves it at
+  `212-28-185-173.sslip.io/fh/scores.json` (CORS = this app only, no-cache); the app polls it every 30 s and falls back to
+  the GitHub branch copy (5-min CDN) if the VPS is unreachable. Mirror events now carry the ESPN event `id` and `slug`.
+- **Match centre**: tap "📊 Match centre" on any live or just-finished EPL/EFL match for score + status, team stats
+  (possession, shots, on target, corners, fouls, cards, offsides, saves, passes, pass %), key events and minute-by-minute
+  play-by-play. Source ESPN summary (fetched in the browser), refreshes every 30 s while open; a failed refresh says so.
+- **Listen**: reads NEW play-by-play lines aloud with the device's speech voice (text-to-speech of the written commentary,
+  not a radio broadcast). Radio links stay on each card (talkSPORT / BBC 5 Live / club BBC local radio — region-limited).
