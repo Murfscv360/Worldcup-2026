@@ -47,3 +47,16 @@ are labelled in‑app; scores, scorers, standings & clean sheets come from live 
 - `data/alfred-results.json`: every finished match (Premier League via the FPL fixtures API, Championship via ESPN), source per match.
 - `loadCompetition()` fills scores openfootball has not published yet; the data-source line credits them ("+ N results from Alfred").
 - Closes the REQUESTS.md item of 2026-10-13 (21 weekend results).
+
+## 2026-10-17 — Capstone 2-8: AI Manager, fixture difficulty, mini-league, price watch, freshness, one host (Alfred)
+- **AI Manager** (Fantasy, now the landing tab; also a Gameweek card on Today): the published call (HOLD / transfer, captain, vice),
+  confidence, deadline countdown, and **how the AI decided** — the existing engine's plans vs HOLD (projection, hit, gain), its rules,
+  and the decision-matrix captain ranking with weights. Engine captain vs published captain shown honestly with the override reason.
+  Data: `data/alfred-ai.json` (surfaces the existing engine: fpl_simulate.search + decision matrix — no new decision logic).
+- **Squad with crests + 5-fixture difficulty strip** (FPL's own 1-5 ratings, away marked): `data/alfred-fdr.json`.
+- **Mini-league**: full standings with movement and your position-by-gameweek sparkline: `data/alfred-league.json`.
+- **Price watch**: transfer pressure (labelled as pressure, not a prediction) for your squad + top risers/fallers: `data/alfred-prices.json`.
+- **Freshness**: every panel shows its data age; a red "stale" label when a feed is behind.
+- **Deadline notification**: Alfred's fpl_deadline re-enabled (T-24h, T-6h, T-90m) and now reads the PUBLISHED decision.
+- **One host**: the Netlify copy was decommissioned 2026-10-03; GitHub Pages is the only host (monitor updated).
+- Review fixes: price arrows only at >= 0.5 % pressure; bench-only swaps that tie with HOLD collapsed into one line.

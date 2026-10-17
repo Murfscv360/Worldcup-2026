@@ -550,7 +550,7 @@ function compSwitcher(){
 function viewToday(){
   const favs = getFavs();
   const seasonSt = seasonState();
-  let html = "";
+  let html = todayAiCard();
 
   if(seasonSt==="preseason"){
     const om = EPL.season2627.openingMatch;
@@ -920,15 +920,111 @@ function fplPickLeague(entry){
   return leagues.find(l=>l.league_type==="x") || leagues[0];
 }
 
+
+/* ===================== AI MANAGER (capstone 2026-10-17, John: "automatic team management of the squad and decision making to
+   showcase AI logic") — everything from Alfred's published files (works on Pages, no proxy): data/alfred-fpl.json (the call),
+   alfred-ai.json (the existing engine's working: HOLD vs every legal move, decision matrix), alfred-fdr.json (next 5 fixtures),
+   alfred-league.json (mini-league), alfred-prices.json (transfer pressure). FPL logins are unreachable from the fleet, so moves are
+   applied by hand in the FPL app — the AI decides and explains; nothing here pretends to have submitted anything. ===================== */
+let AI = { loaded:false, ai:null, fdr:null, league:null, prices:null };
+async function loadAi(){
+  if (AI.loaded) return;
+  const [ai, fdr, league, prices] = await Promise.all(["alfred-ai.json","alfred-fdr.json","alfred-league.json","alfred-prices.json"].map(n => fetchAlfredFile(n).catch(()=>null)));
+  if (!ALFRED) { try { ALFRED = await fetchAlfredFile("alfred-fpl.json"); } catch(e){} }
+  AI = { loaded:true, ai, fdr, league, prices };
+  if (state.view === "fantasy" || state.view === "today") render();
+}
+function ageOf(gen){ const t = Date.parse(String(gen||"").replace(" ","T")); return isNaN(t) ? null : (Date.now()-t)/36e5; }
+function fresh(gen, staleH){
+  const h = ageOf(gen); if (h === null) return `<span class="fresh unknown">age unknown</span>`;
+  const txt = h < 1 ? `${Math.max(1,Math.round(h*60))} min ago` : h < 48 ? `${Math.round(h)} h ago` : `${Math.round(h/24)} days ago`;
+  return `<span class="fresh ${h > staleH ? "stale" : ""}">${h > staleH ? "⚠ stale — " : ""}updated ${txt}</span>`;
+}
+function fdrStrip(short){
+  const c = AI.fdr && AI.fdr.clubs && AI.fdr.clubs[short]; if (!c) return "";
+  return `<span class="fdr">${c.next.slice(0,5).map(f=>`<i class="fdr${f.fdr}" title="GW${f.gw} ${f.opp} ${f.home?"(H)":"(A)"} — difficulty ${f.fdr}">${f.opp}${f.home?"":"<small>a</small>"}</i>`).join("")}</span>`;
+}
+function clubFull(short){ const c = AI.fdr && AI.fdr.clubs && AI.fdr.clubs[short]; return c && c.full; }
+function aiPlayerRow(p, cap, vice){
+  const full = clubFull(p.club);
+  const tag = p.name===cap ? `<b class="armband">C</b>` : p.name===vice ? `<b class="armband v">V</b>` : "";
+  const pr = AI.prices && (AI.prices.squad||[]).find(x=>x.name===p.name && x.club===p.club);
+  const press = pr && Math.abs(pr.pressure) >= 0.5 ?   /* 0.5 % of owners net in/out this GW -- below that it is noise (review 2026-10-17) */ `<span class="press ${pr.pressure>0?"up":"down"}" title="net transfers this GW: ${pr.net_transfers.toLocaleString()}">${pr.pressure>0?"▲":"▼"}</span>` : "";
+  return `<div class="ai-row">${full?crest(full,22):`<span class="crest" style="width:22px;height:22px"></span>`}<span class="ai-pos">${p.pos||""}</span>
+    <span class="ai-nm">${p.name} ${tag}${press}</span>${fdrStrip(p.club)}</div>`;
+}
+function rankSpark(ranks, size){
+  const r = (ranks||[]).filter(x=>x); if (r.length < 2) return "";
+  const W = 220, H = 56, lo = 1, hi = Math.max(size||Math.max(...r), ...r);
+  const x = i => 6 + i*(W-12)/(r.length-1), y = v => 6 + (v-lo)*(H-12)/Math.max(1,hi-lo);
+  const pts = r.map((v,i)=>`${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="league rank by gameweek: ${r.join(", ")}">
+    <polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="2"/>
+    ${r.map((v,i)=>`<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="${i===r.length-1?3.5:2}" fill="currentColor"><title>GW${i+1}: ${v}</title></circle>`).join("")}
+  </svg>`;
+}
+function viewFantasyAi(){
+  if (!AI.loaded) { loadAi(); return `<div class="empty">Loading Alfred's FPL manager…</div>`; }
+  const D = ALFRED, A = AI.ai;
+  if (!D) return `<div class="banner">Alfred's decision file is unavailable right now (couldn't load data/alfred-fpl.json) — nothing shown rather than guessing.</div>`;
+  const cap = D.captain, vice = D.vice;
+  let html = sectionHead(`Gameweek ${D.gw_for} — AI Manager`, fresh(D.generated, 12));
+  html += `<p class="note">Deadline ${new Date(D.deadline).toLocaleString([], {weekday:"short", day:"numeric", month:"short", hour:"numeric", minute:"2-digit"})} (your time)</p>`;
+  html += countdownBoxes(Date.parse(D.deadline));
+  if (A) {
+    html += `<div class="ai-call ${A.verdict.startsWith("HOLD")?"hold":"move"}"><div class="ai-verdict">${A.verdict}</div>
+      <div class="ai-meta">Confidence <b>${A.confidence}</b> · ${A.lines_evaluated} plans evaluated · ${A.free_transfers} free transfer${A.free_transfers===1?"":"s"} · £${A.bank}m in the bank</div>
+      <div class="ai-meta">Captain <b>${cap}</b> · vice <b>${vice}</b>${A.captain.engine && A.captain.engine!==cap ? ` · <span class="note">engine prefers ${A.captain.engine}; kept ${cap} (${A.captain.override_reason||"your pick"})</span>` : ""}</div></div>`;
+    html += `<details class="ai-why" open><summary>How the AI decided</summary>
+      <p class="note">Every legal plan was projected over the next gameweek and compared with holding. A transfer is only proposed when it clears the rules below.</p>
+      <table class="ai-lines"><tr><th>Plan</th><th>Proj.</th><th>Hit</th><th>vs hold</th></tr>
+      ${A.top_lines.filter(l=>l.plan.startsWith("HOLD") || l.vs_hold!==0).map(l=>`<tr class="${l.plan.startsWith("HOLD")?"hold":""}"><td>${l.plan}</td><td>${l.net}</td><td>${l.hit?"−"+l.hit:"0"}</td><td>${l.vs_hold>0?"+":""}${l.vs_hold}</td></tr>`).join("")}</table>
+      ${(()=>{const t=A.top_lines.filter(l=>!l.plan.startsWith("HOLD") && l.vs_hold===0).length; return t ? `<p class="note">${t} bench-only swap${t>1?"s":""} tie with holding (they don't change the starting XI's projection).</p>` : "";})()}
+      <ul class="ai-rules">${A.rules.map(r=>`<li>${r}</li>`).join("")}</ul>
+      <p class="note">Captain ranking from the decision matrix (rebuilt daily; fixtures shown are the ones it scored) — weighted score (${Object.entries(A.matrix.weights).map(([k,v])=>`${k}×${v}`).join(", ")}):</p>
+      <table class="ai-lines"><tr><th>Player</th><th>xPts</th><th>xGI</th><th>Form</th><th>Fixture</th><th>Score</th></tr>
+      ${A.matrix.rows.slice(0,6).map(r=>`<tr class="${r.name===cap?"hold":""}"><td>${r.name}</td><td>${r.ep??"–"}</td><td>${r.xgi??"–"}</td><td>${r.form??"–"}</td><td>${r.fix||"–"}</td><td>${r.total}</td></tr>`).join("")}</table>
+      <p class="note">${fresh(A.generated, 12)} · FPL logins can't be reached from the fleet, so make the moves yourself in the FPL app.</p></details>`;
+  }
+  html += sectionHead("Your squad", AI.fdr ? `next 5 fixtures · ${fresh(AI.fdr.generated, 24)}` : "");
+  html += `<div class="fdr-key"><i class="fdr1">1</i><i class="fdr2">2</i><i class="fdr3">3</i><i class="fdr4">4</i><i class="fdr5">5</i> FPL fixture difficulty · <small>a</small> = away · ▲▼ price pressure</div>`;
+  html += `<div class="ai-squad">${(D.xi||[]).map(p=>aiPlayerRow(p,cap,vice)).join("")}<div class="ai-bench">Bench</div>${(D.bench||[]).map(p=>aiPlayerRow(p,cap,vice)).join("")}</div>`;
+  const L = AI.league, lg = L && L.leagues && L.leagues[0];
+  if (lg) {
+    const me = lg.members.find(m=>m.me);
+    html += sectionHead(lg.name, fresh(L.generated, 24));
+    if (me) html += `<div class="ai-league-me"><div><b>${me.team}</b> — ${me.rank}${["th","st","nd","rd"][((me.rank%100)-20)%10]||["th","st","nd","rd"][me.rank%100]||"th"} of ${lg.members.length}, ${me.total} pts</div>${rankSpark(me.rank_by_gw, lg.members.length)}<small>league position by gameweek (lower is better)</small></div>`;
+    html += `<table class="ai-lines"><tr><th>#</th><th>Team</th><th>GW</th><th>Total</th><th></th></tr>${lg.members.map(m=>{
+      const mv = m.last_rank && m.rank ? m.last_rank - m.rank : 0;
+      return `<tr class="${m.me?"hold":""}"><td>${m.rank}</td><td>${m.team}<br><small>${m.manager}</small></td><td>${m.gw_points??"–"}</td><td>${m.total}</td><td class="${mv>0?"up":mv<0?"down":""}">${mv>0?"▲"+mv:mv<0?"▼"+(-mv):"–"}</td></tr>`;}).join("")}</table>`;
+  }
+  const P = AI.prices;
+  if (P) {
+    html += sectionHead("Price watch", fresh(P.generated, 12));
+    html += `<p class="note">${P.note}</p><div class="price-cols"><div><h4>Rising pressure</h4>${P.rising.slice(0,6).map(r=>`<div class="price-row"><span>${r.name} <small>${r.club}</small></span><span class="up">▲ ${r.net_transfers.toLocaleString()}</span></div>`).join("")}</div>
+      <div><h4>Falling pressure</h4>${P.falling.slice(0,6).map(r=>`<div class="price-row"><span>${r.name} <small>${r.club}</small></span><span class="down">▼ ${(-r.net_transfers).toLocaleString()}</span></div>`).join("")}</div></div>`;
+  }
+  return html;
+}
+function todayAiCard(){
+  if (!AI.loaded) { loadAi(); return ""; }
+  const D = ALFRED, A = AI.ai; if (!D || !A) return "";
+  return `<div class="ai-today" data-goto-fantasy-ai><div class="ai-today-h">FPL · Gameweek ${D.gw_for}</div>
+    <div class="ai-verdict">${A.verdict}</div><div class="ai-meta">Captain <b>${D.captain}</b> · vice <b>${D.vice}</b> · confidence ${A.confidence}</div>
+    ${countdownBoxes(Date.parse(D.deadline))}<div class="ai-meta">${fresh(D.generated, 12)} · tap for the AI's reasoning</div></div>`;
+}
+
 function fantasySwitcher(){
   return `<div class="stat-controls">
-    <button class="chipbtn ${state.fantasySub!=="myteam"?"on":""}" data-fsub="best">Best XI</button>
+    <button class="chipbtn ${(state.fantasySub||"ai")==="ai"?"on":""}" data-fsub="ai">AI Manager</button>
+    <button class="chipbtn ${state.fantasySub==="best"?"on":""}" data-fsub="best">Best XI</button>
     <button class="chipbtn ${state.fantasySub==="myteam"?"on":""}" data-fsub="myteam">My Team</button>
   </div>`;
 }
 function viewFantasy(){
   let html = fantasySwitcher();
-  html += state.fantasySub==="myteam" ? viewFantasyMyTeam() : viewFantasyBest();
+  const sub = state.fantasySub || "ai";
+  html += sub==="myteam" ? viewFantasyMyTeam() : sub==="best" ? viewFantasyBest() : viewFantasyAi();
   return html;
 }
 function viewFantasyBest(){
@@ -2169,7 +2265,7 @@ function viewLive(){
 const VIEWS = { today:viewToday, fantasy:viewFantasy, live:viewLive, myteams:viewMyTeams, news:viewNews, transfers:viewTransfers, table:viewTable, fixtures:viewFixtures, teams:viewTeams, ucl:viewUCL, odds:viewOdds };
 const TAB_LABELS = { today:"Today", fantasy:"Fantasy", live:"Live", myteams:"My Teams", news:"News", transfers:"Transfers", table:"Table", fixtures:"Fixtures", teams:"Teams", ucl:"Champions League", odds:"Odds" };
 
-const state = { view:"today", comp:"epl", fantasySub:"best" };
+const state = { view:"today", comp:"epl", fantasySub:"ai" };   // 2026-10-17: AI Manager is the Fantasy landing tab
 
 function render(){
   const fn = VIEWS[state.view];
@@ -2187,6 +2283,7 @@ function render(){
   document.querySelectorAll("[data-goto]").forEach(b=> b.addEventListener("click", ()=> setView(b.dataset.goto)));
   document.querySelectorAll("[data-comp]").forEach(b=> b.addEventListener("click", ()=>{ state.comp = b.dataset.comp; render(); }));
   document.querySelectorAll("[data-fsub]").forEach(b=> b.addEventListener("click", ()=>{ state.fantasySub = b.dataset.fsub; render(); }));
+  document.querySelectorAll("[data-goto-fantasy-ai]").forEach(b=> b.addEventListener("click", ()=>{ state.view = "fantasy"; state.fantasySub = "ai"; render(); window.scrollTo(0,0); }));
   document.getElementById("myTeamsPick")?.addEventListener("click", openFavSheet);
   document.getElementById("myTeamsEdit")?.addEventListener("click", openFavSheet);
   const fplBtn = document.getElementById("fplLoadBtn");
