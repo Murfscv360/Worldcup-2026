@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T10:54:21-0500",
+ "generated": "2026-10-17T11:15:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -65,14 +65,6 @@
      "published": "2026-10-16T10:00:27Z"
     },
     {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Eom has strength to move on after alleged racist abuse",
-     "standfirst": "Vitor Matos says Eom Jisung has the strength to move on from the alleged racial abuse which marred Swansea City's win at Millwall.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/ck0e0qd0yllwo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-15T15:33:24Z"
-    },
-    {
      "source": "Guardian",
      "comp": "championship",
      "title": "Millwall\u2019s Alex Neil criticised for his comments on stoppage for alleged racism",
@@ -129,14 +121,6 @@
    "team2": "West Ham United FC",
    "reports": [
     {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Imps can 'grow' from 'brutal' 6-0 Hammers loss - Shaw",
-     "standfirst": "Lincoln City will not be defined by their 6-0 Championship defeat by West Ham, says Imps head coach Tom Shaw.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cmze4lx10l4lo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-15T15:01:26Z"
-    },
-    {
      "source": "Guardian",
      "comp": "championship",
      "title": "Championship roundup: Soucek doubles up as West Ham hit nine-man Lincoln for six",
@@ -181,9 +165,33 @@
   {
    "date": "2026-10-17",
    "comp": "epl",
+   "team1": "Brentford FC",
+   "team2": "Liverpool FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - live",
+     "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
+     "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
+     "published": "2026-10-17T16:13:35Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "epl",
    "team1": "Everton FC",
    "team2": "Chelsea FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Chelsea's Martinez taken to hospital for 'precautionary tests'",
+     "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T16:02:31Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -223,6 +231,46 @@
      "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
      "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T13:39:16Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "epl",
+   "team1": "Fulham FC",
+   "team2": "Hull City AFC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Fulham pressure on Arbeloa lifted after Alex Iwobi sinks Hull for first win",
+     "standfirst": "After such a dominant performance against a team so blunt going forward, it almost felt inevitable that \u00c1lvaro Arbeloa was going to be denied his first Premier League win as Fulham head coach in similar fashion as the weeks and games before. After all their chances and possession, Craven Cottage should not have been a ",
+     "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
+     "published": "2026-10-17T16:08:39Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "epl",
+   "team1": "Manchester City FC",
+   "team2": "Ipswich Town FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - live",
+     "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
+     "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
+     "published": "2026-10-17T16:13:35Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Haaland helps extend winning start for Manchester City as leaders defeat Ipswich",
+     "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d but they were able to forget the cacophony of noise around the club as Enzo Maresc",
+     "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
+     "published": "2026-10-17T16:08:40Z"
     }
    ]
   },
@@ -295,18 +343,50 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Manchester City v Ipswich, Brentford v Liverpool, and more: Football clockwatch - live",
+   "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - live",
    "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-   "published": "2026-10-17T15:53:59Z"
+   "published": "2026-10-17T16:13:35Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
+   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
+   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
+   "published": "2026-10-17T16:09:39Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Haaland helps extend winning start for Manchester City as leaders defeat Ipswich",
+   "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d but they were able to forget the cacophony of noise around the club as Enzo Maresc",
+   "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
+   "published": "2026-10-17T16:08:40Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Fulham pressure on Arbeloa lifted after Alex Iwobi sinks Hull for first win",
+   "standfirst": "After such a dominant performance against a team so blunt going forward, it almost felt inevitable that \u00c1lvaro Arbeloa was going to be denied his first Premier League win as Fulham head coach in similar fashion as the weeks and games before. After all their chances and possession, Craven Cottage should not have been a ",
+   "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
+   "published": "2026-10-17T16:08:39Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Chelsea's Martinez taken to hospital for 'precautionary tests'",
+   "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T16:02:31Z"
   },
   {
    "source": "Guardian",
    "comp": "epl",
    "title": "Newcastle v Aston Villa: Premier League \u2013 live",
-   "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky Matthias Jaissle\u2019s pre-match thoughts The lads know they need to show a reaction, we need to show a reaction as a team and I\u2019m optimistic we can do that at home. We are aware of what we are facing but at ho",
+   "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky Unai Emery on rotating his Villa squad The rotation is coming when the players are ready to play in our demands. This is the only difference. We made some changes on Wednesday after the match we played on S",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T15:52:54Z"
+   "published": "2026-10-17T15:54:48Z"
   },
   {
    "source": "BBC Sport",
@@ -365,28 +445,12 @@
    "published": "2026-10-17T13:53:00Z"
   },
   {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
-   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
-   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
-   "published": "2026-10-17T13:39:28Z"
-  },
-  {
    "source": "BBC Sport",
    "comp": "epl",
    "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
    "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T13:39:16Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Struggling Derby sign experienced defender Robinson",
-   "standfirst": "Championship strugglers Derby County sign experienced defender Jack Robinson on a three-month deal.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cwy8lkm38k14o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T12:47:51Z"
   },
   {
    "source": "BBC Sport",
@@ -515,22 +579,6 @@
    "standfirst": "Bristol City need to \"solve\" their home form says manager Michael Skubala, after a third defeat in five games at Ashton Gate.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6g7x13jvlx1o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-16T10:46:53Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "'Not about me' - Arbeloa dismisses future questions",
-   "standfirst": "Fulham head coach Alvaro Arbeloa says the focus should not be on him as his side searches for a first Premier League win this season against Hull City this weekend.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c615jw414vypo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T10:24:57Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Sheff Utd boss Wilder expecting 'rollercoaster season'",
-   "standfirst": "Sheffield United boss Chris Wilder says he is expecting a \"rollercoaster Championship season\".",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cx7vpre86elgo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T10:16:14Z"
   }
  ]
 }
