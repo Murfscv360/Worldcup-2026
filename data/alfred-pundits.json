@@ -1,0 +1,536 @@
+{
+ "generated": "2026-10-17T10:54:21-0500",
+ "by": "Alfred (fpl_pundits.py)",
+ "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
+ "sources": [
+  "Guardian epl",
+  "Guardian championship",
+  "BBC Sport epl",
+  "BBC Sport championship"
+ ],
+ "unreadable": [],
+ "matches": [
+  {
+   "date": "2026-10-13",
+   "comp": "championship",
+   "team1": "Bristol City FC",
+   "team2": "Blackburn Rovers FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Mowbray: 'We made life difficult for them'",
+     "standfirst": "Blackburn boss Tony Mowbray celebrates a clean sheet - and three points away at Bristol.",
+     "link": "https://www.bbc.co.uk/sounds/play/p0pgjbd5?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-13T21:20:00Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "comp": "championship",
+   "team1": "Cardiff City FC",
+   "team2": "Watford FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
+     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
+     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+     "published": "2026-10-17T14:04:41Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Under-pressure Dionisi addresses sacking 'fake news'",
+     "standfirst": "Under pressure Watford manager Alessio Dionisi says reports he would lose his job after Tuesday's heavy defeat at Cardiff were \"fake news\".",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cvrly0n268xwo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-16T08:59:43Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "comp": "championship",
+   "team1": "Millwall FC",
+   "team2": "Swansea City AFC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Arrest made after alleged racial abuse of Swans' Eom",
+     "standfirst": "Police investigating a report of racial abuse during Millwall's Championship game against Swansea City have arrested a man.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cmdx3nk7kwwro?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-16T10:00:27Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Eom has strength to move on after alleged racist abuse",
+     "standfirst": "Vitor Matos says Eom Jisung has the strength to move on from the alleged racial abuse which marred Swansea City's win at Millwall.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/ck0e0qd0yllwo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-15T15:33:24Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Millwall\u2019s Alex Neil criticised for his comments on stoppage for alleged racism",
+     "standfirst": "Kick It Out statement: managers should \u2018set the tone\u2019 Head coach said delay in Swansea game \u2018killed momentum\u2019 The Millwall head coach, Alex Neil, has been criticised by the anti-racism campaign group Kick It Out after complaining that a stoppage in play over alleged racist abuse \u201ckilled the momentum\u201d in Tuesday\u2019s home ",
+     "link": "https://www.theguardian.com/football/2026/oct/14/millwall-alex-neil-criticised-by-kick-it-out-statement",
+     "published": "2026-10-14T21:12:34Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Swansea\u2019s win at Millwall marred by alleged racist abuse of Eom Ji-sung",
+     "standfirst": "Match at the Den held up for seven minutes Middlesbrough edge Stoke in thriller; more Watford gloom Swansea \u2019s last-gasp 1-0 win at Millwall was held up for almost seven minutes after an allegation of racist abuse from the crowd towards Eom Ji-sung was reported by Swansea to officials. The referee, Edward Duckworth, ha",
+     "link": "https://www.theguardian.com/football/2026/oct/13/championship-roundup-racist-chanting-mars-swanseas-win-at-millwall",
+     "published": "2026-10-13T21:52:41Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "comp": "championship",
+   "team1": "Stoke City FC",
+   "team2": "Middlesbrough FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Swansea\u2019s win at Millwall marred by alleged racist abuse of Eom Ji-sung",
+     "standfirst": "Match at the Den held up for seven minutes Middlesbrough edge Stoke in thriller; more Watford gloom Swansea \u2019s last-gasp 1-0 win at Millwall was held up for almost seven minutes after an allegation of racist abuse from the crowd towards Eom Ji-sung was reported by Swansea to officials. The referee, Edward Duckworth, ha",
+     "link": "https://www.theguardian.com/football/2026/oct/13/championship-roundup-racist-chanting-mars-swanseas-win-at-millwall",
+     "published": "2026-10-13T21:52:41Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "comp": "championship",
+   "team1": "Wolverhampton Wanderers FC",
+   "team2": "Bolton Wanderers FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Schumacher: 'Confidence should be high'",
+     "standfirst": "Bolton boss Steven Schumacher after his side's 3-1 away win at Wolverhampton Wanderers",
+     "link": "https://www.bbc.co.uk/sounds/play/p0pgjc4d?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-13T21:33:00Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-14",
+   "comp": "championship",
+   "team1": "Lincoln City FC",
+   "team2": "West Ham United FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Imps can 'grow' from 'brutal' 6-0 Hammers loss - Shaw",
+     "standfirst": "Lincoln City will not be defined by their 6-0 Championship defeat by West Ham, says Imps head coach Tom Shaw.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cmze4lx10l4lo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-15T15:01:26Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Soucek doubles up as West Ham hit nine-man Lincoln for six",
+     "standfirst": "Tomas Soucek rounds off big victory after two reds Portsmouth strike late to beat 10-man Sheffield United West Ham returned to winning ways as they cruised to a 6-0 Championship victory against nine-man Lincoln at the ProAmpac Stadium. The hosts had Tom Hamer sent off after just three minutes and Conor McGrandles follo",
+     "link": "https://www.theguardian.com/football/2026/oct/14/championship-roundup-soucek-doubles-up-as-west-ham-hit-nine-man-lincoln-for-six",
+     "published": "2026-10-14T21:40:12Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-14",
+   "comp": "championship",
+   "team1": "Portsmouth FC",
+   "team2": "Sheffield United FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Soucek doubles up as West Ham hit nine-man Lincoln for six",
+     "standfirst": "Tomas Soucek rounds off big victory after two reds Portsmouth strike late to beat 10-man Sheffield United West Ham returned to winning ways as they cruised to a 6-0 Championship victory against nine-man Lincoln at the ProAmpac Stadium. The hosts had Tom Hamer sent off after just three minutes and Conor McGrandles follo",
+     "link": "https://www.theguardian.com/football/2026/oct/14/championship-roundup-soucek-doubles-up-as-west-ham-hit-nine-man-lincoln-for-six",
+     "published": "2026-10-14T21:40:12Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "comp": "championship",
+   "team1": "Burnley FC",
+   "team2": "Wolverhampton Wanderers FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Wolves extend Burnley\u2019s home woes to a full year as Vardy strikes in vain",
+     "standfirst": "The Wolves substitute Tawanda Chirewa struck within seconds of coming off the bench as C\u00e9sar Peixoto\u2019s side came from behind to extend Burnley\u2019s home misery at Turf Moor to 21 games without a win. Chirewa had just replaced Sean Neave in the 72nd minute when Mateus Man\u00e9 pounced on Igor Julio\u2019s heavy touch and sent the 2",
+     "link": "https://www.theguardian.com/football/2026/oct/16/wolves-chirewa-extends-burnleys-home-woes-as-vardys-strike-is-in-vain",
+     "published": "2026-10-16T21:45:35Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "epl",
+   "team1": "Everton FC",
+   "team2": "Chelsea FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Alonso praises 'serious' Chelsea",
+     "standfirst": "Chelsea manager Xabi Alonso describes his side's 2-0 victory over Everton as ''professional and solid' as they move up to fifth in the Premier League table.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c5vgjny1082lo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T14:53:23Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Everton did not play well - Moyes",
+     "standfirst": "Everton manager David Moyes reacts to their defeat against Chelsea at the Hill Dickinson Stadium.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/ck0j04346n70o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T14:42:46Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Everton 0-2 Chelsea: Premier League \u2013 as it happened",
+     "standfirst": "Pedro Neto\u2019s goals bookended the second half and earned Chelsea a rare victory at Everton Everton kick off, and launch it long. Martinez claims the punt. Before the kick-off, everyone takes the knee. It\u2019s the first of two weeks of the Premier League\u2019s No Room For Racism campaign. Challenge it, report it, change it. Con",
+     "link": "https://www.theguardian.com/football/live/2026/oct/17/everton-v-chelsea-premier-league-live",
+     "published": "2026-10-17T14:13:31Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Neto double at Everton leads Chelsea to victory marred by Mart\u00ednez head injury",
+     "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
+     "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
+     "published": "2026-10-17T13:53:13Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
+     "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T13:39:16Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "championship",
+   "team1": "Middlesbrough FC",
+   "team2": "Cardiff City FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
+     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
+     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+     "published": "2026-10-17T14:04:41Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Conway: 'Buzzing' to score first Boro goal this season",
+     "standfirst": "Tommy Conway spoke to Mark Drury following Middlesbrough's 2-2 draw with Cardiff City.",
+     "link": "https://www.bbc.co.uk/sounds/play/p0ph7w53?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T13:53:00Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "championship",
+   "team1": "Millwall FC",
+   "team2": "Lincoln City FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
+     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
+     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+     "published": "2026-10-17T14:04:41Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "championship",
+   "team1": "Watford FC",
+   "team2": "Charlton Athletic FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Dionisi: 'I am very happy. It wasn't easy'",
+     "standfirst": "Alessio Dionisi reacts after Watford beat Charlton Athletic 2-0 in the Championship.",
+     "link": "https://www.bbc.co.uk/sounds/play/p0ph81jw?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T14:48:00Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
+     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
+     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+     "published": "2026-10-17T14:04:41Z"
+    }
+   ]
+  }
+ ],
+ "latest": [
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Manchester City v Ipswich, Brentford v Liverpool, and more: Football clockwatch - live",
+   "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
+   "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
+   "published": "2026-10-17T15:53:59Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Newcastle v Aston Villa: Premier League \u2013 live",
+   "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky Matthias Jaissle\u2019s pre-match thoughts The lads know they need to show a reaction, we need to show a reaction as a team and I\u2019m optimistic we can do that at home. We are aware of what we are facing but at ho",
+   "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
+   "published": "2026-10-17T15:52:54Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Alonso praises 'serious' Chelsea",
+   "standfirst": "Chelsea manager Xabi Alonso describes his side's 2-0 victory over Everton as ''professional and solid' as they move up to fifth in the Premier League table.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c5vgjny1082lo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T14:53:23Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Dionisi: 'I am very happy. It wasn't easy'",
+   "standfirst": "Alessio Dionisi reacts after Watford beat Charlton Athletic 2-0 in the Championship.",
+   "link": "https://www.bbc.co.uk/sounds/play/p0ph81jw?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T14:48:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Everton did not play well - Moyes",
+   "standfirst": "Everton manager David Moyes reacts to their defeat against Chelsea at the Hill Dickinson Stadium.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/ck0j04346n70o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T14:42:46Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Everton 0-2 Chelsea: Premier League \u2013 as it happened",
+   "standfirst": "Pedro Neto\u2019s goals bookended the second half and earned Chelsea a rare victory at Everton Everton kick off, and launch it long. Martinez claims the punt. Before the kick-off, everyone takes the knee. It\u2019s the first of two weeks of the Premier League\u2019s No Room For Racism campaign. Challenge it, report it, change it. Con",
+   "link": "https://www.theguardian.com/football/live/2026/oct/17/everton-v-chelsea-premier-league-live",
+   "published": "2026-10-17T14:13:31Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "championship",
+   "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
+   "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
+   "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+   "published": "2026-10-17T14:04:41Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Neto double at Everton leads Chelsea to victory marred by Mart\u00ednez head injury",
+   "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
+   "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
+   "published": "2026-10-17T13:53:13Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Conway: 'Buzzing' to score first Boro goal this season",
+   "standfirst": "Tommy Conway spoke to Mark Drury following Middlesbrough's 2-2 draw with Cardiff City.",
+   "link": "https://www.bbc.co.uk/sounds/play/p0ph7w53?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T13:53:00Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
+   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
+   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
+   "published": "2026-10-17T13:39:28Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
+   "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T13:39:16Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Struggling Derby sign experienced defender Robinson",
+   "standfirst": "Championship strugglers Derby County sign experienced defender Jack Robinson on a three-month deal.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cwy8lkm38k14o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T12:47:51Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Matos on tactics, Klopp's influence, and taking Swans to top of the league",
+   "standfirst": "Swansea boss Vitor Matos spent five years as an elite development coach at Liverpool, but it would be unfair to paint him with a Jurgen Klopp-shaped brush entirely.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/crp3gq832gqxo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T05:56:25Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "championship",
+   "title": "Wolves extend Burnley\u2019s home woes to a full year as Vardy strikes in vain",
+   "standfirst": "The Wolves substitute Tawanda Chirewa struck within seconds of coming off the bench as C\u00e9sar Peixoto\u2019s side came from behind to extend Burnley\u2019s home misery at Turf Moor to 21 games without a win. Chirewa had just replaced Sean Neave in the 72nd minute when Mateus Man\u00e9 pounced on Igor Julio\u2019s heavy touch and sent the 2",
+   "link": "https://www.theguardian.com/football/2026/oct/16/wolves-chirewa-extends-burnleys-home-woes-as-vardys-strike-is-in-vain",
+   "published": "2026-10-16T21:45:35Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Ranking the Premier League's all-time greatest super subs",
+   "standfirst": "Some players are destined to make their biggest impact off the bench, but who are the top 10 Premier League super subs of all time?",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqn73xe5eelgo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T21:15:47Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League team news: predicted lineups for the weekend action",
+   "standfirst": "In-form Everton kick things off against Chelsea while struggling Manchester United face a tough trip to Leeds Saturday 12.30pm TNT Sports 1 Venue Hill Dickinson Stadium Continue reading...",
+   "link": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+   "published": "2026-10-16T18:07:45Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Carrick includes Mart\u00ednez in squad; Madrid call for Tebas to quit over Goebbels comparison: football news \u2013 as it happened",
+   "standfirst": "Michael Carrick said Manchester United have moved on from Mart\u00ednezgate, while Enzo Maresca feels \u2018no stress\u2019 over Manchester City\u2019s off-field strife Sky are reporting that Reece James, who Chelsea confirmed this morning had undergone minor knee surgery, is expected to be out for three months. Fulham fans fretting about",
+   "link": "https://www.theguardian.com/football/live/2026/oct/16/martinez-sorry-outburst-european-reaction-premier-league-latest-football-news-live",
+   "published": "2026-10-16T17:14:02Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Do Manchester City have any grounds to win their appeal?",
+   "standfirst": "Manchester City face \"substantial hurdles\" to overcome if they are to have any chance of winning their appeal after being found guilty of breaking the Premier League's financial rules, a leading lawyer has told BBC Sport.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6je5lwxk5l0o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T16:17:01Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Feel-good Koumas story something for Liverpool to smile about",
+   "standfirst": "Lewis Koumas on breaking Steven Gerrard's record, seizing his opportunity under Andoni Iraola, and why he couldn't sleep after playing Manchester City.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cwy7l5e4376no?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T16:06:37Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Arteta told Arsenal job cuts will help create success",
+   "standfirst": "Arsenal boss Mikel Arteta says he was told the club's decision to cut 60 jobs had been made to \"achieve the success we want to create\".",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cr3wv4xd2l6yo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T15:31:54Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Stoke building an improved culture - Robins",
+   "standfirst": "Stoke City boss Mark Robins tells BBC Radio Stoke they are seeing the results of an improved culture at the club.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c5n491w1x01mo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T15:20:09Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Morrison faces Mowbray test as Baggies host Blackburn",
+   "standfirst": "West Bromwich Albion boss James Morrison pits his wits against Blackburn's Tony Mowbray, who he worked for as player and coach.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c9zrdylyjrx5o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T14:26:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "'I am telling you the truth' - Carrick on Martinez fallout",
+   "standfirst": "Manchester United boss Michael Carrick says he is telling the truth about the club moving on from Lisandro Martinez's explosive post-match interview.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cm4g189leelno?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T13:59:12Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Chelsea's James out for three months after knee surgery",
+   "standfirst": "Chelsea captain Reece James is set to miss three months of action after undergoing knee surgery.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cq073d9l0ly9o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T13:36:09Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Cohen prepares for The Den after Hammers defeat",
+   "standfirst": "Lincoln City head coach Chris Cohen speaks to BBC Radio Lincolnshire about the unrelenting nature of the Championship.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cmkge6dz3z99o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T13:08:39Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Wrexham's Parkinson issues response to pressure talk",
+   "standfirst": "Phil Parkinson has responded to suggestions he is under increased pressure amid Wrexham's slow start to the 2026-27 Championship season.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6rryq00r1v1o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T12:47:26Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Birmingham boss Davies excited by Blues' surge in form",
+   "standfirst": "Birmingham City boss Chris Davies tells BBC Radio WM that he is \"excited\" by the way his side is playing.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cm93zkqz4k31o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T11:05:45Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Bristol City need to solve home form says Skubala",
+   "standfirst": "Bristol City need to \"solve\" their home form says manager Michael Skubala, after a third defeat in five games at Ashton Gate.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6g7x13jvlx1o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T10:46:53Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "'Not about me' - Arbeloa dismisses future questions",
+   "standfirst": "Fulham head coach Alvaro Arbeloa says the focus should not be on him as his side searches for a first Premier League win this season against Hull City this weekend.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c615jw414vypo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T10:24:57Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Sheff Utd boss Wilder expecting 'rollercoaster season'",
+   "standfirst": "Sheffield United boss Chris Wilder says he is expecting a \"rollercoaster Championship season\".",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cx7vpre86elgo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-16T10:16:14Z"
+  }
+ ]
+}
