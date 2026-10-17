@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T11:15:07-0500",
+ "generated": "2026-10-17T11:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -32,14 +32,6 @@
    "team1": "Cardiff City FC",
    "team2": "Watford FC",
    "reports": [
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
-     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
-     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-     "published": "2026-10-17T14:04:41Z"
-    },
     {
      "source": "BBC Sport",
      "comp": "championship",
@@ -171,10 +163,18 @@
     {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - live",
-     "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
+     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
+     "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
      "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-     "published": "2026-10-17T16:13:35Z"
+     "published": "2026-10-17T16:43:26Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Isak completes Liverpool\u2019s comeback win as Brentford finish with nine",
+     "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a head-butt on J\u00e9r\u00e9my Jacquet just before half-time and, while Andoni Iraola will hope that surviving one of the toughest tests ",
+     "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
+     "published": "2026-10-17T16:21:40Z"
     }
    ]
   },
@@ -243,7 +243,23 @@
     {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Fulham pressure on Arbeloa lifted after Alex Iwobi sinks Hull for first win",
+     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
+     "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
+     "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
+     "published": "2026-10-17T16:43:26Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Arbeloa praises 'brilliant' Fulham after first league victory",
+     "standfirst": "Alvaro Arbeloa praises his Fulham side after they picked up their first Premier League victory of the season with a 1-0 victory over Hull.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cqm26l670646o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T16:35:18Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Pressure on Arbeloa lifted after Alex Iwobi sinks Hull for Fulham\u2019s first win",
      "standfirst": "After such a dominant performance against a team so blunt going forward, it almost felt inevitable that \u00c1lvaro Arbeloa was going to be denied his first Premier League win as Fulham head coach in similar fashion as the weeks and games before. After all their chances and possession, Craven Cottage should not have been a ",
      "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
      "published": "2026-10-17T16:08:39Z"
@@ -259,15 +275,15 @@
     {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - live",
-     "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
+     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
+     "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
      "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-     "published": "2026-10-17T16:13:35Z"
+     "published": "2026-10-17T16:43:26Z"
     },
     {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Haaland helps extend winning start for Manchester City as leaders defeat Ipswich",
+     "title": "Haaland helps extend record start for Maresca as Manchester City defeat Ipswich",
      "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d but they were able to forget the cacophony of noise around the club as Enzo Maresc",
      "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
      "published": "2026-10-17T16:08:40Z"
@@ -281,14 +297,6 @@
    "team2": "Cardiff City FC",
    "reports": [
     {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
-     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
-     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-     "published": "2026-10-17T14:04:41Z"
-    },
-    {
      "source": "BBC Sport",
      "comp": "championship",
      "title": "Conway: 'Buzzing' to score first Boro goal this season",
@@ -301,16 +309,16 @@
   {
    "date": "2026-10-17",
    "comp": "championship",
-   "team1": "Millwall FC",
-   "team2": "Lincoln City FC",
+   "team1": "Swansea City AFC",
+   "team2": "West Ham United FC",
    "reports": [
     {
      "source": "Guardian",
      "comp": "championship",
-     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
-     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
+     "title": "Championship roundup: West Ham go second; Norwich beaten again",
+     "standfirst": "Mukasa\u2019s first-half goal enough to beat leaders Swansea Canaries suffer sixth straight loss; Watford beat Charlton West Ham ended Swansea\u2019s four-match winning streak with a 1-0 away victory that reduced the gap at the top of the Championship to a single point. Divine Mukasa\u2019s calm first-half finish proved the differenc",
      "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-     "published": "2026-10-17T14:04:41Z"
+     "published": "2026-10-17T16:29:23Z"
     }
    ]
   },
@@ -321,20 +329,20 @@
    "team2": "Charlton Athletic FC",
    "reports": [
     {
+     "source": "Guardian",
+     "comp": "championship",
+     "title": "Championship roundup: West Ham go second; Norwich beaten again",
+     "standfirst": "Mukasa\u2019s first-half goal enough to beat leaders Swansea Canaries suffer sixth straight loss; Watford beat Charlton West Ham ended Swansea\u2019s four-match winning streak with a 1-0 away victory that reduced the gap at the top of the Championship to a single point. Divine Mukasa\u2019s calm first-half finish proved the differenc",
+     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+     "published": "2026-10-17T16:29:23Z"
+    },
+    {
      "source": "BBC Sport",
      "comp": "championship",
      "title": "Dionisi: 'I am very happy. It wasn't easy'",
      "standfirst": "Alessio Dionisi reacts after Watford beat Charlton Athletic 2-0 in the Championship.",
      "link": "https://www.bbc.co.uk/sounds/play/p0ph81jw?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T14:48:00Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
-     "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
-     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-     "published": "2026-10-17T14:04:41Z"
     }
    ]
   }
@@ -343,10 +351,42 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - live",
-   "standfirst": "\u26bd Updates on the Saturday afternoon football action \u26bd Live scoreboard | Tables | Top scorers | Email Simon Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brace from Pedro Neto",
+   "title": "Newcastle v Aston Villa: Premier League \u2013 live",
+   "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gon",
+   "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
+   "published": "2026-10-17T16:45:01Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
+   "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-   "published": "2026-10-17T16:13:35Z"
+   "published": "2026-10-17T16:43:26Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Arbeloa praises 'brilliant' Fulham after first league victory",
+   "standfirst": "Alvaro Arbeloa praises his Fulham side after they picked up their first Premier League victory of the season with a 1-0 victory over Hull.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cqm26l670646o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T16:35:18Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "championship",
+   "title": "Championship roundup: West Ham go second; Norwich beaten again",
+   "standfirst": "Mukasa\u2019s first-half goal enough to beat leaders Swansea Canaries suffer sixth straight loss; Watford beat Charlton West Ham ended Swansea\u2019s four-match winning streak with a 1-0 away victory that reduced the gap at the top of the Championship to a single point. Divine Mukasa\u2019s calm first-half finish proved the differenc",
+   "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
+   "published": "2026-10-17T16:29:23Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Isak completes Liverpool\u2019s comeback win as Brentford finish with nine",
+   "standfirst": "If this truly was the turning point for Liverpool\u2019s spluttering forwards then they will owe a big debt of gratitude to Yehor Yarmolyuk. Brentford were 1-0 up when their midfielder saw red for a head-butt on J\u00e9r\u00e9my Jacquet just before half-time and, while Andoni Iraola will hope that surviving one of the toughest tests ",
+   "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
+   "published": "2026-10-17T16:21:40Z"
   },
   {
    "source": "Guardian",
@@ -359,7 +399,7 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Haaland helps extend winning start for Manchester City as leaders defeat Ipswich",
+   "title": "Haaland helps extend record start for Maresca as Manchester City defeat Ipswich",
    "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d but they were able to forget the cacophony of noise around the club as Enzo Maresc",
    "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
    "published": "2026-10-17T16:08:40Z"
@@ -367,7 +407,7 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Fulham pressure on Arbeloa lifted after Alex Iwobi sinks Hull for first win",
+   "title": "Pressure on Arbeloa lifted after Alex Iwobi sinks Hull for Fulham\u2019s first win",
    "standfirst": "After such a dominant performance against a team so blunt going forward, it almost felt inevitable that \u00c1lvaro Arbeloa was going to be denied his first Premier League win as Fulham head coach in similar fashion as the weeks and games before. After all their chances and possession, Craven Cottage should not have been a ",
    "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
    "published": "2026-10-17T16:08:39Z"
@@ -379,14 +419,6 @@
    "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T16:02:31Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Newcastle v Aston Villa: Premier League \u2013 live",
-   "standfirst": "\u26bd Premier League updates from the 5.30pm BST kick-off \u26bd Live scores | Tables | Top scorers | Follow us on Bluesky Unai Emery on rotating his Villa squad The rotation is coming when the players are ready to play in our demands. This is the only difference. We made some changes on Wednesday after the match we played on S",
-   "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T15:54:48Z"
   },
   {
    "source": "BBC Sport",
@@ -419,14 +451,6 @@
    "standfirst": "Pedro Neto\u2019s goals bookended the second half and earned Chelsea a rare victory at Everton Everton kick off, and launch it long. Martinez claims the punt. Before the kick-off, everyone takes the knee. It\u2019s the first of two weeks of the Premier League\u2019s No Room For Racism campaign. Challenge it, report it, change it. Con",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/everton-v-chelsea-premier-league-live",
    "published": "2026-10-17T14:13:31Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "championship",
-   "title": "Championship roundup: Zemura seals Watford reprieve for Dionisi",
-   "standfirst": "Watford out of bottom three after beating Charlton 2-0 Middlesbrough 2-2 Cardiff; Millwall 2-2 Lincoln Watford lifted the pressure on Alessio Dionisi and quelled their supporters\u2019 rebellion against the owner, Gino Pozzo, with a deserved 2-0 win against a sluggish Charlton . After shipping nine goals in calamitous defea",
-   "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-   "published": "2026-10-17T14:04:41Z"
   },
   {
    "source": "Guardian",
@@ -563,22 +587,6 @@
    "standfirst": "Phil Parkinson has responded to suggestions he is under increased pressure amid Wrexham's slow start to the 2026-27 Championship season.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6rryq00r1v1o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-16T12:47:26Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Birmingham boss Davies excited by Blues' surge in form",
-   "standfirst": "Birmingham City boss Chris Davies tells BBC Radio WM that he is \"excited\" by the way his side is playing.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm93zkqz4k31o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T11:05:45Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Bristol City need to solve home form says Skubala",
-   "standfirst": "Bristol City need to \"solve\" their home form says manager Michael Skubala, after a third defeat in five games at Ashton Gate.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6g7x13jvlx1o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-16T10:46:53Z"
   }
  ]
 }
