@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T10:24:39-0500",
+ "generated": "2026-10-17T10:29:38-0500",
  "by": "Alfred (fpl_app_data.py)",
  "source": "fantasy.premierleague.com/api entry + leagues-classic (public)",
  "entry": 5933243,
@@ -78,8 +78,8 @@
      "manager": "Geoff Shotter",
      "rank": 1,
      "last_rank": 1,
-     "total": 467,
-     "gw_points": 19,
+     "total": 471,
+     "gw_points": 23,
      "me": false,
      "rank_by_gw": [
       7,
@@ -97,8 +97,8 @@
      "manager": "Jaye McGee",
      "rank": 2,
      "last_rank": 2,
-     "total": 462,
-     "gw_points": 27,
+     "total": 466,
+     "gw_points": 31,
      "me": false,
      "rank_by_gw": [
       4,
@@ -116,8 +116,8 @@
      "manager": "Johan Langbjenne",
      "rank": 3,
      "last_rank": 3,
-     "total": 448,
-     "gw_points": 20,
+     "total": 450,
+     "gw_points": 22,
      "me": false,
      "rank_by_gw": [
       2,
@@ -135,8 +135,8 @@
      "manager": "Divya Taank",
      "rank": 4,
      "last_rank": 4,
-     "total": 443,
-     "gw_points": 20,
+     "total": 445,
+     "gw_points": 22,
      "me": false,
      "rank_by_gw": [
       22,
@@ -154,8 +154,8 @@
      "manager": "Lee Griggs",
      "rank": 5,
      "last_rank": 5,
-     "total": 434,
-     "gw_points": 19,
+     "total": 436,
+     "gw_points": 21,
      "me": false,
      "rank_by_gw": [
       1,
@@ -173,8 +173,8 @@
      "manager": "Peter Hutchison",
      "rank": 6,
      "last_rank": 6,
-     "total": 423,
-     "gw_points": 18,
+     "total": 426,
+     "gw_points": 21,
      "me": false,
      "rank_by_gw": [
       14,
@@ -192,8 +192,8 @@
      "manager": "Monsieur Vert",
      "rank": 7,
      "last_rank": 8,
-     "total": 419,
-     "gw_points": 20,
+     "total": 421,
+     "gw_points": 22,
      "me": false,
      "rank_by_gw": [
       11,
@@ -211,8 +211,8 @@
      "manager": "Daisuke Go",
      "rank": 8,
      "last_rank": 7,
-     "total": 419,
-     "gw_points": 15,
+     "total": 421,
+     "gw_points": 17,
      "me": false,
      "rank_by_gw": [
       10,
@@ -230,8 +230,8 @@
      "manager": "Ruby Nath",
      "rank": 9,
      "last_rank": 9,
-     "total": 417,
-     "gw_points": 20,
+     "total": 420,
+     "gw_points": 23,
      "me": false,
      "rank_by_gw": [
       5,
@@ -244,51 +244,13 @@
      ]
     },
     {
-     "entry": 5876550,
-     "team": "Farcenal FC",
-     "manager": "Arijit Mukerji",
-     "rank": 10,
-     "last_rank": 13,
-     "total": 411,
-     "gw_points": 21,
-     "me": false,
-     "rank_by_gw": [
-      29,
-      27,
-      21,
-      20,
-      17,
-      13,
-      13
-     ]
-    },
-    {
-     "entry": 8601930,
-     "team": "Gonnella XV",
-     "manager": "Jim Gonnella",
-     "rank": 11,
-     "last_rank": 10,
-     "total": 409,
-     "gw_points": 16,
-     "me": false,
-     "rank_by_gw": [
-      27,
-      13,
-      7,
-      12,
-      9,
-      10,
-      10
-     ]
-    },
-    {
      "entry": 3010841,
      "team": "living Saliba loca",
      "manager": "Sherif Salam",
-     "rank": 12,
+     "rank": 10,
      "last_rank": 15,
-     "total": 409,
-     "gw_points": 22,
+     "total": 413,
+     "gw_points": 26,
      "me": false,
      "rank_by_gw": [
       9,
@@ -301,32 +263,32 @@
      ]
     },
     {
-     "entry": 4100562,
-     "team": "TE's Utd are back",
-     "manager": "Thiru Elankumaran",
-     "rank": 13,
-     "last_rank": 11,
-     "total": 409,
-     "gw_points": 18,
+     "entry": 5876550,
+     "team": "Farcenal FC",
+     "manager": "Arijit Mukerji",
+     "rank": 11,
+     "last_rank": 13,
+     "total": 413,
+     "gw_points": 23,
      "me": false,
      "rank_by_gw": [
-      18,
-      15,
+      29,
+      27,
+      21,
+      20,
       17,
-      10,
-      15,
-      11,
-      11
+      13,
+      13
      ]
     },
     {
      "entry": 7086897,
      "team": "whoddini XI",
      "manager": "Ikenna Ekwuozor",
-     "rank": 14,
+     "rank": 12,
      "last_rank": 13,
-     "total": 409,
-     "gw_points": 19,
+     "total": 412,
+     "gw_points": 22,
      "me": false,
      "rank_by_gw": [
       6,
@@ -339,13 +301,51 @@
      ]
     },
     {
+     "entry": 8601930,
+     "team": "Gonnella XV",
+     "manager": "Jim Gonnella",
+     "rank": 13,
+     "last_rank": 10,
+     "total": 411,
+     "gw_points": 18,
+     "me": false,
+     "rank_by_gw": [
+      27,
+      13,
+      7,
+      12,
+      9,
+      10,
+      10
+     ]
+    },
+    {
+     "entry": 4100562,
+     "team": "TE's Utd are back",
+     "manager": "Thiru Elankumaran",
+     "rank": 14,
+     "last_rank": 11,
+     "total": 411,
+     "gw_points": 20,
+     "me": false,
+     "rank_by_gw": [
+      18,
+      15,
+      17,
+      10,
+      15,
+      11,
+      11
+     ]
+    },
+    {
      "entry": 3067011,
      "team": "Just J's",
      "manager": "Jayman Patel",
      "rank": 15,
      "last_rank": 12,
-     "total": 403,
-     "gw_points": 20,
+     "total": 407,
+     "gw_points": 24,
      "me": false,
      "rank_by_gw": [
       8,
@@ -358,32 +358,13 @@
      ]
     },
     {
-     "entry": 2705624,
-     "team": "O'Seans Eleven",
-     "manager": "Sean Nash",
-     "rank": 16,
-     "last_rank": 17,
-     "total": 402,
-     "gw_points": 19,
-     "me": false,
-     "rank_by_gw": [
-      17,
-      11,
-      13,
-      15,
-      12,
-      17,
-      17
-     ]
-    },
-    {
      "entry": 2565995,
      "team": "The Foxfather",
      "manager": "Steve Davenport",
-     "rank": 17,
+     "rank": 16,
      "last_rank": 16,
-     "total": 402,
-     "gw_points": 18,
+     "total": 405,
+     "gw_points": 21,
      "me": false,
      "rank_by_gw": [
       19,
@@ -396,13 +377,32 @@
      ]
     },
     {
+     "entry": 2705624,
+     "team": "O'Seans Eleven",
+     "manager": "Sean Nash",
+     "rank": 17,
+     "last_rank": 17,
+     "total": 404,
+     "gw_points": 21,
+     "me": false,
+     "rank_by_gw": [
+      17,
+      11,
+      13,
+      15,
+      12,
+      17,
+      17
+     ]
+    },
+    {
      "entry": 6117756,
      "team": "Get Riggy With It",
      "manager": "Humraj Narang",
      "rank": 18,
      "last_rank": 19,
-     "total": 399,
-     "gw_points": 21,
+     "total": 401,
+     "gw_points": 23,
      "me": false,
      "rank_by_gw": [
       31,
@@ -420,8 +420,8 @@
      "manager": "Thomas Boatwright",
      "rank": 19,
      "last_rank": 18,
-     "total": 393,
-     "gw_points": 11,
+     "total": 394,
+     "gw_points": 12,
      "me": false,
      "rank_by_gw": [
       20,
@@ -439,8 +439,8 @@
      "manager": "Mike Tarlton",
      "rank": 20,
      "last_rank": 20,
-     "total": 388,
-     "gw_points": 19,
+     "total": 391,
+     "gw_points": 22,
      "me": false,
      "rank_by_gw": [
       21,
@@ -458,8 +458,8 @@
      "manager": "Audie Garth",
      "rank": 21,
      "last_rank": 21,
-     "total": 386,
-     "gw_points": 18,
+     "total": 389,
+     "gw_points": 21,
      "me": false,
      "rank_by_gw": [
       24,
@@ -477,8 +477,8 @@
      "manager": "Jack Kay",
      "rank": 22,
      "last_rank": 25,
-     "total": 385,
-     "gw_points": 27,
+     "total": 388,
+     "gw_points": 30,
      "me": false,
      "rank_by_gw": [
       30,
@@ -491,16 +491,35 @@
      ]
     },
     {
-     "entry": 1290930,
-     "team": "YNWA",
-     "manager": "Jerry Zhang",
+     "entry": 4647253,
+     "team": "kierondyersbluearmy",
+     "manager": "Damian Herinckx",
      "rank": 23,
-     "last_rank": 26,
-     "total": 377,
-     "gw_points": 20,
+     "last_rank": 22,
+     "total": 381,
+     "gw_points": 19,
      "me": false,
      "rank_by_gw": [
       15,
+      29,
+      22,
+      21,
+      20,
+      22,
+      22
+     ]
+    },
+    {
+     "entry": 1290930,
+     "team": "YNWA",
+     "manager": "Jerry Zhang",
+     "rank": 24,
+     "last_rank": 26,
+     "total": 380,
+     "gw_points": 23,
+     "me": false,
+     "rank_by_gw": [
+      16,
       24,
       23,
       26,
@@ -513,10 +532,10 @@
      "entry": 749194,
      "team": "Earthy, Wind & Fire",
      "manager": "Tim Sharman",
-     "rank": 24,
+     "rank": 25,
      "last_rank": 23,
-     "total": 376,
-     "gw_points": 11,
+     "total": 378,
+     "gw_points": 13,
      "me": false,
      "rank_by_gw": [
       25,
@@ -529,32 +548,13 @@
      ]
     },
     {
-     "entry": 4647253,
-     "team": "kierondyersbluearmy",
-     "manager": "Damian Herinckx",
-     "rank": 25,
-     "last_rank": 22,
-     "total": 375,
-     "gw_points": 13,
-     "me": false,
-     "rank_by_gw": [
-      16,
-      29,
-      22,
-      21,
-      20,
-      22,
-      22
-     ]
-    },
-    {
      "entry": 468363,
      "team": "Wotless United",
      "manager": "Andrew Thomas",
      "rank": 26,
      "last_rank": 24,
-     "total": 372,
-     "gw_points": 8,
+     "total": 374,
+     "gw_points": 10,
      "me": false,
      "rank_by_gw": [
       13,
@@ -572,8 +572,8 @@
      "manager": "Louis KH Lai",
      "rank": 27,
      "last_rank": 29,
-     "total": 365,
-     "gw_points": 23,
+     "total": 367,
+     "gw_points": 25,
      "me": false,
      "rank_by_gw": [
       28,
@@ -591,8 +591,8 @@
      "manager": "Paul Mullarkey",
      "rank": 28,
      "last_rank": 28,
-     "total": 361,
-     "gw_points": 17,
+     "total": 363,
+     "gw_points": 19,
      "me": false,
      "rank_by_gw": [
       3,
@@ -624,32 +624,13 @@
      ]
     },
     {
-     "entry": 7548274,
-     "team": "TKK FC",
-     "manager": "Fadhli Nor",
-     "rank": 30,
-     "last_rank": 33,
-     "total": 342,
-     "gw_points": 28,
-     "me": false,
-     "rank_by_gw": [
-      26,
-      32,
-      31,
-      33,
-      32,
-      33,
-      33
-     ]
-    },
-    {
      "entry": 1829762,
      "team": "Pulissori",
      "manager": "Dhileep Pillai",
-     "rank": 31,
+     "rank": 30,
      "last_rank": 32,
-     "total": 342,
-     "gw_points": 26,
+     "total": 347,
+     "gw_points": 31,
      "me": false,
      "rank_by_gw": [
       12,
@@ -662,13 +643,32 @@
      ]
     },
     {
+     "entry": 7548274,
+     "team": "TKK FC",
+     "manager": "Fadhli Nor",
+     "rank": 31,
+     "last_rank": 33,
+     "total": 345,
+     "gw_points": 31,
+     "me": false,
+     "rank_by_gw": [
+      26,
+      32,
+      31,
+      33,
+      32,
+      33,
+      33
+     ]
+    },
+    {
      "entry": 5933243,
      "team": "Chitown Bangers",
      "manager": "John Murphy",
      "rank": 32,
      "last_rank": 30,
-     "total": 340,
-     "gw_points": 16,
+     "total": 342,
+     "gw_points": 18,
      "me": true,
      "rank_by_gw": [
       33,
@@ -686,8 +686,8 @@
      "manager": "Anna Cochran",
      "rank": 33,
      "last_rank": 31,
-     "total": 336,
-     "gw_points": 17,
+     "total": 339,
+     "gw_points": 20,
      "me": false,
      "rank_by_gw": [
       23,
@@ -705,8 +705,8 @@
      "manager": "luke murpy",
      "rank": 34,
      "last_rank": 34,
-     "total": 257,
-     "gw_points": 15,
+     "total": 260,
+     "gw_points": 18,
      "me": false,
      "rank_by_gw": [
       34,
