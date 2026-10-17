@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T10:35:40-0500",
+ "generated": "2026-10-17T11:00:15-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -1329,6 +1329,28 @@
   {
    "comp": "championship",
    "date": "2026-10-17",
+   "team1": "Birmingham City FC",
+   "team2": "Queens Park Rangers FC",
+   "ft": [
+    3,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Derby County FC",
+   "team2": "Stoke City FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
    "team1": "Middlesbrough FC",
    "team2": "Cardiff City FC",
    "ft": [
@@ -1351,11 +1373,66 @@
   {
    "comp": "championship",
    "date": "2026-10-17",
+   "team1": "Norwich City FC",
+   "team2": "Portsmouth FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Southampton FC",
+   "team2": "Bolton Wanderers FC",
+   "ft": [
+    0,
+    0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Swansea City AFC",
+   "team2": "West Ham United FC",
+   "ft": [
+    0,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
    "team1": "Watford FC",
    "team2": "Charlton Athletic FC",
    "ft": [
     2,
     0
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Blackburn Rovers FC",
+   "ft": [
+    3,
+    2
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-17",
+   "team1": "Wrexham AFC",
+   "team2": "Preston North End FC",
+   "ft": [
+    4,
+    1
    ],
    "source": "ESPN scoreboard (eng.2)"
   },
