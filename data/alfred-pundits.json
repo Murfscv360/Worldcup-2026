@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T16:15:07-0500",
+ "generated": "2026-10-17T16:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -347,6 +347,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Villa's Manzambi shows Newcastle what they missed out on",
+     "standfirst": "Aston Villa are a side back in form, with Johan Manzambi scoring the winner against a Newcastle team he turned down to move to Villa Park.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/ck054652mv07o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T21:18:26Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Newcastle made 'wrong decisions' in final third - Jaissle",
      "standfirst": "Newcastle boss Matthias Jaissle criticises his team's decision-making in the final third after their 1-0 defeat by Aston Villa at St. James' Park.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cmrryqykeelko?at_medium=RSS&at_campaign=rss",
@@ -452,6 +460,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Villa's Manzambi shows Newcastle what they missed out on",
+   "standfirst": "Aston Villa are a side back in form, with Johan Manzambi scoring the winner against a Newcastle team he turned down to move to Villa Park.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ck054652mv07o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T21:18:26Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -683,14 +699,6 @@
    "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T16:02:31Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Alonso praises 'serious' Chelsea",
-   "standfirst": "Chelsea manager Xabi Alonso describes his side's 2-0 victory over Everton as ''professional and solid' as they move up to fifth in the Premier League table.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c5vgjny1082lo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T14:53:23Z"
   }
  ]
 }
