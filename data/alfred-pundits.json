@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T13:45:08-0500",
+ "generated": "2026-10-18T14:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -403,6 +403,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Bournemouth pick up first league victory with win over Sunderland",
+     "standfirst": "Bournemouth beat Sunderland 2-0 at the Vitality Stadium to pick up their first league victory of the season and move out of the relegation zone.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cme8rz8x6pw8o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T18:59:15Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Marco Rose post match interview - Bournemouth v Sunderland",
      "standfirst": "Bournemouth head coach Marco Rose reacts to their first win of the season as they Sunderland in the Premier League.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cj75pr55kyg7o?at_medium=RSS&at_campaign=rss",
@@ -435,6 +443,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Gomez scores extraordinary goal as Brighton put five past Palace",
+     "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T18:59:02Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "My one feeling is shame - Sage on bruising Palace defeat",
      "standfirst": "Crystal Palace head coach Pierre Sage says he feels \"shame\" after their 5-0 defeat by Brighton.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cq3dj1ddn83xo?at_medium=RSS&at_campaign=rss",
@@ -464,6 +480,14 @@
    "team1": "Leeds United FC",
    "team2": "Manchester United FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Leeds extend Man Utd's winless run to six games",
+     "standfirst": "Dominic Calvert-Lewin earns a point for Leeds and extends Manchester United's winless run to six games.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cw4g1dgr2v93o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T18:59:10Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -500,17 +524,9 @@
      "source": "Guardian",
      "comp": "epl",
      "title": "Manchester United held as Calvert-Lewin\u2019s Leeds leveller keeps pressure on Carrick",
-     "standfirst": "What next for Michael Carrick and Manchester United? Game-wise, the answer is Wednesday\u2019s trip to Como yet after failing, again, to double their league win tally to two, you have to wonder the destination for an already flatlining team. This display was the latest unconvincing outing under the 45-year-old. It featured ",
+     "standfirst": "What next for Michael Carrick and Manchester United? Game-wise, the answer is the trip to Como on Wednesday yet after failing, again, to double their league win tally to two, you have to wonder the destination for an already flatlining team. This display was the latest unconvincing outing under the 45-year-old head coa",
      "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
      "published": "2026-10-18T15:08:48Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Everything a struggle for Fernandes - Leeds v Man Utd ratings",
-     "standfirst": "Dominic Calvert-Lewin's second-half equaliser means Manchester United have now gone six games without a win for the first time since 2019 - find out who rated highest at Elland Road.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/ckvg7v43x1xyo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T14:56:01Z"
     }
    ]
   },
@@ -520,6 +536,14 @@
    "team1": "Nottingham Forest FC",
    "team2": "Arsenal FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Madueke's strike enough as Arsenal pick up narrow win over Forest",
+     "standfirst": "Noni Madueke comes of the bench to score the winning goal as Arsenal beat Nottingham Forest 1-0 at The City Ground.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cm70px0l7p7no?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T18:59:06Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -548,7 +572,7 @@
      "source": "Guardian",
      "comp": "epl",
      "title": "Madueke breaks Nottingham Forest\u2019s resistance as dogged Arsenal edge to victory",
-     "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It is a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their home stadium. Arsenal, meanwhile, had drawn 0-0 on each of their previous two",
+     "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It was a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their own stadium this season. Arsenal, meanwhile, had drawn 0-0 on their previous",
      "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
      "published": "2026-10-18T17:39:57Z"
     },
@@ -564,6 +588,46 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Bournemouth pick up first league victory with win over Sunderland",
+   "standfirst": "Bournemouth beat Sunderland 2-0 at the Vitality Stadium to pick up their first league victory of the season and move out of the relegation zone.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cme8rz8x6pw8o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:59:15Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Leeds extend Man Utd's winless run to six games",
+   "standfirst": "Dominic Calvert-Lewin earns a point for Leeds and extends Manchester United's winless run to six games.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cw4g1dgr2v93o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:59:10Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Madueke's strike enough as Arsenal pick up narrow win over Forest",
+   "standfirst": "Noni Madueke comes of the bench to score the winning goal as Arsenal beat Nottingham Forest 1-0 at The City Ground.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cm70px0l7p7no?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:59:06Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Gomez scores extraordinary goal as Brighton put five past Palace",
+   "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:59:02Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "'Maybe we became arrogant' - Sunderland struggles continue",
+   "standfirst": "Sunderland defender Nordi Mukiele suggested the Black Cats may have become \"arrogant\" as last season's surprise package stutter in the Premier League this term.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6073pmddk0ko?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:49:00Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -600,7 +664,7 @@
    "source": "Guardian",
    "comp": "epl",
    "title": "Madueke breaks Nottingham Forest\u2019s resistance as dogged Arsenal edge to victory",
-   "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It is a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their home stadium. Arsenal, meanwhile, had drawn 0-0 on each of their previous two",
+   "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It was a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their own stadium this season. Arsenal, meanwhile, had drawn 0-0 on their previous",
    "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
    "published": "2026-10-18T17:39:57Z"
   },
@@ -680,7 +744,7 @@
    "source": "Guardian",
    "comp": "epl",
    "title": "Manchester United held as Calvert-Lewin\u2019s Leeds leveller keeps pressure on Carrick",
-   "standfirst": "What next for Michael Carrick and Manchester United? Game-wise, the answer is Wednesday\u2019s trip to Como yet after failing, again, to double their league win tally to two, you have to wonder the destination for an already flatlining team. This display was the latest unconvincing outing under the 45-year-old. It featured ",
+   "standfirst": "What next for Michael Carrick and Manchester United? Game-wise, the answer is the trip to Como on Wednesday yet after failing, again, to double their league win tally to two, you have to wonder the destination for an already flatlining team. This display was the latest unconvincing outing under the 45-year-old head coa",
    "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
    "published": "2026-10-18T15:08:48Z"
   },
@@ -763,46 +827,6 @@
    "standfirst": "Match of the Day's Danny Murphy analyses how Liverpool are still to \"easy\" to play against despite their 2-1 victory over Brentford.",
    "link": "https://www.bbc.co.uk/sport/football/videos/c65ynpkjydemo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T23:00:48Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Villa's Manzambi shows Newcastle what they missed out on",
-   "standfirst": "Aston Villa are a side back in form, with Johan Manzambi scoring the winner against a Newcastle team he turned down to move to Villa Park.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ck054652mv07o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T21:18:26Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Wirtz delivers but remains Liverpool's conundrum",
-   "standfirst": "Florian Wirtz is instrumental as Liverpool return to winning ways in the Premier League, but does he remain boss Andoni Iraola's great conundrum?",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c9j34rke27zjo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T20:07:40Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "West Ham unstoppable, Norwich in trouble - Aaron McLean's EFL takeaways",
-   "standfirst": "BBC Final Score pundit Aaron McLean looks at the weekend's talking points in the EFL, including West Ham win over in-form Swansea City and Norwich City's woes.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ckgelq3gxx49o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:43:05Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Emery praises Manzambi's 'skills and intelligence'",
-   "standfirst": "Aston Villa manager Unai Emery reacts to his 100th Premier League win after victory against Newcastle at St James Park.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cw80zpzx3vxjo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:29:21Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Manzambi heads Villa to victory at Newcastle",
-   "standfirst": "Johan Manzambi heads the winner for Aston Villa against Newcastle, marking manager Unai Emery's 100th Premier League victory.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cwdd897vvl8vo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:12:02Z"
   }
  ]
 }
