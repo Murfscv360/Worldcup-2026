@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18 06:05:26",
+ "generated": "2026-10-18 09:05:16",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -295,10 +295,10 @@
      "yours": false
     },
     {
-     "name": "S\u00e1vio",
+     "name": "Solanke",
      "club": "TOT",
-     "pos": "MID",
-     "score": 6.1,
+     "pos": "FWD",
+     "score": 5.5,
      "side": "A",
      "yours": false
     }
@@ -332,18 +332,18 @@
    ],
    "watch": [
     {
-     "name": "Nketiah",
+     "name": "Mateta",
      "club": "CRY",
      "pos": "FWD",
-     "score": 9.2,
+     "score": 9.8,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Lerma",
+     "name": "Nketiah",
      "club": "CRY",
-     "pos": "MID",
-     "score": 6.1,
+     "pos": "FWD",
+     "score": 9.2,
      "side": "H",
      "yours": false
     },
@@ -518,7 +518,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 10.3,
+     "score": 9.6,
      "side": "H",
      "yours": false
     },
@@ -526,7 +526,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 9.0,
+     "score": 9.5,
      "side": "H",
      "yours": false
     },
@@ -534,7 +534,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 6.6,
+     "score": 7.4,
      "side": "A",
      "yours": false
     },
@@ -542,7 +542,7 @@
      "name": "Christie",
      "club": "BOU",
      "pos": "MID",
-     "score": 6.4,
+     "score": 5.3,
      "side": "A",
      "yours": false
     }
@@ -587,7 +587,7 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 7.3,
+     "score": 6.7,
      "side": "H",
      "yours": false
     },
@@ -595,7 +595,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 6.2,
+     "score": 5.8,
      "side": "A",
      "yours": false
     },
@@ -603,7 +603,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 5.3,
+     "score": 5.4,
      "side": "A",
      "yours": true
     }
