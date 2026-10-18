@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T04:45:07-0500",
+ "generated": "2026-10-18T05:15:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -119,6 +119,22 @@
      "standfirst": "Sheffield United manager Chris Wilder after the 1-0 win at Bristol City.",
      "link": "https://www.bbc.co.uk/sounds/play/p0ph8h5j?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T17:00:00Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "championship",
+   "team1": "Derby County FC",
+   "team2": "Stoke City FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Injuries and fine margins against Derby",
+     "standfirst": "Final Score reporter John Bennett reflects on the fine margins that went against Derby in defeat by Stoke.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cqn8d134ryz4o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T10:06:47Z"
     }
    ]
   },
@@ -409,9 +425,49 @@
      "published": "2026-10-17T14:48:00Z"
     }
    ]
+  },
+  {
+   "date": "2026-10-17",
+   "comp": "championship",
+   "team1": "West Bromwich Albion FC",
+   "team2": "Blackburn Rovers FC",
+   "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Albion fans will savour comeback win all week",
+     "standfirst": "Final Score reporter Charlotte Richardson reflects on West Brom's come-from-behind win over Blackburn.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/ck4g18n0ylwxo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T10:03:48Z"
+    }
+   ]
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Stansfield is Blues' 'creative director' in new role",
+   "standfirst": "Final Score's Sam Fletcher on the impact Jay Stansfield is having as Birmingham's \"creative director\".",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cmz7xl4p41ezo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T10:08:22Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Injuries and fine margins against Derby",
+   "standfirst": "Final Score reporter John Bennett reflects on the fine margins that went against Derby in defeat by Stoke.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqn8d134ryz4o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T10:06:47Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Albion fans will savour comeback win all week",
+   "standfirst": "Final Score reporter Charlotte Richardson reflects on West Brom's come-from-behind win over Blackburn.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ck4g18n0ylwxo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T10:03:48Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -627,30 +683,6 @@
    "standfirst": "Alvaro Arbeloa praises his Fulham side after they picked up their first Premier League victory of the season with a 1-0 victory over Hull.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cqm26l670646o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T16:35:18Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "championship",
-   "title": "Championship roundup: West Ham go second; Norwich beaten again",
-   "standfirst": "Mukasa\u2019s first-half goal enough to beat leaders Swansea Canaries suffer sixth straight loss; Watford beat Charlton Nuno Esp\u00edrito Santo was delighted West Ham finished a \u201cdemanding week\u201d by toppling Championship leaders Swansea . Divine Mukasa\u2019s first-half strike in front of a record Swansea.com Stadium crowd of 20,973 ",
-   "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-   "published": "2026-10-17T16:29:23Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Isak completes Liverpool\u2019s comeback win as Brentford finish with nine",
-   "standfirst": "If Liverpool\u2019s spluttering forwards end up remembering this as the day when their luck turned then they will owe a big debt of gratitude to Yehor Yarmolyuk. This was a game with a very clear before and after. Andoni Iraola will hope surviving one of the toughest tests the Premier League has to offer is a sign his metho",
-   "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
-   "published": "2026-10-17T16:21:40Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Haaland helps Maresca achieve record start as Manchester City defeat Ipswich",
-   "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d, but they were able to forget the cacophony of noise around the club as Enzo Mares",
-   "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
-   "published": "2026-10-17T16:08:40Z"
   }
  ]
 }
