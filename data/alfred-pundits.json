@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T10:15:10-0500",
+ "generated": "2026-10-18T10:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -64,6 +64,14 @@
    "team1": "Brentford FC",
    "team2": "Liverpool FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Why Liverpool are still 'too easy' to play against",
+     "standfirst": "Match of the Day's Danny Murphy analyses how Liverpool are still to \"easy\" to play against despite their 2-1 victory over Brentford.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c65ynpkjydemo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T23:00:48Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -169,14 +177,6 @@
      "published": "2026-10-17T14:53:23Z"
     },
     {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Everton did not play well - Moyes",
-     "standfirst": "Everton manager David Moyes reacts to their defeat against Chelsea at the Hill Dickinson Stadium.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/ck0j04346n70o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T14:42:46Z"
-    },
-    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Everton 0-2 Chelsea: Premier League \u2013 as it happened",
@@ -191,6 +191,14 @@
      "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
      "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
      "published": "2026-10-17T13:53:13Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
+     "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T13:39:16Z"
     }
    ]
   },
@@ -255,14 +263,6 @@
      "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:09Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "O'Neil 'unbelievably proud' of Ipswich Town despite loss to Man City",
-     "standfirst": "Ipswich Town manager Gary O'Neil reacts to defeat against Manchester City at the Etihad Stadium in the Premier League.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c5x2vkvjer7vo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T17:18:52Z"
     },
     {
      "source": "BBC Sport",
@@ -445,9 +445,41 @@
   {
    "date": "2026-10-18",
    "comp": "epl",
+   "team1": "AFC Bournemouth",
+   "team2": "Sunderland AFC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Evanilson seals Bournemouth\u2019s win against Sunderland after Danso sees red",
+     "standfirst": "Bournemouth\u2019s and Marco Rose\u2019s wait for a Premier League win is over. Sunderland, locked in the bottom three, are becoming this season\u2019s object lesson in travelling too far too fast. Sixth and seventh last season, that both teams have struggled domestically while cruising in the Europa League speaks to a continental dr",
+     "link": "https://www.theguardian.com/football/2026/oct/18/bournemouth-sunderland-premier-league-match-report",
+     "published": "2026-10-18T15:19:30Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-18",
+   "comp": "epl",
    "team1": "Brighton & Hove Albion FC",
    "team2": "Crystal Palace FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "My one feeling is shame - Sage on bruising Palace defeat",
+     "standfirst": "Crystal Palace head coach Pierre Sage says he feels \"shame\" after their 5-0 defeat by Brighton.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cq3dj1ddn83xo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T15:41:16Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Fabian Hurzeler post match interview - Brighton v Crystal Palace",
+     "standfirst": "Brighton head coach Fabian Hurzeler's post-match reaction to their 5-0 win against Crystal Palace in the Premier League.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/ck79pq99y8g5o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T15:36:23Z"
+    },
     {
      "source": "Guardian",
      "comp": "epl",
@@ -465,12 +497,20 @@
    "team2": "Manchester United FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Leeds were dominant against Man Utd - Farke",
+     "standfirst": "Daniel Farke says he is pleased with his Leeds side after a \"dominant\" performance against Manchester United during their 1-1 draw at Elland Road.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cx30e70015nzo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T15:34:21Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Leeds United 1-1 Manchester United: Premier League \u2013 live reaction",
-     "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches \u26bd Scores | Tables | Read Football Daily | Mail Michael Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing",
+     "title": "Leeds United 1-1 Manchester United: Premier League \u2013 as it happened",
+     "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing. We want to make sure the ball belongs to us, to press",
      "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
-     "published": "2026-10-18T15:09:02Z"
+     "published": "2026-10-18T15:25:09Z"
     },
     {
      "source": "Guardian",
@@ -479,6 +519,14 @@
      "standfirst": "What next for Michael Carrick and Manchester United? Game-wise the answer is Wednesday\u2019s trip to Como yet after failing, again, to double the campaign\u2019s league wins tally to two you have to wonder where this already flatlining team are heading. Sunday afternoon\u2019s display was the latest unconvincing outing under the 45-",
      "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
      "published": "2026-10-18T15:08:48Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Everything a struggle for Fernandes - Leeds v Man Utd ratings",
+     "standfirst": "Dominic Calvert-Lewin's second-half equaliser means Manchester United have now gone six games without a win for the first time since 2019 - find out who rated highest at Elland Road.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/ckvg7v43x1xyo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T14:56:01Z"
     }
    ]
   }
@@ -490,15 +538,47 @@
    "title": "Nottingham Forest v Arsenal: Premier League \u2013 live",
    "standfirst": "\u26bd Updates from the City Ground; kick-off 4.30pm BST \u26bd Scores | Tables | Read Football Daily | Mail Daniel Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying Guimaraes, along with an in-form ",
    "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
-   "published": "2026-10-18T15:13:47Z"
+   "published": "2026-10-18T15:44:21Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "My one feeling is shame - Sage on bruising Palace defeat",
+   "standfirst": "Crystal Palace head coach Pierre Sage says he feels \"shame\" after their 5-0 defeat by Brighton.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cq3dj1ddn83xo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T15:41:16Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Fabian Hurzeler post match interview - Brighton v Crystal Palace",
+   "standfirst": "Brighton head coach Fabian Hurzeler's post-match reaction to their 5-0 win against Crystal Palace in the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/ck79pq99y8g5o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T15:36:23Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Leeds were dominant against Man Utd - Farke",
+   "standfirst": "Daniel Farke says he is pleased with his Leeds side after a \"dominant\" performance against Manchester United during their 1-1 draw at Elland Road.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cx30e70015nzo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T15:34:21Z"
   },
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Leeds United 1-1 Manchester United: Premier League \u2013 live reaction",
-   "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches \u26bd Scores | Tables | Read Football Daily | Mail Michael Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing",
+   "title": "Leeds United 1-1 Manchester United: Premier League \u2013 as it happened",
+   "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing. We want to make sure the ball belongs to us, to press",
    "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
-   "published": "2026-10-18T15:09:02Z"
+   "published": "2026-10-18T15:25:09Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Evanilson seals Bournemouth\u2019s win against Sunderland after Danso sees red",
+   "standfirst": "Bournemouth\u2019s and Marco Rose\u2019s wait for a Premier League win is over. Sunderland, locked in the bottom three, are becoming this season\u2019s object lesson in travelling too far too fast. Sixth and seventh last season, that both teams have struggled domestically while cruising in the Europa League speaks to a continental dr",
+   "link": "https://www.theguardian.com/football/2026/oct/18/bournemouth-sunderland-premier-league-match-report",
+   "published": "2026-10-18T15:19:30Z"
   },
   {
    "source": "Guardian",
@@ -519,7 +599,7 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
-   "title": "Calvert-Lewin denies Man Utd - who rated highest?",
+   "title": "Everything a struggle for Fernandes - Leeds v Man Utd ratings",
    "standfirst": "Dominic Calvert-Lewin's second-half equaliser means Manchester United have now gone six games without a win for the first time since 2019 - find out who rated highest at Elland Road.",
    "link": "https://www.bbc.co.uk/sport/football/articles/ckvg7v43x1xyo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T14:56:01Z"
@@ -579,6 +659,14 @@
    "standfirst": "Manchester City face \"substantial hurdles\" to overcome if they are to have any chance of winning their appeal after being found guilty of breaking the Premier League's financial rules, a leading lawyer has told BBC Sport.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6je5lwxk5l0o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T06:36:21Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Why Liverpool are still 'too easy' to play against",
+   "standfirst": "Match of the Day's Danny Murphy analyses how Liverpool are still to \"easy\" to play against despite their 2-1 victory over Brentford.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c65ynpkjydemo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-17T23:00:48Z"
   },
   {
    "source": "BBC Sport",
@@ -683,46 +771,6 @@
    "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
    "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
    "published": "2026-10-17T18:30:17Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Anderson out for up to eight weeks with hamstring tear",
-   "standfirst": "Portsmouth head coach John Mousinho says attacker Keshi Anderson will miss up to eight weeks with a hamstring tear.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cr0qk8jewqy4o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:48:53Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Swansea must use West Ham defeat as fuel - Matos",
-   "standfirst": "Vitor Matos tells Swansea City to use the frustration of defeat to West Ham United as fuel in their bid to keep pace in the Championship promotion race.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cr5ynge8jnnyo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:47:22Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Morrison: 'We keep going until the end'",
-   "standfirst": "James Morrison speaks after comeback win against Blackburn.",
-   "link": "https://www.bbc.co.uk/sounds/play/p0ph8gn4?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:30:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "O'Neil 'unbelievably proud' of Ipswich Town despite loss to Man City",
-   "standfirst": "Ipswich Town manager Gary O'Neil reacts to defeat against Manchester City at the Etihad Stadium in the Premier League.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c5x2vkvjer7vo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:18:52Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Yarmoliuk red card changed game dynamic - Andrews",
-   "standfirst": "Brentford manager Keith Andrews says Yehor Yarmoliuk's first-half red card changed the dynamic of their game against Liverpool which ended in a 2-1 defeat for the Bees.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c6eq373g3vx9o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:14:21Z"
   }
  ]
 }
