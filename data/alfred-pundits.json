@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T14:45:09-0500",
+ "generated": "2026-10-18T15:15:13-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -443,6 +443,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Sage feels 'shame' at Palace thrashing with future in doubt",
+     "standfirst": "Crystal Palace manage Pierre Sage says he feels \"shame\" at the Eagles' performance during their 5-0 thrashing by Brighton and does not know if he will be given time to save his job.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cq1kdzp093jwo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T19:51:22Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Gomez scores extraordinary goal as Brighton put five past Palace",
      "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
      "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
@@ -539,6 +547,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Madueke's 'anger and conviction' shows he's more than a 'finisher'",
+     "standfirst": "Noni Madueke may not have the role he wants at Arsenal but his winning goal against Nottingham Forest showed why he is one of Mikel Arteta's valued players.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c3qjnyw8qe4do?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T19:55:41Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Madueke's strike enough as Arsenal pick up narrow win over Forest",
      "standfirst": "Noni Madueke comes of the bench to score the winning goal as Arsenal beat Nottingham Forest 1-0 at The City Ground.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cm70px0l7p7no?at_medium=RSS&at_campaign=rss",
@@ -575,19 +591,27 @@
      "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It was a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their own stadium this season. Arsenal, meanwhile, had drawn 0-0 on their previous",
      "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
      "published": "2026-10-18T17:39:57Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Premier League today: How to watch Nottingham Forest v Arsenal, TV channels & live stream",
-     "standfirst": "How will Nottingham Forest and Arsenal fare today? Here is what to know, including kick-off time, TV channels and live stream options While the true stakes of this season\u2019s Premier League title race won\u2019t be clear until the outcome of Manchester City\u2019s appeal against 114 breaches of financial rules is known, Arsenal ha",
-     "link": "https://www.theguardian.com/football/2026/oct/18/how-to-watch-premier-league-nottingham-forest-arsenal",
-     "published": "2026-10-18T10:30:57Z"
     }
    ]
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Madueke's 'anger and conviction' shows he's more than a 'finisher'",
+   "standfirst": "Noni Madueke may not have the role he wants at Arsenal but his winning goal against Nottingham Forest showed why he is one of Mikel Arteta's valued players.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c3qjnyw8qe4do?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T19:55:41Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Sage feels 'shame' at Palace thrashing with future in doubt",
+   "standfirst": "Crystal Palace manage Pierre Sage says he feels \"shame\" at the Eagles' performance during their 5-0 thrashing by Brighton and does not know if he will be given time to save his job.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cq1kdzp093jwo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T19:51:22Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -811,22 +835,6 @@
    "standfirst": "Chelsea goalkeeper Emiliano Martinez says he will be back \"in a few weeks\" after breaking his jaw in a collision with Jarrad Branthwaite.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cked3vl198eyo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T09:42:10Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Do Manchester City have any grounds to win their appeal?",
-   "standfirst": "Manchester City face \"substantial hurdles\" to overcome if they are to have any chance of winning their appeal after being found guilty of breaking the Premier League's financial rules, a leading lawyer has told BBC Sport.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6je5lwxk5l0o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T06:36:21Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Why Liverpool are still 'too easy' to play against",
-   "standfirst": "Match of the Day's Danny Murphy analyses how Liverpool are still to \"easy\" to play against despite their 2-1 victory over Brentford.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c65ynpkjydemo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T23:00:48Z"
   }
  ]
 }
