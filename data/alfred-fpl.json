@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18 09:15:17",
+ "generated": "2026-10-18 12:15:18",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -10,16 +10,16 @@
  "chips_active": [],
  "captain": "De Cuyper",
  "vice": "Jo\u00e3o Pedro",
- "captain_model": "Haaland",
- "vice_model": "Gro\u00df",
+ "captain_model": "De Cuyper",
+ "vice_model": "Haaland",
  "captain_override_reason": "John GW7 Pick Team screenshot 2026-10-15 09:50",
  "captain_current": "De Cuyper",
  "vice_current": "Jo\u00e3o Pedro",
  "xi": [
   {
-   "name": "Tzolakis",
+   "name": "Raya",
    "pos": "GKP",
-   "club": "HUL",
+   "club": "ARS",
    "score": 14.8,
    "ep": 3.7
   },
@@ -27,8 +27,15 @@
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 30.88,
-   "ep": 7.3
+   "score": 37.64,
+   "ep": 9.0
+  },
+  {
+   "name": "Bogle",
+   "pos": "DEF",
+   "club": "LEE",
+   "score": 12.16,
+   "ep": 2.7
   },
   {
    "name": "Gvardiol",
@@ -38,18 +45,11 @@
    "ep": 2.7
   },
   {
-   "name": "Bogle",
-   "pos": "DEF",
-   "club": "LEE",
-   "score": 10.64,
-   "ep": 2.3
-  },
-  {
    "name": "Gro\u00df",
    "pos": "MID",
    "club": "BHA",
-   "score": 32.84,
-   "ep": 7.7
+   "score": 35.16,
+   "ep": 8.3
   },
   {
    "name": "Cherki",
@@ -83,8 +83,8 @@
    "name": "Kostoulas",
    "pos": "FWD",
    "club": "BHA",
-   "score": 30.52,
-   "ep": 7.3
+   "score": 32.24,
+   "ep": 7.7
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -96,9 +96,9 @@
  ],
  "bench": [
   {
-   "name": "Raya",
+   "name": "Tzolakis",
    "pos": "GKP",
-   "club": "ARS",
+   "club": "HUL",
    "order": 0
   },
   {
@@ -120,7 +120,12 @@
    "order": 3
   }
  ],
- "changes": [],
+ "changes": [
+  {
+   "in": "Raya",
+   "out": "Tzolakis"
+  }
+ ],
  "transfers_recommended": [],
  "note": "Alfred decision from the session-maintained golden record. The public FPL API cannot see this gameweek until the deadline passes, so prefer this over the API-derived squad.",
  "changelog": [
@@ -659,7 +664,15 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 7.8,
+     "score": 7.9,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Evanilson",
+     "club": "BOU",
+     "pos": "FWD",
+     "score": 6.7,
      "side": "H",
      "yours": false
     },
@@ -667,16 +680,8 @@
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
-     "score": 6.7,
+     "score": 6.4,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Evanilson",
-     "club": "BOU",
-     "pos": "FWD",
-     "score": 5.3,
-     "side": "H",
      "yours": false
     }
    ],
@@ -712,15 +717,15 @@
      "name": "Hinshelwood",
      "club": "BHA",
      "pos": "MID",
-     "score": 23.7,
+     "score": 28.9,
      "side": "H",
      "yours": false
     },
     {
-     "name": "Hadjam",
+     "name": "O'Riley",
      "club": "BHA",
-     "pos": "DEF",
-     "score": 23.6,
+     "pos": "MID",
+     "score": 11.8,
      "side": "H",
      "yours": false
     },
@@ -728,7 +733,7 @@
      "name": "Mateta",
      "club": "CRY",
      "pos": "FWD",
-     "score": 9.8,
+     "score": 10.9,
      "side": "A",
      "yours": false
     },
@@ -736,7 +741,7 @@
      "name": "Nketiah",
      "club": "CRY",
      "pos": "FWD",
-     "score": 9.2,
+     "score": 8.1,
      "side": "A",
      "yours": false
     }
@@ -773,7 +778,7 @@
      "name": "B.Fernandes",
      "club": "MUN",
      "pos": "MID",
-     "score": 9.4,
+     "score": 9.1,
      "side": "A",
      "yours": false
     },
@@ -781,7 +786,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 9.4,
+     "score": 8.7,
      "side": "A",
      "yours": false
     },
@@ -789,7 +794,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 5.7,
+     "score": 6.4,
      "side": "H",
      "yours": false
     },
@@ -797,7 +802,7 @@
      "name": "Bogle",
      "club": "LEE",
      "pos": "DEF",
-     "score": 5.4,
+     "score": 5.3,
      "side": "H",
      "yours": true
     }
@@ -834,7 +839,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 11.5,
+     "score": 10.2,
      "side": "A",
      "yours": false
     },
@@ -842,7 +847,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 8.4,
+     "score": 7.3,
      "side": "A",
      "yours": false
     },
@@ -850,7 +855,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 7.8,
+     "score": 6.7,
      "side": "H",
      "yours": false
     },
@@ -858,7 +863,7 @@
      "name": "Delap",
      "club": "NFO",
      "pos": "FWD",
-     "score": 6.9,
+     "score": 6.0,
      "side": "H",
      "yours": false
     }
