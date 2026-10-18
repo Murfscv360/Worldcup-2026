@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-17 18:00:16",
+ "generated": "2026-10-18 08:00:15",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-14",
-   "ts": "2026-10-14 18:00:07",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-15",
    "ts": "2026-10-15 08:00:08",
@@ -104,6 +94,20 @@
     "Isak (LIV, 12% owned): now available",
     "Semenyo (MCI, 14% owned): Knee injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-18",
+   "ts": "2026-10-18 08:00:05",
+   "new_headlines": 17,
+   "key": [
+    "[CHE/EVE] Martinez breaks jaw in Chelsea win at Everton",
+    "[MCI] Boos and bananas on day of defiance at Man City",
+    "[BHA] Kirby 'stressed' by abrupt Vidosic exit from Brighton",
+    "[BRE/LIV] Liverpool come from behind to beat nine-man Brentford",
+    "[MCI] How 'dangerous' Man City maintained 100 per cent record"
+   ],
+   "player_changes": [],
    "unreachable": []
   }
  ],
