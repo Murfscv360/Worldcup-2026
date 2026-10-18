@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T16:15:08-0500",
+ "generated": "2026-10-18T16:45:11-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,38 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-14",
-   "comp": "championship",
-   "team1": "Lincoln City FC",
-   "team2": "West Ham United FC",
-   "reports": [
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: Soucek doubles up as West Ham hit nine-man Lincoln for six",
-     "standfirst": "Tomas Soucek rounds off big victory after two reds Portsmouth strike late to beat 10-man Sheffield United West Ham returned to winning ways as they cruised to a 6-0 Championship victory against nine-man Lincoln at the ProAmpac Stadium. The hosts had Tom Hamer sent off after just three minutes and Conor McGrandles follo",
-     "link": "https://www.theguardian.com/football/2026/oct/14/championship-roundup-soucek-doubles-up-as-west-ham-hit-nine-man-lincoln-for-six",
-     "published": "2026-10-14T21:40:12Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-14",
-   "comp": "championship",
-   "team1": "Portsmouth FC",
-   "team2": "Sheffield United FC",
-   "reports": [
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: Soucek doubles up as West Ham hit nine-man Lincoln for six",
-     "standfirst": "Tomas Soucek rounds off big victory after two reds Portsmouth strike late to beat 10-man Sheffield United West Ham returned to winning ways as they cruised to a 6-0 Championship victory against nine-man Lincoln at the ProAmpac Stadium. The hosts had Tom Hamer sent off after just three minutes and Conor McGrandles follo",
-     "link": "https://www.theguardian.com/football/2026/oct/14/championship-roundup-soucek-doubles-up-as-west-ham-hit-nine-man-lincoln-for-six",
-     "published": "2026-10-14T21:40:12Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-16",
    "comp": "championship",
