@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T09:45:10-0500",
+ "generated": "2026-10-18T10:15:10-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -441,24 +441,88 @@
      "published": "2026-10-18T10:03:48Z"
     }
    ]
+  },
+  {
+   "date": "2026-10-18",
+   "comp": "epl",
+   "team1": "Brighton & Hove Albion FC",
+   "team2": "Crystal Palace FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "G\u00f3mez halfway-line wondergoal sparks Brighton\u2019s 5-0 thrashing of sorry Crystal Palace",
+     "standfirst": "At last, Fabian H\u00fcrzeler has the scalp that matters most to all Brighton fans, and in humiliating fashion. Diego G\u00f3mez\u2019s breathtaking goal-of-the-season contender from the halfway line, \u00e0 la David Beckham, was the highlight of another hugely impressive performance from the Premier League\u2019s top scorers as they continued",
+     "link": "https://www.theguardian.com/football/2026/oct/18/brighton-crystal-palace-premier-league-match-report",
+     "published": "2026-10-18T15:06:49Z"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-18",
+   "comp": "epl",
+   "team1": "Leeds United FC",
+   "team2": "Manchester United FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Leeds United 1-1 Manchester United: Premier League \u2013 live reaction",
+     "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches \u26bd Scores | Tables | Read Football Daily | Mail Michael Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing",
+     "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
+     "published": "2026-10-18T15:09:02Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Manchester United held as Calvert-Lewin\u2019s Leeds leveller keeps pressure on Carrick",
+     "standfirst": "What next for Michael Carrick and Manchester United? Game-wise the answer is Wednesday\u2019s trip to Como yet after failing, again, to double the campaign\u2019s league wins tally to two you have to wonder where this already flatlining team are heading. Sunday afternoon\u2019s display was the latest unconvincing outing under the 45-",
+     "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
+     "published": "2026-10-18T15:08:48Z"
+    }
+   ]
   }
  ],
  "latest": [
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Leeds United v Manchester United: Premier League \u2013 live",
-   "standfirst": "\u26bd Updates from the 2pm BST kick-off at Elland Road \u26bd The Joy of Six: Leeds v Manchester United matches \u26bd Scores | Tables | Read Football Daily | Mail Michael Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing. We want to make sure the ball belongs to us, to press",
-   "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
-   "published": "2026-10-18T14:43:44Z"
+   "title": "Nottingham Forest v Arsenal: Premier League \u2013 live",
+   "standfirst": "\u26bd Updates from the City Ground; kick-off 4.30pm BST \u26bd Scores | Tables | Read Football Daily | Mail Daniel Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying Guimaraes, along with an in-form ",
+   "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
+   "published": "2026-10-18T15:13:47Z"
   },
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Nottingham Forest v Arsenal: Premier League \u2013 live",
-   "standfirst": "\u26bd Updates from the City Ground; kick-off 4.30pm BST \u26bd Scores | Tables | Read Football Daily | Mail Daniel Back to those teams, Forest make two changes the side undressed at Crystal Palace last weekend, Ola Aina and the injured Morgan Gibbs-White dropping out, with Jair Cunha and Nicol\u00e1s Dom\u00ednguez coming in. Nikola Mile",
-   "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
-   "published": "2026-10-18T14:39:48Z"
+   "title": "Leeds United 1-1 Manchester United: Premier League \u2013 live reaction",
+   "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches \u26bd Scores | Tables | Read Football Daily | Mail Michael Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing",
+   "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
+   "published": "2026-10-18T15:09:02Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Manchester United held as Calvert-Lewin\u2019s Leeds leveller keeps pressure on Carrick",
+   "standfirst": "What next for Michael Carrick and Manchester United? Game-wise the answer is Wednesday\u2019s trip to Como yet after failing, again, to double the campaign\u2019s league wins tally to two you have to wonder where this already flatlining team are heading. Sunday afternoon\u2019s display was the latest unconvincing outing under the 45-",
+   "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
+   "published": "2026-10-18T15:08:48Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "G\u00f3mez halfway-line wondergoal sparks Brighton\u2019s 5-0 thrashing of sorry Crystal Palace",
+   "standfirst": "At last, Fabian H\u00fcrzeler has the scalp that matters most to all Brighton fans, and in humiliating fashion. Diego G\u00f3mez\u2019s breathtaking goal-of-the-season contender from the halfway line, \u00e0 la David Beckham, was the highlight of another hugely impressive performance from the Premier League\u2019s top scorers as they continued",
+   "link": "https://www.theguardian.com/football/2026/oct/18/brighton-crystal-palace-premier-league-match-report",
+   "published": "2026-10-18T15:06:49Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Calvert-Lewin denies Man Utd - who rated highest?",
+   "standfirst": "Dominic Calvert-Lewin's second-half equaliser means Manchester United have now gone six games without a win for the first time since 2019 - find out who rated highest at Elland Road.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ckvg7v43x1xyo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T14:56:01Z"
   },
   {
    "source": "BBC Sport",
@@ -659,30 +723,6 @@
    "standfirst": "Brentford manager Keith Andrews says Yehor Yarmoliuk's first-half red card changed the dynamic of their game against Liverpool which ended in a 2-1 defeat for the Bees.",
    "link": "https://www.bbc.co.uk/sport/football/videos/c6eq373g3vx9o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T17:14:21Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Man City's Maresca 'very happy' after Ipswich win",
-   "standfirst": "Manchester City manager Enzo Maresca praises his side after their beat Ipswich Town at home in the Premier League.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cmp3gkge7064o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:08:01Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Wilder: 'Big result'",
-   "standfirst": "Sheffield United manager Chris Wilder after the 1-0 win at Bristol City.",
-   "link": "https://www.bbc.co.uk/sounds/play/p0ph8h5j?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T17:00:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Nuno: 'A really good performance overall'",
-   "standfirst": "West Ham boss Nuno Espirito Santo speaks to Andy Rowley after a 1-0 win at Swansea.",
-   "link": "https://www.bbc.co.uk/sounds/play/p0ph8ftg?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T16:58:00Z"
   }
  ]
 }
