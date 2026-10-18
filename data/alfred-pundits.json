@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T01:15:10-0500",
+ "generated": "2026-10-18T01:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -415,6 +415,14 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
+   "title": "Do Manchester City have any grounds to win their appeal?",
+   "standfirst": "Manchester City face \"substantial hurdles\" to overcome if they are to have any chance of winning their appeal after being found guilty of breaking the Premier League's financial rules, a leading lawyer has told BBC Sport.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6je5lwxk5l0o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T06:36:21Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
    "title": "Villa's Manzambi shows Newcastle what they missed out on",
    "standfirst": "Aston Villa are a side back in form, with Johan Manzambi scoring the winner against a Newcastle team he turned down to move to Villa Park.",
    "link": "https://www.bbc.co.uk/sport/football/articles/ck054652mv07o?at_medium=RSS&at_campaign=rss",
@@ -643,14 +651,6 @@
    "standfirst": "It was not until his post-match lap of the pitch that \u00c1lvaro Arbeloa allowed himself a smile. After an uncomfortable week when his future was being called into question , the former Real Madrid manager has a Premier League win under his belt at the seventh attempt, lifting his side off the foot of the table. But it is ",
    "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
    "published": "2026-10-17T16:08:39Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Chelsea's Martinez taken to hospital for 'precautionary tests'",
-   "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T16:02:31Z"
   }
  ]
 }
