@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T13:15:10-0500",
+ "generated": "2026-10-18T13:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -201,14 +201,6 @@
      "published": "2026-10-17T19:00:06Z"
     },
     {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "'Men against boys' - Jakirovic criticises Hull City after Fulham defeat",
-     "standfirst": "Hull City manager Sergej Jakirovic says Fulham were \"much better\" during his side's 1-0 defeat at Craven Cottage.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cqkgj5jzvxldo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T16:48:52Z"
-    },
-    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
@@ -287,14 +279,6 @@
      "standfirst": "Aston Villa are a side back in form, with Johan Manzambi scoring the winner against a Newcastle team he turned down to move to Villa Park.",
      "link": "https://www.bbc.co.uk/sport/football/articles/ck054652mv07o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T21:18:26Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Newcastle made 'wrong decisions' in final third - Jaissle",
-     "standfirst": "Newcastle boss Matthias Jaissle criticises his team's decision-making in the final third after their 1-0 defeat by Aston Villa at St. James' Park.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cmrryqykeelko?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:38:28Z"
     },
     {
      "source": "BBC Sport",
@@ -537,6 +521,22 @@
    "team2": "Arsenal FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Arsenal substitutes change game - Arteta",
+     "standfirst": "Arsenal manager Mikel Arteta says their substitutes changed the game as they beat Nottingham Forest 1-0 in the Premier League.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cqwyrkyyglzjo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T18:31:09Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Defeat feels unfair on Forest - Glasner",
+     "standfirst": "Nottingham Forest boss Oliver Glasner calls their defeat by Arsenal \"unfair\" after they were narrowly beaten 1-0 at The City Ground.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cmx28422y8gno?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T18:16:56Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Nottingham Forest 0-1 Arsenal: Premier League \u2013 as it happened",
@@ -564,6 +564,30 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Shades of Barca and Beckham - Brighton aim to maintain superb start",
+   "standfirst": "With 23 goals in seven Premier League matches, including some stunning strikes, Brighton continue to delight their fans and get them dreaming of what might be.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cmwyd05wj00do?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:33:29Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Arsenal substitutes change game - Arteta",
+   "standfirst": "Arsenal manager Mikel Arteta says their substitutes changed the game as they beat Nottingham Forest 1-0 in the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cqwyrkyyglzjo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:31:09Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Defeat feels unfair on Forest - Glasner",
+   "standfirst": "Nottingham Forest boss Oliver Glasner calls their defeat by Arsenal \"unfair\" after they were narrowly beaten 1-0 at The City Ground.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cmx28422y8gno?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T18:16:56Z"
+  },
   {
    "source": "Guardian",
    "comp": "epl",
@@ -767,14 +791,6 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
-   "title": "Newcastle made 'wrong decisions' in final third - Jaissle",
-   "standfirst": "Newcastle boss Matthias Jaissle criticises his team's decision-making in the final third after their 1-0 defeat by Aston Villa at St. James' Park.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cmrryqykeelko?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:38:28Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
    "title": "Emery praises Manzambi's 'skills and intelligence'",
    "standfirst": "Aston Villa manager Unai Emery reacts to his 100th Premier League win after victory against Newcastle at St James Park.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cw80zpzx3vxjo?at_medium=RSS&at_campaign=rss",
@@ -787,22 +803,6 @@
    "standfirst": "Johan Manzambi heads the winner for Aston Villa against Newcastle, marking manager Unai Emery's 100th Premier League victory.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cwdd897vvl8vo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T19:12:02Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Liverpool come from behind to beat nine-man Brentford",
-   "standfirst": "Liverpool come from behind to beat Brentford 2-1 at the Gtech Community Stadium as the hosts finish with nine men after red cards for Yehor Yarmoliuk and Vitaly Janelt.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c65yn28p859wo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:00:13Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Haaland nets double as Man City go six points clear at the top",
-   "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:00:09Z"
   }
  ]
 }
