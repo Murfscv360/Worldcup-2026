@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T12:15:11-0500",
+ "generated": "2026-10-18T12:45:10-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -183,14 +183,6 @@
      "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
      "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
      "published": "2026-10-17T13:53:13Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Neto stars but who was subdued? - player ratings for Everton v Chelsea",
-     "standfirst": "Pedro Neto's two second half goals for Chelsea secured an important away win at Everton on Saturday.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/c674pzzlz8zlo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T13:39:16Z"
     }
    ]
   },
@@ -491,6 +483,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Mbeumo offers Carrick solace as Man Utd winless run goes on",
+     "standfirst": "Michael Carrick said he had his headphones on this week so didn't hear the noise around Manchester United, but a 1-1 draw at Leeds means it is six games without a win.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c699zmgmx9vzo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T17:24:45Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Man Utd showed 'unity' in draw with Leeds - Carrick",
      "standfirst": "Manchester United manager Michael Carrick says his side showed \"unity\" during their 1-1 draw with Leeds at Elland Road.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cmlyl8yyzryeo?at_medium=RSS&at_campaign=rss",
@@ -529,16 +529,64 @@
      "published": "2026-10-18T14:56:01Z"
     }
    ]
+  },
+  {
+   "date": "2026-10-18",
+   "comp": "epl",
+   "team1": "Nottingham Forest FC",
+   "team2": "Arsenal FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Nottingham Forest 0-1 Arsenal: Premier League \u2013 as it happened",
+     "standfirst": "A late, deflected winner from Noni Madueke gave Arsenal a vital win in a low-quality game, Forest then missing two good chances to equalise Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying",
+     "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
+     "published": "2026-10-18T17:41:09Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Madueke breaks Nottingham Forest\u2019s resistance as dogged Arsenal edge to victory",
+     "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It is a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their home stadium. Arsenal, meanwhile, had drawn 0-0 on each of their previous two",
+     "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
+     "published": "2026-10-18T17:39:57Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Premier League today: How to watch Nottingham Forest v Arsenal, TV channels & live stream",
+     "standfirst": "How will Nottingham Forest and Arsenal fare today? Here is what to know, including kick-off time, TV channels and live stream options While the true stakes of this season\u2019s Premier League title race won\u2019t be clear until the outcome of Manchester City\u2019s appeal against 114 breaches of financial rules is known, Arsenal ha",
+     "link": "https://www.theguardian.com/football/2026/oct/18/how-to-watch-premier-league-nottingham-forest-arsenal",
+     "published": "2026-10-18T10:30:57Z"
+    }
+   ]
   }
  ],
  "latest": [
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Nottingham Forest v Arsenal: Premier League \u2013 live",
-   "standfirst": "\u26bd Updates from the City Ground; kick-off 4.30pm BST \u26bd Scores | Tables | Read Football Daily | Mail Daniel Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying Guimaraes, along with an in-form ",
+   "title": "Nottingham Forest 0-1 Arsenal: Premier League \u2013 as it happened",
+   "standfirst": "A late, deflected winner from Noni Madueke gave Arsenal a vital win in a low-quality game, Forest then missing two good chances to equalise Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying",
    "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
-   "published": "2026-10-18T17:13:24Z"
+   "published": "2026-10-18T17:41:09Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Madueke breaks Nottingham Forest\u2019s resistance as dogged Arsenal edge to victory",
+   "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It is a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their home stadium. Arsenal, meanwhile, had drawn 0-0 on each of their previous two",
+   "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
+   "published": "2026-10-18T17:39:57Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Mbeumo offers Carrick solace as Man Utd winless run goes on",
+   "standfirst": "Michael Carrick said he had his headphones on this week so didn't hear the noise around Manchester United, but a 1-1 draw at Leeds means it is six games without a win.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c699zmgmx9vzo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T17:24:45Z"
   },
   {
    "source": "BBC Sport",
@@ -755,22 +803,6 @@
    "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
    "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T19:00:09Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Iwobi delivers Fulham's first win of season",
-   "standfirst": "Alex Iwobi fires Fulham to their first Premier League win of the season against Hull.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c6rmy7w1kdgeo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:00:06Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 as it happened",
-   "standfirst": "Johan Manzambi scored the only goal to give Aston Villa deserved win at St James\u2019 Park A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gonzalez, Joelinton; Willock, ",
-   "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-   "published": "2026-10-17T19:00:05Z"
   }
  ]
 }
