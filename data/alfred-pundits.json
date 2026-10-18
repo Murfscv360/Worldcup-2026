@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T23:45:07-0500",
+ "generated": "2026-10-18T00:15:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,30 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-13",
-   "comp": "championship",
-   "team1": "Millwall FC",
-   "team2": "Swansea City AFC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Arrest made after alleged racial abuse of Swans' Eom",
-     "standfirst": "Police investigating a report of racial abuse during Millwall's Championship game against Swansea City have arrested a man.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cmdx3nk7kwwro?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-16T10:00:27Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Millwall\u2019s Alex Neil criticised for his comments on stoppage for alleged racism",
-     "standfirst": "Kick It Out statement: managers should \u2018set the tone\u2019 Head coach said delay in Swansea game \u2018killed momentum\u2019 The Millwall head coach, Alex Neil, has been criticised by the anti-racism campaign group Kick It Out after complaining that a stoppage in play over alleged racist abuse \u201ckilled the momentum\u201d in Tuesday\u2019s home ",
-     "link": "https://www.theguardian.com/football/2026/oct/14/millwall-alex-neil-criticised-by-kick-it-out-statement",
-     "published": "2026-10-14T21:12:34Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-14",
    "comp": "championship",
