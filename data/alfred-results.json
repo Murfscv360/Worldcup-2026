@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T10:00:22-0500",
+ "generated": "2026-10-18T10:30:17-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -2287,6 +2287,19 @@
    "ft": [
     0,
     1
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-18",
+   "team1": "AFC Bournemouth",
+   "team2": "Sunderland AFC",
+   "ft": [
+    2,
+    0
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
