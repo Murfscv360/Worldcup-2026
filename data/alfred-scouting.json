@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18 12:05:20",
+ "generated": "2026-10-18 15:05:20",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -38,7 +38,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 6.8,
+     "score": 6.7,
      "side": "A",
      "yours": false
     },
@@ -54,7 +54,7 @@
      "name": "Delap",
      "club": "NFO",
      "pos": "FWD",
-     "score": 6.0,
+     "score": 5.9,
      "side": "A",
      "yours": false
     }
@@ -152,7 +152,7 @@
      "name": "Saka",
      "club": "ARS",
      "pos": "MID",
-     "score": 10.4,
+     "score": 10.2,
      "side": "H",
      "yours": false
     },
@@ -165,19 +165,19 @@
      "yours": false
     },
     {
-     "name": "\u00d8degaard",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 7.6,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Dibling",
      "club": "EVE",
      "pos": "MID",
      "score": 7.5,
      "side": "A",
+     "yours": false
+    },
+    {
+     "name": "\u00d8degaard",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 7.3,
+     "side": "H",
      "yours": false
     }
    ],
@@ -457,7 +457,7 @@
      "name": "Hinshelwood",
      "club": "BHA",
      "pos": "MID",
-     "score": 28.9,
+     "score": 28.7,
      "side": "A",
      "yours": false
     },
@@ -542,7 +542,7 @@
      "name": "Evanilson",
      "club": "BOU",
      "pos": "FWD",
-     "score": 6.7,
+     "score": 6.6,
      "side": "A",
      "yours": false
     }
