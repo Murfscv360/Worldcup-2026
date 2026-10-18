@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T10:45:08-0500",
+ "generated": "2026-10-18T11:15:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -79,14 +79,6 @@
      "standfirst": "Liverpool come from behind to beat Brentford 2-1 at the Gtech Community Stadium as the hosts finish with nine men after red cards for Yehor Yarmoliuk and Vitaly Janelt.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c65yn28p859wo?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:13Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Yarmoliuk red card changed game dynamic - Andrews",
-     "standfirst": "Brentford manager Keith Andrews says Yehor Yarmoliuk's first-half red card changed the dynamic of their game against Liverpool which ended in a 2-1 defeat for the Bees.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c6eq373g3vx9o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T17:14:21Z"
     },
     {
      "source": "BBC Sport",
@@ -233,14 +225,6 @@
      "published": "2026-10-17T16:43:26Z"
     },
     {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Arbeloa praises 'brilliant' Fulham after first league victory",
-     "standfirst": "Alvaro Arbeloa praises his Fulham side after they picked up their first Premier League victory of the season with a 1-0 victory over Hull.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cqm26l670646o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T16:35:18Z"
-    },
-    {
      "source": "Guardian",
      "comp": "epl",
      "title": "Pressure on Arbeloa lifted after Alex Iwobi sinks Hull for Fulham\u2019s first win",
@@ -263,14 +247,6 @@
      "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:09Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Man City's Maresca 'very happy' after Ipswich win",
-     "standfirst": "Manchester City manager Enzo Maresca praises his side after their beat Ipswich Town at home in the Premier League.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cmp3gkge7064o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T17:08:01Z"
     },
     {
      "source": "Guardian",
@@ -449,9 +425,25 @@
    "team2": "Sunderland AFC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Marco Rose post match interview - Bournemouth v Sunderland",
+     "standfirst": "Bournemouth head coach Marco Rose reacts to their first win of the season as they Sunderland in the Premier League.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cj75pr55kyg7o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T15:58:33Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Sunderland performance at Bournemouth 'very painful' - Le Bris",
+     "standfirst": "Sunderland manager Regis Le Bris describes his side's performance as \"very painful\" after they were beaten 2-0 by Bournemouth at the Vitality Stadium.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cmwy4qyy2gedo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T15:56:31Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Evanilson seals Bournemouth\u2019s win against Sunderland after Danso sees red",
+     "title": "Evanilson swivels his hips to seal Bournemouth win against 10-man Sunderland",
      "standfirst": "Bournemouth\u2019s and Marco Rose\u2019s wait for a Premier League win is over. Sunderland, locked in the bottom three, are becoming this season\u2019s object lesson in travelling too far too fast. Sixth and seventh last season, that both teams have struggled domestically while cruising in the Europa League speaks to a continental dr",
      "link": "https://www.theguardian.com/football/2026/oct/18/bournemouth-sunderland-premier-league-match-report",
      "published": "2026-10-18T15:19:30Z"
@@ -475,7 +467,7 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
-     "title": "Fabian Hurzeler post match interview - Brighton v Crystal Palace",
+     "title": "Brighton must stay humble - Hurzeler",
      "standfirst": "Brighton head coach Fabian Hurzeler's post-match reaction to their 5-0 win against Crystal Palace in the Premier League.",
      "link": "https://www.bbc.co.uk/sport/football/videos/ck79pq99y8g5o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-18T15:36:23Z"
@@ -496,6 +488,14 @@
    "team1": "Leeds United FC",
    "team2": "Manchester United FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Man Utd showed 'unity' in draw with Leeds - Carrick",
+     "standfirst": "Manchester United manager Michael Carrick says his side showed \"unity\" during their 1-1 draw with Leeds at Elland Road.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cmlyl8yyzryeo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T15:46:07Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -538,7 +538,31 @@
    "title": "Nottingham Forest v Arsenal: Premier League \u2013 live",
    "standfirst": "\u26bd Updates from the City Ground; kick-off 4.30pm BST \u26bd Scores | Tables | Read Football Daily | Mail Daniel Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying Guimaraes, along with an in-form ",
    "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
-   "published": "2026-10-18T15:44:21Z"
+   "published": "2026-10-18T16:14:10Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Marco Rose post match interview - Bournemouth v Sunderland",
+   "standfirst": "Bournemouth head coach Marco Rose reacts to their first win of the season as they Sunderland in the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cj75pr55kyg7o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T15:58:33Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Sunderland performance at Bournemouth 'very painful' - Le Bris",
+   "standfirst": "Sunderland manager Regis Le Bris describes his side's performance as \"very painful\" after they were beaten 2-0 by Bournemouth at the Vitality Stadium.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cmwy4qyy2gedo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T15:56:31Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Man Utd showed 'unity' in draw with Leeds - Carrick",
+   "standfirst": "Manchester United manager Michael Carrick says his side showed \"unity\" during their 1-1 draw with Leeds at Elland Road.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cmlyl8yyzryeo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T15:46:07Z"
   },
   {
    "source": "BBC Sport",
@@ -551,7 +575,7 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
-   "title": "Fabian Hurzeler post match interview - Brighton v Crystal Palace",
+   "title": "Brighton must stay humble - Hurzeler",
    "standfirst": "Brighton head coach Fabian Hurzeler's post-match reaction to their 5-0 win against Crystal Palace in the Premier League.",
    "link": "https://www.bbc.co.uk/sport/football/videos/ck79pq99y8g5o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T15:36:23Z"
@@ -575,7 +599,7 @@
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Evanilson seals Bournemouth\u2019s win against Sunderland after Danso sees red",
+   "title": "Evanilson swivels his hips to seal Bournemouth win against 10-man Sunderland",
    "standfirst": "Bournemouth\u2019s and Marco Rose\u2019s wait for a Premier League win is over. Sunderland, locked in the bottom three, are becoming this season\u2019s object lesson in travelling too far too fast. Sixth and seventh last season, that both teams have struggled domestically while cruising in the Europa League speaks to a continental dr",
    "link": "https://www.theguardian.com/football/2026/oct/18/bournemouth-sunderland-premier-league-match-report",
    "published": "2026-10-18T15:19:30Z"
@@ -747,30 +771,6 @@
    "standfirst": "Johan Manzambi scored the only goal to give Aston Villa deserved win at St James\u2019 Park A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gonzalez, Joelinton; Willock, ",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
    "published": "2026-10-17T19:00:05Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Neto scores twice as Chelsea win at Everton",
-   "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T19:00:03Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
-   "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed summer move from Freiburg to Newcastle. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa ended up paying and he duly delig",
-   "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
-   "published": "2026-10-17T18:38:58Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
-   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
-   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
-   "published": "2026-10-17T18:30:17Z"
   }
  ]
 }
