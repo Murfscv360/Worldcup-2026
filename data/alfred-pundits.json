@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T06:45:11-0500",
+ "generated": "2026-10-18T07:15:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -447,6 +447,14 @@
   {
    "source": "Guardian",
    "comp": "epl",
+   "title": "Leeds United v Manchester United: Premier League \u2013 live",
+   "standfirst": "\u26bd Updates from the 2pm BST kick-off at Elland Road \u26bd The Joy of Six: Leeds v Manchester United matches \u26bd Scores | Tables | Read Football Daily | Mail Michael A reminder of what this fixture means to both teams: Leeds 3-4-2-1: Trafford; Justin, Elvedi, Muharemovic; Bogle, Ampadu, Tanaka, Gudmundsson; Stach, Okafor; Calv",
+   "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
+   "published": "2026-10-18T12:12:14Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
    "title": "Premier League today: How to watch Nottingham Forest v Arsenal, TV channels & live stream",
    "standfirst": "How will Nottingham Forest and Arsenal fare today? Here is what to know, including kick-off time, TV channels and live stream options While the true stakes of this season\u2019s Premier League title race won\u2019t be clear until the outcome of Manchester City\u2019s appeal against 114 breaches of financial rules is known, Arsenal ha",
    "link": "https://www.theguardian.com/football/2026/oct/18/how-to-watch-premier-league-nottingham-forest-arsenal",
@@ -675,14 +683,6 @@
    "standfirst": "Hull City manager Sergej Jakirovic says Fulham were \"much better\" during his side's 1-0 defeat at Craven Cottage.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cqkgj5jzvxldo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-17T16:48:52Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
-   "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
-   "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-   "published": "2026-10-17T16:43:26Z"
   }
  ]
 }
