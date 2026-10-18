@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T05:15:06-0500",
+ "generated": "2026-10-18T05:45:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -445,6 +445,14 @@
  ],
  "latest": [
   {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League today: How to watch Nottingham Forest v Arsenal, TV channels & live stream",
+   "standfirst": "How will Nottingham Forest and Arsenal fare today? Here is what to know, including kick-off time, TV channels and live stream options While the true stakes of this season\u2019s Premier League title race won\u2019t be clear until the outcome of Manchester City\u2019s appeal against 114 breaches of financial rules is known, Arsenal ha",
+   "link": "https://www.theguardian.com/football/2026/oct/18/how-to-watch-premier-league-nottingham-forest-arsenal",
+   "published": "2026-10-18T10:30:57Z"
+  },
+  {
    "source": "BBC Sport",
    "comp": "championship",
    "title": "Stansfield is Blues' 'creative director' in new role",
@@ -675,14 +683,6 @@
    "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
    "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
    "published": "2026-10-17T16:43:26Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Arbeloa praises 'brilliant' Fulham after first league victory",
-   "standfirst": "Alvaro Arbeloa praises his Fulham side after they picked up their first Premier League victory of the season with a 1-0 victory over Hull.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cqm26l670646o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-17T16:35:18Z"
   }
  ]
 }
