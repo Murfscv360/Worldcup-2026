@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18 15:05:20",
+ "generated": "2026-10-18 18:05:18",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -351,7 +351,7 @@
      "name": "Wissa",
      "club": "NEW",
      "pos": "FWD",
-     "score": 5.1,
+     "score": 5.0,
      "side": "A",
      "yours": false
     },
@@ -534,7 +534,7 @@
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
-     "score": 7.9,
+     "score": 8.0,
      "side": "A",
      "yours": false
     },
