@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T12:40:05-0500",
+ "generated": "2026-10-18T18:40:05-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -8,64 +8,64 @@
  "top_lines": [
   {
    "plan": "Egan -> Castagne",
-   "net": 92.82,
-   "raw": 92.82,
+   "net": 92.72,
+   "raw": 92.72,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.28
   },
   {
    "plan": "Ajayi -> Castagne",
-   "net": 92.82,
-   "raw": 92.82,
+   "net": 92.72,
+   "raw": 92.72,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.28
   },
   {
    "plan": "HOLD \u2014 no transfer",
-   "net": 92.54,
-   "raw": 92.54,
+   "net": 92.44,
+   "raw": 92.44,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Kayode",
-   "net": 92.54,
-   "raw": 92.54,
+   "net": 92.44,
+   "raw": 92.44,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Konsa",
-   "net": 92.54,
-   "raw": 92.54,
+   "net": 92.44,
+   "raw": 92.44,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Justin",
-   "net": 92.54,
-   "raw": 92.54,
+   "net": 92.44,
+   "raw": 92.44,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Jacquet",
-   "net": 92.54,
-   "raw": 92.54,
+   "net": 92.44,
+   "raw": 92.44,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Affengruber",
-   "net": 92.54,
-   "raw": 92.54,
+   "net": 92.44,
+   "raw": 92.44,
    "hit": 0,
    "captain": "Haaland",
    "vs_hold": 0.0
@@ -109,12 +109,12 @@
     "club": "BHA",
     "pos": 2,
     "ep": 9.0,
-    "xgi": 0.41,
+    "xgi": 0.4,
     "form": 9.0,
     "fix": "CHE (A)",
     "diff": 4,
     "risk": 0,
-    "total": 36.44,
+    "total": 37.2,
     "price": 5.2,
     "status": "a"
    },
@@ -128,7 +128,7 @@
     "fix": "CHE (A)",
     "diff": 4,
     "risk": 0,
-    "total": 33.96,
+    "total": 34.76,
     "price": 6.1,
     "status": "a"
    },
@@ -142,8 +142,22 @@
     "fix": "CHE (A)",
     "diff": 4,
     "risk": 0,
-    "total": 31.04,
+    "total": 31.84,
     "price": 5.7,
+    "status": "a"
+   },
+   {
+    "name": "Jo\u00e3o Pedro",
+    "club": "CHE",
+    "pos": 4,
+    "ep": 7.0,
+    "xgi": 0.58,
+    "form": 7.0,
+    "fix": "BHA (H)",
+    "diff": 3,
+    "risk": 1,
+    "total": 29.12,
+    "price": 7.9,
     "status": "a"
    },
    {
@@ -161,30 +175,16 @@
     "status": "a"
    },
    {
-    "name": "Jo\u00e3o Pedro",
-    "club": "CHE",
-    "pos": 4,
-    "ep": 4.7,
-    "xgi": 0.58,
-    "form": 4.7,
-    "fix": "BHA (H)",
-    "diff": 3,
-    "risk": 1,
-    "total": 20.72,
-    "price": 7.8,
-    "status": "a"
-   },
-   {
     "name": "Rogers",
     "club": "CHE",
     "pos": 3,
-    "ep": 4.3,
+    "ep": 5.5,
     "xgi": 0.51,
-    "form": 4.3,
+    "form": 5.5,
     "fix": "BHA (H)",
     "diff": 3,
     "risk": 1,
-    "total": 18.84,
+    "total": 22.84,
     "price": 7.9,
     "status": "a"
    },
@@ -192,13 +192,13 @@
     "name": "Palmer",
     "club": "CHE",
     "pos": 3,
-    "ep": 4.0,
+    "ep": 5.0,
     "xgi": 0.34,
-    "form": 4.0,
+    "form": 5.0,
     "fix": "BHA (H)",
     "diff": 3,
     "risk": 1,
-    "total": 16.96,
+    "total": 20.16,
     "price": 9.7,
     "status": "a"
    },
@@ -206,13 +206,13 @@
     "name": "Raya",
     "club": "ARS",
     "pos": 1,
-    "ep": 4.0,
+    "ep": 4.3,
     "xgi": 0.0,
-    "form": 4.0,
+    "form": 4.3,
     "fix": "AVL (A)",
     "diff": 3,
     "risk": 0,
-    "total": 16.4,
+    "total": 17.2,
     "price": 6.1,
     "status": "a"
    },
@@ -226,22 +226,8 @@
     "fix": "COV (A)",
     "diff": 2,
     "risk": 0,
-    "total": 16.4,
+    "total": 16.0,
     "price": 4.7,
-    "status": "a"
-   },
-   {
-    "name": "Schade",
-    "club": "BRE",
-    "pos": 3,
-    "ep": 3.3,
-    "xgi": 0.38,
-    "form": 3.3,
-    "fix": "LEE (A)",
-    "diff": 3,
-    "risk": 0,
-    "total": 15.12,
-    "price": 6.2,
     "status": "a"
    },
    {
@@ -254,7 +240,7 @@
     "fix": "BRE (H)",
     "diff": 3,
     "risk": 0,
-    "total": 12.56,
+    "total": 12.16,
     "price": 4.7,
     "status": "a"
    },
@@ -282,7 +268,7 @@
     "fix": "COV (A)",
     "diff": 2,
     "risk": 0,
-    "total": 9.72,
+    "total": 9.32,
     "price": 4.1,
     "status": "a"
    },
@@ -296,8 +282,22 @@
     "fix": "COV (A)",
     "diff": 2,
     "risk": 0,
-    "total": 7.2,
+    "total": 6.8,
     "price": 4.2,
+    "status": "a"
+   },
+   {
+    "name": "Schade",
+    "club": "BRE",
+    "pos": 3,
+    "ep": 0.5,
+    "xgi": 0.38,
+    "form": 0.5,
+    "fix": "LEE (A)",
+    "diff": 3,
+    "risk": 0,
+    "total": 3.52,
+    "price": 6.2,
     "status": "a"
    }
   ]
