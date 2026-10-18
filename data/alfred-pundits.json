@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T01:45:08-0500",
+ "generated": "2026-10-18T02:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -131,18 +131,18 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
-     "title": "Neto scores twice as Chelsea win at Everton",
-     "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:00:03Z"
+     "title": "Martinez 'back in a few weeks' after operation",
+     "standfirst": "Chelsea goalkeeper Emiliano Martinez says he will be fit in a few weeks after being injured in the win at Everton.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cked3vl198eyo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-18T07:08:08Z"
     },
     {
      "source": "BBC Sport",
      "comp": "epl",
-     "title": "Chelsea's Martinez taken to hospital for 'precautionary tests'",
-     "standfirst": "Goalkeeper Emiliano Martinez was taken to hospital as Chelsea's 2-0 win at Everton on Saturday meant they secured their first clean sheet in nine months.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/c6rryqq00yp4o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T16:02:31Z"
+     "title": "Neto scores twice as Chelsea win at Everton",
+     "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-17T19:00:03Z"
     },
     {
      "source": "BBC Sport",
@@ -415,6 +415,14 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
+   "title": "Martinez 'back in a few weeks' after operation",
+   "standfirst": "Chelsea goalkeeper Emiliano Martinez says he will be fit in a few weeks after being injured in the win at Everton.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cked3vl198eyo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-18T07:08:08Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
    "title": "Do Manchester City have any grounds to win their appeal?",
    "standfirst": "Manchester City face \"substantial hurdles\" to overcome if they are to have any chance of winning their appeal after being found guilty of breaking the Premier League's financial rules, a leading lawyer has told BBC Sport.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6je5lwxk5l0o?at_medium=RSS&at_campaign=rss",
@@ -643,14 +651,6 @@
    "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d, but they were able to forget the cacophony of noise around the club as Enzo Mares",
    "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
    "published": "2026-10-17T16:08:40Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Pressure on Arbeloa lifted after Alex Iwobi sinks Hull for Fulham\u2019s first win",
-   "standfirst": "It was not until his post-match lap of the pitch that \u00c1lvaro Arbeloa allowed himself a smile. After an uncomfortable week when his future was being called into question , the former Real Madrid manager has a Premier League win under his belt at the seventh attempt, lifting his side off the foot of the table. But it is ",
-   "link": "https://www.theguardian.com/football/2026/oct/17/fulham-hull-premier-league-match-report",
-   "published": "2026-10-17T16:08:39Z"
   }
  ]
 }
