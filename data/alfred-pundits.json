@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T15:45:07-0500",
+ "generated": "2026-10-19T16:15:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -577,16 +577,72 @@
      "published": "2026-10-18T17:39:57Z"
     }
    ]
+  },
+  {
+   "date": "2026-10-19",
+   "comp": "epl",
+   "team1": "Tottenham Hotspur FC",
+   "team2": "Coventry City FC",
+   "reports": [
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Tottenham v Coventry: Premier League \u2013 as it happened",
+     "standfirst": "The returning James Maddison scored a beauty, with Omar Marmoush and Ben Davies also on target as Spurs won in the league for the first time this season Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The abse",
+     "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
+     "published": "2026-10-19T21:08:31Z"
+    },
+    {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Davies ensures Spurs off the bottom after first win of season against Coventry",
+     "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many of the American pop star\u2019s gigs during that time, but Spurs are finally singing",
+     "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
+     "published": "2026-10-19T21:05:46Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Maddison shines on return - Tottenham v Coventry ratings",
+     "standfirst": "How Spurs and Coventry City's players rated following their Premier League match.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/crx23ndd337wo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T21:05:28Z"
+    }
+   ]
   }
  ],
  "latest": [
   {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Tottenham v Coventry: Premier League \u2013 live",
-   "standfirst": "\u26bd Live updates from the 8pm BST kick-off \u26bd Get in touch! Share your thoughts with Daniel Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The absence of a proper winger means they\u2019ll probably look to create cen",
+   "title": "Tottenham v Coventry: Premier League \u2013 as it happened",
+   "standfirst": "The returning James Maddison scored a beauty, with Omar Marmoush and Ben Davies also on target as Spurs won in the league for the first time this season Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The abse",
    "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
-   "published": "2026-10-19T20:43:47Z"
+   "published": "2026-10-19T21:08:31Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Davies ensures Spurs off the bottom after first win of season against Coventry",
+   "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many of the American pop star\u2019s gigs during that time, but Spurs are finally singing",
+   "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
+   "published": "2026-10-19T21:05:46Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
+   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
+   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
+   "published": "2026-10-19T21:05:44Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Maddison shines on return - Tottenham v Coventry ratings",
+   "standfirst": "How Spurs and Coventry City's players rated following their Premier League match.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/crx23ndd337wo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T21:05:28Z"
   },
   {
    "source": "BBC Sport",
@@ -795,30 +851,6 @@
    "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
    "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T18:59:02Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "'Maybe we became arrogant' - Sunderland struggles continue",
-   "standfirst": "Sunderland defender Nordi Mukiele suggested the Black Cats may have become \"arrogant\" as last season's surprise package stutter in the Premier League this term.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6073pmddk0ko?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:49:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Shades of Barca and Beckham - Brighton aim to maintain superb start",
-   "standfirst": "With 23 goals in seven Premier League matches, including some stunning strikes, Brighton continue to delight their fans and get them dreaming of what might be.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cmwyd05wj00do?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:33:29Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Arsenal substitutes change game - Arteta",
-   "standfirst": "Arsenal manager Mikel Arteta says their substitutes changed the game as they beat Nottingham Forest 1-0 in the Premier League.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cqwyrkyyglzjo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:31:09Z"
   }
  ]
 }
