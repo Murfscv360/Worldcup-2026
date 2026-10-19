@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T16:45:08-0500",
+ "generated": "2026-10-19T17:15:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -143,14 +143,6 @@
      "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:03Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Alonso praises 'serious' Chelsea",
-     "standfirst": "Chelsea manager Xabi Alonso describes his side's 2-0 victory over Everton as ''professional and solid' as they move up to fifth in the Premier League table.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c5vgjny1082lo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T14:53:23Z"
     },
     {
      "source": "Guardian",
@@ -579,8 +571,16 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
-     "title": "Lampard 'proud' of Coventry performance in defeat to Spurs",
-     "standfirst": "Coventry City head coach Frank Lampard speaks on his pride in his side's performance, despite a loss away to struggling Tottenham Hotspur in the Premier League.",
+     "title": "Spurs 'lack confidence' but we are a good team - De Zerbi",
+     "standfirst": "Tottenham Hotspur head coach Roberto de Zerbi hails the spirit and attitude of his side following their first Premier League win of the season, as they beat Coventry City.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/cqvgrn518d6jo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T21:59:30Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Lampard 'proud' of Coventry performance in defeat by Spurs",
+     "standfirst": "Coventry City manager Frank Lampard says he is proud of his side's performance, despite losing at struggling Tottenham Hotspur in the Premier League.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c32l4x1k28ero?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-19T21:41:21Z"
     },
@@ -623,8 +623,16 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
-   "title": "Lampard 'proud' of Coventry performance in defeat to Spurs",
-   "standfirst": "Coventry City head coach Frank Lampard speaks on his pride in his side's performance, despite a loss away to struggling Tottenham Hotspur in the Premier League.",
+   "title": "Spurs 'lack confidence' but we are a good team - De Zerbi",
+   "standfirst": "Tottenham Hotspur head coach Roberto de Zerbi hails the spirit and attitude of his side following their first Premier League win of the season, as they beat Coventry City.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cqvgrn518d6jo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T21:59:30Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Lampard 'proud' of Coventry performance in defeat by Spurs",
+   "standfirst": "Coventry City manager Frank Lampard says he is proud of his side's performance, despite losing at struggling Tottenham Hotspur in the Premier League.",
    "link": "https://www.bbc.co.uk/sport/football/videos/c32l4x1k28ero?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T21:41:21Z"
   },
@@ -851,14 +859,6 @@
    "standfirst": "Bournemouth beat Sunderland 2-0 at the Vitality Stadium to pick up their first league victory of the season and move out of the relegation zone.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cme8rz8x6pw8o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T18:59:15Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Leeds extend Man Utd's winless run to six games",
-   "standfirst": "Dominic Calvert-Lewin earns a point for Leeds and extends Manchester United's winless run to six games.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cw4g1dgr2v93o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:59:10Z"
   }
  ]
 }
