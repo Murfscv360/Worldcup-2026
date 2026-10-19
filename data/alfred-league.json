@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T12:40:04-0500",
+ "generated": "2026-10-19T18:40:03-0500",
  "by": "Alfred (fpl_app_data.py)",
  "source": "fantasy.premierleague.com/api entry + leagues-classic (public)",
  "entry": 5933243,
@@ -51,7 +51,7 @@
    "gw": 7,
    "points": 53,
    "total": 377,
-   "overall_rank": 6863562,
+   "overall_rank": 6931534,
    "transfers_cost": 0
   }
  ],
@@ -97,8 +97,8 @@
      "manager": "Geoff Shotter",
      "rank": 2,
      "last_rank": 1,
-     "total": 509,
-     "gw_points": 61,
+     "total": 511,
+     "gw_points": 63,
      "me": false,
      "rank_by_gw": [
       7,
@@ -116,8 +116,8 @@
      "manager": "Divya Taank",
      "rank": 3,
      "last_rank": 4,
-     "total": 498,
-     "gw_points": 75,
+     "total": 501,
+     "gw_points": 78,
      "me": false,
      "rank_by_gw": [
       22,
@@ -135,8 +135,8 @@
      "manager": "Johan Langbjenne",
      "rank": 4,
      "last_rank": 3,
-     "total": 491,
-     "gw_points": 63,
+     "total": 495,
+     "gw_points": 67,
      "me": false,
      "rank_by_gw": [
       2,
@@ -339,13 +339,32 @@
      ]
     },
     {
+     "entry": 8601930,
+     "team": "Gonnella XV",
+     "manager": "Jim Gonnella",
+     "rank": 15,
+     "last_rank": 10,
+     "total": 450,
+     "gw_points": 57,
+     "me": false,
+     "rank_by_gw": [
+      27,
+      13,
+      7,
+      12,
+      9,
+      10,
+      15
+     ]
+    },
+    {
      "entry": 2705624,
      "team": "O'Seans Eleven",
      "manager": "Sean Nash",
-     "rank": 15,
+     "rank": 16,
      "last_rank": 17,
-     "total": 448,
-     "gw_points": 65,
+     "total": 450,
+     "gw_points": 67,
      "me": false,
      "rank_by_gw": [
       17,
@@ -354,14 +373,14 @@
       15,
       12,
       17,
-      15
+      16
      ]
     },
     {
      "entry": 2870376,
      "team": "Pierre 'the' Sage FC",
      "manager": "Thomas Boatwright",
-     "rank": 16,
+     "rank": 17,
      "last_rank": 18,
      "total": 446,
      "gw_points": 64,
@@ -373,25 +392,6 @@
       18,
       19,
       18,
-      16
-     ]
-    },
-    {
-     "entry": 8601930,
-     "team": "Gonnella XV",
-     "manager": "Jim Gonnella",
-     "rank": 17,
-     "last_rank": 10,
-     "total": 445,
-     "gw_points": 52,
-     "me": false,
-     "rank_by_gw": [
-      27,
-      13,
-      7,
-      12,
-      9,
-      10,
       17
      ]
     },
@@ -496,8 +496,8 @@
      "manager": "Jerry Zhang",
      "rank": 23,
      "last_rank": 26,
-     "total": 430,
-     "gw_points": 73,
+     "total": 432,
+     "gw_points": 75,
      "me": false,
      "rank_by_gw": [
       15,
@@ -605,32 +605,13 @@
      ]
     },
     {
-     "entry": 3126373,
-     "team": "from bad to wirtz",
-     "manager": "Anna Cochran",
-     "rank": 29,
-     "last_rank": 31,
-     "total": 395,
-     "gw_points": 76,
-     "me": false,
-     "rank_by_gw": [
-      23,
-      28,
-      29,
-      28,
-      29,
-      32,
-      29
-     ]
-    },
-    {
      "entry": 749194,
      "team": "Earthy, Wind & Fire",
      "manager": "Tim Sharman",
-     "rank": 30,
+     "rank": 29,
      "last_rank": 23,
-     "total": 395,
-     "gw_points": 30,
+     "total": 398,
+     "gw_points": 33,
      "me": false,
      "rank_by_gw": [
       25,
@@ -639,6 +620,25 @@
       9,
       16,
       23,
+      29
+     ]
+    },
+    {
+     "entry": 3126373,
+     "team": "from bad to wirtz",
+     "manager": "Anna Cochran",
+     "rank": 30,
+     "last_rank": 31,
+     "total": 397,
+     "gw_points": 78,
+     "me": false,
+     "rank_by_gw": [
+      23,
+      28,
+      29,
+      28,
+      29,
+      32,
       30
      ]
     },
