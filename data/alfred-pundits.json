@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T12:45:07-0500",
+ "generated": "2026-10-19T13:15:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -581,20 +581,20 @@
  ],
  "latest": [
   {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Tottenham v Coventry: Premier League \u2013 live",
+   "standfirst": "\u26bd Live updates from the 8pm BST kick-off \u26bd Get in touch! Share your thoughts with Daniel Email! \u201cQuick point of order about the preamble,\u201d says Kieran McHugh. \u201cBasically correct until the last sentence. As a Spurs fan I can attest that this will not be fun.\u201d That\u2019s exactly what makes it fun. Continue reading...",
+   "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
+   "published": "2026-10-19T18:12:32Z"
+  },
+  {
    "source": "BBC Sport",
    "comp": "championship",
    "title": "QPR's Mbengue to have surgery after ACL injury",
    "standfirst": "QPR confirm defender Amadou Mbengue suffered an anterior cruciate ligament injury in the win over Derby last Tuesday.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c35ynew1lrppo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T17:34:51Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Tottenham v Coventry: Premier League \u2013 live",
-   "standfirst": "\u26bd Live updates from the 8pm BST kick-off \u26bd Get in touch! Share your thoughts with Daniel Sport\u2019s ability to ape and shape the world means it teaches us many things, often in a friendlier environment than real life. It is, for example, better to learn the Australian states and their capitals during an Ashes series than ",
-   "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
-   "published": "2026-10-19T17:30:02Z"
   },
   {
    "source": "BBC Sport",
