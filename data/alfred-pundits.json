@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T09:45:07-0500",
+ "generated": "2026-10-19T10:15:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -583,6 +583,30 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Saints can't win every game but aim to - Peretz",
+   "standfirst": "Goalkeeper Daniel Peretz says that Southampton must start turning draws into wins if they are to achieve automatic promotion.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6n9r29exl2xo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T15:05:19Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Are free-scoring Brighton genuine title contenders?",
+   "standfirst": "Brighton's start to the season has surprised many outsiders. But how high could they finish?",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cwn8d48je057o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T14:52:01Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Brighton are the apex B club \u2013 their next target should be a Champions League place | Jonathan Wilson",
+   "standfirst": "Diego G\u00f3mez\u2019s wondergoal in a five-star demolition is just the latest in an impressive run of results for the south coast team Sign up for our free newsletter here For two or three years now, it\u2019s been standard to nod approvingly at how well-run Brighton, Brentford and Bournemouth are, and to move on. What else is ther",
+   "link": "https://www.theguardian.com/football/2026/oct/19/brighton-premier-league-start",
+   "published": "2026-10-19T14:51:11Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "'Addicks as accommodating as ever'",
    "standfirst": "Fan writer Paul Sullivan on Charlton's slide down the table after defeat by crisis club Watford.",
    "link": "https://www.bbc.co.uk/sport/football/articles/ckd7qy750nv8o?at_medium=RSS&at_campaign=rss",
@@ -795,30 +819,6 @@
    "standfirst": "Sunderland manager Regis Le Bris describes his side's performance as \"very painful\" after they were beaten 2-0 by Bournemouth at the Vitality Stadium.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cmwy4qyy2gedo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T15:56:31Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Man Utd showed 'unity' in draw with Leeds - Carrick",
-   "standfirst": "Manchester United manager Michael Carrick says his side showed \"unity\" during their 1-1 draw with Leeds at Elland Road.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cmlyl8yyzryeo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T15:46:07Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "My one feeling is shame - Sage on bruising Palace defeat",
-   "standfirst": "Crystal Palace head coach Pierre Sage says he feels \"shame\" after their 5-0 defeat by Brighton.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cq3dj1ddn83xo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T15:41:16Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Brighton must stay humble - Hurzeler",
-   "standfirst": "Brighton head coach Fabian Hurzeler's post-match reaction to their 5-0 win against Crystal Palace in the Premier League.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/ck79pq99y8g5o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T15:36:23Z"
   }
  ]
 }
