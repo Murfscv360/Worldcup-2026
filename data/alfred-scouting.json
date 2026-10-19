@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18 18:05:18",
+ "generated": "2026-10-19 09:05:14",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -38,7 +38,15 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 6.7,
+     "score": 6.8,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Delap",
+     "club": "NFO",
+     "pos": "FWD",
+     "score": 6.2,
      "side": "A",
      "yours": false
     },
@@ -48,14 +56,6 @@
      "pos": "FWD",
      "score": 6.0,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Delap",
-     "club": "NFO",
-     "pos": "FWD",
-     "score": 5.9,
-     "side": "A",
      "yours": false
     }
    ],
@@ -88,20 +88,20 @@
    ],
    "watch": [
     {
-     "name": "Haaland",
-     "club": "MCI",
-     "pos": "FWD",
-     "score": 16.2,
-     "side": "A",
-     "yours": true
-    },
-    {
      "name": "Foden",
      "club": "MCI",
      "pos": "MID",
      "score": 12.6,
      "side": "A",
      "yours": false
+    },
+    {
+     "name": "Cherki",
+     "club": "MCI",
+     "pos": "MID",
+     "score": 10.6,
+     "side": "A",
+     "yours": true
     },
     {
      "name": "N.Jackson",
@@ -176,7 +176,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 7.3,
+     "score": 7.4,
      "side": "H",
      "yours": false
     }
@@ -526,7 +526,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 8.7,
+     "score": 8.8,
      "side": "H",
      "yours": false
     },
@@ -576,14 +576,6 @@
    ],
    "watch": [
     {
-     "name": "Brobbey",
-     "club": "SUN",
-     "pos": "FWD",
-     "score": 8.2,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "E.Le F\u00e9e",
      "club": "SUN",
      "pos": "MID",
@@ -606,6 +598,14 @@
      "score": 5.3,
      "side": "A",
      "yours": true
+    },
+    {
+     "name": "Brobbey",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 4.5,
+     "side": "H",
+     "yours": false
     }
    ],
    "kickoff_utc": "2026-10-25T16:30:00Z",
