@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T20:15:13-0500",
+ "generated": "2026-10-19T07:15:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -16,6 +16,14 @@
    "team1": "Burnley FC",
    "team2": "Wolverhampton Wanderers FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Comeback win must be the start of something better",
+     "standfirst": "Wolves fan writer Emma Milton analyses the 2-1 win at Burnley in the Championship.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c6j9kwmwdmmwo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T11:29:00Z"
+    },
     {
      "source": "Guardian",
      "comp": "championship",
@@ -99,10 +107,10 @@
     {
      "source": "BBC Sport",
      "comp": "championship",
-     "title": "Injuries and fine margins against Derby",
-     "standfirst": "Final Score reporter John Bennett reflects on the fine margins that went against Derby in defeat by Stoke.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cqn8d134ryz4o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T10:06:47Z"
+     "title": "Graham and Stoke pass more tests with win at Derby",
+     "standfirst": "BBC Radio Stoke's Mark Elliott says Luke Graham and Stoke City continue to improve after picking up another win at Derby.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/c8g47r6gwzk2o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T08:02:44Z"
     }
    ]
   },
@@ -457,6 +465,14 @@
    "team2": "Manchester United FC",
    "reports": [
     {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Premier League: 10 talking points from the weekend\u2019s action",
+     "standfirst": "Florian Wirtz takes on more responsibility in Liverpool\u2019s attack while Pierre Sage is under pressure at Crystal Palace Dominic Calvert-Lewin\u2019s physicality overpowering Bryan Mbeumo in Manchester United\u2019s area at a corner grabbed him a fifth goal in 10 outings for Leeds: a pretty respectable ratio. \u201cI just tried to caus",
+     "link": "https://www.theguardian.com/football/2026/oct/19/premier-league-10-talking-points-from-the-weekends-action",
+     "published": "2026-10-19T07:00:22Z"
+    },
+    {
      "source": "BBC Sport",
      "comp": "epl",
      "title": "Leeds extend Man Utd's winless run to six games",
@@ -495,14 +511,6 @@
      "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing. We want to make sure the ball belongs to us, to press",
      "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
      "published": "2026-10-18T15:25:09Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Manchester United held as Calvert-Lewin\u2019s Leeds leveller keeps pressure on Carrick",
-     "standfirst": "What next for Michael Carrick and Manchester United? Game-wise, the answer is the trip to Como on Wednesday yet after failing, again, to double their league win tally to two, you have to wonder the destination for an already flatlining team. This display was the latest unconvincing outing under the 45-year-old head coa",
-     "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
-     "published": "2026-10-18T15:08:48Z"
     }
    ]
   },
@@ -564,6 +572,70 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Boro's Conway happy to learn new role as winger",
+   "standfirst": "Despite wearing the number nine shirt, Tommy Conway is adjusting to his new role as Middlesbrough's left winger.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ckn9r2018y14o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T12:09:55Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "A lot going wrong for Derby - Nyambe",
+   "standfirst": "Derby County defender Ryan Nyambe says a lot is going wrong for the club as they fall to another defeat.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cm5ynl162px3o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T11:55:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Comeback win must be the start of something better",
+   "standfirst": "Wolves fan writer Emma Milton analyses the 2-1 win at Burnley in the Championship.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6j9kwmwdmmwo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T11:29:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Baggies have belief in squad depth - Price",
+   "standfirst": "West Bromwich Albion midfielder Isaac Price pinpoints the Baggies' squad strength after a second straight winner from a substitute.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c94g1zmg3x23o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T11:21:28Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "West Ham experiencing some Divine intervention",
+   "standfirst": "BBC Final Score reporter Laura Kenyon on the impact of teenage Man City loanee Divine Mukasa at West Ham this season.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c5vgjvy994d0o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T08:32:37Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "You can feel the optimism inside St Andrew's",
+   "standfirst": "BBC Radio 5 Live reporter Adam Cottier on the evolution of Birmingham City under Chris Davies this season.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c8kgel7dn241o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T08:26:03Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Graham and Stoke pass more tests with win at Derby",
+   "standfirst": "BBC Radio Stoke's Mark Elliott says Luke Graham and Stoke City continue to improve after picking up another win at Derby.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c8g47r6gwzk2o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T08:02:44Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League: 10 talking points from the weekend\u2019s action",
+   "standfirst": "Florian Wirtz takes on more responsibility in Liverpool\u2019s attack while Pierre Sage is under pressure at Crystal Palace Dominic Calvert-Lewin\u2019s physicality overpowering Bryan Mbeumo in Manchester United\u2019s area at a corner grabbed him a fifth goal in 10 outings for Leeds: a pretty respectable ratio. \u201cI just tried to caus",
+   "link": "https://www.theguardian.com/football/2026/oct/19/premier-league-10-talking-points-from-the-weekends-action",
+   "published": "2026-10-19T07:00:22Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -739,70 +811,6 @@
    "standfirst": "What next for Michael Carrick and Manchester United? Game-wise, the answer is the trip to Como on Wednesday yet after failing, again, to double their league win tally to two, you have to wonder the destination for an already flatlining team. This display was the latest unconvincing outing under the 45-year-old head coa",
    "link": "https://www.theguardian.com/football/2026/oct/18/leeds-manchester-united-premier-league-match-report",
    "published": "2026-10-18T15:08:48Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "G\u00f3mez halfway-line wondergoal sparks Brighton\u2019s 5-0 thrashing of sorry Crystal Palace",
-   "standfirst": "At last, Fabian H\u00fcrzeler has the scalp that matters most to all Brighton fans and in humiliating fashion. Diego G\u00f3mez\u2019s breathtaking goal-of-the-season contender from the halfway line, \u00e0 la David Beckham, was the highlight of another hugely impressive performance from the Premier League\u2019s top scorers as they continued ",
-   "link": "https://www.theguardian.com/football/2026/oct/18/brighton-crystal-palace-premier-league-match-report",
-   "published": "2026-10-18T15:06:49Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Everything a struggle for Fernandes - Leeds v Man Utd ratings",
-   "standfirst": "Dominic Calvert-Lewin's second-half equaliser means Manchester United have now gone six games without a win for the first time since 2019 - find out who rated highest at Elland Road.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ckvg7v43x1xyo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T14:56:01Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Millwall defender Sturge signs long-term contract",
-   "standfirst": "Millwall hand a new long-term deal to Zak Sturge, who has become a mainstay at left-back in his time at the club.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cwq6n8m6jq27o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T13:11:11Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Premier League today: How to watch Nottingham Forest v Arsenal, TV channels & live stream",
-   "standfirst": "How will Nottingham Forest and Arsenal fare today? Here is what to know, including kick-off time, TV channels and live stream options While the true stakes of this season\u2019s Premier League title race won\u2019t be clear until the outcome of Manchester City\u2019s appeal against 114 breaches of financial rules is known, Arsenal ha",
-   "link": "https://www.theguardian.com/football/2026/oct/18/how-to-watch-premier-league-nottingham-forest-arsenal",
-   "published": "2026-10-18T10:30:57Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Stansfield is Blues' 'creative director' in new role",
-   "standfirst": "Final Score's Sam Fletcher on the impact Jay Stansfield is having as Birmingham's \"creative director\".",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cmz7xl4p41ezo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T10:08:22Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Injuries and fine margins against Derby",
-   "standfirst": "Final Score reporter John Bennett reflects on the fine margins that went against Derby in defeat by Stoke.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cqn8d134ryz4o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T10:06:47Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Albion fans will savour comeback win all week",
-   "standfirst": "Final Score reporter Charlotte Richardson reflects on West Brom's come-from-behind win over Blackburn.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ck4g18n0ylwxo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T10:03:48Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Martinez breaks jaw in Chelsea win at Everton",
-   "standfirst": "Chelsea goalkeeper Emiliano Martinez says he will be back \"in a few weeks\" after breaking his jaw in a collision with Jarrad Branthwaite.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cked3vl198eyo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T09:42:10Z"
   }
  ]
 }
