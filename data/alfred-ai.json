@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T12:40:04-0500",
+ "generated": "2026-10-19T18:40:03-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -8,64 +8,64 @@
  "top_lines": [
   {
    "plan": "Egan -> Castagne",
-   "net": 79.78,
-   "raw": 79.78,
+   "net": 79.84,
+   "raw": 79.84,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.28
   },
   {
    "plan": "Ajayi -> Castagne",
-   "net": 79.78,
-   "raw": 79.78,
+   "net": 79.84,
+   "raw": 79.84,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.28
   },
   {
    "plan": "HOLD \u2014 no transfer",
-   "net": 79.5,
-   "raw": 79.5,
+   "net": 79.56,
+   "raw": 79.56,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Kayode",
-   "net": 79.5,
-   "raw": 79.5,
+   "net": 79.56,
+   "raw": 79.56,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Justin",
-   "net": 79.5,
-   "raw": 79.5,
+   "net": 79.56,
+   "raw": 79.56,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Konsa",
-   "net": 79.5,
-   "raw": 79.5,
+   "net": 79.56,
+   "raw": 79.56,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Jacquet",
-   "net": 79.5,
-   "raw": 79.5,
+   "net": 79.56,
+   "raw": 79.56,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Affengruber",
-   "net": 79.5,
-   "raw": 79.5,
+   "net": 79.56,
+   "raw": 79.56,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
@@ -101,7 +101,7 @@
     "diff": 4,
     "risk": 0,
     "total": 43.6,
-    "price": 5.2,
+    "price": 5.3,
     "status": "a"
    },
    {
@@ -185,7 +185,7 @@
     "diff": 4,
     "risk": 0,
     "total": 23.96,
-    "price": 6.1,
+    "price": 6.2,
     "status": "a"
    },
    {
@@ -199,7 +199,7 @@
     "diff": 3,
     "risk": 1,
     "total": 22.84,
-    "price": 7.9,
+    "price": 8.0,
     "status": "a"
    },
    {
