@@ -1,20 +1,8 @@
 {
- "generated": "2026-10-18 18:00:20",
+ "generated": "2026-10-19 08:00:13",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-15",
-   "ts": "2026-10-15 18:00:09",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Brobbey (SUN, 5% owned): now available"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-16",
    "ts": "2026-10-16 08:00:08",
@@ -118,6 +106,20 @@
    ],
    "player_changes": [
     "Pedro Porro (TOT, 5% owned): Hamstring injury - Expected back 24 Oct"
+   ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-19",
+   "ts": "2026-10-19 08:00:04",
+   "new_headlines": 13,
+   "key": [
+    "[BHA] 'Why not?' - are 'breathtaking' Brighton in title race?",
+    "[BHA/MUN] Free-scoring Brighton & Man Utd settle for a point"
+   ],
+   "player_changes": [
+    "Semenyo (MCI, 14% owned): Knee injury - Unknown return date",
+    "Brobbey (SUN, 6% owned): Hamstring injury - 75% chance of playing"
    ],
    "unreachable": []
   }
