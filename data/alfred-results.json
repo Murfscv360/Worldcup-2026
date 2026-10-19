@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T16:30:14-0500",
+ "generated": "2026-10-19T17:00:15-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -2338,6 +2338,19 @@
    "team2": "Arsenal FC",
    "ft": [
     0,
+    1
+   ],
+   "gw": 7,
+   "source": "fantasy.premierleague.com fixtures",
+   "provisional": true
+  },
+  {
+   "comp": "epl",
+   "date": "2026-10-19",
+   "team1": "Tottenham Hotspur FC",
+   "team2": "Coventry City FC",
+   "ft": [
+    3,
     1
    ],
    "gw": 7,
