@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T08:15:05-0500",
+ "generated": "2026-10-19T08:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -590,6 +590,14 @@
   },
   {
    "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Ex-West Brom & Stoke striker Berahino retires at 33",
+   "standfirst": "Saido Berahino, who cost Stoke City \u00a312m when they signed him from West Bromwich Albion in January 2017, retires from football at 33.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqrkyzgre7neo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T12:51:44Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "epl",
    "title": "Morgan Gibbs-White fined after his car ran red light",
    "standfirst": "The midfielder failed to respond to two police letters asking whether he was driving at the time of the offence.",
@@ -811,14 +819,6 @@
    "standfirst": "Brighton head coach Fabian Hurzeler's post-match reaction to their 5-0 win against Crystal Palace in the Premier League.",
    "link": "https://www.bbc.co.uk/sport/football/videos/ck79pq99y8g5o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T15:36:23Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Leeds were dominant against Man Utd - Farke",
-   "standfirst": "Daniel Farke says he is pleased with his Leeds side after a \"dominant\" performance against Manchester United during their 1-1 draw at Elland Road.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cx30e70015nzo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T15:34:21Z"
   }
  ]
 }
