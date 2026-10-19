@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T17:45:06-0500",
+ "generated": "2026-10-19T18:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -411,14 +411,6 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
-     "title": "Sage feels 'shame' at Palace thrashing with future in doubt",
-     "standfirst": "Crystal Palace manage Pierre Sage says he feels \"shame\" at the Eagles' performance during their 5-0 thrashing by Brighton and does not know if he will be given time to save his job.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cq1kdzp093jwo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T19:51:22Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
      "title": "Gomez scores extraordinary goal as Brighton put five past Palace",
      "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
      "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
@@ -571,6 +563,14 @@
     {
      "source": "BBC Sport",
      "comp": "epl",
+     "title": "Maddison's magic moment for Spurs - 18 months in the making",
+     "standfirst": "On his first start since May 2025, James Maddison provided the moment of magic Tottenham were waiting for in their 3-1 victory against Coventry, writes Phil McNulty.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cwz0v8le7y3eo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T22:35:55Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
      "title": "Spurs 'lack confidence' but we are a good team - De Zerbi",
      "standfirst": "Tottenham Hotspur head coach Roberto de Zerbi hails the spirit and attitude of his side following their first Premier League win of the season, as they beat Coventry City.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cqvgrn518d6jo?at_medium=RSS&at_campaign=rss",
@@ -607,19 +607,27 @@
      "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many Beyonc\u00e9 gigs during that time, but Spurs are finally singing a happier tune aft",
      "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
      "published": "2026-10-19T21:05:46Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Maddison shines on return - Tottenham v Coventry ratings",
-     "standfirst": "How Spurs and Coventry City's players rated following their Premier League match.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/crx23ndd337wo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-19T21:05:28Z"
     }
    ]
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Who has made Troy's Premier League team of the week?",
+   "standfirst": "After every round of Premier League matches this season, Troy Deeney gives us his team of the week. Do you agree with his choices?",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqgm0zy4d23po?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T23:22:24Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Maddison's magic moment for Spurs - 18 months in the making",
+   "standfirst": "On his first start since May 2025, James Maddison provided the moment of magic Tottenham were waiting for in their 3-1 victory against Coventry, writes Phil McNulty.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cwz0v8le7y3eo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T22:35:55Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -843,22 +851,6 @@
    "standfirst": "Noni Madueke may not have the role he wants at Arsenal but his winning goal against Nottingham Forest showed why he is one of Mikel Arteta's valued players.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c3qjnyw8qe4do?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T19:55:41Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Sage feels 'shame' at Palace thrashing with future in doubt",
-   "standfirst": "Crystal Palace manage Pierre Sage says he feels \"shame\" at the Eagles' performance during their 5-0 thrashing by Brighton and does not know if he will be given time to save his job.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cq1kdzp093jwo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T19:51:22Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Bournemouth pick up first league victory with win over Sunderland",
-   "standfirst": "Bournemouth beat Sunderland 2-0 at the Vitality Stadium to pick up their first league victory of the season and move out of the relegation zone.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cme8rz8x6pw8o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:59:15Z"
   }
  ]
 }
