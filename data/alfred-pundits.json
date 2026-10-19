@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T07:45:07-0500",
+ "generated": "2026-10-19T08:15:05-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -337,6 +337,14 @@
    "team2": "Charlton Athletic FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "'Addicks as accommodating as ever'",
+     "standfirst": "Fan writer Paul Sullivan on Charlton's slide down the table after defeat by crisis club Watford.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/ckd7qy750nv8o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T13:09:27Z"
+    },
+    {
      "source": "Guardian",
      "comp": "championship",
      "title": "Championship roundup: West Ham go second; Norwich beaten again",
@@ -575,18 +583,26 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "'Addicks as accommodating as ever'",
+   "standfirst": "Fan writer Paul Sullivan on Charlton's slide down the table after defeat by crisis club Watford.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ckd7qy750nv8o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T13:09:27Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Morgan Gibbs-White fined after his car ran red light",
+   "standfirst": "The midfielder failed to respond to two police letters asking whether he was driving at the time of the offence.",
+   "link": "https://www.bbc.co.uk/news/articles/c6wyr3rrxnrxo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T12:49:39Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Pompey have shown strong mentality - Milovanovic",
    "standfirst": "Portsmouth striker Marko Milovanovic says his side have shown a strong mentality to win their past two league games.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cqlyerkpnw9ro?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T12:32:18Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Seagulls peck Palace on derby day and will a point silence the noise around Carrick? \u2013 Football Weekly",
-   "standfirst": "Max Rushden is joined by Jonathan Wilson , Mark Langdon and Dan Bardell to discuss the weekend\u2019s Premier League action Max Rushden is joined by Jonathan Wilson , Mark Langdon, and Dan Bardell to discuss the weekend\u2019s Premier League action. Rate, review, share on Apple Podcasts and join the conversation on email . Conti",
-   "link": "https://www.theguardian.com/football/audio/2026/oct/19/seagulls-peck-palace-on-derby-day-and-will-a-point-silence-the-noise-around-carrick-football-weekly",
-   "published": "2026-10-19T12:22:40Z"
   },
   {
    "source": "BBC Sport",
@@ -803,14 +819,6 @@
    "standfirst": "Daniel Farke says he is pleased with his Leeds side after a \"dominant\" performance against Manchester United during their 1-1 draw at Elland Road.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cx30e70015nzo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T15:34:21Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Leeds United 1-1 Manchester United: Premier League \u2013 as it happened",
-   "standfirst": "Leeds\u2019 Dominic Calvert-Lewin cancelled out a Bryan Mbeumo opener to end a turbulent week for the visitors \u26bd The Joy of Six: Leeds v Manchester United matches Daniel Farke , Leeds manager, is the next to speak to Sky Sports: We have to make sure we give them nothing. We want to make sure the ball belongs to us, to press",
-   "link": "https://www.theguardian.com/football/live/2026/oct/18/leeds-v-manchester-united-premier-league-live",
-   "published": "2026-10-18T15:25:09Z"
   }
  ]
 }
