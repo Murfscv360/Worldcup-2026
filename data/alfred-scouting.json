@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19 09:05:14",
+ "generated": "2026-10-19 12:05:15",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -43,19 +43,19 @@
      "yours": false
     },
     {
+     "name": "Emersonn",
+     "club": "IPS",
+     "pos": "FWD",
+     "score": 6.3,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "Delap",
      "club": "NFO",
      "pos": "FWD",
      "score": 6.2,
      "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Emersonn",
-     "club": "IPS",
-     "pos": "FWD",
-     "score": 6.0,
-     "side": "H",
      "yours": false
     }
    ],
