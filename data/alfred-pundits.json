@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T16:15:07-0500",
+ "generated": "2026-10-19T16:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -256,14 +256,6 @@
    "team1": "Newcastle United FC",
    "team2": "Aston Villa FC",
    "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Emery praises Manzambi's 'skills and intelligence'",
-     "standfirst": "Aston Villa manager Unai Emery reacts to his 100th Premier League win after victory against Newcastle at St James Park.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cw80zpzx3vxjo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:29:21Z"
-    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -585,9 +577,25 @@
    "team2": "Coventry City FC",
    "reports": [
     {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Lampard 'proud' of Coventry performance in defeat to Spurs",
+     "standfirst": "Coventry City head coach Frank Lampard speaks on his pride in his side's performance, despite a loss away to struggling Tottenham Hotspur in the Premier League.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c32l4x1k28ero?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T21:41:21Z"
+    },
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Spurs beat Coventry to earn first league win of the season",
+     "standfirst": "Tottenham Hotspur record their first Premier League win of the season and move off the bottom of the table with a home victory over Coventry City.",
+     "link": "https://www.bbc.co.uk/sport/football/videos/c9x28pyg05vyo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T21:33:07Z"
+    },
+    {
      "source": "Guardian",
      "comp": "epl",
-     "title": "Tottenham v Coventry: Premier League \u2013 as it happened",
+     "title": "Tottenham beat Coventry to claim first Premier League win of season \u2013 as it happened",
      "standfirst": "The returning James Maddison scored a beauty, with Omar Marmoush and Ben Davies also on target as Spurs won in the league for the first time this season Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The abse",
      "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
      "published": "2026-10-19T21:08:31Z"
@@ -596,7 +604,7 @@
      "source": "Guardian",
      "comp": "epl",
      "title": "Davies ensures Spurs off the bottom after first win of season against Coventry",
-     "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many of the American pop star\u2019s gigs during that time, but Spurs are finally singing",
+     "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many Beyonc\u00e9 gigs during that time, but Spurs are finally singing a happier tune aft",
      "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
      "published": "2026-10-19T21:05:46Z"
     },
@@ -613,9 +621,25 @@
  ],
  "latest": [
   {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Lampard 'proud' of Coventry performance in defeat to Spurs",
+   "standfirst": "Coventry City head coach Frank Lampard speaks on his pride in his side's performance, despite a loss away to struggling Tottenham Hotspur in the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c32l4x1k28ero?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T21:41:21Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Spurs beat Coventry to earn first league win of the season",
+   "standfirst": "Tottenham Hotspur record their first Premier League win of the season and move off the bottom of the table with a home victory over Coventry City.",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c9x28pyg05vyo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T21:33:07Z"
+  },
+  {
    "source": "Guardian",
    "comp": "epl",
-   "title": "Tottenham v Coventry: Premier League \u2013 as it happened",
+   "title": "Tottenham beat Coventry to claim first Premier League win of season \u2013 as it happened",
    "standfirst": "The returning James Maddison scored a beauty, with Omar Marmoush and Ben Davies also on target as Spurs won in the league for the first time this season Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The abse",
    "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
    "published": "2026-10-19T21:08:31Z"
@@ -624,7 +648,7 @@
    "source": "Guardian",
    "comp": "epl",
    "title": "Davies ensures Spurs off the bottom after first win of season against Coventry",
-   "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many of the American pop star\u2019s gigs during that time, but Spurs are finally singing",
+   "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many Beyonc\u00e9 gigs during that time, but Spurs are finally singing a happier tune aft",
    "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
    "published": "2026-10-19T21:05:46Z"
   },
@@ -835,22 +859,6 @@
    "standfirst": "Dominic Calvert-Lewin earns a point for Leeds and extends Manchester United's winless run to six games.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cw4g1dgr2v93o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T18:59:10Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Madueke's strike enough as Arsenal pick up narrow win over Forest",
-   "standfirst": "Noni Madueke comes of the bench to score the winning goal as Arsenal beat Nottingham Forest 1-0 at The City Ground.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cm70px0l7p7no?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:59:06Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Gomez scores extraordinary goal as Brighton put five past Palace",
-   "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T18:59:02Z"
   }
  ]
 }
