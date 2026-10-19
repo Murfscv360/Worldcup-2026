@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18 18:15:22",
+ "generated": "2026-10-19 09:15:08",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -11,7 +11,7 @@
  "captain": "De Cuyper",
  "vice": "Jo\u00e3o Pedro",
  "captain_model": "De Cuyper",
- "vice_model": "Haaland",
+ "vice_model": "Jo\u00e3o Pedro",
  "captain_override_reason": "John GW7 Pick Team screenshot 2026-10-15 09:50",
  "captain_current": "De Cuyper",
  "vice_current": "Jo\u00e3o Pedro",
@@ -20,15 +20,15 @@
    "name": "Raya",
    "pos": "GKP",
    "club": "ARS",
-   "score": 17.2,
-   "ep": 4.3
+   "score": 24.0,
+   "ep": 6.0
   },
   {
    "name": "De Cuyper",
    "pos": "DEF",
    "club": "BHA",
-   "score": 37.6,
-   "ep": 9.0
+   "score": 43.6,
+   "ep": 10.5
   },
   {
    "name": "Bogle",
@@ -45,13 +45,6 @@
    "ep": 2.7
   },
   {
-   "name": "Gro\u00df",
-   "pos": "MID",
-   "club": "BHA",
-   "score": 35.16,
-   "ep": 8.3
-  },
-  {
    "name": "Cherki",
    "pos": "MID",
    "club": "MCI",
@@ -66,6 +59,13 @@
    "ep": 5.5
   },
   {
+   "name": "Gro\u00df",
+   "pos": "MID",
+   "club": "BHA",
+   "score": 23.96,
+   "ep": 5.5
+  },
+  {
    "name": "Palmer",
    "pos": "MID",
    "club": "CHE",
@@ -73,25 +73,25 @@
    "ep": 5.0
   },
   {
-   "name": "Haaland",
-   "pos": "FWD",
-   "club": "MCI",
-   "score": 37.0,
-   "ep": 8.3
-  },
-  {
-   "name": "Kostoulas",
-   "pos": "FWD",
-   "club": "BHA",
-   "score": 32.24,
-   "ep": 7.7
-  },
-  {
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
    "score": 30.32,
    "ep": 7.0
+  },
+  {
+   "name": "Kostoulas",
+   "pos": "FWD",
+   "club": "BHA",
+   "score": 27.44,
+   "ep": 6.5
+  },
+  {
+   "name": "Haaland",
+   "pos": "FWD",
+   "club": "MCI",
+   "score": 24.66,
+   "ep": 6.2
   }
  ],
  "bench": [
@@ -227,8 +227,8 @@
   {
    "name": "Haaland",
    "club": "MCI",
-   "status": "a",
-   "available": true
+   "status": "d",
+   "available": false
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -261,7 +261,7 @@
    "available": true
   }
  ],
- "all_available": true,
+ "all_available": false,
  "fixtures": [
   {
    "home": "TOT",
@@ -531,20 +531,20 @@
    ],
    "watch": [
     {
-     "name": "Haaland",
-     "club": "MCI",
-     "pos": "FWD",
-     "score": 16.2,
-     "side": "H",
-     "yours": true
-    },
-    {
      "name": "Foden",
      "club": "MCI",
      "pos": "MID",
      "score": 12.6,
      "side": "H",
      "yours": false
+    },
+    {
+     "name": "Cherki",
+     "club": "MCI",
+     "pos": "MID",
+     "score": 10.6,
+     "side": "H",
+     "yours": true
     },
     {
      "name": "Flemming",
@@ -558,7 +558,7 @@
      "name": "Emersonn",
      "club": "IPS",
      "pos": "FWD",
-     "score": 6.0,
+     "score": 6.3,
      "side": "A",
      "yours": false
     }
@@ -653,14 +653,6 @@
    ],
    "watch": [
     {
-     "name": "Brobbey",
-     "club": "SUN",
-     "pos": "FWD",
-     "score": 8.2,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Tavernier",
      "club": "BOU",
      "pos": "MID",
@@ -681,6 +673,14 @@
      "club": "SUN",
      "pos": "MID",
      "score": 6.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Brobbey",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 4.5,
      "side": "A",
      "yours": false
     }
@@ -786,7 +786,7 @@
      "name": "Mbeumo",
      "club": "MUN",
      "pos": "MID",
-     "score": 8.7,
+     "score": 8.8,
      "side": "A",
      "yours": false
     },
@@ -847,7 +847,7 @@
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
-     "score": 7.3,
+     "score": 7.4,
      "side": "A",
      "yours": false
     },
@@ -855,7 +855,7 @@
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
-     "score": 6.7,
+     "score": 6.8,
      "side": "H",
      "yours": false
     },
@@ -863,7 +863,7 @@
      "name": "Delap",
      "club": "NFO",
      "pos": "FWD",
-     "score": 5.9,
+     "score": 6.2,
      "side": "H",
      "yours": false
     }
