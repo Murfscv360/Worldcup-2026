@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T11:15:06-0500",
+ "generated": "2026-10-19T11:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -40,6 +40,14 @@
    "team1": "Brentford FC",
    "team2": "Liverpool FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "epl",
+     "title": "Brentford contact police after rugby ball kicked into stadium during game",
+     "standfirst": "Brentford say they are working with the police following a \"dangerous\" incident in which a rugby ball was kicked from a height towards the pitch during their Premier League game with Liverpool.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cm4g17d11zvwo?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-19T16:26:44Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -248,14 +256,6 @@
    "team1": "Newcastle United FC",
    "team2": "Aston Villa FC",
    "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Villa's Manzambi shows Newcastle what they missed out on",
-     "standfirst": "Aston Villa are a side back in form, with Johan Manzambi scoring the winner against a Newcastle team he turned down to move to Villa Park.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/ck054652mv07o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T21:18:26Z"
-    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -582,6 +582,30 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Guehi among players not to take knee - is it time to 'move campaign along'?",
+   "standfirst": "Premier League clubs took the knee for the first time this season, but six players chose to remain standing.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cxyvrndz49v7o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T16:41:54Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Araujo the stopgap solution fixing Liverpool's problems",
+   "standfirst": "Ronald Araujo has impressed since arriving at Liverpool from Barcelona. Could he prove a longer-term solution?",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ck8dz7pp4089o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T16:29:34Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Brentford contact police after rugby ball kicked into stadium during game",
+   "standfirst": "Brentford say they are working with the police following a \"dangerous\" incident in which a rugby ball was kicked from a height towards the pitch during their Premier League game with Liverpool.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cm4g17d11zvwo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T16:26:44Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "championship",
    "title": "Saints can't win every game but aim to - Peretz",
    "standfirst": "Goalkeeper Daniel Peretz says that Southampton must start turning draws into wins if they are to achieve automatic promotion.",
@@ -795,30 +819,6 @@
    "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It was a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their own stadium this season. Arsenal, meanwhile, had drawn 0-0 on their previous",
    "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
    "published": "2026-10-18T17:39:57Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Mbeumo offers Carrick solace as Man Utd winless run goes on",
-   "standfirst": "Michael Carrick said he had his headphones on this week so didn't hear the noise around Manchester United, but a 1-1 draw at Leeds means it is six games without a win.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c699zmgmx9vzo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T17:24:45Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Marco Rose post match interview - Bournemouth v Sunderland",
-   "standfirst": "Bournemouth head coach Marco Rose reacts to their first win of the season as they Sunderland in the Premier League.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cj75pr55kyg7o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T15:58:33Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Sunderland performance at Bournemouth 'very painful' - Le Bris",
-   "standfirst": "Sunderland manager Regis Le Bris describes his side's performance as \"very painful\" after they were beaten 2-0 by Bournemouth at the Vitality Stadium.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/cmwy4qyy2gedo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T15:56:31Z"
   }
  ]
 }
