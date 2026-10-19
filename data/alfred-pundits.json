@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T12:15:08-0500",
+ "generated": "2026-10-19T12:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -582,6 +582,22 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "championship",
+   "title": "QPR's Mbengue to have surgery after ACL injury",
+   "standfirst": "QPR confirm defender Amadou Mbengue suffered an anterior cruciate ligament injury in the win over Derby last Tuesday.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c35ynew1lrppo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-19T17:34:51Z"
+  },
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Tottenham v Coventry: Premier League \u2013 live",
+   "standfirst": "\u26bd Live updates from the 8pm BST kick-off \u26bd Get in touch! Share your thoughts with Daniel Sport\u2019s ability to ape and shape the world means it teaches us many things, often in a friendlier environment than real life. It is, for example, better to learn the Australian states and their capitals during an Ashes series than ",
+   "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
+   "published": "2026-10-19T17:30:02Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "epl",
    "title": "Guehi among players not to take knee - is it time to 'move campaign along'?",
    "standfirst": "Premier League clubs took the knee for the first time this season, but six players chose to remain standing.",
@@ -803,22 +819,6 @@
    "standfirst": "Nottingham Forest boss Oliver Glasner calls their defeat by Arsenal \"unfair\" after they were narrowly beaten 1-0 at The City Ground.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cmx28422y8gno?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-18T18:16:56Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Nottingham Forest 0-1 Arsenal: Premier League \u2013 as it happened",
-   "standfirst": "A late, deflected winner from Noni Madueke gave Arsenal a vital win in a low-quality game, Forest then missing two good chances to equalise Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying",
-   "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
-   "published": "2026-10-18T17:41:09Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Madueke breaks Nottingham Forest\u2019s resistance as dogged Arsenal edge to victory",
-   "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It was a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their own stadium this season. Arsenal, meanwhile, had drawn 0-0 on their previous",
-   "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
-   "published": "2026-10-18T17:39:57Z"
   }
  ]
 }
