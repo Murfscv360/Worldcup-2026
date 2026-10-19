@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19 12:05:15",
+ "generated": "2026-10-19 15:05:13",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -213,7 +213,7 @@
      "name": "Rudoni",
      "club": "COV",
      "pos": "MID",
-     "score": 7.9,
+     "score": 7.1,
      "side": "H",
      "yours": false
     },
@@ -298,7 +298,7 @@
      "name": "Solanke",
      "club": "TOT",
      "pos": "FWD",
-     "score": 5.5,
+     "score": 5.4,
      "side": "A",
      "yours": false
     }
