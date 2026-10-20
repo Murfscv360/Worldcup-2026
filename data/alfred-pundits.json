@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T02:45:07-0500",
+ "generated": "2026-10-20T03:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -103,22 +103,6 @@
      "standfirst": "Sheffield United manager Chris Wilder after the 1-0 win at Bristol City.",
      "link": "https://www.bbc.co.uk/sounds/play/p0ph8h5j?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T17:00:00Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "championship",
-   "team1": "Derby County FC",
-   "team2": "Stoke City FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Graham and Stoke pass more tests with win at Derby",
-     "standfirst": "BBC Radio Stoke's Mark Elliott says Luke Graham and Stoke City continue to improve after picking up another win at Derby.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/c8g47r6gwzk2o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-19T08:02:44Z"
     }
    ]
   },
@@ -352,6 +336,14 @@
    "team1": "West Bromwich Albion FC",
    "team2": "Blackburn Rovers FC",
    "reports": [
+    {
+     "source": "BBC Sport",
+     "comp": "championship",
+     "title": "Rovers loss to West Brom far from a disaster",
+     "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
+     "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
+     "published": "2026-10-20T07:58:36Z"
+    },
     {
      "source": "BBC Sport",
      "comp": "championship",
@@ -614,6 +606,14 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Rovers loss to West Brom far from a disaster",
+   "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T07:58:36Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "epl",
    "title": "Who has made Troy's Premier League team of the week?",
    "standfirst": "After every round of Premier League matches this season, Troy Deeney gives us his team of the week. Do you agree with his choices?",
@@ -827,14 +827,6 @@
    "standfirst": "BBC Radio 5 Live reporter Adam Cottier on the evolution of Birmingham City under Chris Davies this season.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c8kgel7dn241o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T08:26:03Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Graham and Stoke pass more tests with win at Derby",
-   "standfirst": "BBC Radio Stoke's Mark Elliott says Luke Graham and Stoke City continue to improve after picking up another win at Derby.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c8g47r6gwzk2o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T08:02:44Z"
   },
   {
    "source": "Guardian",
