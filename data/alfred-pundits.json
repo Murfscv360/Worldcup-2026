@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T09:15:08-0500",
+ "generated": "2026-10-20T09:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -599,6 +599,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Former Norwich and Finland striker Pukki to retire",
+   "standfirst": "Former Norwich City and Finland striker Teemu Pukki announces his retirement from football at the age of 36.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqvg0vjde20mo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T14:37:41Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Millar says Birmingham move has given him freedom",
    "standfirst": "In-form winger Liam Millar says Birmingham City boss Chris Davies is giving him the perfect platform to express himself.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c8n5vq166pk4o?at_medium=RSS&at_campaign=rss",
@@ -827,14 +835,6 @@
    "standfirst": "BBC Final Score reporter Laura Kenyon on the impact of teenage Man City loanee Divine Mukasa at West Ham this season.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c5vgjvy994d0o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T08:32:37Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Premier League: 10 talking points from the weekend\u2019s action",
-   "standfirst": "Florian Wirtz takes on more responsibility in Liverpool\u2019s attack while Pierre Sage is under pressure at Crystal Palace Dominic Calvert-Lewin\u2019s physicality overpowering Bryan Mbeumo in Manchester United\u2019s area at a corner grabbed him a fifth goal in 10 outings for Leeds: a pretty respectable ratio. \u201cI just tried to caus",
-   "link": "https://www.theguardian.com/football/2026/oct/19/premier-league-10-talking-points-from-the-weekends-action",
-   "published": "2026-10-19T07:00:22Z"
   }
  ]
 }
