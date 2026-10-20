@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20 06:15:18",
+ "generated": "2026-10-20 09:15:10",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -31,25 +31,18 @@
    "ep": 10.5
   },
   {
-   "name": "Bogle",
+   "name": "Egan",
    "pos": "DEF",
-   "club": "LEE",
-   "score": 12.16,
-   "ep": 2.7
+   "club": "HUL",
+   "score": 10.12,
+   "ep": 2.5
   },
   {
    "name": "Gvardiol",
    "pos": "DEF",
    "club": "MCI",
-   "score": 11.68,
-   "ep": 2.7
-  },
-  {
-   "name": "Cherki",
-   "pos": "MID",
-   "club": "MCI",
-   "score": 26.76,
-   "ep": 6.0
+   "score": 8.88,
+   "ep": 2.0
   },
   {
    "name": "Rogers",
@@ -66,6 +59,13 @@
    "ep": 5.5
   },
   {
+   "name": "Cherki",
+   "pos": "MID",
+   "club": "MCI",
+   "score": 22.76,
+   "ep": 5.0
+  },
+  {
    "name": "Palmer",
    "pos": "MID",
    "club": "CHE",
@@ -80,18 +80,18 @@
    "ep": 7.0
   },
   {
+   "name": "Haaland",
+   "pos": "FWD",
+   "club": "MCI",
+   "score": 28.56,
+   "ep": 7.1
+  },
+  {
    "name": "Kostoulas",
    "pos": "FWD",
    "club": "BHA",
    "score": 27.44,
    "ep": 6.5
-  },
-  {
-   "name": "Haaland",
-   "pos": "FWD",
-   "club": "MCI",
-   "score": 24.66,
-   "ep": 6.2
   }
  ],
  "bench": [
@@ -102,9 +102,9 @@
    "order": 0
   },
   {
-   "name": "Egan",
+   "name": "Bogle",
    "pos": "DEF",
-   "club": "HUL",
+   "club": "LEE",
    "order": 1
   },
   {
@@ -124,6 +124,10 @@
   {
    "in": "Raya",
    "out": "Tzolakis"
+  },
+  {
+   "in": "Egan",
+   "out": "Bogle"
   }
  ],
  "transfers_recommended": [],
