@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20 12:25:13",
+ "generated": "2026-10-20 15:15:10",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -11,7 +11,7 @@
  "captain": "De Cuyper",
  "vice": "Jo\u00e3o Pedro",
  "captain_model": "De Cuyper",
- "vice_model": "Jo\u00e3o Pedro",
+ "vice_model": "Haaland",
  "captain_override_reason": "John GW7 Pick Team screenshot 2026-10-15 09:50",
  "captain_current": "De Cuyper",
  "vice_current": "Jo\u00e3o Pedro",
@@ -73,18 +73,18 @@
    "ep": 5.0
   },
   {
+   "name": "Haaland",
+   "pos": "FWD",
+   "club": "MCI",
+   "score": 41.76,
+   "ep": 9.5
+  },
+  {
    "name": "Jo\u00e3o Pedro",
    "pos": "FWD",
    "club": "CHE",
    "score": 30.32,
    "ep": 7.0
-  },
-  {
-   "name": "Haaland",
-   "pos": "FWD",
-   "club": "MCI",
-   "score": 28.56,
-   "ep": 7.1
   },
   {
    "name": "Kostoulas",
@@ -231,8 +231,8 @@
   {
    "name": "Haaland",
    "club": "MCI",
-   "status": "d",
-   "available": false
+   "status": "a",
+   "available": true
   },
   {
    "name": "Jo\u00e3o Pedro",
@@ -265,7 +265,7 @@
    "available": true
   }
  ],
- "all_available": false,
+ "all_available": true,
  "fixtures": [
   {
    "home": "TOT",
@@ -535,18 +535,18 @@
    ],
    "watch": [
     {
+     "name": "Haaland",
+     "club": "MCI",
+     "pos": "FWD",
+     "score": 16.3,
+     "side": "H",
+     "yours": true
+    },
+    {
      "name": "Foden",
      "club": "MCI",
      "pos": "MID",
      "score": 12.9,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Doku",
-     "club": "MCI",
-     "pos": "MID",
-     "score": 11.0,
      "side": "H",
      "yours": false
     },
