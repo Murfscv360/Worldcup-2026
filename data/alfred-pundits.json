@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T11:45:09-0500",
+ "generated": "2026-10-20T12:15:10-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -104,14 +104,6 @@
    "team1": "Everton FC",
    "team2": "Chelsea FC",
    "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Martinez breaks jaw in Chelsea win at Everton",
-     "standfirst": "Chelsea goalkeeper Emiliano Martinez says he will be back \"in a few weeks\" after breaking his jaw in a collision with Jarrad Branthwaite.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cked3vl198eyo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T09:42:10Z"
-    },
     {
      "source": "BBC Sport",
      "comp": "epl",
@@ -598,6 +590,14 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Webb backs VAR over Botman challenge on Jackson",
+   "standfirst": "Premier League referees' chief Howard Webb says Sven Botman's challenge on Nicolas Jackson was a \"high-end reckless challenge\" but backed the video assistant referee's decision not to intervene for a red card.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cm3vqz1de9lro?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T16:56:53Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "championship",
    "title": "In-form Stoke not looking back says Graham",
    "standfirst": "Stoke City defender Luke Graham says the in-form Potters are \"not looking back\" after turning their form around.",
@@ -827,14 +827,6 @@
    "standfirst": "Derby County defender Ryan Nyambe says a lot is going wrong for the club as they fall to another defeat.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm5ynl162px3o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T11:55:00Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Baggies have belief in squad depth - Price",
-   "standfirst": "West Bromwich Albion midfielder Isaac Price pinpoints the Baggies' squad strength after a second straight winner from a substitute.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c94g1zmg3x23o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T11:21:28Z"
   }
  ]
 }
