@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T15:30:16-0500",
+ "generated": "2026-10-20T16:00:15-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -1443,6 +1443,17 @@
    "team2": "Preston North End FC",
    "ft": [
     4,
+    1
+   ],
+   "source": "ESPN scoreboard (eng.2)"
+  },
+  {
+   "comp": "championship",
+   "date": "2026-10-20",
+   "team1": "Wolverhampton Wanderers FC",
+   "team2": "Portsmouth FC",
+   "ft": [
+    1,
     1
    ],
    "source": "ESPN scoreboard (eng.2)"
