@@ -1,18 +1,8 @@
 {
- "generated": "2026-10-20 08:00:14",
+ "generated": "2026-10-20 18:00:14",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-17",
-   "ts": "2026-10-17 08:00:07",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-17",
    "ts": "2026-10-17 18:00:05",
@@ -117,6 +107,22 @@
    "new_headlines": 8,
    "key": [],
    "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-20",
+   "ts": "2026-10-20 18:00:07",
+   "new_headlines": 16,
+   "key": [
+    "[MCI] No Haaland, no problem - can Foden be Man City's alternative goalscorer?",
+    "[MCI] Audit regulator looking into Manchester City accounting",
+    "[ARS] Arsenal criticism comes from very small minority - Arteta",
+    "[LIV/MCI] Liverpool, Man City & PSG win on record-breaking night"
+   ],
+   "player_changes": [
+    "Haaland (MCI, YOUR PLAYER): now available",
+    "Shaw (MUN, 6% owned): Unspecified injury - Unknown return date"
+   ],
    "unreachable": []
   }
  ],
