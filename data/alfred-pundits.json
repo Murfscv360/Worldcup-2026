@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T03:15:08-0500",
+ "generated": "2026-10-20T03:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -607,6 +607,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Time to enjoy Blues' purple patch",
+   "standfirst": "Birmingham City fan Kym Smith puts aside any pessimism by enjoying Blues' current good form.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6vg7rvgx0xro?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T08:09:22Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Rovers loss to West Brom far from a disaster",
    "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
@@ -819,14 +827,6 @@
    "standfirst": "BBC Final Score reporter Laura Kenyon on the impact of teenage Man City loanee Divine Mukasa at West Ham this season.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c5vgjvy994d0o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T08:32:37Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "You can feel the optimism inside St Andrew's",
-   "standfirst": "BBC Radio 5 Live reporter Adam Cottier on the evolution of Birmingham City under Chris Davies this season.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c8kgel7dn241o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T08:26:03Z"
   },
   {
    "source": "Guardian",
