@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T16:45:08-0500",
+ "generated": "2026-10-20T17:15:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,22 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-16",
-   "comp": "championship",
-   "team1": "Burnley FC",
-   "team2": "Wolverhampton Wanderers FC",
-   "reports": [
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Wolves extend Burnley\u2019s home woes to a full year as Vardy strikes in vain",
-     "standfirst": "The Wolves substitute Tawanda Chirewa struck within seconds of coming off the bench as C\u00e9sar Peixoto\u2019s side came from behind to extend Burnley\u2019s home misery at Turf Moor to 21 games without a win. Chirewa had just replaced Sean Neave in the 72nd minute when Mateus Man\u00e9 pounced on Igor Julio\u2019s heavy touch and sent the 2",
-     "link": "https://www.theguardian.com/football/2026/oct/16/wolves-chirewa-extends-burnleys-home-woes-as-vardys-strike-is-in-vain",
-     "published": "2026-10-16T21:45:35Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-17",
    "comp": "epl",
@@ -583,6 +567,14 @@
   {
    "source": "BBC Sport",
    "comp": "epl",
+   "title": "Audit regulator looking into Manchester City accounting",
+   "standfirst": "No formal investigation has started, but the regulator is making inquiries into the case.",
+   "link": "https://www.bbc.co.uk/news/articles/cm93z1xlgqxqo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T20:56:53Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
    "title": "Webb backs VAR over Botman challenge on Jackson",
    "standfirst": "Premier League referees' chief Howard Webb says Sven Botman's challenge on Nicolas Jackson was a \"high-end reckless challenge\" but backed the video assistant referee's decision not to intervene for a red card.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm3vqz1de9lro?at_medium=RSS&at_campaign=rss",
@@ -811,14 +803,6 @@
    "standfirst": "Despite wearing the number nine shirt, Tommy Conway is adjusting to his new role as Middlesbrough's left winger.",
    "link": "https://www.bbc.co.uk/sport/football/articles/ckn9r2018y14o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T12:09:55Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "A lot going wrong for Derby - Nyambe",
-   "standfirst": "Derby County defender Ryan Nyambe says a lot is going wrong for the club as they fall to another defeat.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm5ynl162px3o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T11:55:00Z"
   }
  ]
 }
