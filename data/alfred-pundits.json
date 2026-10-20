@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T18:15:08-0500",
+ "generated": "2026-10-20T18:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -103,14 +103,6 @@
      "standfirst": "Pedro Neto\u2019s goals bookended the second half and earned Chelsea a rare victory at Everton Everton kick off, and launch it long. Martinez claims the punt. Before the kick-off, everyone takes the knee. It\u2019s the first of two weeks of the Premier League\u2019s No Room For Racism campaign. Challenge it, report it, change it. Con",
      "link": "https://www.theguardian.com/football/live/2026/oct/17/everton-v-chelsea-premier-league-live",
      "published": "2026-10-17T14:13:31Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Neto double at Everton leads Chelsea to victory marred by Mart\u00ednez head injury",
-     "standfirst": "Chelsea have returned from the international break with a spirit, authority and resilience that augurs well for Xabi Alonso. Their troubles at Everton, not a happy hunting ground in recent years, were confined to the seven minutes Emi Mart\u00ednez needed treatment for a head injury as Pedro Neto\u2019s double delivered a deserv",
-     "link": "https://www.theguardian.com/football/2026/oct/17/everton-chelsea-premier-league-match-report",
-     "published": "2026-10-17T13:53:13Z"
     }
    ]
   },
@@ -565,6 +557,14 @@
  ],
  "latest": [
   {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Football regulator has \u2018absolute power\u2019 to force Manchester City sale if verdict upheld",
+   "standfirst": "Chair David Kogan insists regulator has power to act City have appealed against Premier League\u2019s charges The Independent Football Regulator (IFR) will have \u201cabsolute power\u201d to force Manchester City\u2019s owners to sell if they are ultimately found to have run the club improperly, the watchdog\u2019s chair has said. Manchester C",
+   "link": "https://www.theguardian.com/football/2026/oct/21/manchester-city-david-kogan-independent-football-regulator",
+   "published": "2026-10-20T23:34:37Z"
+  },
+  {
    "source": "BBC Sport",
    "comp": "epl",
    "title": "Audit regulator looking into Manchester City accounting",
@@ -795,14 +795,6 @@
    "standfirst": "Portsmouth striker Marko Milovanovic says his side have shown a strong mentality to win their past two league games.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cqlyerkpnw9ro?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T12:32:18Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Boro's Conway happy to learn new role as winger",
-   "standfirst": "Despite wearing the number nine shirt, Tommy Conway is adjusting to his new role as Middlesbrough's left winger.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ckn9r2018y14o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T12:09:55Z"
   }
  ]
 }
