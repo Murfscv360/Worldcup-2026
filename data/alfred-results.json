@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T03:30:15-0500",
+ "generated": "2026-10-20T04:00:14-0500",
  "by": "Alfred (fpl_results.py)",
  "sources": {
   "epl": "fantasy.premierleague.com/api/fixtures (finished only)",
@@ -2238,7 +2238,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2251,7 +2251,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2264,7 +2264,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2277,7 +2277,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2290,7 +2290,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2303,7 +2303,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2316,7 +2316,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2329,7 +2329,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2342,7 +2342,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   },
   {
    "comp": "epl",
@@ -2355,7 +2355,7 @@
    ],
    "gw": 7,
    "source": "fantasy.premierleague.com fixtures",
-   "provisional": true
+   "provisional": false
   }
  ],
  "unmapped_clubs": []
