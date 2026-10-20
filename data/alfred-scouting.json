@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20 12:25:38",
+ "generated": "2026-10-20 15:05:15",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -88,18 +88,18 @@
    ],
    "watch": [
     {
+     "name": "Haaland",
+     "club": "MCI",
+     "pos": "FWD",
+     "score": 16.3,
+     "side": "A",
+     "yours": true
+    },
+    {
      "name": "Foden",
      "club": "MCI",
      "pos": "MID",
      "score": 12.9,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Doku",
-     "club": "MCI",
-     "pos": "MID",
-     "score": 11.0,
      "side": "A",
      "yours": false
     },
