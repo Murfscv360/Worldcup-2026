@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T00:40:05-0500",
+ "generated": "2026-10-20T06:40:04-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -8,64 +8,64 @@
  "top_lines": [
   {
    "plan": "Egan -> Castagne",
-   "net": 79.84,
-   "raw": 79.84,
+   "net": 80.5,
+   "raw": 80.5,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.28
   },
   {
    "plan": "Ajayi -> Castagne",
-   "net": 79.84,
-   "raw": 79.84,
+   "net": 80.5,
+   "raw": 80.5,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.28
   },
   {
    "plan": "HOLD \u2014 no transfer",
-   "net": 79.56,
-   "raw": 79.56,
+   "net": 80.22,
+   "raw": 80.22,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Kayode",
-   "net": 79.56,
-   "raw": 79.56,
+   "net": 80.22,
+   "raw": 80.22,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Justin",
-   "net": 79.56,
-   "raw": 79.56,
+   "net": 80.22,
+   "raw": 80.22,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Konsa",
-   "net": 79.56,
-   "raw": 79.56,
+   "net": 80.22,
+   "raw": 80.22,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Jacquet",
-   "net": 79.56,
-   "raw": 79.56,
+   "net": 80.22,
+   "raw": 80.22,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
   },
   {
    "plan": "Egan -> Affengruber",
-   "net": 79.56,
-   "raw": 79.56,
+   "net": 80.22,
+   "raw": 80.22,
    "hit": 0,
    "captain": "Cherki",
    "vs_hold": 0.0
