@@ -1,10 +1,40 @@
 {
- "generated": "2026-10-18 06:30:13",
+ "generated": "2026-10-20 06:30:16",
  "tz": "America/Chicago",
  "season_fixtures": 380,
  "next_gw": 8,
  "horizon_gws": 6,
- "changes": [],
+ "changes": [
+  "RESCHEDULED: COV v IPS Wed 02 Dec 15:00 -> Tue 01 Dec 15:00",
+  "RESCHEDULED: CHE v CRY Wed 02 Dec 15:00 -> Wed 02 Dec 14:30",
+  "RESCHEDULED: HUL v NFO Wed 02 Dec 15:00 -> Wed 02 Dec 14:30",
+  "RESCHEDULED: LIV v SUN Wed 02 Dec 15:00 -> Wed 02 Dec 14:30",
+  "RESCHEDULED: MCI v LEE Wed 02 Dec 15:00 -> Wed 02 Dec 14:30",
+  "RESCHEDULED: AVL v EVE Wed 02 Dec 15:00 -> Wed 02 Dec 15:15",
+  "RESCHEDULED: BOU v BHA Wed 02 Dec 15:00 -> Wed 02 Dec 15:15",
+  "RESCHEDULED: BRE v ARS Wed 02 Dec 15:00 -> Wed 02 Dec 15:15",
+  "RESCHEDULED: NEW v MUN Wed 02 Dec 15:00 -> Wed 02 Dec 15:15",
+  "RESCHEDULED: TOT v FUL Wed 02 Dec 15:00 -> Thu 03 Dec 15:00",
+  "RESCHEDULED: CHE v LIV Sat 05 Dec 10:00 -> Sat 05 Dec 07:30",
+  "RESCHEDULED: NFO v BHA Sat 05 Dec 10:00 -> Sat 05 Dec 12:30",
+  "RESCHEDULED: BRE v MCI Sat 05 Dec 10:00 -> Sat 05 Dec 15:00",
+  "RESCHEDULED: EVE v FUL Sat 05 Dec 10:00 -> Sun 06 Dec 09:00",
+  "RESCHEDULED: NEW v SUN Sat 05 Dec 10:00 -> Sun 06 Dec 09:00",
+  "RESCHEDULED: TOT v ARS Sat 05 Dec 10:00 -> Sun 06 Dec 11:30",
+  "RESCHEDULED: MCI v CHE Sat 12 Dec 10:00 -> Sat 12 Dec 12:30",
+  "RESCHEDULED: ARS v BOU Sat 12 Dec 10:00 -> Sun 13 Dec 09:00",
+  "RESCHEDULED: BHA v EVE Sat 12 Dec 10:00 -> Sun 13 Dec 09:00",
+  "RESCHEDULED: SUN v NFO Sat 12 Dec 10:00 -> Sun 13 Dec 09:00",
+  "RESCHEDULED: COV v AVL Sat 12 Dec 10:00 -> Sun 13 Dec 11:30",
+  "RESCHEDULED: CRY v MUN Sat 12 Dec 10:00 -> Sun 13 Dec 14:00",
+  "RESCHEDULED: HUL v TOT Sat 12 Dec 10:00 -> Mon 14 Dec 15:00",
+  "RESCHEDULED: BRE v NEW Sat 19 Dec 10:00 -> Sat 19 Dec 07:30",
+  "RESCHEDULED: LIV v TOT Sat 19 Dec 10:00 -> Sat 19 Dec 12:30",
+  "RESCHEDULED: BHA v IPS Sat 19 Dec 10:00 -> Sun 20 Dec 09:00",
+  "RESCHEDULED: SUN v CRY Sat 19 Dec 10:00 -> Sun 20 Dec 09:00",
+  "RESCHEDULED: ARS v MUN Sat 19 Dec 10:00 -> Sun 20 Dec 11:30",
+  "RESCHEDULED: CHE v AVL Sat 19 Dec 10:00 -> Mon 21 Dec 15:00"
+ ],
  "unscheduled": 0,
  "provisional": 0,
  "runs": {
@@ -50,7 +80,7 @@
      "opp": "BRE",
      "home": false,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.17,
@@ -98,7 +128,7 @@
      "opp": "EVE",
      "home": true,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.0,
@@ -146,7 +176,7 @@
      "opp": "BOU",
      "home": false,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.33,
@@ -194,7 +224,7 @@
      "opp": "BHA",
      "home": true,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.0,
@@ -242,7 +272,7 @@
      "opp": "ARS",
      "home": true,
      "fdr": 4,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.33,
@@ -290,7 +320,7 @@
      "opp": "CRY",
      "home": true,
      "fdr": 2,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 2.83,
@@ -338,7 +368,7 @@
      "opp": "IPS",
      "home": true,
      "fdr": 2,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Tue 01 Dec 15:00"
     }
    ],
    "avg_fdr": 2.5,
@@ -386,7 +416,7 @@
      "opp": "CHE",
      "home": false,
      "fdr": 4,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.0,
@@ -434,7 +464,7 @@
      "opp": "AVL",
      "home": false,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.33,
@@ -482,7 +512,7 @@
      "opp": "TOT",
      "home": false,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Thu 03 Dec 15:00"
     }
    ],
    "avg_fdr": 3.17,
@@ -530,7 +560,7 @@
      "opp": "NFO",
      "home": true,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.17,
@@ -578,7 +608,7 @@
      "opp": "COV",
      "home": false,
      "fdr": 2,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Tue 01 Dec 15:00"
     }
    ],
    "avg_fdr": 2.67,
@@ -626,7 +656,7 @@
      "opp": "MCI",
      "home": false,
      "fdr": 5,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.17,
@@ -674,7 +704,7 @@
      "opp": "SUN",
      "home": true,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.33,
@@ -722,7 +752,7 @@
      "opp": "LEE",
      "home": true,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.17,
@@ -770,7 +800,7 @@
      "opp": "NEW",
      "home": false,
      "fdr": 3,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.33,
@@ -818,7 +848,7 @@
      "opp": "MUN",
      "home": true,
      "fdr": 4,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 15:15"
     }
    ],
    "avg_fdr": 3.5,
@@ -866,7 +896,7 @@
      "opp": "HUL",
      "home": false,
      "fdr": 2,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.0,
@@ -914,7 +944,7 @@
      "opp": "LIV",
      "home": false,
      "fdr": 4,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Wed 02 Dec 14:30"
     }
    ],
    "avg_fdr": 3.0,
@@ -962,7 +992,7 @@
      "opp": "FUL",
      "home": true,
      "fdr": 2,
-     "when": "Wed 02 Dec 15:00"
+     "when": "Thu 03 Dec 15:00"
     }
    ],
    "avg_fdr": 2.67,
