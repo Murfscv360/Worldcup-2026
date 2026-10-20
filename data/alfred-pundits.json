@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T13:15:09-0500",
+ "generated": "2026-10-20T13:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -248,14 +248,6 @@
    "team1": "Swansea City AFC",
    "team2": "West Ham United FC",
    "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "West Ham unstoppable, Norwich in trouble - Aaron McLean's EFL takeaways",
-     "standfirst": "BBC Final Score pundit Aaron McLean looks at the weekend's talking points in the EFL, including West Ham win over in-form Swansea City and Norwich City's woes.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/ckgelq3gxx49o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:43:05Z"
-    },
     {
      "source": "BBC Sport",
      "comp": "championship",
