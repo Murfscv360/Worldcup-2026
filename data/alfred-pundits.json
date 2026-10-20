@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T06:45:08-0500",
+ "generated": "2026-10-20T07:15:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -599,6 +599,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Millar says Birmingham move has given him freedom",
+   "standfirst": "In-form winger Liam Millar says Birmingham City boss Chris Davies is giving him the perfect platform to express himself.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c8n5vq166pk4o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T11:45:13Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "My patience with Bristol City has evaporated",
    "standfirst": "Bristol City fan and podcaster Richard Angell says the pattern of constant change at Ashton Gate should be bringing better results.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm0e0zzex2nvo?at_medium=RSS&at_campaign=rss",
@@ -827,14 +835,6 @@
    "standfirst": "Florian Wirtz takes on more responsibility in Liverpool\u2019s attack while Pierre Sage is under pressure at Crystal Palace Dominic Calvert-Lewin\u2019s physicality overpowering Bryan Mbeumo in Manchester United\u2019s area at a corner grabbed him a fifth goal in 10 outings for Leeds: a pretty respectable ratio. \u201cI just tried to caus",
    "link": "https://www.theguardian.com/football/2026/oct/19/premier-league-10-talking-points-from-the-weekends-action",
    "published": "2026-10-19T07:00:22Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Madueke's 'anger and conviction' shows he's more than a 'finisher'",
-   "standfirst": "Noni Madueke may not have the role he wants at Arsenal but his winning goal against Nottingham Forest showed why he is one of Mikel Arteta's valued players.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c3qjnyw8qe4do?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-18T19:55:41Z"
   }
  ]
 }
