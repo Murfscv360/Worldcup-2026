@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T09:45:08-0500",
+ "generated": "2026-10-20T10:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -599,6 +599,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "In-form Stoke not looking back says Graham",
+   "standfirst": "Stoke City defender Luke Graham says the in-form Potters are \"not looking back\" after turning their form around.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6j9kzy910wzo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T15:07:55Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Former Norwich and Finland striker Pukki to retire",
    "standfirst": "Former Norwich City and Finland striker Teemu Pukki announces his retirement from football at the age of 36.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cqvg0vjde20mo?at_medium=RSS&at_campaign=rss",
@@ -827,14 +835,6 @@
    "standfirst": "West Bromwich Albion midfielder Isaac Price pinpoints the Baggies' squad strength after a second straight winner from a substitute.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c94g1zmg3x23o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T11:21:28Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "West Ham experiencing some Divine intervention",
-   "standfirst": "BBC Final Score reporter Laura Kenyon on the impact of teenage Man City loanee Divine Mukasa at West Ham this season.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c5vgjvy994d0o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T08:32:37Z"
   }
  ]
 }
