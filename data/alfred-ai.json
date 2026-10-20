@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T06:40:04-0500",
+ "generated": "2026-10-20T12:40:04-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -119,6 +119,20 @@
     "status": "a"
    },
    {
+    "name": "Haaland",
+    "club": "MCI",
+    "pos": 4,
+    "ep": 7.1,
+    "xgi": 0.94,
+    "form": 9.5,
+    "fix": "CRY (A)",
+    "diff": 3,
+    "risk": 0,
+    "total": 28.96,
+    "price": 15.7,
+    "status": "d"
+   },
+   {
     "name": "Kostoulas",
     "club": "BHA",
     "pos": 4,
@@ -131,34 +145,6 @@
     "total": 27.44,
     "price": 5.7,
     "status": "a"
-   },
-   {
-    "name": "Cherki",
-    "club": "MCI",
-    "pos": 3,
-    "ep": 6.0,
-    "xgi": 0.69,
-    "form": 6.0,
-    "fix": "CRY (A)",
-    "diff": 3,
-    "risk": 0,
-    "total": 27.16,
-    "price": 8.0,
-    "status": "a"
-   },
-   {
-    "name": "Haaland",
-    "club": "MCI",
-    "pos": 4,
-    "ep": 6.2,
-    "xgi": 0.94,
-    "form": 8.3,
-    "fix": "CRY (A)",
-    "diff": 3,
-    "risk": 0,
-    "total": 25.06,
-    "price": 15.7,
-    "status": "d"
    },
    {
     "name": "Raya",
@@ -186,6 +172,20 @@
     "risk": 0,
     "total": 23.96,
     "price": 6.2,
+    "status": "a"
+   },
+   {
+    "name": "Cherki",
+    "club": "MCI",
+    "pos": 3,
+    "ep": 5.0,
+    "xgi": 0.69,
+    "form": 5.0,
+    "fix": "CRY (A)",
+    "diff": 3,
+    "risk": 0,
+    "total": 23.16,
+    "price": 8.0,
     "status": "a"
    },
    {
@@ -217,34 +217,6 @@
     "status": "a"
    },
    {
-    "name": "Bogle",
-    "club": "LEE",
-    "pos": 2,
-    "ep": 2.7,
-    "xgi": 0.34,
-    "form": 2.7,
-    "fix": "BRE (H)",
-    "diff": 3,
-    "risk": 0,
-    "total": 12.16,
-    "price": 4.7,
-    "status": "a"
-   },
-   {
-    "name": "Gvardiol",
-    "club": "MCI",
-    "pos": 2,
-    "ep": 2.7,
-    "xgi": 0.22,
-    "form": 2.7,
-    "fix": "CRY (A)",
-    "diff": 3,
-    "risk": 0,
-    "total": 12.08,
-    "price": 5.8,
-    "status": "a"
-   },
-   {
     "name": "Egan",
     "club": "HUL",
     "pos": 2,
@@ -273,6 +245,20 @@
     "status": "a"
    },
    {
+    "name": "Gvardiol",
+    "club": "MCI",
+    "pos": 2,
+    "ep": 2.0,
+    "xgi": 0.22,
+    "form": 2.0,
+    "fix": "CRY (A)",
+    "diff": 3,
+    "risk": 0,
+    "total": 9.28,
+    "price": 5.8,
+    "status": "a"
+   },
+   {
     "name": "Ajayi",
     "club": "HUL",
     "pos": 2,
@@ -284,6 +270,20 @@
     "risk": 0,
     "total": 7.6,
     "price": 4.2,
+    "status": "a"
+   },
+   {
+    "name": "Bogle",
+    "club": "LEE",
+    "pos": 2,
+    "ep": 1.5,
+    "xgi": 0.34,
+    "form": 1.5,
+    "fix": "BRE (H)",
+    "diff": 3,
+    "risk": 0,
+    "total": 7.36,
+    "price": 4.7,
     "status": "a"
    },
    {
