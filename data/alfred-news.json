@@ -1,20 +1,8 @@
 {
- "generated": "2026-10-19 18:00:12",
+ "generated": "2026-10-20 08:00:14",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-16",
-   "ts": "2026-10-16 18:00:04",
-   "new_headlines": 0,
-   "key": [],
-   "player_changes": [
-    "Gibbs-White (NFO, 14% owned): Muscular injury - 75% chance of playing"
-   ],
-   "unreachable": [
-    "bbc"
-   ]
-  },
   {
    "date": "2026-10-17",
    "ts": "2026-10-17 08:00:07",
@@ -121,6 +109,14 @@
     "O'Reilly (MCI, 9% owned): Back injury - 75% chance of playing",
     "Haaland (MCI, YOUR PLAYER): Unspecified injury - 75% chance of playing"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-20",
+   "ts": "2026-10-20 08:00:06",
+   "new_headlines": 8,
+   "key": [],
+   "player_changes": [],
    "unreachable": []
   }
  ],
