@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T18:40:02-0500",
+ "generated": "2026-10-21T00:40:04-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -127,8 +127,8 @@
     "form": 7.0,
     "fix": "BHA (H)",
     "diff": 3,
-    "risk": 1,
-    "total": 29.12,
+    "risk": 0,
+    "total": 30.32,
     "price": 7.9,
     "status": "a"
    },
@@ -144,6 +144,20 @@
     "risk": 0,
     "total": 27.44,
     "price": 5.7,
+    "status": "a"
+   },
+   {
+    "name": "Rogers",
+    "club": "CHE",
+    "pos": 3,
+    "ep": 5.5,
+    "xgi": 0.51,
+    "form": 5.5,
+    "fix": "BHA (H)",
+    "diff": 3,
+    "risk": 0,
+    "total": 24.04,
+    "price": 8.0,
     "status": "a"
    },
    {
@@ -189,20 +203,6 @@
     "status": "a"
    },
    {
-    "name": "Rogers",
-    "club": "CHE",
-    "pos": 3,
-    "ep": 5.5,
-    "xgi": 0.51,
-    "form": 5.5,
-    "fix": "BHA (H)",
-    "diff": 3,
-    "risk": 1,
-    "total": 22.84,
-    "price": 8.0,
-    "status": "a"
-   },
-   {
     "name": "Palmer",
     "club": "CHE",
     "pos": 3,
@@ -211,8 +211,8 @@
     "form": 5.0,
     "fix": "BHA (H)",
     "diff": 3,
-    "risk": 1,
-    "total": 20.16,
+    "risk": 0,
+    "total": 21.36,
     "price": 9.7,
     "status": "a"
    },
