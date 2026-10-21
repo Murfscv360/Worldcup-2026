@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T05:15:06-0500",
+ "generated": "2026-10-21T05:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -623,6 +623,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "What is the longest a team has gone without winning a league game at home?",
+   "standfirst": "Burnley are on the brink of unwanted football history, should they fail to beat Portsmouth later this month.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cjkgeqxgz5d5o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-20T15:49:56Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "In-form Stoke not looking back says Graham",
    "standfirst": "Stoke City defender Luke Graham says the in-form Potters are \"not looking back\" after turning their form around.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6j9kzy910wzo?at_medium=RSS&at_campaign=rss",
@@ -779,14 +787,6 @@
    "standfirst": "Brentford say they are working with the police following a \"dangerous\" incident in which a rugby ball was kicked from a height towards the pitch during their Premier League game with Liverpool.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm4g17d11zvwo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T16:26:44Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Saints can't win every game but aim to - Peretz",
-   "standfirst": "Goalkeeper Daniel Peretz says that Southampton must start turning draws into wins if they are to achieve automatic promotion.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6n9r29exl2xo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T15:05:19Z"
   }
  ]
 }
