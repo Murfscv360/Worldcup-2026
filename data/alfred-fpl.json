@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21 15:15:12",
+ "generated": "2026-10-21 18:15:12",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -798,7 +798,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 6.5,
+     "score": 6.6,
      "side": "H",
      "yours": false
     },
@@ -840,14 +840,6 @@
    ],
    "watch": [
     {
-     "name": "Saka",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 10.3,
-     "side": "A",
-     "yours": false
-    },
-    {
      "name": "Gibbs-White",
      "club": "NFO",
      "pos": "MID",
@@ -869,6 +861,14 @@
      "pos": "MID",
      "score": 6.9,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Saka",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 5.7,
+     "side": "A",
      "yours": false
     }
    ],
