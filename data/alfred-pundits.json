@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T01:15:06-0500",
+ "generated": "2026-10-21T01:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -557,6 +557,14 @@
  ],
  "latest": [
   {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "How England hopeful Acheampong is giving Chelsea a big decision to make",
+   "standfirst": "For the first time, Chelsea's actions match the rhetoric surrounding their desire to keep academy defender Josh Acheampong.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ck4g10n56jzqo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T06:26:58Z"
+  },
+  {
    "source": "Guardian",
    "comp": "epl",
    "title": "Football regulator has \u2018absolute power\u2019 to force Manchester City sale if verdict upheld",
@@ -787,14 +795,6 @@
    "standfirst": "The midfielder failed to respond to two police letters asking whether he was driving at the time of the offence.",
    "link": "https://www.bbc.co.uk/news/articles/c6wyr3rrxnrxo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T12:49:39Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Pompey have shown strong mentality - Milovanovic",
-   "standfirst": "Portsmouth striker Marko Milovanovic says his side have shown a strong mentality to win their past two league games.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cqlyerkpnw9ro?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T12:32:18Z"
   }
  ]
 }
