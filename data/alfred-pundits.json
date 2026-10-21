@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T04:15:08-0500",
+ "generated": "2026-10-21T04:45:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -550,6 +550,14 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Why Eze is struggling to find his form at Arsenal",
+   "standfirst": "Eberechi Eze has been struggling for form this season for Arsenal, but there could be hope that the forward turns it around.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqgm0ze7vepmo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T09:22:07Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "championship",
    "title": "Peixoto told me I talk too much - Mousinho",
    "standfirst": "Pompey boss John Mousinho reacts to the 1-1 draw with Wolves in the Championship at Molineux.",
@@ -779,14 +787,6 @@
    "standfirst": "Goalkeeper Daniel Peretz says that Southampton must start turning draws into wins if they are to achieve automatic promotion.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c6n9r29exl2xo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T15:05:19Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Are free-scoring Brighton genuine title contenders?",
-   "standfirst": "Brighton's start to the season has surprised many outsiders. But how high could they finish?",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cwn8d48je057o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T14:52:01Z"
   }
  ]
 }
