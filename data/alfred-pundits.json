@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T17:45:08-0500",
+ "generated": "2026-10-21T18:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -23,14 +23,6 @@
      "standfirst": "Brentford say they are working with the police following a \"dangerous\" incident in which a rugby ball was kicked from a height towards the pitch during their Premier League game with Liverpool.",
      "link": "https://www.bbc.co.uk/sport/football/articles/cm4g17d11zvwo?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-19T16:26:44Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Why Liverpool are still 'too easy' to play against",
-     "standfirst": "Match of the Day's Danny Murphy analyses how Liverpool are still to \"easy\" to play against despite their 2-1 victory over Brentford.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c65ynpkjydemo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T23:00:48Z"
     }
    ]
   },
@@ -302,6 +294,22 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Saka injury 'does not look good' - how will Arsenal cope?",
+   "standfirst": "Mikel Arteta says the quadriceps injury Arsenal's Bukayo Saka picked up in the Champions League draw with Bayern Munich \"does not look good at all\".",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ckg5j1zdn4m3o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T22:51:56Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Fernandes rounds on Carrick after Man Utd humiliation",
+   "standfirst": "Manchester United captain Bruno Fernandes blames head coach Michael Carrick for the tactics that led to an embarrassing 4-1 defeat by Como in the Champions League.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cq74pjn80x4wo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T19:59:30Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "championship",
    "title": "Azaz confirms he will continue playing for Republic of Ireland",
    "standfirst": "Forward Finn Azaz confirms he will continue to represent the Republic of Ireland.",
@@ -523,22 +531,6 @@
    "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many Beyonc\u00e9 gigs during that time, but Spurs are finally singing a happier tune aft",
    "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
    "published": "2026-10-19T21:05:46Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Premier League top scorers 2026-27: who is leading race for the golden boot?",
-   "standfirst": "Find out which of the English top-flight\u2019s sharp shooters are firing their way up the goalscoring charts Continue reading...",
-   "link": "https://www.theguardian.com/football/2026/sep/10/premier-league-top-scorers-2026-27-race-for-golden-boot",
-   "published": "2026-10-19T21:05:44Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Maddison shines on return - Tottenham v Coventry ratings",
-   "standfirst": "How Spurs and Coventry City's players rated following their Premier League match.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/crx23ndd337wo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T21:05:28Z"
   }
  ]
 }
