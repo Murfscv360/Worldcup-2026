@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T13:45:07-0500",
+ "generated": "2026-10-21T14:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -31,86 +31,6 @@
      "standfirst": "Match of the Day's Danny Murphy analyses how Liverpool are still to \"easy\" to play against despite their 2-1 victory over Brentford.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c65ynpkjydemo?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T23:00:48Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Liverpool come from behind to beat nine-man Brentford",
-     "standfirst": "Liverpool come from behind to beat Brentford 2-1 at the Gtech Community Stadium as the hosts finish with nine men after red cards for Yehor Yarmoliuk and Vitaly Janelt.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c65yn28p859wo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:00:13Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "epl",
-   "team1": "Everton FC",
-   "team2": "Chelsea FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Neto scores twice as Chelsea win at Everton",
-     "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:00:03Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "epl",
-   "team1": "Fulham FC",
-   "team2": "Hull City AFC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Iwobi delivers Fulham's first win of season",
-     "standfirst": "Alex Iwobi fires Fulham to their first Premier League win of the season against Hull.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c6rmy7w1kdgeo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:00:06Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "epl",
-   "team1": "Manchester City FC",
-   "team2": "Ipswich Town FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Haaland nets double as Man City go six points clear at the top",
-     "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:00:09Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "epl",
-   "team1": "Newcastle United FC",
-   "team2": "Aston Villa FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Manzambi heads Villa to victory at Newcastle",
-     "standfirst": "Johan Manzambi heads the winner for Aston Villa against Newcastle, marking manager Unai Emery's 100th Premier League victory.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cwdd897vvl8vo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T19:12:02Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Newcastle 0-1 Aston Villa: Premier League \u2013 as it happened",
-     "standfirst": "Johan Manzambi scored the only goal to give Aston Villa deserved win at St James\u2019 Park A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gonzalez, Joelinton; Willock, ",
-     "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
-     "published": "2026-10-17T19:00:05Z"
     }
    ]
   },
