@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T08:45:13-0500",
+ "generated": "2026-10-21T09:15:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -159,22 +159,6 @@
      "standfirst": "There have been few winners in Manchester City\u2019s guilty verdict, except highly paid lawyers and the inflatable fruit industry. The fans have suffered, being forced to question everything they have been told, while being labelled \u201ccheats\u201d, but they were able to forget the cacophony of noise around the club as Enzo Mares",
      "link": "https://www.theguardian.com/football/2026/oct/17/manchester-city-ipswich-premier-league-match-report",
      "published": "2026-10-17T16:08:40Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "championship",
-   "team1": "Middlesbrough FC",
-   "team2": "Cardiff City FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Conway: 'Buzzing' to score first Boro goal this season",
-     "standfirst": "Tommy Conway spoke to Mark Drury following Middlesbrough's 2-2 draw with Cardiff City.",
-     "link": "https://www.bbc.co.uk/sounds/play/p0ph7w53?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-17T13:53:00Z"
     }
    ]
   },
