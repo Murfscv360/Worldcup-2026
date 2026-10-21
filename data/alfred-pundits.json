@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T13:15:10-0500",
+ "generated": "2026-10-21T13:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -111,14 +111,6 @@
      "standfirst": "Johan Manzambi scored the only goal to give Aston Villa deserved win at St James\u2019 Park A reminder of the teams It looks like Joe Willock will play on the right wing for Newcastle, with Joelinton in midfield alongside Nico Gonzalez. Newcastle (4-2-3-1) Hornicek; Miley, Thiaw, Botman, Hall; Gonzalez, Joelinton; Willock, ",
      "link": "https://www.theguardian.com/football/live/2026/oct/17/newcastle-v-aston-villa-premier-league-live",
      "published": "2026-10-17T19:00:05Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Manzambi maintains Aston Villa progress with win to seal dismal week for Newcastle",
-     "standfirst": "There is a reason why Aston Villa were so desperate to hijack Johan Manzambi\u2019s proposed summer move from Freiburg to Newcastle. The tall, quick, tricky, clever and perfectly balanced 21-year-old Switzerland attacking midfielder looked worth every penny of the record \u00a350m plus fee Villa ended up paying and he duly delig",
-     "link": "https://www.theguardian.com/football/2026/oct/17/newcastle-aston-villa-premier-league-match-report",
-     "published": "2026-10-17T18:38:58Z"
     }
    ]
   },
@@ -391,6 +383,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Azaz confirms he will continue playing for Republic of Ireland",
+   "standfirst": "Forward Finn Azaz confirms he will continue to represent the Republic of Ireland.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ckq6nzyr9qdgo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T18:13:39Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "West Brom midfielder Collyer out for six weeks",
    "standfirst": "West Bromwich Albion midfielder Toby Collyer is expected to be sidelined for up to six weeks with a hamstring injury.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cjx23d6dy1geo?at_medium=RSS&at_campaign=rss",
@@ -619,14 +619,6 @@
    "standfirst": "How Spurs and Coventry City's players rated following their Premier League match.",
    "link": "https://www.bbc.co.uk/sport/football/articles/crx23ndd337wo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T21:05:28Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Palace manager Sage facing fight to keep his job",
-   "standfirst": "Crystal Palace boss Pierre Sage faces a fight to keep his job, but will be given more time.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cq2d6npjy9xlo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T19:32:56Z"
   }
  ]
 }
