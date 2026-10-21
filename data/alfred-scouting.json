@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21 09:05:17",
+ "generated": "2026-10-21 12:05:16",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -35,6 +35,14 @@
      "yours": false
     },
     {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 7.9,
+     "side": "A",
+     "yours": false
+    },
+    {
      "name": "Ndoye",
      "club": "NFO",
      "pos": "MID",
@@ -48,14 +56,6 @@
      "pos": "FWD",
      "score": 6.4,
      "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Delap",
-     "club": "NFO",
-     "pos": "FWD",
-     "score": 6.3,
-     "side": "A",
      "yours": false
     }
    ],
