@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T07:15:10-0500",
+ "generated": "2026-10-21T07:45:10-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -287,14 +287,6 @@
      "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
      "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-20T07:58:36Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Albion fans will savour comeback win all week",
-     "standfirst": "Final Score reporter Charlotte Richardson reflects on West Brom's come-from-behind win over Blackburn.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/ck4g18n0ylwxo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T10:03:48Z"
     }
    ]
   },
@@ -550,6 +542,22 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "championship",
+   "title": "QPR trio ruled out for another month",
+   "standfirst": "QPR's injury issues mount as Tariq Lamptey, Nicolas Madsen and Rumarn Burrell are ruled out until after the international break.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cw80z3l49rn4o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T12:22:08Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "What are the EFL rules on homegrown players?",
+   "standfirst": "BBC Sport's Ask Me Anything team explains the rules on homegrown players used by the English Football League across the Championship, League One and League Two",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ck7vp83l215yo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T12:16:11Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "epl",
    "title": "Why Eze is struggling to find his form at Arsenal",
    "standfirst": "Eberechi Eze has been struggling for form this season for Arsenal, but there could be hope that the forward turns it around.",
@@ -771,22 +779,6 @@
    "standfirst": "Premier League clubs took the knee for the first time this season, but six players chose to remain standing.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cxyvrndz49v7o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T16:41:54Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Araujo the stopgap solution fixing Liverpool's problems",
-   "standfirst": "Ronald Araujo has impressed since arriving at Liverpool from Barcelona. Could he prove a longer-term solution?",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ck8dz7pp4089o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T16:29:34Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Brentford contact police after rugby ball kicked into stadium during game",
-   "standfirst": "Brentford say they are working with the police following a \"dangerous\" incident in which a rugby ball was kicked from a height towards the pitch during their Premier League game with Liverpool.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm4g17d11zvwo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T16:26:44Z"
   }
  ]
 }
