@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T09:15:09-0500",
+ "generated": "2026-10-21T09:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -519,6 +519,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "West Brom midfielder Collyer out for six weeks",
+   "standfirst": "West Bromwich Albion midfielder Toby Collyer is expected to be sidelined for up to six weeks with a hamstring injury.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cjx23d6dy1geo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T14:36:35Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Albion are the Championship's comeback kings",
    "standfirst": "Fan writer Chris Hall discusses West Bromwich Albion's remarkable comeback habit in the Championship this season.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cknv0e3dmrj0o?at_medium=RSS&at_campaign=rss",
@@ -747,14 +755,6 @@
    "standfirst": "Crystal Palace boss Pierre Sage faces a fight to keep his job, but will be given more time.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cq2d6npjy9xlo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T19:32:56Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "QPR's Mbengue to have surgery after ACL injury",
-   "standfirst": "QPR confirm defender Amadou Mbengue suffered an anterior cruciate ligament injury in the win over Derby last Tuesday.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c35ynew1lrppo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T17:34:51Z"
   }
  ]
 }
