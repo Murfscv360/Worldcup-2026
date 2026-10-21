@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T11:15:08-0500",
+ "generated": "2026-10-21T11:45:13-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -47,22 +47,6 @@
      "standfirst": "Andoni Iraola Liverpool's demanding schedule is putting his players in a \"delicate situation\" after Dominik Szoboszlai was forced off with a first-half injury during their 2-1 victory at Brentford.",
      "link": "https://www.bbc.co.uk/sport/football/videos/ckgelqlz37w3o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T16:56:12Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
-     "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
-     "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-     "published": "2026-10-17T16:43:26Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Isak completes Liverpool\u2019s comeback win as Brentford finish with nine",
-     "standfirst": "If Liverpool\u2019s spluttering forwards end up remembering this as the day when their luck turned then they will owe a big debt of gratitude to Yehor Yarmolyuk. This was a game with a very clear before and after. Andoni Iraola will hope surviving one of the toughest tests the Premier League has to offer is a sign his metho",
-     "link": "https://www.theguardian.com/football/2026/oct/17/brentford-liverpool-premier-league-match-report",
-     "published": "2026-10-17T16:21:40Z"
     }
    ]
   },
@@ -111,14 +95,6 @@
      "standfirst": "Alex Iwobi fires Fulham to their first Premier League win of the season against Hull.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c6rmy7w1kdgeo?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:06Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
-     "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
-     "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-     "published": "2026-10-17T16:43:26Z"
     }
    ]
   },
@@ -135,14 +111,6 @@
      "standfirst": "Manchester City go six points clear at the top of the Premier League as Enzo Maresca's side record a seventh straight league victory with a 3-2 win over Ipswich at the Etihad.",
      "link": "https://www.bbc.co.uk/sport/football/videos/c6pwgx89djn2o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:09Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Manchester City 3-2 Ipswich, Brentford 1-2 Liverpool, and more: Football clockwatch - as it happened",
-     "standfirst": "Fulham secured a first win of the season against a dismal Hull, while Liverpool came from behind to beat nine-man Brentford Andy Hunter\u2019s match report from the Hill Dickinson is here, and you can find it below. Chelsea have returned from the international break with an authority that augurs well for Xabi Alonso. A brac",
-     "link": "https://www.theguardian.com/football/live/2026/oct/17/manchester-city-v-ipswich-brentford-v-liverpool-and-more-football-clockwatch-live",
-     "published": "2026-10-17T16:43:26Z"
     }
    ]
   },
@@ -199,30 +167,6 @@
      "standfirst": "West Ham boss Nuno Espirito Santo speaks to Andy Rowley after a 1-0 win at Swansea.",
      "link": "https://www.bbc.co.uk/sounds/play/p0ph8ftg?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T16:58:00Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: West Ham go second; Norwich beaten again",
-     "standfirst": "Mukasa\u2019s first-half goal enough to beat leaders Swansea Canaries suffer sixth straight loss; Watford beat Charlton Nuno Esp\u00edrito Santo was delighted West Ham finished a \u201cdemanding week\u201d by toppling Championship leaders Swansea . Divine Mukasa\u2019s first-half strike in front of a record Swansea.com Stadium crowd of 20,973 ",
-     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-     "published": "2026-10-17T16:29:23Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "championship",
-   "team1": "Watford FC",
-   "team2": "Charlton Athletic FC",
-   "reports": [
-    {
-     "source": "Guardian",
-     "comp": "championship",
-     "title": "Championship roundup: West Ham go second; Norwich beaten again",
-     "standfirst": "Mukasa\u2019s first-half goal enough to beat leaders Swansea Canaries suffer sixth straight loss; Watford beat Charlton Nuno Esp\u00edrito Santo was delighted West Ham finished a \u201cdemanding week\u201d by toppling Championship leaders Swansea . Divine Mukasa\u2019s first-half strike in front of a record Swansea.com Stadium crowd of 20,973 ",
-     "link": "https://www.theguardian.com/football/2026/oct/17/championship-roundup-middlesbrough-watford-millwall-swansea-west-ham",
-     "published": "2026-10-17T16:29:23Z"
     }
    ]
   },
