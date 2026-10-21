@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T12:40:04-0500",
+ "generated": "2026-10-21T18:40:04-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -161,20 +161,6 @@
     "status": "a"
    },
    {
-    "name": "Raya",
-    "club": "ARS",
-    "pos": 1,
-    "ep": 6.0,
-    "xgi": 0.0,
-    "form": 6.0,
-    "fix": "AVL (A)",
-    "diff": 3,
-    "risk": 0,
-    "total": 24.0,
-    "price": 6.1,
-    "status": "a"
-   },
-   {
     "name": "Gro\u00df",
     "club": "BHA",
     "pos": 3,
@@ -200,6 +186,20 @@
     "risk": 0,
     "total": 23.56,
     "price": 8.0,
+    "status": "a"
+   },
+   {
+    "name": "Raya",
+    "club": "ARS",
+    "pos": 1,
+    "ep": 6.0,
+    "xgi": 0.0,
+    "form": 6.0,
+    "fix": "AVL (A)",
+    "diff": 3,
+    "risk": 1,
+    "total": 22.8,
+    "price": 6.1,
     "status": "a"
    },
    {
