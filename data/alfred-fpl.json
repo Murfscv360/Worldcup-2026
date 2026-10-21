@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21 09:15:16",
+ "generated": "2026-10-21 12:15:16",
  "tz": "America/Chicago",
  "gw": 7,
  "gw_for": 8,
@@ -848,6 +848,14 @@
      "yours": false
     },
     {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 7.9,
+     "side": "H",
+     "yours": false
+    },
+    {
      "name": "\u00d8degaard",
      "club": "ARS",
      "pos": "MID",
@@ -860,14 +868,6 @@
      "club": "NFO",
      "pos": "MID",
      "score": 6.9,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Delap",
-     "club": "NFO",
-     "pos": "FWD",
-     "score": 6.3,
      "side": "H",
      "yours": false
     }
