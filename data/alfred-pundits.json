@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T01:45:07-0500",
+ "generated": "2026-10-21T02:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -95,14 +95,6 @@
      "standfirst": "Pedro Neto scores twice for Chelsea as they beat Everton 2-0 at the Hill Dickinson Stadium, in a game overshadowed by a nasty head injury to Emiliano Martinez.",
      "link": "https://www.bbc.co.uk/sport/football/videos/cq146nz03k16o?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-17T19:00:03Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Everton 0-2 Chelsea: Premier League \u2013 as it happened",
-     "standfirst": "Pedro Neto\u2019s goals bookended the second half and earned Chelsea a rare victory at Everton Everton kick off, and launch it long. Martinez claims the punt. Before the kick-off, everyone takes the knee. It\u2019s the first of two weeks of the Premier League\u2019s No Room For Racism campaign. Challenge it, report it, change it. Con",
-     "link": "https://www.theguardian.com/football/live/2026/oct/17/everton-v-chelsea-premier-league-live",
-     "published": "2026-10-17T14:13:31Z"
     }
    ]
   },
@@ -449,6 +441,14 @@
    "team2": "Arsenal FC",
    "reports": [
     {
+     "source": "Guardian",
+     "comp": "epl",
+     "title": "Mikel Arteta has mastered the art of making substitutions at Arsenal",
+     "standfirst": "Arsenal have beaten Nottingham Forest, Sunderland and Leeds this season thanks to goals from players off the bench By Opta Analyst They say that once is an accident, twice is a coincidence and three times is a pattern. After Mikel Arteta\u2019s substitutes proved decisive yet again for Arsenal, we can say with certainty tha",
+     "link": "https://www.theguardian.com/football/2026/oct/21/mikel-arteta-art-making-substitutions-arsenal-nottingham-forest-sunderland-leeds",
+     "published": "2026-10-21T07:00:03Z"
+    },
+    {
      "source": "BBC Sport",
      "comp": "epl",
      "title": "Madueke's 'anger and conviction' shows he's more than a 'finisher'",
@@ -487,14 +487,6 @@
      "standfirst": "A late, deflected winner from Noni Madueke gave Arsenal a vital win in a low-quality game, Forest then missing two good chances to equalise Forest will want \u2013 and probably need \u2013 to make this game a mess. If it\u2019s open and played through midfield, Arsenal will open them up because, with the guile they\u2019ve added by buying",
      "link": "https://www.theguardian.com/football/live/2026/oct/18/nottingham-forest-v-arsenal-premier-league-live",
      "published": "2026-10-18T17:41:09Z"
-    },
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Madueke breaks Nottingham Forest\u2019s resistance as dogged Arsenal edge to victory",
-     "standfirst": "The theme before kick-off was blanks. Or, more precisely, whether either team could stop firing them at the City Ground. It was a detail to make Oliver Glasner extremely uncomfortable that his Nottingham Forest team had still to score at their own stadium this season. Arsenal, meanwhile, had drawn 0-0 on their previous",
-     "link": "https://www.theguardian.com/football/2026/oct/18/nottingham-forest-arsenal-premier-league-match-report",
-     "published": "2026-10-18T17:39:57Z"
     }
    ]
   },
@@ -556,6 +548,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Mikel Arteta has mastered the art of making substitutions at Arsenal",
+   "standfirst": "Arsenal have beaten Nottingham Forest, Sunderland and Leeds this season thanks to goals from players off the bench By Opta Analyst They say that once is an accident, twice is a coincidence and three times is a pattern. After Mikel Arteta\u2019s substitutes proved decisive yet again for Arsenal, we can say with certainty tha",
+   "link": "https://www.theguardian.com/football/2026/oct/21/mikel-arteta-art-making-substitutions-arsenal-nottingham-forest-sunderland-leeds",
+   "published": "2026-10-21T07:00:03Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -787,14 +787,6 @@
    "standfirst": "Saido Berahino, who cost Stoke City \u00a312m when they signed him from West Bromwich Albion in January 2017, retires from football at 33.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cqrkyzgre7neo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T12:51:44Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Morgan Gibbs-White fined after his car ran red light",
-   "standfirst": "The midfielder failed to respond to two police letters asking whether he was driving at the time of the offence.",
-   "link": "https://www.bbc.co.uk/news/articles/c6wyr3rrxnrxo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T12:49:39Z"
   }
  ]
 }
