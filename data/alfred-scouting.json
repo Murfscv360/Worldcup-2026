@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21 15:05:21",
+ "generated": "2026-10-21 18:05:18",
  "tz": "America/Chicago",
  "gw": 8,
  "fixtures": [
@@ -149,14 +149,6 @@
    ],
    "watch": [
     {
-     "name": "Saka",
-     "club": "ARS",
-     "pos": "MID",
-     "score": 10.3,
-     "side": "H",
-     "yours": false
-    },
-    {
      "name": "Barry",
      "club": "EVE",
      "pos": "FWD",
@@ -178,6 +170,14 @@
      "pos": "MID",
      "score": 7.5,
      "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Saka",
+     "club": "ARS",
+     "pos": "MID",
+     "score": 5.7,
+     "side": "H",
      "yours": false
     }
    ],
@@ -579,7 +579,7 @@
      "name": "Calvert-Lewin",
      "club": "LEE",
      "pos": "FWD",
-     "score": 6.5,
+     "score": 6.6,
      "side": "A",
      "yours": false
     },
