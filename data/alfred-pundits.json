@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T02:15:08-0500",
+ "generated": "2026-10-21T02:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -549,6 +549,14 @@
  ],
  "latest": [
   {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Manager ins and outs - 2026-27",
+   "standfirst": "BBC Sport tracks all the manager ins and outs in the Premier League, Scottish Premiership, Women's Super League, English Football League and National League.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cd94713djgyo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T07:32:07Z"
+  },
+  {
    "source": "Guardian",
    "comp": "epl",
    "title": "Mikel Arteta has mastered the art of making substitutions at Arsenal",
@@ -779,14 +787,6 @@
    "standfirst": "Fan writer Paul Sullivan on Charlton's slide down the table after defeat by crisis club Watford.",
    "link": "https://www.bbc.co.uk/sport/football/articles/ckd7qy750nv8o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T13:09:27Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Ex-West Brom & Stoke striker Berahino retires at 33",
-   "standfirst": "Saido Berahino, who cost Stoke City \u00a312m when they signed him from West Bromwich Albion in January 2017, retires from football at 33.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cqrkyzgre7neo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T12:51:44Z"
   }
  ]
 }
