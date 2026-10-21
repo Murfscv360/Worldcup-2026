@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T03:45:06-0500",
+ "generated": "2026-10-21T04:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -551,6 +551,22 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Peixoto told me I talk too much - Mousinho",
+   "standfirst": "Pompey boss John Mousinho reacts to the 1-1 draw with Wolves in the Championship at Molineux.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cq99z305mj48o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T09:03:18Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Wolves boss Peixoto seeking injury solutions",
+   "standfirst": "Wolves boss Cesar Peixoto is hopeful that experienced players Adam Armstrong and Kieran Trippier will be fit to play against Watford on Saturday.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cq8jzrlzv923o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T09:00:08Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Manager ins and outs - 2026-27",
    "standfirst": "BBC Sport tracks all the manager ins and outs in the Premier League, Scottish Premiership, Women's Super League, English Football League and National League.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cd94713djgyo?at_medium=RSS&at_campaign=rss",
@@ -771,22 +787,6 @@
    "standfirst": "Brighton's start to the season has surprised many outsiders. But how high could they finish?",
    "link": "https://www.bbc.co.uk/sport/football/articles/cwn8d48je057o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T14:52:01Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Brighton are the apex B club \u2013 their next target should be a Champions League place | Jonathan Wilson",
-   "standfirst": "Diego G\u00f3mez\u2019s wondergoal in a five-star demolition is just the latest in an impressive run of results for the south coast team Sign up for our free newsletter here For two or three years now, it\u2019s been standard to nod approvingly at how well-run Brighton, Brentford and Bournemouth are, and to move on. What else is ther",
-   "link": "https://www.theguardian.com/football/2026/oct/19/brighton-premier-league-start",
-   "published": "2026-10-19T14:51:11Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "'Addicks as accommodating as ever'",
-   "standfirst": "Fan writer Paul Sullivan on Charlton's slide down the table after defeat by crisis club Watford.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/ckd7qy750nv8o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T13:09:27Z"
   }
  ]
 }
