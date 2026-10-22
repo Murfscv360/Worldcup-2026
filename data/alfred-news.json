@@ -1,29 +1,8 @@
 {
- "generated": "2026-10-21 18:00:11",
+ "generated": "2026-10-22 08:00:17",
  "tz": "America/Chicago",
  "gw": 7,
  "days": [
-  {
-   "date": "2026-10-18",
-   "ts": "2026-10-18 18:00:06",
-   "new_headlines": 23,
-   "key": [
-    "[BHA] Shades of Barca and Beckham - Brighton aim to maintain superb start",
-    "[LEE/MUN] Everything a struggle for Fernandes - Leeds v Man Utd ratings",
-    "[ARS/NFO] Madueke strikes late but who missed his big chance? - Forest v Arsenal ratings",
-    "[BHA/CRY] Gomez scores extraordinary goal as Brighton put five past Palace",
-    "[ARS/NFO] Madueke's strike enough as Arsenal pick up narrow win over Forest",
-    "[LEE/MUN] Leeds extend Man Utd's winless run to six games",
-    "[BHA/MCI] Man City remain unbeaten as Shaw scores twice against Brighton",
-    "[ARS] Arsenal substitutes change game - Arteta",
-    "[CHE/TOT] James scores brilliant double as Chelsea put six past Spurs",
-    "[LEE/MUN] Man Utd showed 'unity' in draw with Leeds - Carrick"
-   ],
-   "player_changes": [
-    "Pedro Porro (TOT, 5% owned): Hamstring injury - Expected back 24 Oct"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-10-19",
    "ts": "2026-10-19 08:00:04",
@@ -104,6 +83,14 @@
     "Saka (ARS, 16% owned): Thigh injury - 50% chance of playing",
     "Gibbs-White (NFO, 11% owned): now available"
    ],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-22",
+   "ts": "2026-10-22 08:00:03",
+   "new_headlines": 11,
+   "key": [],
+   "player_changes": [],
    "unreachable": []
   }
  ],
