@@ -1,19 +1,19 @@
 {
- "generated": "2026-10-22 09:15:19",
+ "generated": "2026-10-22 09:33:13",
  "tz": "America/Chicago",
- "gw": 7,
+ "gw": 8,
  "gw_for": 8,
- "squad_as_of": 7,
+ "squad_as_of": 8,
  "deadline": "2026-10-23T17:30:00Z",
  "formation": "3-4-3",
- "source": "John GW7 Pick Team screenshot 2026-10-15 12:08 CDT: Buend\u00eda OUT, Rogers IN (free transfer); XI/bench/armband otherwise unchanged",
+ "source": "John GW8 Pick Team screenshot 2026-10-22 09:29 CDT: 3-4-3 Raya; De Cuyper, Egan, Gvardiol; Gro\u00df, Cherki, Palmer, Rogers; Haaland (C), Jo\u00e3o Pedro (V), Kostoulas. Bench Tzolakis, Schade, Bogle, Ajayi. BB/TC/FH available.",
  "chips_active": [],
- "captain": "De Cuyper",
+ "captain": "Haaland",
  "vice": "Jo\u00e3o Pedro",
  "captain_model": "De Cuyper",
  "vice_model": "Haaland",
- "captain_override_reason": "John GW7 Pick Team screenshot 2026-10-15 09:50",
- "captain_current": "De Cuyper",
+ "captain_override_reason": "John GW8 Pick Team screenshot 2026-10-22 09:29 CDT",
+ "captain_current": "Haaland",
  "vice_current": "Jo\u00e3o Pedro",
  "xi": [
   {
@@ -120,16 +120,7 @@
    "order": 3
   }
  ],
- "changes": [
-  {
-   "in": "Raya",
-   "out": "Tzolakis"
-  },
-  {
-   "in": "Egan",
-   "out": "Bogle"
-  }
- ],
+ "changes": [],
  "transfers_recommended": [],
  "note": "Alfred decision from the session-maintained golden record. The public FPL API cannot see this gameweek until the deadline passes, so prefer this over the API-derived squad.",
  "changelog": [
@@ -171,6 +162,11 @@
    "ts": "2026-10-15T12:08:00-0500",
    "change": "GW7 transfer Buend\u00eda -> Rogers (1 FT used, 0 hits)",
    "source": "John's Pick Team screenshot; bank est. from list prices 5.9/7.9, confirm in app"
+  },
+  {
+   "ts": "2026-10-22T09:35:00-0500",
+   "by": "Alfred",
+   "what": "GW8 team from John screenshot (Raya/Egan in for Tzolakis/Bogle; C Haaland V Jo\u00e3o Pedro); 1 FT; BB/TC/FH available"
   }
  ],
  "availability": [
@@ -268,293 +264,49 @@
  "all_available": true,
  "fixtures": [
   {
-   "home": "TOT",
-   "away": "COV",
-   "xg_home": 1.31,
-   "xg_away": 0.73,
-   "win": 51,
-   "draw": 29,
-   "loss": 21,
-   "scorelines": [
-    {
-     "score": "1-0",
-     "pct": 17.1
-    },
-    {
-     "score": "0-0",
-     "pct": 13.0
-    },
-    {
-     "score": "1-1",
-     "pct": 12.4
-    }
-   ],
-   "watch": [
-    {
-     "name": "Rudoni",
-     "club": "COV",
-     "pos": "MID",
-     "score": 7.1,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Awoniyi",
-     "club": "COV",
-     "pos": "FWD",
-     "score": 6.0,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Gallagher",
-     "club": "TOT",
-     "pos": "MID",
-     "score": 5.5,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Solanke",
-     "club": "TOT",
-     "pos": "FWD",
-     "score": 5.1,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-10-19T19:00:00Z",
-   "kickoff": "Mon 19 Oct 14:00",
-   "day": "Mon 19 Oct",
-   "monday": true
-  },
-  {
-   "home": "EVE",
-   "away": "CHE",
-   "xg_home": 1.3,
-   "xg_away": 1.45,
-   "win": 34,
-   "draw": 25,
-   "loss": 41,
+   "home": "IPS",
+   "away": "NFO",
+   "xg_home": 1.03,
+   "xg_away": 1.39,
+   "win": 28,
+   "draw": 27,
+   "loss": 45,
    "scorelines": [
     {
      "score": "1-1",
-     "pct": 12.1
+     "pct": 12.7
     },
     {
      "score": "0-1",
-     "pct": 9.3
-    },
-    {
-     "score": "1-2",
-     "pct": 8.8
-    }
-   ],
-   "watch": [
-    {
-     "name": "Jo\u00e3o Pedro",
-     "club": "CHE",
-     "pos": "FWD",
-     "score": 8.5,
-     "side": "A",
-     "yours": true
-    },
-    {
-     "name": "Barry",
-     "club": "EVE",
-     "pos": "FWD",
-     "score": 8.4,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Dibling",
-     "club": "EVE",
-     "pos": "MID",
-     "score": 7.5,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Rogers",
-     "club": "CHE",
-     "pos": "MID",
-     "score": 7.3,
-     "side": "A",
-     "yours": true
-    }
-   ],
-   "kickoff_utc": "2026-10-17T11:30:00Z",
-   "kickoff": "Sat 17 Oct 06:30",
-   "day": "Sat 17 Oct",
-   "monday": false
-  },
-  {
-   "home": "BRE",
-   "away": "LIV",
-   "xg_home": 1.3,
-   "xg_away": 1.45,
-   "win": 34,
-   "draw": 25,
-   "loss": 41,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 12.1
-    },
-    {
-     "score": "0-1",
-     "pct": 9.3
-    },
-    {
-     "score": "1-2",
-     "pct": 8.8
-    }
-   ],
-   "watch": [
-    {
-     "name": "Carvalho",
-     "club": "BRE",
-     "pos": "MID",
-     "score": 55.4,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Isak",
-     "club": "LIV",
-     "pos": "FWD",
-     "score": 10.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Gakpo",
-     "club": "LIV",
-     "pos": "MID",
-     "score": 7.5,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Thiago",
-     "club": "BRE",
-     "pos": "FWD",
-     "score": 7.0,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-10-17T14:00:00Z",
-   "kickoff": "Sat 17 Oct 09:00",
-   "day": "Sat 17 Oct",
-   "monday": false
-  },
-  {
-   "home": "FUL",
-   "away": "HUL",
-   "xg_home": 1.31,
-   "xg_away": 0.73,
-   "win": 51,
-   "draw": 29,
-   "loss": 21,
-   "scorelines": [
-    {
-     "score": "1-0",
-     "pct": 17.1
-    },
-    {
-     "score": "0-0",
-     "pct": 13.0
-    },
-    {
-     "score": "1-1",
      "pct": 12.4
-    }
-   ],
-   "watch": [
-    {
-     "name": "Gelhardt",
-     "club": "HUL",
-     "pos": "MID",
-     "score": 11.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Gonzalo",
-     "club": "FUL",
-     "pos": "FWD",
-     "score": 6.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Iwobi",
-     "club": "FUL",
-     "pos": "MID",
-     "score": 6.3,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Belloumi",
-     "club": "HUL",
-     "pos": "MID",
-     "score": 4.4,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-10-17T14:00:00Z",
-   "kickoff": "Sat 17 Oct 09:00",
-   "day": "Sat 17 Oct",
-   "monday": false
-  },
-  {
-   "home": "MCI",
-   "away": "IPS",
-   "xg_home": 2.63,
-   "xg_away": 0.53,
-   "win": 82,
-   "draw": 13,
-   "loss": 5,
-   "scorelines": [
-    {
-     "score": "2-0",
-     "pct": 14.9
-    },
-    {
-     "score": "3-0",
-     "pct": 13.0
     },
     {
      "score": "1-0",
-     "pct": 11.3
+     "pct": 9.2
     }
    ],
    "watch": [
-    {
-     "name": "Haaland",
-     "club": "MCI",
-     "pos": "FWD",
-     "score": 16.3,
-     "side": "H",
-     "yours": true
-    },
-    {
-     "name": "Foden",
-     "club": "MCI",
-     "pos": "MID",
-     "score": 12.9,
-     "side": "H",
-     "yours": false
-    },
     {
      "name": "Flemming",
      "club": "IPS",
      "pos": "FWD",
      "score": 8.3,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Gibbs-White",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 7.9,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Ndoye",
+     "club": "NFO",
+     "pos": "MID",
+     "score": 6.9,
      "side": "A",
      "yours": false
     },
@@ -563,262 +315,18 @@
      "club": "IPS",
      "pos": "FWD",
      "score": 6.4,
-     "side": "A",
+     "side": "H",
      "yours": false
     }
    ],
-   "kickoff_utc": "2026-10-17T14:00:00Z",
-   "kickoff": "Sat 17 Oct 09:00",
-   "day": "Sat 17 Oct",
+   "kickoff_utc": "2026-10-23T19:00:00Z",
+   "kickoff": "Fri 23 Oct 14:00",
+   "day": "Fri 23 Oct",
    "monday": false
   },
   {
-   "home": "NEW",
-   "away": "AVL",
-   "xg_home": 1.55,
-   "xg_away": 1.09,
-   "win": 48,
-   "draw": 25,
-   "loss": 27,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 12.1
-    },
-    {
-     "score": "1-0",
-     "pct": 11.1
-    },
-    {
-     "score": "2-1",
-     "pct": 9.3
-    }
-   ],
-   "watch": [
-    {
-     "name": "N.Jackson",
-     "club": "AVL",
-     "pos": "FWD",
-     "score": 5.8,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Wissa",
-     "club": "NEW",
-     "pos": "FWD",
-     "score": 5.2,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Manzambi",
-     "club": "AVL",
-     "pos": "MID",
-     "score": 5.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Willock",
-     "club": "NEW",
-     "pos": "MID",
-     "score": 4.6,
-     "side": "H",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-10-17T16:30:00Z",
-   "kickoff": "Sat 17 Oct 11:30",
-   "day": "Sat 17 Oct",
-   "monday": false
-  },
-  {
-   "home": "BOU",
-   "away": "SUN",
-   "xg_home": 1.55,
-   "xg_away": 1.09,
-   "win": 48,
-   "draw": 25,
-   "loss": 27,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 12.1
-    },
-    {
-     "score": "1-0",
-     "pct": 11.1
-    },
-    {
-     "score": "2-1",
-     "pct": 9.3
-    }
-   ],
-   "watch": [
-    {
-     "name": "Tavernier",
-     "club": "BOU",
-     "pos": "MID",
-     "score": 8.2,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Evanilson",
-     "club": "BOU",
-     "pos": "FWD",
-     "score": 6.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "E.Le F\u00e9e",
-     "club": "SUN",
-     "pos": "MID",
-     "score": 6.4,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Brobbey",
-     "club": "SUN",
-     "pos": "FWD",
-     "score": 4.5,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-10-18T13:00:00Z",
-   "kickoff": "Sun 18 Oct 08:00",
-   "day": "Sun 18 Oct",
-   "monday": false
-  },
-  {
-   "home": "BHA",
-   "away": "CRY",
-   "xg_home": 1.97,
-   "xg_away": 0.92,
-   "win": 62,
-   "draw": 21,
-   "loss": 17,
-   "scorelines": [
-    {
-     "score": "1-0",
-     "pct": 11.0
-    },
-    {
-     "score": "2-0",
-     "pct": 10.9
-    },
-    {
-     "score": "1-1",
-     "pct": 10.1
-    }
-   ],
-   "watch": [
-    {
-     "name": "Hinshelwood",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 29.4,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "O'Riley",
-     "club": "BHA",
-     "pos": "MID",
-     "score": 11.8,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Mateta",
-     "club": "CRY",
-     "pos": "FWD",
-     "score": 11.0,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Nketiah",
-     "club": "CRY",
-     "pos": "FWD",
-     "score": 8.1,
-     "side": "A",
-     "yours": false
-    }
-   ],
-   "kickoff_utc": "2026-10-18T13:00:00Z",
-   "kickoff": "Sun 18 Oct 08:00",
-   "day": "Sun 18 Oct",
-   "monday": false
-  },
-  {
-   "home": "LEE",
-   "away": "MUN",
-   "xg_home": 1.3,
-   "xg_away": 1.45,
-   "win": 34,
-   "draw": 25,
-   "loss": 41,
-   "scorelines": [
-    {
-     "score": "1-1",
-     "pct": 12.1
-    },
-    {
-     "score": "0-1",
-     "pct": 9.3
-    },
-    {
-     "score": "1-2",
-     "pct": 8.8
-    }
-   ],
-   "watch": [
-    {
-     "name": "B.Fernandes",
-     "club": "MUN",
-     "pos": "MID",
-     "score": 9.2,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Mbeumo",
-     "club": "MUN",
-     "pos": "MID",
-     "score": 9.0,
-     "side": "A",
-     "yours": false
-    },
-    {
-     "name": "Calvert-Lewin",
-     "club": "LEE",
-     "pos": "FWD",
-     "score": 6.6,
-     "side": "H",
-     "yours": false
-    },
-    {
-     "name": "Bogle",
-     "club": "LEE",
-     "pos": "DEF",
-     "score": 5.3,
-     "side": "H",
-     "yours": true
-    }
-   ],
-   "kickoff_utc": "2026-10-18T13:00:00Z",
-   "kickoff": "Sun 18 Oct 08:00",
-   "day": "Sun 18 Oct",
-   "monday": false
-  },
-  {
-   "home": "NFO",
-   "away": "ARS",
+   "home": "AVL",
+   "away": "MCI",
    "xg_home": 1.3,
    "xg_away": 1.82,
    "win": 28,
@@ -840,11 +348,72 @@
    ],
    "watch": [
     {
-     "name": "Gibbs-White",
-     "club": "NFO",
+     "name": "Haaland",
+     "club": "MCI",
+     "pos": "FWD",
+     "score": 16.3,
+     "side": "A",
+     "yours": true
+    },
+    {
+     "name": "Foden",
+     "club": "MCI",
      "pos": "MID",
-     "score": 7.9,
+     "score": 12.9,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "N.Jackson",
+     "club": "AVL",
+     "pos": "FWD",
+     "score": 5.8,
      "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Manzambi",
+     "club": "AVL",
+     "pos": "MID",
+     "score": 5.2,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-24T11:30:00Z",
+   "kickoff": "Sat 24 Oct 06:30",
+   "day": "Sat 24 Oct",
+   "monday": false
+  },
+  {
+   "home": "ARS",
+   "away": "EVE",
+   "xg_home": 2.06,
+   "xg_away": 0.8,
+   "win": 66,
+   "draw": 20,
+   "loss": 14,
+   "scorelines": [
+    {
+     "score": "2-0",
+     "pct": 12.2
+    },
+    {
+     "score": "1-0",
+     "pct": 11.8
+    },
+    {
+     "score": "2-1",
+     "pct": 9.8
+    }
+   ],
+   "watch": [
+    {
+     "name": "Barry",
+     "club": "EVE",
+     "pos": "FWD",
+     "score": 8.4,
+     "side": "A",
      "yours": false
     },
     {
@@ -852,15 +421,15 @@
      "club": "ARS",
      "pos": "MID",
      "score": 7.5,
-     "side": "A",
+     "side": "H",
      "yours": false
     },
     {
-     "name": "Ndoye",
-     "club": "NFO",
+     "name": "Dibling",
+     "club": "EVE",
      "pos": "MID",
-     "score": 6.9,
-     "side": "H",
+     "score": 7.5,
+     "side": "A",
      "yours": false
     },
     {
@@ -868,13 +437,440 @@
      "club": "ARS",
      "pos": "MID",
      "score": 5.7,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-24T14:00:00Z",
+   "kickoff": "Sat 24 Oct 09:00",
+   "day": "Sat 24 Oct",
+   "monday": false
+  },
+  {
+   "home": "COV",
+   "away": "FUL",
+   "xg_home": 1.31,
+   "xg_away": 1.39,
+   "win": 35,
+   "draw": 26,
+   "loss": 39,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 12.2
+    },
+    {
+     "score": "0-1",
+     "pct": 9.3
+    },
+    {
+     "score": "1-0",
+     "pct": 8.8
+    }
+   ],
+   "watch": [
+    {
+     "name": "Rudoni",
+     "club": "COV",
+     "pos": "MID",
+     "score": 7.1,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Gonzalo",
+     "club": "FUL",
+     "pos": "FWD",
+     "score": 6.8,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Iwobi",
+     "club": "FUL",
+     "pos": "MID",
+     "score": 6.3,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Awoniyi",
+     "club": "COV",
+     "pos": "FWD",
+     "score": 6.0,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-24T14:00:00Z",
+   "kickoff": "Sat 24 Oct 09:00",
+   "day": "Sat 24 Oct",
+   "monday": false
+  },
+  {
+   "home": "CHE",
+   "away": "TOT",
+   "xg_home": 2.63,
+   "xg_away": 0.92,
+   "win": 73,
+   "draw": 16,
+   "loss": 11,
+   "scorelines": [
+    {
+     "score": "2-0",
+     "pct": 10.2
+    },
+    {
+     "score": "2-1",
+     "pct": 9.3
+    },
+    {
+     "score": "3-0",
+     "pct": 8.9
+    }
+   ],
+   "watch": [
+    {
+     "name": "Jo\u00e3o Pedro",
+     "club": "CHE",
+     "pos": "FWD",
+     "score": 8.5,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Rogers",
+     "club": "CHE",
+     "pos": "MID",
+     "score": 7.3,
+     "side": "H",
+     "yours": true
+    },
+    {
+     "name": "Gallagher",
+     "club": "TOT",
+     "pos": "MID",
+     "score": 5.5,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Solanke",
+     "club": "TOT",
+     "pos": "FWD",
+     "score": 5.1,
      "side": "A",
      "yours": false
     }
    ],
-   "kickoff_utc": "2026-10-18T15:30:00Z",
-   "kickoff": "Sun 18 Oct 10:30",
-   "day": "Sun 18 Oct",
+   "kickoff_utc": "2026-10-24T16:30:00Z",
+   "kickoff": "Sat 24 Oct 11:30",
+   "day": "Sat 24 Oct",
+   "monday": false
+  },
+  {
+   "home": "CRY",
+   "away": "NEW",
+   "xg_home": 1.03,
+   "xg_away": 1.09,
+   "win": 34,
+   "draw": 30,
+   "loss": 37,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 13.5
+    },
+    {
+     "score": "0-1",
+     "pct": 13.1
+    },
+    {
+     "score": "1-0",
+     "pct": 12.4
+    }
+   ],
+   "watch": [
+    {
+     "name": "Mateta",
+     "club": "CRY",
+     "pos": "FWD",
+     "score": 11.0,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Nketiah",
+     "club": "CRY",
+     "pos": "FWD",
+     "score": 8.1,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Wissa",
+     "club": "NEW",
+     "pos": "FWD",
+     "score": 5.2,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Willock",
+     "club": "NEW",
+     "pos": "MID",
+     "score": 4.6,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-25T14:00:00Z",
+   "kickoff": "Sun 25 Oct 09:00",
+   "day": "Sun 25 Oct",
+   "monday": false
+  },
+  {
+   "home": "HUL",
+   "away": "BRE",
+   "xg_home": 1.03,
+   "xg_away": 1.39,
+   "win": 28,
+   "draw": 27,
+   "loss": 45,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 12.7
+    },
+    {
+     "score": "0-1",
+     "pct": 12.4
+    },
+    {
+     "score": "1-0",
+     "pct": 9.2
+    }
+   ],
+   "watch": [
+    {
+     "name": "Carvalho",
+     "club": "BRE",
+     "pos": "MID",
+     "score": 55.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Gelhardt",
+     "club": "HUL",
+     "pos": "MID",
+     "score": 11.2,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Thiago",
+     "club": "BRE",
+     "pos": "FWD",
+     "score": 7.0,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Belloumi",
+     "club": "HUL",
+     "pos": "MID",
+     "score": 4.4,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-25T14:00:00Z",
+   "kickoff": "Sun 25 Oct 09:00",
+   "day": "Sun 25 Oct",
+   "monday": false
+  },
+  {
+   "home": "LIV",
+   "away": "BHA",
+   "xg_home": 2.06,
+   "xg_away": 1.22,
+   "win": 56,
+   "draw": 21,
+   "loss": 22,
+   "scorelines": [
+    {
+     "score": "2-1",
+     "pct": 9.8
+    },
+    {
+     "score": "1-1",
+     "pct": 9.5
+    },
+    {
+     "score": "2-0",
+     "pct": 8.0
+    }
+   ],
+   "watch": [
+    {
+     "name": "Hinshelwood",
+     "club": "BHA",
+     "pos": "MID",
+     "score": 29.4,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "O'Riley",
+     "club": "BHA",
+     "pos": "MID",
+     "score": 11.8,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Isak",
+     "club": "LIV",
+     "pos": "FWD",
+     "score": 10.2,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Gakpo",
+     "club": "LIV",
+     "pos": "MID",
+     "score": 7.5,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-25T14:00:00Z",
+   "kickoff": "Sun 25 Oct 09:00",
+   "day": "Sun 25 Oct",
+   "monday": false
+  },
+  {
+   "home": "MUN",
+   "away": "BOU",
+   "xg_home": 2.06,
+   "xg_away": 0.92,
+   "win": 64,
+   "draw": 20,
+   "loss": 16,
+   "scorelines": [
+    {
+     "score": "2-0",
+     "pct": 10.9
+    },
+    {
+     "score": "1-0",
+     "pct": 10.6
+    },
+    {
+     "score": "2-1",
+     "pct": 10.0
+    }
+   ],
+   "watch": [
+    {
+     "name": "B.Fernandes",
+     "club": "MUN",
+     "pos": "MID",
+     "score": 9.2,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Mbeumo",
+     "club": "MUN",
+     "pos": "MID",
+     "score": 9.0,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Tavernier",
+     "club": "BOU",
+     "pos": "MID",
+     "score": 8.2,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "Evanilson",
+     "club": "BOU",
+     "pos": "FWD",
+     "score": 6.8,
+     "side": "A",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-25T14:00:00Z",
+   "kickoff": "Sun 25 Oct 09:00",
+   "day": "Sun 25 Oct",
+   "monday": false
+  },
+  {
+   "home": "SUN",
+   "away": "LEE",
+   "xg_home": 1.55,
+   "xg_away": 1.09,
+   "win": 48,
+   "draw": 25,
+   "loss": 27,
+   "scorelines": [
+    {
+     "score": "1-1",
+     "pct": 12.1
+    },
+    {
+     "score": "1-0",
+     "pct": 11.1
+    },
+    {
+     "score": "2-1",
+     "pct": 9.3
+    }
+   ],
+   "watch": [
+    {
+     "name": "Calvert-Lewin",
+     "club": "LEE",
+     "pos": "FWD",
+     "score": 6.6,
+     "side": "A",
+     "yours": false
+    },
+    {
+     "name": "E.Le F\u00e9e",
+     "club": "SUN",
+     "pos": "MID",
+     "score": 6.4,
+     "side": "H",
+     "yours": false
+    },
+    {
+     "name": "Bogle",
+     "club": "LEE",
+     "pos": "DEF",
+     "score": 5.3,
+     "side": "A",
+     "yours": true
+    },
+    {
+     "name": "Brobbey",
+     "club": "SUN",
+     "pos": "FWD",
+     "score": 4.5,
+     "side": "H",
+     "yours": false
+    }
+   ],
+   "kickoff_utc": "2026-10-25T16:30:00Z",
+   "kickoff": "Sun 25 Oct 11:30",
+   "day": "Sun 25 Oct",
    "monday": false
   }
  ]
