@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T03:15:09-0500",
+ "generated": "2026-10-22T03:45:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -287,6 +287,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Burnley on the brink & Billy Sharp the EFL bagsman",
+   "standfirst": "Aaron Paul and Jobi McAnuff are joined by Lyle Taylor to discuss the latest in the EFL.",
+   "link": "https://www.bbc.co.uk/sounds/play/p0phvgy3?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-21T16:07:00Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "West Brom midfielder Collyer out for six weeks",
    "standfirst": "West Bromwich Albion midfielder Toby Collyer is expected to be sidelined for up to six weeks with a hamstring injury.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cjx23d6dy1geo?at_medium=RSS&at_campaign=rss",
@@ -491,14 +499,6 @@
    "standfirst": "The returning James Maddison scored a beauty, with Omar Marmoush and Ben Davies also on target as Spurs won in the league for the first time this season Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The abse",
    "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
    "published": "2026-10-19T21:08:31Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Davies ensures Spurs off the bottom after first win of season against Coventry",
-   "standfirst": "Tottenham are level with Beyonc\u00e9 at last. Progress is represented in Roberto De Zerbi\u2019s side earning only their sixth home win in the Premier League since November 2024. Cynics will point out that this spectacular stadium has hosted as many Beyonc\u00e9 gigs during that time, but Spurs are finally singing a happier tune aft",
-   "link": "https://www.theguardian.com/football/2026/oct/19/tottenham-coventry-premier-league-match-report",
-   "published": "2026-10-19T21:05:46Z"
   }
  ]
 }
