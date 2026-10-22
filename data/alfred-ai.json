@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T06:40:05-0500",
+ "generated": "2026-10-22T12:40:02-0500",
  "by": "Alfred (fpl_app_data.py -> existing engine: fpl_simulate.search, decision matrix)",
  "gw_for": 8,
  "free_transfers": 1,
@@ -75,11 +75,11 @@
  "margin_vs_hold": 0.28,
  "confidence": "low",
  "captain": {
-  "published": "De Cuyper",
+  "published": "Haaland",
   "vice": "Jo\u00e3o Pedro",
   "engine": "Haaland",
   "model": "De Cuyper",
-  "override_reason": "John GW7 Pick Team screenshot 2026-10-15 09:50"
+  "override_reason": "John GW8 Pick Team screenshot 2026-10-22 09:29 CDT"
  },
  "matrix": {
   "weights": {
@@ -100,7 +100,7 @@
     "fix": "CHE (A)",
     "diff": 4,
     "risk": 0,
-    "total": 43.6,
+    "total": 42.8,
     "price": 5.3,
     "status": "a"
    },
@@ -142,7 +142,7 @@
     "fix": "CHE (A)",
     "diff": 4,
     "risk": 0,
-    "total": 27.44,
+    "total": 26.64,
     "price": 5.7,
     "status": "a"
    },
@@ -161,20 +161,6 @@
     "status": "a"
    },
    {
-    "name": "Gro\u00df",
-    "club": "BHA",
-    "pos": 3,
-    "ep": 5.5,
-    "xgi": 0.49,
-    "form": 5.5,
-    "fix": "CHE (A)",
-    "diff": 4,
-    "risk": 0,
-    "total": 23.96,
-    "price": 6.2,
-    "status": "a"
-   },
-   {
     "name": "Cherki",
     "club": "MCI",
     "pos": 3,
@@ -189,6 +175,20 @@
     "status": "a"
    },
    {
+    "name": "Gro\u00df",
+    "club": "BHA",
+    "pos": 3,
+    "ep": 5.5,
+    "xgi": 0.49,
+    "form": 5.5,
+    "fix": "CHE (A)",
+    "diff": 4,
+    "risk": 0,
+    "total": 23.16,
+    "price": 6.2,
+    "status": "a"
+   },
+   {
     "name": "Raya",
     "club": "ARS",
     "pos": 1,
@@ -197,8 +197,8 @@
     "form": 6.0,
     "fix": "AVL (A)",
     "diff": 3,
-    "risk": 1,
-    "total": 22.8,
+    "risk": 2,
+    "total": 21.6,
     "price": 6.1,
     "status": "a"
    },
