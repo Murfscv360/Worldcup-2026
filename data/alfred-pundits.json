@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T23:45:07-0500",
+ "generated": "2026-10-22T00:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,38 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-17",
-   "comp": "epl",
-   "team1": "Brentford FC",
-   "team2": "Liverpool FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Brentford contact police after rugby ball kicked into stadium during game",
-     "standfirst": "Brentford say they are working with the police following a \"dangerous\" incident in which a rugby ball was kicked from a height towards the pitch during their Premier League game with Liverpool.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cm4g17d11zvwo?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-19T16:26:44Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-17",
-   "comp": "championship",
-   "team1": "West Bromwich Albion FC",
-   "team2": "Blackburn Rovers FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "championship",
-     "title": "Rovers loss to West Brom far from a disaster",
-     "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
-     "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-20T07:58:36Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-18",
    "comp": "epl",
