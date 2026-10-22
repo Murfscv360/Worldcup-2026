@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T09:15:16-0500",
+ "generated": "2026-10-22T09:45:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -263,6 +263,22 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Burnley's Bruun Larsen out for up to three months",
+   "standfirst": "Burnley forward Jacob Bruun Larsen is ruled out for up to three months with a stress fracture.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cwm267pjx77lo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T14:15:07Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Parkinson's gratitude as Wrexham boss hits landmark",
+   "standfirst": "Phil Parkinson praised Wrexham's \"togetherness\" as he became the second-longest serving manager in the English Football League.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqlye4p71l0zo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T13:16:55Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Championship's all-time 'bagsman' Sharp plots next steps",
    "standfirst": "Retired Sheffield United legend Billy Sharp says he would like to move into coaching and management.",
    "link": "https://www.bbc.co.uk/sport/football/articles/crkg7kp5y9jpo?at_medium=RSS&at_campaign=rss",
@@ -483,22 +499,6 @@
    "standfirst": "Tottenham Hotspur head coach Roberto de Zerbi hails the spirit and attitude of his side following their first Premier League win of the season, as they beat Coventry City.",
    "link": "https://www.bbc.co.uk/sport/football/videos/cqvgrn518d6jo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T21:59:30Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Lampard 'proud' of Coventry performance in defeat by Spurs",
-   "standfirst": "Coventry City manager Frank Lampard says he is proud of his side's performance, despite losing at struggling Tottenham Hotspur in the Premier League.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c32l4x1k28ero?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T21:41:21Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Spurs beat Coventry to earn first league win of the season",
-   "standfirst": "Tottenham Hotspur record their first Premier League win of the season and move off the bottom of the table with a home victory over Coventry City.",
-   "link": "https://www.bbc.co.uk/sport/football/videos/c9x28pyg05vyo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T21:33:07Z"
   }
  ]
 }
