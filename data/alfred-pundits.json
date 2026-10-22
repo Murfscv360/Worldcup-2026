@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T11:45:07-0500",
+ "generated": "2026-10-22T12:15:14-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -188,6 +188,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Team has to chip in with more goals - Skubala",
+   "standfirst": "Bristol City need more players to contribute to goals and assists says manager Michael Skubala with his side struggling to score.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/ck4g17ynmy48o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T16:55:39Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -419,14 +427,6 @@
    "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-20T07:58:36Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Who has made Troy's Premier League team of the week?",
-   "standfirst": "After every round of Premier League matches this season, Troy Deeney gives us his team of the week. Do you agree with his choices?",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cqgm0zy4d23po?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-19T23:22:24Z"
   }
  ]
 }
