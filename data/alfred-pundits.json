@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T13:45:09-0500",
+ "generated": "2026-10-22T14:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -13,38 +13,6 @@
   {
    "date": "2026-10-18",
    "comp": "epl",
-   "team1": "AFC Bournemouth",
-   "team2": "Sunderland AFC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Bournemouth pick up first league victory with win over Sunderland",
-     "standfirst": "Bournemouth beat Sunderland 2-0 at the Vitality Stadium to pick up their first league victory of the season and move out of the relegation zone.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cme8rz8x6pw8o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T18:59:15Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-18",
-   "comp": "epl",
-   "team1": "Brighton & Hove Albion FC",
-   "team2": "Crystal Palace FC",
-   "reports": [
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Gomez scores extraordinary goal as Brighton put five past Palace",
-     "standfirst": "Diego Gomez scores a sensational goal from the halfway line as Brighton hammer rivals Crystal Palace.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/ckm23z2qem45o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T18:59:02Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-18",
-   "comp": "epl",
    "team1": "Leeds United FC",
    "team2": "Manchester United FC",
    "reports": [
@@ -55,14 +23,6 @@
      "standfirst": "Florian Wirtz takes on more responsibility in Liverpool\u2019s attack while Pierre Sage is under pressure at Crystal Palace Dominic Calvert-Lewin\u2019s physicality overpowering Bryan Mbeumo in Manchester United\u2019s area at a corner grabbed him a fifth goal in 10 outings for Leeds: a pretty respectable ratio. \u201cI just tried to caus",
      "link": "https://www.theguardian.com/football/2026/oct/19/premier-league-10-talking-points-from-the-weekends-action",
      "published": "2026-10-19T07:00:22Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Leeds extend Man Utd's winless run to six games",
-     "standfirst": "Dominic Calvert-Lewin earns a point for Leeds and extends Manchester United's winless run to six games.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cw4g1dgr2v93o?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T18:59:10Z"
     }
    ]
   },
@@ -87,14 +47,6 @@
      "standfirst": "Noni Madueke may not have the role he wants at Arsenal but his winning goal against Nottingham Forest showed why he is one of Mikel Arteta's valued players.",
      "link": "https://www.bbc.co.uk/sport/football/articles/c3qjnyw8qe4do?at_medium=RSS&at_campaign=rss",
      "published": "2026-10-18T19:55:41Z"
-    },
-    {
-     "source": "BBC Sport",
-     "comp": "epl",
-     "title": "Madueke's strike enough as Arsenal pick up narrow win over Forest",
-     "standfirst": "Noni Madueke comes of the bench to score the winning goal as Arsenal beat Nottingham Forest 1-0 at The City Ground.",
-     "link": "https://www.bbc.co.uk/sport/football/videos/cm70px0l7p7no?at_medium=RSS&at_campaign=rss",
-     "published": "2026-10-18T18:59:06Z"
     }
    ]
   },
