@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T17:45:08-0500",
+ "generated": "2026-10-22T18:15:09-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -100,6 +100,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Premier League: 10 things to look out for this weekend",
+   "standfirst": "Max Dowman may get a chance, Spurs need to find balance at Stamford Bridge and Axel Disasi must make amends Premier League top scorers After seven games, Nottingham Forest\u2019s record is eerily similar to last season: five points, five goals scored. A year ago Forest\u2019s eighth game was a 3-0 home loss to Chelsea that marke",
+   "link": "https://www.theguardian.com/football/2026/oct/23/premier-league-10-things-to-look-out-for-this-weekend",
+   "published": "2026-10-22T23:01:52Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "championship",
@@ -331,14 +339,6 @@
    "standfirst": "In-form winger Liam Millar says Birmingham City boss Chris Davies is giving him the perfect platform to express himself.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c8n5vq166pk4o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-20T11:45:13Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "My patience with Bristol City has evaporated",
-   "standfirst": "Bristol City fan and podcaster Richard Angell says the pattern of constant change at Ashton Gate should be bringing better results.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm0e0zzex2nvo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T10:04:40Z"
   }
  ]
 }
