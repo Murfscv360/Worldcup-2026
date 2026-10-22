@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T05:15:09-0500",
+ "generated": "2026-10-22T05:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -262,6 +262,14 @@
  "latest": [
   {
    "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Manager ins and outs - 2026-27",
+   "standfirst": "BBC Sport tracks all the manager ins and outs in the Premier League, Scottish Premiership, Women's Super League, English Football League and National League.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cd94713djgyo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T10:17:06Z"
+  },
+  {
+   "source": "BBC Sport",
    "comp": "epl",
    "title": "Saka injury 'does not look good' - how will Arsenal cope?",
    "standfirst": "Mikel Arteta says the quadriceps injury Arsenal's Bukayo Saka picked up in the Champions League draw with Bayern Munich \"does not look good at all\".",
@@ -347,14 +355,6 @@
    "standfirst": "Wolves boss Cesar Peixoto is hopeful that experienced players Adam Armstrong and Kieran Trippier will be fit to play against Watford on Saturday.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cq8jzrlzv923o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-21T09:00:08Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Manager ins and outs - 2026-27",
-   "standfirst": "BBC Sport tracks all the manager ins and outs in the Premier League, Scottish Premiership, Women's Super League, English Football League and National League.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cd94713djgyo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-21T07:32:07Z"
   },
   {
    "source": "Guardian",
