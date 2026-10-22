@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T12:40:02-0500",
+ "generated": "2026-10-22T18:40:03-0500",
  "by": "Alfred (fpl_app_data.py)",
  "source": "fantasy.premierleague.com/api bootstrap-static (transfers_in/out_event)",
  "note": "Transfer PRESSURE, not a prediction: FPL does not publish its price-change thresholds.",
@@ -9,8 +9,8 @@
    "club": "BHA",
    "price": 5.7,
    "gw_change": 0.0,
-   "net_transfers": 83798,
-   "pressure": 7.69,
+   "net_transfers": 87449,
+   "pressure": 8.03,
    "owned_pct": 9.9,
    "mine": true
   },
@@ -19,8 +19,8 @@
    "club": "LEE",
    "price": 4.7,
    "gw_change": 0.0,
-   "net_transfers": 79241,
-   "pressure": 6.99,
+   "net_transfers": 86793,
+   "pressure": 7.66,
    "owned_pct": 10.3,
    "mine": true
   },
@@ -29,9 +29,9 @@
    "club": "BRE",
    "price": 6.2,
    "gw_change": 0.0,
-   "net_transfers": 63870,
-   "pressure": 4.09,
-   "owned_pct": 14.2,
+   "net_transfers": 73241,
+   "pressure": 4.66,
+   "owned_pct": 14.3,
    "mine": true
   },
   {
@@ -39,9 +39,9 @@
    "club": "BHA",
    "price": 5.3,
    "gw_change": 0.1,
-   "net_transfers": 178242,
-   "pressure": 3.92,
-   "owned_pct": 41.3,
+   "net_transfers": 190036,
+   "pressure": 4.17,
+   "owned_pct": 41.4,
    "mine": true
   },
   {
@@ -49,9 +49,9 @@
    "club": "BHA",
    "price": 6.2,
    "gw_change": 0.1,
-   "net_transfers": 191983,
-   "pressure": 3.83,
-   "owned_pct": 45.6,
+   "net_transfers": 201847,
+   "pressure": 4.02,
+   "owned_pct": 45.7,
    "mine": true
   },
   {
@@ -59,19 +59,19 @@
    "club": "MCI",
    "price": 8.0,
    "gw_change": 0.1,
-   "net_transfers": 153268,
-   "pressure": 3.65,
-   "owned_pct": 38.2,
+   "net_transfers": 168294,
+   "pressure": 3.98,
+   "owned_pct": 38.4,
    "mine": true
   },
   {
    "name": "Palmer",
    "club": "CHE",
-   "price": 9.7,
-   "gw_change": 0.0,
-   "net_transfers": 86176,
-   "pressure": 2.92,
-   "owned_pct": 26.8,
+   "price": 9.8,
+   "gw_change": 0.1,
+   "net_transfers": 116794,
+   "pressure": 3.92,
+   "owned_pct": 27.1,
    "mine": true
   },
   {
@@ -79,9 +79,9 @@
    "club": "MCI",
    "price": 5.8,
    "gw_change": 0.0,
-   "net_transfers": -89409,
-   "pressure": -2.89,
-   "owned_pct": 28.1,
+   "net_transfers": -97281,
+   "pressure": -3.16,
+   "owned_pct": 28.0,
    "mine": true
   },
   {
@@ -89,9 +89,9 @@
    "club": "CHE",
    "price": 8.0,
    "gw_change": 0.1,
-   "net_transfers": 145929,
-   "pressure": 2.74,
-   "owned_pct": 48.4,
+   "net_transfers": 163123,
+   "pressure": 3.06,
+   "owned_pct": 48.5,
    "mine": true
   },
   {
@@ -99,8 +99,8 @@
    "club": "HUL",
    "price": 4.2,
    "gw_change": 0.0,
-   "net_transfers": -33497,
-   "pressure": -2.29,
+   "net_transfers": -36123,
+   "pressure": -2.47,
    "owned_pct": 13.3,
    "mine": true
   },
@@ -109,9 +109,9 @@
    "club": "ARS",
    "price": 6.1,
    "gw_change": 0.0,
-   "net_transfers": 74317,
-   "pressure": 1.51,
-   "owned_pct": 44.6,
+   "net_transfers": 87630,
+   "pressure": 1.78,
+   "owned_pct": 44.7,
    "mine": true
   },
   {
@@ -119,9 +119,9 @@
    "club": "CHE",
    "price": 7.9,
    "gw_change": 0.1,
-   "net_transfers": 92237,
-   "pressure": 1.15,
-   "owned_pct": 73.0,
+   "net_transfers": 101913,
+   "pressure": 1.27,
+   "owned_pct": 73.1,
    "mine": true
   },
   {
@@ -129,9 +129,9 @@
    "club": "HUL",
    "price": 4.7,
    "gw_change": 0.0,
-   "net_transfers": 14598,
-   "pressure": 0.95,
-   "owned_pct": 14.0,
+   "net_transfers": 15863,
+   "pressure": 1.02,
+   "owned_pct": 14.1,
    "mine": true
   },
   {
@@ -139,9 +139,9 @@
    "club": "MCI",
    "price": 15.7,
    "gw_change": 0.0,
-   "net_transfers": 73847,
-   "pressure": 0.87,
-   "owned_pct": 76.9,
+   "net_transfers": 80093,
+   "pressure": 0.95,
+   "owned_pct": 77.0,
    "mine": true
   },
   {
@@ -149,8 +149,8 @@
    "club": "HUL",
    "price": 4.1,
    "gw_change": 0.0,
-   "net_transfers": -142,
-   "pressure": -0.02,
+   "net_transfers": -549,
+   "pressure": -0.07,
    "owned_pct": 7.2,
    "mine": true
   }
@@ -161,9 +161,9 @@
    "club": "BOU",
    "price": 6.2,
    "gw_change": 0.1,
-   "net_transfers": 239411,
-   "pressure": 21.55,
-   "owned_pct": 10.1,
+   "net_transfers": 281770,
+   "pressure": 24.63,
+   "owned_pct": 10.4,
    "mine": false
   },
   {
@@ -171,9 +171,9 @@
    "club": "BHA",
    "price": 6.2,
    "gw_change": 0.1,
-   "net_transfers": 191983,
-   "pressure": 3.83,
-   "owned_pct": 45.6,
+   "net_transfers": 201847,
+   "pressure": 4.02,
+   "owned_pct": 45.7,
    "mine": true
   },
   {
@@ -181,9 +181,9 @@
    "club": "BHA",
    "price": 5.3,
    "gw_change": 0.1,
-   "net_transfers": 178242,
-   "pressure": 3.92,
-   "owned_pct": 41.3,
+   "net_transfers": 190036,
+   "pressure": 4.17,
+   "owned_pct": 41.4,
    "mine": true
   },
   {
@@ -191,9 +191,9 @@
    "club": "MCI",
    "price": 8.0,
    "gw_change": 0.1,
-   "net_transfers": 153268,
-   "pressure": 3.65,
-   "owned_pct": 38.2,
+   "net_transfers": 168294,
+   "pressure": 3.98,
+   "owned_pct": 38.4,
    "mine": true
   },
   {
@@ -201,29 +201,29 @@
    "club": "CHE",
    "price": 8.0,
    "gw_change": 0.1,
-   "net_transfers": 145929,
-   "pressure": 2.74,
-   "owned_pct": 48.4,
+   "net_transfers": 163123,
+   "pressure": 3.06,
+   "owned_pct": 48.5,
    "mine": true
+  },
+  {
+   "name": "Mbeumo",
+   "club": "MUN",
+   "price": 7.9,
+   "gw_change": 0.1,
+   "net_transfers": 151865,
+   "pressure": 6.61,
+   "owned_pct": 20.9,
+   "mine": false
   },
   {
    "name": "Neto",
    "club": "CHE",
    "price": 6.5,
    "gw_change": 0.0,
-   "net_transfers": 131494,
-   "pressure": 42.69,
-   "owned_pct": 2.8,
-   "mine": false
-  },
-  {
-   "name": "Mbeumo",
-   "club": "MUN",
-   "price": 7.8,
-   "gw_change": 0.0,
-   "net_transfers": 131469,
-   "pressure": 5.77,
-   "owned_pct": 20.7,
+   "net_transfers": 142505,
+   "pressure": 44.67,
+   "owned_pct": 2.9,
    "mine": false
   },
   {
@@ -231,19 +231,29 @@
    "club": "LIV",
    "price": 9.0,
    "gw_change": 0.0,
-   "net_transfers": 120088,
-   "pressure": 8.27,
-   "owned_pct": 13.2,
+   "net_transfers": 128818,
+   "pressure": 8.81,
+   "owned_pct": 13.3,
    "mine": false
+  },
+  {
+   "name": "Palmer",
+   "club": "CHE",
+   "price": 9.8,
+   "gw_change": 0.1,
+   "net_transfers": 116794,
+   "pressure": 3.92,
+   "owned_pct": 27.1,
+   "mine": true
   },
   {
    "name": "Calvert-Lewin",
    "club": "LEE",
    "price": 6.1,
    "gw_change": 0.1,
-   "net_transfers": 95697,
-   "pressure": 3.69,
-   "owned_pct": 23.6,
+   "net_transfers": 106312,
+   "pressure": 4.08,
+   "owned_pct": 23.7,
    "mine": false
   },
   {
@@ -251,9 +261,9 @@
    "club": "ARS",
    "price": 6.0,
    "gw_change": 0.1,
-   "net_transfers": 95536,
-   "pressure": 1.61,
-   "owned_pct": 54.1,
+   "net_transfers": 105566,
+   "pressure": 1.77,
+   "owned_pct": 54.2,
    "mine": false
   },
   {
@@ -261,41 +271,31 @@
    "club": "MCI",
    "price": 7.5,
    "gw_change": 0.1,
-   "net_transfers": 93765,
-   "pressure": 31.57,
-   "owned_pct": 2.7,
+   "net_transfers": 103380,
+   "pressure": 33.56,
+   "owned_pct": 2.8,
    "mine": false
-  },
-  {
-   "name": "Jo\u00e3o Pedro",
-   "club": "CHE",
-   "price": 7.9,
-   "gw_change": 0.1,
-   "net_transfers": 92237,
-   "pressure": 1.15,
-   "owned_pct": 73.0,
-   "mine": true
   }
  ],
  "falling": [
-  {
-   "name": "Szoboszlai",
-   "club": "LIV",
-   "price": 6.8,
-   "gw_change": 0.0,
-   "net_transfers": -354713,
-   "pressure": -17.43,
-   "owned_pct": 18.5,
-   "mine": false
-  },
   {
    "name": "Semenyo",
    "club": "MCI",
    "price": 8.3,
    "gw_change": 0.0,
-   "net_transfers": -345632,
-   "pressure": -27.56,
-   "owned_pct": 11.4,
+   "net_transfers": -383970,
+   "pressure": -31.45,
+   "owned_pct": 11.1,
+   "mine": false
+  },
+  {
+   "name": "Szoboszlai",
+   "club": "LIV",
+   "price": 6.8,
+   "gw_change": 0.0,
+   "net_transfers": -383486,
+   "pressure": -19.16,
+   "owned_pct": 18.2,
    "mine": false
   },
   {
@@ -303,19 +303,9 @@
    "club": "MUN",
    "price": 11.8,
    "gw_change": 0.0,
-   "net_transfers": -262731,
-   "pressure": -8.38,
-   "owned_pct": 28.5,
-   "mine": false
-  },
-  {
-   "name": "Wissa",
-   "club": "NEW",
-   "price": 6.1,
-   "gw_change": -0.1,
-   "net_transfers": -203947,
-   "pressure": -13.53,
-   "owned_pct": 13.7,
+   "net_transfers": -292579,
+   "pressure": -9.43,
+   "owned_pct": 28.2,
    "mine": false
   },
   {
@@ -323,9 +313,19 @@
    "club": "ARS",
    "price": 9.6,
    "gw_change": 0.0,
-   "net_transfers": -157587,
-   "pressure": -9.24,
-   "owned_pct": 15.5,
+   "net_transfers": -232308,
+   "pressure": -14.27,
+   "owned_pct": 14.8,
+   "mine": false
+  },
+  {
+   "name": "Wissa",
+   "club": "NEW",
+   "price": 6.1,
+   "gw_change": -0.1,
+   "net_transfers": -219540,
+   "pressure": -14.78,
+   "owned_pct": 13.5,
    "mine": false
   },
   {
@@ -333,9 +333,9 @@
    "club": "MCI",
    "price": 5.8,
    "gw_change": 0.0,
-   "net_transfers": -89409,
-   "pressure": -2.89,
-   "owned_pct": 28.1,
+   "net_transfers": -97281,
+   "pressure": -3.16,
+   "owned_pct": 28.0,
    "mine": true
   },
   {
@@ -343,9 +343,9 @@
    "club": "NFO",
    "price": 7.9,
    "gw_change": -0.1,
-   "net_transfers": -89402,
-   "pressure": -7.13,
-   "owned_pct": 11.4,
+   "net_transfers": -79980,
+   "pressure": -6.32,
+   "owned_pct": 11.5,
    "mine": false
   },
   {
@@ -353,19 +353,9 @@
    "club": "ARS",
    "price": 6.2,
    "gw_change": 0.0,
-   "net_transfers": -60647,
-   "pressure": -11.73,
-   "owned_pct": 4.7,
-   "mine": false
-  },
-  {
-   "name": "Martinez",
-   "club": "CHE",
-   "price": 5.0,
-   "gw_change": 0.0,
-   "net_transfers": -57164,
-   "pressure": -12.67,
-   "owned_pct": 4.1,
+   "net_transfers": -64659,
+   "pressure": -12.78,
+   "owned_pct": 4.6,
    "mine": false
   },
   {
@@ -373,19 +363,19 @@
    "club": "EVE",
    "price": 5.7,
    "gw_change": 0.0,
-   "net_transfers": -55196,
-   "pressure": -6.12,
-   "owned_pct": 8.2,
+   "net_transfers": -61957,
+   "pressure": -6.95,
+   "owned_pct": 8.1,
    "mine": false
   },
   {
-   "name": "\u00d8degaard",
-   "club": "ARS",
-   "price": 6.8,
+   "name": "Martinez",
+   "club": "CHE",
+   "price": 5.0,
    "gw_change": 0.0,
-   "net_transfers": -53431,
-   "pressure": -2.63,
-   "owned_pct": 18.5,
+   "net_transfers": -61358,
+   "pressure": -13.94,
+   "owned_pct": 4.0,
    "mine": false
   },
   {
@@ -393,9 +383,19 @@
    "club": "MUN",
    "price": 4.3,
    "gw_change": 0.0,
-   "net_transfers": -51164,
-   "pressure": -8.61,
+   "net_transfers": -58960,
+   "pressure": -9.93,
    "owned_pct": 5.4,
+   "mine": false
+  },
+  {
+   "name": "\u00d8degaard",
+   "club": "ARS",
+   "price": 6.8,
+   "gw_change": 0.0,
+   "net_transfers": -56828,
+   "pressure": -2.79,
+   "owned_pct": 18.5,
    "mine": false
   }
  ]
