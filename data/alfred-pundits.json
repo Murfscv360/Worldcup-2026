@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T12:45:10-0500",
+ "generated": "2026-10-22T13:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -172,6 +172,30 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Stewart 'asked' for Albion's number nine shirt",
+   "standfirst": "West Bromwich Albion summer signing Barney Stewart admits he was not daunted by the revered Baggies' number nine shirt.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cqy43p1zwgv0o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T18:07:59Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Lincoln extend left-back Reach's deal until 2028",
+   "standfirst": "Experienced full-back Adam Reach has his contract at Lincoln City extended by a further 12 months until the end of the 2027-28 season.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cmy93pz0dx24o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T17:54:24Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Eustace says he has 'full support' of owner Clowes",
+   "standfirst": "John Eustace says he has the \"full support\" of Derby County owner David Clowes amid poor results.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cmn5v1n1p0ddo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T17:44:48Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "championship",
@@ -375,14 +399,6 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
-   "title": "Former Norwich and Finland striker Pukki to retire",
-   "standfirst": "Former Norwich City and Finland striker Teemu Pukki announces his retirement from football at the age of 36.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cqvg0vjde20mo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T14:37:41Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
    "title": "Millar says Birmingham move has given him freedom",
    "standfirst": "In-form winger Liam Millar says Birmingham City boss Chris Davies is giving him the perfect platform to express himself.",
    "link": "https://www.bbc.co.uk/sport/football/articles/c8n5vq166pk4o?at_medium=RSS&at_campaign=rss",
@@ -395,22 +411,6 @@
    "standfirst": "Bristol City fan and podcaster Richard Angell says the pattern of constant change at Ashton Gate should be bringing better results.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm0e0zzex2nvo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-20T10:04:40Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Time to enjoy Blues' purple patch",
-   "standfirst": "Birmingham City fan Kym Smith puts aside any pessimism by enjoying Blues' current good form.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c6vg7rvgx0xro?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T08:09:22Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Rovers loss to West Brom far from a disaster",
-   "standfirst": "BBC Radio Lancashire's Andy Bayes says there is much to be pleased about despite Blackburn surrendering a 2-0 lead to lose at West Bromwich Albion.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm2kenz241l3o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T07:58:36Z"
   }
  ]
 }
