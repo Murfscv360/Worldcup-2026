@@ -1,22 +1,8 @@
 {
- "generated": "2026-10-22 08:00:17",
+ "generated": "2026-10-22 18:00:12",
  "tz": "America/Chicago",
- "gw": 7,
+ "gw": 8,
  "days": [
-  {
-   "date": "2026-10-19",
-   "ts": "2026-10-19 08:00:04",
-   "new_headlines": 13,
-   "key": [
-    "[BHA] 'Why not?' - are 'breathtaking' Brighton in title race?",
-    "[BHA/MUN] Free-scoring Brighton & Man Utd settle for a point"
-   ],
-   "player_changes": [
-    "Semenyo (MCI, 14% owned): Knee injury - Unknown return date",
-    "Brobbey (SUN, 6% owned): Hamstring injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-10-19",
    "ts": "2026-10-19 18:00:04",
@@ -89,6 +75,14 @@
    "date": "2026-10-22",
    "ts": "2026-10-22 08:00:03",
    "new_headlines": 11,
+   "key": [],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-22",
+   "ts": "2026-10-22 18:00:04",
+   "new_headlines": 12,
    "key": [],
    "player_changes": [],
    "unreachable": []
