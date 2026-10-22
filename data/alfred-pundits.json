@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T06:45:09-0500",
+ "generated": "2026-10-22T07:15:10-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -263,6 +263,14 @@
   {
    "source": "BBC Sport",
    "comp": "championship",
+   "title": "Championship's all-time 'bagsman' Sharp plots next steps",
+   "standfirst": "Retired Sheffield United legend Billy Sharp says he would like to move into coaching and management.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/crkg7kp5y9jpo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-22T12:13:06Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
    "title": "Manager ins and outs - 2026-27",
    "standfirst": "BBC Sport tracks all the manager ins and outs in the Premier League, Scottish Premiership, Women's Super League, English Football League and National League.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cd94713djgyo?at_medium=RSS&at_campaign=rss",
@@ -491,14 +499,6 @@
    "standfirst": "Tottenham Hotspur record their first Premier League win of the season and move off the bottom of the table with a home victory over Coventry City.",
    "link": "https://www.bbc.co.uk/sport/football/videos/c9x28pyg05vyo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-19T21:33:07Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Tottenham beat Coventry to claim first Premier League win of season \u2013 as it happened",
-   "standfirst": "The returning James Maddison scored a beauty, with Omar Marmoush and Ben Davies also on target as Spurs won in the league for the first time this season Where is the game? Spurs will look to dominate possession, with Gray and Tonali dictating play, so Maddison, Kudus and Marmoush can buzz about behind Solanke. The abse",
-   "link": "https://www.theguardian.com/football/live/2026/oct/19/tottenham-v-coventry-premier-league-live",
-   "published": "2026-10-19T21:08:31Z"
   }
  ]
 }
