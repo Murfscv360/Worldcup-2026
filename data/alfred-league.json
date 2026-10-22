@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T00:40:03-0500",
+ "generated": "2026-10-22T06:40:05-0500",
  "by": "Alfred (fpl_app_data.py)",
  "source": "fantasy.premierleague.com/api entry + leagues-classic (public)",
  "entry": 5933243,
@@ -405,7 +405,7 @@
      "gw_points": 67,
      "me": false,
      "rank_by_gw": [
-      31,
+      32,
       23,
       25,
       22,
@@ -557,7 +557,7 @@
      "gw_points": 59,
      "me": false,
      "rank_by_gw": [
-      32,
+      33,
       18,
       28,
       27,
@@ -690,7 +690,7 @@
      "gw_points": 53,
      "me": true,
      "rank_by_gw": [
-      34,
+      35,
       33,
       33,
       32,
@@ -709,7 +709,7 @@
      "gw_points": 47,
      "me": false,
      "rank_by_gw": [
-      33,
+      34,
       34,
       34,
       34,
@@ -719,22 +719,41 @@
      ]
     },
     {
-     "entry": 9091481,
-     "team": "Luke\u2019s team \ufffd",
-     "manager": "luke murpy",
+     "entry": 6664819,
+     "team": "Saitama",
+     "manager": "Kosuke Sato",
      "rank": 35,
-     "last_rank": 34,
-     "total": 284,
-     "gw_points": 42,
+     "last_rank": 0,
+     "total": 298,
+     "gw_points": 26,
      "me": false,
      "rank_by_gw": [
-      35,
-      35,
+      31,
+      36,
       35,
       35,
       35,
       35,
       35
+     ]
+    },
+    {
+     "entry": 9091481,
+     "team": "Luke\u2019s team \ufffd",
+     "manager": "luke murpy",
+     "rank": 36,
+     "last_rank": 34,
+     "total": 284,
+     "gw_points": 42,
+     "me": false,
+     "rank_by_gw": [
+      36,
+      35,
+      36,
+      36,
+      36,
+      36,
+      36
      ]
     }
    ],
