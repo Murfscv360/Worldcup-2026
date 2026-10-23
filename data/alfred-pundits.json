@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T07:15:10-0500",
+ "generated": "2026-10-23T07:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -68,6 +68,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Conte plays down 'unfounded' Man Utd speculation",
+   "standfirst": "Antonio Conte says he is not in advanced talks with any club, in response to speculation he has held talks with Manchester United.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cmvg6j8jezn7o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-23T12:15:53Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -299,14 +307,6 @@
    "standfirst": "Pompey boss John Mousinho reacts to the 1-1 draw with Wolves in the Championship at Molineux.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cq99z305mj48o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-21T09:03:18Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Mikel Arteta has mastered the art of making substitutions at Arsenal",
-   "standfirst": "Arsenal have beaten Nottingham Forest, Sunderland and Leeds this season thanks to goals from players off the bench By Opta Analyst They say that once is an accident, twice is a coincidence and three times is a pattern. After Mikel Arteta\u2019s substitutes proved decisive yet again for Arsenal, we can say with certainty tha",
-   "link": "https://www.theguardian.com/football/2026/oct/21/mikel-arteta-art-making-substitutions-arsenal-nottingham-forest-sunderland-leeds",
-   "published": "2026-10-21T07:00:03Z"
   }
  ]
 }
