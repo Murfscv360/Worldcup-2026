@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T03:15:07-0500",
+ "generated": "2026-10-23T03:45:07-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -68,6 +68,22 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Wolves need a storm to chase the clouds away",
+   "standfirst": "BBC Radio WM's Mike Taylor on what is missing for Wolves and why Cesar Peixoto looks animated on the sideline.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cvj6j9577ej4o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-23T08:19:01Z"
+  },
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "Forest's start raises questions - but belief in Glasner remains",
+   "standfirst": "Nottingham Forest go to Ipswich in the bottom three of the Premier League, but boss Oliver Glasner believes they have deserved more this season.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cw3djpg15045o?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-23T08:14:50Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "championship",
@@ -291,22 +307,6 @@
    "standfirst": "IFR chair David Kogan insists regulator has power to act City have appealed against Premier League\u2019s charges The Independent Football Regulator (IFR) will have \u201cabsolute power\u201d to force Manchester City\u2019s owners to sell if they are ultimately found to have run the club improperly, the watchdog\u2019s chair has said. Manchest",
    "link": "https://www.theguardian.com/football/2026/oct/21/manchester-city-david-kogan-independent-football-regulator",
    "published": "2026-10-20T23:34:37Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Audit regulator looking into Manchester City accounting",
-   "standfirst": "No formal investigation has started, but the regulator is making inquiries into the case.",
-   "link": "https://www.bbc.co.uk/news/articles/cm93z1xlgqxqo?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T20:56:53Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "epl",
-   "title": "Webb backs VAR over Botman challenge on Jackson",
-   "standfirst": "Premier League referees' chief Howard Webb says Sven Botman's challenge on Nicolas Jackson was a \"high-end reckless challenge\" but backed the video assistant referee's decision not to intervene for a red card.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cm3vqz1de9lro?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T16:56:53Z"
   }
  ]
 }
