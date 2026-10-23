@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T08:15:08-0500",
+ "generated": "2026-10-23T08:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -68,6 +68,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "Guardian",
+   "comp": "epl",
+   "title": "Crystal Palace and Newcastle face off with both in search of season kickstart",
+   "standfirst": "Pierre Sage and Matthias Jaissle were appointed this summer and good form has been elusive, with injuries and tactics as factors Conceding 17 goals in seven Premier League matches is not exactly the start Pierre Sage or Crystal Palace\u2019s hierarchy would have hoped for. The transition from Oliver Glasner\u2019s counterattacki",
+   "link": "https://www.theguardian.com/football/2026/oct/23/crystal-palace-and-newcastle-face-off-with-both-in-search-of-season-kickstart",
+   "published": "2026-10-23T13:36:21Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -299,14 +307,6 @@
    "standfirst": "Eberechi Eze has been struggling for form this season for Arsenal, but there could be hope that the forward turns it around.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cqgm0ze7vepmo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-21T09:22:07Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Peixoto told me I talk too much - Mousinho",
-   "standfirst": "Pompey boss John Mousinho reacts to the 1-1 draw with Wolves in the Championship at Molineux.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cq99z305mj48o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-21T09:03:18Z"
   }
  ]
 }
