@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T02:15:07-0500",
+ "generated": "2026-10-23T02:45:13-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -68,6 +68,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "EFL preview: 'Sleepless nights' for under pressure bosses",
+   "standfirst": "Norwich City head coach Philippe Clement, Sheffield Wednesday manager Henrik Pedersen and Bristol Rovers boss Steve Evans face scrutiny.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6r7ymev78edo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-23T07:15:27Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "epl",
@@ -299,14 +307,6 @@
    "standfirst": "Premier League referees' chief Howard Webb says Sven Botman's challenge on Nicolas Jackson was a \"high-end reckless challenge\" but backed the video assistant referee's decision not to intervene for a red card.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cm3vqz1de9lro?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-20T16:56:53Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "What is the longest a team has gone without winning a league game at home?",
-   "standfirst": "Burnley are on the brink of unwanted football history, should they fail to beat Portsmouth later this month.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/cjkgeqxgz5d5o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T15:49:56Z"
   }
  ]
 }
