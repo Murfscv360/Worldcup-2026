@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T01:15:07-0500",
+ "generated": "2026-10-23T01:45:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -68,6 +68,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "epl",
+   "title": "What is going on at 'chaotic' Newcastle?",
+   "standfirst": "Will the alarm bells be ringing at Newcastle United if they lose to struggling Crystal Palace on Sunday?",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c60qkpe0e54qo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-23T06:37:20Z"
+  },
   {
    "source": "Guardian",
    "comp": "epl",
@@ -299,14 +307,6 @@
    "standfirst": "Burnley are on the brink of unwanted football history, should they fail to beat Portsmouth later this month.",
    "link": "https://www.bbc.co.uk/sport/football/articles/cjkgeqxgz5d5o?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-20T15:49:56Z"
-  },
-  {
-   "source": "BBC Sport",
-   "comp": "championship",
-   "title": "Millar says Birmingham move has given him freedom",
-   "standfirst": "In-form winger Liam Millar says Birmingham City boss Chris Davies is giving him the perfect platform to express himself.",
-   "link": "https://www.bbc.co.uk/sport/football/articles/c8n5vq166pk4o?at_medium=RSS&at_campaign=rss",
-   "published": "2026-10-20T11:45:13Z"
   }
  ]
 }
