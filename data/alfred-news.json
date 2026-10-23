@@ -1,23 +1,8 @@
 {
- "generated": "2026-10-22 18:00:12",
+ "generated": "2026-10-23 08:00:18",
  "tz": "America/Chicago",
  "gw": 8,
  "days": [
-  {
-   "date": "2026-10-19",
-   "ts": "2026-10-19 18:00:04",
-   "new_headlines": 23,
-   "key": [
-    "[MCI] Haaland a doubt, Semenyo out - what are Man City's options?",
-    "[BRE] Brentford contact police after rugby ball kicked into stadium during game",
-    "[BHA] Are free-scoring Brighton genuine title contenders?"
-   ],
-   "player_changes": [
-    "O'Reilly (MCI, 9% owned): Back injury - 75% chance of playing",
-    "Haaland (MCI, YOUR PLAYER): Unspecified injury - 75% chance of playing"
-   ],
-   "unreachable": []
-  },
   {
    "date": "2026-10-20",
    "ts": "2026-10-20 08:00:06",
@@ -84,6 +69,18 @@
    "ts": "2026-10-22 18:00:04",
    "new_headlines": 12,
    "key": [],
+   "player_changes": [],
+   "unreachable": []
+  },
+  {
+   "date": "2026-10-23",
+   "ts": "2026-10-23 08:00:07",
+   "new_headlines": 21,
+   "key": [
+    "[AVL/MCI] Emery's Villa 2.0 reboot restores optimism before Man City meeting",
+    "[ARS] Ex-Arsenal director of football Edu to advise Northampton",
+    "[squad] Haaland captaincy headache - stick or twist? FPL gameweek eight dilemmas"
+   ],
    "player_changes": [],
    "unreachable": []
   }
