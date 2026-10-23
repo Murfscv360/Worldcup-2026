@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T04:15:07-0500",
+ "generated": "2026-10-23T04:45:06-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -68,6 +68,14 @@
   }
  ],
  "latest": [
+  {
+   "source": "BBC Sport",
+   "comp": "championship",
+   "title": "Failure on the field, unrest in stands - Burnley's horror 12 months",
+   "standfirst": "Burnley have failed to win a home league game in 12 months as they continue to struggle after relegation from the Premier League.",
+   "link": "https://www.bbc.co.uk/sport/football/articles/c6qxnzyx77vqo?at_medium=RSS&at_campaign=rss",
+   "published": "2026-10-23T09:24:10Z"
+  },
   {
    "source": "BBC Sport",
    "comp": "championship",
@@ -299,14 +307,6 @@
    "standfirst": "For the first time, Chelsea's actions match the rhetoric surrounding their desire to keep academy defender Josh Acheampong.",
    "link": "https://www.bbc.co.uk/sport/football/articles/ck4g10n56jzqo?at_medium=RSS&at_campaign=rss",
    "published": "2026-10-21T06:26:58Z"
-  },
-  {
-   "source": "Guardian",
-   "comp": "epl",
-   "title": "Football regulator has \u2018absolute power\u2019 to force Manchester City sale if verdict upheld",
-   "standfirst": "IFR chair David Kogan insists regulator has power to act City have appealed against Premier League\u2019s charges The Independent Football Regulator (IFR) will have \u201cabsolute power\u201d to force Manchester City\u2019s owners to sell if they are ultimately found to have run the club improperly, the watchdog\u2019s chair has said. Manchest",
-   "link": "https://www.theguardian.com/football/2026/oct/21/manchester-city-david-kogan-independent-football-regulator",
-   "published": "2026-10-20T23:34:37Z"
   }
  ]
 }
