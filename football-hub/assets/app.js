@@ -910,7 +910,9 @@ let FPL = { id:null, event:null, loading:false, error:null, bootstrap:null, entr
    leaves the caller's variable null and the rest of the page behaves exactly
    as if the file didn't exist — never a half-read or stale-looking object. */
 async function fetchAlfredFile(name){
-  for (const _u of [new URL(`../data/${name}`, location.href).href, `/data/${name}`]) {
+  // 2026-10-23 (John: "all data changes managed internally"): Alfred's data is served by the VPS and refreshed there, so a data
+  // change is no longer a commit + Pages/Vercel build. The repo copies stay as the fallback if the VPS can't be reached.
+  for (const _u of [`https://212-28-185-173.sslip.io/fh/data/${name}`, new URL(`../data/${name}`, location.href).href, `/data/${name}`]) {
     try {
       const _r = await fetch(_u, { cache: "no-store" });
       if (_r.ok) return await _r.json();
