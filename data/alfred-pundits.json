@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T23:45:07-0500",
+ "generated": "2026-10-23T00:15:08-0500",
  "by": "Alfred (fpl_pundits.py)",
  "note": "Publishers' own headlines and standfirsts, quoted with links; not summarised or rewritten.",
  "sources": [
@@ -10,38 +10,6 @@
  ],
  "unreadable": [],
  "matches": [
-  {
-   "date": "2026-10-18",
-   "comp": "epl",
-   "team1": "Leeds United FC",
-   "team2": "Manchester United FC",
-   "reports": [
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Premier League: 10 talking points from the weekend\u2019s action",
-     "standfirst": "Florian Wirtz takes on more responsibility in Liverpool\u2019s attack while Pierre Sage is under pressure at Crystal Palace Dominic Calvert-Lewin\u2019s physicality overpowering Bryan Mbeumo in Manchester United\u2019s area at a corner grabbed him a fifth goal in 10 outings for Leeds: a pretty respectable ratio. \u201cI just tried to caus",
-     "link": "https://www.theguardian.com/football/2026/oct/19/premier-league-10-talking-points-from-the-weekends-action",
-     "published": "2026-10-19T07:00:22Z"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-18",
-   "comp": "epl",
-   "team1": "Nottingham Forest FC",
-   "team2": "Arsenal FC",
-   "reports": [
-    {
-     "source": "Guardian",
-     "comp": "epl",
-     "title": "Mikel Arteta has mastered the art of making substitutions at Arsenal",
-     "standfirst": "Arsenal have beaten Nottingham Forest, Sunderland and Leeds this season thanks to goals from players off the bench By Opta Analyst They say that once is an accident, twice is a coincidence and three times is a pattern. After Mikel Arteta\u2019s substitutes proved decisive yet again for Arsenal, we can say with certainty tha",
-     "link": "https://www.theguardian.com/football/2026/oct/21/mikel-arteta-art-making-substitutions-arsenal-nottingham-forest-sunderland-leeds",
-     "published": "2026-10-21T07:00:03Z"
-    }
-   ]
-  },
   {
    "date": "2026-10-19",
    "comp": "epl",
