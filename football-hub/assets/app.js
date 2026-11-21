@@ -865,10 +865,11 @@ const FPL_KEY = "fh_fpl_id";
    the production Vercel function directly — it sets permissive CORS
    headers so any origin can read it.
    Project domain confirmed by John 2026-10-02: englishfootballleague.vercel.app. */
-const FPL_PROXY = location.hostname.endsWith("vercel.app")
-  ? "/api/fpl-proxy"
-  : "https://englishfootballleague.vercel.app/api/fpl-proxy";
-function fplProxyUrl(path){ return `${FPL_PROXY}?path=${encodeURIComponent(path)}`; }
+/* MOVED TO THE VPS 2026-11-21 (John: My Team "Couldn't load your live team"): the Vercel team is paused until 2026-12-07
+   (transfer cap), so /api/fpl-proxy answers HTTP 402 DEPLOYMENT_DISABLED on every host. The VPS has carried the same
+   passthrough since 2026-09-27 (Caddy /fpl-proxy/api/<path>, CORS *; without /api/ it returns the site HTML), and fantasy.premierleague.com/api is reachable from it. */
+const FPL_PROXY = "https://212-28-185-173.sslip.io/fpl-proxy/api/";
+function fplProxyUrl(path){ return FPL_PROXY + String(path).replace(/^\/+/, ""); }
 
 /* Live news — same relative/absolute host-detection pattern as the FPL
    proxy, for the same reason: a direct browser fetch of BBC Sport's RSS
